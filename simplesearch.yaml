@@ -1,0 +1,6 @@
+enabled: true
+built_in_css: true
+route: /search
+template: simplesearch_results
+filters:
+    category: blog
