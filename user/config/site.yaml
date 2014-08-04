@@ -1,0 +1,10 @@
+title: Grav Documentation
+description: 'Grav documentation'
+
+author:
+  name: Andy Miller
+  email: 'andy@getgrav.org'
+
+taxonomies: [category,tag]
+summary:
+  size: 300

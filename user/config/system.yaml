@@ -1,0 +1,23 @@
+home:
+  alias: '/basics'
+
+pages:
+  theme: learn
+  process:
+    markdown: true
+    twig: false
+
+cache:
+  enabled: false
+  check:
+    pages: true
+
+twig:
+  cache: true
+
+
+debugger:
+  enabled: true
+  log:
+    enabled: false
+    timing: false
