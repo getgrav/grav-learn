@@ -8,7 +8,9 @@ All Grav configuration files are written in [YAML syntax](../advanced/yaml) with
 
 ## System Configuration
 
-Grav focuses on making things as easy as possible for the user, and the same goes for configuration.  Grav comes with some sensible default options and these are contained in a file that resides in the `system/config/system.yaml` file. However, **you should never change this file**, rather any configuration changes you need to make should be stored in a file called `user/config/system.yaml`.  Any setting in this file with the same structure and naming will override the setting provided in the default system configuration file. 
+Grav focuses on making things as easy as possible for the user, and the same goes for configuration.  Grav comes with some sensible default options and these are contained in a file that resides in the `system/config/system.yaml` file. 
+
+However, **you should never change this file**, rather any configuration changes you need to make should be stored in a file called `user/config/system.yaml`.  Any setting in this file with the same structure and naming will override the setting provided in the default system configuration file. 
 
 >>>> Generally speaking you should **NEVER** change anything in the `system/` folder.  All things the user does (creating content, installing plugins, editing configuration, etc.) should be done in the `user/` folder.  This way it allows simpler upgrading and also keeps your changes all in one location for backing up, synchronizing, etc.
 
@@ -82,14 +84,14 @@ routes:
 
 Let's break down the elements of this sample file:
 
-| Field | Description |
-| ----- | ----------- |
-| **title** | The title is a simple string variable that can be referenced whenever you want to display the name of this site. |
-| **author.name** | The name of the author of the site, that can be referenced whenever you need it |
-| **author.email** | A default email for use in your site |
-| **taxonomies** | An arbitrary list of high-level types that you can use to organize your content.  You can assign content to specific taxonomy types, for example categories or tags. Feel free to edit, or add your own. |
-| **summary.size** | A variable to override the default number of characters that can be used to set the summary size when displaying a portion of content |
-| **routes** | This is a basic map that can provide simple URL alias capabilities in Grav.  If you browse to `/something/else` you will actually be sent to `/blog/sample-3`. Feel free to edit, or add your own as needed. |
+| Field            | Description                                                                                                                                                                                                  |
+| :----------      | :----------                                                                                                                                                                                                  |
+| **title**        | The title is a simple string variable that can be referenced whenever you want to display the name of this site.                                                                                             |
+| **author.name**  | The name of the author of the site, that can be referenced whenever you need it.                                                                                                                             |
+| **author.email** | A default email for use in your site.                                                                                                                                                                        |
+| **taxonomies**   | An arbitrary list of high-level types that you can use to organize your content.  You can assign content to specific taxonomy types, for example, categories or tags. Feel free to edit, or add your own.    |
+| **summary.size** | A variable to override the default number of characters that can be used to set the summary size when displaying a portion of content.                                                                       |
+| **routes**       | This is a basic map that can provide simple URL alias capabilities in Grav.  If you browse to `/something/else` you will actually be sent to `/blog/sample-3`. Feel free to edit, or add your own as needed. |
 
 >>> For most people, the most important element of this file is the `Taxonomy` list.  The taxonomies in this list **must** be defined here if you wish to use them in your content.
 
@@ -97,16 +99,19 @@ Let's break down the elements of this sample file:
 
 As all the user configuration is completely optional, you can override as little or as much as you need. You are also not limited to the `user/config/system.yaml` or the `user/config/site.yaml` files as described above. You can create any arbitrary `.yaml` configuration file in the `user/config` folder you wish and it will get picked up by Grav automatically. 
 
-Paths to the configuration files will be used as a **namespace** for your configuration options. Alternatively you can put all the options into one file and use YAML structures to specify the hierarchy for your configuration options. This namespacing is built from a combination of the **path + filename + option name**. For example an option such as `author: Frank Smith` in file `plugins/myplugin.yaml` could be accessible via: `plugins.myplugin.author`. However, you could also have a `plugins.yaml` file and in that file have a option name called `myplugin: author: Frank Smith` and it would still be reachable by the same `plugins.myplugin.author` namespace.
+Paths to the configuration files will be used as a **namespace** for your configuration options. 
+
+Alternatively, you can put all the options into one file and use YAML structures to specify the hierarchy for your configuration options. This namespacing is built from a combination of the **path + filename + option name**. 
+
+For example: An option such as `author: Frank Smith` in file `plugins/myplugin.yaml` could be accessible via: `plugins.myplugin.author`. However, you could also have a `plugins.yaml` file and in that file have a option name called `myplugin: author: Frank Smith` and it would still be reachable by the same `plugins.myplugin.author` namespace.
 
 Some example configuration files could be structured:
 
-| Filename | Description |
-| -------- | ----------- |
-| **user/config/system.yaml** | Global system configuration file |
-| **user/config/site.yaml** | A site-specific configuration file |
+| Filename                              | Description                                       |
+| :----------                           | :----------                                       |
+| **user/config/system.yaml**           | Global system configuration file                  |
+| **user/config/site.yaml**             | A site-specific configuration file                |
 | **user/config/plugins/myplugin.yaml** | Individual configuration file for myplugin plugin |
-
 
 >>> NOTE: Having a namespaced configuration file will override or mask all options having the same path in the default configuration files
 
