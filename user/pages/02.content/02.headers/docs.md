@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-The headers a the top of a page are completely optional, you don't need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav and each has relevant headers. 
+The headers a the top of a page are completely optional, you don not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav and each has relevant headers. 
 
 ## Standard Page Headers
 
@@ -34,7 +34,7 @@ The `slug` variable allows you to specifically set the page's portion of the URL
 menu: My Page
 ```
 
-The `menu` variable let's you set the text to be used in the navigation. There are several layers of fall-backs for the menu, so if no `menu` variable is set, Grav will try to use the `title` variable.
+The `menu` variable lets you set the text to be used in the navigation. There are several layers of fall-backs for the menu, so if no `menu` variable is set, Grav will try to use the `title` variable.
 
 ### Visible
 
@@ -42,7 +42,7 @@ The `menu` variable let's you set the text to be used in the navigation. There a
 visible: false
 ```
 
-By default, a page is **visibile** in the **navigation** if the surrounding folder has a numerical prefix, i.e. `/01.home` is visible, while `/error` is **not visible**. This behavior can be overriden by setting the `visible` variable in the header. Valid values are `true` or `false`.
+By default, a page is **visibile** in the **navigation** if the surrounding folder has a numerical prefix, i.e. `/01.home` is visible, while `/error` is **not visible**. This behavior can be overwritten by setting the `visible` variable in the header. Valid values are `true` or `false`.
 
 ### Routable
 
@@ -52,7 +52,7 @@ routable: false
 
 By default, all pages are **routable**.  This means that they can be reached by pointing your browser to the URL of the page.  However, you may need to create a page that is created to hold specific content, but it is meant to be called directly by a plugin, other content, or even a theme directly.  A good example of this is a `404 Error` page.  
 
-Grav automatically looks for a page with the route `/error` if another page cannot be found.  With this being an actual page within Grav, allows you to have complete control over what this page looks like.  You probably don't want people accessing this page directly in their browser however, so this page commonly has it's `routable` variable set to false. Valid values are `true` or `false`.
+Grav automatically looks for a page with the route `/error` if another page cannot be found.  With this being an actual page within Grav, allows you to have complete control over what this page looks like.  You probably don not want people accessing this page directly in their browser however, so this page commonly has its `routable` variable set to false. Valid values are `true` or `false`.
 
 ### Template
 
@@ -60,7 +60,7 @@ Grav automatically looks for a page with the route `/error` if another page cann
 template: custom
 ```
 
-As explained in [the previous chapter](content-pages), the template from the theme that is used to render a page is based on the filename of the `.md` file. So a file called `default.md`, will use the `default` template in the active theme.  You can of course override this behavior by simply setting the `template` variable in the header and choosing a different template.  In the example above, the page will use the `custom` template from the theme.  This variable exists because you may need to change the template of a page programatically from a plugin.
+As explained in [the previous chapter][contentpages], the template from the theme that is used to render a page is based on the filename of the `.md` file. So a file called `default.md`, will use the `default` template in the active theme.  You can of course override this behavior by simply setting the `template` variable in the header and choosing a different template.  In the example above, the page will use the `custom` template from the theme.  This variable exists because you may need to change the template of a page programatically from a plugin.
 
 ### Taxonomy
 
@@ -70,7 +70,7 @@ taxonomy:
     tag: [sample, demo, grav]
 ```
 
-A very useful header variable, `taxonomy` let's you assign values to **taxonomy** you defined as valid types in the [Site Configuration](../basics/site-configuration) file. If the taxonomy is not defined in that file, it will be ignored. In this example, the page is defined as being in the `blog` category, and has the tags: `sample`, `demo`, and `grav`.  These taxonomies can be used to find these pages from other pages, plugins and even themes. The [Taxonomy](taxonomy) chapter will cover this concept in more detail.
+A very useful header variable, `taxonomy` lets you assign values to **taxonomy** you defined as valid types in the [Site Configuration](../basics/site-configuration) file. If the taxonomy is not defined in that file, it will be ignored. In this example, the page is defined as being in the `blog` category, and has the tags: `sample`, `demo`, and `grav`.  These taxonomies can be used to find these pages from other pages, plugins and even themes. The [Taxonomy](taxonomy) chapter will cover this concept in more detail.
 
 ### Date
 
@@ -169,7 +169,7 @@ content:
     items: @taxonomy.tag: foo
 ```
 
-Using the `@taxonomy` option, you can utilize Grav's powerful taxonomy functionality.  This is where the `taxonomy` variable in the [Site Configuration](../basics/site-configuration) file comes into play. There **must** be a definition for the taxonomy defined in that configuration file for Grav to interpret a page reference to it as valid.
+Using the `@taxonomy` option, you can utilize Grav's powerful taxonomy functionality.  This is where the `taxonomy` variable in the [Site Configuration][config] file comes into play. There **must** be a definition for the taxonomy defined in that configuration file for Grav to interpret a page reference to it as valid.
 
 By setting `@taxonomy.tag: foo`, Grav will find all the pages in the `/user/pages` folder that have themselves set `tag: foo` in their taxonomy variable.
 
@@ -178,7 +178,7 @@ content:
     items: @taxonomy.tag: [foo, bar]
 ```
 
-the `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. The [Taxonomy](taxonomy) chapter will cover this concept in more detail.
+the `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. The [Taxonomy][tax] chapter will cover this concept in more detail.
 
 ### Ordering Options
 
@@ -198,19 +198,19 @@ content:
 
 Ordering of sub-pages follows the same rules as ordering of folders, the available options are:
 
-| Ordering | Details |
-| -------- | ------- |
-| **default** | The order based on the file system, i.e. `01.home` before `02.advark` |
-| **title** | The order is based on the title as defined in each page |
-| **basename** | The order is based on the alphabetic folder name after it's been processed by the `basename()` PHP function |
-| **date** | The order based on the date as defined in each page |
-| **modified** | The order based on the modified timestamp of the page |
-| **folder** | The order based on the folder name with any numerical prefix, i.e. `01.`, removed |
-| **manual** | The order based on the `order_manual` variable |
+| Ordering     | Details                                                                                                       |
+| :----------  | :----------                                                                                                   |
+| **default**  | The order based on the file system, i.e. `01.home` before `02.advark`                                         |
+| **title**    | The order is based on the title as defined in each page                                                       |
+| **basename** | The order is based on the alphabetic folder name after it has been processed by the `basename()` PHP function |
+| **date**     | The order based on the date as defined in each page                                                           |
+| **modified** | The order based on the modified timestamp of the page                                                         |
+| **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                             |
+| **manual**   | The order based on the `order_manual` variable                                                                |
 
 The `content.items.dir` variable controls which direction the ordering should be in. Valid values are either **desc** or **asc**.
 
-In in this configuration you can see that `content.order.custom` is defining a **custom manual ordering** to ensure the page is constructed with the **showcase** first, **highlights** section second etc. Please note that if a page is not specified in the custom ordering list, then Grav falls back on the `content.order.by` for the unspecified pages.
+In in this configuration, you can see that `content.order.custom` is defining a **custom manual ordering** to ensure the page is constructed with the **showcase** first, **highlights** section second etc. Please note that if a page is not specified in the custom ordering list, then Grav falls back on the `content.order.by` for the unspecified pages.
 
 `content.limit` is pretty self explanatory, and the `content.pagination` is a simple boolean flag to be used by plugins etc to know if **pagination** should be initialized for this collection.
 
@@ -228,3 +228,6 @@ The significance of these headers is that Grav does not use them by default, the
 
 Another example would be to store page-specific data that could then be used by Twig in the content of the page.  This really provides a lot of flexibility and power.
 
+[contentpages]: content-pages
+[config]: ../basics/site-configuration
+[tax]: taxonomy

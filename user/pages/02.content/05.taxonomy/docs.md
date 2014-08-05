@@ -12,7 +12,7 @@ With **Grav** the ability to group or tag pages is baked right into the system w
 
 There are a couple of key parts to using taxonomy in your site:
 
-1. Define a list of Taxonomy types in your [`site.yaml`](../basics/grav-configuration)
+1. Define a list of Taxonomy types in your [`site.yaml`][siteyaml]
 2. Assign your pages to the appropriate `taxonomy` types with values.
 
 ## Taxonomy Example
@@ -67,11 +67,11 @@ and another page that looks like:
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-As you can see in the YAML configuration, each page is assigning **values** to the **taxonomy types** we defined in our user `site.yaml` configuration. This information is used by Grav when the pages are processed and creates an internal **taxonomy map** that can be used to find pages based on the taxonomy you defined.
+As you can see in the YAML configuration, each page is assigning **values** to the **taxonomy types** we defined in our user `site.yaml` configuration. This information is used by Grav when the pages are processed and creates an internal **taxonomy map** which can be used to find pages based on the taxonomy you defined.
 
 >>>> Your pages do not have to use every taxonomy you define in your `site.yaml`, but you must define any taxonomy you use.
 
-In your theme, you can easily display a list of pages that are written by `ksmith` by use `taxonomy.findTaxonomy()` to find them and iterate over them:
+In your theme, you can easily display a list of pages that are written by `ksmith` by using `taxonomy.findTaxonomy()` to find them and iterate over them:
 
 ```html
 <h2>Kevin Smith's Posts</h2>
@@ -92,4 +92,7 @@ This will find all posts with `tags` set to `animal` **and** `cat` **and** `auth
 
 ## Taxonomy based Collections
 
-We covered this in an earlier chapter, but it's important to remember that you can also use taxonomies in the [page headers](headers) to filter a collection of pages associated with a parent page.  If you need a refresher on this subject, please refer back to that [chapter on headers](headers).
+We covered this in an earlier chapter, but it's important to remember that you can also use taxonomies in the [page headers][headers] to filter a collection of pages associated with a parent page.  If you need a refresher on this subject, please refer back to that [chapter on headers][headers].
+
+[siteyaml]: ../basics/grav-configuration
+[headers]: headers

@@ -6,7 +6,9 @@ processing:
 	twig: true
 ---
 
-When creating content in **Grav** you often need to display **images**, **videos**, and **file** document types. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of of the page to create thumbnails, and resize images dynamically as you need them.  Grav uses a **smart-caching** system to automatically create any required image the first time it's requested, then use this image for each subsequent request.
+When creating content in **Grav**, you often need to display **images**, **videos**, and **file** document types. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of of the page to create thumbnails, and resize images dynamically as you need them.  
+
+Grav uses a **smart-caching** system to automatically create any required image the first time it's requested, then use this image for each subsequent request.
 
 >>>> The asset examples below use Twig syntax (that's the stuff with the curly braces: {% verbatim %}`{{ assets[sample-image.jpg] }}`{% endverbatim %}) that needs to be enabled on a per-page basis. You can either **a)** enable Twig on the page with `processing: twig: true` in the page header, or **b)** set `pages: process: twig: true` in your system.yaml to change it site-wide.
 
@@ -16,7 +18,7 @@ Grav employees a **builder-pattern** when handling assets, so you can perform **
 
 ### resize(w, h, background='0xffffff')
 
-Resizing does what it says on the tin.  `resize` lets you create a new image based on the `w` width and the `h` height.  The aspect ratio is maintained and the new image will be contain blank areas in the color of the background color provided as a `hex value`. The background parameter is optional, and if not provided with default to **transparent** if the image is a PNG, or **white** if a JPEG.
+Resizing does exactly what you would expect it to do.  `resize` lets you create a new image based on the `w` width and the `h` height.  The aspect ratio is maintained and the new image will be contain blank areas in the color of the background color provided as a `hex value`. The background parameter is optional, and if not provided with default to **transparent** if the image is a PNG, or **white** if a JPEG.
 
 {% verbatim %}
 ```bash
