@@ -2266,7 +2266,7 @@ body.searchbox-hidden .padding {
       right: 0; }
 
 #body-inner {
-  margin-bottom: 10rem; }
+  margin-bottom: 5rem; }
 
 .searchbox {
   position: absolute;
@@ -2359,5 +2359,10 @@ body.font-serif {
   overflow: visible; }
   .lightbox-active #body .padding {
     overflow: visible; }
+
+#github-contrib i {
+  font-size: 30px;
+  line-height: 30px;
+  vertical-align: middle; }
 
 /*# sourceMappingURL=template.css.map */

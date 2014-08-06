@@ -353,7 +353,7 @@ body {
 }
 
 #body-inner {
-	margin-bottom: 10rem;
+	margin-bottom: 5rem;
 }
 
 .searchbox {
@@ -480,6 +480,15 @@ body.font-serif {
 		.padding {
 			overflow: visible;
 		}
+	}
+}
+
+//Github 
+#github-contrib {
+	i {
+		font-size: 30px;
+		line-height: 30px;
+		vertical-align: middle;
 	}
 }
 
