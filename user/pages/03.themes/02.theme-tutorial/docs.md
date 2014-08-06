@@ -7,24 +7,27 @@ processing:
 ---
 
 {% verbatim %}
-I find the best way to learn a new thing, is to use an example, and then try to build your own thing. We are going to use this same methodology for creating a new Grav theme.  
+Often, the best way to learn a new thing is to use an example, and then try to build your own creation from it. We are going to use this same methodology for creating a new Grav theme.  
 
 ## Antimatter
 
-Grav comes with a clean and modern theme called **Antimatter** that uses a simple base set of CSS styling that we call **Nucleus**.  Nucleus, is a lightweight CSS framework that contains the essential CSS resets and styling for layout and HTML markup without any over-bearing design.  Antimatter has some custom styling on top of the Nucleus framework to give it a unique look and feel.
+Grav comes with a clean and modern theme called **Antimatter** that uses a simple base set of CSS styling that we call **Nucleus**.  
+
+Nucleus, is a lightweight CSS framework that contains the essential CSS resets and styling for layout and HTML markup without any over-bearing design.  Antimatter has some custom styling on top of the Nucleus framework to give it a unique look and feel.
 
 ## Bootstrap
 
-For the sake of this tutorial, let's create a theme that utilizes the popular [Bootstrap framework](http://getbootstrap.com/). Bootstrap is a very full-featured HTML, CSS, and JS framework that contains a wide variety of components and styling to help create sites quickly. Over the past several years, Bootstrap has become a very popular framework and is often used as a base for other designs because it already has essential styling for pretty much anything you can think of. 
+For the sake of this tutorial, we will create a theme that utilizes the popular [Bootstrap framework][bootstrap]. 
 
+Bootstrap is a very full-featured HTML, CSS, and JS framework that contains a wide variety of components and styling to help create sites quickly. Over the past several years, Bootstrap has become a very popular framework. It is often used as a base for other designs because it already has essential styling for pretty much anything you can think of. 
 
 ## Step 1 - Base Theme Setup
 
-As outlined in the [Theme Basics](theme-basics) chapter, there are some key elements to a Grav theme, so we must create them for our new theme:
+As outlined in the [Theme Basics][themebasics] chapter, there are some key elements to a Grav theme, so we must create them for our new theme:
 
-1. Follow the [Installation instruction](../basics/installation) and ensure you have Grav properly installed.
+1. Follow the [Installation instruction][installation] and ensure you have Grav properly installed.
 
-2. Create a folder called `bootstrap` in the `user/themes` folder of your Grav site to provide the basis of our new theme. 
+2. Create a folder called `bootstrap` within the `user/themes` folder of your Grav site to provide the basis of our new theme. 
 
 3. In your new `user/themes/bootstrap` folder you just created, create these folders:
 
@@ -36,7 +39,7 @@ As outlined in the [Theme Basics](theme-basics) chapter, there are some key elem
 	templates/
 	```
 
-4. Create a Theme file called `bootstrap.php` in your `user/themes/bootstrap` folder with the following content:
+4. Next, create a Theme file called `bootstrap.php` in your `user/themes/bootstrap` folder with the following content:
 
 	```
 	<?php
@@ -50,7 +53,7 @@ As outlined in the [Theme Basics](theme-basics) chapter, there are some key elem
 	}
 	```
 
-5. Create a Theme configuration file called `bootstrap.yaml` in your `/user/themes/bootstrap` folder with the following content:
+5. Then, create a Theme configuration file called `bootstrap.yaml` in your `/user/themes/bootstrap` folder with the following content:
 
    ```
    enabled: true
@@ -60,7 +63,9 @@ As outlined in the [Theme Basics](theme-basics) chapter, there are some key elem
 
 ## Step 2 - Add Bootstrap
 
-Of course to create a Bootstrap theme, we must actually include Bootstrap in our theme. In this tutorial we will us the latest version available (at the time of writing latest version is **v3.2.0**) so you will need to [download the Bootstrap distribution package](http://getbootstrap.com/getting-started/#download). This package includes the essential bits needed to use the framework.
+Of course, to create a Bootstrap theme, we must actually include Bootstrap in our theme. 
+
+In this tutorial, we will us the latest version available (at the time of writing latest version is **v3.2.0**) so you will need to [download the Bootstrap distribution package][bootstrapdownload]. This package includes the essential bits needed to use the framework.
 
 >>>> NOTE: Be sure to download the regular version labeled "Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included."
 
@@ -91,13 +96,13 @@ bootstrap
 
 ## Step 3 - Base Template
 
-As you know from the [previous chapter](theme-basics), each item of content in Grav has a particular filename, e.g. `default.md`, instructs the Grav to look for a rendering template called `default.html.twig`.  It is possible to put everything you need to display a page in this one file, and it would work find, however, there is a better solution.  
+As you know from the [previous chapter][themebasics], each item of content in Grav has a particular filename, e.g. `default.md`, which instructs the Grav to look for a rendering template called `default.html.twig`.  It is possible to put everything you need to display a page in this one file, and it would work find, however, there is a better solution.  
 
-Utilizing the Twig [Extends](http://twig.sensiolabs.org/doc/tags/extends.html) tag you can define a base layout with [blocks](http://twig.sensiolabs.org/doc/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provide definitions for any **block** defined in the base.
+Utilizing the Twig [Extends][extends] tag you can define a base layout with [blocks][blocks] that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.
 
 >>> As a general rule, we use the `templates/partials` folder to contain Twig templates that represent either little chunks of HTML, or are shared.
 
-So let's create a simple Bootstrap friendly base template:
+So we will now create a simple Bootstrap friendly base template:
 
 1. Create a folder in your `user/themes/bootstrap/templates` folder called `partials`. We will use this folder to store our base template.
 
@@ -237,7 +242,7 @@ This is a very simple file because all of the hard-work has already been done by
 
 ### Step 7 - Theme CSS
 
-You might of noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via the chunk of HTML: `<link href="{{ theme_url }}/css/bootstrap-custom.css" rel="stylesheet">`.  This file will house any custom CSS we need to fill in the gaps not provided by the bootstrap CSS.
+You might of noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via the chunk of HTML: `<link href="{{ theme_url }}/css/bootstrap-custom.css" rel="stylesheet">`.  This file will house any custom CSS we need to fill in the gaps not provided by the Bootstrap CSS.
 
 1. In your `user/themes/bootstrap/templates/css` folder, create a file called `bootstrap-custom.css` with the following content: 
 	
@@ -366,12 +371,19 @@ pages:
   theme: bootstrap
 ```
 
-Then open your browser, and point it to your grav site.  You should see soemething like this:
+Then, open your browser, and point it to your Grav site.  You should see something like this:
 
 {{ assets['bootstrap-theme.png'].lightbox().cropResize(600, 400).html('some ALT text','border') }}
 
 At this point you have created your first theme!  There are a couple of minor things missing:
 
-1. Create a **favicon** in `images/favicon.png`
-2. Create a thumbnail of the new theme in `/images/thumbnail.jpg`
+1. Create a **favicon** in `images/favicon.png`.
+2. Create a thumbnail of the new theme in `/images/thumbnail.jpg`.
 3. Add missing **templates** for other pages other than `default.html.twig`, e.g. `blog.html.twig` that you might need.
+
+[bootstrap]: http://getbootstrap.com/
+[themebasics]: theme-basics
+[installation]: ../basics/installation
+[bootstrapdownload]: http://getbootstrap.com/getting-started/#download
+[extends]: http://twig.sensiolabs.org/doc/tags/extends.html
+[blocks]: http://twig.sensiolabs.org/doc/tags/block.html
