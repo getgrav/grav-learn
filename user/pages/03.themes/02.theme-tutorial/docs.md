@@ -353,7 +353,37 @@ You might of noticed that in the `partials/base.html.twig` file we made referenc
 2. Most of this file contains Markdown-friendly **table** and **notice** style CSS that require CSS classes in normal bootstrap to utilize.
 {% endverbatim %}
 
-### Step 7 - Testing!
+### Step 7 - Testing
+
+Your finished **bootstrap theme** folder should now look something like this:
+
+```bash
+bootstrap
+├── css
+│   ├── bootstrap-custom.css
+│   ├── bootstrap-theme.css
+│   ├── bootstrap-theme.css.map
+│   ├── bootstrap-theme.min.css
+│   ├── bootstrap.css
+│   ├── bootstrap.css.map
+│   └── bootstrap.min.css
+├── fonts
+│   ├── glyphicons-halflings-regular.eot
+│   ├── glyphicons-halflings-regular.svg
+│   ├── glyphicons-halflings-regular.ttf
+│   └── glyphicons-halflings-regular.woff
+├── images
+├── js
+│   ├── bootstrap.js
+│   └── bootstrap.min.js
+├── templates
+│   ├── partials
+│   │   ├── base.html.twig
+│   │   └── header.html.twig
+│   └── default.html.twig
+├── boostrap.yaml
+└── bootstrap.php
+```
 
 The next step is to change your default theme to your new `bootstrap` theme and test it!
 
