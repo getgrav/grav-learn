@@ -8,7 +8,7 @@ pages:
     twig: false
 
 cache:
-  enabled: false
+  enabled: true
   check:
     pages: true
 
