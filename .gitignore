@@ -1,17 +1,18 @@
 # Sass
 .sass-cache
 
+# Grav Specific
+data/*
+!data/.*
+plugins/*
+!plugins/.*
+
 # OS Generated
 .DS_Store*
 ehthumbs.db
 Icon?
 Thumbs.db
 *.swp
-
-# Grav Specific
-data/*
-plugins/*
-themes/*
 
 # phpstorm
 .idea/*

@@ -1,0 +1,19 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set progress = page.collection({'items':{'@taxonomy.category': 'docs'},'order': {'by': 'default', 'dir': 'asc'}}) %}
+
+{% block navigation %}
+	<div id="navigation">
+	{% if not progress.isFirst(page.path) %}
+	    <a class="nav nav-prev" href="{{ progress.nextSibling(page.path).url }}"> <i class="icon-left-open"></i></a>
+	{% endif %}
+
+	{% if not progress.isLast(page.path) %}
+	    <a class="nav nav-next" href="{{ progress.prevSibling(page.path).url }}"><i class="icon-right-open"></i></a>
+	{% endif %}
+	</div>
+{% endblock %}
+
+{% block content %}
+    {% include 'partials/page.html.twig' %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block navigation %}{% endblock %}
+
+{% block content %}
+	<div id="chapter">
+    	<div id="body-inner">
+    		<h1>Error {{ page.header.code }}</h1>
+			<p>
+				{{ page.content }}
+			</p>
+		</div>
+    </div>
+{% endblock %}
