@@ -1,0 +1,21 @@
+{
+   "project":"grav-learn",
+   "platforms":{
+      "grav":{
+         "nodes":{
+            "skeleton":[
+               {
+                  "source":"/",
+                  "destination":"/user"
+               }
+            ],
+            "error plugin":[{
+               "project":"grav-plugin-error"
+            }],
+            "simplesearch plugin":[{
+               "project":"grav-plugin-simplesearch"
+            }]
+         }
+      }
+   }
+}
