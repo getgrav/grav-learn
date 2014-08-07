@@ -9,9 +9,9 @@ Thumbs.db
 *.swp
 
 # Grav Specific
-user/plugins/error
-user/plugins/simplesearch
-user/data/*
+data/*
+plugins/*
+themes/*
 
 # phpstorm
 .idea/*
