@@ -46,9 +46,13 @@ b, strong {
 	display: block;
 	background: $navbar-bg; // Change this color in settings to change the navbar color
 
+	#logo img {
+		margin-bottom: -5px;
+	}
 
 	ul {
 		position: absolute;
+		top: 0;
 		padding-left: 10px;
 		display: table;
 		vertical-align: middle;

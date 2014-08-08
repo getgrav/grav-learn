@@ -2061,8 +2061,11 @@ b, strong, label, th {
   min-height: 60px;
   display: block;
   background: #fcfcfd; }
+  #header.navbar #logo img {
+    margin-bottom: -5px; }
   #header.navbar ul {
     position: absolute;
+    top: 0;
     padding-left: 10px;
     display: table;
     vertical-align: middle;
