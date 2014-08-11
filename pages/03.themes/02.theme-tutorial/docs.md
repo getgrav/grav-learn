@@ -403,7 +403,7 @@ pages:
 
 Then, open your browser, and point it to your Grav site.  You should see something like this:
 
-{{ assets['bootstrap-theme.png'].lightbox().cropResize(600, 400).html('some ALT text','border') }}
+{{ media['bootstrap-theme.png'].lightbox().cropResize(600, 400).html('some ALT text','border') }}
 
 At this point you have created your first theme!  There are a couple of minor things missing:
 

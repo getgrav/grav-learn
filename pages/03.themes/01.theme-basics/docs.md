@@ -112,7 +112,7 @@ We recommend creating individual folders at the root of your theme for `images/`
 
 Let us use the default **antimatter** theme as an example, below you can see the overall structure of this theme:
 
-{{ assets['theme-folders.png'].html('Theme Folders') }}
+{{ media['theme-folders.png'].html('Theme Folders') }}
 
 In this example the actual `css`, `css-compiled`, `fonts`, `images`, `js`, `scss`, and `templates` files have been ignored to make it more readable.  The important thing to note is the overall structure of the theme. 
 

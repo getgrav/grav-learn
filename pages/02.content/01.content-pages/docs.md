@@ -12,11 +12,11 @@ Combining content and navigation ensures that the system is intuitive to use for
 
 Grav natively supports **3 types of pages** that allow you create a rich selection of web content. Those types are:
 
-{{ assets['page-types.png'].html('Grav Page Types') }}
+{{ media['page-types.png'].html('Grav Page Types') }}
 
 #### Standard Page
 
-{{ assets['content-standard.jpg'].html('Standard Page','border') }}
+{{ media['content-standard.jpg'].html('Standard Page','border') }}
 
 A standard page is generally a single page such as a **blog post**, **contact form**, **error page** etc. This is the most common type of page that you will create. By default a page is considered a standard page unless you tell Grav otherwise.
 
@@ -24,7 +24,7 @@ When you download and install the **Base Grav** package, you are greeted by a st
 
 #### Listing Page
 
-{{ assets['content-listing.jpg'].html('Listing Page','border') }}
+{{ media['content-listing.jpg'].html('Listing Page','border') }}
 
 This is really an extension of a standard page. This is a standard page that has a reference to a collection of pages. 
 
@@ -36,7 +36,7 @@ There is also some configuration settings to **control the order** of the listin
 
 #### Modular Page
 
-{{ assets['content-modular.jpg'].html('Modular Page','border') }}
+{{ media['content-modular.jpg'].html('Modular Page','border') }}
 
 A modular page is a special type of listing page because it actually builds a **single page** from its **child pages**. This allows for the ability to build very complex **one-page layouts** from smaller modular content pages.  This is accomplished by constructing the **modular page** from all the **modular folders** found in the folder. 
 
@@ -50,7 +50,7 @@ All content pages are located in the `/user/pages` folder. Each **page** should 
 
 Grav understands that any integer value followed by a period will be solely for the purpose of ordering, and is removed internally in the system.  For example, if you have a folder named `01.home`, Grav will treat this folder as `home`, but will ensure that with default ordering, it comes before `02.blog`.
 
-{{ assets['page-folders.png'].html('Grav Folder Example') }}
+{{ media['page-folders.png'].html('Grav Folder Example') }}
 
 Your site must have entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://yoursite.com` in your browser.  By default, Grav expects an alias `home/`, but you can override the home location by changing the `home.alias` option in the [Grav configuration file](../basics/grav-configuration).
 

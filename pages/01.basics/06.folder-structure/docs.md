@@ -81,7 +81,7 @@ This is the heart of Grav. the `pages` folder is where you create and edit your 
 
 A theme turns your content into a true website.  It converts the content you have constructed into the HTML that a browser understands and can represent visually to your audience.  There is a base theme that is provided with Grav, and you can also download others from the [GetGrav.org][website] web site, or even create your own.  The [Themes][themes] section will outline this in detail.
 
-[library]: ../content/assets
+[library]: ../content/media
 [config]: grav-configuration
 [next]: ../content
 [website]: http://getgrav.org

@@ -38,7 +38,7 @@ $ php - S localhost:8000
 
 This runs the built-in PHP web server.  Then, point your browser to `http://localhost:8000` and you should see your Grav site. The first time it loads, there is some compilation happening. Refresh your browser and you will get a faster, cached version.
 
-{{ assets['install.png'].cropResize(600,600).html('Grav Installed','border') }}
+{{ media['install.png'].cropResize(600,600).html('Grav Installed','border') }}
 
 >>> In the previous examples, **$** represents the command prompt.  This may look different on various platforms. 
 
