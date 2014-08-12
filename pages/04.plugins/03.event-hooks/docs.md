@@ -59,20 +59,32 @@ The core twig extensions have been loaded, but if you need to add your own Twig 
 
 #### onAfterTwigPageVars
 
-When Twig processes a page directly, i.e. when you set 
+Where Twig processes a page directly, i.e. when you set `process: twig: true` in a page's YAML headers. This is where you should add any variables to Twig that need to be available to twig during this process.
 
 #### onAfterTwigStringVars
 
+Where Twig processes a string directly. This is where you should add any variables to Twig that need to be available to twig during this process.
+
 #### onAfterTwigSiteVars
+
+Where Twig processes the full site template hierarchy.  This is where you should add any variables to Twig that need to be available to twig during this process.
 
 ## Collection Event Hooks
 
 #### onAfterCollectionProcessed
 
+If you need to manipulate a collection after it has been processed this is the time to do it.
+
 ## Page Event Hooks
 
 #### onCreateBlueprint
 
-#### onAfterPageProcessed
+Used for processing forms
 
-#### onAfterFolderProcessed
+#### onAfterPageProcessed (disabled by default)
+
+After a page is parsed and processed.  This is fired for **every page** in the Grav system.  This is disabled by default for performance reasons.
+
+#### onAfterFolderProcessed (disabled by default)
+
+After a folder is parsed and processed.  This is fired for **every foplder** in the Grav system.  This is disabled by default for performance reasons.
