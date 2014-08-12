@@ -8,12 +8,14 @@ process:
 
 Installation of Grav is a trivial process. In fact, there is no real installation.  The steps for getting Grav up-and-running are as follows:
 
+## Using Apache/IIS/Nginx
+
 1. Download the latest-and-greatest **Grav Base** package from the [Downloads][downloads]
 2. Extract the ZIP file in your [webroot][webroot] of your web server
 
 If your web root is for example `~/public_html` then you could extract it into this folder and reach it via `http://localhost`.  If you extracted it into `~/public_html/grav` then you would reach it via `http://localhost/grav`.
 
-## Using the PHP's Web Server
+## Using PHP's built-in Web Server
 
 Grav is incredibly easy to set up and get running. You can do this without even installing or configuring a web server!  Be sure you have at least PHP version 5.4 by going to the terminal and typing:
 
