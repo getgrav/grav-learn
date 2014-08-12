@@ -136,6 +136,44 @@ Functions can generate content. They are typically followed by arguments, which 
 {% endif %}
 ```
 
+### Grav-Specific Filters & Functions
+
+As well as the standard Twig functions, Grav has some custom filters and functions available, those include:
+
+* **safeEmail Filter** - Protects email addresses by changing the email to HTML entities
+  ```
+  {{ 'youremail@yourcompany.com'|safeEmail }} => &#x79;&#x6F;&#x75;&#x72;&#x65;&#x6D;&#x61;&#x69;&#x6C;&#x40;&#x79;&#x6F;&#x75;&#x72;&#x63;&#x6F;&#x6D;&#x70;&#x61;&#x6E;&#x79;&#x2E;&#x63;&#x6F;&#x6D;
+  ```
+
+* **truncate([limit = 150][, break = '.'][, pad =  '@hellip;']) Filter** - Protects email addresses by changing the email to HTML entities
+  ```
+  {{ content|truncate }}
+  {{ content|truncate(400, '.', '...') }}
+  ```  
+
+* **randomize([offset = 0]) Filter** - Randomizes a list or array
+  ```
+  {{ ['red', 'blue', 'green', 'yellow']|randomize }} => blue
+  ```  
+
+* **md5 Filter** - Returns an MD5 has of the string 
+  ```
+  {{ 'mystring'|md5 }} => 169319501261c644a58610f967e8f9d0
+  ``` 
+
+* **Inflector Filters** - A variety of filters to provide inflectors
+  ```
+  {{ 'person'|pluralize }} => people
+  {{ 'shoes'|singularize }} => shoe
+  {{ 'welcome page'|titleize }} => "Welcome Page"
+  {{ 'send_email'|camelize }} => SendEmail
+  {{ 'CamelCased'|underscorize }} => camel_cased
+  {{ 'Something Text'|hyphenize }} => something-text
+  {{ 'something text to read'|humanize }} => "Something text to read"
+  {{ '181'|monthize}} => 6
+  {{ '10'|ordinalize }} => 10th
+  ```
+
 ## Resources
 
 * [Official Twig Documentation](http://twig.sensiolabs.org/documentation)
