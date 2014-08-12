@@ -35,7 +35,7 @@ Zend Engine v2.4.0, Copyright (c) 1998-2013 Zend Technologies
 To try Grav, simply navigate to the directory where you extracted your **Grav Base** package file in your terminal and type:
 
 ```bash
-$ php - S localhost:8000
+$ php -S localhost:8000
 ```
 
 This runs the built-in PHP web server.  Then, point your browser to `http://localhost:8000` and you should see your Grav site. The first time it loads, there is some compilation happening. Refresh your browser and you will get a faster, cached version.
