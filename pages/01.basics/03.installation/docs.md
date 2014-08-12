@@ -8,10 +8,28 @@ process:
 
 Installation of Grav is a trivial process. In fact, there is no real installation.  The steps for getting Grav up-and-running are as follows:
 
-## Using Apache/IIS/Nginx
+## Downloading Grav
 
 1. Download the latest-and-greatest **Grav Base** package from the [Downloads][downloads]
-2. Extract the ZIP file in your [webroot][webroot] of your web server
+2. Extract the ZIP file in your [webroot][webroot] of your web server, e.g. `~/webroot/grav`
+
+## Via Source from GitHub
+
+1. Clone the Grav repository from [https://github.com/getgrav/grav]() to a folder in the webroot of your server, e.g. `~/webroot/grav`. Launch a **terminal** or **console** and navigate to the grav folder to clone:
+   ```
+   $ cd ~/webroot
+   $ git clone https://github.com/getgrav/grav.git
+   ```
+
+2. Install the dependencies (**error** plugin, **problems** plugin, **antimatter** theme) by using the Grav CLI applicating (bin/grav):
+   ```
+   $ cd ~/webroot/grav
+   $ bin/grav install
+   ```
+
+## Using Apache/IIS/Nginx
+
+Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder uner the [web root](https://www.wordnik.com/words/webroot).
 
 If your web root is for example `~/public_html` then you could extract it into this folder and reach it via `http://localhost`.  If you extracted it into `~/public_html/grav` then you would reach it via `http://localhost/grav`.
 
@@ -32,7 +50,7 @@ Zend Engine v2.4.0, Copyright (c) 1998-2013 Zend Technologies
 ```
 
 
-To try Grav, simply navigate to the directory where you extracted your **Grav Base** package file in your terminal and type:
+To try Grav, simply navigate to the folder where you extracted your **Grav Base** package file in your terminal and type:
 
 ```bash
 $ php -S localhost:8000
@@ -45,6 +63,14 @@ This runs the built-in PHP web server.  Then, point your browser to `http://loca
 >>> In the previous examples, **$** represents the command prompt.  This may look different on various platforms. 
 
 By default, Grav comes with some sample pages to give you something to get started with.  Your site is already fully functional and you can configure it, add content, extend it, or customize it as much as you like.
+
+## Problems
+
+If any issues are discovered during the initial page load (or after a cache-flush event) you may see an error page:
+
+{{ media['problems.png'].cropResize(600,600).html('Grav with Problems','border') }}
+
+You will need to address any errors before you can continue.
 
 ## Updates
 
