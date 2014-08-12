@@ -4,4 +4,34 @@ taxonomy:
     category: docs
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor eu felis sed ornare. Sed a mauris venenatis, pulvinar velit vel, dictum enim. Phasellus ac rutrum velit. Nunc lorem purus, hendrerit sit amet augue aliquet, iaculis ultricies nisl. Suspendisse tincidunt euismod risus, quis feugiat arcu tincidunt eget. Nulla eros mi, commodo vel ipsum vel, aliquet congue odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque velit orci, laoreet at adipiscing eu, interdum quis nibh. Nunc a accumsan purus.
+Theme configuration works in a similar fashion to all the other configuration settings in Grav. You can provide settings for a theme configuration file for you theme with the filename `<themename>.yaml` in the root of your theme folder. These variables be accessed in your template files. 
+
+It is **strongly** recommended not to actually change the theme's YAML file, but to override the settings in the `user/config` folder.
+
+For example, let's consider the antimatter theme.  By default there is a file called `antimatter.yaml` in the theme's root folder. The contents of this configuration file look like this:
+
+```
+enabled: true
+color: blue
+```
+
+This is a simple file but it provides you an idea of what you can do with theme configuration settings. Let us provide an override for these settings plus a new one. 
+
+So create a file in the following location: `user/config/themes/antimatter.yaml`.  In this file put the following contents:
+
+```
+color: red
+info: Grav is awesome!
+```
+
+Then in your theme, you can add something like this:
+
+```
+<h1 style="color:{{ config.themes.antimatter.color }}">{{ config.themes.antimatter.info }}</h1>
+```
+
+This should render out as:
+
+<h1 style="color:red">Grav is awesome!</h1>
+
+The sky is the limit regarding the configuration of your themes.  You can use them for whatever you like :)
