@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-It is often useful to know how Grav processes in order to fully understand how best to extend Grav via plugins.  To this this is the Grav lifecycle:
+It is often useful to know how Grav processes in order to fully understand how best to extend Grav via plugins.  This is the Grav lifecycle:
 
 <div id="lifecycle">
 	<ol class="level-1">
@@ -89,4 +89,4 @@ It is often useful to know how Grav processes in order to fully understand how b
 		</li>
 		<li>Flush output Buffer</li>
 	</ol>
-</div
+</div>
