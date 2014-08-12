@@ -6,6 +6,7 @@
         {% set data_level = 0 %}
     {% endif %}
     {% for p in page.children %}
+        {% if p.visible %}
         <li class="dd-item" data-nav-level='{{ data_level }}' data-nav-id="{{ p.route }}">
             <a href="{{ p.url }}">
                 <i class="read-icon icon-check"></i>
@@ -20,6 +21,7 @@
             </ul>
             {% endif %}
         </li>
+        {% endif %}
     {% endfor %}
 {% endmacro %}
 
