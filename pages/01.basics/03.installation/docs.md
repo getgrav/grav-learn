@@ -15,13 +15,13 @@ Installation of Grav is a trivial process. In fact, there is no real installatio
 
 ## Via Source from GitHub
 
-1. Clone the Grav repository from [https://github.com/getgrav/grav]() to a folder in the webroot of your server, e.g. `~/webroot/grav`. Launch a **terminal** or **console** and navigate to the grav folder to clone:
+1. Clone the Grav repository from [https://github.com/getgrav/grav]() to a folder in the webroot of your server, e.g. `~/webroot/grav`. Launch a **terminal** or **console** and navigate to the webroot folder:
    ```
    $ cd ~/webroot
    $ git clone https://github.com/getgrav/grav.git
    ```
 
-2. Install the dependencies (**error** plugin, **problems** plugin, **antimatter** theme) by using the [Grav CLI application][grav-cli] `bin/grav`:
+2. Install the **plugin** and **theme dependencies** by using the [Grav CLI application][grav-cli] `bin/grav`:
    ```
    $ cd ~/webroot/grav
    $ bin/grav install
