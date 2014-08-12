@@ -83,10 +83,8 @@ Returns the entire HTML content of your page.
 Returns the page headers as defined in the YAML front-matter of the page.  For example a page with the following headers:
 
 ```
----
 title: My Page
 author: Joe Bloggs
----
 ```
 
 could be used:
@@ -112,9 +110,7 @@ Returns an array containing all the media associated with a page. These include 
 Returns the title of the page as set in the `title` variable of the YAML headers for the page itself. 
 
 ```
----
 title: My Page
----
 ```
 
 ##### menu()
@@ -122,10 +118,8 @@ title: My Page
 Returns the value of the `menu` variable of the YAML headers of the page.  If none is provided, it defaults to the `title`.
 
 ```
----
 title: My Page
 menu: my-page
----
 ```
 
 ##### visible()
@@ -133,10 +127,8 @@ menu: my-page
 Returns whether or not the page is visible.  By default pages with numeric value followed by a period are visible by default (`01.somefolder1`) while those without (`subfolder2`) are not considered visible. This can be overriden in the page headers:
 
 ```
----
 title: My Page
 visible: true
----
 ```
 
 ##### routable()
@@ -144,10 +136,8 @@ visible: true
 Returns whether or not a page is routable by Grav.  This means if you can point your browser to the page and receive content back.  Non-routable pages can be used in template, plugins, etc, but cannot be reached directly. This can be set in the page headers:
 
 ```
----
 title: My Page
 routable: true
----
 ```
 
 ##### slug()
@@ -344,7 +334,7 @@ Get the top-level pages for a simple menu:
 
 
 
-### uri Object
+### uri object
 
 The Uri object has several methods to access parts of the current URI. For the full URL `http://mysite.com/grav/section/category/page.json/param:foo?query=bar`:
 
@@ -419,10 +409,8 @@ You can easily add custom variables in a variety of ways.  If the variable is a 
 Alternatively if the variable is only needed for a particular page, you can add the variable to your page's YAML front-matter, and access it via the `page.headers` object.  For example:
 
 ```
----
 title: My Page
 author: Joe Bloggs
----
 ```
 
 could be used:
