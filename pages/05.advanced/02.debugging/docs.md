@@ -6,11 +6,11 @@ taxonomy:
     category: docs
 ---
 
-When developing themes and plugins there is often a need to display **debugging** information. 
+When developing themes and plugins, there is often a need to display **debugging** information. 
 
 ## PHP Debugging
 
-Luckily Grav comes with a great tool to make this easier called [Tracy Debugger](https://github.com/nette/tracy). The most obvious part of the debugger is the visible bar you see when the page loads.  This provides **total processing time** within Grav, as well as **memory usage**. 
+Luckily, Grav comes with a great tool to make this easier called [Tracy Debugger][tracy]. The most obvious part of the debugger is the visible bar you see when the page loads.  This provides **total processing time** within Grav, as well as **memory usage**. 
 
 {{ media['debugger-bar.png'].html }}
 
@@ -59,13 +59,13 @@ Your message will be appended to the log in the log directory `/logs`.
 
 ## Timing
 
-Once last functionality that is available in Grav is the ability to log timing data.  In the `/user/config/system.yaml` file there is an option to **enable timing**, this will log out the timing on each [PluginEvent Hook](../plugins/event-hooks).  This is useful for determining which portion of the life cycle is using resources.
+Once last functionality that is available in Grav is the ability to log timing data.  In the `/user/config/system.yaml` file there is an option to **enable timing**, this will log out the timing on each [PluginEvent Hook][hook].  This is useful for determining which portion of the life cycle is using resources.
 
-You can of course add your own timers in your plugins if you need to.  For more information on this please refer to the [Tracy documentation](https://github.com/nette/tracy).
+You can add your own timers in your plugins if you need to.  For more information on this please refer to the [Tracy documentation][tracydocs].
 
 ## Twig Debugging
 
-One last type of debugging available is the ability to dump twig variables from a twig template.  For this to function you **must** have the `debug` option in the twig system settings set to `true`:
+One last type of debugging available is the ability to dump twig variables from a Twig template.  For this to function, you **must** have the `debug` option in the twig system settings set to `true`:
 
 ```
 twig:
@@ -73,7 +73,7 @@ twig:
   debug: true                           # Enable Twig debug
 ```
 
-This then allows you to use the [Twig Dump](http://twig.sensiolabs.org/doc/functions/dump.html) function to dump the value of a variable or object:
+This allows you to use the [Twig Dump][dump] function to dump the value of a variable or object:
 
 {% verbatim %}
 ```
@@ -88,3 +88,8 @@ It is advisable to wrap the `dump()` method in an HTML `<pre />` tag to enhance 
 <pre>{{ dump(header.site) }}</pre>
 ```
 {% endverbatim %}
+
+[tracy]: https://github.com/nette/tracy
+[hook]: ../plugins/event-hooks
+[tracydocs]: https://github.com/nette/tracy
+[dump]: http://twig.sensiolabs.org/doc/functions/dump.html
