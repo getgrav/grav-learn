@@ -2368,4 +2368,46 @@ body.font-serif {
   line-height: 30px;
   vertical-align: middle; }
 
+#lifecycle ol {
+  margin: 0.5rem 0;
+  padding: 2rem 1rem 1rem;
+  position: relative; }
+  #lifecycle ol li {
+    margin-left: 1rem; }
+  #lifecycle ol h3 {
+    font-size: 20px;
+    position: absolute;
+    padding: 0 10px;
+    margin: 0;
+    right: 0;
+    top: 0;
+    color: #fff; }
+#lifecycle .flush {
+  margin: 0;
+  padding: 0 0 0 1rem; }
+#lifecycle .level-1 {
+  background: #f6fefc;
+  border: 4px solid #1abc9c;
+  color: #16a085; }
+  #lifecycle .level-1 h3 {
+    background: #1abc9c; }
+#lifecycle .level-2 {
+  background: #f7fdf9;
+  border: 4px solid #2ecc71;
+  color: #27ae60; }
+  #lifecycle .level-2 h3 {
+    background: #2ecc71; }
+#lifecycle .level-3 {
+  background: #f3f9fd;
+  border: 4px solid #3498db;
+  color: #2980b9; }
+  #lifecycle .level-3 h3 {
+    background: #3498db; }
+#lifecycle .level-4 {
+  background: #e4eaf0;
+  border: 4px solid #34495e;
+  color: #2c3e50; }
+  #lifecycle .level-4 h3 {
+    background: #34495e; }
+
 /*# sourceMappingURL=template.css.map */
