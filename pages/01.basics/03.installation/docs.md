@@ -2,7 +2,7 @@
 title: Installation
 taxonomy:
     category: docs
-processing:
+process:
 	twig: true    
 ---
 

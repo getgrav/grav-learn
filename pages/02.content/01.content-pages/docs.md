@@ -2,7 +2,7 @@
 title: Pages
 taxonomy:
     category: docs
-processing:
+process:
 	twig: true
 ---
 

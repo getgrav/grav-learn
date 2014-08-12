@@ -2,7 +2,7 @@
 title: Theme Basics
 taxonomy:
     category: docs
-processing:
+process:
 	twig: true
 ---
 

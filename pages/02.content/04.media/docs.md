@@ -2,7 +2,7 @@
 title: Media
 taxonomy:
     category: docs
-processing:
+process:
 	twig: true
 ---
 
@@ -10,7 +10,7 @@ When creating content in **Grav**, you often need to display **images**, **video
 
 Grav uses a **smart-caching** system to automatically create any required image the first time it's requested, then use this image for each subsequent request.
 
->>>> The media examples below use Twig syntax (that's the stuff with the curly braces: {% verbatim %}`{{ media[sample-image.jpg] }}`{% endverbatim %}) that needs to be enabled on a per-page basis. You can either **a)** enable Twig on the page with `processing: twig: true` in the page header, or **b)** set `pages: process: twig: true` in your system.yaml to change it site-wide.
+>>>> The media examples below use Twig syntax (that's the stuff with the curly braces: {% verbatim %}`{{ media[sample-image.jpg] }}`{% endverbatim %}) that needs to be enabled on a per-page basis. You can either **a)** enable Twig on the page with `process: twig: true` in the page header, or **b)** set `pages: process: twig: true` in your system.yaml to change it site-wide.
 
 ## Actions
 
