@@ -4,17 +4,17 @@ taxonomy:
     category: docs
 ---
 
-Caching is an integral feature of Grav that has been baked-in from the start.  The caching mechanism that Grav employees is the primary reason Grav is as fast as it is.  That said there are some factors to take into account.  
+Caching is an integral feature of Grav that has been baked in from the start.  The caching mechanism that Grav employees is the primary reason Grav is as fast as it is.  That said, there are some factors to take into account.  
 
 ## Caching Providers
 
-Grav uses the established and well-respected [Doctrine Cache](http://docs.doctrine-project.org/en/2.0.x/reference/caching.html) library. This means that Grav supports any caching mechanism that Doctrine Cache supports.  This means that Grav supports:
+Grav uses the established and well-respected [Doctrine Cache][docterinecache] library. This means that Grav supports any caching mechanism that Doctrine Cache supports.  This means that Grav supports:
 
 * Auto (Default) - Finds the best option automatically
 
 * File - Stores in cache files in the `cache/` folder
 
-* APC - [http://php.net/manual/en/book.apc.php]()
+* [APC][apc]
 
 * XCache - [http://xcache.lighttpd.net/]()
 
@@ -35,16 +35,16 @@ Grav uses the established and well-respected [Doctrine Cache](http://docs.doctri
 * ZendDataCache - [http://files.zend.com/help/Zend-Server/content/data_cache_component.htm]()
 
 
-By default, Grav comes preconfigured to use the `auto` setting.  This will try **APC**, then **WinCache**, then **XCache**, and lastly **File**.  You can of course explicitly configure the cache in your `user/config/system.yaml` file which could make things ever so slightly faster.
+By default, Grav comes preconfigured to use the `auto` setting.  This will try **APC**, then **WinCache**, then **XCache**, and lastly **File**.  You can, of course, explicitly configure the cache in your `user/config/system.yaml` file, which could make things ever so slightly faster.
 
 ## Caching Options
 
 There are actually **4 types** of caching happening in Grav.  They are:
 
-1. YAML configuration caching into PHP
-2. Core Grav caching for page objects
-3. Twig caching of template files as PHP classes
-4. Image caching for media resources
+1. YAML configuration caching into PHP.
+2. Core Grav caching for page objects.
+3. Twig caching of template files as PHP classes.
+4. Image caching for media resources.
 
 The YAML configuration caching is not configurable, and will always compile and cache the configuration into the `/cache` folder. Image caching is also always on, and stores its processed images in the `/images` folder.
 
@@ -59,15 +59,15 @@ cache:
   prefix: 'g'                          # Cache prefix string (prevents cache conflicts)
 ```
 
-As you an see the options are documented in the configuration file itself.  During development sometimes it's useful to disable caching to ensure you always have the latest page edits. 
+As you an see, the options are documented in the configuration file itself.  During development sometimes it is useful to disable caching to ensure you always have the latest page edits. 
 
->>>> NOTE: Deleting a page doesn't clear the cache as cache clears are based on folder modified timestamps.
+>>>> NOTE: Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
 
->>> TIP: You can easily force clear the cache by just touching/saving a configuration file.
+>>> TIP: You can easily force the cache to clear by just touching/saving a configuration file.
 
-The `cache: check: pages:` option can provide some slight performance improvements but this will cause Grav to not check for any page edits.  This is intended as a **Production-only** setting.
+The `cache: check: pages:` option can provide some slight performance improvements, but this will cause Grav to not check for any page edits.  This is intended as a **Production-only** setting.
 
-The Twig templating engine uses it's own file based cache system, and there are a few options associated with it.
+The Twig templating engine uses its own file based cache system, and there are a few options associated with it.
 
 ```
 twig:
@@ -78,3 +78,6 @@ twig:
 ```
 
 For slight performance gains, you can disable the `debug` extension, and also disable `auto_reload` which performs a similar function to `cache: check: pages` as it will not look for changes in `.html.twig` files to trigger cache refreshes.
+
+[docterinecache]: http://docs.doctrine-project.org/en/2.0.x/reference/caching.html
+[apc]: http://php.net/manual/en/book.apc.php
