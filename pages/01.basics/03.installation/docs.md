@@ -21,7 +21,7 @@ Installation of Grav is a trivial process. In fact, there is no real installatio
    $ git clone https://github.com/getgrav/grav.git
    ```
 
-2. Install the dependencies (**error** plugin, **problems** plugin, **antimatter** theme) by using the Grav CLI applicating (bin/grav):
+2. Install the dependencies (**error** plugin, **problems** plugin, **antimatter** theme) by using the [Grav CLI application][grav-cli] `bin/grav`:
    ```
    $ cd ~/webroot/grav
    $ bin/grav install
@@ -29,7 +29,7 @@ Installation of Grav is a trivial process. In fact, there is no real installatio
 
 ## Using Apache/IIS/Nginx
 
-Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder uner the [web root](https://www.wordnik.com/words/webroot).
+Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder uner the [webroot][webroot].
 
 If your web root is for example `~/public_html` then you could extract it into this folder and reach it via `http://localhost`.  If you extracted it into `~/public_html/grav` then you would reach it via `http://localhost/grav`.
 
@@ -74,10 +74,11 @@ You will need to address any errors before you can continue.
 
 ## Updates
 
-We plan on providing an improved update solution including **automatic updates** via the upcoming **Admin Panel** plugin - as well as updating via the **Console Application**.  Until then, you should download the [Update Package][update] from our [Downloads section][downloads].
+We plan on providing an improved update solution including **automatic updates** via the upcoming **Admin Panel** plugin - as well as updating via the [Grav CLI Application][grav-cli].  Until then, you should download the [Update Package][update] from our [Downloads section][downloads].
 
 You can extract the update package over the top of your existing Grav installation and it will copy over any updates in the `core system folder` as well as any library updates in the `vendor folder`.
 
 [downloads]: http://getgrav.org/downloads
-[webroot]: http://en.wikipedia.org/wiki/Webroot
+[webroot]: https://www.wordnik.com/words/webroot
 [update]: http://getgrav.org/downloads
+[grav-cli]: ../advanced/grav-cli

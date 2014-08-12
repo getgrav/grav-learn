@@ -20,7 +20,7 @@ So let us dig a little deeper into each of these top level folders and explain w
 
 ### /bin
 
-The `bin` folder contains the Grav console application that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers, so will set-aside this topic for later discussion.
+The `bin` folder contains the [Grav CLI application][grav-cli] that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers, so will set-aside this topic for later discussion.
 
 ### /cache
 
@@ -86,3 +86,4 @@ A theme turns your content into a true website.  It converts the content you hav
 [next]: ../content
 [website]: http://getgrav.org
 [themes]: ../themes
+[grav-cli]: ../advanced/grav-cli
