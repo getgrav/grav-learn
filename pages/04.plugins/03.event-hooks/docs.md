@@ -4,9 +4,9 @@ taxonomy:
     category: docs
 ---
 
-In the previous [Plugin Tutorial](plugin-tutorial) chapter, you might of noticed that our plugin logic was encompassed in two methods.  Each of these methods `onAfterInitPlugins` and `onAfterGetPage` correspond to **event hooks** that are available throughout the Grav life cycle.
+In the previous [Plugin Tutorial][plugintutorial] chapter, you might have noticed that our plugin logic was encompassed in two methods.  Each of these methods `onAfterInitPlugins` and `onAfterGetPage` correspond to **event hooks** that are available throughout the Grav life cycle.
 
-To fully harness the power of Grav plugins you need to know which event hooks are available, in what order are these hooks called, and what is available during these calls.  The **event hooks** have a direct relationship to the overall [Grav Lifecycle](../advanced/grav-lifecycle) that we cover in the [Advanced](../advanced) section later on.
+To fully harness the power of Grav plugins you need to know which event hooks are available, in what order are these hooks called, and what is available during these calls.  The **event hooks** have a direct relationship to the overall [Grav Lifecycle][lifecycle] that we cover in the [Advanced][advanced] section later on.
 
 ## Core Grav Event Hooks
 
@@ -79,7 +79,7 @@ If you need to manipulate a collection after it has been processed this is the t
 
 #### onCreateBlueprint
 
-Used for processing forms
+This is used for processing forms.
 
 #### onAfterPageProcessed (disabled by default)
 
@@ -87,4 +87,8 @@ After a page is parsed and processed.  This is fired for **every page** in the G
 
 #### onAfterFolderProcessed (disabled by default)
 
-After a folder is parsed and processed.  This is fired for **every foplder** in the Grav system.  This is disabled by default for performance reasons.
+After a folder is parsed and processed.  This is fired for **every folder** in the Grav system.  This is disabled by default for performance reasons.
+
+[plugintutorial]: plugin-tutorial
+[lifecycle]: ../advanced/grav-lifecycle
+[advanced]: ../advanced

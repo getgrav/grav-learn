@@ -7,7 +7,7 @@ taxonomy:
 Introduction
 -----
 
-YAML stands for _"YAML Ain't Markup Language"_ and it used extensively in Grav in its configuration files, blueprints, and also in page settings. It is a human-readable data serialization language that makes it easier to quickly see and understand what is going on, without having to learn a more complex code type like CSS, JavaScript, and PHP.
+YAML stands for _"YAML Ain't Markup Language"_ and it used extensively in Grav for its configuration files, blueprints, and also in page settings. It is a human-readable data serialization language that makes it easier to quickly see and understand what is going on, without having to learn a more complex code type like CSS, JavaScript, and PHP.
 
 YAML is built from the ground up to be simple to use. At its core, a YAML file is used to describe data. One of the benefits of using YAML is that the information in a single YAML file can be easily translated to multiple language types.
 
@@ -25,11 +25,11 @@ There are some rules that YAML has in place to avoid issues related to ambiguity
 Basic Data Types
 -----
 
-YAML excels at working with **mappings** (hashes/dictionaries), **sequences** (arrays/lists), and **scalars** (strings/numbers). While it can be used with most programming languages, it works best with languages that are built around these data structure types. This includes: PHP, Pyton, Perl, JavaScript, and Ruby.
+YAML excels at working with **mappings** (hashes / dictionaries), **sequences** (arrays / lists), and **scalars** (strings / numbers). While it can be used with most programming languages, it works best with languages that are built around these data structure types. This includes: PHP, Pyton, Perl, JavaScript, and Ruby.
 
 ## Scalars
 
-Scalars are a pretty basic concept. They are the strings and numbers that make up the data on the page. A scalar could be a boolean propertly, like `Yes`, integer (number) such as `5`, or a string of text, like a sentence or the title of your website.
+Scalars are a pretty basic concept. They are the strings and numbers that make up the data on the page. A scalar could be a boolean property, like `Yes`, integer (number) such as `5`, or a string of text, like a sentence or the title of your website.
 
 Scalars are often called variables in programming. If you were making a list of types of animals, they would be the names given to those animals.
 
@@ -95,7 +95,12 @@ Resources and Further Documentation
 
 For more information about YAML, including detailed documentation about how it works, check out the resources linked below.
 
-* [Dave's YAML Primer](https://github.com/darvid/trine/wiki/YAML-Primer)
-* [Official YAML 1.2 Documentation](http://www.yaml.org/spec/1.2/spec.html)
-* [YAML Reference Card](http://www.yaml.org/refcard.html)
-* [Xavier Shay's YAML Tutorial](http://rhnh.net/2011/01/31/yaml-tutorial)
+* [Dave's YAML Primer][primer]
+* [Official YAML 1.2 Documentation][officialdocs]
+* [YAML Reference Card][refcard]
+* [Xavier Shay's YAML Tutorial][tutorial]
+
+[officialdocs]: http://www.yaml.org/spec/1.2/spec.html
+[refcard]: http://www.yaml.org/refcard.html
+[tutorial]: http://rhnh.net/2011/01/31/yaml-tutorial
+[primer]: https://github.com/darvid/trine/wiki/YAML-Primer

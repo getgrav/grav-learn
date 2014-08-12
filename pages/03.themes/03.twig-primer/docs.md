@@ -8,15 +8,15 @@ Twig is a quick, optimized template engine for PHP. It is designed from the grou
 
 Its easy-to-follow syntax and straightforward processes make it a natural fit for anyone familiar with Smarty, Django, or Jinja,  Twig will likely be a very easy transition for you.
 
-We use it for our Grav templates in part because of its flexibility and inherent security. The fact that it's also one of the fastest template engines for PHP out there made choosing it for use in Grav a no brainer.
+We use it for our Grav templates in part because of its flexibility and inherent security. The fact that it is also one of the fastest template engines for PHP out there made choosing it for use in Grav a no brainer.
 
 Twig compiles templates down to plain PHP. This cuts the amount of PHP overhead down to a minimum, resulting in a faster, more streamlined user experience.
 
-It is also a very flexible engine thanks to its *lexer* and *parser*. This enables the developer to create their own custom tags and filters. It also enables it to create its own [domain-specific language](http://en.wikipedia.org/wiki/Domain-specific_language) (DSL).
+It is also a very flexible engine thanks to its *lexer* and *parser*. This enables the developer to create their own custom tags and filters. It also enables it to create its own [domain-specific language][dsl] (DSL).
 
 When it comes to security, Twig doesn't cut any corners. It gives the developer a sandbox mode that enables them to examine any untrusted code. This gives you the ability to to use Twig as a template language for applications while giving users the ability to modify the template design.
 
-Basically, it's a powerful engine that gives you control over the user interface. When combined with YAML for configuration, it makes for a powerful and simple system for any developer or site manager to work with.
+Basically, it is a powerful engine that gives you control over the user interface. When combined with YAML for configuration, it makes for a powerful and simple system for any developer or site manager to work with.
 
 ## How Does Twig Work?
 
@@ -57,7 +57,7 @@ A template is first loaded, then passed through the **lexer** where its source c
 
 Once this is done, the compiler turns this into PHP code that can then be evaluated and displayed to the user.
 
-Twig can also be extended to add additional tags, filters, tests, operators, global variables, and functions. More information about extending Twig can be found in its [official documentation](http://twig.sensiolabs.org/doc/advanced.html).
+Twig can also be extended to add additional tags, filters, tests, operators, global variables, and functions. More information about extending Twig can be found in its [official documentation][docs].
 
 ## Twig Syntax
 
@@ -142,3 +142,6 @@ Functions can generate content. They are typically followed by arguments, which 
 * [Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html)
 * [Twig for Developers](http://twig.sensiolabs.org/doc/api.html)
 * [Anthony Ringoet's Introduction to Twig](http://anthonyringoet.be/post/introduction-to-twig/)
+
+[dsl]: http://en.wikipedia.org/wiki/Domain-specific_language
+[docs]: http://twig.sensiolabs.org/doc/advanced.html

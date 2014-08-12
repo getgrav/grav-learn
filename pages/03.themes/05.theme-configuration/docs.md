@@ -34,4 +34,4 @@ This should render out as:
 
 <h1 style="color:red">Grav is awesome!</h1>
 
-The sky is the limit regarding the configuration of your themes.  You can use them for whatever you like :)
+The sky is the limit regarding the configuration of your themes.  You can use them for whatever you like! :)
