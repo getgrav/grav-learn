@@ -29,7 +29,7 @@ It is often useful to know how Grav processes in order to fully understand how b
 			<ol class="level-2">
 				<h3>Grav.php</h3>
 				<li>Get <b>Uri</b> and <b>Config</b> objects</li>
-				<li>Setup Debugger based on configuration</li>
+				<li>Set up Debugger based on configuration</li>
 				<li>Initialize <b>Cache</b> mechanism</li>
 				<li>Initialize <b>Plugins</b>: <b>onAfterInitPlugins()</b></li>
 				<li>Get current theme and initialize it</li>
