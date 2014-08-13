@@ -58,5 +58,27 @@ $ cd ~/webroot/my-grav-project
 $ bin/grav clear-cache
 ```
 
+## Creating a Backup
+
+Backing up your project is nothing more than creating an archive of the _ROOT_ of Grav. No Database, no complications.
+
+Of course you can simplify this even more by just using the Grav CLI. Supposing we have our `~/workspace/portfolio` project and that we want to create a backup of it, here's what we will do:
+
+```bash
+$ cd ~/workspace/portfolio
+$ bin/grav backup
+```
+
+A new backup `portfolio-20140812174352.zip` file has been created at the _ROOT_ of the project. The long number after the name is just the date in the format of _year month day hour minute second_.
+
+You can also pass a destination. So let's say we want to backup our `portfolio` project under `~/Documents/Backups`, this is what we will do instead:
+
+```bash
+$ cd ~/workspace/portfolio
+$ bin/grav backup ~/Documents/Backups
+```
+
+Very simple. Like above, a new backup has been created, but this time in a different location: `~/Documents/Backups/portfolio-20140812174352.zip`
+
 [webroot]: http://en.wikipedia.org/wiki/Webroot
 [github-grav]: https://github.com/getgrav/grav
