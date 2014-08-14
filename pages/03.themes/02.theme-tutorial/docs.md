@@ -25,7 +25,7 @@ Bootstrap is a very full-featured HTML, CSS, and JS framework that contains a wi
 
 As outlined in the [Theme Basics][themebasics] chapter, there are some key elements to a Grav theme, so we must create them for our new theme:
 
-1. Follow the [Installation instruction][../basics/installation] and ensure you have Grav properly installed.
+1. Follow the [Installation instruction](../basics/installation) and ensure you have Grav properly installed.
 
 2. Create a folder called `bootstrap` within the `user/themes` folder of your Grav site to provide the basis of our new theme. 
 

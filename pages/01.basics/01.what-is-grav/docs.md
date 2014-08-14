@@ -4,9 +4,9 @@ taxonomy:
     category: docs
 ---
 
-Grav is a **Fast**, **Simple**, and **Flexible**, file-based Web-platform.  There is **Zero** installation required.  Just extract the ZIP archive, and you are already up and running.  It follows similar principals to other flat-file CMS platforms, but has a different design philosophy than most.
+Grav is a **Fast**, **Simple**, and **Flexible**, file-based Web-platform.  There is **Zero** installation required.  Just extract the ZIP archive, and you are already up and running.  It follows similar principles to other flat-file CMS platforms, but has a different design philosophy than most.
 
-The name is just a shortened version of the word **Gravity**, which although is the name of a movie starring Sandra Bullock, is also a very important physical principal that describes forces of attraction between objects. Frankly, the name was chosen as a temporary 'codename' for the project and it just stuck.
+The name is just a shortened version of the word **Gravity**, which although is the name of a movie starring Sandra Bullock, is also a very important physical principle that describes forces of attraction between objects. Frankly, the name was chosen as a temporary 'codename' for the project and it just stuck.
 
 The underlying architecture of Grav has been designed to use well established and _best-in-class_ technologies, where applicable, to ensure that while Grav is simple to use and easy to extend. Some of these key technologies include:
 
