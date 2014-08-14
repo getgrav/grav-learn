@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-The headers a the top of a page are completely optional, you don not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav and each has relevant headers. 
+The headers at the top of a page are completely optional, you don not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav and each has relevant headers. 
 
 ## Standard Page Headers
 
