@@ -4,7 +4,9 @@ taxonomy:
     category: docs
 ---
 
-Assuming you successfully [installed Grav][installation] with the instructions the previous chapter, we can continue on and play around with Grav a little to get you more comfortable.
+Assuming you successfully [installed Grav][installation] with the instructions listed in the previous chapter, we can continue on and play around with Grav a little to get you more comfortable. 
+
+Because Grav does not require a database, it is actually pretty easy to work with without having to worry about causing issues between your Grav installation and another big data source. If something goes awry, you can generally recover very easily.
 
 ## Content Basics
 
