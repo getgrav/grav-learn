@@ -95,7 +95,7 @@
             {% block footer %}
                 <blockquote id="github-contrib"><blockquote><blockquote><blockquote>
                     <p>
-                    <i class="icon-github"></i> Found errors? Think you can improve this documentation? Please <a href="{{ site.github.tree ~  page.filePathClean }}">edit this page</a>. 
+                    <i class="icon-github"></i> Found errors? Think you can improve this documentation? Please <a href="{{ site.github.tree ~  ('/'~page.filePathClean)|replace({'/user/':''}) }}">edit this page</a>. 
                 </p>
                 </blockquote></blockquote></blockquote></blockquote>
             {% endblock %}

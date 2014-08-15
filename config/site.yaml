@@ -10,5 +10,5 @@ summary:
   size: 300
 
 github:
-  tree: https://github.com/getgrav/grav-learn/tree/develop/
+  tree: https://github.com/getgrav/grav-learn/blob/develop/
   commits: https://github.com/getgrav/grav-learn/commits/develop/
