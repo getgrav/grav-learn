@@ -8,9 +8,9 @@ All Grav configuration files are written in [YAML syntax](../advanced/yaml) with
 
 ## System Configuration
 
-Grav focuses on making things as easy as possible for the user, and the same goes for configuration.  Grav comes with some sensible default options and these are contained in a file that resides in the `system/config/system.yaml` file. 
+Grav focuses on making things as easy as possible for the user, and the same goes for configuration.  Grav comes with some sensible default options and these are contained in a file that resides in the `system/config/system.yaml` file.
 
-However, **you should never change this file**, rather any configuration changes you need to make should be stored in a file called `user/config/system.yaml`.  Any setting in this file with the same structure and naming will override the setting provided in the default system configuration file. 
+However, **you should never change this file**, rather any configuration changes you need to make should be stored in a file called `user/config/system.yaml`.  Any setting in this file with the same structure and naming will override the setting provided in the default system configuration file.
 
 >>>> Generally speaking you should **NEVER** change anything in the `system/` folder.  All things the user does (creating content, installing plugins, editing configuration, etc.) should be done in the `user/` folder.  This way it allows simpler upgrading and also keeps your changes all in one location for backing up, synchronizing, etc.
 
@@ -18,44 +18,45 @@ Here's the default `system/config/system.yaml` file:
 
 ```ruby
 home:
-  alias: '/home'                        # Default path for home, ie /
+  alias: '/home'                       # Default path for home, ie /
 
 pages:
-  theme: antimatter                     # Default theme (defaults to "antimatter" theme)
+  theme: antimatter                    # Default theme (defaults to "antimatter" theme)
   order:
-    by: defaults                        # Order pages by "default", "alpha" or "date"
-    dir: asc                            # Default ordering direction, "asc" or "desc"
+    by: defaults                       # Order pages by "default", "alpha" or "date"
+    dir: asc                           # Default ordering direction, "asc" or "desc"
   list:
-    count: 20                           # Default item count per page
+    count: 20                          # Default item count per page
   dateformat:
-    short: 'jS M Y'                     # Short date format
-    long: 'F jS \a\t g:ia'              # Long date format
+    short: 'jS M Y'                    # Short date format
+    long: 'F jS \a\t g:ia'             # Long date format
   process:
-    markdown: true                      # Process Markdown
-    twig: false                         # Process Twig
+    markdown: true                     # Process Markdown
+    twig: false                        # Process Twig
   events:
-    page: false                         # Enable page level events
-    twig: true                          # Enable twig level events
+    page: false                        # Enable page level events
+    twig: true                         # Enable twig level events
 
 cache:
-  enabled: true                         # Set to true to enable caching
+  enabled: true                        # Set to true to enable caching
   check:
-    pages: true                         # Check to see if page has been modifying to flush the cache
-  driver: auto                          # One of: auto|file|apc|xcache|memcache|memcached|wincache
-  prefix: 'g'                           # Cache prefix string (prevents cache conflicts)
+    pages: true                        # Check to see if page has been modifying to flush the cache
+  driver: auto                         # One of: auto|file|apc|xcache|memcache|memcached|wincache
+  prefix: 'g'                          # Cache prefix string (prevents cache conflicts)
 
-twig:           
-  cache: false                          # Set to true to enable twig caching
-  debug: true                           # Enable Twig debug
-  auto_reload: true                     # Refresh cache on changes
-  autoescape: false                     # Autoescape Twig vars
+twig:
+  cache: true                          # Set to true to enable twig caching
+  debug: false                         # Enable Twig debug
+  auto_reload: true                    # Refresh cache on changes
+  autoescape: false                    # Autoescape Twig vars
 
-debugger:           
-  enabled: true                         # Enable Grav debugger
-  max_depth: 10                         # How many nested levels to display for objects or arrays
-  log:            
-    enabled: true                       # Enable logging
-    timing: false                       # Enable timing logging
+debugger:
+  enabled: false                       # Enable Grav debugger and following settings
+  strict: false                        # Throw fatal error also on PHP warnings and notices
+  max_depth: 10                        # How many nested levels to display for objects or arrays
+  log:
+    enabled: true                      # Enable logging
+    timing: false                      # Enable timing logging
 ```
 
 >>> You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
@@ -97,11 +98,11 @@ Let's break down the elements of this sample file:
 
 ## Other Configuration Settings and Files
 
-As all the user configuration is completely optional, you can override as little or as much as you need. You are also not limited to the `user/config/system.yaml` or the `user/config/site.yaml` files as described above. You can create any arbitrary `.yaml` configuration file in the `user/config` folder you wish and it will get picked up by Grav automatically. 
+As all the user configuration is completely optional, you can override as little or as much as you need. You are also not limited to the `user/config/system.yaml` or the `user/config/site.yaml` files as described above. You can create any arbitrary `.yaml` configuration file in the `user/config` folder you wish and it will get picked up by Grav automatically.
 
-Paths to the configuration files will be used as a **namespace** for your configuration options. 
+Paths to the configuration files will be used as a **namespace** for your configuration options.
 
-Alternatively, you can put all the options into one file and use YAML structures to specify the hierarchy for your configuration options. This namespacing is built from a combination of the **path + filename + option name**. 
+Alternatively, you can put all the options into one file and use YAML structures to specify the hierarchy for your configuration options. This namespacing is built from a combination of the **path + filename + option name**.
 
 For example: An option such as `author: Frank Smith` in file `plugins/myplugin.yaml` could be accessible via: `plugins.myplugin.author`. However, you could also have a `plugins.yaml` file and in that file have a option name called `myplugin: author: Frank Smith` and it would still be reachable by the same `plugins.myplugin.author` namespace.
 
