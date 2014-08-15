@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Caching is an integral feature of Grav that has been baked in from the start.  The caching mechanism that Grav employees is the primary reason Grav is as fast as it is.  That said, there are some factors to take into account.  
+Caching is an integral feature of Grav that has been baked in from the start.  The caching mechanism that Grav employs is the primary reason Grav is as fast as it is.  That said, there are some factors to take into account.  
 
 ## Caching Providers
 
