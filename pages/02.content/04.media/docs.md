@@ -14,7 +14,7 @@ Grav uses a **smart-caching** system to automatically create any required image 
 
 ## Actions
 
-Grav employees a **builder-pattern** when handling media, so you can perform **multiple actions** on a particular medium.  Grav currently has the following actions built-in:
+Grav employs a **builder-pattern** when handling media, so you can perform **multiple actions** on a particular medium.  Grav currently has the following actions built-in:
 
 ### resize(w, h, background='0xffffff')
 
