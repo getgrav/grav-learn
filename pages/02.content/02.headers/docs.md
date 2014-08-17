@@ -4,11 +4,11 @@ taxonomy:
     category: docs
 ---
 
-The headers at the top of a page are completely optional, you don not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav and each has relevant headers. 
+The headers at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers. 
 
 ## Standard Page Headers
 
-A Standard page is a regular single page. There are a numbers of standard header options that are available, these are **valid for all pages**.
+A Standard page is a regular single page. There are a number of standard header options available.  These are **valid for all pages**.
 
 ### Title
 
@@ -26,7 +26,7 @@ If the `title` variable is not set, Grav has a fall back solution, and will try 
 slug: my-page-slug
 ```
 
-The `slug` variable allows you to specifically set the page's portion of the URL. For example `http://yoursite.com/my-page-slug` would be the URL if you set the `slug` above.  If the `slug` is not set in the page, Grav falls back to using the folder name (without any numerical prefixes).
+The `slug` variable allows you to specifically set the page's portion of the URL. For example: `http://yoursite.com/my-page-slug` would be the URL if you set the `slug` above.  If the `slug` is not set in the page, Grav falls back to using the folder name (without any numerical prefixes).
 
 ### Menu
 
@@ -52,7 +52,7 @@ routable: false
 
 By default, all pages are **routable**.  This means that they can be reached by pointing your browser to the URL of the page.  However, you may need to create a page that is created to hold specific content, but it is meant to be called directly by a plugin, other content, or even a theme directly.  A good example of this is a `404 Error` page.  
 
-Grav automatically looks for a page with the route `/error` if another page cannot be found.  With this being an actual page within Grav, allows you to have complete control over what this page looks like.  You probably don not want people accessing this page directly in their browser however, so this page commonly has its `routable` variable set to false. Valid values are `true` or `false`.
+Grav automatically looks for a page with the route `/error` if another page cannot be found.  With this being an actual page within Grav, you would have complete control over what this page looks like.  You probably do not want people accessing this page directly in their browser, however, so this page commonly has its `routable` variable set to false. Valid values are `true` or `false`.
 
 ### Template
 
@@ -60,7 +60,11 @@ Grav automatically looks for a page with the route `/error` if another page cann
 template: custom
 ```
 
-As explained in [the previous chapter][contentpages], the template from the theme that is used to render a page is based on the filename of the `.md` file. So a file called `default.md`, will use the `default` template in the active theme.  You can of course override this behavior by simply setting the `template` variable in the header and choosing a different template.  In the example above, the page will use the `custom` template from the theme.  This variable exists because you may need to change the template of a page programatically from a plugin.
+As explained in [the previous chapter][contentpages], the template from the theme that is used to render a page is based on the filename of the `.md` file. 
+
+So a file called `default.md`, will use the `default` template in the active theme.  You can, of course, override this behavior by simply setting the `template` variable in the header and choosing a different template.  
+
+In the example above, the page will use the `custom` template from the theme.  This variable exists because you may need to change the template of a page programatically from a plugin.
 
 ### Taxonomy
 
@@ -70,7 +74,9 @@ taxonomy:
     tag: [sample, demo, grav]
 ```
 
-A very useful header variable, `taxonomy` lets you assign values to **taxonomy** you defined as valid types in the [Site Configuration](../basics/site-configuration) file. If the taxonomy is not defined in that file, it will be ignored. In this example, the page is defined as being in the `blog` category, and has the tags: `sample`, `demo`, and `grav`.  These taxonomies can be used to find these pages from other pages, plugins and even themes. The [Taxonomy](taxonomy) chapter will cover this concept in more detail.
+A very useful header variable, `taxonomy` lets you assign values to **taxonomy** you defined as valid types in the [Site Configuration](../basics/site-configuration) file. 
+
+If the taxonomy is not defined in that file, it will be ignored.  In this example, the page is defined as being in the `blog` category, and has the tags: `sample`, `demo`, and `grav`.  These taxonomies can be used to find these pages from other pages, plugins and even themes. The [Taxonomy](taxonomy) chapter will cover this concept in more detail.
 
 ### Date
 
@@ -86,7 +92,9 @@ The `date` variable allows you to specifically set a date associated with this p
 cache_enable: false
 ```
 
-By default Grav will cache the contents of the page file to ensure things run as fast as possible.  There are advanced scenarios where you do not want the page to be cached. An example of this is when your using dynamic Twig variables in your content. The `cache_enable` variable allows this behavior to be overridden.  We will cover Twig Content variables in a later chapter. Valid values are `true` or `false`.
+By default, Grav will cache the contents of the page file to ensure things run as fast as possible.  There are advanced scenarios where you do not want the page to be cached. 
+
+An example of this is when your using dynamic Twig variables in your content. The `cache_enable` variable allows this behavior to be overridden.  We will cover Twig Content variables in a later chapter. Valid values are `true` or `false`.
 
 ### Process
 
@@ -224,7 +232,9 @@ sitemap:
     priority: 1.03
 ```
 
-The significance of these headers is that Grav does not use them by default, they are only read by the **sitemap plugin** to determine how often this particular page is modified and what it priority should be.  Any page header such as this should be documented, and generally there will be some default value that will be used if the page does not provide it.
+The significance of these headers is that Grav does not use them by default, they are only read by the **sitemap plugin** to determine how often this particular page is modified and what it priority should be.  
+
+Any page header such as this should be documented, and generally there will be some default value that will be used if the page does not provide it.
 
 Another example would be to store page-specific data that could then be used by Twig in the content of the page.  This really provides a lot of flexibility and power.
 
