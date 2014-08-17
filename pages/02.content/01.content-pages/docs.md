@@ -8,7 +8,7 @@ process:
 
 In Grav-speak, **pages** are the fundamental building blocks of your site.  They are how you write content and provide navigation in the Grav system.  
 
-Combining content and navigation ensures that the system is intuitive to use for even the most inexperienced of content authors. However, this system in conjunction with powerful taxonomy capabilities is still powerful enough to handle complex content requirements.
+Combining content and navigation ensures that the system is intuitive to use for even the most inexperienced of content authors. However, this system, in conjunction with powerful taxonomy capabilities, is still powerful enough to handle complex content requirements.
 
 Grav natively supports **3 types of pages** that allow you create a rich selection of web content. Those types are:
 
@@ -80,9 +80,9 @@ You can specifically define a manual order by providing a list of options to the
 
 ## Page File
 
-Within the page folder, we can create the actual page file.  The filename should end with `.md` to indicate it's a Markdown formatted file.  Technically it's markdown with YAML front matter, which sounds impressive but really is not a big deal. We'll cover the details of the file structure soon.
+Within the page folder, we can create the actual page file.  The filename should end with `.md` to indicate that it is a Markdown formatted file.  Technically, it is markdown with YAML front matter, which sounds impressive but really is not a big deal at all. We will cover the details of the file structure soon.
 
-The important thing to understand is the name of the file, directly references the name of the theme's template file that will be used to render.  The standard name for the main template file is **default**, so the file would be named `default.md`.  
+The important thing to understand is the name of the file directly references the name of the theme's template file that will be used to render.  The standard name for the main template file is **default**, so the file would be named `default.md`.  
 
 You can of course name your file whatever you like, for example: `document.md`, which would cause Grav to look for a template file in the theme that matches, such as the **document** template.
 
@@ -105,7 +105,9 @@ An example page file could look like this:
 	sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque
 	velit orci, laoreet at adipiscing eu, interdum quis nibh. Nunc a accumsan purus.
 
-The settings between the pair of `---` markers is known as the YAML front matter, and it's basically YAML settings for the page.  In this example we are explicitly setting the title, as well setting the taxonomy to **blog** so we can filter it later.  The content after the second `---` is the actual content that will be compiled and rendered as HTML on your site.  This is written in [Markdown][markdown] which will be covered in detail in a future chapter, just know that the `#`, `**`, and `_` markers translate to a **heading1**, **bold**, and **italics** respectively.
+The settings between the pair of `---` markers is known as the YAML front matter, and it is comprised of basic YAML settings for the page.  
+
+In this example, we are explicitly setting the title, as well setting the taxonomy to **blog** so we can filter it later.  The content after the second `---` is the actual content that will be compiled and rendered as HTML on your site.  This is written in [Markdown][markdown], which will be covered in detail in a future chapter.  Just know that the `#`, `**`, and `_` markers translate to a **heading1**, **bold**, and **italics**, respectively.
 
 In the next section we will continue and dig into the specifics of a page in detail.
 
