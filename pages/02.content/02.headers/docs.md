@@ -232,7 +232,7 @@ sitemap:
     priority: 1.03
 ```
 
-The significance of these headers is that Grav does not use them by default, they are only read by the **sitemap plugin** to determine how often this particular page is modified and what it priority should be.  
+The significance of these headers is that Grav does not use them by default, they are only read by the **sitemap plugin** to determine how often this particular page is modified and what its priority should be.  
 
 Any page header such as this should be documented, and generally there will be some default value that will be used if the page does not provide it.
 
