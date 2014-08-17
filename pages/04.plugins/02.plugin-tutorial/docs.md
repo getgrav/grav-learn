@@ -4,9 +4,11 @@ taxonomy:
     category: docs
 ---
 
-Plugins are usually developed because there is a problem that needs to be solved that can not be solved with Grav's core functionality.  In this tutorial, we will create a plugin that helps Grav to deliver a random page to the user.  You have probably seen similar functionality on blog sites as a way to provide a random blog-post when you click a button.
+Plugins are usually developed because there is a problem that can not be solved with Grav's core functionality.  
 
-This feature is not possible **out-of-the-box**, but is **easily** provided via a plugin.  As is the case with a great many aspects of Grav, there is no _one-way_ to do this, but instead, you have many options.  
+In this tutorial, we will create a plugin that helps Grav to deliver a random page to the user.  You have probably seen similar functionality on blog sites as a way to provide a random blog-post when you click a button.
+
+This feature is not possible **out-of-the-box**, but is **easily** provided via a plugin.  As is the case with a great many aspects of Grav, there is no _one-way_ to do this. Instead, you have many options.  
 
 ## Random Plugin Overview
 
@@ -18,7 +20,7 @@ For our plugin we will take the following approach:
 
 3. Find a random page from our filtered pool, and tell Grav to use it for the page content.
 
-OK, sounds simple enough, so let us get cracking!
+OK! This sounds simple enough, right? So, let us get cracking!
 
 ## Step 1 - Base Plugin Setup
 
@@ -48,7 +50,7 @@ filters:
 
 This allows us to have multiple filters if we wish, but for now, we just want all content with the taxonomy 'category: blog' to be eligible for the random selection.
 
-Of course, as with all other configurations in Grav, it is advised not to touch this default configuration for day-to-day control, rather, you should create an override in a file called `/user/config/plugins/random.yaml` to house any custom settings.  This plugin-provided `random.yaml` is really intended to set some sensible defaults for your plugin.
+Of course, as with all other configurations in Grav, it is advised not to touch this default configuration for day-to-day control. Rather, you should create an override in a file called `/user/config/plugins/random.yaml` to house any custom settings.  This plugin-provided `random.yaml` is really intended to set some sensible defaults for your plugin.
 
 ## Step 3 - Base Plugin Structure
 
@@ -108,11 +110,11 @@ The next step is to add a method to our `RandomPlugin` class to activate the plu
 
 First, we get the **Uri object** from the **Grav Registry**.  This contains all the information about the current URI, including the route information.
 
-The **config object** is already part of the base **Plugin** so we can simple use it to get the configuration value for our configured `route`.
+The **config object** is already part of the base **Plugin**, so we can simply use it to get the configuration value for our configured `route`.
 
 Next, we compare the configured route to the current URI path. If they are equal, we set the `$active` property on the plugin to **true**.
 
-By using this approach, we ensure we do not run through any extra code if we do not need to.  It is practices like this that will ensure your site runs as fast as possible.
+By using this approach, we ensure we do not run through any extra code if we do not need to.  Practices like these will ensure your site runs as fast as possible.
 
 ## Step 6 - Display the Random Page
 
@@ -160,7 +162,7 @@ This method is a bit more complicated, so we'll go over what's going on:
 
 ## Step 7 - Final Plugin Class
 
-And that's all there is to it! The plugin is now complete.  Your complete plugin class should look something like this:
+And that is all there is to it! The plugin is now complete.  Your complete plugin class should look something like this:
 
 ```
 <?php

@@ -11,9 +11,9 @@ Often, the best way to learn a new thing is to use an example, and then try to b
 
 ## Antimatter
 
-Grav comes with a clean and modern theme called **Antimatter** that uses a simple base set of CSS styling that we call **Nucleus**.  
+Grav comes with a clean and modern theme called **Antimatter** which uses a simple base set of CSS styling that we call **Nucleus**.  
 
-Nucleus, is a lightweight CSS framework that contains the essential CSS resets and styling for layout and HTML markup without any over-bearing design.  Antimatter has some custom styling on top of the Nucleus framework to give it a unique look and feel.
+Nucleus is a lightweight CSS framework that contains the essential CSS resets and styling for layout and HTML markup without any over-bearing design.  Antimatter has some custom styling on top of the Nucleus framework to give it a unique look and feel.
 
 ## Bootstrap
 

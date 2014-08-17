@@ -50,7 +50,7 @@ The next step is to create some pages that makes use of these taxonomy types.  F
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-and another page that looks like:
+...and another page that looks like:
 
 	---
 	title: Post 2
@@ -88,11 +88,11 @@ You can also do sophisticated searches based on multiple taxonomies by using arr
 {% for post in taxonomy.findTaxonomy({'tags':['animal','cat'],'author':'jdoe'}) %}
 ```
 
-This will find all posts with `tags` set to `animal` **and** `cat` **and** `author` set to `jdoe`.  Basically this will specifically find **Post 2**.
+This will find all posts with `tags` set to `animal` **and** `cat` **and** `author` set to `jdoe`.  Basically, this will specifically find **Post 2**.
 
 ## Taxonomy based Collections
 
-We covered this in an earlier chapter, but it's important to remember that you can also use taxonomies in the [page headers][headers] to filter a collection of pages associated with a parent page.  If you need a refresher on this subject, please refer back to that [chapter on headers][headers].
+We covered this in an earlier chapter, but it is important to remember that you can also use taxonomies in the [page headers][headers] to filter a collection of pages associated with a parent page.  If you need a refresher on this subject, please refer back to that [chapter on headers][headers].
 
 [siteyaml]: ../basics/grav-configuration
 [headers]: headers

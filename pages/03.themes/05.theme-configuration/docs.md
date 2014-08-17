@@ -6,18 +6,18 @@ taxonomy:
 
 Theme configuration works in a similar fashion to all the other configuration settings in Grav. You can provide settings for a theme configuration file for you theme with the filename `<themename>.yaml` in the root of your theme folder. These variables be accessed in your template files. 
 
-It is **strongly** recommended not to actually change the theme's YAML file, but to override the settings in the `user/config` folder.
+It is **strongly** recommended not to actually change the theme's YAML file, but to override the settings in the `user/config` folder. This will ensure that the theme's original settings remain in tact, allowing you to quickly access the changes and/or revert back whenever necessary.
 
-For example, let's consider the antimatter theme.  By default there is a file called `antimatter.yaml` in the theme's root folder. The contents of this configuration file look like this:
+For example, let us consider the Antimatter theme.  By default, there is a file called `antimatter.yaml` in the theme's root folder. The contents of this configuration file look like this:
 
 ```
 enabled: true
 color: blue
 ```
 
-This is a simple file but it provides you an idea of what you can do with theme configuration settings. Let us provide an override for these settings plus a new one. 
+This is a simple file, but it provides you an idea of what you can do with theme configuration settings. Let us provide an override for these settings plus a new one. 
 
-So create a file in the following location: `user/config/themes/antimatter.yaml`.  In this file put the following contents:
+So, create a file in the following location: `user/config/themes/antimatter.yaml`.  In this file put the following contents:
 
 ```
 color: red
