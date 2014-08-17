@@ -6,15 +6,19 @@ process:
 	twig: true
 ---
 
-Themes in Grav are quite simple and very flexible because they are built with the powerful [Twig Templating engine][twigtemplates]. We typically use [Sass CSS Extension][sass] to generate our CSS files, but there's nothing stopping you from using [LESS][less] or even regular CSS. It's purely a preference thing.
+Themes in Grav are quite simple, and very flexible because they are built with the powerful [Twig Templating engine][twigtemplates]. We typically use [Sass CSS Extension][sass] to generate our CSS files, but there is nothing stopping you from using [LESS][less], or even regular CSS. It simply comes down to your own personal preferences.
 
 ## Content Pages & Twig Templates
 
-The first thing to understand is the direct relationship between **pages** in Grav and the **twig template files** that are provided in a theme.  Each page you create references a specific template file either implicitly by the name of the page or explicitly by setting the template header variable for the page.  For simpler maintenance, we advise using the page name rather than the overriding it with the header variable whenever possible.
+The first thing to understand is the direct relationship between **pages** in Grav and the **twig template files** that are provided in a theme.  
 
-Let us work through a simple example.  If you have [installed the **Grav Base** package][gravbase] you will notice that in the `user/pages/01.home` folder, you have a file called `default.md` that contains the markdown-based content for the page.  The name of this file, i.e. `default` tells Grav that this page should be rendered with the twig template called `default.html.twig` which is located in the theme's `templates/` folder.
+Each page you create references a specific template file, either by the name of the page file, or by setting the template header variable for the page.  For simpler maintenance, we advise using the page name rather than overriding it with the header variable, whenever possible.
+
+Let us work through a simple example.  If you have [installed the **Grav Base** package][gravbase] you will notice that in the `user/pages/01.home` folder, you have a file called `default.md` which contains the markdown-based content for the page.  The name of this file, i.e. `default` tells Grav that this page should be rendered with the twig template called `default.html.twig` which is located in the theme's `templates/` folder.
 
 If you were to have a page file called `blog.md`, Grav would try to render it with the twig template: `<your_theme>/templates/blog.html.twig`.
+
+>> The names of files in Grav do not appear on the frontend of Grav. Only the folder names do. Don't worry if all of your blog posts have the same file name. This is normal.
 
 ## Theme Organization
 
@@ -63,7 +67,7 @@ Also you should provide a `300px` x `300px` image of your theme and call it `thu
 
 ### Plugin Events
 
-Another powerful feature that is purely optional is the ability for a theme to interact with Grav via the **plugins** architecture.  To accomplish this, simply create a file called `<your_theme.php` and use the following format:
+Another powerful feature that is purely optional is the ability for a theme to interact with Grav via the **plugins** architecture.  To accomplish this, simply create a file called `your_theme.php` and use the following format:
 
 	<?php
 	namespace Grav\Theme;
@@ -91,13 +95,15 @@ The story for support **forms** is the same. Create another sub-folder called `f
 
 ### Blueprints
 
-The **blueprints** folder is used to define forms for options and configuration for each of the template files. These are used by the **Administrator Panel** and are optional. The theme is 100% functional without these, but they will not be editable via the administrator panel unless provided.
+The **blueprints** folder is used to define forms for options and configuration for each of the template files. These are used by the **Administrator Panel** and are optional. The theme is 100% functional without these, but they will not be editable via the administrator panel, unless provided.
 
 ### SCSS / LESS / CSS
 
 Again, there is nothing set in stone here, but a solid practice is to have a sub-folder called `scss/` if you use want to develop with Sass, or `less/` if you prefer Less along with a `css/` folder to put static CSS files, and a `css-compiled/` folder for any automatically generated files from your Sass or Less compilations.
 
-How you organize your files in here is completely up to you, feel free to follow our example in the default **antimatter** theme provided with the Grav Base package for some ideas.  We are using the **scss** variant of Sass which is more CSS-like, and frankly more natural to write. To install Sass on your computer: simply [follow the instructions on the sass-lang.com][sasslang] website.
+How you organize your files in here is completely up to you.  Feel free to follow our example in the default **antimatter** theme provided with the Grav Base package for some ideas.  We are using the **scss** variant of Sass which is more CSS-like, and frankly more natural to write. 
+
+To install Sass on your computer: simply [follow the instructions on the sass-lang.com][sasslang] website.
 
 1. Execute the simple provided scss shell script by typing `> ./scss.sh` from the root of the theme.
 2. Running the command directly `> scss --sourcemap --watch scss:css-compiled` which is the same thing.
@@ -114,7 +120,7 @@ Let us use the default **antimatter** theme as an example, below you can see the
 
 {{ media['theme-folders.png'].html('Theme Folders') }}
 
-In this example the actual `css`, `css-compiled`, `fonts`, `images`, `js`, `scss`, and `templates` files have been ignored to make it more readable.  The important thing to note is the overall structure of the theme. 
+In this example, the actual `css`, `css-compiled`, `fonts`, `images`, `js`, `scss`, and `templates` files have been ignored to make it more readable.  The important thing to note is the overall structure of the theme. 
 
 >>> NOTE: The the `index.html` file is just a blank file.
 
