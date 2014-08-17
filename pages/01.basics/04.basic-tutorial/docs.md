@@ -26,13 +26,13 @@ If you examine this configuration file in your install, you will see that it alr
 
 ## Page Editing
 
-Pages in **Grav** are composed in **Markdown** syntax.  Markdown is a formatting syntax that is written in plain text and then converted automatically to HTML. It uses very simple text symbols to indicate key HTML tags making it very easy to write without having to know the complexities of HTML. There are numerous other benefits of using Markdown including less-errors, valid markup, very readable, easy to learn etc.  
+Pages in **Grav** are composed in **Markdown** syntax.  Markdown is a formatting syntax that is written in plain text and then converted automatically to HTML. It uses very simple text symbols to indicate key HTML tags making it very easy to write without having to know the complexities of HTML. There are numerous other benefits of using Markdown including less-errors, valid markup, very readable, simple to learn, transferable, etc.  
 
 You can read an [extensive write-up of available syntax][syntax] with examples in the documentation, but for now, just follow along.
 
 Open the home page in your text editor. The file that controls the homepage is located in the `user/pages/01.home/` folder and is called `default.md`. All of the content you create will be created in the `user/pages/` folder in your Grav installation.
 
-When you edit the page in a text editor the content will look something like this:
+When you edit the page in a text editor, the content will look something like this:
 
 	---
 	title: Home
@@ -61,7 +61,7 @@ Let us break this down a little so you can see how easy it is to write in Markdo
 title: Home
 ```
 
-This block sets the HTML title tag for the page (the text you see in the browser tab).  You can also access this from your themes via the `page.title` attribute.  There are a [few standard headers](../content/headers) that let you configure a variety of options for this page. Another example is `menu: Something` that lets you override the text used to display the name of the page in a menu.  By default, Grav will use the title for the menu value.
+This block sets the HTML title tag for the page (the text you see in the browser tab).  You can also access this from your themes via the `page.title` attribute.  There are a [few standard headers][pageheaders] that let you configure a variety of options for this page. Another example is `menu: Something` that lets you override the text used to display the name of the page in a menu.  By default, Grav will use the title for the menu value.
 
 ```markdown
 # Grav is Running!
@@ -80,7 +80,7 @@ This is a simple paragraph that would have be wrapped in regular `<p>` tags when
 >>>>> If you want a more **full-featured** base install, you should check out [**Skeleton** packages available in the downloads](http://getgrav.org/downloads).
 ```
 
-This is a special feature provided by the default Grav theme.  Usually in Markdown, a `>` indicates a `<blockquote>` in HTML.  We have overridden three level deep blockquotes and onwards to provide [styling for notices](../content/markdown). In this case 5 angles, or `>>>>>` will produce a blue notice box. Within this blue notice styling, we also have some text that is wrapped in brackets or `[` and `]` markers followed by a URL in parenthesis `(` and `)`.  This is the markdown styntax for hyperlinking text.  It is very simple when you get the hang of it.
+This is a special feature provided by the default Grav theme.  Usually in Markdown, a `>` indicates a `<blockquote>` in HTML.  We have overridden three level deep blockquotes and onwards to provide [styling for notices][syntax]. In this case, 5 chevrons, or `>>>>>` will produce a blue notice box. Within this blue notice styling, we also have some text that is wrapped in brackets or `[` and `]` markers followed by a URL in parenthesis `(` and `)`.  This is the markdown styntax for hyperlinking text.  It is very simple when you get the hang of it.
 
 ```markdown
 * Learn about **Grav** by checking out our dedicated [Learn Grav](http://learn.getgrav.org) site.
@@ -88,7 +88,7 @@ This is a special feature provided by the default Grav theme.  Usually in Markdo
 * Check out our [Grav Development Blog](http://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
 ```
 
-Creating unordered lists is super-simple in markdown. Simply use an `*`, `-`, or `+`, and a space to indicate that text is part of a list.  For an ordered list, simple user a number and a period before the text.
+Creating unordered lists is super simple in markdown. Simply use an `*`, `-`, or `+`, and a space to indicate that text is part of a list.  For an ordered list, simple use a number and a period before the text.
 
 This overview should provide you with a few key pointers for writing Markdown, but you should check out our more [detailed explanation][syntax] to get a thorough understanding.
 
