@@ -4,6 +4,7 @@
     {% block head %}
     <meta charset="utf-8" />
     <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="generator" content="Grav {{ grav_version }}" />
     {% if header.description %}
         <meta name="description" content="{{ header.description }}">
     {% else %}
