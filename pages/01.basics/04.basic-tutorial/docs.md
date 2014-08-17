@@ -88,7 +88,7 @@ This is a special feature provided by the default Grav theme.  Usually in Markdo
 * Check out our [Grav Development Blog](http://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
 ```
 
-Creating unordered lists is super simple in markdown. Simply use an `*`, `-`, or `+`, and a space to indicate that text is part of a list.  For an ordered list, simple use a number and a period before the text.
+Creating unordered lists is super simple in markdown. Simply use an `*`, `-`, or `+`, and a space to indicate that text is part of a list.  For an ordered list, simply use a number and a period before the text.
 
 This overview should provide you with a few key pointers for writing Markdown, but you should check out our more [detailed explanation][syntax] to get a thorough understanding.
 
