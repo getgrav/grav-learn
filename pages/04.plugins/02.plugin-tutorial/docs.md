@@ -172,7 +172,7 @@ use Grav\Common\Page\Collection;
 use Grav\Common\Plugin;
 use Grav\Common\Registry;
 use Grav\Common\Uri;
-use NexGrav\Common\Taxonomy;
+use Grav\Common\Taxonomy;
 
 class RandomPlugin extends Plugin
 {
