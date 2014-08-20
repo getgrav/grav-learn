@@ -16,7 +16,7 @@ There are several core Grav hooks that are triggered during the processing of a 
 
 This is an event that can be fired at any time if PHP throws a fatal exception. This is currently used by the `problems` plugin to handle displaying a list of potential reasons why Grav throw the fatal exception.
 
-#### onAfterInitPlugins
+#### onPluginsInitialized
 
 This is the first plugin event available. At this point the following objects have been initiated:
 
@@ -28,15 +28,19 @@ This is the first plugin event available. At this point the following objects ha
 
 >>>> NOTE: A plugin will not be loaded at all if the `enabled: false` configuration option has been set for that particular plugin
 
-#### onAfterGetPages
+#### onAssetsInitialized
+
+The event indicates the assets manager has been initialized and is ready for assets to be added and managed.
+
+#### onPagesInitialized
 
 This event signifies that all the pages in Grav's `user/pages` folder have been loaded as objects and are available in the **Pages object**.
 
-#### onAfterGetPage 
+#### onPageInitialized 
 
 The current page as requested by a URL has been loaded into the **Page object**.
 
-#### onAfterGetOutput
+#### onOutputGenerated
 
 The output has been processed by the **Twig templating engine** and is now just a string of HTML.  
 
@@ -45,47 +49,47 @@ The output has been processed by the **Twig templating engine** and is now just 
 
 Twig has it's own set of event hooks.
 
-#### onAfterTwigTemplatesPaths
+#### onTwigTemplatePaths
 
 The base locations for template paths have been set on the **Twig object**.  If you need to add other locations where Twig will search for template paths, this is the event to use.
 
-#### onAfterTwigInit
+#### onTwigInitialized
 
 The Twig templating engine is now initialized at this point.
 
-#### onAfterTwigExtensions
+#### onTwigExtensions
 
 The core twig extensions have been loaded, but if you need to add your own Twig extension, you can do so with this event hook.
 
-#### onAfterTwigPageVars
+#### onTwigPageVariables
 
 Where Twig processes a page directly, i.e. when you set `process: twig: true` in a page's YAML headers. This is where you should add any variables to Twig that need to be available to twig during this process.
 
-#### onAfterTwigStringVars
+#### onTwigStringVariables
 
 Where Twig processes a string directly. This is where you should add any variables to Twig that need to be available to twig during this process.
 
-#### onAfterTwigSiteVars
+#### onTwigSiteVariables
 
 Where Twig processes the full site template hierarchy.  This is where you should add any variables to Twig that need to be available to twig during this process.
 
 ## Collection Event Hooks
 
-#### onAfterCollectionProcessed
+#### onCollectionProcessed
 
 If you need to manipulate a collection after it has been processed this is the time to do it.
 
 ## Page Event Hooks
 
-#### onCreateBlueprint
+#### onBlueprintCreated
 
 This is used for processing forms.
 
-#### onAfterPageProcessed (disabled by default)
+#### onPageProcessed (disabled by default)
 
 After a page is parsed and processed.  This is fired for **every page** in the Grav system.  This is disabled by default for performance reasons.
 
-#### onAfterFolderProcessed (disabled by default)
+#### onFolderProcessed (disabled by default)
 
 After a folder is parsed and processed.  This is fired for **every folder** in the Grav system.  This is disabled by default for performance reasons.
 

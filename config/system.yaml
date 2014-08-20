@@ -12,13 +12,13 @@ cache:
   enabled: true
   check:
     pages: true
-  driver: auto
+  driver: apc
   prefix: 'g'
 
 twig:
   cache: true
-  debug: true
-  auto_reload: true
+  debug: false
+  auto_reload: false
   autoescape: false
 
 assets:
