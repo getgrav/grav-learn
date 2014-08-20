@@ -80,7 +80,7 @@ This is a simple paragraph that would have be wrapped in regular `<p>` tags when
 >>>>> If you want a more **full-featured** base install, you should check out [**Skeleton** packages available in the downloads](http://getgrav.org/downloads).
 ```
 
-This is a special feature provided by the default Grav theme.  Usually in Markdown, a `>` indicates a `<blockquote>` in HTML.  We have overridden three level deep blockquotes and onwards to provide [styling for notices][syntax]. In this case, 5 chevrons, or `>>>>>` will produce a blue notice box. Within this blue notice styling, we also have some text that is wrapped in brackets or `[` and `]` markers followed by a URL in parenthesis `(` and `)`.  This is the markdown styntax for hyperlinking text.  It is very simple when you get the hang of it.
+This is a special feature provided by the default Grav theme.  Usually in Markdown, a `>` indicates a `<blockquote>` in HTML.  We have overridden three level deep blockquotes and onwards to provide [styling for notices][syntax]. In this case, 5 chevrons, or `>>>>>` will produce a blue notice box. Within this blue notice styling, we also have some text that is wrapped in brackets or `[` and `]` markers followed by a URL in parenthesis `(` and `)`.  This is the markdown syntax for hyperlinking text.  It is very simple when you get the hang of it.
 
 ```markdown
 * Learn about **Grav** by checking out our dedicated [Learn Grav](http://learn.getgrav.org) site.
