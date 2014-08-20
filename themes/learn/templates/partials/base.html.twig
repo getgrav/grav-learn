@@ -19,26 +19,26 @@
     <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png">
 
     {% block stylesheets %}
-        {% do assets.add('@theme/css-compiled:nucleus.css',102) %}
-        {% do assets.add('@theme/css-compiled:template.css',101) %}
-        {% do assets.add('@theme/css/highlight:learn.css',100) %}
-        {% do assets.add('@theme/css:featherlight.min.css') %}
+        {% do assets.add('theme://css-compiled/nucleus.css',102) %}
+        {% do assets.add('theme://css-compiled/template.css',101) %}
+        {% do assets.add('theme://css/highlight/learn.css',100) %}
+        {% do assets.add('theme://css/featherlight.min.css') %}
 
         {% if user_agent.getBrowserName == 'msie' and user_agent.getBrowserVersion >= 8 and user_agent.getBrowserVersion <= 9 %}
-            {% do assets.add('@theme/css:nucleus-ie9.css') %}
-            {% do assets.add('@theme/css/pure-0.5.0:grids-min.css') %}
-            {% do assets.add('@theme/js:html5shiv-printshiv.min.js') %}
+            {% do assets.add('theme://css/nucleus-ie9.css') %}
+            {% do assets.add('theme://css/pure-0.5.0/grids-min.css') %}
+            {% do assets.add('theme://js/html5shiv-printshiv.min.js') %}
         {% endif %}
 
         {{ assets.css() }}
     {% endblock %}
 
     {% block javascripts %}
-        {% do assets.add('@theme/js:jquery-2.1.1.min.js',101) %}
-        {% do assets.add('@theme/js:modernizr.custom.71422.js',100) %}
-        {% do assets.add('@theme/js:learn.js') %}
-        {% do assets.add('@theme/js:highlight.pack.js') %}
-        {% do assets.add('@theme/js:featherlight.min.js') %}
+        {% do assets.add('theme://js/jquery-2.1.1.min.js',101) %}
+        {% do assets.add('theme://js/modernizr.custom.71422.js',100) %}
+        {% do assets.add('theme://js/learn.js') %}
+        {% do assets.add('theme://js/highlight.pack.js') %}
+        {% do assets.add('theme://js/featherlight.min.js') %}
 
         {{ assets.js() }}
     {% endblock %}
