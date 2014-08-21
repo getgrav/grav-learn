@@ -101,7 +101,7 @@ a {
   color: white; }
   #showcase .spacer {
     height: 180px; }
-    @media only all and (max-width: 47.938rem) {
+    @media only all and (max-width: 47.938em) {
       #showcase .spacer {
         display: none; } }
 
@@ -276,19 +276,19 @@ td {
 
 .two-column-bullet {
   width: 50%; }
-  @media only all and (max-width: 47.938rem) {
+  @media only all and (max-width: 47.938em) {
     .two-column-bullet {
       width: 100%; } }
 
 .three-column-bullet {
   width: 33.33333%; }
-  @media only all and (max-width: 47.938rem) {
+  @media only all and (max-width: 47.938em) {
     .three-column-bullet {
       width: 100%; } }
 
 .four-column-bullet {
   width: 25%; }
-  @media only all and (max-width: 47.938rem) {
+  @media only all and (max-width: 47.938em) {
     .four-column-bullet {
       width: 100%; } }
 
@@ -2081,7 +2081,7 @@ b, strong, label, th {
         color: #4e7e92;
         padding: 0 5px;
         font-size: 24px; }
-        @media only all and (max-width: 47.938rem) {
+        @media only all and (max-width: 47.938em) {
           #header.navbar ul li > a, #header.navbar ul li > span {
             font-size: 18px;
             padding: 0; } }
@@ -2096,13 +2096,13 @@ b, strong, label, th {
     color: #4e7e92;
     margin: 0;
     font-size: 26px; }
-    @media only all and (max-width: 47.938rem) {
+    @media only all and (max-width: 47.938em) {
       #header.navbar h4 {
         font-size: 20px;
         text-align: right;
         padding-left: 0; } }
 
-@media only all and (max-width: 47.938rem) {
+@media only all and (max-width: 47.938em) {
   #overlay {
     display: static;
     position: fixed;
@@ -2116,7 +2116,7 @@ body.sidebar-hidden #sidebar {
   left: -250px; }
 body.sidebar-hidden #body {
   left: 0; }
-  @media only all and (max-width: 47.938rem) {
+  @media only all and (max-width: 47.938em) {
     body.sidebar-hidden #body {
       overflow-y: auto; } }
 body.sidebar-hidden #header.navbar h3 {
@@ -2202,7 +2202,7 @@ body.searchbox-hidden .padding {
       border: 3px solid #f0f0f0; }
     #body img.shadow {
       box-shadow: 10px 10px 0 0 #f0f0f0; }
-  @media only all and (max-width: 47.938rem) {
+  @media only all and (max-width: 47.938em) {
     #body {
       overflow: hidden;
       position: fixed;
@@ -2219,17 +2219,17 @@ body.searchbox-hidden .padding {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     padding: 15px 6rem; }
-    @media only all and (max-width: 59.938rem) {
+    @media only all and (max-width: 59.938em) {
       #body .padding {
         position: static;
         padding: 15px 3rem; } }
-    @media only all and (max-width: 47.938rem) {
+    @media only all and (max-width: 47.938em) {
       #body .padding {
         padding: 5px 1rem; } }
   #body h1 + hr {
     margin-top: -1.7rem;
     margin-bottom: 3rem; }
-  @media only all and (max-width: 59.938rem) {
+  @media only all and (max-width: 59.938em) {
     #body #navigation {
       position: static;
       margin-right: 0 !important;
@@ -2249,7 +2249,7 @@ body.searchbox-hidden .padding {
       display: table-cell;
       vertical-align: middle;
       text-align: center; }
-    @media only all and (max-width: 59.938rem) {
+    @media only all and (max-width: 59.938em) {
       #body .nav {
         display: table-cell;
         position: static;

@@ -183,19 +183,19 @@ th {
   text-align: left; }
 
 .container {
-  width: 75rem;
+  width: 75em;
   margin: 0 auto;
   padding: 0; }
-  @media only all and (min-width: 60rem) and (max-width: 74.938rem) {
+  @media only all and (min-width: 60em) and (max-width: 74.938em) {
     .container {
-      width: 60rem; } }
-  @media only all and (min-width: 48rem) and (max-width: 59.938rem) {
+      width: 60em; } }
+  @media only all and (min-width: 48em) and (max-width: 59.938em) {
     .container {
-      width: 48rem; } }
-  @media only all and (min-width: 30.063rem) and (max-width: 47.938rem) {
+      width: 48em; } }
+  @media only all and (min-width: 30.063em) and (max-width: 47.938em) {
     .container {
-      width: 30rem; } }
-  @media only all and (max-width: 30rem) {
+      width: 30em; } }
+  @media only all and (max-width: 30em) {
     .container {
       width: 100%; } }
 
@@ -213,7 +213,7 @@ th {
   list-style: none;
   margin: 0;
   padding: 0; }
-  @media only all and (max-width: 47.938rem) {
+  @media only all and (max-width: 47.938em) {
     .grid {
       -webkit-flex-flow: row wrap;
       -moz-flex-flow: row wrap;
@@ -227,7 +227,7 @@ th {
   -moz-flex: 1;
   -ms-flex: 1;
   flex: 1; }
-  @media only all and (max-width: 47.938rem) {
+  @media only all and (max-width: 47.938em) {
     .block {
       -webkit-box-flex: 0;
       -moz-box-flex: 0;
@@ -241,7 +241,7 @@ th {
   margin: 0.625rem;
   padding: 0.938rem; }
 
-@media only all and (max-width: 47.938rem) {
+@media only all and (max-width: 47.938em) {
   body [class*="size-"] {
     -webkit-box-flex: 0;
     -moz-box-flex: 0;
@@ -350,7 +350,7 @@ th {
   -ms-flex: 0 8.33333%;
   flex: 0 8.33333%; }
 
-@media only all and (min-width: 48rem) and (max-width: 59.938rem) {
+@media only all and (min-width: 48em) and (max-width: 59.938em) {
   .size-tablet-1-2 {
     -webkit-box-flex: 0;
     -moz-box-flex: 0;
@@ -449,7 +449,7 @@ th {
     -moz-flex: 0 8.33333%;
     -ms-flex: 0 8.33333%;
     flex: 0 8.33333%; } }
-@media only all and (max-width: 47.938rem) {
+@media only all and (max-width: 47.938em) {
   @supports not (flex-wrap: wrap) {
     .grid {
       display: block;
@@ -495,13 +495,13 @@ th {
     -ms-flex: inherit;
     flex: inherit;
     width: 25%; }
-    @media only all and (min-width: 60rem) and (max-width: 74.938rem) {
+    @media only all and (min-width: 60em) and (max-width: 74.938em) {
       .fixed-blocks .block {
         width: 33.33333%; } }
-    @media only all and (min-width: 48rem) and (max-width: 59.938rem) {
+    @media only all and (min-width: 48em) and (max-width: 59.938em) {
       .fixed-blocks .block {
         width: 50%; } }
-    @media only all and (max-width: 47.938rem) {
+    @media only all and (max-width: 47.938em) {
       .fixed-blocks .block {
         width: 100%; } }
 

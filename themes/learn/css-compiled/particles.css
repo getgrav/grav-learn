@@ -10,7 +10,7 @@
 .text-justify {
   text-align: justify !important; }
 
-@media all and (min-width: 75rem) {
+@media all and (min-width: 75em) {
   .large-desktop-text-left {
     text-align: left !important; }
 
@@ -22,7 +22,7 @@
 
   .large-desktop-text-justify {
     text-align: justify !important; } }
-@media all and (min-width: 60rem) and (max-width: 74.938rem) {
+@media all and (min-width: 60em) and (max-width: 74.938em) {
   .desktop-text-left {
     text-align: left !important; }
 
@@ -34,7 +34,7 @@
 
   .desktop-text-justify {
     text-align: justify !important; } }
-@media all and (min-width: 48rem) and (max-width: 59.938rem) {
+@media all and (min-width: 48em) and (max-width: 59.938em) {
   .tablet-text-left {
     text-align: left !important; }
 
@@ -46,7 +46,7 @@
 
   .tablet-text-justify {
     text-align: justify !important; } }
-@media all and (min-width: 30.063rem) and (max-width: 47.938rem) {
+@media all and (min-width: 30.063em) and (max-width: 47.938em) {
   .large-mobile-text-left {
     text-align: left !important; }
 
@@ -58,7 +58,7 @@
 
   .large-mobile-text-justify {
     text-align: justify !important; } }
-@media all and (max-width: 30rem) {
+@media all and (max-width: 30em) {
   .small-mobile-text-left {
     text-align: left !important; }
 
@@ -70,7 +70,7 @@
 
   .small-mobile-text-justify {
     text-align: justify !important; } }
-@media all and (min-width: 48rem) {
+@media all and (min-width: 48em) {
   .no-mobile-text-left {
     text-align: left !important; }
 
@@ -82,7 +82,7 @@
 
   .no-mobile-text-justify {
     text-align: justify !important; } }
-@media all and (max-width: 47.938rem) {
+@media all and (max-width: 47.938em) {
   .mobile-only-text-left {
     text-align: left !important; }
 
