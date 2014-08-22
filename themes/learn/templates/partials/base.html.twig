@@ -24,7 +24,7 @@
         {% do assets.add('theme://css/highlight/learn.css',100) %}
         {% do assets.add('theme://css/featherlight.min.css') %}
 
-        {% if user_agent.getBrowserName == 'msie' and user_agent.getBrowserVersion >= 8 and user_agent.getBrowserVersion <= 9 %}
+        {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
             {% do assets.add('theme://css/nucleus-ie9.css') %}
             {% do assets.add('theme://css/pure-0.5.0/grids-min.css') %}
             {% do assets.add('theme://js/html5shiv-printshiv.min.js') %}
