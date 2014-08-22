@@ -255,6 +255,7 @@ body {
 
 	@extend .default-animation;
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 	position: absolute;
 	top: $header-height;
 	right: 0;

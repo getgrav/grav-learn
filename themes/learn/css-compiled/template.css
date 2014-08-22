@@ -2190,6 +2190,7 @@ body.searchbox-hidden .padding {
 
 #body {
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   position: absolute;
   top: 60px;
   right: 0;
