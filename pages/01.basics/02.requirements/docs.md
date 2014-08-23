@@ -39,7 +39,7 @@ Even though technically you do not need a standalone Web server, it is better to
 >>> NOTE: Running Grav with the built-in Web server provided with PHP 5.4 is explained in more detail in the next chapter.
 
 
-## Recomended Tools
+## Recommended Tools
 
 ### Text Editors
 
