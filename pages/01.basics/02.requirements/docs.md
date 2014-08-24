@@ -54,7 +54,7 @@ Although you can get away with Notepad, Textedit, Vi, or whatever default text e
 
 Another option if you primarily work with just creating content, is to use a **Markdown Editor**. These often are very content-centric and usually provide a **live-preview** of your content rendered as HTML.  There are literally hundreds of these, but some good options include:
 
-1. [LightPaper](http://clockworkengine.com/lightpaper-mac/) - OS X - Free, clean, powerful.  Our markdown editor of choice on the mac.
+1. [LightPaper](http://clockworkengine.com/lightpaper-mac/) - OS X - Free, clean, powerful.  Our markdown editor of choice on the Mac.
 2. [MarkDrop](http://culturezoo.com/markdrop/) - OS X - $5, but super clean and and Droplr support built-in.
 3. [MarkdownPad](http://markdownpad.com/) - Windows - Free and Pro versions. Even as YAML front-matter support.  A very solid solution for Windows users .
 
