@@ -34,7 +34,7 @@ Even though technically you do not need a standalone Web server, it is better to
 
 ### Linux
 
-* Many distributions of Linux already come with Apache and PHP built-in, if it's not built-in, then usually the distribution provides a package manager where you can install apache and PHP without much hassle.  More advanced configurations should be investigated with the help of a good search engine.
+* Many distributions of Linux already come with Apache and PHP built-in, if it's not built-in, then usually the distribution provides a package manager where you can install Apache and PHP without much hassle.  More advanced configurations should be investigated with the help of a good search engine.
 
 >>> NOTE: Running Grav with the built-in Web server provided with PHP 5.4 is explained in more detail in the next chapter.
 
