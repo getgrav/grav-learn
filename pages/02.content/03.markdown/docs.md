@@ -169,7 +169,7 @@ and this HTML:
 
 
 ### strikethrough
-In GFM you can do strickthroughs.
+In GFM (GitHub flavored Markdown) you can do strickthroughs.
 
 ```markdown
 ~~Strike through this text.~~
