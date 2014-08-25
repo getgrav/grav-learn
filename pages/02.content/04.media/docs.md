@@ -6,7 +6,7 @@ process:
 	twig: true
 ---
 
-When creating content in **Grav**, you often need to display **image**, **video**, and **file** document types. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of of the page to create thumbnails, and resize images dynamically as you need them.  
+When creating content in **Grav**, you often need to display **image**, **video**, and **file** document types. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of the page to create thumbnails, and resize images dynamically as you need them.  
 
 Grav uses a **smart-caching** system to automatically create any required image the first time it is requested, then use this image for each subsequent request.
 
