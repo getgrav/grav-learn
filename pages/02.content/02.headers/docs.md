@@ -12,7 +12,7 @@ A Standard page is a regular single page. There are a number of standard header 
 
 ### Title
 
-If you have no headers at all, you will not have any control over the title of the page as it shows in the browser and search engines.  For this reason, it is recommended to _at least_ put the the `title` variable in the header of the page:
+If you have no headers at all, you will not have any control over the title of the page as it shows in the browser and search engines.  For this reason, it is recommended to _at least_ put the `title` variable in the header of the page:
 
 ```ruby
 title: Title of my Page
@@ -64,7 +64,7 @@ As explained in [the previous chapter][contentpages], the template from the them
 
 So a file called `default.md`, will use the `default` template in the active theme.  You can, of course, override this behavior by simply setting the `template` variable in the header and choosing a different template.  
 
-In the example above, the page will use the `custom` template from the theme.  This variable exists because you may need to change the template of a page programatically from a plugin.
+In the example above, the page will use the `custom` template from the theme.  This variable exists because you may need to change the template of a page programmatically from a plugin.
 
 ### Taxonomy
 
@@ -94,7 +94,7 @@ cache_enable: false
 
 By default, Grav will cache the contents of the page file to ensure things run as fast as possible.  There are advanced scenarios where you do not want the page to be cached. 
 
-An example of this is when your using dynamic Twig variables in your content. The `cache_enable` variable allows this behavior to be overridden.  We will cover Twig Content variables in a later chapter. Valid values are `true` or `false`.
+An example of this is when you are using dynamic Twig variables in your content. The `cache_enable` variable allows this behavior to be overridden.  We will cover Twig Content variables in a later chapter. Valid values are `true` or `false`.
 
 ### Process
 
@@ -116,7 +116,7 @@ There are situations when you want to use Twig templating functionality in your 
 markdown_extra: true
 ```
 
-Markdown Extra is a new feature we added in **v0.9.0**.  You can enable this glboally via your `user/config/system.yaml` configuration file, or you can override this global setting _per-page_ with this header option.
+Markdown Extra is a new feature we added in **v0.9.0**.  You can enable this globally via your `user/config/system.yaml` configuration file, or you can override this global setting _per-page_ with this header option.
 
 ### Lightbox
 
@@ -124,7 +124,7 @@ Markdown Extra is a new feature we added in **v0.9.0**.  You can enable this glb
 lightbox: true
 ```
 
-Although strictly speaking this is not a standard page header, it is a common way to enabled the loading of a standard lightbox JavaScript and CSS for a page.  By default the core `antimatter` theme does not load the prerequisites to enable lightbox capabilities of images, by enabling this option in the page headers, they will be loaded for you.
+Although strictly speaking this is not a standard page header, it is a common way to enable the loading of a standard lightbox JavaScript and CSS for a page.  By default the core `antimatter` theme does not load the prerequisites to enable lightbox capabilities of images, by enabling this option in the page headers, they will be loaded for you.
 
 ## Meta Page Headers
 
@@ -202,7 +202,7 @@ content:
     items: @taxonomy.tag: [foo, bar]
 ```
 
-the `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. The [Taxonomy][tax] chapter will cover this concept in more detail.
+The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. The [Taxonomy][tax] chapter will cover this concept in more detail.
 
 ### Ordering Options
 
