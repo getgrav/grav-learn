@@ -10,7 +10,7 @@ In Grav-speak, **pages** are the fundamental building blocks of your site.  They
 
 Combining content and navigation ensures that the system is intuitive to use for even the most inexperienced of content authors. However, this system, in conjunction with powerful taxonomy capabilities, is still powerful enough to handle complex content requirements.
 
-Grav natively supports **3 types of pages** that allow you create a rich selection of web content. Those types are:
+Grav natively supports **3 types of pages** that allow you to create a rich selection of web content. Those types are:
 
 {{ media['page-types.png'].html('Grav Page Types') }}
 
@@ -42,7 +42,7 @@ A modular page is a special type of listing page because it actually builds a **
 
 >>> A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads][downloads]
 
-Each of these page types follow the same basic structure so before we can get into the nitty-gritty of each type, we must explain how pages in Grav are constructed.
+Each of these page types follow the same basic structure, so before we can get into the nitty-gritty of each type, we must explain how pages in Grav are constructed.
 
 ## Folders
 
@@ -52,9 +52,9 @@ Grav understands that any integer value followed by a period will be solely for 
 
 {{ media['page-folders.png'].html('Grav Folder Example') }}
 
-Your site must have entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://yoursite.com` in your browser.  By default, Grav expects an alias `home/`, but you can override the home location by changing the `home.alias` option in the [Grav configuration file](../basics/grav-configuration).
+Your site must have an entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://yoursite.com` in your browser,  by default, Grav expects an alias `home/`, but you can override the home location by changing the `home.alias` option in the [Grav configuration file](../basics/grav-configuration).
 
-**Modular folders** are identified by an underscore (`_`) before the folder name.  This is a special folder type that is intended to be used only with **modular content**.  These are **not routable** and **not visible** in navigation. An example of a modular folder would be a folder such as `user/pages/01.home/_header`. Home is actually is configured as a **modular page** and would be constructed from the `_header`, `_features`, and `_body` modular pages.
+**Modular folders** are identified by an underscore (`_`) before the folder name.  This is a special folder type that is intended to be used only with **modular content**.  These are **not routable** and **not visible** in the navigation. An example of a modular folder would be a folder such as `user/pages/01.home/_header`. Home is actually configured as a **modular page** and would be constructed from the `_header`, `_features`, and `_body` modular pages.
 
 The textual name of each folder defaults to the _slug_ that the system uses as part of the URL.  For example if you have a folder such as `/user/pages/02.blog`, the slug for this page would default to `blog`, and the full URL would be `http://yoursite.com/blog`. A blog item page, located in `/user/pages/02.blog/blog-item-5` would be accessible via `http://yoursite.com/blog/blog-item-5`.
 
