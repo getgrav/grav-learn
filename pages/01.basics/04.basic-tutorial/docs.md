@@ -111,7 +111,7 @@ Creating a new page is a simple affair in **Grav**.  Simply follow these simple 
 3. Save this file in the `user/pages/02.mypage/` folder as `default.md`. This will tell **Grav** to render the page using the **default** template.
 4. That is it! Reload your browser to see your new page in the menu.
 
-The page will automatically show up in the Menu after the **"Home"** menu item. If you wish to change the name that shows up in the Menu, simple add: `menu: My Page` between the dashes in the page content.
+The page will automatically show up in the Menu after the **"Home"** menu item. If you wish to change the name that shows up in the Menu, simply add: `menu: My Page` between the dashes in the page content.
 
 **Congratulations**, you have now successfully created a new page in Grav.  There is much more you can do with Grav, so please continue reading to find out about more advanced capabilities and in-depth features.
 
