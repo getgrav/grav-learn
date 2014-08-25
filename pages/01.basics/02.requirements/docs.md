@@ -27,7 +27,7 @@ Even though technically you do not need a standalone Web server, it is better to
 
 * [EasyPHP](http://www.easyphp.org/) provides a personal Web hosting package as well as a more powerful developer version
 * [WampServer](http://www.wampserver.com/en/) provides Apache, PHP, and MySQL in one simple package
-* [MAMP](http://mamp.info) is a long-time mac favorite, but now available for windows.
+* [MAMP](http://mamp.info) is a long-time Mac favorite, but now available for Windows.
 * [IIS with PHP](http://php.iis.net/) is a fast way to run PHP on Windows.
 
 >>> IIS Web server is currently untested with Grav, but should work fine.
