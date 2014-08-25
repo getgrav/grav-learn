@@ -115,6 +115,10 @@ The page will automatically show up in the Menu after the **"Home"** menu item. 
 
 **Congratulations**, you have now successfully created a new page in Grav.  There is much more you can do with Grav, so please continue reading to find out about more advanced capabilities and in-depth features.
 
+>>> If you have any issues accessing this new page, you probably either missing your `.htaccess` file (Apache web server only) or you may need to edit the `RewriteBase` command in you `.htaccess` file. Please consult the [Troubleshooting](../troubleshooting) section for more information.
+
+
+
 [installation]: installation
 [folderstructure]: folder-structure
 [syntax]: ../content/markdown

@@ -14,6 +14,10 @@ The underlying architecture of Grav has been designed to use well established an
 * [Markdown](http://en.wikipedia.org/wiki/Markdown): for easy content creation
 * [YAML](http://yaml.org): for simple configuration 
 * [Doctrine Cache](http://docs.doctrine-project.org/en/2.0.x/reference/caching.html): layer for incredible performance
+* [Pimple Dependency Injection Container](http://pimple.sensiolabs.org/): for increased extensibility and maintainability
+* [Symfony Event Dispacher](http://symfony.com/doc/current/components/event_dispatcher/introduction.html): for plugin even handling
+* [Symfony Console](http://symfony.com/doc/current/components/console/introduction.html): for CLI interface
+* [Gregwar Image Library](https://github.com/Gregwar/Image): for dynamic image manipulation
 
 ## Grav's Place in the Universe
 
@@ -23,7 +27,7 @@ These platforms provide a wealth of features and functionality that you can exte
 
 In the end, you often find yourself in the position where you end with a site comprised of many different products from many different vendors that comes closest to approximating your original vision.
 
-Grav tackles the problem differently.  It focuses primarily on your content, and turns your content structure into a navigable site.  The underpinnings of Grav are simple, yet via extensive **hooks**, you have complete control over every step in the Grav workflow.  
+Grav tackles the problem differently.  It focuses primarily on your content, and turns your content structure into a navigable site.  The underpinnings of Grav are simple, yet via extensive ** events**, you have complete control over every step in the Grav workflow.  
 
 This allows simple plugins to quickly and easily add powerful functionality. It also offers an incredibly quick development turnaround with an installation process that takes seconds, including a straightforward content creation method with a minimal learning curve. This puts Grav in a position of being friendly to both the developer and the end user.
 
