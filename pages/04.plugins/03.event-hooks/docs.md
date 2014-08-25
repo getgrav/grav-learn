@@ -10,7 +10,7 @@ To fully harness the power of Grav plugins you need to know which event hooks ar
 
 ## Core Grav Event Hooks
 
-There are several core Grav hooks that are triggered during the processing of a page:
+There are several core Grav event hooks that are triggered during the processing of a page:
 
 #### onFatalException
 
@@ -85,13 +85,13 @@ If you need to manipulate a collection after it has been processed this is the t
 
 This is used for processing forms.
 
-#### onPageProcessed (disabled by default)
+#### onPageProcessed
 
-After a page is parsed and processed.  This is fired for **every page** in the Grav system.  This is disabled by default for performance reasons.
+After a page is parsed and processed.  This is fired for **every page** in the Grav system.  With caching performance is not a problem because this even will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
 
-#### onFolderProcessed (disabled by default)
+#### onFolderProcessed 
 
-After a folder is parsed and processed.  This is fired for **every folder** in the Grav system.  This is disabled by default for performance reasons.
+After a folder is parsed and processed.  This is fired for **every folder** in the Grav system.  With caching performance is not a problem because this even will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
 
 [plugintutorial]: plugin-tutorial
 [lifecycle]: ../advanced/grav-lifecycle

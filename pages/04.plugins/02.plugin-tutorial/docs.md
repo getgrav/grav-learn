@@ -8,7 +8,7 @@ Plugins are usually developed because there is a problem that can not be solved 
 
 In this tutorial, we will create a plugin that helps Grav to deliver a random page to the user.  You have probably seen similar functionality on blog sites as a way to provide a random blog-post when you click a button.
 
-This feature is not possible **out-of-the-box**, but is **easily** provided via a plugin.  As is the case with a great many aspects of Grav, there is no _one-way_ to do this. Instead, you have many options.  
+This feature is not possible **out-of-the-box**, but is **easily** provided via a plugin.  As is the case with a great many aspects of Grav, there is no _one-way_ to do this. Instead, you have many options.  We will cover just one approach...
 
 ## Random Plugin Overview
 
@@ -22,7 +22,7 @@ For our plugin we will take the following approach:
 
 OK! This sounds simple enough, right? So, let us get cracking!
 
-## Step 1 - Base Plugin Setup
+### Step 1 - Base plugin setup
 
 Before we can start writing our actual plugin logic, we need to create the base setup for the plugin.
 
@@ -37,7 +37,7 @@ Before we can start writing our actual plugin logic, we need to create the base 
 	random.yaml
 	```
 
-## Step 2 - Plugin Configuration
+### Step 2 - Plugin configuration
 
 As we described in the **Plugin Overview**, we need to have a few configuration options for our plugin, so the `random.yaml` file should look something like this:
 
@@ -48,11 +48,13 @@ filters:
     category: blog
 ```
 
-This allows us to have multiple filters if we wish, but for now, we just want all content with the taxonomy 'category: blog' to be eligible for the random selection.
+This allows us to have multiple filters if we wish, but for now, we just want all content with the taxonomy `category: blog` to be eligible for the random selection.
+
+>>>> The Grav default install has taxonomy defined for `category` and `tag` by default.  This configuration can be modified in your `user/config/site.yaml` file.
 
 Of course, as with all other configurations in Grav, it is advised not to touch this default configuration for day-to-day control. Rather, you should create an override in a file called `/user/config/plugins/random.yaml` to house any custom settings.  This plugin-provided `random.yaml` is really intended to set some sensible defaults for your plugin.
 
-## Step 3 - Base Plugin Structure
+### Step 3 - Base plugin structure
 
 The base plugin class structure will need to look something like this:
 
@@ -62,7 +64,6 @@ namespace Grav\Plugin;
 
 use Grav\Common\Page\Collection;
 use Grav\Common\Plugin;
-use Grav\Common\Registry;
 use Grav\Common\Uri;
 use Grav\Common\Taxonomy;
 
@@ -79,88 +80,87 @@ The two key parts of this class structure are:
 1. Plugins need to have `namespace Grav\Plugin` at the top of of the PHP file.
 2. Plugins should be named in **titlecase** based on the name of the plugin with the string `Plugin` appended to the end, and should extend `Plugin`.
 
-## Step 4 - Plugin Properties
+### Step 4 - Subscribed events
 
-Next we should add some class properties to house key variables that will be used by the plugin methods:
+Grav uses a sophisticated event system, and to ensure optimal performance, all plugins are inspected by Grav to determine which events the plugin is subscribed to.
 
 ```
-class RandomPlugin extends Plugin
-{
-    protected $active = false;
-    protected $uri;
-    protected $filters = array();
+public static function getSubscribedEvents() {
+    return [
+        'onPluginsInitialized' => ['onPluginsInitialized', 0],
+    ];
 }
 ```
 
-## Step 5 - Determine if the Plugin is Active
+In this plugin we are going to tell Grav we're subscribing to the `onPluginsInitialized` event.  This way we can use that event (which is the first event available to plugins) to determine if we should subscribe to other events.
 
-The next step is to add a method to our `RandomPlugin` class to activate the plugin only when a user tries to go to the route we have configured in our `random.yaml` file:
+### Step 5 - Determine if the plugin should run
+
+The next step is to add a method to our `RandomPlugin` class to handle the `onPluginsInitialized` event so it only activates when a user tries to go to the route we have configured in our `random.yaml` file:
 
 ```
-	public function onAfterInitPlugins()
-    {
-        $this->uri = Registry::get('Uri');
-        $route = $this->config->get('plugins.random.route');
+public function onPluginsInitialized()
+{
+    /** @var Uri $uri */
+    $uri = $this->grav['uri'];
+    $route = $this->config->get('plugins.random.route');
 
-        if ($route && $route == $this->uri->path()) {
-            $this->active = true;
-        }
+    if ($route && $route == $uri->path()) {
+        $this->enable([
+            'onPageInitialized' => ['onPageInitialized', 0]
+        ]);
     }
+}
 ```
 
-First, we get the **Uri object** from the **Grav Registry**.  This contains all the information about the current URI, including the route information.
+First, we get the **Uri object** from the **Dependency Injection Container**.  This contains all the information about the current URI, including the route information.
 
 The **config object** is already part of the base **Plugin**, so we can simply use it to get the configuration value for our configured `route`.
 
-Next, we compare the configured route to the current URI path. If they are equal, we set the `$active` property on the plugin to **true**.
+Next, we compare the configured route to the current URI path. If they are equal, we instruct the dispatcher that our plugin will also listen to a new event: `onPageInitialized`.
 
 By using this approach, we ensure we do not run through any extra code if we do not need to.  Practices like these will ensure your site runs as fast as possible.
 
-## Step 6 - Display the Random Page
+### Step 6 - Display the random page
 
 The last step of our plugin is to display the random page, and we can do that with the following method:
 
 ```
-	public function onAfterGetPage()
-    {
-        if ($this->active) {
-            $taxonomy_map = Registry::get('Taxonomy');
+public function onPageInitialized()
+{
+    $taxonomy_map = $this->grav['taxonomy'];
 
-            $filters = (array) $this->config->get('plugins.random.filters');
+    $filters = (array) $this->config->get('plugins.random.filters');
 
-            if (count($filters) > 0) {
-                $collection = new Collection();
-                foreach ($filters as $taxonomy => $items) {
-                    if (isset($items)) {
-                        $collection->append($taxonomy_map->findTaxonomy([$taxonomy => $items])->toArray());
-                    }
-                }
-
-                $grav = Registry::get('Grav');
-                $grav->page = $collection->random()->current();
+    if (count($filters) > 0) {
+        $collection = new Collection();
+        foreach ($filters as $taxonomy => $items) {
+            if (isset($items)) {
+                $collection->append($taxonomy_map->findTaxonomy([$taxonomy => $items])->toArray());
             }
         }
+        unset($this->grav['page']);
+        $this->grav['page'] = $collection->random()->current();
     }
+}
 ```
 
 This method is a bit more complicated, so we'll go over what's going on:
 
-1. If the plugin is active, we will continue processing.
+1. First, we get the **Taxonomy object** from the **Grav DI Container** and assign it to a variable `$taxonomy_map`.
 
-2. Next, we get the **Taxonomy object** from the **Grav registry** and assign it to a variable `$taxonomy_map`.
+2. Then we retrieve the array of filters from our plugin configuration.  In our configuration this is an array with 1 item: ['category' => 'blog'].
 
-3. Then we retrieve the array of filters from our plugin configuration.  In our configuration this is an array with 1 item: ['category' => 'blog'].
+3. Check to ensure we have filters, then create a new `Collection` in the `$collection` variable to store our pages.
 
-4. Check to ensure we have filters, then create a new `Collection` in the `$collection` variable to store our pages.
+4. Loop over our filters and append all pages that match the filter to our `$collection` variable.
 
-5. Loop over our filters and append all pages that match the filter to our `$collection` variable.
+5. Unset the current `page` object that Grav knows about.
 
-6. Get the core **Grav object** from the **Grav Registry** and assign it to the variable `$grav`.
-
-7. Set the current page to a random item in the collection.
+6. Set the current `page` to a random item in the collection.
 
 
-## Step 7 - Final Plugin Class
+### Step 7 - Final plugin class
 
 And that is all there is to it! The plugin is now complete.  Your complete plugin class should look something like this:
 
@@ -170,49 +170,49 @@ namespace Grav\Plugin;
 
 use Grav\Common\Page\Collection;
 use Grav\Common\Plugin;
-use Grav\Common\Registry;
 use Grav\Common\Uri;
 use Grav\Common\Taxonomy;
 
 class RandomPlugin extends Plugin
 {
-    protected $active = false;
-    protected $uri;
-    protected $filters = array();
+    public static function getSubscribedEvents() {
+        return [
+            'onPluginsInitialized' => ['onPluginsInitialized', 0],
+        ];
+    }
 
-    public function onAfterInitPlugins()
+    public function onPluginsInitialized()
     {
-        $this->uri = Registry::get('Uri');
+        $uri = $this->grav['uri'];
         $route = $this->config->get('plugins.random.route');
 
-        if ($route && $route == $this->uri->path()) {
-            $this->active = true;
+        if ($route && $route == $uri->path()) {
+            $this->enable([
+                'onPageInitialized' => ['onPageInitialized', 0]
+            ]);
         }
     }
 
-    public function onAfterGetPage()
+    public function onPageInitialized()
     {
-        if ($this->active) {
-            $taxonomy_map = Registry::get('Taxonomy');
+        $taxonomy_map = $this->grav['taxonomy'];
 
-            $filters = (array) $this->config->get('plugins.random.filters');
+        $filters = (array) $this->config->get('plugins.random.filters');
 
-            if (count($filters) > 0) {
-                $collection = new Collection();
-                foreach ($filters as $taxonomy => $items) {
-                    if (isset($items)) {
-                        $collection->append($taxonomy_map->findTaxonomy([$taxonomy => $items])->toArray());
-                    }
+        if (count($filters) > 0) {
+            $collection = new Collection();
+            foreach ($filters as $taxonomy => $items) {
+                if (isset($items)) {
+                    $collection->append($taxonomy_map->findTaxonomy([$taxonomy => $items])->toArray());
                 }
-
-                $grav = Registry::get('Grav');
-                $grav->page = $collection->random()->current();
             }
+            unset($this->grav['page']);
+            $this->grav['page'] = $collection->random()->current();
         }
     }
 }
 ```
 
-You can also download this plugin directly from the [Plugins Download](http://getgrav.org/downloads/plugins#extras) section of the [getgrav.org](http://getgrav.org/downloads/plugins#extras) site. 
+If you followed along, you should have a fully functional **Random** plugin enabled for your site.  Just point your browser to the `http://yoursite.com/random`, and you should see a random page.  You can also download this plugin directly from the [Plugins Download](http://getgrav.org/downloads/plugins#extras) section of the [getgrav.org](http://getgrav.org/downloads/plugins#extras) site. 
 
 [basicinstall]: ../basics/installation

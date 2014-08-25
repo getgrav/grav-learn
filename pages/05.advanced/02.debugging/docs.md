@@ -14,23 +14,27 @@ Luckily, Grav comes with a great tool to make this easier called [Tracy Debugger
 
 {{ media['debugger-bar.png'].html }}
 
-This debugger bar is enabled by default but you can disable it along with other debugging options in the `user/config/system.yaml` file:
+This **debugger bar** is enabled by default but you can disable it along with other debugging options in the `user/config/system.yaml` file:
 
 ```
 debugger:
-  enabled: true                         # Enable Grav debugger
-  max_depth: 10                         # How many nested levels to display for objects or arrays
+  enabled: false                       # Enable Grav debugger and following settings
+  mode: detect                         # Mode tracy Debugger should be set to when enabled: detect|development|production
+  strict: false                        # Throw fatal error also on PHP warnings and notices
+  max_depth: 10                        # How many nested levels to display for objects or arrays
   log:
-    enabled: true                       # Enable logging
-    timing: false                       # Enable timing logging
+    enabled: true                      # Enable logging
+    timing: false                      # Enable timing logging
 ```
+
+>>> The Debugger **always** runs in Grav because we use it for logging and exception handling.  However the **debugger bar** is controlled by the `enabled` option combined with the `mode` option.  You must `enable` the debugger in the configuration for it to show at all, however, you can set the mode to `detect` to **enabled** on local hosts, and be **disabled** on production environments.
 
 Another great feature that Tracy provides, is the ability to use its `dump()` method. This provides a very easy to read way to display objects and variables.
 
 For example, in a plugin you might have something like:
 
 ```
-\Tracy\Debugger::dump(Registry::get('Config'));
+\Tracy\Debugger::dump($my_object);
 ```
 
 and this would display the following output:

@@ -189,6 +189,8 @@ Please read over the code in the `base.html.twig` file to try to understand what
 
 8. The use of `{% block content %}{% endblock %}` provides a placeholder that allows us to provide content from a template that extends this one.
 
+9. Similar to the content block, the `{% block bottom %}{% endblock %}` is intended as a place holder for templates to add custom JavaScript initialization or analytic codes.
+
 ## Step 5 - Header Template
 
 If you read the code, you will remember seeing a reference just after the `<body>` tag that looked like: `{% include 'partials/header.html.twig' %}`.  This tells the Twig rendering engine to include another template file at this point.  We need to now create this file to provide our **header** and **navigation**.

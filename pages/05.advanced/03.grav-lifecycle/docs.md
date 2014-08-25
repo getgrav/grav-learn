@@ -2,6 +2,8 @@
 title: Grav Lifecycle
 taxonomy:
     category: docs
+process:
+	markdown: false
 ---
 
 It is often useful to know how Grav processes in order to fully understand how best to extend Grav via plugins.  This is the Grav lifecycle:
@@ -9,6 +11,7 @@ It is often useful to know how Grav processes in order to fully understand how b
 <div id="lifecycle">
 	<ol class="level-1">
 		<h3>index.php</h3>
+		<li>Check PHP version to ensure we're running at least <b>5.4.0</b> <a href="https://github.com/getgrav/grav/blob/develop/index.php#L4-L6">
 		<li>Autoload classes &amp; initialise Definitions <a href="https://github.com/getgrav/grav/blob/develop/index.php#L11"><i class="icon icon-right-open"></i></a></li>
 		<li>Start output buffer <a href="https://github.com/getgrav/grav/blob/develop/index.php#L18"><i class="icon icon-right-open"></i></a></li>
 		<li>Start  Debugger timer <a href="https://github.com/getgrav/grav/blob/develop/index.php#L22"><i class="icon icon-right-open"></i></a></li>

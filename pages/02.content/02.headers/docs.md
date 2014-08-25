@@ -110,6 +110,14 @@ You may want to disable `markdown` on a particular page if you want to use 100% 
 
 There are situations when you want to use Twig templating functionality in your content, and this is accomplished by setting the `twig` variable to true.
 
+### Markdown Extra
+
+```ruby
+markdown_extra: true
+```
+
+Markdown Extra is a new feature we added in **v0.9.0**.  You can enable this glboally via your `user/config/system.yaml` configuration file, or you can override this global setting _per-page_ with this header option.
+
 ### Lightbox
 
 ``` ruby
@@ -223,6 +231,7 @@ Ordering of sub-pages follows the same rules as ordering of folders, the availab
 | **modified** | The order based on the modified timestamp of the page                                                         |
 | **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                             |
 | **manual**   | The order based on the `order_manual` variable                                                                |
+| **random**   | The order is randomized                                                                                       |
 
 The `content.items.dir` variable controls which direction the ordering should be in. Valid values are either **desc** or **asc**.
 
