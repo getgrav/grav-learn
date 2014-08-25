@@ -79,5 +79,10 @@ twig:
 
 For slight performance gains, you can disable the `debug` extension, and also disable `auto_reload` which performs a similar function to `cache: check: pages` as it will not look for changes in `.html.twig` files to trigger cache refreshes.
 
+## Caching and Events
+
+For the most part, [events are still fired][event-hooks] even when caching is enabled.  This holds true for all the events except for `onPageProcessed` and `onFolderProcessed`.  These two event are run as all pages and folders are recursed and they fire on each page or folder found.  As their name implies they are only run during the **processing**, and not after the page has been cached.
+
 [docterinecache]: http://docs.doctrine-project.org/en/2.0.x/reference/caching.html
 [apc]: http://php.net/manual/en/book.apc.php
+[event-hooks]: ../event/hooks

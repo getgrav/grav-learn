@@ -2,8 +2,6 @@
 title: Theme Basics
 taxonomy:
     category: docs
-process:
-	twig: true
 ---
 
 Themes in Grav are quite simple, and very flexible because they are built with the powerful [Twig Templating engine][twigtemplates]. We typically use [Sass CSS Extension][sass] to generate our CSS files, but there is nothing stopping you from using [LESS][less], or even regular CSS. It simply comes down to your own personal preferences.
@@ -18,7 +16,7 @@ Let us work through a simple example.  If you have [installed the **Grav Base** 
 
 If you were to have a page file called `blog.md`, Grav would try to render it with the twig template: `<your_theme>/templates/blog.html.twig`.
 
->> The names of files in Grav do not appear on the frontend of Grav. Only the folder names do. Don't worry if all of your blog posts have the same file name. This is normal.
+>>> The names of files in Grav do not appear on the frontend of Grav. Only the folder names do. Don't worry if all of your blog posts have the same file name. This is normal.
 
 ## Theme Organization
 
@@ -55,6 +53,7 @@ form:
             green: Green
 ```
 
+>>>> The form fields can be safely ignored at this point. These are provided for our testing of a new administration plugin to provide configuration of the theme. As this is not currently available, they are unused.
 
 If you want to use theme configuration options you should provide default settings in a file called `<your_theme>.yaml`.  For example:
 
@@ -62,6 +61,8 @@ If you want to use theme configuration options you should provide default settin
 enabled: true
 color: blue
 ```
+
+>>> The `color: blue` configuration option does not actually do anything. It is merely used as an example of how to override a setting.
 
 Also you should provide a `300px` x `300px` image of your theme and call it `thumbnail.jpg` at the root of the theme.
 
@@ -105,8 +106,8 @@ How you organize your files in here is completely up to you.  Feel free to follo
 
 To install Sass on your computer: simply [follow the instructions on the sass-lang.com][sasslang] website.
 
-1. Execute the simple provided scss shell script by typing `> ./scss.sh` from the root of the theme.
-2. Running the command directly `> scss --sourcemap --watch scss:css-compiled` which is the same thing.
+1. Execute the simple provided scss shell script by typing `$ ./scss.sh` from the root of the theme.
+2. Running the command directly `$ scss --sourcemap --watch scss:css-compiled` which is the same thing.
 
 By default, this will compile your scss files into the `css-compiled/` folder.  You can then reference the resulting css file in your theme.
 
@@ -118,7 +119,7 @@ We recommend creating individual folders at the root of your theme for `images/`
 
 Let us use the default **antimatter** theme as an example, below you can see the overall structure of this theme:
 
-{{ media['theme-folders.png'].html('Theme Folders') }}
+![Theme Folders](theme-folders.png)
 
 In this example, the actual `css`, `css-compiled`, `fonts`, `images`, `js`, `scss`, and `templates` files have been ignored to make it more readable.  The important thing to note is the overall structure of the theme. 
 

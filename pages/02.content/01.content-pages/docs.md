@@ -70,9 +70,12 @@ When dealing with collections, there are several options available to control ho
 | :----------  | :----------                                                                       |
 | **default**  | The order based on the file system, i.e. `01.home` before `02.advark`             |
 | **title**    | The order is based on the title as defined in each page                           |
+| **basename** | The order is based on the alphabetic folder without numeric order 				   |
 | **date**     | The order based on the date as defined in each page                               |
 | **modified** | The order based on the modified timestamp of the page                             |
 | **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed |
+| **manual**   | The order based on the `order_manual` variable                                    |
+| **random**   | The order is randomized														   |
 
 You can specifically define a manual order by providing a list of options to the `content.order.custom` configuration setting. This will work in conjunction with the `content.order.by` because it first tries to manually order the pages, but any pages not specified in the manual order, will be fall-through and be ordered by the ordering setting provided.
 

@@ -3,7 +3,7 @@ home:
 
 pages:
   theme: learn
-  markdown_extra: false
+  markdown_extra: true
   process:
     markdown: true
     twig: false

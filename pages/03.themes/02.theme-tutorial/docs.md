@@ -2,11 +2,8 @@
 title: Theme Tutorial
 taxonomy:
     category: docs
-process:
-	twig: true
 ---
 
-{% verbatim %}
 Often, the best way to learn a new thing is to use an example, and then try to build your own creation from it. We are going to use this same methodology for creating a new Grav theme.  
 
 ## Antimatter
@@ -108,83 +105,91 @@ So we will now create a simple Bootstrap friendly base template:
 
 2. In this new `user/themes/bootstrap/templates/partials` folder, create a file called `base.html.twig` with the following content:
 
-	<!DOCTYPE html>
-		<html lang="en">
-		    <head>
-		        {% block head %}
-		        <meta charset="utf-8">
-		        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		        <meta name="viewport" content="width=device-width, initial-scale=1">
-		        {% if header.description %}
-		        <meta name="description" content="{{ header.description }}">
-		        {% else %}
-		        <meta name="description" content="{{ site.description }}">
-		        {% endif %}
-		        {% if header.robots %}
-		        <meta name="robots" content="{{ header.robots }}">
-		        {% endif %}
-		        <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png">
+```
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% if header.description %}
+        <meta name="description" content="{{ header.description }}">
+        {% else %}
+        <meta name="description" content="{{ site.description }}">
+        {% endif %}
+        {% if header.robots %}
+        <meta name="robots" content="{{ header.robots }}">
+        {% endif %}
+        <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png">
 
-		        <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
+        <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
+        
+        {% block stylesheets %}
+        	{# Bootstrap core CSS #}
+        	{% do assets.add('theme://css/bootstrap.min.css',101) %}
 
-		        {# Bootstrap core CSS #}
-		        <link href="{{ theme_url }}/css/bootstrap.min.css" rel="stylesheet">
+			{# Custom styles for this theme #}
+        	{% do assets.add('theme://css/bootstrap-custom.min.css',100) %}
 
-		        {# Custom styles for this theme #}
-		        <link href="{{ theme_url }}/css/bootstrap-custom.css" rel="stylesheet">
+        	{{ assets.css() }}
+        {% endblock %}
 
-		        {# HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries #}
-		        <!--[if lt IE 9]>
-		        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		        <![endif]-->
-		        {% endblock head%}
-		    </head>
+        {% block javascripts %}
+            {% do assets.add('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', 101) %}
+            {% do assets.add('theme://js/bootstrap.min.js') %}
 
-		      <body>
+            {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
+            	{% do assets.add('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') %}
+                {% do assets.add('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') %}
+            {% endif %}
 
-		        {# include the header + navigation #}
-		        {% include 'partials/header.html.twig' %}
+            {{ assets.js() }}
+        {% endblock %}	
 
-		        <div class="container">
-		            {% block content %}{% endblock %}
-		        </div>
+        {% endblock head%}
+    </head>
 
-		        <div class="footer">
-		            <div class="container">
-		                <p class="text-muted">Bootstrap Theme for <a href="http://getgrav.org">Grav</a></p>
-		            </div>
-		        </div>
+      <body>
 
-		        {# Bootstrap core JavaScript #}
-		        {# ================================================== #}
-		        {# Placed at the end of the document so the pages load faster #}
-		        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		        <script src="{{ theme_url }}/js/bootstrap.min.js"></script>
-		    </body>
-		</html>
+        {# include the header + navigation #}
+        {% include 'partials/header.html.twig' %}
 
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+
+        <div class="footer">
+            <div class="container">
+                <p class="text-muted">Bootstrap Theme for <a href="http://getgrav.org">Grav</a></p>
+            </div>
+        </div>
+    </body>
+    {% block bottom %}{% endblock %}
+</html>
+```
 
 ## Step 4 - Breaking it Down
 
 Please read over the code in the `base.html.twig` file to try to understand what is going on.  There are several key things to note:
 
-1. 
-	The `{% block head %}{% endblock head %}` syntax defines an area in the base Twig template. Note the use of `head` in the `{% endblock head %}` tag is not required, but is used here for readability.
+1. The `{% block head %}{% endblock head %}` syntax defines an area in the base Twig template. Note the use of `head` in the `{% endblock head %}` tag is not required, but is used here for readability.
 
-2. 
-	An `if` statement is used to test if there is a meta **description** set in the page headers, if not, the template should render using the default `site.description` as defined in the `user/config/site.yaml` file.
+2. An `if` statement is used to test if there is a meta **description** set in the page headers, if not, the template should render using the default `site.description` as defined in the `user/config/site.yaml` file.
 
-3. 
-	The `theme_url` variable can be used to output the path to the current theme.
+3. The `theme_url` variable can be used to output the path to the current theme.
 
-4. 
-	The use of `{# ... #}` is a Twig way of writing a comment without any output in the HTML as opposed to an HTML comment: `<!-- ... ->` that **does** output to HTML but is ignored by the browser.
+4. To make use of the **Asset Manager** we use the syntax: `{% do assets.add('theme://css/bootstrap.min.css',101) %}` where `theme://` is automatically converted to the current theme path, and the `101` represents an order where higher comes first, and no provided value defaults to `10`.
 
-5. 
-	The `{% include 'partials/header.html.twig' %}` tag causes another Twig template to be included.  This way we are able to break out the header into it's own template file.
+5. The `{{ assets.css() }}` call is what triggers the template to render all the CSS link tags. Likewise, the `{{ assets.js() }}` will render all the JavaScript tags.
 
-6. The use of `{% block content %}{% endblock %}` provides a placeholder that allows us to provide content from a template that extends this one.
+6. The use of `{# ... #}` is a Twig way of writing a comment without any output in the HTML as opposed to an HTML comment: `<!-- ... ->` that **does** output to HTML but is ignored by the browser.
+
+7. The `{% include 'partials/header.html.twig' %}` tag causes another Twig template to be included.  This way we are able to break out the header into it's own template file.
+
+8. The use of `{% block content %}{% endblock %}` provides a placeholder that allows us to provide content from a template that extends this one.
+
+9. Similar to the content block, the `{% block bottom %}{% endblock %}` is intended as a place holder for templates to add custom JavaScript initialization or analytic codes.
 
 ## Step 5 - Header Template
 
@@ -351,7 +356,6 @@ You might have noticed that in the `partials/base.html.twig` file we made refere
 		}
 
 2. Most of this file contains Markdown-friendly **table** and **notice** style CSS that require CSS classes in normal bootstrap to utilize.
-{% endverbatim %}
 
 ### Step 7 - Testing
 
@@ -403,7 +407,7 @@ pages:
 
 Then, open your browser, and point it to your Grav site.  You should see something like this:
 
-{{ media['bootstrap-theme.png'].lightbox().cropResize(600, 400).html('some ALT text','border') }}
+![](bootstrap-theme.png?lightbox&resize=600,400)
 
 At this point you have created your first theme!  There are a couple of minor things missing:
 

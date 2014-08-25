@@ -12,7 +12,7 @@ Grav has intentionally been designed with few requirements.  You can easily run 
 
 Grav is built with plain text files for your content. There is no database needed, at all.
 
->>> NOTE: A PHP user cache such as APC, APCU, XCache, Memcache, Redis is highly recommended for optimal performance.  Not to worry though, these are usually already part of your hosting package!
+>>> A PHP user cache such as APC, APCU, XCache, Memcache, Redis is highly recommended for optimal performance.  Not to worry though, these are usually already part of your hosting package!
 
 ## Recommended Web Servers
 
@@ -30,13 +30,13 @@ Even though technically you do not need a standalone Web server, it is better to
 * [MAMP](http://mamp.info) is a long-time mac favorite, but now available for windows.
 * [IIS with PHP](http://php.iis.net/) is a fast way to run PHP on Windows.
 
->>> NOTE: IIS Web server is currently untested with Grav, but should work fine.
+>>> IIS Web server is currently untested with Grav, but should work fine.
 
 ### Linux
 
 * Many distributions of Linux already come with Apache and PHP built-in, if it's not built-in, then usually the distribution provides a package manager where you can install apache and PHP without much hassle.  More advanced configurations should be investigated with the help of a good search engine.
 
->>> NOTE: Running Grav with the built-in Web server provided with PHP 5.4 is explained in more detail in the next chapter.
+>>> Running Grav with the built-in Web server provided with PHP 5.4 is explained in more detail in the next chapter.
 
 
 ## Recomended Tools

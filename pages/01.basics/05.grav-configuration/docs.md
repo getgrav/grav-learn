@@ -22,6 +22,7 @@ home:
 
 pages:
   theme: antimatter                    # Default theme (defaults to "antimatter" theme)
+  markdown_extra: false                # Enable support for Markdown Extra support (GFM by default)
   order:
     by: defaults                       # Order pages by "default", "alpha" or "date"
     dir: asc                           # Default ordering direction, "asc" or "desc"
@@ -34,7 +35,7 @@ pages:
     markdown: true                     # Process Markdown
     twig: false                        # Process Twig
   events:
-    page: false                        # Enable page level events
+    page: true                         # Enable page level events
     twig: true                         # Enable twig level events
 
 cache:
@@ -50,8 +51,16 @@ twig:
   auto_reload: true                    # Refresh cache on changes
   autoescape: false                    # Autoescape Twig vars
 
+assets:                                # Configuration for Assets Manager (JS, CSS)
+  css_pipeline: false                  # The CSS pipeline is the unification of multiple CSS resources into one file
+  css_minify: true                     # Minify the CSS during pipelining
+  css_rewrite: true                    # Rewrite any CSS relative URLs during pipelining
+  js_pipeline: false                   # The JS pipeline is the unification of multiple JS resources into one file
+  js_minify: true                      # Minify the JS during pipelining
+
 debugger:
   enabled: false                       # Enable Grav debugger and following settings
+  mode: detect                         # Mode tracy Debugger should be set to when enabled: detect|development|production
   strict: false                        # Throw fatal error also on PHP warnings and notices
   max_depth: 10                        # How many nested levels to display for objects or arrays
   log:
@@ -87,12 +96,12 @@ Let's break down the elements of this sample file:
 
 | Field            | Description                                                                                                                                                                                                  |
 | :----------      | :----------                                                                                                                                                                                                  |
-| **title**        | The title is a simple string variable that can be referenced whenever you want to display the name of this site.                                                                                             |
-| **author.name**  | The name of the author of the site, that can be referenced whenever you need it.                                                                                                                             |
-| **author.email** | A default email for use in your site.                                                                                                                                                                        |
-| **taxonomies**   | An arbitrary list of high-level types that you can use to organize your content.  You can assign content to specific taxonomy types, for example, categories or tags. Feel free to edit, or add your own.    |
-| **summary.size** | A variable to override the default number of characters that can be used to set the summary size when displaying a portion of content.                                                                       |
-| **routes**       | This is a basic map that can provide simple URL alias capabilities in Grav.  If you browse to `/something/else` you will actually be sent to `/blog/sample-3`. Feel free to edit, or add your own as needed. |
+| **title:**        | The title is a simple string variable that can be referenced whenever you want to display the name of this site.                                                                                             |
+| **author: name:**  | The name of the author of the site, that can be referenced whenever you need it.                                                                                                                             |
+| **author: email:** | A default email for use in your site.                                                                                                                                                                        |
+| **taxonomies:**   | An arbitrary list of high-level types that you can use to organize your content.  You can assign content to specific taxonomy types, for example, categories or tags. Feel free to edit, or add your own.    |
+| **summary: size:** | A variable to override the default number of characters that can be used to set the summary size when displaying a portion of content.                                                                       |
+| **routes:**       | This is a basic map that can provide simple URL alias capabilities in Grav.  If you browse to `/something/else` you will actually be sent to `/blog/sample-3`. Feel free to edit, or add your own as needed. |
 
 >>> For most people, the most important element of this file is the `Taxonomy` list.  The taxonomies in this list **must** be defined here if you wish to use them in your content.
 
