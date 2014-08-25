@@ -10,7 +10,10 @@ When creating content in **Grav**, you often need to display **image**, **video*
 
 Grav uses a **smart-caching** system to automatically create any required image the first time it is requested, then use this image for each subsequent request.
 
->>>> The media examples below use Twig syntax (that's the stuff with the curly braces: {% verbatim %}`{{ media[sample-image.jpg] }}`{% endverbatim %}) that needs to be enabled on a per-page basis. You can either **a)** enable Twig on the page with `process: twig: true` in the page header, or **b)** set `pages: process: twig: true` in your system.yaml to change it site-wide.
+{% verbatim %}
+>>>> The media examples below use markdown syntax for displaying images `![Sample Image](sample-image.jpg?cropZoom=300,200)`. 
+However, you can also use these same functions in your **Twig** templates by using the PHP syntax.  For example: `{{ media['sample-image.jpg'].cropZoom(300, 200).html() }}`
+{% endverbatim %}
 
 ## Actions
 
@@ -20,25 +23,21 @@ Grav employs a **builder-pattern** when handling media, so you can perform **mul
 
 Resizing does exactly what you would expect it to do.  `resize` lets you create a new image based on the `w` width and the `h` height.  The aspect ratio is maintained and the new image will be contain blank areas in the color of the background color provided as a `hex value`. The background parameter is optional, and if not provided with default to **transparent** if the image is a PNG, or **white** if a JPEG.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].resize(200, 200, '75879a').html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?resize=200,200,0x1D92C3)
+```
 
-{{ media['sample-image.jpg'].resize(200, 200, '75879a').html() }}
+![Sample Image](sample-image.jpg?resize=200,200,0x1D92C3)
 
 ### forceResize(w, h)
 
 Resizes the image to the `w` width and `h` height as provided.  `forceResize` will not respect original aspect-ratio and will stretch the image as needed to fit the new image size.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].forceResize(200, 200).html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?forceResize=200,200)
+```
 
-{{ media['sample-image.jpg'].forceResize(200, 200).html() }}
+![Sample Image](sample-image.jpg?forceResize=200,200)
 
 ### cropResize(w, h)
 
@@ -46,13 +45,11 @@ Resizes the image to the `w` width and `h` height as provided.  `forceResize` wi
 
 For example, if you have an image that is `640` x `480` and you perform a `cropResize(100, 100)` action upon it, you will end up with an image that is `100` x `75`.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropResize(200, 200).html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?cropResize=200,200)
+```
 
-{{ media['sample-image.jpg'].cropResize(200, 200).html() }}
+![Sample Image](sample-image.jpg?cropResize=200,200)
 
 ### crop(x, y, w, h)
 
@@ -60,13 +57,11 @@ For example, if you have an image that is `640` x `480` and you perform a `cropR
 
 For example, an image that is `640` x `480` that as the `crop(0, 0, 400, 100)` action upon it, will simply get the width and height both cropped so that the resulting image is an image with a width of `400` and a height of `100` originated from the top-left corner as described by `0, 0`.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].crop(100, 100, 300, 200).html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?crop=100,100,300,200)
+```
 
-{{ media['sample-image.jpg'].crop(100, 100, 300, 200).html() }}
+![Sample Image](sample-image.jpg?crop=100,100,300,200)
 
 
 ### cropZoom(x, y)
@@ -79,156 +74,138 @@ With **cropZoom**, the image is resized so that the there is no background visib
 
 For example if you have an image that is `640` x `480` and you perform a `cropZoom(400, 100)` action, the resulting image will be resized to `400` x `300` and then the height is cropped resulting in a `400` x `100` image.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropZoom(400, 100).html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?cropZoom=400,100)
+```
 
-{{ media['sample-image.jpg'].cropZoom(400, 100).html() }}
+![Sample Image](sample-image.jpg?cropZoom=400,100)
 
 ### negate()
 
 Applies a **negative filter** to the image where colors are inverted.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropResize(300, 200).negate.html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?cropZoom=300,200&negate)
+```
 
-{{ media['sample-image.jpg'].cropResize(300, 200).negate.html() }}
+![Sample Image](sample-image.jpg?cropZoom=300,200&negate)
 
 ### brighness(b)
 
 Applies a **brightness filter** to the image (from -255 to +255). Larger negative numbers will make the image darker, while larger positive numbers makes the image brighter.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropResize(300, 200).brightness(-100).html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?cropZoom=300,200&brightness=-100)
+```
 
-{{ media['sample-image.jpg'].cropResize(300, 200).brightness(-100).html() }}
+![Sample Image](sample-image.jpg?cropZoom=300,200&brightness=-100)
 
 ### contrast(c)
 
 This applies a **contrast filter** to the image (from -100 to +100). Larger negative numbers will increase the contrast, while larger positive numbers will reduce the contrast.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropResize(300, 200).contrast(-50).html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?cropZoom=300,200&contrast=-50)
+```
 
-{{ media['sample-image.jpg'].cropResize(300, 200).contrast(-50).html() }}
+![Sample Image](sample-image.jpg?cropZoom=300,200&contrast=-50)
 
 ### grayscale()
 
 This processes the image with a **greyscale filter**.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropResize(300, 200).grayscale.html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?cropZoom=300,200&grayscale)
+```
 
-{{ media['sample-image.jpg'].cropResize(300, 200).grayscale.html() }}
+![Sample Image](sample-image.jpg?cropZoom=300,200&grayscale)
 
 ### emboss()
 
 This processes the image with an **embossing filter**.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropResize(300, 200).emboss.html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?cropZoom=300,200&emboss)
+```
 
-{{ media['sample-image.jpg'].cropResize(300, 200).emboss.html() }}
+![Sample Image](sample-image.jpg?cropZoom=300,200&emboss)
 
 ### smooth(p)
 
 This applies a **smoothing filter** to the image based on smooth setting (from -10 to 10).
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropResize(300, 200).smooth(5).html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?cropZoom=300,200&smooth=5)
+```
 
-{{ media['sample-image.jpg'].cropResize(300, 200).smooth(5).html() }}
+![Sample Image](sample-image.jpg?cropZoom=300,200&smooth=5)
 
 ### sharp()
 
 This applies a **sharpening filter** on the image.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropResize(300, 200).sharp.html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?cropZoom=300,200&sharp)
+```
 
-{{ media['sample-image.jpg'].cropResize(300, 200).sharp.html() }}
+![Sample Image](sample-image.jpg?cropZoom=300,200&sharp)
 
 ### edge()
 
 This applies an **edge finding filter** on the image.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropResize(300, 200).edge.html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?cropZoom=300,200&edge)
+```
 
-{{ media['sample-image.jpg'].cropResize(300, 200).edge.html() }}
+![Sample Image](sample-image.jpg?cropZoom=300,200&edge)
 
 ### colorize(red, green, blue)
 
 You can colorize the image based on adjusting the **red, green, and blue** values for the image (from -255 to +255 for each color).
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropResize(300, 200).colorize(100, -100, 40).html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?cropZoom=300,200&colorize=100,-100,40)
+```
 
-{{ media['sample-image.jpg'].cropResize(300, 200).colorize(100, -100, 40).html() }}
+![Sample Image](sample-image.jpg?cropZoom=300,200&colorize=100,-100,40)
 
 ### sepia()
 
 This applies a **sepia filter** on the image to produce a vintage look.
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropResize(300, 200).sepia.html() }}
 ```
-{% endverbatim %}
+![Sample Image](sample-image.jpg?cropZoom=300,200&sepia)
+```
 
-{{ media['sample-image.jpg'].cropResize(300, 200).sepia.html() }}
+![Sample Image](sample-image.jpg?cropZoom=300,200&sepia)
 
 ### url()
+
+>>> This method is only intended to be used in **Twig** templates, hence the Twig syntax.
 
 This returns **raw url path** to the image.
 
 {% verbatim %}
-```bash
+```
 {{ media['sample-image.jpg'].url }}
 ```
 {% endverbatim %}
 
 ```
-{{ media['sample-image.jpg'].url }}
+{{ media['sample-image.jpg'].url|e }}
 ```
 
 ### html(alt)
+
+>>> This method is only intended to be used in **Twig** templates, hence the Twig syntax.
 
 The `html` action will output a valid HTML tag for the image. This is particularly helpful when you want to perform some action on an image, and then get output the HTML tag to this URL of this *automagically* generated image.
 
 An example might be:
 
 {% verbatim %}
-```bash
+```
 {{ media['sample-image.jpg'].cropZoom(400, 300).html('some ALT text') }}
 ```
 {% endverbatim %}
@@ -239,8 +216,6 @@ which would output the following HTML:
 {{ media['sample-image.jpg'].cropZoom(400, 300).html('some ALT text')|e }}
 ```
 
-{{ media['sample-image.jpg'].cropZoom(400, 300).html('some ALT text') }}
-
 >>> The URL contains an automatically generated and cached image file that Grav created for the newly generated image.
 
 ### lightbox(x, y)
@@ -249,17 +224,11 @@ Similar to the `html` action, the **lightbox** outputs the required HTML tag inf
 
 A real-world example of using this in your own page content is the following
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].lightbox(1024, 768).cropResize(150, 150).html('some ALT text') }}
 ```
-{% endverbatim %}
-
-```
-{{ media['sample-image.jpg'].lightbox(1024, 768).cropResize(150, 150).html('some ALT text')|e }}
+![Sample Image](sample-image.jpg?lightbox=1024,768&cropZoom=200,200)
 ```
 
-{{ media['sample-image.jpg'].lightbox(1024, 768).cropResize(150, 150).html('some ALT text') }}
+![Sample Image](sample-image.jpg?lightbox=1024,768&cropZoom=200,200)
 
 This is a **Twig** output that will take the `image1.jpg` file associated with the page, and output a `lightbox` tag that will link to an image that is `resize`'d to `1024` x `768` from a thumbnail image that is `cropResize`'d  to `400` x `300`.
 
@@ -267,13 +236,11 @@ This is a **Twig** output that will take the `image1.jpg` file associated with t
 
 As you can see: Grav provides some powerful image manipulation functionality that makes it really easy to work with images!  The real power comes when you combine multiple effects and produce some very sophisticated dynamic image manipulations.  For example, this is totally valid:
 
-{% verbatim %}
-```bash
-{{ media['sample-image.jpg'].cropZoom(600, 200).contrast(-100).sharp.sepia.html() }}
 ```
-{% endverbatim %}
+![](sample-image.jpg?lightbox&cropZoom=600,200&contrast=-100&sharp&sepia)
+```
 
-{{ media['sample-image.jpg'].cropZoom(600, 200).contrast(-100).sharp.sepia.html() }}
+![](sample-image.jpg?lightbox&cropZoom=600,200&contrast=-100&sharp&sepia)
 
 ## Images
 
@@ -285,12 +252,14 @@ Thumbnails are automatically created from the image provided.
 
 >>>> NOTE: **Video** media are work-in-progress. They are not fully implemented currently
 
+>>> This method is only intended to be used in **Twig** templates, hence the Twig syntax.
+
 Video files with the following file extensions: `mp4`, `mov`, `m4v`, `swf` are also supported in Grav. Because PHP cannot handle dynamically resizing videos, you will have to create your videos in the size and format you wish to display on your site.
 
 All the regular actions are available for videos but interact with the thumbnail of the video only.  The **tag** action for videos is slightly different from images as you have to also provide an `x` width and a `y` height.
 
 {% verbatim %}
-```bash
+```
 {{ media['sample-trailer.mov'].lightbox(852,480).cropResize(200,100).html() }}
 ```
 {% endverbatim %}
@@ -301,6 +270,8 @@ All the regular actions are available for videos but interact with the thumbnail
 
 >>>> NOTE: **File** media are work-in-progress. They are not fully implemented currently
 
+>>> This method is only intended to be used in **Twig** templates, hence the Twig syntax.
+
 Grav supports a selection of other assorted document file types including: `txt`, `doc`,` html`, `pdf`, `zip`, `gz`.
 
 These are handled in a similar fashion to video files so thumbnails need to be provided if you don't want to use the default images for thumbnails.
@@ -308,7 +279,7 @@ These are handled in a similar fashion to video files so thumbnails need to be p
 The **lightbox** action is not supported for files, and the **tag** action will **link** to download the file, but has a boolean set to `true` to show the image thumbnail, or `false` to show just the plain text filename with a class that indicates the file-type.
 
 {% verbatim %}
-```bash
+```
 {{ media['archive.zip'].html() }}
 ```
 {% endverbatim %}

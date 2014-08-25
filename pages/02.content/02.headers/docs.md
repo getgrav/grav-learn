@@ -110,6 +110,14 @@ You may want to disable `markdown` on a particular page if you want to use 100% 
 
 There are situations when you want to use Twig templating functionality in your content, and this is accomplished by setting the `twig` variable to true.
 
+### Lightbox
+
+``` ruby
+lightbox: true
+```
+
+Although strictly speaking this is not a standard page header, it is a common way to enabled the loading of a standard lightbox JavaScript and CSS for a page.  By default the core `antimatter` theme does not load the prerequisites to enable lightbox capabilities of images, by enabling this option in the page headers, they will be loaded for you.
+
 ## Meta Page Headers
 
 Although not strictly a Grav supported set of headers, these are fairly standard and should be supported by **Grav Themes**. Meta headers allow you to set the [standard set of HTML **<meta> tags**](http://www.w3schools.com/tags/tag_meta.asp) for each page:
