@@ -14,7 +14,7 @@ Some of the key benefits are:
 2. Less chance of errors when writing in markdown.
 3. Produces valid XHTML output.
 4. Keeps the content and the visual display separate, so you cannot mess up the look of your site.
-5. Write in any editor or application you like.
+5. Write in any text editor or Markdown application you like.
 6. Markdown is a joy to use!
 
 John Gruber, the author of Markdown, puts it like this:
