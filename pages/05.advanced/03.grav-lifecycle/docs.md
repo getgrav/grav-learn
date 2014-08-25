@@ -2,9 +2,10 @@
 title: Grav Lifecycle
 taxonomy:
     category: docs
-process:
-	markdown: false
+markdown_extra: false
 ---
+
+>>> This page is currently based on the **v0.8.0** release and out of date. We will update it shortly to reflect the changes in **v0.9.0**
 
 It is often useful to know how Grav processes in order to fully understand how best to extend Grav via plugins.  This is the Grav lifecycle:
 
