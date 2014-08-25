@@ -74,7 +74,7 @@ The `#` or `hashes` syntax in markdown indicates a title.  A single `#` with a s
 Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **antimatter** theme to get you started.
 ```
 
-This is a simple paragraph that would have be wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicated bold text or `<b>` in HTML.  Italic text is indicated by wrapping text in `_` markers.
+This is a simple paragraph that would have been wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicate bold text or `<b>` in HTML.  Italic text is indicated by wrapping text in `_` markers.
 
 ```markdown
 >>>>> If you want a more **full-featured** base install, you should check out [**Skeleton** packages available in the downloads](http://getgrav.org/downloads).
