@@ -2,11 +2,8 @@
 title: Theme Tutorial
 taxonomy:
     category: docs
-process:
-	twig: true
 ---
 
-{% verbatim %}
 Often, the best way to learn a new thing is to use an example, and then try to build your own creation from it. We are going to use this same methodology for creating a new Grav theme.  
 
 ## Antimatter
@@ -357,7 +354,6 @@ You might have noticed that in the `partials/base.html.twig` file we made refere
 		}
 
 2. Most of this file contains Markdown-friendly **table** and **notice** style CSS that require CSS classes in normal bootstrap to utilize.
-{% endverbatim %}
 
 ### Step 7 - Testing
 
