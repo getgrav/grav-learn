@@ -13,20 +13,22 @@ To fully harness the power of Grav plugins you need to know which event hooks ar
 Most events within Grav fire in a specific order and it is important to understand this order if you are creating plugins:
 
 1. [onFatalException](#onFatalException) _(no order, can occur anytime)_
-2. [onPluginsInitialized](#onPluginsInitialized)
-3. [onAssetsInitialized](#onAssetsInitialized)
-4. [onTwigTemplatePaths](#onTwigTemplatePaths)
-5. [onTwigInitialized](#onTwigInitialized)
-6. [onTwigExtensions](#onTwigExtensions)
-7. [onTwigPageVariables](#onTwigPageVariables) _(each page not cached yet)_
-8. [onPageProcessed](#onPageProcessed) _(each page not cached yet)_
-9. [onFolderProcessed](#onFolderProcessed) _(for each folder found)_
-10. [onBlueprintCreated](#onBlueprintCreated) 
-11. [onPagesInitialized](#onPagesInitialized)
-12. [onPageInitialized](#onPageInitialized)
-13. [onCollectionProcessed](#onCollectionProcessed) _(when collection is requested)_
-14. [onTwigSiteVariables](#onTwigSiteVariables)
-15. [onOutputGenerated](#onOutputGenerated)
+1. [onPluginsInitialized](#onPluginsInitialized)
+1. [onAssetsInitialized](#onAssetsInitialized)
+1. [onTwigTemplatePaths](#onTwigTemplatePaths)
+1. [onTwigInitialized](#onTwigInitialized)
+1. [onTwigExtensions](#onTwigExtensions)
+1. [onTwigPageVariables](#onTwigPageVariables) _(each page not cached yet)_
+1. [onPageProcessed](#onPageProcessed) _(each page not cached yet)_
+1. [onFolderProcessed](#onFolderProcessed) _(for each folder found)_
+1. [onBlueprintCreated](#onBlueprintCreated) 
+1. [onPagesInitialized](#onPagesInitialized)
+1. [onPageNotFound](#onPageNotFound)
+1. [onPageInitialized](#onPageInitialized)
+1. [onCollectionProcessed](#onCollectionProcessed) _(when collection is requested)_
+1. [onTwigSiteVariables](#onTwigSiteVariables)
+1. [onOutputGenerated](#onOutputGenerated)
+1. [onOutputRendered](#onOutputRendered)
 
 
 ## Core Grav Event Hooks
@@ -38,16 +40,16 @@ There are several core Grav event hooks that are triggered during the processing
 
 This is an event that can be fired at any time if PHP throws a fatal exception. This is currently used by the `problems` plugin to handle displaying a list of potential reasons why Grav throw the fatal exception.
 
-<a name="onFatalException"></a>
+<a name="onPluginsInitialized"></a>
 #### onPluginsInitialized
 
 This is the first plugin event available. At this point the following objects have been initiated:
 
-* Uri object
-* Config object
+* Uri
+* Config
 * Tracy Debugger 
-* Cache object
-* Plugins are loaded
+* Cache
+* Plugins
 
 >>>> NOTE: A plugin will not be loaded at all if the `enabled: false` configuration option has been set for that particular plugin
 
@@ -62,6 +64,11 @@ The event indicates the assets manager has been initialized and is ready for ass
 
 This event signifies that all the pages in Grav's `user/pages` folder have been loaded as objects and are available in the **Pages object**.
 
+<a name="onPageNotFound"></a>
+#### onPageNotFound
+
+This is an event that can be fired if an expected page is not found. This is currently used by the `error` plugin to display a pretty 404 error page.
+
 <a name="onPageInitialized"></a>
 #### onPageInitialized 
 
@@ -71,6 +78,11 @@ The current page as requested by a URL has been loaded into the **Page object**.
 #### onOutputGenerated
 
 The output has been processed by the **Twig templating engine** and is now just a string of HTML.  
+
+<a name="onOutputRendered"></a>
+#### onOutputRendered
+
+The output has been fully processed and sent to the display.  
 
 
 ## Twig Event Hooks

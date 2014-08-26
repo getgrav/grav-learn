@@ -45,7 +45,7 @@
 
     {% endblock %}
 </head>
-<body class="searchbox-hidden" data-url="{{ page.route }}">
+<body class="searchbox-hidden {{ page.header.body_classes }}" data-url="{{ page.route }}">
     {% block header %}
     <header id="header" class="navbar">
         <ul>
