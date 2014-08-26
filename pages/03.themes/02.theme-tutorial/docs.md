@@ -16,7 +16,7 @@ Nucleus is a lightweight CSS framework that contains the essential CSS resets an
 
 For the sake of this tutorial, we will create a theme that utilizes the popular [Bootstrap framework][bootstrap]. 
 
-Bootstrap is a very full-featured HTML, CSS, and JS framework that contains a wide variety of components and styling to help create sites quickly. Over the past several years, Bootstrap has become a very popular framework. It is often used as a base for other designs because it already has essential styling for pretty much anything you can think of. 
+Bootstrap is a full-featured HTML, CSS, and JS framework that contains a wide variety of components and styling to help create sites quickly. Over the past several years, Bootstrap has become a very popular framework. It is often used as a base for other designs because it already has essential styling for pretty much anything you can think of. 
 
 ## Step 1 - Base Theme Setup
 
@@ -62,7 +62,7 @@ As outlined in the [Theme Basics][themebasics] chapter, there are some key eleme
 
 Of course, to create a Bootstrap theme, we must actually include Bootstrap in our theme. 
 
-In this tutorial, we will us the latest version available (at the time of writing latest version is **v3.2.0**) so you will need to [download the Bootstrap distribution package][bootstrapdownload]. This package includes the essential bits needed to use the framework.
+In this tutorial, we will use the latest version available (at the time of writing latest version is **v3.2.0**) so you will need to [download the Bootstrap distribution package][bootstrapdownload]. This package includes the essential bits needed to use the framework.
 
 >>>> NOTE: Be sure to download the regular version labeled "Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included."
 
