@@ -10,29 +10,18 @@ Caching is an integral feature of Grav that has been baked in from the start.  T
 
 Grav uses the established and well-respected [Doctrine Cache][docterinecache] library. This means that Grav supports any caching mechanism that Doctrine Cache supports.  This means that Grav supports:
 
-* Auto (Default) - Finds the best option automatically
-
-* File - Stores in cache files in the `cache/` folder
-
-* [APC][apc]
-
-* XCache - [http://xcache.lighttpd.net/]()
-
-* Couchbase - [http://www.couchbase.com/]()
-
-* Memcache - [http://php.net/manual/en/book.memcache.php]()
-
-* Memcached - [http://memcached.org/]()
-
-* MongoDB - [http://www.mongodb.org/]()
-
-* Redis - [http://redis.io]()
-
-* Riak - [http://basho.com/riak/]()
-
-* WinCache - [http://www.iis.net/downloads/microsoft/wincache-extension]()
-
-* ZendDataCache - [http://files.zend.com/help/Zend-Server/content/data_cache_component.htm]()
+* **Auto** _(Default)_ - Finds the best option automatically
+* **File** - Stores in cache files in the `cache/` folder
+* **APC** - [http://php.net/manual/en/book.apc.php]()
+* **XCache** - [http://xcache.lighttpd.net/]()
+* **Couchbase** - [http://www.couchbase.com/]()
+* **Memcache** - [http://php.net/manual/en/book.memcache.php]()
+* **Memcached** - [http://memcached.org/]()
+* **MongoDB** - [http://www.mongodb.org/]()
+* **Redis** - [http://redis.io]()
+* **Riak** - [http://basho.com/riak/]()
+* **WinCache** - [http://www.iis.net/downloads/microsoft/wincache-extension]()
+* **ZendDataCache** - [http://files.zend.com/help/Zend-Server/content/data_cache_component.htm]()
 
 
 By default, Grav comes preconfigured to use the `auto` setting.  This will try **APC**, then **WinCache**, then **XCache**, and lastly **File**.  You can, of course, explicitly configure the cache in your `user/config/system.yaml` file, which could make things ever so slightly faster.
@@ -81,8 +70,7 @@ For slight performance gains, you can disable the `debug` extension, and also di
 
 ## Caching and Events
 
-For the most part, [events are still fired][event-hooks] even when caching is enabled.  This holds true for all the events except for `onPageProcessed` and `onFolderProcessed`.  These two event are run as all pages and folders are recursed and they fire on each page or folder found.  As their name implies they are only run during the **processing**, and not after the page has been cached.
+For the most part, [events are still fired][event-hooks] even when caching is enabled.  This holds true for all the events except for `onPageProcessed`, `onTwigPageVariables`, and `onFolderProcessed`.  These two event are run as all pages and folders are recursed and they fire on each page or folder found.  As their name implies they are only run during the **processing**, and not after the page has been cached.
 
 [docterinecache]: http://docs.doctrine-project.org/en/2.0.x/reference/caching.html
-[apc]: http://php.net/manual/en/book.apc.php
 [event-hooks]: ../event/hooks
