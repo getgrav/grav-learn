@@ -6,7 +6,7 @@ process:
 	twig: true
 ---
 
-When creating content in **Grav**, you often need to display **image**, **video**, and **file** document types. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of the page to create thumbnails, and resize images dynamically as you need them.  
+When creating content in **Grav**, you often need to display **image**, **video**, and **file** document types. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of of the page to create thumbnails, and resize images dynamically as you need them.  
 
 Grav uses a **smart-caching** system to automatically create any required image the first time it is requested, then use this image for each subsequent request.
 
@@ -21,7 +21,7 @@ Grav employs a **builder-pattern** when handling media, so you can perform **mul
 
 ### resize(w, h, background='0xffffff')
 
-Resizing does exactly what you would expect it to do.  `resize` lets you create a new image based on the `w` width and the `h` height.  The aspect ratio is maintained and the new image will be contain blank areas in the color of the background color provided as a `hex value`. The background parameter is optional, and if not provided with default to **transparent** if the image is a PNG, or **white** if a JPEG.
+Resizing does exactly what you would expect it to do.  `resize` lets you create a new image based on the `w` width and the `h` height.  The aspect ratio is maintained and the new image will contain blank areas in the color of the background color provided as a `hex value`. The background parameter is optional, and if not provided will default to **transparent** if the image is a PNG, or **white** if it is a JPEG.
 
 ```
 ![Sample Image](sample-image.jpg?resize=200,200,0x1D92C3)
@@ -55,7 +55,7 @@ For example, if you have an image that is `640` x `480` and you perform a `cropR
 
 `crop` will not resize the image at all, it will merely crop the original image so that only the portion of the bounding box as described by the `w` width and the `h` height originating from the `x` and `y` location is used to create the new image.
 
-For example, an image that is `640` x `480` that as the `crop(0, 0, 400, 100)` action upon it, will simply get the width and height both cropped so that the resulting image is an image with a width of `400` and a height of `100` originated from the top-left corner as described by `0, 0`.
+For example, an image that is `640` x `480` that has the `crop(0, 0, 400, 100)` action upon it, will simply get the width and height both cropped so that the resulting image is an image with a width of `400` and a height of `100` originated from the top-left corner as described by `0, 0`.
 
 ```
 ![Sample Image](sample-image.jpg?crop=100,100,300,200)
@@ -70,7 +70,7 @@ Similar to regular `cropResize`, `cropZoom` also takes an `x` width and a `y` he
 
 >>> The primary difference between **resizeCrop** and **cropZoom** is that in resizeCrop, the image is resized maintaining aspect ratio so that the entire image is shown, and any extra space is considered background.  
 
-With **cropZoom**, the image is resized so that the there is no background visible, and the extra image area of the image outside of the new image size is cropped.
+With **cropZoom**, the image is resized so that there is no background visible, and the extra image area of the image outside of the new image size is cropped.
 
 For example if you have an image that is `640` x `480` and you perform a `cropZoom(400, 100)` action, the resulting image will be resized to `400` x `300` and then the height is cropped resulting in a `400` x `100` image.
 
@@ -90,9 +90,9 @@ Applies a **negative filter** to the image where colors are inverted.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&negate)
 
-### brighness(b)
+### brightness(b)
 
-Applies a **brightness filter** to the image (from -255 to +255). Larger negative numbers will make the image darker, while larger positive numbers makes the image brighter.
+Applies a **brightness filter** to the image (from -255 to +255). Larger negative numbers will make the image darker, while larger positive numbers will make the image brighter.
 
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&brightness=-100)
@@ -112,7 +112,7 @@ This applies a **contrast filter** to the image (from -100 to +100). Larger nega
 
 ### grayscale()
 
-This processes the image with a **greyscale filter**.
+This processes the image with a **grayscale filter**.
 
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&grayscale)
