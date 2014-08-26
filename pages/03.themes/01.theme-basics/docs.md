@@ -100,7 +100,7 @@ The **blueprints** folder is used to define forms for options and configuration 
 
 ### SCSS / LESS / CSS
 
-Again, there is nothing set in stone here, but a solid practice is to have a sub-folder called `scss/` if you use want to develop with Sass, or `less/` if you prefer Less along with a `css/` folder to put static CSS files, and a `css-compiled/` folder for any automatically generated files from your Sass or Less compilations.
+Again, there is nothing set in stone here, but a solid practice is to have a sub-folder called `scss/` if you want to develop with Sass, or `less/` if you prefer Less along with a `css/` folder to put static CSS files, and a `css-compiled/` folder for any automatically generated files from your Sass or Less compilations.
 
 How you organize your files in here is completely up to you.  Feel free to follow our example in the default **antimatter** theme provided with the Grav Base package for some ideas.  We are using the **scss** variant of Sass which is more CSS-like, and frankly more natural to write. 
 
