@@ -250,7 +250,7 @@ Thumbnails are automatically created from the image provided.
 
 ## Videos
 
->>>> NOTE: **Video** media are work-in-progress. They are not fully implemented currently
+>>>> NOTE: **Video** media are work-in-progress. They are not fully implemented currently.
 
 >>> This method is only intended to be used in **Twig** templates, hence the Twig syntax.
 
@@ -268,7 +268,7 @@ All the regular actions are available for videos but interact with the thumbnail
 
 ## Files
 
->>>> NOTE: **File** media are work-in-progress. They are not fully implemented currently
+>>>> NOTE: **File** media are work-in-progress. They are not fully implemented currently.
 
 >>> This method is only intended to be used in **Twig** templates, hence the Twig syntax.
 
