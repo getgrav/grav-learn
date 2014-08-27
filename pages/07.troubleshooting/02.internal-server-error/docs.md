@@ -15,5 +15,6 @@ This error can be triggered by the following:
 
 - server misconfiguration
 - .htaccess issues
-  * Try to set `RewriteBase /`
 - mod_security
+
+You may be able to solve htaccess issues by adding `RewriteBase /` in the **.htaccess** file in the root Grav folder. Grav comes with its own preset .htaccess file included in the zip file.
