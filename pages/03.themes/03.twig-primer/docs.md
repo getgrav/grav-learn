@@ -14,13 +14,13 @@ Twig compiles templates down to plain PHP. This cuts the amount of PHP overhead 
 
 It is also a very flexible engine thanks to its *lexer* and *parser*. This enables the developer to create their own custom tags and filters. It also enables it to create its own [domain-specific language][dsl] (DSL).
 
-When it comes to security, Twig doesn't cut any corners. It gives the developer a sandbox mode that enables them to examine any untrusted code. This gives you the ability to to use Twig as a template language for applications while giving users the ability to modify the template design.
+When it comes to security, Twig doesn't cut any corners. It gives the developer a sandbox mode that enables them to examine any untrusted code. This gives you the ability to use Twig as a template language for applications while giving users the ability to modify the template design.
 
 Basically, it is a powerful engine that gives you control over the user interface. When combined with YAML for configuration, it makes for a powerful and simple system for any developer or site manager to work with.
 
 ## How Does Twig Work?
 
-Twig works by taking all the hocus pocus out of template design. Templates are basically just text files that contain *variables* or *expressions* that are replaced by values as template is evaluated.
+Twig works by taking all the hocus pocus out of template design. Templates are basically just text files that contain *variables* or *expressions* that are replaced by values as the template is evaluated.
 
 *Tags* are also an important part of a template file, as these control the logic of the template itself.
 
@@ -114,7 +114,7 @@ This is what an action tag might look like in a Twig template:
 
 The initial action tag sets the hour as the current hour in a 24-hour clock. That value is then used to gauge whether it is between 9am and 5pm. If it is, `Time for cookies!` is displayed. If it isn't, `Time to bake more cookies!` is displayed, instead.
 
-It is very important that tags not overlap one another. You can't put an output tag inside of an action tag, or vis versa.
+It is very important that tags not overlap one another. You can't put an output tag inside of an action tag, or vice versa.
 
 ### Filters
 
