@@ -15,8 +15,5 @@ This error can be triggered by the following:
 
 - server misconfiguration
 - .htaccess issues
+  * Try to set `RewriteBase /`
 - mod_security
-
-
-> Set **RewriteBase /** in the ".htaccess" file fixed the problem for me.
-> error message from error_log: "Request exceeded the limit of 10 internal redirects due to probable configuration error. Use LimitInternalRecursion to increase the limit if necessary."
