@@ -6,27 +6,27 @@ taxonomy:
 
 When you are designing a theme, Grav gives you access to all sorts of objects and variables from your twig templates.  The Twig templating framework provides powerful ways to read and manipulate these objects and variables.  This is [fully explained in their own documentation][documents] as well as [summarized succinctly in our own documentation][primer].
 
->>>> In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provied those after the method name.  `page.content` is equivalant to `page.content()`
+>>>> In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provide those after the method name.  `page.content` is equivalant to `page.content()`
 
 ## Core Objects
 
-There are several **core objects** that are available to a twig template, and each object has a set of ****variables** and **functions**.
+There are several **core objects** that are available to a twig template, and each object has a set of **variables** and **functions**.
 
 ### base_dir variable
 
-the `{{ base_dir }}` variable returns the base file directory of the Grav installation.
+The `{{ base_dir }}` variable returns the base file directory of the Grav installation.
 
 ### base_url_absolute variable
 
-the `{{ base_url_absolute }}` returns the base URL to the Grav site, including the host information
+The `{{ base_url_absolute }}` returns the base URL to the Grav site, including the host information.
 
 ### theme_dir variable
 
-the `{{ theme_dir }}` variable returns the file directory folder of the current theme
+The `{{ theme_dir }}` variable returns the file directory folder of the current theme.
 
 ### theme_url variable
 
-the `{{ theme_url }}` returns the relative URL to the current theme
+The `{{ theme_url }}` returns the relative URL to the current theme.
 
 ### config object
 
@@ -42,7 +42,7 @@ An alias to the `config.site` object. This represents the configuration as set i
 
 ### stylesheets object
 
-An array to store CSS stylesheet assets in.  This can the be looped over and used to add CSS stylesheets to the template.
+An array to store CSS stylesheet assets in.  This can be looped over and used to add CSS stylesheets to the template.
 
 ### scripts object
 
@@ -52,11 +52,11 @@ An array to store JavaScript assets in.  This can the be looped over and used to
 
 Because Grav is built using the structure defined in the `pages/` folder, each page is represented by a **page object**.
 
-The **page object** is probably _the_ most important object you will work with as it contains all the information about the current page your currently on. 
+The **page object** is probably _the_ most important object you will work with as it contains all the information about the current page you are currently on. 
 
 ##### summary([size])
 
-This returns a truncated or shortened version of our content.  You can provide an optional `size` parameter to specify the number of words.  Alternatively, if no size is provided, the value can obtained via the site-wide variable `summary.size` from your `site.yaml` configuration.
+This returns a truncated or shortened version of your content.  You can provide an optional `size` parameter to specify the number of words.  Alternatively, if no size is provided, the value can be obtained via the site-wide variable `summary.size` from your `site.yaml` configuration.
 
 ```
 {{ page.summary }}
@@ -133,7 +133,7 @@ visible: true
 
 ##### routable()
 
-This returns whether or not a page is routable by Grav.  This means if you can point your browser to the page and receive content back.  Non-routable pages can be used in template, plugins, etc, but cannot be reached directly. This can be set in the page headers:
+This returns whether or not a page is routable by Grav.  This means if you can point your browser to the page and receive content back.  Non-routable pages can be used in templates, plugins, etc, but cannot be reached directly. This can be set in the page headers:
 
 ```
 title: My Page
@@ -146,7 +146,7 @@ This returns the direct name as displayed in the URL for this page, for example 
 
 ##### url([include_host = false])
 
-This returns the URL to the page. for example:
+This returns the URL to the page, for example:
 
 ```
 {{ page.url }} {# could return /my-section/my-category/my-blog-post #}
@@ -164,7 +164,7 @@ This returns the internal routing for a page.  This is primarily used for intern
 
 ##### home()
 
-This returns `true` or `false` based on whether or not this page is configured as the **home** page.  This setting is set in the `system.yaml` file.
+This returns `true` or `false` based on whether or not this page is configured as the **home** page.  This setting is found in the `system.yaml` file.
 
 ##### root()
 
@@ -172,7 +172,7 @@ This returns `true` or `false` based on whether or not this page is the root pag
 
 ##### active()
 
-This returns `true` or `false` based on whether or not this page is currently the page your browser is accessing.  This is particularly useful in navigation to know if the page your on is the active page.
+This returns `true` or `false` based on whether or not this page is currently the page your browser is accessing.  This is particularly useful in navigation to know if the page you are on is the active page.
 
 ##### modular()
 
@@ -180,7 +180,7 @@ This returns `true` or `false` based on whether or not this page is modular.
 
 ##### activeChild()
 
-This returns whether or not this URI's URL contains the URL of the active page. Or in other words, is this page's URL in the current URL. Again this is useful when building navigation and you wish to know if the page your are iterating over is the parent of an active child page.
+This returns whether or not this URI's URL contains the URL of the active page. Or in other words, is this page's URL in the current URL. Again this is useful when building your navigation and you wish to know if the page you are iterating over is the parent of an active child page.
 
 ##### find(url)
 
@@ -230,7 +230,7 @@ This returns the order direction for any sorted children of the page.  Values ca
 
 ##### orderManual()
 
-This returns an array of manual page ordering for any children of the page.This value is typically configured in page headers.
+This returns an array of manual page ordering for any children of the page. This value is typically configured in page headers.
 
 ##### maxCount()
 
@@ -242,7 +242,7 @@ This returns the number of child pages of the page.
 
 ##### children.current()
 
-This returns the current child item.  Can be used while iterating over the children
+This returns the current child item.  Can be used while iterating over the children.
 
 ##### children.next()
 
@@ -270,7 +270,7 @@ This returns `true` or `false` based on whether this page has an actual `.md` fi
 
 ##### isDir()
 
-This returns `true` or `false` based on whether this page is only a folder for routing
+This returns `true` or `false` based on whether this page is only a folder for routing.
 
 ##### id()
 
@@ -282,7 +282,7 @@ This returns a timestamp of when the page was last modified.
 
 ##### date()
 
-This returns the date timestamp for the page.  Typically this is set in the headers to represent the date of a page or post.  If no value is defined explicityly, the file modified timestamp is used.
+This returns the date timestamp for the page.  Typically this is set in the headers to represent the date of a page or post.  If no value is defined explicitly, the file modified timestamp is used.
 
 ##### filePath()
 
@@ -313,7 +313,7 @@ This returns an array of the taxonomy associated with a page.  These can be iter
 
 ### pages object
 
-The **pages object** represents a nested tree of every **page object** that Grav knows about.  This is particularly useful for creating a **sitemap**, **navigation** of if you wish to find a particular **page**.  
+The **pages object** represents a nested tree of every **page object** that Grav knows about.  This is particularly useful for creating a **sitemap**, **navigation** or if you wish to find a particular **page**.  
 
 ##### children method
 
