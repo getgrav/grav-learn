@@ -173,7 +173,7 @@ So we will now create a simple Bootstrap friendly base template:
 
 Please read over the code in the `base.html.twig` file to try to understand what is going on.  There are several key things to note:
 
-1. The `{% block head %}{% endblock head %}` syntax defines an area in the base Twig template. Note the use of `head` in the `{% endblock head %}` tag is not required, but is used here for readability.
+1. The `{% block head %}{% endblock head %}` syntax defines an area in the base Twig template. Note that the use of `head` in the `{% endblock head %}` tag is not required, but is used here for readability.
 
 2. An `if` statement is used to test if there is a meta **description** set in the page headers, if not, the template should render using the default `site.description` as defined in the `user/config/site.yaml` file.
 
@@ -185,11 +185,11 @@ Please read over the code in the `base.html.twig` file to try to understand what
 
 6. The use of `{# ... #}` is a Twig way of writing a comment without any output in the HTML as opposed to an HTML comment: `<!-- ... ->` that **does** output to HTML but is ignored by the browser.
 
-7. The `{% include 'partials/header.html.twig' %}` tag causes another Twig template to be included.  This way we are able to break out the header into it's own template file.
+7. The `{% include 'partials/header.html.twig' %}` tag causes another Twig template to be included.  This way we are able to break out the header into its own template file.
 
 8. The use of `{% block content %}{% endblock %}` provides a placeholder that allows us to provide content from a template that extends this one.
 
-9. Similar to the content block, the `{% block bottom %}{% endblock %}` is intended as a place holder for templates to add custom JavaScript initialization or analytic codes.
+9. Similar to the content block, the `{% block bottom %}{% endblock %}` is intended as a placeholder for templates to add custom JavaScript initialization or analytic codes.
 
 ## Step 5 - Header Template
 
@@ -357,7 +357,7 @@ You might have noticed that in the `partials/base.html.twig` file we made refere
 
 2. Most of this file contains Markdown-friendly **table** and **notice** style CSS that require CSS classes in normal bootstrap to utilize.
 
-### Step 7 - Testing
+### Step 8 - Testing
 
 Your finished **bootstrap theme** folder should now look something like this:
 
