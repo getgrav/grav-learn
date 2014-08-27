@@ -15,6 +15,5 @@ This error can be triggered by the following:
 
 - server misconfiguration
 - .htaccess issues
+  * Try to set `RewriteBase /`
 - mod_security
-
-
