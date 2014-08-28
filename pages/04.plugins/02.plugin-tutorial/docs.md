@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Plugins are usually developed because there is a problem that can not be solved with Grav's core functionality.  
+Plugins are usually developed because there is a task that can not be completed with Grav's core functionality.  
 
 In this tutorial, we will create a plugin that helps Grav to deliver a random page to the user.  You have probably seen similar functionality on blog sites as a way to provide a random blog-post when you click a button.
 
