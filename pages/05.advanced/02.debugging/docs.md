@@ -63,7 +63,7 @@ Your message will be appended to the log in the log directory `/logs`.
 
 ## Timing
 
-Once last functionality that is available in Grav is the ability to log timing data.  In the `/user/config/system.yaml` file there is an option to **enable timing**, this will log out the timing on each [PluginEvent Hook][hook].  This is useful for determining which portion of the life cycle is using resources.
+One last functionality that is available in Grav is the ability to log timing data.  In the `/user/config/system.yaml` file there is an option to **enable timing**, this will log out the timing on each [PluginEvent Hook][hook].  This is useful for determining which portion of the life cycle is using resources.
 
 You can add your own timers in your plugins if you need to.  For more information on this please refer to the [Tracy documentation][tracydocs].
 
