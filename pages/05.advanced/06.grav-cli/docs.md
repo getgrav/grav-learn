@@ -25,7 +25,7 @@ Every time you want to start a new project with Grav, you need to start with a c
     $ cd ~/Projects/grav
     ```
 
-2. Run the Grav CLI to create a new project, with the destination being the location where your project will resides in (usually the [webroot][webroot] of your Web server). Let us assume we are creating a **portfolio** and we want it at `~/Webroot/portfolio`.
+2. Run the Grav CLI to create a new project, with the destination being the location where your project will reside in (usually the [webroot][webroot] of your Web server). Let us assume we are creating a **portfolio** and we want it at `~/Webroot/portfolio`.
 
     ```bash
     $ bin/grav new-project ~/webroot/portfolio
