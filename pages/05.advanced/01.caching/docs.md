@@ -48,7 +48,7 @@ cache:
   prefix: 'g'                          # Cache prefix string (prevents cache conflicts)
 ```
 
-As you an see, the options are documented in the configuration file itself.  During development sometimes it is useful to disable caching to ensure you always have the latest page edits. 
+As you can see, the options are documented in the configuration file itself.  During development sometimes it is useful to disable caching to ensure you always have the latest page edits. 
 
 >>>> NOTE: Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
 
