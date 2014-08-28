@@ -7,7 +7,7 @@ taxonomy:
 Introduction
 -----
 
-YAML stands for _"YAML Ain't Markup Language"_ and it used extensively in Grav for its configuration files, blueprints, and also in page settings. It is a human-readable data serialization language that makes it easier to quickly see and understand what is going on, without having to learn a more complex code type like CSS, JavaScript, and PHP.
+YAML stands for _"YAML Ain't Markup Language"_ and it is used extensively in Grav for its configuration files, blueprints, and also in page settings. It is a human-readable data serialization language that makes it easier to quickly see and understand what is going on, without having to learn a more complex code type like CSS, JavaScript, and PHP.
 
 YAML is built from the ground up to be simple to use. At its core, a YAML file is used to describe data. One of the benefits of using YAML is that the information in a single YAML file can be easily translated to multiple language types.
 
@@ -16,7 +16,7 @@ Basically, the data you enter in a YAML file is used in conjunction with a libra
 YAML Basic Rules
 -----
 
-There are some rules that YAML has in place to avoid issues related to ambiguity in relation to various languages and editing programs. These rules make it possible for a single YAML file to be interpreted consistently, regardless of which application and/or library is being used to to interpret it.
+There are some rules that YAML has in place to avoid issues related to ambiguity in relation to various languages and editing programs. These rules make it possible for a single YAML file to be interpreted consistently, regardless of which application and/or library is being used to interpret it.
 
 * YAML files should end in `.yaml` whenever possible.
 * YAML is case sensitive.
