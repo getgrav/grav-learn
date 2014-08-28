@@ -11,9 +11,9 @@ This page only deals with server errors similar to the above quote. If your erro
 
 Server errors are almost always caused by misconfiguration of Grav. Something unexpected happened and because of that Grav is unable to recover and serve the page.
 
-Usually, server errors are caused by wrong file permissions, which will prevent Grav from caching the configuration, resized images or the template files. Or maybe Grav can not read some of the configuration files because of there is a parsing error in it.
+Usually, server errors are caused by wrong file permissions, which will prevent Grav from caching the configuration, resized images or the template files. Or maybe Grav can not read some of the configuration files because there is a parsing error in it.
 
->>>>>> If you have **Grav Administration** plugin installed, you can browse the Server Errors from there. By clicking the individual errors you can see the debug pages even if the debugger was turned off.
+>>>>>> If you have the **Grav Administration** plugin installed, you can browse the Server Errors from there. By clicking the individual errors you can see the debug pages even if the debugger was turned off.
 
 ## Tracy says: Unable to log error.
 
@@ -21,7 +21,7 @@ Usually, server errors are caused by wrong file permissions, which will prevent 
 
 This error means that something bad happened, and in addition, the system was unable to log it.
 
-In order to solve the real issue, you need to make **system/logs** directory writable and try again. If you were successful, you should see a similar error message, but with different explanation under it.
+In order to solve the real issue, you need to make the **system/logs** directory writable and try again. If you were successful, you should see a similar error message, but with different explanation under it.
 
 >>> Before moving on, make sure that you do not have other file permission issues like this.
 
