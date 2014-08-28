@@ -38,7 +38,7 @@ There are several core Grav event hooks that are triggered during the processing
 <a name="onFatalException"></a>
 #### onFatalException
 
-This is an event that can be fired at any time if PHP throws a fatal exception. This is currently used by the `problems` plugin to handle displaying a list of potential reasons why Grav throw the fatal exception.
+This is an event that can be fired at any time if PHP throws a fatal exception. This is currently used by the `problems` plugin to handle displaying a list of potential reasons why Grav throws the fatal exception.
 
 <a name="onPluginsInitialized"></a>
 #### onPluginsInitialized
@@ -51,7 +51,7 @@ This is the first plugin event available. At this point the following objects ha
 * Cache
 * Plugins
 
->>>> NOTE: A plugin will not be loaded at all if the `enabled: false` configuration option has been set for that particular plugin
+>>>> NOTE: A plugin will not be loaded at all if the `enabled: false` configuration option has been set for that particular plugin.
 
 
 <a name="onAssetsInitialized"></a>
@@ -87,7 +87,7 @@ The output has been fully processed and sent to the display.
 
 ## Twig Event Hooks
 
-Twig has it's own set of event hooks.
+Twig has its own set of event hooks.
 
 <a name="onTwigTemplatePaths"></a>
 #### onTwigTemplatePaths
@@ -137,7 +137,7 @@ After a page is parsed and processed.  This is fired for **every page** in the G
 <a name="onFolderProcessed"></a>
 #### onFolderProcessed 
 
-After a folder is parsed and processed.  This is fired for **every folder** in the Grav system.  With caching performance is not a problem because this even will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
+After a folder is parsed and processed.  This is fired for **every folder** in the Grav system.  Caching performance is not a problem because this even will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
 
 [plugintutorial]: plugin-tutorial
 [lifecycle]: ../advanced/grav-lifecycle
