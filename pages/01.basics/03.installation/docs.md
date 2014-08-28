@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Installation of Grav is a trivial process. In fact, there is no real installation.  You have **two** options for installing Grav.  The first, and simplicity way is simply grab the **zip**, the other way is to install the source from **GitHum** and run a command to install dependencies:
+Installation of Grav is a trivial process. In fact, there is no real installation.  You have **two** options for installing Grav.  The first, and simplicity way is simply grab the **zip**, the other way is to install the source from **GitHub** and run a command to install dependencies:
 
 ## Option 1: Install with ZIP package
 
