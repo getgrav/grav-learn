@@ -388,7 +388,7 @@ This returns the referrer information for this page.
 
 ### header object
 
-The header object is an alias for `page.headers()` of the original page.  It's a convenient way to access the original page headers when you are looping through other `page` objects of child pages or collections.
+The header object is an alias for `page.header()` of the original page.  It's a convenient way to access the original page headers when you are looping through other `page` objects of child pages or collections.
 
 ### content object
 
@@ -406,7 +406,7 @@ You can easily add custom variables in a variety of ways.  If the variable is a 
 {{ site.my_variable }}
 ```
 
-Alternatively, if the variable is only needed for a particular page, you can add the variable to your page's YAML front-matter, and access it via the `page.headers` object.  For example:
+Alternatively, if the variable is only needed for a particular page, you can add the variable to your page's YAML front-matter, and access it via the `page.header` object.  For example:
 
 ```
 title: My Page
@@ -416,7 +416,7 @@ author: Joe Bloggs
 could be used:
 
 ```
-The author of this page is: {{ page.headers.author }}
+The author of this page is: {{ page.header.author }}
 ```
 
 
