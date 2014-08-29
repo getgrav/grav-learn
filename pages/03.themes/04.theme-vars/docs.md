@@ -90,7 +90,7 @@ author: Joe Bloggs
 could be used:
 
 ```
-The author of this page is: {{ page.headers.author }}
+The author of this page is: {{ page.header.author }}
 ```
 
 ##### media()
