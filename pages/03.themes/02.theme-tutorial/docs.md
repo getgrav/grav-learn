@@ -179,7 +179,7 @@ Please read over the code in the `base.html.twig` file to try to understand what
 
 3. The `theme_url` variable can be used to output the path to the current theme.
 
-4. To make use of the **Asset Manager** we use the syntax: `{% do assets.add('theme://css/bootstrap.min.css',101) %}` where `theme://` is automatically converted to the current theme path, and the `101` represents an order where higher comes first, and no provided value defaults to `10`.
+4. To make use of the **Asset Manager** we use the syntax: `{% do assets.add('theme://css/bootstrap.min.css',101) %}` where `theme://` is automatically converted to the current theme path, and the `101` represents an order where higher comes first, and no provided value defaults to `10`. If we need to add an asset that does not have a regular extension (i.e. `.../script.js?v=1.0.12` refering a CDN link for example), we need to address the asset type explicitly using `{% do assets.addCss('http://fonts.googleapis.com/css?family=Open+Sans') %}` or `assets.addJs` respectively.
 
 5. The `{{ assets.css() }}` call is what triggers the template to render all the CSS link tags. Likewise, the `{{ assets.js() }}` will render all the JavaScript tags.
 
