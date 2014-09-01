@@ -33,6 +33,8 @@ As is the way of things these days, GitHub is going to be your best friend when 
 
 Clone all the repositories you plan to work with into a single `Projects` or `Development` folder on your computer. This will allow our provided tools to find the repositories they need.
 
+>>> We use the [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) branching model for all our Grav development.  The core-concept of the GitFlow methodology is that development happens in the `develop` branch, but new features and functionality are created in seperate `feature` branches that are merged into `develop` when complete.  Releases merge `develop` into `master` and you can apply `hotfix` branches as needed during the release process. Most modern git clients support this. However we recommend [Atlassian SourceTree](https://www.atlassian.com/software/sourcetree/overview) as its free, cross-platform, and easy to use.
+
 Grav depends also has some dependencies (dictated by the `.dependencies` file) that include the **Error** and **Problems** plugins, as well as the **Antimatter** theme.  You can follow these instructions to clone these bits on your own computer.  
 
 >>>> If you wish to make make additions or changes to any of the `getgrav` repositories, you will need to **fork** the appropriate repository and then clone **your fork's url** rather than the `getgrav` repository directly. The example below is using the direct `getgrav` repositories for example only.
