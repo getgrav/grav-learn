@@ -53,9 +53,10 @@ $ git clone https://github.com/getgrav/grav-theme-antimatter.git
 
 This will clone **all 4 repositories** into your `~/Projects/Grav` folder.  Usually the normal procedure for setting up a test site for Grav is to use the `bin/grav new-project` command.  And this is true for development except for one important difference.  Because we want to to be able to develop from you web root, but have any changes show up in your cloned code, we need to **symbolically link** the relevant parts.  We do this by passing a `-s` flag to the `bin/grav new-project` command.  
 
-There is one extra step required however, you must tell the command where it can find your repositories. So follow these steps:
+There is one extra step required however, you must tell the command where it can find your repositories. So follow these steps to create a configuration file in a new `.grav/` folder which you will need to create in the **root of your home directory**:
 
 ```
+$ cd
 $ mkdir .grav
 $ vi .grav/config
 ```
