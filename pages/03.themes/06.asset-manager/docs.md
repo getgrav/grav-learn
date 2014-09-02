@@ -61,25 +61,25 @@ The `assets.css()` call actually renders the CSS assets out as HTML tags.
 
 ## Available Methods
 
-#### add(asset [, priority=10]) 
+#### add(asset [, priority=10] [, pipeline=true]) 
 
-The add method does it's best attempt to match an asset based on file extension.  It is a convenience method, it's better to call one of the direct methods for CSS or JS.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.
+The add method does it's best attempt to match an asset based on file extension.  It is a convenience method, it's better to call one of the direct methods for CSS or JS.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets. The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
 
-#### addCss(asset [, priority=10]) 
+#### addCss(asset [, priority=10] [, pipeline=true]) 
 
-This method will add assets to the list of CSS assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.
+This method will add assets to the list of CSS assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.  The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
 
 #### addDirCss(directory)
 
-Add an entire directory of CSS assets in one go.
+Add an entire directory of CSS assets in one go. The order will be alphabetical. This method does not provide the control of the individual methods and is generally not the preferred approach.
 
-#### addJs(asset [, priority=10]) 
+#### addJs(asset [, priority=10] [, pipeline=true]) 
 
-This method will add assets to the list of JavaScript assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.
+This method will add assets to the list of JavaScript assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.  The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
 
 #### addDirJs(directory)
 
-Add an entire directory of JavaScript assets in one go.
+Add an entire directory of JavaScript assets in one go. The order will be alphabetical. This method does not provide the control of the individual methods and is generally not the preferred approach.
 
 #### css()
 
@@ -88,3 +88,17 @@ Retrieves a list of HTML CSS link tags based on all the CSS assets that have bee
 #### js()
 
 Retrieves a list of HTML CSS link tags based on all the CSS assets that have been added to the Asset Manager. Depending on whether or not pipelining has been turned on in the configuration, this could be a list of individual assets, or one combined and potentially minified file.
+
+## Static Assets
+
+Sometimes there is a need to reference assets without using the Asset Manager.  There is a `url()` helper method available to achieve this.  An example of this could be if you wanted to reference an image from the theme. The syntax for this is:
+
+```
+<img src="{{ url("theme://" ~ widget.image) }}" alt="{{ widget.text|e }}" />
+```
+
+The `url()` method takes an optional second parameter of `true` or `false` to enable the URL to include the schema and domain. By default this value is assumed `false` resulting in just the relative URL.  For example:
+
+```
+url("theme://some/extra.css", true)
+```
