@@ -44,11 +44,23 @@ cache:
   enabled: true                        # Set to true to enable caching
   check:
     pages: true                        # Check to see if page has been modifying to flush the cache
-  driver: auto                         # One of: auto|file|apc|xcache|memcache|memcached|wincache
+  driver: auto                         # One of: auto|file|apc|xcache|memcache|wincache
   prefix: 'g'                          # Cache prefix string (prevents cache conflicts)
 ```
 
-As you can see, the options are documented in the configuration file itself.  During development sometimes it is useful to disable caching to ensure you always have the latest page edits. 
+As you can see, the options are documented in the configuration file itself.  During development sometimes it is useful to disable caching to ensure you always have the latest page edits.
+
+#### Memcache Specific Options
+
+There are some extra configuration options that are required if you are connecting to a **memcached** server via the `memcache` driver option.  These options should go under the `cache:` group in your `user/config/system.yaml`:
+
+```
+cache:
+  ...
+  memcache:
+    server: localhost
+    port: 11211
+```  
 
 >>>> NOTE: Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
 
