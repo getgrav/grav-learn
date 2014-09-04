@@ -28,7 +28,7 @@ Each theme should have a definition file called `blueprints.yaml` which has some
 name: Antimatter
 version: 1.0
 author: Team Grav
-url: http://getgrav.org.com
+url: http://getgrav.org
 description: This is the default theme for Grav
 
 form:
