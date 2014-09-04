@@ -147,7 +147,7 @@ So we will now create a simple Bootstrap friendly base template:
             {{ assets.js() }}
         {% endblock %}	
 
-        {% endblock head%}
+        {% endblock head %}
     </head>
 
       <body>
