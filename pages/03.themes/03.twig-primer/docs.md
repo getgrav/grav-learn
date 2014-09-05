@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Twig is a quick, optimized template engine for PHP. It is designed from the ground up to make creating templates easier on both the developer and the designer. 
+Twig is a quick, optimized template engine for PHP. It is designed from the ground up to make creating templates easier on both the developer and the designer.
 
 Its easy-to-follow syntax and straightforward processes make it a natural fit for anyone familiar with Smarty, Django, or Jinja,  Twig will likely be a very easy transition for you.
 
@@ -49,7 +49,7 @@ Here is a basic template created using Twig:
         <h1>Cookies are the best!</h1>
     </body>
 </html>
-``` 
+```
 
 In this example, we set the title of the site up as you would with any standard Web page. The difference is that we were able to use simple Twig syntax to present the author's name and create a dynamic list of types of items.
 
@@ -73,9 +73,9 @@ There are several different kinds of tags, and each has its own specific syntax 
 
 #### Comment Tags
 
-Comment tags (`{# Insert Comment Here #}`) are used to set comments that exist within the Twig template file, but aren't actually seen by the end user. They are removed during evaluation, and are neither parsed nor output. 
+Comment tags (`{# Insert Comment Here #}`) are used to set comments that exist within the Twig template file, but aren't actually seen by the end user. They are removed during evaluation, and are neither parsed nor output.
 
-A good use of these tags is to explain what a specific line of code or command does so that another developer or designer on your team can quickly read and understand. 
+A good use of these tags is to explain what a specific line of code or command does so that another developer or designer on your team can quickly read and understand.
 
 Here is an example of a comment tag as you would find it in a Twig template file:
 
@@ -85,7 +85,7 @@ Here is an example of a comment tag as you would find it in a Twig template file
 
 #### Output Tags
 
-Output tags (`{{ Insert Output Here }}`) set code that is output directly to the browser. This is where you would put anything you want to appear on the front end. 
+Output tags (`{{ Insert Output Here }}`) set code that is output directly to the browser. This is where you would put anything you want to appear on the front end.
 
 Here is an example of output tags being used in a Twig template:
 
@@ -118,7 +118,7 @@ It is very important that tags not overlap one another. You can't put an output 
 
 ### Filters
 
-Filters are useful, especially when you are using the output tags to display data that might not be formatted the way you want it. 
+Filters are useful, especially when you are using the output tags to display data that might not be formatted the way you want it.
 
 Let's say the value of the `name` variable might include unwanted SGML/XML tags. You can filter them out using the code below:
 

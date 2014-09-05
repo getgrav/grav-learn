@@ -50,7 +50,7 @@ An example of how you can add CSS files in your theme can be found in the defaul
     {% endblock %}
 ```
 
-The `block` twig tag just defines a region that can be replaced or appended to in templates that extend the one. Within the block, you will see a number of `do assets.addCss()` calls. 
+The `block` twig tag just defines a region that can be replaced or appended to in templates that extend the one. Within the block, you will see a number of `do assets.addCss()` calls.
 
 The `{% do %}` tag is actually [one built in to Twig](http://twig.sensiolabs.org/doc/tags/do.html) itself, and it lets you manipulate variables without generating any output.
 
@@ -61,11 +61,11 @@ The `assets.css()` call renders the CSS assets out as HTML tags.
 
 ## Available Methods
 
-#### add(asset [, priority=10] [, pipeline=true]) 
+#### add(asset [, priority=10] [, pipeline=true])
 
 The add method does it's best attempt to match an asset based on file extension.  It is a convenience method, it's better to call one of the direct methods for CSS or JS.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets. The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
 
-#### addCss(asset [, priority=10] [, pipeline=true]) 
+#### addCss(asset [, priority=10] [, pipeline=true])
 
 This method will add assets to the list of CSS assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.  The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
 
@@ -73,7 +73,7 @@ This method will add assets to the list of CSS assets.  The priority defaults to
 
 Add an entire directory of CSS assets in one go. The order will be alphabetical. This method does not provide the control of the individual methods and is generally not the preferred approach.
 
-#### addJs(asset [, priority=10] [, pipeline=true]) 
+#### addJs(asset [, priority=10] [, pipeline=true])
 
 This method will add assets to the list of JavaScript assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.  The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
 

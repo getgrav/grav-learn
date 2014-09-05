@@ -6,7 +6,7 @@ process:
 	twig: true
 ---
 
-In Grav-speak, **pages** are the fundamental building blocks of your site.  They are how you write content and provide navigation in the Grav system.  
+In Grav-speak, **pages** are the fundamental building blocks of your site.  They are how you write content and provide navigation in the Grav system.
 
 Combining content and navigation ensures that the system is intuitive to use for even the most inexperienced of content authors. However, this system, in conjunction with powerful taxonomy capabilities, is still powerful enough to handle complex content requirements.
 
@@ -26,9 +26,9 @@ When you download and install the **Base Grav** package, you are greeted by a st
 
 {{ media['content-listing.jpg'].html('Listing Page','border') }}
 
-This is really an extension of a standard page. This is a standard page that has a reference to a collection of pages. 
+This is really an extension of a standard page. This is a standard page that has a reference to a collection of pages.
 
-The simplest approach to setting this up is to create **child pages** below the listing page. A good example of this would be a **blog listing page**, where you would have a page that displays a summary list of blog posts that exist as child pages. 
+The simplest approach to setting this up is to create **child pages** below the listing page. A good example of this would be a **blog listing page**, where you would have a page that displays a summary list of blog posts that exist as child pages.
 
 There is also some configuration settings to **control the order** of the listing as well as a **limit on the number of items**, and whether or not **pagination** should be enabled.
 
@@ -38,7 +38,7 @@ There is also some configuration settings to **control the order** of the listin
 
 {{ media['content-modular.jpg'].html('Modular Page','border') }}
 
-A modular page is a special type of listing page because it actually builds a **single page** from its **child pages**. This allows for the ability to build very complex **one-page layouts** from smaller modular content pages.  This is accomplished by constructing the **modular page** from all the **modular folders** found in the folder. 
+A modular page is a special type of listing page because it actually builds a **single page** from its **child pages**. This allows for the ability to build very complex **one-page layouts** from smaller modular content pages.  This is accomplished by constructing the **modular page** from all the **modular folders** found in the folder.
 
 >>> A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads][downloads]
 
@@ -85,7 +85,7 @@ You can specifically define a manual order by providing a list of options to the
 
 Within the page folder, we can create the actual page file.  The filename should end with `.md` to indicate that it is a Markdown formatted file.  Technically, it is markdown with YAML front matter, which sounds impressive but really is not a big deal at all. We will cover the details of the file structure soon.
 
-The important thing to understand is the name of the file directly references the name of the theme's template file that will be used to render.  The standard name for the main template file is **default**, so the file would be named `default.md`.  
+The important thing to understand is the name of the file directly references the name of the theme's template file that will be used to render.  The standard name for the main template file is **default**, so the file would be named `default.md`.
 
 You can of course name your file whatever you like, for example: `document.md`, which would cause Grav to look for a template file in the theme that matches, such as the **document** template.
 
@@ -108,7 +108,7 @@ An example page file could look like this:
 	sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque
 	velit orci, laoreet at adipiscing eu, interdum quis nibh. Nunc a accumsan purus.
 
-The settings between the pair of `---` markers is known as the YAML front matter, and it is comprised of basic YAML settings for the page.  
+The settings between the pair of `---` markers is known as the YAML front matter, and it is comprised of basic YAML settings for the page.
 
 In this example, we are explicitly setting the title, as well setting the taxonomy to **blog** so we can filter it later.  The content after the second `---` is the actual content that will be compiled and rendered as HTML on your site.  This is written in [Markdown][markdown], which will be covered in detail in a future chapter.  Just know that the `#`, `**`, and `_` markers translate to a **heading1**, **bold**, and **italics**, respectively.
 

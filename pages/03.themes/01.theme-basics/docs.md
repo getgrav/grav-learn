@@ -8,7 +8,7 @@ Themes in Grav are quite simple, and very flexible because they are built with t
 
 ## Content Pages & Twig Templates
 
-The first thing to understand is the direct relationship between **pages** in Grav and the **twig template files** that are provided in a theme.  
+The first thing to understand is the direct relationship between **pages** in Grav and the **twig template files** that are provided in a theme.
 
 Each page you create references a specific template file, either by the name of the page file, or by setting the template header variable for the page.  For simpler maintenance, we advise using the page name rather than overriding it with the header variable, whenever possible.
 
@@ -84,11 +84,11 @@ You can then use provide **plugins methods** which are covered in the [next sect
 
 ### Templates
 
-There are **no set rules** regarding the structure of a Grav theme except that there must be appropriate twig templates provided in the `templates/` folder for each of the page types you use in your content. 
+There are **no set rules** regarding the structure of a Grav theme except that there must be appropriate twig templates provided in the `templates/` folder for each of the page types you use in your content.
 
 >>> Because of this tight coupling between page content and twig templates in a theme, it often makes sense to develop themes in conjunction with the content they are intended to be used with.  A good way to create _general_ themes is to support the template types used by the Skeleton packages that are available on our [downloads page][downloads]. For example, support: **default**, **blog**, **error**, **item**, and **modular**.
 
-Generally speaking, the root of the `templates/` folder should be used to house the primary templates that are supported, then create a sub-folder called `partials/` to contain parts, or smaller template _chunks_. 
+Generally speaking, the root of the `templates/` folder should be used to house the primary templates that are supported, then create a sub-folder called `partials/` to contain parts, or smaller template _chunks_.
 
 If you want to support **modular** templates in your theme, you should also create a sub-folder of templates called `modular/` and store your modular twig template files in there.
 
@@ -102,7 +102,7 @@ The **blueprints** folder is used to define forms for options and configuration 
 
 Again, there is nothing set in stone here, but a solid practice is to have a sub-folder called `scss/` if you want to develop with Sass, or `less/` if you prefer Less along with a `css/` folder to put static CSS files, and a `css-compiled/` folder for any automatically generated files from your Sass or Less compilations.
 
-How you organize your files here is completely up to you.  Feel free to follow our example in the default **antimatter** theme provided with the Grav Base package for some ideas.  We are using the **scss** variant of Sass which is more CSS-like, and frankly more natural to write. 
+How you organize your files here is completely up to you.  Feel free to follow our example in the default **antimatter** theme provided with the Grav Base package for some ideas.  We are using the **scss** variant of Sass which is more CSS-like, and frankly more natural to write.
 
 To install Sass on your computer, simply [follow the instructions on the sass-lang.com][sasslang] website.
 
@@ -121,7 +121,7 @@ Let us use the default **antimatter** theme as an example, below you can see the
 
 ![Theme Folders](theme-folders.png)
 
-In this example, the actual `css`, `css-compiled`, `fonts`, `images`, `js`, `scss`, and `templates` files have been ignored to make it more readable.  The important thing to note is the overall structure of the theme. 
+In this example, the actual `css`, `css-compiled`, `fonts`, `images`, `js`, `scss`, and `templates` files have been ignored to make it more readable.  The important thing to note is the overall structure of the theme.
 
 >>> NOTE: The `index.html` file is just a blank file.
 

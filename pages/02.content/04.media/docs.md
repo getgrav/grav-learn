@@ -6,12 +6,12 @@ process:
 	twig: true
 ---
 
-When creating content in **Grav**, you often need to display **image**, **video**, and **file** document types. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of of the page to create thumbnails, and resize images dynamically as you need them.  
+When creating content in **Grav**, you often need to display **image**, **video**, and **file** document types. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of of the page to create thumbnails, and resize images dynamically as you need them.
 
 Grav uses a **smart-caching** system to automatically create any required image the first time it is requested, then use this image for each subsequent request.
 
 {% verbatim %}
->>>> The media examples below use markdown syntax for displaying images `![Sample Image](sample-image.jpg?cropZoom=300,200)`. 
+>>>> The media examples below use markdown syntax for displaying images `![Sample Image](sample-image.jpg?cropZoom=300,200)`.
 However, you can also use these same functions in your **Twig** templates by using the PHP syntax.  For example: `{{ media['sample-image.jpg'].cropZoom(300, 200).html() }}`
 {% endverbatim %}
 
@@ -78,7 +78,7 @@ For example, an image that is `640` x `480` that has the `crop(0, 0, 400, 100)` 
 
 Similar to regular `cropResize`, `cropZoom` also takes an `x` width and a `y` height but will **resize and crop** the image to ensure the resulting image is the exact size you requested.  The aspect ratio is maintained but parts of the image may be cropped, however the resulting image is centered.
 
->>> The primary difference between **resizeCrop** and **cropZoom** is that in resizeCrop, the image is resized maintaining aspect ratio so that the entire image is shown, and any extra space is considered background.  
+>>> The primary difference between **resizeCrop** and **cropZoom** is that in resizeCrop, the image is resized maintaining aspect ratio so that the entire image is shown, and any extra space is considered background.
 
 With **cropZoom**, the image is resized so that there is no background visible, and the extra image area of the image outside of the new image size is cropped.
 
@@ -256,7 +256,7 @@ As you can see: Grav provides some powerful image manipulation functionality tha
 
 JPEG, PNG, and GIF image formats are supported with the following file extensions: `jpg`, `jpeg`, `png`, `gif`.
 
-Thumbnails are automatically created from the image provided. 
+Thumbnails are automatically created from the image provided.
 
 ## Videos
 
@@ -308,7 +308,7 @@ images:
 			- sharp
 ```
 
-The other **metafile** that is supported is the overriding of the thumbnail for a particular medium.  This is particularly important for **videos** and **files** that natively don't have an associated image that can be used and manipulated. Simply create a `<filename>.meta.jpg|png|gif` and it will be used for any media manipulation requiring an image. 
+The other **metafile** that is supported is the overriding of the thumbnail for a particular medium.  This is particularly important for **videos** and **files** that natively don't have an associated image that can be used and manipulated. Simply create a `<filename>.meta.jpg|png|gif` and it will be used for any media manipulation requiring an image.
 
 >>>> NOTE: If you do not provide a **metafile** image for **videos** and **files**, a default image will be used.
 

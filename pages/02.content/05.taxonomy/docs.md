@@ -6,7 +6,7 @@ taxonomy:
 
 With **Grav** the ability to group or tag pages is baked right into the system with **Taxonomy**.
 
-> **Taxonomy (general),** the practice and science (study) of classification of things or concepts, including the principles that underlie such classification. 
+> **Taxonomy (general),** the practice and science (study) of classification of things or concepts, including the principles that underlie such classification.
 >
 > <cite>Wikipedia</cite>
 
@@ -34,7 +34,7 @@ taxonomies: [category,tag,author]
 This will override the taxonomies that Grav knows about so that pages can be assigned to any of these three taxonomies.
 
 The next step is to create some pages that makes use of these taxonomy types.  For example you could have a page that looks like this:
-	
+
 	---
 	title: Post 1
 	taxonomy:

@@ -21,7 +21,7 @@ The default theme **antimatter** does not provide a dropdown menu of any sort, b
         {% endif %}
     {% endfor %}
 {% endmacro %}
- 
+
 <ul class="topics">
     {{ _self.loop(pages) }}
 </ul>

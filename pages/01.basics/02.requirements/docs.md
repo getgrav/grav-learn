@@ -7,7 +7,7 @@ taxonomy:
 Grav has intentionally been designed with few requirements.  You can easily run Grav on your local computer, as well as 99% of all Web hosting providers. If you have a pen handy, jot down the following Grav system requirements:
 
 1. Webserver (Apache, IIS, Nginx)
-2. PHP 5.4 or higher 
+2. PHP 5.4 or higher
 3. hmm... that's it!
 
 Grav is built with plain text files for your content. There is no database needed, at all.
@@ -47,7 +47,7 @@ Although you can get away with Notepad, Textedit, Vi, or whatever default text e
 
 1. [SublimeText](http://www.sublimetext.com/) - OS X/Windows/Linux - A commercial developer's editor, but well worth the price. Very powerful especially combined with plugins such as [Markdown Extended](https://sublime.wbond.net/packages/Markdown%20Extended), [Pretty YAML](https://sublime.wbond.net/packages/Pretty%20YAML), and [PHP-Twig](https://sublime.wbond.net/packages/PHP-Twig).
 2. [Atom](http://atom.io) - OS X/Windows - A new editor developed by Github. It's free and open source.  It is similar to Sublime, but does not have the sheer depth of plugins available yet.
-3. [Notepad++](http://notepad-plus-plus.org/) - Windows - A free and very popular developer's editor for Windows.  
+3. [Notepad++](http://notepad-plus-plus.org/) - Windows - A free and very popular developer's editor for Windows.
 4. [Bluefish](http://bluefish.openoffice.nl/index.html) - OS X/Windows/Linux - A free, open source text editor geared towards programmers and web developers.
 
 ### Markdown Editors
@@ -65,6 +65,6 @@ Although there are many ways to deploy **Grav**, the simplest is to simply copy 
 1. [Transmit](http://panic.com/transmit/) - OS X - The de facto FTP/SFTP client on OS X.  Easy to use, fast, folder-syncing and pretty much anything else you could ask for.
 2. [FileZilla](https://filezilla-project.org/) - OS X/Windows/Linux - Probably the best option for Windows and Linux users. Free and very powerful (but very ugly on the Mac!).
 3. [Cyberduck](http://cyberduck.io/) - OS X/Windows - A decent free option for both OS X and Windows users.  Not as full featured as the others.
-4. [ForkLift](http://www.binarynights.com/forklift/) - OS X.  A solid alternative to Transmit, and slightly cheaper to boot. 
+4. [ForkLift](http://www.binarynights.com/forklift/) - OS X.  A solid alternative to Transmit, and slightly cheaper to boot.
 
 

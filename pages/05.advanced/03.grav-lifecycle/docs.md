@@ -17,21 +17,21 @@ It is often useful to know how Grav processes in order to fully understand how b
   	  ### Grav.php {.level-2}
   	  1. No instance exists, so call `load()`
   	  1. Add `config_path`
-  	  1. Add `grav` 
-  	  1. Add `events` 
-  	  1. Add `uri` 
-  	  1. Add `config` 
-  	  1. Add `cache` 
-  	  1. Add `plugins` 
-  	  1. Add `themes` 
-  	  1. Add `twig` 
-  	  1. Add `taxonomy` 
-  	  1. Add `pages` 
-  	  1. Add `assetes` 
+  	  1. Add `grav`
+  	  1. Add `events`
+  	  1. Add `uri`
+  	  1. Add `config`
+  	  1. Add `cache`
+  	  1. Add `plugins`
+  	  1. Add `themes`
+  	  1. Add `twig`
+  	  1. Add `taxonomy`
+  	  1. Add `pages`
+  	  1. Add `assetes`
   	  1. Add `page`
   	  1. Add `output`
   	  1. Add `browser`
-  	  1. Register `streams` 
+  	  1. Register `streams`
   1. Initializer debugger
   1. call `$grav->process()`
   	  ### Grav.php {.level-2}

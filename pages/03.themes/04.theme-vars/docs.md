@@ -52,7 +52,7 @@ An array to store JavaScript assets in.  This can the be looped over and used to
 
 Because Grav is built using the structure defined in the `pages/` folder, each page is represented by a **page object**.
 
-The **page object** is probably _the_ most important object you will work with as it contains all the information about the current page you are currently on. 
+The **page object** is probably _the_ most important object you will work with as it contains all the information about the current page you are currently on.
 
 ##### summary([size])
 
@@ -62,7 +62,7 @@ This returns a truncated or shortened version of your content.  You can provide 
 {{ page.summary }}
 ```
 
-or 
+or
 
 ```
 {{ page.summary(50) }}
@@ -107,7 +107,7 @@ This returns an array containing all the media associated with a page. These inc
 
 ##### title()
 
-This returns the title of the page as set in the `title` variable of the YAML headers for the page itself. 
+This returns the title of the page as set in the `title` variable of the YAML headers for the page itself.
 
 ```
 title: My Page
@@ -218,7 +218,7 @@ This returns the next page from the array of siblings based on the current posit
 
 ##### children()
 
-This returns an array of child pages for the page as defined in the pages content structure. 
+This returns an array of child pages for the page as defined in the pages content structure.
 
 ##### orderBy()
 
@@ -313,7 +313,7 @@ This returns an array of the taxonomy associated with a page.  These can be iter
 
 ### pages object
 
-The **pages object** represents a nested tree of every **page object** that Grav knows about.  This is particularly useful for creating a **sitemap**, **navigation** or if you wish to find a particular **page**.  
+The **pages object** represents a nested tree of every **page object** that Grav knows about.  This is particularly useful for creating a **sitemap**, **navigation** or if you wish to find a particular **page**.
 
 ##### children method
 
@@ -329,7 +329,7 @@ Get the top-level pages for a simple menu:
 	    	<li><a href="{{ page.url }}">{{ page.menu }}</a></li>
 	    {% endif %}
     {% endfor %}
-</ul>   
+</ul>
 ```
 
 
@@ -364,7 +364,7 @@ This returns the value of a particular param.  (e.g. `uri.param['param']` = `foo
 
 ##### url([include_host = true])
 
-This returns the full URL with or without the host.  (e.g. `uri.url(false)` = `grav/section/category/page/param:foo?query=bar`	
+This returns the full URL with or without the host.  (e.g. `uri.url(false)` = `grav/section/category/page/param:foo?query=bar`
 
 ##### extension()
 

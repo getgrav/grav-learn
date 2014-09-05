@@ -12,7 +12,7 @@ The underlying architecture of Grav has been designed to use well established an
 
 * [Twig Templating](http://twig.sensiolabs.org/): for powerful control of the user interface
 * [Markdown](http://en.wikipedia.org/wiki/Markdown): for easy content creation
-* [YAML](http://yaml.org): for simple configuration 
+* [YAML](http://yaml.org): for simple configuration
 * [Parsedown](http://parsedown.org/): for fast Markdown and Mardown Extra support
 * [Doctrine Cache](http://docs.doctrine-project.org/en/2.0.x/reference/caching.html): layer for performance
 * [Pimple Dependency Injection Container](http://pimple.sensiolabs.org/): for extensibility and maintainability
@@ -22,13 +22,13 @@ The underlying architecture of Grav has been designed to use well established an
 
 ## Grav's Place in the Universe
 
-There are many powerful existing open source CMS solutions for building complex sites.  Some of the more commonly used ones are [Joomla][joomla], [WordPress][wordpress], and [Drupal][drupal]. The downside of these platforms is that they require serious commitment to learn how to use them before you can even begin to think about creating a website with them.  
+There are many powerful existing open source CMS solutions for building complex sites.  Some of the more commonly used ones are [Joomla][joomla], [WordPress][wordpress], and [Drupal][drupal]. The downside of these platforms is that they require serious commitment to learn how to use them before you can even begin to think about creating a website with them.
 
-These platforms provide a wealth of features and functionality that you can extend with a wide-variety of community and professionally developed extensions and themes.  These extensions and themes are themselves often feature-packed, requiring yet more knowledge and time on the part of the implementor.  
+These platforms provide a wealth of features and functionality that you can extend with a wide-variety of community and professionally developed extensions and themes.  These extensions and themes are themselves often feature-packed, requiring yet more knowledge and time on the part of the implementor.
 
 In the end, you often find yourself in the position where you end with a site comprised of many different products from many different vendors that comes closest to approximating your original vision.
 
-Grav tackles the problem differently.  It focuses primarily on your content, and turns your content structure into a navigable site.  The underpinnings of Grav are simple, yet via extensive ** events**, you have complete control over every step in the Grav workflow.  
+Grav tackles the problem differently.  It focuses primarily on your content, and turns your content structure into a navigable site.  The underpinnings of Grav are simple, yet via extensive ** events**, you have complete control over every step in the Grav workflow.
 
 This allows simple plugins to quickly and easily add powerful functionality. It also offers an incredibly quick development turnaround with an installation process that takes seconds, including a straightforward content creation method with a minimal learning curve. This puts Grav in a position of being friendly to both the developer and the end user.
 

@@ -6,11 +6,11 @@ taxonomy:
     category: docs
 ---
 
-When developing themes and plugins, there is often a need to display **debugging** information. 
+When developing themes and plugins, there is often a need to display **debugging** information.
 
 ## PHP Debugging
 
-Luckily, Grav comes with a great tool to make this easier called [Tracy Debugger][tracy]. The most obvious part of the debugger is the visible bar you see when the page loads.  This provides **total processing time** within Grav, as well as **memory usage**. 
+Luckily, Grav comes with a great tool to make this easier called [Tracy Debugger][tracy]. The most obvious part of the debugger is the visible bar you see when the page loads.  This provides **total processing time** within Grav, as well as **memory usage**.
 
 {{ media['debugger-bar.png'].html }}
 
@@ -45,7 +45,7 @@ You can of course click the grey arrows to open or close the nested structure of
 
 ## Exception Display
 
-The other useful feature that Tracy provides for Grav is the detailed **Exception Display**. If your code throws an exception, Tracy handles this by providing relevant information to help track down what caused the problem.  This includes a snippet of the source file, with the line in question highlighted in red.  Also you can dig into the call stack and see the context of the calling methods. 
+The other useful feature that Tracy provides for Grav is the detailed **Exception Display**. If your code throws an exception, Tracy handles this by providing relevant information to help track down what caused the problem.  This includes a snippet of the source file, with the line in question highlighted in red.  Also you can dig into the call stack and see the context of the calling methods.
 
 Tracy even provides the ability to examine the **Environment** as well as the **HTTP Request** and **HTTP Response**.  This kind of information can be invaluable in quickly identifying and resolving coding issues.
 
