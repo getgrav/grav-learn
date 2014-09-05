@@ -107,7 +107,9 @@ Let's break down the elements of this sample file:
 
 ## Other Configuration Settings and Files
 
-As all the user configuration is completely optional, you can override as little or as much as you need. You are also not limited to the `user/config/system.yaml` or the `user/config/site.yaml` files as described above. You can create any arbitrary `.yaml` configuration file in the `user/config` folder you wish and it will get picked up by Grav automatically.
+User configuration is completely optional. You can override as little or as much of the default settings as you need. This applies to both the system, site, and any plugin configurations in your site.
+
+You are also not limited to the `user/config/system.yaml` or the `user/config/site.yaml` files as described above. You can create any arbitrary `.yaml` configuration file in the `user/config` folder you wish and it will get picked up by Grav automatically.
 
 Paths to the configuration files will be used as a **namespace** for your configuration options.
 
@@ -125,4 +127,6 @@ Some example configuration files could be structured:
 
 >>> NOTE: Having a namespaced configuration file will override or mask all options having the same path in the default configuration files
 
+Most plugins will come with their own YAML configuration file. We recommend copying this file to the **user/config/plugins/** directory rather than editing configuration options directly to the file located in the plugin's directory. Doing this will ensure that an update to the plugin will not overwrite your settings, and keep all of your configurable options in one, convenient place.
 
+The YAML file that exists within the plugin's primary directory will act as a fallback. Any settings listed there and not in the User folder's copy will be picked up and used by Grav.
