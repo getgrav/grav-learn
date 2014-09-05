@@ -4,19 +4,19 @@ taxonomy:
     category: docs
 ---
 
-Often, the best way to learn a new thing is to use an example, and then try to build your own creation from it. We are going to use this same methodology for creating a new Grav theme.  
+Often, the best way to learn a new thing is to use an example, and then try to build your own creation from it. We are going to use this same methodology for creating a new Grav theme.
 
 ## Antimatter
 
-Grav comes with a clean and modern theme called **Antimatter** which uses a simple base set of CSS styling that we call **Nucleus**.  
+Grav comes with a clean and modern theme called **Antimatter** which uses a simple base set of CSS styling that we call **Nucleus**.
 
 Nucleus is a lightweight CSS framework that contains the essential CSS resets and styling for layout and HTML markup without any over-bearing design.  Antimatter has some custom styling on top of the Nucleus framework to give it a unique look and feel.
 
 ## Bootstrap
 
-For the sake of this tutorial, we will create a theme that utilizes the popular [Bootstrap framework][bootstrap]. 
+For the sake of this tutorial, we will create a theme that utilizes the popular [Bootstrap framework][bootstrap].
 
-Bootstrap is a full-featured HTML, CSS, and JS framework that contains a wide variety of components and styling to help create sites quickly. Over the past several years, Bootstrap has become a very popular framework. It is often used as a base for other designs because it already has essential styling for pretty much anything you can think of. 
+Bootstrap is a full-featured HTML, CSS, and JS framework that contains a wide variety of components and styling to help create sites quickly. Over the past several years, Bootstrap has become a very popular framework. It is often used as a base for other designs because it already has essential styling for pretty much anything you can think of.
 
 ## Step 1 - Base Theme Setup
 
@@ -24,7 +24,7 @@ As outlined in the [Theme Basics][themebasics] chapter, there are some key eleme
 
 1. Follow the [Installation instruction](../basics/installation) and ensure you have Grav properly installed.
 
-2. Create a folder called `bootstrap` within the `user/themes` folder of your Grav site to provide the basis of our new theme. 
+2. Create a folder called `bootstrap` within the `user/themes` folder of your Grav site to provide the basis of our new theme.
 
 3. In your new `user/themes/bootstrap` folder you just created, create these folders:
 
@@ -60,7 +60,7 @@ As outlined in the [Theme Basics][themebasics] chapter, there are some key eleme
 
 ## Step 2 - Add Bootstrap
 
-Of course, to create a Bootstrap theme, we must actually include Bootstrap in our theme. 
+Of course, to create a Bootstrap theme, we must actually include Bootstrap in our theme.
 
 In this tutorial, we will use the latest version available (at the time of writing latest version is **v3.2.0**) so you will need to [download the Bootstrap distribution package][bootstrapdownload]. This package includes the essential bits needed to use the framework.
 
@@ -93,7 +93,7 @@ bootstrap
 
 ## Step 3 - Base Template
 
-As you know from the [previous chapter][themebasics], each item of content in Grav has a particular filename, e.g. `default.md`, which instructs the Grav to look for a rendering template called `default.html.twig`.  It is possible to put everything you need to display a page in this one file, and it would work fine. However, there is a better solution.  
+As you know from the [previous chapter][themebasics], each item of content in Grav has a particular filename, e.g. `default.md`, which instructs the Grav to look for a rendering template called `default.html.twig`.  It is possible to put everything you need to display a page in this one file, and it would work fine. However, there is a better solution.
 
 Utilizing the Twig [Extends][extends] tag you can define a base layout with [blocks][blocks] that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.
 
@@ -124,7 +124,7 @@ So we will now create a simple Bootstrap friendly base template:
         <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png">
 
         <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
-        
+
         {% block stylesheets %}
         	{# Bootstrap core CSS #}
         	{% do assets.add('theme://css/bootstrap.min.css',101) %}
@@ -145,7 +145,7 @@ So we will now create a simple Bootstrap friendly base template:
             {% endif %}
 
             {{ assets.js() }}
-        {% endblock %}	
+        {% endblock %}
 
         {% endblock head %}
     </head>
@@ -220,7 +220,7 @@ In your `user/themes/bootstrap/templates/partials` folder, create a file called 
             </ul>
         </div>
     </div>
-</nav>   
+</nav>
 ```
 
 Most of this is standard **Bootstrap** output for creating a navbar, but the interesting part is the **for loop** that loops through the **top-level pages** and displays a menu item for each of them. This means that as you add more pages to your top-level `user/pages` folder, they will automatically be added to the menu.
@@ -249,8 +249,8 @@ This is a very simple file because all of the hard-work has already been done by
 
 You might have noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via the chunk of HTML: `<link href="{{ theme_url }}/css/bootstrap-custom.css" rel="stylesheet">`.  This file will house any custom CSS we need to fill in the gaps not provided by the Bootstrap CSS.
 
-1. In your `user/themes/bootstrap/templates/css` folder, create a file called `bootstrap-custom.css` with the following content: 
-	
+1. In your `user/themes/bootstrap/templates/css` folder, create a file called `bootstrap-custom.css` with the following content:
+
 		/* Constrain the width */
 		.container {
 		  width: auto;

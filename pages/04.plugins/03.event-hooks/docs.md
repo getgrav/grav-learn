@@ -21,7 +21,7 @@ Most events within Grav fire in a specific order and it is important to understa
 1. [onTwigPageVariables](#onTwigPageVariables) _(each page not cached yet)_
 1. [onPageProcessed](#onPageProcessed) _(each page not cached yet)_
 1. [onFolderProcessed](#onFolderProcessed) _(for each folder found)_
-1. [onBlueprintCreated](#onBlueprintCreated) 
+1. [onBlueprintCreated](#onBlueprintCreated)
 1. [onPagesInitialized](#onPagesInitialized)
 1. [onPageNotFound](#onPageNotFound)
 1. [onPageInitialized](#onPageInitialized)
@@ -47,7 +47,7 @@ This is the first plugin event available. At this point the following objects ha
 
 * Uri
 * Config
-* Tracy Debugger 
+* Tracy Debugger
 * Cache
 * Plugins
 
@@ -70,19 +70,19 @@ This event signifies that all the pages in Grav's `user/pages` folder have been 
 This is an event that can be fired if an expected page is not found. This is currently used by the `error` plugin to display a pretty 404 error page.
 
 <a name="onPageInitialized"></a>
-#### onPageInitialized 
+#### onPageInitialized
 
 The current page as requested by a URL has been loaded into the **Page object**.
 
 <a name="onOutputGenerated"></a>
 #### onOutputGenerated
 
-The output has been processed by the **Twig templating engine** and is now just a string of HTML.  
+The output has been processed by the **Twig templating engine** and is now just a string of HTML.
 
 <a name="onOutputRendered"></a>
 #### onOutputRendered
 
-The output has been fully processed and sent to the display.  
+The output has been fully processed and sent to the display.
 
 
 ## Twig Event Hooks
@@ -135,7 +135,7 @@ This is used for processing and handling forms.
 After a page is parsed and processed.  This is fired for **every page** in the Grav system.  With caching performance is not a problem because this even will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
 
 <a name="onFolderProcessed"></a>
-#### onFolderProcessed 
+#### onFolderProcessed
 
 After a folder is parsed and processed.  This is fired for **every folder** in the Grav system.  Caching performance is not a problem because this even will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
 

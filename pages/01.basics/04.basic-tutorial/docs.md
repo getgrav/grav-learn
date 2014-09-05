@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Assuming you successfully [installed Grav][installation] with the instructions listed in the previous chapter, we can continue on and play around with Grav a little to get you more comfortable. 
+Assuming you successfully [installed Grav][installation] with the instructions listed in the previous chapter, we can continue on and play around with Grav a little to get you more comfortable.
 
 Because Grav does not require a database, it is actually pretty easy to work with without having to worry about causing issues between your Grav installation and another big data source. If something goes awry, you can generally recover very easily.
 
@@ -14,19 +14,19 @@ First, let us familiarize ourselves with where Grav stores content.  We will go 
 
 Currently there is only one folder in the pages folder, and it is called `01.home`.  The `01.` portion of the folder is optional but provides a couple of things that can be handy.
 
-Firstly, it lets you expressly define the order of your pages.  For example, `01` will come before `02`, but `00` will come before `01`.  
+Firstly, it lets you expressly define the order of your pages.  For example, `01` will come before `02`, but `00` will come before `01`.
 
 The other thing that the numeric portion of the folder name does, is explicitly inform Grav this page should be visible in the menu.  It is important to note that the numeric portion up to and including the `.` will be removed from URLs.
 
 ## Home Page Configuration
 
-There is an option in the `user/config/system.yaml` file that sets the location of the __home page__, in other words, where Grav points to when you reference the root of your site: `http://yoursite.com`.  
+There is an option in the `user/config/system.yaml` file that sets the location of the __home page__, in other words, where Grav points to when you reference the root of your site: `http://yoursite.com`.
 
 If you examine this configuration file in your install, you will see that it already points to the alias for `/home`.  We can leave it like this in this example.
 
 ## Page Editing
 
-Pages in **Grav** are composed in **Markdown** syntax.  Markdown is a formatting syntax that is written in plain text and then converted automatically to HTML. It uses very simple text symbols to indicate key HTML tags making it very easy to write without having to know the complexities of HTML. There are numerous other benefits of using Markdown including less-errors, valid markup, very readable, simple to learn, transferable, etc.  
+Pages in **Grav** are composed in **Markdown** syntax.  Markdown is a formatting syntax that is written in plain text and then converted automatically to HTML. It uses very simple text symbols to indicate key HTML tags making it very easy to write without having to know the complexities of HTML. There are numerous other benefits of using Markdown including less-errors, valid markup, very readable, simple to learn, transferable, etc.
 
 You can read an [extensive write-up of available syntax][syntax] with examples in the documentation, but for now, just follow along.
 
@@ -55,7 +55,7 @@ When you edit the page in a text editor, the content will look something like th
 
 	>>>> TODO: Walk through the process of creating a new page with title + content with simple markdown
 
-Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers][pageheaders], and these are written in a very simple format called [YAML](../advanced/yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.  
+Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers][pageheaders], and these are written in a very simple format called [YAML](../advanced/yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.
 
 ```ruby
 title: Home
