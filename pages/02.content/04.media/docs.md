@@ -17,6 +17,8 @@ However, you can also use these same functions in your **Twig** templates by usi
 
 **Supported Media Files**
 
+The following media file types are supported natively by Grav. Additional support for media files and streaming embeds may be added via plugins.
+
 | Media Type         | File Type                   |
 | :----------        | :----------                 |
 | Image              | jpg, jpeg, png, gif         |
