@@ -33,7 +33,7 @@ The alternative method is to install Grav from the GitHub repository and then ru
 
    This will automatically **clone** the required dependencies from GitHub directly into this Grav installation.
 
-## Webserver    
+## Webserver
 
 #### Apache/IIS/Nginx
 
@@ -64,7 +64,7 @@ To try Grav, simply navigate to the folder where you extracted your **Grav Base*
 $ php -S localhost:8000
 ```
 
-This runs the built-in PHP web server.  Then, point your browser to `http://localhost:8000` and you should see your Grav site. 
+This runs the built-in PHP web server.  Then, point your browser to `http://localhost:8000` and you should see your Grav site.
 
 >>>> Using the built-in PHP web server is not intended for production environments.  It is intended for development environments only.
 
@@ -74,7 +74,7 @@ The first time it loads, there is some compilation happening. Refresh your brows
 
 ![Grav Installed](install.png?cropResize=600,600)  {.border}
 
->>> In the previous examples, **$** represents the command prompt.  This may look different on various platforms. 
+>>> In the previous examples, **$** represents the command prompt.  This may look different on various platforms.
 
 By default, Grav comes with some sample pages to give you something to get started with.  Your site is already fully functional and you can configure it, add content, extend it, or customize it as much as you like.
 
@@ -90,7 +90,9 @@ Please consult the [Troubleshooting](../troubleshooting) section for help regard
 
 We plan on providing an improved update solution including **automatic updates** via the upcoming **Admin Panel** plugin - as well as updating via the [Grav CLI Application][grav-cli].  Until then, you should download the [Update Package][update] from our [Downloads section][downloads].
 
-You can extract the update package over the top of your existing Grav installation and it will copy over any updates in the `core system folder` as well as any library updates in the `vendor folder`.
+You can extract the update package over the top of your existing Grav installation and it will copy over any updates in the `core system folder`.
+
+After having copied over the files it is a good idea to also update the vendors. You can do so by running the command `composer update` from the root of your Grav instance.
 
 [downloads]: http://getgrav.org/downloads
 [webroot]: https://www.wordnik.com/words/webroot

@@ -21,7 +21,7 @@ So let us dig a little deeper into each of these top level folders and explain w
 
 ### /assets
 
-**(v0.9.0+)** The `assets` folder is used by the new asset management system within Grav to store processed `.css` and `.js` files. 
+**(v0.9.0+)** The `assets` folder is used by the new asset management system within Grav to store processed `.css` and `.js` files.
 
 >>> This folder should not be used to store any user data because it is routinely flushed.
 
@@ -39,7 +39,7 @@ If Grav decides that the **filesystem** is the best caching method, the cached f
 
 ### /images
 
-Grav comes built-in with a powerful yet very [easy-to-use image manipulation library][library].  This means you can easily resize an image on-the-fly from your content or even from a plugin.  These images are stored in the `images` folder so that they can be reused if the same image with the same size is requested again.  
+Grav comes built-in with a powerful yet very [easy-to-use image manipulation library][library].  This means you can easily resize an image on-the-fly from your content or even from a plugin.  These images are stored in the `images` folder so that they can be reused if the same image with the same size is requested again.
 
 It acts like an image cache folder.  This is intended for automatically generated files, user provided media should be stored in the `user/pages/`, `user/themes/` or even a custom `user/images/` folder.
 
@@ -57,6 +57,8 @@ The `system` folder is where the files that make Grav function actually live.  Y
 
 The `vendor` folder contains important libraries that Grav relies on.  This folder is similar to the `system` folder in that it should not be tampered with unless you really know what you are doing.
 
+Since Grav 0.9.2 the `vendor` folder is not included anymore. You will have to run `bin/grav install` or `composer install` from the root of your Grav instance in order to get the vendors installed. More details can be found under the [installation][installation] section.
+
 ### /user
 
 This is the most important folder for the majority of people. This is where you will spend your time creating content, using plugins, and editing your themes. Let us burrow a little further into this folder:
@@ -72,7 +74,7 @@ This is the most important folder for the majority of people. This is where you 
 
 ### /user/accounts
 
-The `accounts` folder is where you will define any user accounts you may need if you wish to restrict access to portions of your site. 
+The `accounts` folder is where you will define any user accounts you may need if you wish to restrict access to portions of your site.
 
 >>>>> This is currently a placeholder folder until this functionality is fully developed.
 
@@ -84,7 +86,7 @@ The [configuration files][config] are used to configure the web site and have be
 
 The `data` folder can be used by plugins to store data that you can reference later.  A good example of a plugin that utilizes this folder is the **Forms** plugin that can take a web form and store the submitted data in a text file in this folder.  You can store other things such as user-uploads or anything you wish to really.
 
->>> This folder is not accessible via a browser by default. 
+>>> This folder is not accessible via a browser by default.
 
 ### /user/pages
 
@@ -100,3 +102,4 @@ A theme turns your content into a true website.  It converts the content you hav
 [website]: http://getgrav.org
 [themes]: ../themes
 [grav-cli]: ../advanced/grav-cli
+[installation]: ../installation
