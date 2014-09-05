@@ -57,7 +57,7 @@ The `system` folder is where the files that make Grav function actually live.  Y
 
 The `vendor` folder contains important libraries that Grav relies on.  This folder is similar to the `system` folder in that it should not be tampered with unless you really know what you are doing.
 
-Since Grav 0.9.2 the `vendor` folder is not included anymore. You will have to run `bin/grav install` or `composer install` from the root of your Grav instance in order to get the vendors installed. More details can be found under the [installation][installation] section.
+**(v0.9.2+)**  If you [installed][installation] Grav from GitHub, the `vendor` folder won't be included with it. You will have to run `bin/grav install` or `composer install` from the root of your Grav instance in order to get the vendors installed. More details can be found under the [installation][installation] section.
 
 ### /user
 
