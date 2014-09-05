@@ -14,7 +14,7 @@ The Grav Asset Manager has a simple set of configuration options.  The default v
 
 ```
 assets:                                # Configuration for Assets Manager (JS, CSS)
-  css_pipeline: false                  # The CSS pipeline is the unification of multiple CSS resources into one file
+  css_pipeline: true                  # The CSS pipeline is the unification of multiple CSS resources into one file
   css_minify: true                     # Minify the CSS during pipelining
   css_rewrite: true                    # Rewrite any CSS relative URLs during pipelining
   js_pipeline: false                   # The JS pipeline is the unification of multiple JS resources into one file
