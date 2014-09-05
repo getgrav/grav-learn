@@ -17,7 +17,7 @@ There are a couple of key parts to using taxonomy in your site:
 
 ## Taxonomy Example
 
-This concept is best explained with an example.  Let us say you want to create a simple blog.  In that blog you will create posts that you might want to assign to certain tags to provide a **tag cloud** display.  Also you could have several authors and you might want to assign each post to that author.
+This concept is best explained with an example.  Let us say you want to create a simple blog.  In that blog you will create posts that you might want to assign to certain tags to provide a **tag cloud** display.  Also, you could have several authors, and you might want to assign each post to that author.
 
 Accomplishing this in Grav is a simple procedure.  Grav provides a default `site.yaml` file that is located in the `system/config` folder.  By default that configuration defines two taxonomy types of `category` and `tag`:
 

@@ -15,6 +15,16 @@ Grav uses a **smart-caching** system to automatically create any required image 
 However, you can also use these same functions in your **Twig** templates by using the PHP syntax.  For example: `{{ media['sample-image.jpg'].cropZoom(300, 200).html() }}`
 {% endverbatim %}
 
+**Supported Media Files**
+
+The following media file types are supported natively by Grav. Additional support for media files and streaming embeds may be added via plugins.
+
+| Media Type         | File Type                   |
+| :----------        | :----------                 |
+| Image              | jpg, jpeg, png, gif         |
+| Video              | mp4, mov, m4v, swf          |
+| Data / Information | txt, doc,html, pdf, zip, gz | 
+
 ## Actions
 
 Grav employs a **builder-pattern** when handling media, so you can perform **multiple actions** on a particular medium.  Grav currently has the following actions built-in:
