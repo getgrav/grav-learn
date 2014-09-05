@@ -93,7 +93,7 @@ bootstrap
 
 ## Step 3 - Base Template
 
-As you know from the [previous chapter][themebasics], each item of content in Grav has a particular filename, e.g. `default.md`, which instructs the Grav to look for a rendering template called `default.html.twig`.  It is possible to put everything you need to display a page in this one file, and it would work find, however, there is a better solution.  
+As you know from the [previous chapter][themebasics], each item of content in Grav has a particular filename, e.g. `default.md`, which instructs the Grav to look for a rendering template called `default.html.twig`.  It is possible to put everything you need to display a page in this one file, and it would work fine. However, there is a better solution.  
 
 Utilizing the Twig [Extends][extends] tag you can define a base layout with [blocks][blocks] that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.
 
