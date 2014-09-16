@@ -6,9 +6,13 @@ taxonomy:
 
 Although we have done our best to document as much as possible here in the documentation, it is inevitable that there will be questions we have not answered.  We want to be accessible as possible, so we have several methods to reach the developers in order to get help directly:
 
+## Forum
+
+We have a new [real-time forum solution](http://getgrav.org/forum) utilizing the **Muut** platform to provide a simple way to get your Grav questions answered quickly.
+
 ## Twitter
 
-We **highly recommend** you [follow us on Twitter](https://twitter.com/getgrav) as that provides a real-time way for us to reach out to our followers and let them know about news and events related to Grav development. 
+We **highly recommend** you [follow us on Twitter](https://twitter.com/getgrav) as that provides a real-time way for us to reach out to our followers and let them know about news and events related to Grav development.
 
 ## Grav Blog
 
