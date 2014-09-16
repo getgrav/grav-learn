@@ -29,6 +29,7 @@ Most events within Grav fire in a specific order and it is important to understa
 1. [onTwigSiteVariables](#onTwigSiteVariables)
 1. [onOutputGenerated](#onOutputGenerated)
 1. [onOutputRendered](#onOutputRendered)
+1. [onShutdown](#onShutdown)
 
 
 ## Core Grav Event Hooks
@@ -83,6 +84,11 @@ The output has been processed by the **Twig templating engine** and is now just 
 #### onOutputRendered
 
 The output has been fully processed and sent to the display.
+
+<a name="onShutdown"></a>
+#### onShutdown
+
+A new and very powerful even that lets you perform actions after Grav has finished processing and the connection to the client has been closed.  This is particularly useful for performing actions that don't need user interaction and potentially could impact performance.  Possible uses include user tracking and jobs processing.
 
 
 ## Twig Event Hooks
