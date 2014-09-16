@@ -4,15 +4,7 @@
     {% block head %}
     <meta charset="utf-8" />
     <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
-    <meta name="generator" content="Grav {{ grav_version }}" />
-    {% if header.description %}
-        <meta name="description" content="{{ header.description }}" />
-    {% else %}
-        <meta name="description" content="{{ site.description }}" />
-    {% endif %}
-    {% if header.robots %}
-        <meta name="robots" content="{{ header.robots }}" />
-    {% endif %}
+    {% include 'partials/metadata.html.twig' %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="alternate" type="application/atom+xml" href="{{ base_url_absolute}}/feed:atom" title="Atom Feed" />
     <link rel="alternate" type="application/rss+xml" href="{{ base_url_absolute}}/feed:rss" title="RSS Feed" />
@@ -99,7 +91,7 @@
             {% block footer %}
                 <blockquote id="github-contrib"><blockquote><blockquote><blockquote>
                     <p>
-                    <i class="icon-github"></i> Found errors? Think you can improve this documentation? Please <a href="{{ site.github.tree ~  ('/'~page.filePathClean)|replace({'/user/':''}) }}">edit this page</a>. 
+                    <i class="icon-github"></i> Found errors? Think you can improve this documentation? Please <a href="{{ site.github.tree ~  ('/'~page.filePathClean)|replace({'/user/':''}) }}">edit this page</a>.
                 </p>
                 </blockquote></blockquote></blockquote></blockquote>
             {% endblock %}

@@ -1,5 +1,6 @@
 title: Grav Documentation
-description: 'Grav documentation'
+metadata:
+    description: 'Grav documentation'
 
 author:
   name: Andy Miller
