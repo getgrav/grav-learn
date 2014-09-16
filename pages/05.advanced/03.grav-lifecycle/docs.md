@@ -86,4 +86,6 @@ It is often useful to know how Grav processes in order to fully understand how b
   	  1. Echo the the output
   	  1. Flush the output buffers to the page
   	  1. Fire **onOutputRendered** event
+      1. Connection to client is closed
+      1. Fire **onShutdown** event
 
