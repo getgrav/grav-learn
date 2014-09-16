@@ -128,39 +128,55 @@ Although strictly speaking this is not a standard page header, it is a common wa
 
 ## Meta Page Headers
 
-Although not strictly a Grav supported set of headers, these are fairly standard and should be supported by **Grav Themes**. Meta headers allow you to set the [standard set of HTML **<meta> tags**](http://www.w3schools.com/tags/tag_meta.asp) for each page:
+Meta headers allow you to set the [standard set of HTML **<meta> tags**](http://www.w3schools.com/tags/tag_meta.asp) for each page as well as [OpenGraph](http://ogp.me/), [Facebook](https://developers.facebook.com/docs/sharing/best-practices), and [Twitter](https://dev.twitter.com/cards/overview).
 
-### Description Meta Tag
-
-```ruby
-description: Your page description goes here
-```
-
-The `description` value is often used by search engines to provide a summary of the page content.
-
-### Keywords Meta Tag
+### Standard Metatag examples
 
 ```ruby
-keywords: [HTML, CSS, XML, JavaScript]
+metadata:
+    description: Your page description goes here
+    keywords: HTML, CSS, XML, JavaScript
+    author: John Smith
+    robots: noindex, nofollow
 ```
 
-The `keywords` variable is used to provide a list of keywords that will be set in the keywords meta tag for the page.
+All HTML5 metatags are supported.
 
-### Author Meta Tag
+### OpenGraph Metatag examples
 
 ```ruby
-author: John Smith
+metadata:
+    og:
+        title: The Rock
+        type: video.movie
+        url: http://www.imdb.com/title/tt0117500/
+        image: http://ia.media-imdb.com/images/rock.jpg
 ```
 
-Another standard meta tag, `author` is often used by search engines and other web services.
+For a full outline of all OpenGraph metatags that can be used, please consult the [official documentation](http://ogp.me/).
 
-### Robots Meta Tag
+### Facebook Metatag examples
 
 ```ruby
-robots: [noindex, nofollow]
+metadata:
+    fb:
+        app_id: your_facebook_app_id
 ```
 
-Especially useful for search engines, you can set any of the [supported index and serving directives](https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag) in this array.
+Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific tags and these are support automatically by Grav.
+
+### Twitter Metatag examples
+
+```ruby
+metadata:
+    'twitter:card' : summary
+    'twitter:site' : `@flickr`
+    'twitter:title' : Your Page Title
+    'twitter:description' : Your page description can contain summary information
+    'twitter:image' : https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg
+```
+
+For a full outline of all Twitter metatags that can be used, please consult the [official documentation](https://dev.twitter.com/cards/overview).
 
 ## Collection Headers
 
