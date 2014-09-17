@@ -37,7 +37,18 @@ There is a short explanation of this in the `.htacces` file itself:
 
 Simply remove the `#` before the `RewriteBase /` directive to uncomment it, and adjust the path to match your server environment.
 
-## Grav 404 Not Found
+### Missing Rewrite or Headers Modules
+
+Some webserver packages (I'm looking at your EasyPHP and WAMP!) do not come with the Apache **rewrite** or **headers** modules enabled by default. They usually can be enabled from the configuration settings for Apache, or you can do so manually via the `httpd.conf` by uncommenting these lines (or something similar) so they are loaded by Apache:
+
+```
+#LoadModule rewrite_module modules/mod_rewrite.so
+#LoadModule headers_module modules/mod_headers.so
+```
+
+Then restart your Apache server.
+
+### Grav Error 404 Page
 
 ![404 Not Found](error-404.png) 		{.bordered}
 
