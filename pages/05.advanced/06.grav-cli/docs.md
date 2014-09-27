@@ -11,9 +11,14 @@ Although some operations can be performed manually, by _relying_ on the CLI, the
 To get a list of all the commands available in Grav, you can run the command:
 
 ```bash
-$ bin/grav help
+$ bin/grav list
 ```
 
+To get help for a specific command, you can prepend help to the command:
+
+```bash
+$ bin/grav help install
+```
 
 ## Creating a new Project
 
