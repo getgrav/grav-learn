@@ -33,7 +33,7 @@ Most of the commands (listed below) comes with the option `--force (-f)` which a
 #### Blueprints
 With the introduction of _GPM_ we now have strict rules about valid `blueprints`. Whether it's a _theme_ or a _plugin_ you are developing, you should always ensure the `blueprints` are formatted properly.
 
-A blueprint serves different purposes, including defining your resource identity. Please refer to the [Blueprints][TODO] for an in-depth documentation about what blueprints are and how they should be compiled.
+A blueprint serves different purposes, including defining your resource identity. Please refer to the [Blueprints][blueprints] for an in-depth documentation about what blueprints are and how they should be compiled.
 
 #### Releases
 Grav repository refreshes every 2 hours and automatically detects when there are new releases, this implies that as a developer you followed our [Contributing][contributing] requirements.
@@ -105,5 +105,6 @@ It is strongly adviced to always do a backup before performing a self-upgrade (s
 ![](upgrade.jpg)
 
 [grav-cli]: ../grav-cli
+[blueprints]: ../blueprints
 [contributing]: https://github.com/getgrav/grav#contributing
 [new-resource]: https://github.com/getgrav/grav/issues/new?title=[add-resource]%20New%20Plugin/Theme&body=I%20would%20like%20to%20add%20my%20new%20plugin/theme%20to%20the%20Grav%20Repository.%0AHere%20are%20the%20project%20details:%20**user/repository**
