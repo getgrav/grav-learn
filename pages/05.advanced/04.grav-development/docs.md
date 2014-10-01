@@ -47,7 +47,7 @@ Clone all the repositories you plan to work with into a single `Projects` or `De
 
 Grav also has some dependencies (dictated by the `.dependencies` file) which include the **Error** and **Problems** plugins, as well as the **Antimatter** theme.  You can follow these instructions to clone these bits on your own computer.
 
->>>> If you wish to make make additions or changes to any of the `getgrav` repositories, you will need to **fork** the appropriate repository and then clone **your fork's url** rather than the `getgrav` repository directly. The example below is using the direct `getgrav` repositories for example only.
+>>>> If you wish to make additions or changes to any of the `getgrav` repositories, you will need to **fork** the appropriate repository and then clone **your fork's url** rather than the `getgrav` repository directly. The example below is using the direct `getgrav` repositories for example only.
 
 ```
 $ cd
