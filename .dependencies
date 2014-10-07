@@ -7,6 +7,10 @@ git:
         url: https://github.com/getgrav/grav-plugin-error
         path: user/plugins/error
         branch: develop
+    highlight:
+        url: https://github.com/getgrav/grav-plugin-highlight
+        path: user/plugins/highlight
+        branch: develop
 links:
     simplesearch:
         src: grav-plugin-simplesearch
@@ -15,4 +19,8 @@ links:
     error:
         src: grav-plugin-error
         path: user/plugins/error
+        scm: github
+    highlight:
+        src: grav-plugin-highlight
+        path: user/plugins/highlight
         scm: github
