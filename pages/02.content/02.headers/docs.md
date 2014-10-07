@@ -28,6 +28,10 @@ slug: my-page-slug
 
 The `slug` variable allows you to specifically set the page's portion of the URL. For example: `http://yoursite.com/my-page-slug` would be the URL if you set the `slug` above.  If the `slug` is not set in the page, Grav falls back to using the folder name (without any numerical prefixes).
 
+[Slugs](http://en.wikipedia.org/wiki/Semantic_URL#Slug) are generally entirely lowercase, with accented characters replaced by letters from the English alphabet and whitespace characters replaced by a dash or an underscore. While future versions of Grav will support spaces in slugs, having blank spaces or capital lettering is not recommended.
+
+For example: If a blog post's title is `Blog Post Example`, the recommended slug would be `blog-post-example`.
+
 ### Menu
 
 ```ruby
