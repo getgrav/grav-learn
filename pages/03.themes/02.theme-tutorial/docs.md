@@ -249,7 +249,7 @@ This is a very simple file because all of the hard-work has already been done by
 
 You might have noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via the chunk of HTML: `<link href="{{ theme_url }}/css/bootstrap-custom.css" rel="stylesheet">`.  This file will house any custom CSS we need to fill in the gaps not provided by the Bootstrap CSS.
 
-1. In your `user/themes/bootstrap/templates/css` folder, create a file called `bootstrap-custom.css` with the following content:
+1. In your `user/themes/bootstrap/css` folder, create a file called `bootstrap-custom.css` with the following content:
 
 		/* Constrain the width */
 		.container {
