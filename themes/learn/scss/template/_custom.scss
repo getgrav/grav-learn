@@ -1,5 +1,7 @@
+@charset 'utf-8';
+
 // Your custom SCSS should be written here...
-// 
+//
 $header-height: 60px;
 $sidebar-width: 250px;
 $sidebar-bg: #F9FAFB;
@@ -118,7 +120,7 @@ body {
 			left: - $sidebar-width;
 		}
 		#body {
-			left: 0;	
+			left: 0;
 			@include breakpoint(mobile-only) {
 				overflow-y: auto;
 			}
@@ -198,7 +200,7 @@ body {
 				float: right;
 				font-size: 13px;
 				min-width: 16px;
-				margin: 0;	
+				margin: 0;
 			}
 
 
@@ -240,9 +242,10 @@ body {
 }
 
 #body {
-	img {
+	img, .video-container {
 		margin: 3rem auto;
 		display: block;
+        text-align: center;
 
 		&.border {
 			border: 3px solid #f0f0f0;
@@ -299,7 +302,7 @@ body {
 	}
 
 	#navigation {
-		
+
 
 		@include breakpoint(desktop-only) {
 			position: static;
@@ -339,7 +342,7 @@ body {
 				display: inline-block;
 			}
 		}
-		
+
 
 		&:hover {
 			background: darken($sidebar-bg,5%);
@@ -384,7 +387,7 @@ body {
 		margin: 0;
 		font-weight: $font-weight-regular;
 	}
-	
+
 	span[data-search-clear] {
 		display: inline-block;
 		position: absolute;
@@ -421,7 +424,7 @@ body {
 #progress {
 	@extend .default-animation;
 	margin-left: $sidebar-width;
-	
+
 	.progress-bar {
 		@include transition(all 1s ease-out);
 		display: block;
@@ -452,7 +455,7 @@ body {
 	h1 {
 		text-transform: capitalize;
 		font-size: 5rem;
-		border-bottom: 4px solid $rule-color;	
+		border-bottom: 4px solid $rule-color;
 	}
 
 	p {
@@ -488,7 +491,7 @@ body.font-serif {
 	}
 }
 
-//Github 
+//Github
 #github-contrib {
 	i {
 		font-size: 30px;

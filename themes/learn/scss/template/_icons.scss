@@ -19,7 +19,7 @@
   .#{$icon}.icon-left a:before,
   .#{$icon}.icon-right a:after,
   i.#{$icon}:before {
-    content: "#{match($entypo-icons, $icon)}";
+    content: unquote("\"\\#{match($entypo-icons, $icon)}\"");
     height: inherit;
   }
 }
