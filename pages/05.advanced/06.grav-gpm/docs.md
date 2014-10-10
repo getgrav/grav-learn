@@ -2,6 +2,14 @@
 title: Grav GPM
 taxonomy:
     category: docs
+videoembed:
+    responsive: true
+    services:
+        youtube:
+            embed_options:
+                autoplay: 0
+                vq: hd720
+                showinfo: 0
 ---
 
 Since the release of version **0.9.2**, Grav includes a _GPM_ (Grav Package Manager) which allows you to install, update, and list all the themes and plugins available on the Grav repository, as well as upgrade Grav itself to the latest version.
@@ -27,28 +35,6 @@ _GPM_ downloads the repository metadata from **GetGrav.org**. The repository con
 The repository itself gets cached locally, on the Grav instance machine running the command, for 24 hours. Any further request after the cache has been generated will not contact the **GetGrav.org** server, but rather serve from the locally-stored repository. This approach guarantees a much quicker response.
 
 Most of the commands (listed below) come with the option `--force (-f)` which allows the forcing a re-fetch of the repository. This could be extremely useful in the event an update is known to be out there and the user doesn't want to wait a full 24 hour cycle before the cache gets cleared.
-
-## Is There Anything Else a Developer Should Know?
-
-#### Blueprints
-
-With the introduction of _GPM_, we now have strict rules about valid `blueprints`. Whether it's a _theme_ or a _plugin_ you are developing, you should always ensure `blueprints` are formatted properly.
-
-A blueprint can serve several different purposes, including defining your resource identity. Please refer to the [Blueprints][blueprints] for more detailed documentation about what blueprints are and how they should be compiled.
-
-#### Releases
-
-Grav repository refreshes every 2 hours and automatically detects when there are new releases, this implies that as a developer you followed our [Contributing][contributing] requirements.
-
-On your end all you have to do is ensure you have updated the blueprints with the new version, and that you tagged and released the new version. The Grav repository will do the rest for you and as soon as your release is picked up, it will be available to everyone via Grav website or through _GPM_.
-
-#### Add your resource to the repository
-
-To add your new plugin/theme to the Grav repository, please open a Grav Issue on GitHub. You can also [use this precompiled link][new-resource]. Make sure you update the body to the proper `user/repository`.
-
-More details about what the plugin/theme does are welcome, and can can be placed in the Issue.
-
-Also please be aware that before adding a repository, the Grav team will inspect your plugin/theme ensuring that it fits with the Grav standards. The team may also respond with requests for additional information, suggest minor improvements, etc. prior to closing the issue and adding the plugin/theme.
 
 ## Commands
 
@@ -80,11 +66,9 @@ The `install` command does exactly what it states. It installs a resource from t
 
 The command will also detect if a resource is already installed, or if it is symbolically linked, and prompts you on what to do.
 
----install.mov---
-
 You can also install multiple resources at once by separating the slugs with a space.
 
----install-multi.mov---
+https://www.youtube.com/watch?v=SUUtcYl2xrE
 
 >>> You can use the option `--all-yes (-y)` to skip any prompts. Existing resources will be overridden and if they are symbolic links will automatically be skipped.
 
@@ -94,9 +78,13 @@ The `update` command shows a list of updatable resources and works similarly to 
 
 ![](update.jpg)
 
+https://www.youtube.com/watch?v=jkxk2xBr5TM
+
 Alternatively, you can limit the updates to specific resources only.
 
 ![](update-limit.jpg)
+
+https://www.youtube.com/watch?v=rSWdmdx9TDA
 
 ## Self-upgrade
 
@@ -107,6 +95,31 @@ It is strongly advised to always do a backup before performing a self-upgrade (s
 >>> The self-upgrade only upgrades portions of your Grav instance, like `system/` folder, `vendor/` folder, `index.php`, and others. Your **`user`** and **`images`** folders will never be touched.
 
 ![](upgrade.jpg)
+
+https://www.youtube.com/watch?v=15-E8l5aaUo
+
+## Is There Anything Else a Developer Should Know?
+
+#### Blueprints
+
+With the introduction of _GPM_, we now have strict rules about valid `blueprints`. Whether it's a _theme_ or a _plugin_ you are developing, you should always ensure `blueprints` are formatted properly.
+
+A blueprint can serve several different purposes, including defining your resource identity. Please refer to the [Blueprints][blueprints] for more detailed documentation about what blueprints are and how they should be compiled.
+
+#### Releases
+
+Grav repository refreshes every 2 hours and automatically detects when there are new releases, this implies that as a developer you followed our [Contributing][contributing] requirements.
+
+On your end all you have to do is ensure you have updated the blueprints with the new version, and that you tagged and released the new version. The Grav repository will do the rest for you and as soon as your release is picked up, it will be available to everyone via Grav website or through _GPM_.
+
+#### Add your resource to the repository
+
+To add your new plugin/theme to the Grav repository, please open a Grav Issue on GitHub. You can also [use this precompiled link][new-resource]. Make sure you update the body to the proper `user/repository`.
+
+More details about what the plugin/theme does are welcome, and can can be placed in the Issue.
+
+Also please be aware that before adding a repository, the Grav team will inspect your plugin/theme ensuring that it fits with the Grav standards. The team may also respond with requests for additional information, suggest minor improvements, etc. prior to closing the issue and adding the plugin/theme.
+
 
 [grav-cli]: ../grav-cli
 [blueprints]: ../blueprints
