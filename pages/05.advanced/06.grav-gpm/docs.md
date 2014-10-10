@@ -12,7 +12,7 @@ videoembed:
                 showinfo: 0
 ---
 
-Since the release of version **0.9.2**, Grav includes a _GPM_ (Grav Package Manager) which allows you to install, update, and list all the themes and plugins available on the Grav repository, as well as upgrade Grav itself to the latest version.
+Since the release of version **0.9.3**, Grav includes a _GPM_ (Grav Package Manager) which allows you to install, update, and list all the themes and plugins available on the Grav repository, as well as upgrade Grav itself to the latest version.
 
 Like the [Grav CLI][grav-cli], the _GPM_ is a command-line tool which requires the user to run commands via a command-line interface, such as **Terminal** in OS X.
 
