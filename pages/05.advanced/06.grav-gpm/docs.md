@@ -98,7 +98,7 @@ It is strongly advised to always do a backup before performing a self-upgrade (s
 
 https://www.youtube.com/watch?v=15-E8l5aaUo
 
-## Is There Anything Else a Developer Should Know?
+## Important Developer Information
 
 #### Blueprints
 
