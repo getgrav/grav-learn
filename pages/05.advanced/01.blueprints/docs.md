@@ -12,7 +12,7 @@ Blueprints are a container of metadata informations regarding a resource. The fi
 
 ## Resource Identity
 
-Each plugin and theme identity is defined in the`blueprints.yaml` file. Without properly formatted and compiled Blueprints, a resource won't be added in the Grav repository. Consequently, it won't be available through [Grav downloads][grav-downloads] and [GPM][gpm].
+Each plugin and theme identity is defined in the `blueprints.yaml` file. Without properly formatted and compiled Blueprints, a resource won't be added in the Grav repository. Consequently, it won't be available through [Grav downloads][grav-downloads] and [GPM][gpm].
 
 There are different properties that you can use to give your resource and identity, some are **required**, others are _optional_.
 
