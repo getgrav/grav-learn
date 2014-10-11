@@ -130,7 +130,7 @@ So we will now create a simple Bootstrap friendly base template:
         	{% do assets.add('theme://css/bootstrap.min.css',101) %}
 
 			{# Custom styles for this theme #}
-        	{% do assets.add('theme://css/bootstrap-custom\.css',100) %}
+        	{% do assets.add('theme://css/bootstrap-custom.css',100) %}
 
         	{{ assets.css() }}
         {% endblock %}
