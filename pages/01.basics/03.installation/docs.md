@@ -88,11 +88,29 @@ Please consult the [Troubleshooting](../troubleshooting) section for help regard
 
 ## Grav Updates
 
-We plan on providing an improved update solution including **automatic updates** via the upcoming **Admin Panel** plugin - as well as updating via the [Grav CLI Application][grav-cli].  Until then, you should download the [Update Package][update] from our [Downloads section][downloads].
+### Automatic Updates
 
-You can extract the update package over the top of your existing Grav installation and it will copy over any updates in the `core system folder`.
+The preferred method for updating Grav (from v0.9.3 onwards) is to use the Grav Package Manager (GPM). All you need to do then is to type:
 
-After having copied over the files it is a good idea to also update the vendors. You can do so by running the command `composer update` from the root of your Grav instance.
+```
+bin/gpm selfupdate
+```
+
+Full information can be found in the [Grav CLI Documentation][grav-cli].  We also plan on having GPM integrated in our the upcoming **Admin Panel** plugin which will check, prompt, and automatically install any updates.  
+
+### Manual Updates
+
+To manually update the process is:
+
+1. Backup your site using `bin/grav backup` (more information in [Grav CLI Documentation][grav-cli] or alternatively zipping up the whole Grav site, or specifically the `user/` folder. 
+
+2. Download the [Update Package][update] from our [Downloads section][downloads]. It is important to download the **update** package and **not the core** package.
+
+3. Extract the update package over the top of your existing Grav installation and it will copy over any updates in the `core system folder`.
+
+4. Clear the Grav cache with bin/grav clear-cache` to ensure any cache or compiled files are recreated cleanly.
+
+>>>> It's important not to copy the **core** Grav zip file over your current site as it could overrwrite your `user/` folder and resulting in a loss of your data.
 
 [downloads]: http://getgrav.org/downloads
 [webroot]: https://www.wordnik.com/words/webroot
