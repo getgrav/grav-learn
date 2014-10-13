@@ -96,13 +96,13 @@ The preferred method for updating Grav (from v0.9.3 onwards) is to use the Grav 
 bin/gpm selfupdate
 ```
 
-Full information can be found in the [Grav CLI Documentation][grav-cli].  We also plan on having GPM integrated in our the upcoming **Admin Panel** plugin which will check, prompt, and automatically install any updates.  
+Full information can be found in the [Grav GPM Documentation][grav-gpm].  We also plan on having GPM integrated in our the upcoming **Admin Panel** plugin which will check, prompt, and automatically install any updates.
 
 ### Manual Updates
 
 To manually update the process is:
 
-1. Backup your site using `bin/grav backup` (more information in [Grav CLI Documentation][grav-cli] or alternatively zipping up the whole Grav site, or specifically the `user/` folder. 
+1. Backup your site using `bin/grav backup` (more information in [Grav CLI Documentation][grav-cli] or alternatively zipping up the whole Grav site, or specifically the `user/` folder.
 
 2. Download the [Update Package][update] from our [Downloads section][downloads]. It is important to download the **update** package and **not the core** package.
 
@@ -116,3 +116,4 @@ To manually update the process is:
 [webroot]: https://www.wordnik.com/words/webroot
 [update]: http://getgrav.org/downloads
 [grav-cli]: ../advanced/grav-cli
+[grav-gpm]: ../advanced/grav-gpm
