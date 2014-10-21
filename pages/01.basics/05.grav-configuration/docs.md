@@ -77,19 +77,20 @@ As well as the `system.yaml` file, Grav also provides a default `site.yaml` conf
 The default `system/config/site.yaml` file that ships with Grav looks something like this:
 
 ```ruby
-title: Grav                             # Name of the site
+title: Grav                                 # Name of the site
 author:
-  name: John Appleseed                  # Default author name
-  email: 'john@email.com'               # Default author email
-taxonomies: [category,tag]              # Arbitrary list of taxonomy types
-blog:
-  route: '/blog'                        # Route to blog
-description: 'Grav Site Description'    # Site description
+  name: John Appleseed                      # Default author name
+  email: 'john@email.com'                   # Default author email
+taxonomies: [category,tag]                  # Arbitrary list of taxonomy types
+metadata:
+    description: 'My Grav Site'             # Site description
 summary:
-  size: 300                             # Maximum length of summary (characters)
+  size: 300                                 # Maximum length of summary (characters)
 routes:
-  /something/else: '/blog/sample-3'     # Alias for /blog/sample-3
-  /another/one/here: '/blog/sample-3'   # Another alias for /blog/sample-3
+  /something/else: '/blog/sample-3'         # Alias for /blog/sample-3
+  /another/one/here: '/blog/sample-3'       # Another alias for /blog/sample-3
+blog:
+  route: '/blog'                            # Route to blog  
 ```
 
 Let's break down the elements of this sample file:
@@ -100,8 +101,10 @@ Let's break down the elements of this sample file:
 | **author: name:**  | The name of the author of the site, that can be referenced whenever you need it.                                                                                                                             |
 | **author: email:** | A default email for use in your site.                                                                                                                                                                        |
 | **taxonomies:**   | An arbitrary list of high-level types that you can use to organize your content.  You can assign content to specific taxonomy types, for example, categories or tags. Feel free to edit, or add your own.    |
+| **metadata:** | Set default metadata for all your pages, see the [page headers](../content/headers) section for more details |
 | **summary: size:** | A variable to override the default number of characters that can be used to set the summary size when displaying a portion of content.                                                                       |
 | **routes:**       | This is a basic map that can provide simple URL alias capabilities in Grav.  If you browse to `/something/else` you will actually be sent to `/blog/sample-3`. Feel free to edit, or add your own as needed. |
+| **(custom options)** | You can create any option you like in this file and a good example is the `blog: route: '/blog'` option that is accessbile in your Twig templates with `blog.route` |
 
 >>> For most people, the most important element of this file is the `Taxonomy` list.  The taxonomies in this list **must** be defined here if you wish to use them in your content.
 
