@@ -210,7 +210,8 @@ The `@self.modular` configuration option tells Grav that the page should consist
 
 ```ruby
 content:
-    items: @taxonomy.tag: foo
+   items: 
+      @taxonomy.tag: foo
 ```
 
 Using the `@taxonomy` option, you can utilize Grav's powerful taxonomy functionality.  This is where the `taxonomy` variable in the [Site Configuration][config] file comes into play. There **must** be a definition for the taxonomy defined in that configuration file for Grav to interpret a page reference to it as valid.
@@ -219,10 +220,13 @@ By setting `@taxonomy.tag: foo`, Grav will find all the pages in the `/user/page
 
 ```ruby
 content:
-    items: @taxonomy.tag: [foo, bar]
+    items: 
+       @taxonomy.tag: [foo, bar]
 ```
 
 The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. The [Taxonomy][tax] chapter will cover this concept in more detail.
+
+>> NOTE: If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `@taxonomy: {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the heirarchy, each with listed values placed within `[]` brackets.
 
 ### Ordering Options
 
