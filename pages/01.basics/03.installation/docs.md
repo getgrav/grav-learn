@@ -93,7 +93,7 @@ Please consult the [Troubleshooting](../troubleshooting) section for help regard
 The preferred method for updating Grav (from v0.9.3 onwards) is to use the Grav Package Manager (GPM). All you need to do then is to type:
 
 ```
-bin/gpm selfupdate
+bin/gpm selfupgrade
 ```
 
 Full information can be found in the [Grav GPM Documentation][grav-gpm].  We also plan on having GPM integrated in our the upcoming **Admin Panel** plugin which will check, prompt, and automatically install any updates.
