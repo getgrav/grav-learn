@@ -48,7 +48,7 @@ This is the first plugin event available. At this point the following objects ha
 
 * Uri
 * Config
-* Tracy Debugger
+* Debugger
 * Cache
 * Plugins
 
