@@ -55,7 +55,7 @@ When you edit the page in a text editor, the content will look something like th
 
 	>>>> TODO: Walk through the process of creating a new page with title + content with simple markdown
 
-Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers][pageheaders], and these are written in a very simple format called [YAML](../advanced/yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.
+Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers][pageheaders], and these are written in a very simple format called [YAML](yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.
 
 ```ruby
 title: Home
@@ -115,12 +115,13 @@ The page will automatically show up in the Menu after the **"Home"** menu item. 
 
 **Congratulations**, you have now successfully created a new page in Grav.  There is much more you can do with Grav, so please continue reading to find out about more advanced capabilities and in-depth features.
 
->>> If you have any issues accessing this new page, you probably either missing your `.htaccess` file (Apache web server only) or you may need to edit the `RewriteBase` command in you `.htaccess` file. Please consult the [Troubleshooting](../troubleshooting) section for more information.
+>>> If you have any issues accessing this new page, you probably either missing your `.htaccess` file (Apache web server only) or you may need to edit the `RewriteBase` command in you `.htaccess` file. Please consult the [Troubleshooting](../../troubleshooting) section for more information.
 
 
 
-[installation]: installation
-[folderstructure]: folder-structure
-[syntax]: ../content/markdown
-[pageheaders]: ../content/headers
+[installation]: ../installation
+[folderstructure]: ../folder-structure
+[syntax]: ../../content/markdown
+[pageheaders]: ../../content/headers
+[yaml]: ../../advanced/yaml
 [ordering]: http://learn.getgrav.org/content/content-pages

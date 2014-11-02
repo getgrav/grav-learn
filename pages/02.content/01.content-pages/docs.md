@@ -52,7 +52,7 @@ Grav understands that any integer value followed by a period will be solely for 
 
 {{ media['page-folders.png'].html('Grav Folder Example') }}
 
-Your site must have an entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://yoursite.com` in your browser,  by default, Grav expects an alias `home/`, but you can override the home location by changing the `home.alias` option in the [Grav configuration file](../basics/grav-configuration).
+Your site must have an entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://yoursite.com` in your browser,  by default, Grav expects an alias `home/`, but you can override the home location by changing the `home.alias` option in the [Grav configuration file](../../basics/grav-configuration).
 
 **Modular folders** are identified by an underscore (`_`) before the folder name.  This is a special folder type that is intended to be used only with **modular content**.  These are **not routable** and **not visible** in the navigation. An example of a modular folder would be a folder such as `user/pages/01.home/_header`. Home is actually configured as a **modular page** and would be constructed from the `_header`, `_features`, and `_body` modular pages.
 
@@ -114,10 +114,10 @@ In this example, we are explicitly setting the title, as well setting the taxono
 
 In the next section we will continue and dig into the specifics of a page in detail.
 
-[basic]: ../basics/basic-tutorial
+[basic]: ../../basics/basic-tutorial
 [downloads]: http://getgrav.org/downloads
-[headers]: headers
-[system]: ../basics/grav-configuration
-[headers]: headers
-[markdown]: markdown
+[headers]: ../headers
+[system]: ../../basics/grav-configuration
+[headers]: ../headers
+[markdown]: ../markdown
 

@@ -10,13 +10,13 @@ First, let us breakdown the various types of development:
 
 ## Grav Core
 
-When we talk about the **Grav Core**, we are effectively talking about things in the `system` folder.  This folder controls everything about Grav and is really the very essence of the [Grav workflow and lifecycle](grav-lifecycle).
+When we talk about the **Grav Core**, we are effectively talking about things in the `system` folder.  This folder controls everything about Grav and is really the very essence of the [Grav workflow and lifecycle](../grav-lifecycle).
 
 Grav is intentionally focused on working with pages in an efficient manner.  Manipulation of pages and extensive functionality are often best served by creating a plugin.  We strongly encourage our community to contribute bug fixes, and even propose development of appropriate functionality within the core of Grav.
 
 ## Grav Plugins
 
-Most development effort will probably take the form of a **Grav Plugin**.  Because Grav has plenty of [Event Hooks](..plugins/event-hooks), it's very easy to provide enhanced and specific functionality via the creation of a plugin.  We have already developed many plugins that work in a variety of ways using many different events to show off the power of this functionality.
+Most development effort will probably take the form of a **Grav Plugin**.  Because Grav has plenty of [Event Hooks](../../plugins/event-hooks), it's very easy to provide enhanced and specific functionality via the creation of a plugin.  We have already developed many plugins that work in a variety of ways using many different events to show off the power of this functionality.
 
 There are many benefits of providing functionality in plugins, but a couple of the key benefits are:
 

@@ -215,4 +215,4 @@ class RandomPlugin extends Plugin
 
 If you followed along, you should have a fully functional **Random** plugin enabled for your site.  Just point your browser to the `http://yoursite.com/random`, and you should see a random page.  You can also download this plugin directly from the [Plugins Download](http://getgrav.org/downloads/plugins#extras) section of the [getgrav.org](http://getgrav.org/downloads/plugins#extras) site.
 
-[basicinstall]: ../basics/installation
+[basicinstall]: ../../basics/installation

@@ -27,5 +27,5 @@ The `problems` plugin is useful for new Grav installations because it detects an
 Every plugin in the `user/plugins` folder should have a unique name, and that name should closely define the function of the plugin.  Please do not use spaces, underscores, or capital letters in the plugin name.
 
 [plugins]: http://getgrav.org/downloads/plugins#extras
-[tutorial]: plugin-tutorial
+[tutorial]: ../plugin-tutorial
 [di]: http://en.wikipedia.org/wiki/Dependency_injection

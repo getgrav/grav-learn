@@ -125,10 +125,10 @@ In this example, the actual `css`, `css-compiled`, `fonts`, `images`, `js`, `scs
 
 >>> NOTE: The `index.html` file is just a blank file.
 
-[twigtemplates]: twig-templates
+[twigtemplates]: http://twig.sensiolabs.org/
 [sass]: http://sass-lang.com
 [less]: http://lesscss.org/
-[gravbase]: ../basics/installation
-[next]: ../plugins
+[gravbase]: ../../basics/installation
+[next]: ../../plugins
 [sasslang]: http://sass-lang.com/install
 [downloads]: http://getgrav.org/downloads

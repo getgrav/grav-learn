@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-All Grav configuration files are written in [YAML syntax](../advanced/yaml) with a `.yaml` file extension.  YAML is very intuitive which makes it very easy to both read and write, however, you can check out the [YAML page in the Advanced chapter](../advanced/yaml) to get a complete understanding of the syntax available.
+All Grav configuration files are written in [YAML syntax](../../advanced/yaml) with a `.yaml` file extension.  YAML is very intuitive which makes it very easy to both read and write, however, you can check out the [YAML page in the Advanced chapter](../advanced/yaml) to get a complete understanding of the syntax available.
 
 ## System Configuration
 
@@ -102,7 +102,7 @@ Let's break down the elements of this sample file:
 | **author: name:**  | The name of the author of the site, that can be referenced whenever you need it.                                                                                                                             |
 | **author: email:** | A default email for use in your site.                                                                                                                                                                        |
 | **taxonomies:**   | An arbitrary list of high-level types that you can use to organize your content.  You can assign content to specific taxonomy types, for example, categories or tags. Feel free to edit, or add your own.    |
-| **metadata:** | Set default metadata for all your pages, see the [content page headers](../content/headers) section for more details |
+| **metadata:** | Set default metadata for all your pages, see the [content page headers](../../content/headers) section for more details |
 | **summary: size:** | A variable to override the default number of characters that can be used to set the summary size when displaying a portion of content.                                                                       |
 | **routes:**       | This is a basic map that can provide simple URL alias capabilities in Grav.  If you browse to `/something/else` you will actually be sent to `/blog/sample-3`. Feel free to edit, or add your own as needed. |
 | **(custom options)** | You can create any option you like in this file and a good example is the `blog: route: '/blog'` option that is accessbile in your Twig templates with `blog.route` |

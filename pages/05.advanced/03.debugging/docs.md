@@ -10,7 +10,7 @@ When developing themes and plugins, there is often a need to display **debugging
 
 ## PHP Debug Bar
 
-Grav comes with a great tool to make this effort easier called via a **Debug Bar**.  This feature is **disabled** by default, but can be turned on either globally or for your [development environment](environment-config) only via the `system.yaml` configuration file:
+Grav comes with a great tool to make this effort easier called via a **Debug Bar**.  This feature is **disabled** by default, but can be turned on either globally or for your [development environment](../environment-config) only via the `system.yaml` configuration file:
 
 ```
 debugger:
