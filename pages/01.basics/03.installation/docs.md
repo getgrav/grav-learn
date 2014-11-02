@@ -90,7 +90,7 @@ Please consult the [Troubleshooting](../troubleshooting) section for help regard
 
 ### Automatic Updates
 
-The preferred method for updating Grav (from v0.9.3 onwards) is to use the Grav Package Manager (GPM). All you need to do then is to type:
+The preferred method for updating Grav (from v0.9.3 onwards) is to use the **Grav Package Manager (GPM)**. All you need to do then is navigate to the root of your Grav site and type:
 
 ```
 bin/gpm selfupgrade
@@ -115,5 +115,5 @@ To manually update the process is:
 [downloads]: http://getgrav.org/downloads
 [webroot]: https://www.wordnik.com/words/webroot
 [update]: http://getgrav.org/downloads
-[grav-cli]: ../advanced/grav-cli
-[grav-gpm]: ../advanced/grav-gpm
+[grav-cli]: ../../advanced/grav-cli
+[grav-gpm]: ../../advanced/grav-gpm
