@@ -192,7 +192,7 @@ This returns a page object as specified by a route URL.
 
 ##### collection()
 
-This returns the collection of pages for this context as determined by the [collection page headers](../content/headers).
+This returns the collection of pages for this context as determined by the [collection page headers](../../content/headers).
 
 ```
 {% for child in page.collection %}
@@ -424,7 +424,7 @@ The author of this page is: {{ page.header.author }}
 
 An advanced way to add custom objects is to use a plugin to add objects to the Twig object.  This is an advanced topic and is covered in more detail in the [plugins chapter][plugins].
 
-[plugins]: ../plugins/event-hooks
-[media]: ../content/media
-[primer]: twig-primer
+[plugins]: ../../plugins/event-hooks
+[media]: ../../content/media
+[primer]: ../twig-primer
 [documents]: http://twig.sensiolabs.org/doc/templates.html

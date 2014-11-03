@@ -22,7 +22,7 @@ Bootstrap is a full-featured HTML, CSS, and JS framework that contains a wide va
 
 As outlined in the [Theme Basics][themebasics] chapter, there are some key elements to a Grav theme, so we must create them for our new theme:
 
-1. Follow the [Installation instruction](../basics/installation) and ensure you have Grav properly installed.
+1. Follow the [Installation instruction](../../basics/installation) and ensure you have Grav properly installed.
 
 2. Create a folder called `bootstrap` within the `user/themes` folder of your Grav site to provide the basis of our new theme.
 
@@ -416,8 +416,8 @@ At this point you have created your first theme!  There are a couple of minor th
 3. Add missing **templates** for other pages other than `default.html.twig`, e.g. `blog.html.twig` that you might need.
 
 [bootstrap]: http://getbootstrap.com/
-[themebasics]: theme-basics
-[installation]: ../basics/installation
+[themebasics]: ../theme-basics
+[installation]: ../../basics/installation
 [bootstrapdownload]: http://getbootstrap.com/getting-started/#download
 [extends]: http://twig.sensiolabs.org/doc/tags/extends.html
 [blocks]: http://twig.sensiolabs.org/doc/tags/block.html

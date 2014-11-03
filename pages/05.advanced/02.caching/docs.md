@@ -85,4 +85,4 @@ For slight performance gains, you can disable the `debug` extension, and also di
 For the most part, [events are still fired][event-hooks] even when caching is enabled.  This holds true for all the events except for `onPageProcessed`, `onTwigPageVariables`, and `onFolderProcessed`.  These three events are run as all pages and folders are recursed and they fire on each page or folder found.  As their name implies they are only run during the **processing**, and not after the page has been cached.
 
 [docterinecache]: http://docs.doctrine-project.org/en/2.0.x/reference/caching.html
-[event-hooks]: ../event/hooks
+[event-hooks]: ../../plugins/event-hooks

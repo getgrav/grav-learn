@@ -48,7 +48,7 @@ This is the first plugin event available. At this point the following objects ha
 
 * Uri
 * Config
-* Tracy Debugger
+* Debugger
 * Cache
 * Plugins
 
@@ -145,6 +145,6 @@ After a page is parsed and processed.  This is fired for **every page** in the G
 
 After a folder is parsed and processed.  This is fired for **every folder** in the Grav system.  Caching performance is not a problem because this even will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
 
-[plugintutorial]: plugin-tutorial
-[lifecycle]: ../advanced/grav-lifecycle
-[advanced]: ../advanced
+[plugintutorial]: ../plugin-tutorial
+[lifecycle]: ../../advanced/grav-lifecycle
+[advanced]: ../../advanced

@@ -121,7 +121,7 @@ More details about what the plugin/theme does are welcome, and can can be placed
 Also please be aware that before adding a repository, the Grav team will inspect your plugin/theme ensuring that it fits with the Grav standards. The team may also respond with requests for additional information, suggest minor improvements, etc. prior to closing the issue and adding the plugin/theme.
 
 
-[grav-cli]: grav-cli
-[blueprints]: blueprints
+[grav-cli]: ../grav-cli
+[blueprints]: ../blueprints
 [contributing]: https://github.com/getgrav/grav#contributing
 [new-resource]: https://github.com/getgrav/grav/issues/new?title=[add-resource]%20New%20Plugin/Theme&body=I%20would%20like%20to%20add%20my%20new%20plugin/theme%20to%20the%20Grav%20Repository.%0AHere%20are%20the%20project%20details:%20**user/repository**

@@ -78,7 +78,7 @@ taxonomy:
     tag: [sample, demo, grav]
 ```
 
-A very useful header variable, `taxonomy` lets you assign values to **taxonomy** you defined as valid types in the [Site Configuration](../basics/site-configuration) file.
+A very useful header variable, `taxonomy` lets you assign values to **taxonomy** you defined as valid types in the [Site Configuration](../../basics/site-configuration) file.
 
 If the taxonomy is not defined in that file, it will be ignored.  In this example, the page is defined as being in the `blog` category, and has the tags: `sample`, `demo`, and `grav`.  These taxonomies can be used to find these pages from other pages, plugins and even themes. The [Taxonomy](taxonomy) chapter will cover this concept in more detail.
 
@@ -210,7 +210,7 @@ The `@self.modular` configuration option tells Grav that the page should consist
 
 ```ruby
 content:
-   items: 
+   items:
       @taxonomy.tag: foo
 ```
 
@@ -220,11 +220,11 @@ By setting `@taxonomy.tag: foo`, Grav will find all the pages in the `/user/page
 
 ```ruby
 content:
-    items: 
+    items:
        @taxonomy.tag: [foo, bar]
 ```
 
-The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. The [Taxonomy][tax] chapter will cover this concept in more detail.
+The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. The [Taxonomy][taxonomy] chapter will cover this concept in more detail.
 
 >>> NOTE: If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `@taxonomy: {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the heirarchy, each with listed values placed within `[]` brackets.
 
@@ -233,7 +233,7 @@ If you have multiple variables in a single parent to set, you can do this using 
 ```ruby
 content:
   items:
-    @taxonomy: 
+    @taxonomy:
       category: [blog, featured]
       tag: [foo, bar]
 ```
@@ -291,6 +291,6 @@ Any page header such as this should be documented, and generally there will be s
 
 Another example would be to store page-specific data that could then be used by Twig in the content of the page.  This really provides a lot of flexibility and power.
 
-[contentpages]: content-pages
-[config]: ../basics/site-configuration
-[tax]: taxonomy
+[contentpages]: ../content-pages
+[config]: ../../basics/site-configuration
+[taxonomy]: ../../taxonomy
