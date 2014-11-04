@@ -21,6 +21,28 @@ To get us started, here is a quick look at some of the common components of a Gr
 | `../`  | When used in the link, it indicates a move up a directory.                                                                                                       |
 | `!`    | When placed at the beginning of a link, it indicates that content contained within should be loaded into the page, such as an image file.                        |
 
+### Slug Relative
+
+Grav doesn't just limit your internal links to specific names within your file/directory structure. It can also pull slugs assigned both in the header of the file, as well as the fallback directory name. This makes creating quick links easy as you don't have to remember the specific file name, but an easily remembered (and relevant) slug.
+
+Grav's templating engine uses file names to determine which template to apply to them. For example, a blog might use the common file name `item.md` for each blog post. The blog post itself can be assigned a slug that makes more sense, such as `grass` or `grass-is-green`.
+
+Directory names also have numbers assigned which helps with ordering. You don't have to include these numbers with slug-relative links. Grav ignores them when creating the slug, so your site's URL structure is more clean.
+
+Here are a few examples of slug-relative links.
+
+In this example, we're moving up a directory and loading the default page located in the `02.water` directory. The file, `item.md`, has no assigned slug, so Grav uses the directory name.
+
+```markdown
+[link](../water)
+```
+
+This next example does a very similar thing, but when loading the `item.md` file found under `pages/01.green/02.tree/` a slug has been assigned to the file of `tree-is-green`. 
+
+```markdown
+[link](../../green/tree/tree-is-green)
+```
+
 ### Directory relative
 
 **Directory Relative** links use destinations set relative to the current page. This can be as simple as linking to another file in the current directory, such as an image file, or as complex as going up several directory levels and then back down to the specific folder/file you need to have displayed. 
@@ -57,28 +79,6 @@ The next example is a lot like the file link we demonstrated earlier. Instead of
 
 ```markdown
 [link](../../01.green/01.grass)
-```
-
-### Slug Relative
-
-Grav doesn't just limit your internal links to specific names within your file/directory structure. It can also pull slugs assigned both in the header of the file, as well as the fallback directory name. This makes creating quick links easy as you don't have to remember the specific file name, but an easily remembered (and relevant) slug.
-
-Grav's templating engine uses file names to determine which template to apply to them. For example, a blog might use the common file name `item.md` for each blog post. The blog post itself can be assigned a slug that makes more sense, such as `grass` or `grass-is-green`.
-
-Directory names also have numbers assigned which helps with ordering. You don't have to include these numbers with slug-relative links. Grav ignores them when creating the slug, so your site's URL structure is more clean.
-
-Here are a few examples of slug-relative links.
-
-In this example, we're moving up a directory and loading the default page located in the `02.water` directory. The file, `item.md`, has no assigned slug, so Grav uses the directory name.
-
-```markdown
-[link](../water)
-```
-
-This next example does a very similar thing, but when loading the `item.md` file found under `pages/01.green/02.tree/` a slug has been assigned to the file of `trees-are-green`. 
-
-```markdown
-[link](../../green/tree/tree-is-green)
 ```
 
 ### Remote 
