@@ -131,16 +131,15 @@ public function onPageInitialized()
     $taxonomy_map = $this->grav['taxonomy'];
 
     $filters = (array) $this->config->get('plugins.random.filters');
+    $operator = $this->config->get('plugins.random.filter_combinator', 'and');
 
-    if (count($filters) > 0) {
+    if (count($filters)) {
         $collection = new Collection();
-        foreach ($filters as $taxonomy => $items) {
-            if (isset($items)) {
-                $collection->append($taxonomy_map->findTaxonomy([$taxonomy => $items])->toArray());
-            }
+        $collection->append($taxonomy_map->findTaxonomy($filters, $operator)->toArray());
+        if (count($collection)) {
+            unset($this->grav['page']);
+            $this->grav['page'] = $collection->random()->current();
         }
-        unset($this->grav['page']);
-        $this->grav['page'] = $collection->random()->current();
     }
 }
 ```
@@ -153,7 +152,7 @@ This method is a bit more complicated, so we'll go over what's going on:
 
 3. Check to ensure we have filters, then create a new `Collection` in the `$collection` variable to store our pages.
 
-4. Loop over our filters and append all pages that match the filter to our `$collection` variable.
+4. Append all pages that match the filter to our `$collection` variable.
 
 5. Unset the current `page` object that Grav knows about.
 
@@ -198,16 +197,15 @@ class RandomPlugin extends Plugin
         $taxonomy_map = $this->grav['taxonomy'];
 
         $filters = (array) $this->config->get('plugins.random.filters');
+        $operator = $this->config->get('plugins.random.filter_combinator', 'and');
 
-        if (count($filters) > 0) {
+        if (count($filters)) {
             $collection = new Collection();
-            foreach ($filters as $taxonomy => $items) {
-                if (isset($items)) {
-                    $collection->append($taxonomy_map->findTaxonomy([$taxonomy => $items])->toArray());
-                }
+            $collection->append($taxonomy_map->findTaxonomy($filters, $operator)->toArray());
+            if (count($collection)) {
+                unset($this->grav['page']);
+                $this->grav['page'] = $collection->random()->current();
             }
-            unset($this->grav['page']);
-            $this->grav['page'] = $collection->random()->current();
         }
     }
 }
