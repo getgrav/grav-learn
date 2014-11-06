@@ -56,6 +56,7 @@ function getScrollBarWidth () {
 
 jQuery(document).ready(function(){
   var sidebarStatus = searchStatus = 'open';
+
   var font = 'sans';
 
   if (jQuery(window).width() < 768) {
@@ -76,8 +77,6 @@ jQuery(document).ready(function(){
 
     return false;
   });
-
-
 
   jQuery('[data-font-toggle]').on('click', function() {
 
@@ -145,8 +144,11 @@ jQuery(document).ready(function(){
     if (!value.length){
       $('ul.topics').removeClass('searched');
       items.css('display', 'block');
+      sessionStorage.removeItem('search-value');
       return;
     }
+
+    sessionStorage.setItem('search-value',value);
 
     if (ajax && ajax.abort) ajax.abort();
     ajax = jQuery.ajax({
@@ -163,8 +165,16 @@ jQuery(document).ready(function(){
     });
     jQuery('[data-search-clear]').on('click', function(){
       jQuery('[data-search-input]').val('').trigger('input');
+      sessionStorage.removeItem('search-input');
     });
   });
+
+  if (sessionStorage.getItem('search-value')) {
+    jQuery(document.body).removeClass('searchbox-hidden');
+    jQuery('[data-search-input]').val(sessionStorage.getItem('search-value'));
+    jQuery('[data-search-input]').trigger('input');
+  }
+
 });
 
 jQuery(window).on('load',function(){
