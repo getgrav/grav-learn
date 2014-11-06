@@ -34,6 +34,10 @@ This allows simple plugins to quickly and easily add powerful functionality. It 
 
 To get a basic site up-and-running requires very little Web development experience, yet if you dig a little deeper, you will discover that there is very little Grav cannot accomplish.
 
+##### Grav Logos and Press Information
+
+You can find a summary about Grav including **Grav logos** and **press information** on our [media page](http://getgrav.org/media)
+
 >>>>>> The simplest way to navigate the documentation is to use the **Next** arrow (<i class="icon-right-open"></i>) on each page. You can see your progress represented by the green progress bar at the top of the page as well as checks (<i class="icon-check"></i>) in the sidebar.  You can also star (<i class="icon-star"></i>) pages for easy reference.
 
 [joomla]: http://joomla.org
