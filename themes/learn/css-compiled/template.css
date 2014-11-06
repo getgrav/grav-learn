@@ -218,6 +218,11 @@ hr {
   background: #1694CA;
   color: #fff; }
 
+#body a.anchor-link {
+  color: #ccc; }
+#body a.anchor-link:hover {
+  color: #1694CA; }
+
 fieldset {
   border: 1px solid #ddd; }
 

@@ -47,10 +47,10 @@ blockquote > blockquote > blockquote {
 	margin: 0;
 
 	p {
-		
+
 		padding: 15px;
 		display: block;
-		font-size: 1rem;	
+		font-size: 1rem;
 		margin-top: 0rem;
 		margin-bottom: 0rem;
 	}
@@ -132,4 +132,11 @@ hr {
 	background: $core-accent;
 	color: $white;
 }
+
+// Anchor links
+#body {
+    a.anchor-link { color: #ccc; }
+    a.anchor-link:hover { color: $core-accent; }
+}
+
 
