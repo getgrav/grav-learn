@@ -1,4 +1,8 @@
 git:
+    anchors:
+        url: https://github.com/getgrav/grav-plugin-anchors
+        path: user/plugins/anchors
+        branch: develop
     simplesearch:
         url: https://github.com/getgrav/grav-plugin-simplesearch
         path: user/plugins/simplesearch
@@ -12,6 +16,10 @@ git:
         path: user/plugins/highlight
         branch: develop
 links:
+    anchors:
+        src: grav-plugin-anchors
+        path: user/plugins/anchors
+        scm: github
     simplesearch:
         src: grav-plugin-simplesearch
         path: user/plugins/simplesearch
