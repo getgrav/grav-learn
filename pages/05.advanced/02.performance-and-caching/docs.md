@@ -44,7 +44,7 @@ Grav uses the established and well-respected [Doctrine Cache][docterinecache] li
 
 By default, Grav comes preconfigured to use the `auto` setting.  This will try **APC**, then **WinCache**, then **XCache**, and lastly **File**.  You can, of course, explicitly configure the cache in your `user/config/system.yaml` file, which could make things ever so slightly faster.
 
-## Caching Options
+## Caching Types
 
 There are actually **5 types** of caching happening in Grav.  They are:
 
