@@ -23,7 +23,7 @@ The following media file types are supported natively by Grav. Additional suppor
 | :----------        | :----------                 |
 | Image              | jpg, jpeg, png, gif         |
 | Video              | mp4, mov, m4v, swf          |
-| Data / Information | txt, doc,html, pdf, zip, gz | 
+| Data / Information | txt, doc,html, pdf, zip, gz |
 
 ## Actions
 
@@ -89,6 +89,17 @@ For example if you have an image that is `640` x `480` and you perform a `cropZo
 ```
 
 ![Sample Image](sample-image.jpg?cropZoom=400,100)
+
+### quality(c)
+
+Dynamically allows the setting of a **compression percentage** to the image where c is between 0 and 100.
+
+```
+![Sample Image](sample-image.jpg?cropZoom=300,200&quality=95)
+```
+
+![Sample Image](sample-image.jpg?cropZoom=300,200&quality=95)
+
 
 ### negate()
 
