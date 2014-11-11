@@ -6,6 +6,8 @@ taxonomy:
 
 Grav comes with a built-in command-line interface (CLI) which can be found at `bin/grav`. The CLI is extremely useful for running recurring tasks such as **clearing the cache**, making **backups**, and more.
 
+Accessing the CLI is a simple process but you need to use a **terminal**.  On a mac this is called `Terminal`, on windows its called `cmd` and on Linux its just a shell.  If you are accessing your server remotely, you most likely will use **SSH** to remotely log in to your server.  Check out this [great tutorial for more information on SSH](http://code.tutsplus.com/tutorials/ssh-what-and-how--net-25138).
+
 Although some operations can be performed manually, by _relying_ on the CLI, these tasks could be automated via _cron-jobs_ that run daily.
 
 To get a list of all the commands available in Grav, you can run the command:
