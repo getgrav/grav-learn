@@ -22,6 +22,20 @@ To get help for a specific command, you can prepend help to the command:
 $ bin/grav help install
 ```
 
+#### PHP CGI-FCGI Information
+
+To determine if your server is running `cgi-fcgi` on the command line, type the following:
+
+```bash
+$ php -v
+PHP 5.5.17 (cgi-fcgi) (built: Sep 19 2014 09:49:55)
+Copyright (c) 1997-2014 The PHP Group
+Zend Engine v2.5.0, Copyright (c) 1998-2014 Zend Technologies
+    with the ionCube PHP Loader v4.6.1, Copyright (c) 2002-2014, by ionCube Ltd.
+```
+
+If you see a reference to `(cgi-fcgi)` you will need to prefix all commands with `php-cli`. Alternatively you can setup an alias in your shell with something like: `alias php="php-cli"` which will ensure the **CLI** verison of PHP runs from the command line.
+
 ## Creating a new Project
 
 Every time you want to start a new project with Grav, you need to start with a clean Grav instance. Through the CLI, this process is super easy and takes only few seconds.
