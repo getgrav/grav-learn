@@ -28,6 +28,20 @@ To receive help for a specific command, you can add help to the line before the 
 $ bin/gpm help install
 ```
 
+#### PHP CGI-FCGI Information
+
+To determine if your server is running `cgi-fcgi` on the command line, type the following:
+
+```bash
+$ php -v
+PHP 5.5.17 (cgi-fcgi) (built: Sep 19 2014 09:49:55)
+Copyright (c) 1997-2014 The PHP Group
+Zend Engine v2.5.0, Copyright (c) 1998-2014 Zend Technologies
+    with the ionCube PHP Loader v4.6.1, Copyright (c) 2002-2014, by ionCube Ltd.
+```
+
+If you see a reference to `(cgi-fcgi)` you will need to prefix all `bin/gpm` commands with `php-cli`. Alternatively you can setup an alias in your shell with something like: `alias php="php-cli"` which will ensure the **CLI** verison of PHP runs from the command line.
+
 ## How Does it Work?
 
 _GPM_ downloads the repository metadata from **GetGrav.org**. The repository contains all the details about the packages available and _GPM_ is also capable of determining whether any of these packages are already installed and if they need updating.
