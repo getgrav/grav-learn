@@ -7,13 +7,13 @@ taxonomy:
     category: docs
 ---
 
-SiteGround's tag line is **Web Hosting Crafted With Care** and it is for this reason it has proven a popular hosting solution for people in the Joomla and WordPress communities. It also makes a good option for hosting a Grav-based web site.
+[SiteGround](http://www.siteground.com/)'s tag line is **Web Hosting Crafted With Care** and it is for this reason it has proven a popular hosting solution for people in the Joomla and WordPress communities. It also makes a good option for hosting a Grav-based web site.
 
 In this guide we will cover the essentials for configuring a pretty bog-standard SiteGround shared hosting account to work optimally with Grav.
 
 ## Picking your Hosting Plan
 
-At the time of writing, SiteGround offers three shared hosting options ranging from low-end $3.95/month to $14.95/month for what they call the **GoGeek** plan. We strongly suggest going with the higher-end but still very cheap **GoGeek** plan. This provides better server hardware and less _user crowding_ on the server.
+At the time of writing, SiteGround offers [three shared hosting options](http://www.siteground.com/web-hosting.htm) ranging from low-end $3.95/month to $14.95/month for what they call the **GoGeek** plan. We strongly suggest going with the higher-end but still very cheap **GoGeek** plan. This provides better server hardware and less _user crowding_ on the server.
 
 ## Configuring PHP
 
