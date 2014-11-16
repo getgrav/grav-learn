@@ -126,13 +126,13 @@ $ cd ~/public_html
 [~/public_html]$ unzip grav-v{{ site.current_grav}}.zip
  ```
 
- You should now be able to point your browser to `http://mysiteground.com/grav` using the appropriate URL of course.
+You should now be able to point your browser to `http://mysiteground.com/grav` using the appropriate URL of course.
 
- Because you have followed these instructions diligently, you will also be able to use the [Grav CLI](../../advanced/grav-cli) and [Grav GPM](../../advanced/grav-gpm) commands such as:
+Because you have followed these instructions diligently, you will also be able to use the [Grav CLI](../../advanced/grav-cli) and [Grav GPM](../../advanced/grav-gpm) commands such as:
 
- ```
- $ cd ~/public_html/grav
- $ bin/grav clear-cache
+```
+$ cd ~/public_html/grav
+$ bin/grav clear-cache
 
 Clearing cache
 
@@ -144,5 +144,4 @@ Cleared:  images/*
 Cleared:  assets/*
 
 Touched: /home/your_user/public_html/grav/user/config/system.yaml
- ```
-
+```
