@@ -123,7 +123,7 @@ Using your new found SSH capabilities, let's SSH to your SiteGround server (if y
 ```
 $ cd ~/public_html
 [~/public_html]$ curl -L -O https://github.com/getgrav/grav/releases/download/{{ site.current_grav }}/grav-v{{ site.current_grav}}.zip
- [~/public_html]$ unzip grav-v{{ site.current_grav}}.zip
+[~/public_html]$ unzip grav-v{{ site.current_grav}}.zip
  ```
 
  You should now be able to point your browser to `http://mysiteground.com/grav` using the appropriate URL of course.
