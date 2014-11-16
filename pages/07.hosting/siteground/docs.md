@@ -59,7 +59,7 @@ Obviously you will need to put in your SiteGround-provided username for `sitegro
 
 ## Setup CLI PHP
 
-At the time of this writing, SiteGround's default PHP version is 5.3.  Because Grav requires PHP 5.4+, we need to ensure that Grav is using a newer version of PHP on the command line (CLI).  To accomplish this, you should use SSH to access your server and edit your `.bash_profile` file and change the path so that it references a new `~/bin/` folder before the regular path:
+At the time of this writing, SiteGround's default PHP version is **5.3**.  Because Grav requires PHP **5.4+**, we need to ensure that Grav is using a newer version of PHP on the command line (CLI).  To accomplish this, you should use SSH to access your server and edit your `.bash_profile` file and change the path so that it references a new `~/bin/` folder before the regular path:
 
 ```
 # .bash_profile
@@ -121,7 +121,7 @@ Also you should be able to scroll down and see a section called **Zend OPcache**
 Using your new found SSH capabilities, let's SSH to your SiteGround server (if you are not already there) and download the latest version of Grav, unzip it and test it out!
 
 ```
-$ cd public_html
+$ cd ~/public_html
 [~/public_html]$ curl -L -O https://github.com/getgrav/grav/releases/download/{{ site.current_grav }}/grav-v{{ site.current_grav}}.zip
  [~/public_html]$ unzip grav-v{{ site.current_grav}}.zip
  ```
