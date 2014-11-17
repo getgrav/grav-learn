@@ -10,7 +10,7 @@ taxonomies: [category,tag]
 summary:
   size: 300
 
-current_grav: 0.9.5
+current_grav: 0.9.6
 
 github:
   tree: https://github.com/getgrav/grav-learn/blob/develop/
