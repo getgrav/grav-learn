@@ -48,7 +48,7 @@ Each of these page types follow the same basic structure, so before we can get i
 
 All content pages are located in the `/user/pages` folder. Each **page** should be placed in its own folder.
 
-Folder names should also be valid **slugs**. Slugs are entirely lowercase, with accented characters replaced by letters from the English alphabet and whitespace characters replaced by a dash or an underscore, in order to avoid being encoded.
+>>> Folder names should also be valid **slugs**. Slugs are entirely lowercase, with accented characters replaced by letters from the English alphabet and whitespace characters replaced by a dash or an underscore, in order to avoid being encoded.
 
 Grav understands that any integer value followed by a period will be solely for the purpose of ordering, and is removed internally in the system.  For example, if you have a folder named `01.home`, Grav will treat this folder as `home`, but will ensure that with default ordering, it comes before `02.blog`.
 
