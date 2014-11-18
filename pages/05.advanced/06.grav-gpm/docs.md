@@ -28,6 +28,8 @@ To receive help for a specific command, you can add help to the line before the 
 $ bin/gpm help install
 ```
 
+>>> NOTE: To be able to perform **install**, **upgrade**, and **selfupgrade**, PHP must have the `php_openssl` extension enabled.  If you get a fatal error while downloading, this is probably the cause.
+
 #### PHP CGI-FCGI Information
 
 To determine if your server is running `cgi-fcgi` on the command line, type the following:
