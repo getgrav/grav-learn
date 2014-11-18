@@ -34,8 +34,6 @@ As well as detailed information related to Twig rendering to quickly see which T
 
 ![](twig.png)
 
->>>> NOTE: There is an outstanding issue with Twig Macros and the Debug Bar.  If you are using externally loaded Twig macros, you should disable debugging Twig with `debugger: twig: false`.
-
 ## Error Display
 
 Our new error display page provides detailed information, backtraces and even relevant code block.  This helps to more quickly isolate, identify and resolve critical errors.
