@@ -17,6 +17,8 @@ However, **you should never change this file**, rather any configuration changes
 Here's the default `system/config/system.yaml` file:
 
 ```ruby
+absolute_urls: false                   # Absolute or relative URLs for `base_url`
+
 home:
   alias: '/home'                       # Default path for home, ie /
 

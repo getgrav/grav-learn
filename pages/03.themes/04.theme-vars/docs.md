@@ -16,6 +16,14 @@ There are several **core objects** that are available to a twig template, and ea
 
 The `{{ base_dir }}` variable returns the base file directory of the Grav installation.
 
+### base_url variable
+
+The `{{ base_url }}` returns the base URL to the Grav site, whether or not this shows the full URL is dependent on the `absolute_urls` [option in the system configuration](../../basics/grav-configuration#system-configuration).
+
+### base_url_relative variable
+
+The `{{ base_url_relative }}` returns the base URL to the Grav site, without the host information.
+
 ### base_url_absolute variable
 
 The `{{ base_url_absolute }}` returns the base URL to the Grav site, including the host information.
