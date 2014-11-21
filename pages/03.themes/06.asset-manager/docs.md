@@ -87,7 +87,7 @@ Retrieves a list of HTML CSS link tags based on all the CSS assets that have bee
 
 #### js()
 
-Retrieves a list of HTML CSS link tags based on all the CSS assets that have been added to the Asset Manager. Depending on whether or not pipelining has been turned on in the configuration, this could be a list of individual assets, or one combined and potentially minified file.
+Retrieves a list of HTML Javascript link tags based on all the Javascript assets that have been added to the Asset Manager. Depending on whether or not pipelining has been turned on in the configuration, this could be a list of individual assets, or one combined and potentially minified file.
 
 ## Static Assets
 
