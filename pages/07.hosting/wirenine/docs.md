@@ -7,21 +7,21 @@ taxonomy:
     category: docs
 ---
 
-[WireNine](https://wirenine.com) is a fast modern hosting provider that focuses on performance via their use of **100% SSD** storage, **Litespeed** web servers, the latest **Intel E5-based** processors with fast **DDR4 ram**. These features ensure their shared hosting offerings are a fantastic solution for Grav sites.
+[WireNine](https://wirenine.com) is a fast, modern hosting provider that focuses on performance via their use of **100% SSD** storage, **Litespeed** web servers, the latest **Intel E5-based** processors with fast **DDR4 ram**. These features ensure their shared hosting offerings are a fantastic solution for Grav sites.
 
 ![](wirenine.png)
 
-In this guide we will cover the essentials for configuring a middle of the road shared hosting account to work optimally with Grav.
+In this guide, we will cover the essentials for configuring a middle of the road shared hosting account to work optimally with Grav.
 
 ## Picking your Hosting Plan
 
-WireNine has three shared hosting plans that range from $9/month for a basic plan, to $18/month for their heavy traffic option.  They all will be the same to configure, but we recommend the middle **Plus** plan at $14/month because it provides a good compromise with 1 CPU and 1GB of memory.
+WireNine has three shared hosting plans that range from $9/month for a basic plan, to $18/month for their heavy traffic option.  Configuration for all of these plans are the same, but we recommend the middle **Plus** plan at $14/month because it provides a good compromise with 1 CPU and 1GB of memory.
 
 ## Configuring PHP & Caching
 
-WireNine uses PHP 5.4 by default which is great for Grav, but you do have the option to use a newer 5.5 or 5.6 version.
+WireNine uses PHP **5.4** by default which is great for Grav, but you do have the option to use a newer **5.5** or **5.6** version.
 
-WireNine provides a very full featured **cPanel** control panel. This is directly accessible via the **My Accounts** tab.
+WireNine provides a very full-featured **cPanel** control panel. This is directly accessible via the **My Accounts** tab.
 
 The first thing to do is to change the default version of PHP your site runs with. So click the **Select PHP Version** link in the **Software** Section.
 
@@ -31,19 +31,19 @@ You will see a page that shows the current version of PHP.  Below is a dropdown 
 
 You will first need to enable `mbstring` and `zip` extension.
 
-WireNine is a rare bread in the world of hosting providers, in that they provide some sophisticated caching extensions for PHP.  To take advantage of these,enable the `apcu` caching extension, and also the Zend `opcache` extension.  Then click `Save` at the bottom of these options.
+WireNine is a rare bread in the world of hosting providers, in that they provide some sophisticated caching extensions for PHP.  To take advantage of these, enable the `apcu` caching extension, and also the Zend `opcache` extension.  Then, click `Save` at the bottom of these options.
 
-To test you have the correct version of PHP, Zend OPcache, and APCu running you can create a temporary file: `public_html/info.php` and put this in the contents:
+To test that you have the **correct version of PHP**, **Zend OPcache**, and **APCu** running, you can create a temporary file: `public_html/info.php` and put this in the contents:
 
 ```
 <?php phpinfo();
 ```
 
-Save the file and point your browser to this info.php file on your site and you should be greeted with a PHP information reflecting the version you selected earlier:
+Save the file and point your browser to this info.php file on your site, and you should be greeted with PHP information reflecting the version you selected earlier:
 
 ![](php-info1.png)
 
-Also you should be able to scroll down and see **Zend OPcache** listed in the **zend engine** block, and an **APCu** section below it:
+You should also be able to scroll down and see **Zend OPcache** listed in the **zend engine** block, and an **APCu** section below it:
 
 ![](php-info2.png)
 
@@ -81,7 +81,7 @@ This means you are ready to test ssh'ing to your server.
 $ ssh wirenine_username@wirenine_servername -p2200
 ```
 
-Obviously you will need to put in your WireNine-provided username for `wirenine_username`, and the WireNine-provided servername for `wirenine_servername`.  The `-p2200` is important as this is the non-standard port that WireNine runs SSH on.
+Obviously, you will need to put in your WireNine-provided username for `wirenine_username`, and the WireNine-provided servername for `wirenine_servername`.  The `-p2200` is important as this is the non-standard port that WireNine runs SSH on.
 
 
 ## Install and Test Grav

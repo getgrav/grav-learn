@@ -7,9 +7,9 @@ taxonomy:
     category: docs
 ---
 
-[SiteGround](http://www.siteground.com/)'s tag line is **Web Hosting Crafted With Care** and it is for this reason it has proven a popular hosting solution for people in the Joomla and WordPress communities. It also makes a good option for hosting a Grav-based web site.
+[SiteGround](http://www.siteground.com/)'s tag line is **Web Hosting Crafted With Care**, and it is for this reason it has proven a popular hosting solution for people in the Joomla and WordPress communities. It also makes a good option for hosting a Grav-based web site.
 
-In this guide we will cover the essentials for configuring a pretty bog-standard SiteGround shared hosting account to work optimally with Grav.
+In this guide, we will cover the essentials for configuring a pretty bog-standard SiteGround shared hosting account to work optimally with Grav.
 
 ## Picking your Hosting Plan
 
@@ -17,7 +17,7 @@ At the time of writing, SiteGround offers [three shared hosting options](http://
 
 ## Configuring PHP
 
-SiteGround provides a very full featured **cPanel** control panel. This is directly accessible via the **My Accounts** tab.
+SiteGround provides a very full-featured **cPanel** control panel. This is directly accessible via the **My Accounts** tab.
 
 The first thing to do is to change the default version of PHP your site runs with.
 
@@ -33,9 +33,9 @@ Click save for this to take effect.
 
 First, you will have to open the **SSH/Shell Access** option in the **ADVANCED** section of cPanel.
 
-SiteGround provides a very thorough [tutorial for using SSH](http://www.siteground.com/tutorials/ssh/), however it's simpler to create your public/private key pair locally on your computer and then just upload the DSA Public Key.
+SiteGround provides a very thorough [tutorial for using SSH](http://www.siteground.com/tutorials/ssh/), however it's simpler to create your public/private key pair locally on your computer, and then just upload the DSA Public Key.
 
->>> NOTE: Windows users will first need to install [Cygwin](https://www.cygwin.com/) to provide many useful GNU and open source tools that are available on Mac and Linux platforms. When prompted to choose packages, ensure you check the SSH option. After installation, launch the `Cygwin Terminal`
+>>> NOTE: Windows users will first need to install [Cygwin](https://www.cygwin.com/) to provide many useful GNU and open source tools that are available on Mac and Linux platforms. When prompted to choose packages, ensure you check the SSH option. After installation, launch the `Cygwin Terminal`.
 
 Fire up a terminal window and type:
 
@@ -49,13 +49,13 @@ Once generate you can paste the contents of your `id_dsa.pub` public key into th
 
 ![](ssh-public-key.png)
 
-After uploading, you should see the key listed at the bottom of this page. This means you are ready to test ssh'ing to your server.
+After uploading, you should see the key listed at the bottom of this page. This means you are ready to test SSH'ing to your server.
 
 ```
 $ ssh siteground_username@siteground_servername -p18765
 ```
 
-Obviously you will need to put in your SiteGround-provided username for `siteground_username`, and the SiteGround-provided servername for `siteground_servername`.  The `-p18765` is important as this is the non-standard port that SiteGround runs SSH on.
+Obviously, you will need to put in your SiteGround-provided username for `siteground_username`, and the SiteGround-provided servername for `siteground_servername`.  The `-p18765` is important as this is the non-standard port that SiteGround runs SSH on.
 
 ## Setup CLI PHP
 
@@ -76,7 +76,7 @@ PATH=~/bin/:$PATH:$HOME/bin
 export PATH
 ```
 
-Now you should create the `~/bin/` folder in your home directory and also create a symbolic link to the version of PHP you wish to use:
+Now you should create the `~/bin/` folder in your home directory and a symbolic link to the version of PHP you wish to use:
 
 ```
 $ mkdir ~/bin
@@ -84,7 +84,7 @@ $ cd ~/bin
 $ ln -s /usr/local/bin/php55 php
 ```
 
-You will need _source_ the profile: `$ source ~/.bash_profile` or re-login to your terminal for you path change to take effect, but after doing so you should be able to type `php -v` and see:
+You will need to _source_ the profile: `$ source ~/.bash_profile` or log back in to your terminal for your path change to take effect. Aafter doing so, you should be able to type `php -v` and see:
 
 ```
 $ php -v
@@ -96,13 +96,13 @@ Zend Engine v2.5.0, Copyright (c) 1998-2014 Zend Technologies
 
 ## Enabling PHP OPcache
 
-By default, SiteGround hosting comes with **support** for Zend OPcache, but it is **not enabled**.  You must manually enable it by creating a `php.ini` file in your `public_html/` folder with the contents:
+By default, SiteGround hosting comes with **support** for **Zend OPcache**, but it is **not enabled**.  You must manually enable it by creating a `php.ini` file in your `public_html/` folder with the contents:
 
 ```
 zend_extension=opcache.so
 ```
 
-To test you have the correct version of PHP and the Zend OPcache running you can create a temporary file: `public_html/info.php` and put this in the contents:
+To test you have the correct version of PHP and the Zend OPcache running, you can create a temporary file: `public_html/info.php` and put this in the contents:
 
 ```
 <?php phpinfo();
@@ -112,7 +112,7 @@ Save the file and point your browser to this info.php file on your site and you 
 
 ![](phpinfo-1.png)
 
-Also you should be able to scroll down and see a section called **Zend OPcache**:
+You should also be able to scroll down and see a section called **Zend OPcache**:
 
 ![](phpinfo-2.png)
 
