@@ -9,6 +9,8 @@ taxonomy:
 
 [SiteGround](http://www.siteground.com/)'s tag line is **Web Hosting Crafted With Care** and it is for this reason it has proven a popular hosting solution for people in the Joomla and WordPress communities. It also makes a good option for hosting a Grav-based web site.
 
+![](siteground.png)
+
 In this guide we will cover the essentials for configuring a pretty bog-standard SiteGround shared hosting account to work optimally with Grav.
 
 ## Picking your Hosting Plan
