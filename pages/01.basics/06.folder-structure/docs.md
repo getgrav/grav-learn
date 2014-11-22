@@ -90,7 +90,7 @@ The `data` folder can be used by plugins to store data that you can reference la
 
 ### /user/pages
 
-This is the heart of Grav. the `pages` folder is where you create and edit your content.  We will go in to much more depth in the [next section][next].
+This is the heart of Grav. The `pages` folder is where you create and edit your content.  We will go into much more depth in the [next section][next].
 
 ### /user/themes
 
