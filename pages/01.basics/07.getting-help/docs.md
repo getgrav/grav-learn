@@ -22,20 +22,9 @@ You can join in a discussion on any of the topics we post about on the [Grav Dev
 
 If you find a bug, have a general question, or even if you want to contribute to the Grav project as a whole, you can use the [Grav GitHub Issues tracker](https://github.com/getgrav/grav/issues).  We are very diligent about responding to issues posted here, and it can provide a useful way to start a conversation with us.  If you have a specific issue with one of our plugins, themes, or skeletons, you can also submit an issue on that repository.
 
-## Chat on IRC
+## Chat on Gitter.im
 
-You can chat with us **live** on [IRC](http://en.wikipedia.org/wiki/Internet_Relay_Chat). We have a room dedicated to all-things Grav called `#grav` on the [freenode IRC network](http://freenode.net/).  Most IRC clients come with the main networks already built-in to their wizard-like getting started process.  Just choose **Freenode** from the list of networks or servers when you launch your application.
-
-Some applications we can recommend:
-
-* [Textual](https://itunes.apple.com/us/app/textual/id403012667?mt=12) - Mac - $4.99
-* [Lingo](https://itunes.apple.com/us/app/lingo/id624884154?mt=12) - Mac - Free
-* [Linkinus](https://itunes.apple.com/us/app/linkinus/id402390998?mt=12) - Mac - $7.99
-* [Limechat](https://itunes.apple.com/us/app/limechat/id414030210?mt=12) - Mac - Free
-* [mIRC](http://www.mirc.com/) - Windows - $20
-* [XChat](http://xchat.org) - Windows/Linux - Free
-* [HexChat](http://hexchat.github.io/) - Windows/Linux/OS X - Free
-
+You can **chat with us live** on [Gitter.im](https://gitter.im/getgrav/grav). Gitter.im is a great new chat tool that is tightly coupled with GitHub so you will need to create a free GitHub account if you don't already have one.  Once done, you can use the [https://gitter.im/getgrav/grav]() URL or you can download one of their [native apps](https://gitter.im/apps).
 
 
 
