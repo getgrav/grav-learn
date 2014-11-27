@@ -416,7 +416,7 @@ This returns **raw url path** to the image.
 {{ gravui_tabs({'Twig':tab2, 'Result':tab3}) }}
 
 
-##### html([alt], [classes])
+##### html([alt][, classes])
 
 >>> This method is only intended to be used in **Twig** templates, hence the lack of Markdown syntax.
 
@@ -425,13 +425,13 @@ The `html` action will output a valid HTML tag for the image. This is particular
 {% set tab2 %}
 {% verbatim %}
 ```
-{{ page.media['sample-image.jpg'].cropZoom(400, 300).html('some ALT text', 'myclass') }}
+{{ page.media['sample-image.jpg'].cropZoom(400,300).html('some ALT text', 'myclass') }}
 ```
 {% endverbatim %}
 {% endset %}
 {% set tab3 %}
 ```
-{{ page.media['sample-image.jpg'].cropZoom(400, 300).html('some ALT text', 'myclass')|e }}
+{{ page.media['sample-image.jpg'].cropZoom(400,300).html('some ALT text', 'myclass')|e }}
 ```
 {% endset %}
 {{ gravui_tabs({'Twig':tab2, 'Result':tab3}) }}
@@ -439,23 +439,26 @@ The `html` action will output a valid HTML tag for the image. This is particular
 
 >>> The URL contains an automatically generated and cached image file that Grav created for the newly generated image.
 
-##### lightbox(width, height)
+##### lightbox([width, height])
 
 Similar to the `html` action, the **lightbox** outputs the required HTML tag information to display the current image (resized, cropped, etc) as a thumbnail with a link to resized image in a lightbox. The `width` and `height` dictate the size of the lightbox when activated.
 
+{% set tab1 %}
+```
+![Sample Image](sample-image.jpg?cropZoom=200,200&lightbox=1024,768)
+```
+{% endset %}
 {% set tab2 %}
 {% verbatim %}
 ```
-![Sample Image](sample-image.jpg?lightbox=1024,768&cropZoom=200,200)
+{{ page.media['sample-image.jpg'].cropZoom(200,200).lightbox(1024,768) }}
 ```
 {% endverbatim %}
 {% endset %}
 {% set tab3 %}
-```
-![Sample Image](sample-image.jpg?lightbox=1024,768&cropZoom=200,200)|e }}
-```
+![Sample Image](sample-image.jpg?cropZoom=200,200&lightbox=1024,768)
 {% endset %}
-{{ gravui_tabs({'Twig':tab2, 'Result':tab3}) }}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
 This is a **Twig** output that will take the `image1.jpg` file associated with the page, and output a `lightbox` tag that will link to an image that is `resize`'d to `1024` x `768` from a thumbnail image that is `cropResize`'d  to `400` x `300`.
 
@@ -465,18 +468,18 @@ As you can see: Grav provides some powerful image manipulation functionality tha
 
 {% set tab1 %}
 ```
-![](sample-image.jpg?lightbox&cropZoom=600,200&contrast=-100&sharp&sepia)
+![Sample Image](sample-image.jpg?cropZoom=600,200&contrast=-100&sharp&sepia&lightbox)
 ```
 {% endset %}
 {% set tab2 %}
 {% verbatim %}
 ```
-{{ page.media['sample-image.jpg'].cropZoom(600,200).contrast(-100).sharp.sepia.html() }}
+{{ page.media['sample-image.jpg'].cropZoom(600,200).contrast(-100).sharp.sepia.lightbox }}
 ```
 {% endverbatim %}
 {% endset %}
 {% set tab3 %}
-![](sample-image.jpg?lightbox&cropZoom=600,200&contrast=-100&sharp&sepia)
+![Sample Image](sample-image.jpg?cropZoom=600,200&contrast=-100&sharp&sepia&lightbox)
 {% endset %}
 {{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
