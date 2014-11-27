@@ -1,5 +1,9 @@
 ---
 title: Media
+markdown_extra: true
+gravui:
+    enabled: true
+    tabs: true
 taxonomy:
     category: docs
 process:
@@ -12,7 +16,7 @@ Grav uses a **smart-caching** system to automatically create any required image 
 
 {% verbatim %}
 >>>> The media examples below use markdown syntax for displaying images `![Sample Image](sample-image.jpg?cropZoom=300,200)`.
-However, you can also use these same functions in your **Twig** templates by using the PHP syntax.  For example: `{{ media['sample-image.jpg'].cropZoom(300, 200).html() }}`
+However, you can also use these same functions in your **Twig** templates by using the PHP syntax.  For example: `{{ page.media['sample-image.jpg'].cropZoom(300, 200).html() }}`
 {% endverbatim %}
 
 **Supported Media Files**
@@ -29,54 +33,101 @@ The following media file types are supported natively by Grav. Additional suppor
 
 Grav employs a **builder-pattern** when handling media, so you can perform **multiple actions** on a particular medium.  Grav currently has the following actions built-in:
 
-### resize(w, h, background='0xffffff')
+##### resize(width, height, [background])
 
-Resizing does exactly what you would expect it to do.  `resize` lets you create a new image based on the `w` width and the `h` height.  The aspect ratio is maintained and the new image will contain blank areas in the color of the background color provided as a `hex value`. The background parameter is optional, and if not provided will default to **transparent** if the image is a PNG, or **white** if it is a JPEG.
+Resizing does exactly what you would expect it to do.  `resize` lets you create a new image based on the `width` and the `height`.  The aspect ratio is maintained and the new image will contain blank areas in the color of the **optional** background color provided as a `hex value`, e.g. `0xffffff`. The background parameter is optional, and if not provided will default to **transparent** if the image is a PNG, or **white** if it is a JPEG.
 
+{% set tab1 %}
 ```
-![Sample Image](sample-image.jpg?resize=200,200,0x1D92C3)
+![Sample Image](sample-image.jpg?resize=400,200)
 ```
-
-![Sample Image](sample-image.jpg?resize=200,200,0x1D92C3)
-
-### forceResize(w, h)
-
-Resizes the image to the `w` width and `h` height as provided.  `forceResize` will not respect original aspect-ratio and will stretch the image as needed to fit the new image size.
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
 ```
-![Sample Image](sample-image.jpg?forceResize=200,200)
+{{ page.media['sample-image.jpg'].resize(400, 200).html() }}
 ```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
+![Sample Image](sample-image.jpg?resize=400,200)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-![Sample Image](sample-image.jpg?forceResize=200,200)
 
-### cropResize(w, h)
+##### forceResize(width, height)
 
-`cropResize` resizes an image to a smaller or larger size based on the `w` width and the `h` height.  The aspect ratio is maintained and the new image will be resized to fit in the bounding-box as described by the `w` and `h` provided. In other words, any background area you would see in a regular `resize` is cropped.
+Resizes the image to the `width` and `height` as provided.  `forceResize` will not respect original aspect-ratio and will stretch the image as needed to fit the new image size.
+
+{% set tab1 %}
+```
+![Sample Image](sample-image.jpg?forceResize=200,300)
+```
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].forceResize(200, 300).html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
+![Sample Image](sample-image.jpg?forceResize=200,300)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
+
+
+##### cropResize(width, height)
+
+`cropResize` resizes an image to a smaller or larger size based on the `width` and the `height`.  The aspect ratio is maintained and the new image will be resized to fit in the bounding-box as described by the `width` and `height` provided. In other words, any background area you would see in a regular `resize` is cropped.
 
 For example, if you have an image that is `640` x `480` and you perform a `cropResize(100, 100)` action upon it, you will end up with an image that is `100` x `75`.
 
+{% set tab1 %}
 ```
-![Sample Image](sample-image.jpg?cropResize=200,200)
+![Sample Image](sample-image.jpg?cropResize=300,300)
 ```
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropResize(300, 300).html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
+![Sample Image](sample-image.jpg?cropResize=300,300)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-![Sample Image](sample-image.jpg?cropResize=200,200)
 
-### crop(x, y, w, h)
+##### crop(x, y, width, height)
 
-`crop` will not resize the image at all, it will merely crop the original image so that only the portion of the bounding box as described by the `w` width and the `h` height originating from the `x` and `y` location is used to create the new image.
+`crop` will not resize the image at all, it will merely crop the original image so that only the portion of the bounding box as described by the `width` and the `height` originating from the `x` and `y` location is used to create the new image.
 
 For example, an image that is `640` x `480` that has the `crop(0, 0, 400, 100)` action upon it, will simply get the width and height both cropped so that the resulting image is an image with a width of `400` and a height of `100` originated from the top-left corner as described by `0, 0`.
 
+{% set tab1 %}
 ```
 ![Sample Image](sample-image.jpg?crop=100,100,300,200)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].crop(100,100,300,200).html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![Sample Image](sample-image.jpg?crop=100,100,300,200)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
 
-### cropZoom(x, y)
+##### cropZoom(width, height)
 
-Similar to regular `cropResize`, `cropZoom` also takes an `x` width and a `y` height but will **resize and crop** the image to ensure the resulting image is the exact size you requested.  The aspect ratio is maintained but parts of the image may be cropped, however the resulting image is centered.
+Similar to regular `cropResize`, `cropZoom` also takes a `width` and a `height` but will **resize and crop** the image to ensure the resulting image is the exact size you requested.  The aspect ratio is maintained but parts of the image may be cropped, however the resulting image is centered.
 
 >>> The primary difference between **resizeCrop** and **cropZoom** is that in resizeCrop, the image is resized maintaining aspect ratio so that the entire image is shown, and any extra space is considered background.
 
@@ -84,192 +135,359 @@ With **cropZoom**, the image is resized so that there is no background visible, 
 
 For example if you have an image that is `640` x `480` and you perform a `cropZoom(400, 100)` action, the resulting image will be resized to `400` x `300` and then the height is cropped resulting in a `400` x `100` image.
 
+{% set tab1 %}
 ```
-![Sample Image](sample-image.jpg?cropZoom=400,100)
+![Sample Image](sample-image.jpg?cropZoom=600,200)
 ```
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(600,200).html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
+![Sample Image](sample-image.jpg?cropZoom=600,200)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-![Sample Image](sample-image.jpg?cropZoom=400,100)
 
-### quality(c)
+##### quality(value)
 
-Dynamically allows the setting of a **compression percentage** to the image where c is between 0 and 100.
+Dynamically allows the setting of a **compression percentage** `value` for the image between `0` and `100`. A lower number means less quaility, where `100` means maximum quality.
 
+{% set tab1 %}
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&quality=95)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).quality(95).html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![Sample Image](sample-image.jpg?cropZoom=300,200&quality=95)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
 
-### negate()
+##### negate()
 
 Applies a **negative filter** to the image where colors are inverted.
 
+{% set tab1 %}
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&negate)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).negate.html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![Sample Image](sample-image.jpg?cropZoom=300,200&negate)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-### brightness(b)
 
-Applies a **brightness filter** to the image (from -255 to +255). Larger negative numbers will make the image darker, while larger positive numbers will make the image brighter.
+##### brightness(value)
 
+Applies a **brightness filter** to the image with a `value` from `-255` to `+255`. Larger negative numbers will make the image darker, while larger positive numbers will make the image brighter.
+
+{% set tab1 %}
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&brightness=-100)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).brightness(-100).html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![Sample Image](sample-image.jpg?cropZoom=300,200&brightness=-100)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-### contrast(c)
 
-This applies a **contrast filter** to the image (from -100 to +100). Larger negative numbers will increase the contrast, while larger positive numbers will reduce the contrast.
+##### contrast(value)
 
+This applies a **contrast filter** to the image with a `value` from `-100` to `+100`. Larger negative numbers will increase the contrast, while larger positive numbers will reduce the contrast.
+
+{% set tab1 %}
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&contrast=-50)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).contrast(-50).html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![Sample Image](sample-image.jpg?cropZoom=300,200&contrast=-50)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-### grayscale()
+
+##### grayscale()
 
 This processes the image with a **grayscale filter**.
 
+{% set tab1 %}
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&grayscale)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).grayscale.html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![Sample Image](sample-image.jpg?cropZoom=300,200&grayscale)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-### emboss()
+
+##### emboss()
 
 This processes the image with an **embossing filter**.
 
+{% set tab1 %}
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&emboss)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).emboss.html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![Sample Image](sample-image.jpg?cropZoom=300,200&emboss)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-### smooth(p)
 
-This applies a **smoothing filter** to the image based on smooth setting (from -10 to 10).
+##### smooth(value)
 
+This applies a **smoothing filter** to the image based on smooth `value` setting from `-10` to `10`.
+
+{% set tab1 %}
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&smooth=5)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).smooth(5).html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![Sample Image](sample-image.jpg?cropZoom=300,200&smooth=5)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-### sharp()
+
+##### sharp()
 
 This applies a **sharpening filter** on the image.
 
+{% set tab1 %}
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sharp)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).sharp.html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sharp)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-### edge()
+
+##### edge()
 
 This applies an **edge finding filter** on the image.
 
+{% set tab1 %}
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&edge)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).edge.html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![Sample Image](sample-image.jpg?cropZoom=300,200&edge)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-### colorize(red, green, blue)
 
-You can colorize the image based on adjusting the **red, green, and blue** values for the image (from -255 to +255 for each color).
+##### colorize(red, green, blue)
 
+You can colorize the image based on adjusting the `red`, `green`, and `blue` values for the image from `-255` to `+255` for each color.
+
+{% set tab1 %}
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&colorize=100,-100,40)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).colorize(100,-100,40).html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![Sample Image](sample-image.jpg?cropZoom=300,200&colorize=100,-100,40)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-### sepia()
+
+##### sepia()
 
 This applies a **sepia filter** on the image to produce a vintage look.
 
+{% set tab1 %}
 ```
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sepia)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).sepia.html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sepia)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-### url()
 
->>> This method is only intended to be used in **Twig** templates, hence the Twig syntax.
+##### url()
+
+>>> This method is only intended to be used in **Twig** templates, hence the lack of Markdown syntax.
 
 This returns **raw url path** to the image.
 
+{% set tab2 %}
 {% verbatim %}
 ```
-{{ media['sample-image.jpg'].url }}
+{{ page.media['sample-image.jpg'].url }}
 ```
 {% endverbatim %}
-
+{% endset %}
+{% set tab3 %}
 ```
-{{ media['sample-image.jpg'].url|e }}
+{{ page.media['sample-image.jpg'].url|e }}
 ```
+{% endset %}
+{{ gravui_tabs({'Twig':tab2, 'Result':tab3}) }}
 
-### html(alt)
 
->>> This method is only intended to be used in **Twig** templates, hence the Twig syntax.
+##### html([alt], [classes])
+
+>>> This method is only intended to be used in **Twig** templates, hence the lack of Markdown syntax.
 
 The `html` action will output a valid HTML tag for the image. This is particularly helpful when you want to perform some action on an image, and then get output the HTML tag to this URL of this *automagically* generated image.
 
-An example might be:
-
+{% set tab2 %}
 {% verbatim %}
 ```
-{{ media['sample-image.jpg'].cropZoom(400, 300).html('some ALT text') }}
+{{ page.media['sample-image.jpg'].cropZoom(400, 300).html('some ALT text', 'myclass') }}
 ```
 {% endverbatim %}
-
-which would output the following HTML:
-
+{% endset %}
+{% set tab3 %}
 ```
-{{ media['sample-image.jpg'].cropZoom(400, 300).html('some ALT text')|e }}
+{{ page.media['sample-image.jpg'].cropZoom(400, 300).html('some ALT text', 'myclass')|e }}
 ```
+{% endset %}
+{{ gravui_tabs({'Twig':tab2, 'Result':tab3}) }}
+
 
 >>> The URL contains an automatically generated and cached image file that Grav created for the newly generated image.
 
-### lightbox(x, y)
+##### lightbox(width, height)
 
-Similar to the `html` action, the **lightbox** outputs the required HTML tag information to display the current image (resized, cropped, etc) as a thumbnail with a link to resized image in a lightbox.
+Similar to the `html` action, the **lightbox** outputs the required HTML tag information to display the current image (resized, cropped, etc) as a thumbnail with a link to resized image in a lightbox. The `width` and `height` dictate the size of the lightbox when activated.
 
-A real-world example of using this in your own page content is the following
-
+{% set tab2 %}
+{% verbatim %}
 ```
 ![Sample Image](sample-image.jpg?lightbox=1024,768&cropZoom=200,200)
 ```
-
-![Sample Image](sample-image.jpg?lightbox=1024,768&cropZoom=200,200)
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
+```
+![Sample Image](sample-image.jpg?lightbox=1024,768&cropZoom=200,200)|e }}
+```
+{% endset %}
+{{ gravui_tabs({'Twig':tab2, 'Result':tab3}) }}
 
 This is a **Twig** output that will take the `image1.jpg` file associated with the page, and output a `lightbox` tag that will link to an image that is `resize`'d to `1024` x `768` from a thumbnail image that is `cropResize`'d  to `400` x `300`.
 
-## Combinations
+### Combinations
 
 As you can see: Grav provides some powerful image manipulation functionality that makes it really easy to work with images!  The real power comes when you combine multiple effects and produce some very sophisticated dynamic image manipulations.  For example, this is totally valid:
 
+{% set tab1 %}
 ```
 ![](sample-image.jpg?lightbox&cropZoom=600,200&contrast=-100&sharp&sepia)
 ```
-
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(600,200).contrast(-100).sharp.sepia.html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
 ![](sample-image.jpg?lightbox&cropZoom=600,200&contrast=-100&sharp&sepia)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-## Images
+
+### Images
 
 JPEG, PNG, and GIF image formats are supported with the following file extensions: `jpg`, `jpeg`, `png`, `gif`.
 
 Thumbnails are automatically created from the image provided.
 
-## Videos
+### Videos
 
 >>>> NOTE: **Video** media are work-in-progress. They are not fully implemented currently.
 
@@ -279,15 +497,16 @@ Video files with the following file extensions: `mp4`, `mov`, `m4v`, `swf` are a
 
 All the regular actions are available for videos but interact with the thumbnail of the video only.  The **tag** action for videos is slightly different from images as you have to also provide an `x` width and a `y` height.
 
+
 {% verbatim %}
 ```
-{{ media['sample-trailer.mov'].lightbox(852,480).cropResize(200,100).html() }}
+{{ page.media['sample-trailer.mov'].lightbox(852,480).cropResize(200,100).html() }}
 ```
 {% endverbatim %}
 
-{{ media['sample-trailer.mov'].lightbox(852,480).cropResize(200,100).html() }}
+{{ page.media['sample-trailer.mov'].lightbox(852,480).cropResize(200,100).html() }}
 
-## Files
+### Files
 
 >>>> NOTE: **File** media are work-in-progress. They are not fully implemented currently.
 
@@ -301,11 +520,11 @@ The **lightbox** action is not supported for files, and the **tag** action will 
 
 {% verbatim %}
 ```
-{{ media['archive.zip'].html() }}
+{{ page.media['archive.zip'].html() }}
 ```
 {% endverbatim %}
 
-## Metafiles
+### Metafiles
 
 Every medium that you reference in Grav, e.g. `image1.jpg`, `sample-trailer.mov`, or even `archive.zip` has the ability to have variables set or even overridden via a **metafile**.  These files take the format of `<filename>.meta.yaml`.  For example for a image with the filename `image1.jpg` you could create a metafile called `image1.jpg.meta.yaml`.
 

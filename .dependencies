@@ -15,6 +15,10 @@ git:
         url: https://github.com/getgrav/grav-plugin-highlight
         path: user/plugins/highlight
         branch: develop
+    gravui:
+        url: https://bitbucket.org/rockettheme/grav-plugin-gravui
+        path: user/plugins/gravui
+        branch: develop
 links:
     anchors:
         src: grav-plugin-anchors
@@ -32,3 +36,7 @@ links:
         src: grav-plugin-highlight
         path: user/plugins/highlight
         scm: github
+    gravui:
+        src: grav-plugin-gravui
+        path: user/plugins/gravui
+        scm: bitbucket
