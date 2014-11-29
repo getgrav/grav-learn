@@ -6,15 +6,15 @@ process:
 taxonomy:
     category: docs
 ---
-[Arvixe](http://www.arvixe.com) is an award winning hosting company that prides themselves on providing quality web hosting that is **affordable** and unmatched in **reliability**.  With great features, and their **developer-friendly** stance, Arvixe shared hosting is a great option for a Grav-based site.
+[Arvixe](http://www.arvixe.com) is an award winning hosting company that prides themselves on providing quality web hosting that is **affordable** and unmatched in **reliability**.  With great features, and a **developer-friendly** stance, Arvixe shared hosting is a great option for a Grav-based site.
 
 ![](arvixe.png)
 
-In this guide we will cover the essentials for configuring a pretty bog-standard Arvixe shared hosting account to work optimally with Grav.
+In this guide: We will cover the essentials for configuring a pretty bog-standard Arvixe shared hosting account to work optimally with Grav.
 
 ## Picking your Hosting Plan
 
-At the time of writing, Arvixe offers [two linux-based shared hosting options](http://www.arvixe.com/linux_web_hosting) that cost $4.00/month for the **PersonalClass**, and $7.00 for the **PersonalClass Pro** plan. Both plans are almost identical, but the Pro plan offers unlimited concurrent domains. Either one will work well with Grav.
+At the time of writing, Arvixe offers [two Linux-based shared hosting options](http://www.arvixe.com/linux_web_hosting) that cost $4.00/month for the **PersonalClass**, and $7.00 for the **PersonalClass Pro** plan. Both plans are almost identical, but the Pro plan offers unlimited concurrent domains. Either one will work well with Grav.
 
 ## Configuring PHP
 
@@ -26,9 +26,9 @@ On the main cPanel Home page, there is a section called **Software/Services**.  
 
 ![](php-selector.png)
 
-Click save for this to take effect.
+Click **Save** for this to take effect.
 
-You should be able to reach your site via your website URL and appending `phpinfo.php`.  For example: `http://myarvixe.com/phpinfo.php`
+You should be able to reach your site via your website URL with `phpinfo.php` appended to the end.  For example: `http://myarvixe.com/phpinfo.php`
 
 ![](phpinfo.png)
 
