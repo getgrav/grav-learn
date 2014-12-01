@@ -128,7 +128,16 @@ Markdown Extra is a new feature we added in **v0.9.0**.  You can enable this glo
 lightbox: true
 ```
 
-Although strictly speaking this is not a standard page header, it is a common way to enable the loading of a standard lightbox JavaScript and CSS for a page.  By default the core `antimatter` theme does not load the prerequisites to enable lightbox capabilities of images, by enabling this option in the page headers, they will be loaded for you.
+Although strictly speaking this is not a standard page header, it is a common way to enable the loading of a standard lightbox JavaScript and CSS for a page.  By default the core `antimatter` theme does not load the prerequisites to enable lightbox capabilities of images, be sure to install a lightbox plugin such as **Featherlight**, which is available via GPM.
+
+### HTTP Response Code
+
+``` ruby
+http_response_code: 404
+```
+
+Allows the dynamic setting of an HTTP Response Code.
+
 
 ## Meta Page Headers
 

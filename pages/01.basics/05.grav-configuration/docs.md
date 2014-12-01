@@ -46,6 +46,7 @@ cache:
     pages: true                        # Check to see if page has been modifying to flush the cache
   driver: auto                         # One of: auto|file|apc|xcache|memcache|memcached|wincache
   prefix: 'g'                          # Cache prefix string (prevents cache conflicts)
+  lifetime: 0                          # Lifetime of cached data in seconds (0 = infinite)
 
 twig:
   cache: true                          # Set to true to enable twig caching
@@ -92,8 +93,7 @@ summary:
 routes:
   /something/else: '/blog/sample-3'         # Alias for /blog/sample-3
   /another/one/here: '/blog/sample-3'       # Another alias for /blog/sample-3
-blog:
-  route: '/blog'                            # Route to blog
+  /new/*: '/blog/*'                         # Wildcard any /new/my-page URL to /blog/my-page Route
 ```
 
 Let's break down the elements of this sample file:
@@ -106,7 +106,7 @@ Let's break down the elements of this sample file:
 | **taxonomies:**   | An arbitrary list of high-level types that you can use to organize your content.  You can assign content to specific taxonomy types, for example, categories or tags. Feel free to edit, or add your own.    |
 | **metadata:** | Set default metadata for all your pages, see the [content page headers](../../content/headers) section for more details |
 | **summary: size:** | A variable to override the default number of characters that can be used to set the summary size when displaying a portion of content.                                                                       |
-| **routes:**       | This is a basic map that can provide simple URL alias capabilities in Grav.  If you browse to `/something/else` you will actually be sent to `/blog/sample-3`. Feel free to edit, or add your own as needed. |
+| **routes:**       | This is a basic map that can provide simple URL alias capabilities in Grav.  If you browse to `/something/else` you will actually be sent to `/blog/sample-3`. Feel free to edit, or add your own as needed. **Wildcards** (`*`) are now supported at the end of route aliases.  You should put these at the bottom of the list for optimal performance |
 | **(custom options)** | You can create any option you like in this file and a good example is the `blog: route: '/blog'` option that is accessbile in your Twig templates with `blog.route` |
 
 >>> For most people, the most important element of this file is the `Taxonomy` list.  The taxonomies in this list **must** be defined here if you wish to use them in your content.
