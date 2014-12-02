@@ -7,7 +7,7 @@ taxonomy:
     category: docs
 ---
 
-[WireNine](https://wirenine.com) is a fast, modern hosting provider that focuses on performance via their use of **100% SSD** storage, **Litespeed** web servers, the latest **Intel E5-based** processors with fast **DDR4 ram**. These features ensure their shared hosting offerings are a fantastic solution for Grav sites.
+[WireNine](https://my.wirenine.com/aff.php?aff=023) is a fast, modern hosting provider that focuses on performance via their use of **100% SSD** storage, **Litespeed** web servers, the latest **Intel E5-based** processors with fast **DDR4 ram**. These features ensure their shared hosting offerings are a fantastic solution for Grav sites.
 
 ![](wirenine.png)
 
@@ -15,7 +15,7 @@ In this guide, we will cover the essentials for configuring a middle of the road
 
 ## Picking your Hosting Plan
 
-WireNine has three shared hosting plans that range from $9/month for a basic plan, to $18/month for their heavy traffic option.  Configuration for all of these plans are the same, but we recommend the middle **Plus** plan at $14/month because it provides a good compromise with 1 CPU and 1GB of memory.
+[WireNine](https://my.wirenine.com/aff.php?aff=023) has three shared hosting plans that range from $9/month for a basic plan, to $18/month for their heavy traffic option.  Configuration for all of these plans are the same, but we recommend the middle **Plus** plan at $14/month because it provides a good compromise with 1 CPU and 1GB of memory.
 
 ## Configuring PHP & Caching
 
