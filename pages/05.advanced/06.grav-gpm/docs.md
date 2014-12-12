@@ -124,7 +124,7 @@ A blueprint can serve several different purposes, including defining your resour
 
 #### Releases
 
-Grav repository refreshes every 2 hours and automatically detects when there are new releases, this implies that as a developer you followed our [Contributing][contributing] requirements.
+Grav repository refreshes every hour and automatically detects when there are new releases, this implies that as a developer you followed our [Contributing][contributing] requirements.
 
 On your end all you have to do is ensure you have updated the blueprints with the new version, and that you tagged and released the new version. The Grav repository will do the rest for you and as soon as your release is picked up, it will be available to everyone via Grav website or through _GPM_.
 
