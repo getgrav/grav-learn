@@ -11,6 +11,10 @@ git:
         url: https://github.com/getgrav/grav-plugin-error
         path: user/plugins/error
         branch: develop
+    github:
+        url: https://github.com/getgrav/grav-plugin-github
+        path: user/plugins/github
+        branch: develop
     highlight:
         url: https://github.com/getgrav/grav-plugin-highlight
         path: user/plugins/highlight
@@ -31,6 +35,10 @@ links:
     error:
         src: grav-plugin-error
         path: user/plugins/error
+        scm: github
+    github:
+        src: grav-plugin-github
+        path: user/plugins/github
         scm: github
     highlight:
         src: grav-plugin-highlight

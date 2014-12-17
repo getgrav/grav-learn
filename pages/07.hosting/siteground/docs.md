@@ -3,9 +3,12 @@ title: SiteGround
 visible: true
 process:
     twig: true
+github: true
 taxonomy:
     category: docs
 ---
+{% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
+{% set grav_version = release['tag_name'] %}
 
 [SiteGround](http://www.siteground.com/)'s tag line is **Web Hosting Crafted With Care**, and it is for this reason it has proven a popular hosting solution for people in the Joomla and WordPress communities. It also makes a good option for hosting a Grav-based web site.
 
@@ -126,8 +129,8 @@ We will extract Grav into a `/grav` subfolder, but you could unzip directly into
 
 ```
 $ cd ~/public_html
-[~/public_html]$ curl -L -O https://github.com/getgrav/grav/releases/download/{{ site.current_grav }}/grav-v{{ site.current_grav}}.zip
-[~/public_html]$ unzip grav-v{{ site.current_grav}}.zip
+[~/public_html]$ curl -L -O https://github.com/getgrav/grav/releases/download/{{ grav_version }}/grav-v{{ grav_version}}.zip
+[~/public_html]$ unzip grav-v{{ grav_version}}.zip
  ```
 
 You should now be able to point your browser to `http://mysiteground.com/grav` using the appropriate URL of course.

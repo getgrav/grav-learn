@@ -3,9 +3,12 @@ title: WireNine
 visible: true
 process:
     twig: true
+github: true
 taxonomy:
     category: docs
 ---
+{% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
+{% set grav_version = release['tag_name'] %}
 
 [WireNine](https://my.wirenine.com/aff.php?aff=023) is a fast, modern hosting provider that focuses on performance via their use of **100% SSD** storage, **Litespeed** web servers, the latest **Intel E5-based** processors with fast **DDR4 ram**. These features ensure their shared hosting offerings are a fantastic solution for Grav sites.
 
@@ -103,8 +106,8 @@ We will extract Grav into a `/grav` subfolder, but you could unzip directly into
 
 ```
 $ cd ~/public_html
-[~/public_html]$ wget https://github.com/getgrav/grav/releases/download/{{ site.current_grav }}/grav-v{{ site.current_grav}}.zip
-[~/public_html]$ unzip grav-v{{ site.current_grav}}.zip
+[~/public_html]$ wget https://github.com/getgrav/grav/releases/download/{{ grav_version }}/grav-v{{ grav_version }}.zip
+[~/public_html]$ unzip grav-v{{ grav_version }}.zip
  ```
 
 You should now be able to point your browser to `http://mywirenineserver.com/grav` using the appropriate URL of course.

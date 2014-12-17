@@ -3,9 +3,13 @@ title: Arvixe
 visible: true
 process:
     twig: true
+github: true
 taxonomy:
     category: docs
 ---
+{% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
+{% set grav_version = release['tag_name'] %}
+
 [Arvixe](http://www.arvixe.com) is an award winning hosting company that prides themselves on providing quality web hosting that is **affordable** and unmatched in **reliability**.  With great features, and a **developer-friendly** stance, Arvixe shared hosting is a great option for a Grav-based site.
 
 ![](arvixe.png)
@@ -105,8 +109,8 @@ We will extract Grav into a `/grav` subfolder, but you could unzip directly into
 
 ```
 $ cd ~/public_html
-[~/public_html]$ curl -L -O https://github.com/getgrav/grav/releases/download/{{ site.current_grav }}/grav-v{{ site.current_grav}}.zip
-[~/public_html]$ unzip grav-v{{ site.current_grav}}.zip
+[~/public_html]$ curl -L -O https://github.com/getgrav/grav/releases/download/{{ grav_version }}/grav-v{{ grav_version}}.zip
+[~/public_html]$ unzip grav-v{{ grav_version}}.zip
  ```
 
 You should now be able to point your browser to `http://myarvixe.com/grav` using the appropriate URL of course.
