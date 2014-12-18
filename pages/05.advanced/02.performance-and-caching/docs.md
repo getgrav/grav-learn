@@ -26,7 +26,7 @@ taxonomy:
 
 Caching is an integral feature of Grav that has been baked in from the start.  The caching mechanism that Grav employs is the primary reason Grav is as fast as it is.  That said, there are some factors to take into account.
 
-Grav uses the established and well-respected [Doctrine Cache][docterinecache] library. This means that Grav supports any caching mechanism that Doctrine Cache supports.  This means that Grav supports:
+Grav uses the established and well-respected [Doctrine Cache](http://docs.doctrine-project.org/en/2.0.x/reference/caching.html) library. This means that Grav supports any caching mechanism that Doctrine Cache supports.  This means that Grav supports:
 
 * **Auto** _(Default)_ - Finds the best option automatically
 * **File** - Stores in cache files in the `cache/` folder
@@ -103,7 +103,4 @@ For slight performance gains, you can disable the `debug` extension, and also di
 
 ## Caching and Events
 
-For the most part, [events are still fired][event-hooks] even when caching is enabled.  This holds true for all the events except for `onPageProcessed`, `onPageContentProcessed`, `onTwigPageVariables`, and `onFolderProcessed`.  These events are run as all pages and folders are recursed and they fire on each page or folder found.  As their name implies they are only run during the **processing**, and not after the page has been cached.
-
-[docterinecache]: http://docs.doctrine-project.org/en/2.0.x/reference/caching.html
-[event-hooks]: ../../plugins/event-hooks
+For the most part, [events are still fired](../../plugins/event-hooks) even when caching is enabled.  This holds true for all the events except for `onPageProcessed`, `onPageContentProcessed`, `onTwigPageVariables`, and `onFolderProcessed`.  These events are run as all pages and folders are recursed and they fire on each page or folder found.  As their name implies they are only run during the **processing**, and not after the page has been cached.
