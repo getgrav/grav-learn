@@ -95,12 +95,7 @@ Resources and Further Documentation
 
 For more information about YAML, including detailed documentation about how it works, check out the resources linked below.
 
-* [Dave's YAML Primer][primer]
-* [Official YAML 1.2 Documentation][officialdocs]
-* [YAML Reference Card][refcard]
-* [Xavier Shay's YAML Tutorial][tutorial]
-
-[officialdocs]: http://www.yaml.org/spec/1.2/spec.html
-[refcard]: http://www.yaml.org/refcard.html
-[tutorial]: http://rhnh.net/2011/01/31/yaml-tutorial
-[primer]: https://github.com/darvid/trine/wiki/YAML-Primer
+* [Dave's YAML Primer](https://github.com/darvid/trine/wiki/YAML-Primer)
+* [Official YAML 1.2 Documentation](http://www.yaml.org/spec/1.2/spec.html)
+* [YAML Reference Card](http://www.yaml.org/refcard.html)
+* [Xavier Shay's YAML Tutorial](http://rhnh.net/2011/01/31/yaml-tutorial)

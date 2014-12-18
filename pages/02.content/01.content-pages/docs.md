@@ -20,7 +20,7 @@ Grav natively supports **3 types of pages** that allow you to create a rich sele
 
 A standard page is generally a single page such as a **blog post**, **contact form**, **error page** etc. This is the most common type of page that you will create. By default a page is considered a standard page unless you tell Grav otherwise.
 
-When you download and install the **Base Grav** package, you are greeted by a standard page.  We covered creating a simple standard page in the [Basic Tutorial][basic].
+When you download and install the **Base Grav** package, you are greeted by a standard page.  We covered creating a simple standard page in the [Basic Tutorial](../../basics/basic-tutorial).
 
 #### Listing Page
 
@@ -32,7 +32,7 @@ The simplest approach to setting this up is to create **child pages** below the 
 
 There is also some configuration settings to **control the order** of the listing as well as a **limit on the number of items**, and whether or not **pagination** should be enabled.
 
->>> A sample **Blog Skeleton** using a **Listing Page** can be found in the [Grav Downloads][downloads]
+>>> A sample **Blog Skeleton** using a **Listing Page** can be found in the [Grav Downloads](http://getgrav.org/downloads).
 
 #### Modular Page
 
@@ -40,7 +40,7 @@ There is also some configuration settings to **control the order** of the listin
 
 A modular page is a special type of listing page because it actually builds a **single page** from its **child pages**. This allows for the ability to build very complex **one-page layouts** from smaller modular content pages.  This is accomplished by constructing the **modular page** from all the **modular folders** found in the folder.
 
->>> A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads][downloads]
+>>> A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](http://getgrav.org/downloads).
 
 Each of these page types follow the same basic structure, so before we can get into the nitty-gritty of each type, we must explain how pages in Grav are constructed.
 
@@ -62,7 +62,7 @@ The textual name of each folder defaults to the _slug_ that the system uses as p
 
 If no number is provided as a prefix of the folder name, the page is considered to be **invisible**, and will not show up in the navigation. An example of this would be the `error` page in the above folder structure.
 
->>> This can actually be overridden in the page itself by setting the [visible parameter][headers] in the headers.
+>>> This can actually be overridden in the page itself by setting the [visible parameter](../headers) in the headers.
 
 ## Ordering
 
@@ -81,7 +81,7 @@ When dealing with collections, there are several options available to control ho
 
 You can specifically define a manual order by providing a list of options to the `content.order.custom` configuration setting. This will work in conjunction with the `content.order.by` because it first tries to manually order the pages, but any pages not specified in the manual order, will be fall-through and be ordered by the ordering setting provided.
 
->>> You can override the **default behavior** for folder ordering and the direction in which the ordering occurs by setting the `pages.order.dir` and the `pages.order.by` options in the [Grav system configuration file][system].
+>>> You can override the **default behavior** for folder ordering and the direction in which the ordering occurs by setting the `pages.order.dir` and the `pages.order.by` options in the [Grav system configuration file](../../basics/grav-configuration).
 
 ## Page File
 
@@ -91,7 +91,7 @@ The important thing to understand is the name of the file directly references th
 
 You can of course name your file whatever you like, for example: `document.md`, which would cause Grav to look for a template file in the theme that matches, such as the **document** template.
 
->>> This behavior can be overridden in the page by setting the [template parameter][headers] in the headers.
+>>> This behavior can be overridden in the page by setting the [template parameter](../headers) in the headers.
 
 An example page file could look like this:
 
@@ -112,16 +112,8 @@ An example page file could look like this:
 
 The settings between the pair of `---` markers is known as the YAML front matter, and it is comprised of basic YAML settings for the page.
 
-In this example, we are explicitly setting the title, as well setting the taxonomy to **blog** so we can filter it later.  The content after the second `---` is the actual content that will be compiled and rendered as HTML on your site.  This is written in [Markdown][markdown], which will be covered in detail in a future chapter.  Just know that the `#`, `**`, and `_` markers translate to a **heading1**, **bold**, and **italics**, respectively.
+In this example, we are explicitly setting the title, as well setting the taxonomy to **blog** so we can filter it later.  The content after the second `---` is the actual content that will be compiled and rendered as HTML on your site.  This is written in [Markdown](../markdown), which will be covered in detail in a future chapter.  Just know that the `#`, `**`, and `_` markers translate to a **heading1**, **bold**, and **italics**, respectively.
 
 >>> NOTE: Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
 
 In the next section we will continue and dig into the specifics of a page in detail.
-
-[basic]: ../../basics/basic-tutorial
-[downloads]: http://getgrav.org/downloads
-[headers]: ../headers
-[system]: ../../basics/grav-configuration
-[headers]: ../headers
-[markdown]: ../markdown
-

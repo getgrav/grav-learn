@@ -66,8 +66,3 @@ $grav['logger']->emergency('Emergency, emergency, there is an emergency here!');
 ```
 
 All your message will be appended to the `/logs/grav.log` file.
-
-
-
-[hook]: ../plugins/event-hooks
-[dump]: http://twig.sensiolabs.org/doc/functions/dump.html

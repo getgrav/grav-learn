@@ -4,9 +4,9 @@ taxonomy:
     category: docs
 ---
 
-In the previous [Plugin Tutorial][plugintutorial] chapter, you might have noticed that our plugin logic was encompassed in two methods.  Each of these methods `onPluginsInitialized` and `onPageInitialized` correspond to **event hooks** that are available throughout the Grav life cycle.
+In the previous [Plugin Tutorial](../plugin-tutorial) chapter, you might have noticed that our plugin logic was encompassed in two methods.  Each of these methods `onPluginsInitialized` and `onPageInitialized` correspond to **event hooks** that are available throughout the Grav life cycle.
 
-To fully harness the power of Grav plugins you need to know which event hooks are available, in what order are these hooks called, and what is available during these calls.  The **event hooks** have a direct relationship to the overall [Grav Lifecycle][lifecycle] that we cover in the [Advanced][advanced] section later on.
+To fully harness the power of Grav plugins you need to know which event hooks are available, in what order are these hooks called, and what is available during these calls.  The **event hooks** have a direct relationship to the overall [Grav Lifecycle](../../advanced/grav-lifecycle) that we cover in the [Advanced](../../advanced) section later on.
 
 ## Event Order
 
@@ -132,7 +132,3 @@ This even is fired after the page's `content()` method has processed the page co
 #### onFolderProcessed
 
 After a folder is parsed and processed.  This is fired for **every folder** in the Grav system.  Performance is not a problem because this event will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
-
-[plugintutorial]: ../plugin-tutorial
-[lifecycle]: ../../advanced/grav-lifecycle
-[advanced]: ../../advanced

@@ -14,7 +14,7 @@ videoembed:
 
 Since the release of version **0.9.3**, Grav includes a _GPM_ (Grav Package Manager) which allows you to install, update, and list all the themes and plugins available on the Grav repository, as well as upgrade Grav itself to the latest version.
 
-Like the [Grav CLI][grav-cli], the _GPM_ is a command-line tool which requires the user to run commands via a command-line interface, such as **Terminal** in OS X. UNIX style commands are not natively available in Windows cmd. Installing the [msysgit](http://msysgit.github.io/) package on a Windows machine adds [Git](http://git-scm.com/) and Git BASH, which is an alternative command prompt that makes UNIX commands available.
+Like the [Grav CLI](../grav-cli), the _GPM_ is a command-line tool which requires the user to run commands via a command-line interface, such as **Terminal** in OS X. UNIX style commands are not natively available in Windows cmd. Installing the [msysgit](http://msysgit.github.io/) package on a Windows machine adds [Git](http://git-scm.com/) and Git BASH, which is an alternative command prompt that makes UNIX commands available.
 
 To get started with _GPM_, you can run the following command to receive a list of all presently available commands:
 
@@ -106,7 +106,7 @@ https://www.youtube.com/watch?v=rSWdmdx9TDA
 
 The `self-upgrade` (or selfupgrade) allows you to update Grav to the latest available version. If no upgrade is needed, a message will tell you so, noting also which version you are currently running and when the release was published.
 
-It is strongly advised to always do a backup before performing a self-upgrade (see _Creating a Backup_ in the [CLI section][grav-cli]).
+It is strongly advised to always do a backup before performing a self-upgrade (see _Creating a Backup_ in the [CLI section](../grav-cli)).
 
 >>> The self-upgrade only upgrades portions of your Grav instance, like `system/` folder, `vendor/` folder, `index.php`, and others. Your **`user`** and **`images`** folders will never be touched.
 
@@ -120,24 +120,18 @@ https://www.youtube.com/watch?v=15-E8l5aaUo
 
 With the introduction of _GPM_, we now have strict rules about valid `blueprints`. Whether it's a _theme_ or a _plugin_ you are developing, you should always ensure `blueprints` are formatted properly.
 
-A blueprint can serve several different purposes, including defining your resource identity. Please refer to the [Blueprints][blueprints] for more detailed documentation about what blueprints are and how they should be compiled.
+A blueprint can serve several different purposes, including defining your resource identity. Please refer to the [Blueprints](../blueprints) for more detailed documentation about what blueprints are and how they should be compiled.
 
 #### Releases
 
-Grav repository refreshes every hour and automatically detects when there are new releases, this implies that as a developer you followed our [Contributing][contributing] requirements.
+Grav repository refreshes every hour and automatically detects when there are new releases, this implies that as a developer you followed our [Contributing](https://github.com/getgrav/grav#contributing) requirements.
 
 On your end all you have to do is ensure you have updated the blueprints with the new version, and that you tagged and released the new version. The Grav repository will do the rest for you and as soon as your release is picked up, it will be available to everyone via Grav website or through _GPM_.
 
 #### Add your resource to the repository
 
-To add your new plugin/theme to the Grav repository, please open a Grav Issue on GitHub. You can also [use this precompiled link][new-resource]. Make sure you update the body to the proper `user/repository`.
+To add your new plugin/theme to the Grav repository, please open a Grav Issue on GitHub. You can also [use this precompiled link](https://github.com/getgrav/grav/issues/new?title=[add-resource]%20New%20Plugin/Theme&body=I%20would%20like%20to%20add%20my%20new%20plugin/theme%20to%20the%20Grav%20Repository.%0AHere%20are%20the%20project%20details:%20**user/repository**). Make sure you update the body to the proper `user/repository`.
 
 More details about what the plugin/theme does are welcome, and can can be placed in the Issue.
 
 Also please be aware that before adding a repository, the Grav team will inspect your plugin/theme ensuring that it fits with the Grav standards. The team may also respond with requests for additional information, suggest minor improvements, etc. prior to closing the issue and adding the plugin/theme.
-
-
-[grav-cli]: ../grav-cli
-[blueprints]: ../blueprints
-[contributing]: https://github.com/getgrav/grav#contributing
-[new-resource]: https://github.com/getgrav/grav/issues/new?title=[add-resource]%20New%20Plugin/Theme&body=I%20would%20like%20to%20add%20my%20new%20plugin/theme%20to%20the%20Grav%20Repository.%0AHere%20are%20the%20project%20details:%20**user/repository**

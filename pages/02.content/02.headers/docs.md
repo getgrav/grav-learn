@@ -64,7 +64,7 @@ Grav automatically looks for a page with the route `/error` if another page cann
 template: custom
 ```
 
-As explained in [the previous chapter][contentpages], the template from the theme that is used to render a page is based on the filename of the `.md` file.
+As explained in [the previous chapter](../content-pages), the template from the theme that is used to render a page is based on the filename of the `.md` file.
 
 So a file called `default.md`, will use the `default` template in the active theme.  You can, of course, override this behavior by simply setting the `template` variable in the header and choosing a different template.
 
@@ -225,7 +225,7 @@ content:
       @taxonomy.tag: foo
 ```
 
-Using the `@taxonomy` option, you can utilize Grav's powerful taxonomy functionality.  This is where the `taxonomy` variable in the [Site Configuration][config] file comes into play. There **must** be a definition for the taxonomy defined in that configuration file for Grav to interpret a page reference to it as valid.
+Using the `@taxonomy` option, you can utilize Grav's powerful taxonomy functionality.  This is where the `taxonomy` variable in the [Site Configuration](../../basics/site-configuration) file comes into play. There **must** be a definition for the taxonomy defined in that configuration file for Grav to interpret a page reference to it as valid.
 
 By setting `@taxonomy.tag: foo`, Grav will find all the pages in the `/user/pages` folder that have themselves set `tag: foo` in their taxonomy variable.
 
@@ -235,7 +235,7 @@ content:
        @taxonomy.tag: [foo, bar]
 ```
 
-The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. Pages that have **both** `foo` **and** `bar` tags will be collected.  The [Taxonomy][taxonomy] chapter will cover this concept in more detail.
+The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. Pages that have **both** `foo` **and** `bar` tags will be collected.  The [Taxonomy](../../taxonomy) chapter will cover this concept in more detail.
 
 >>> NOTE: If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `@taxonomy: {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the hierarchy, each with listed values placed within `[]` brackets. Pages must meet **all** these requirements to be found.
 
@@ -301,7 +301,3 @@ The significance of these headers is that Grav does not use them by default, the
 Any page header such as this should be documented, and generally there will be some default value that will be used if the page does not provide it.
 
 Another example would be to store page-specific data that could then be used by Twig in the content of the page.  This really provides a lot of flexibility and power.
-
-[contentpages]: ../content-pages
-[config]: ../../basics/site-configuration
-[taxonomy]: ../../taxonomy

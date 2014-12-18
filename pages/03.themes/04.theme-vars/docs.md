@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-When you are designing a theme, Grav gives you access to all sorts of objects and variables from your twig templates.  The Twig templating framework provides powerful ways to read and manipulate these objects and variables.  This is [fully explained in their own documentation][documents] as well as [summarized succinctly in our own documentation][primer].
+When you are designing a theme, Grav gives you access to all sorts of objects and variables from your twig templates.  The Twig templating framework provides powerful ways to read and manipulate these objects and variables.  This is [fully explained in their own documentation](http://twig.sensiolabs.org/doc/templates.html) as well as [summarized succinctly in our own documentation](../twig-primer).
 
 >>>> In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provide those after the method name.  `page.content` is equivalant to `page.content()`
 
@@ -103,7 +103,7 @@ The author of this page is: {{ page.header.author }}
 
 ##### media()
 
-This returns an array containing all the media associated with a page. These include **images**, **videos**, and other **files**.  You can access media methods as described in the [media documentation][media] for content. Because it is an array, Twig filters and functions can be used.
+This returns an array containing all the media associated with a page. These include **images**, **videos**, and other **files**.  You can access media methods as described in the [media documentation](../../content/media) for content. Because it is an array, Twig filters and functions can be used.
 
 ```
 {% set first_image = page.media|first %}
@@ -430,9 +430,4 @@ The author of this page is: {{ page.header.author }}
 
 ## Adding Custom Objects
 
-An advanced way to add custom objects is to use a plugin to add objects to the Twig object.  This is an advanced topic and is covered in more detail in the [plugins chapter][plugins].
-
-[plugins]: ../../plugins/event-hooks
-[media]: ../../content/media
-[primer]: ../twig-primer
-[documents]: http://twig.sensiolabs.org/doc/templates.html
+An advanced way to add custom objects is to use a plugin to add objects to the Twig object.  This is an advanced topic and is covered in more detail in the [plugins chapter](../../plugins/event-hooks).

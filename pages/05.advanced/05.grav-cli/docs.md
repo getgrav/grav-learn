@@ -46,7 +46,7 @@ Every time you want to start a new project with Grav, you need to start with a c
     $ cd ~/Projects/grav
     ```
 
-2. Run the Grav CLI to create a new project, with the destination being the location where your project will reside in (usually the [webroot][webroot] of your Web server). Let us assume we are creating a **portfolio** and we want it at `~/Webroot/portfolio`.
+2. Run the Grav CLI to create a new project, with the destination being the location where your project will reside in (usually the [webroot](http://en.wikipedia.org/wiki/Webroot) of your Web server). Let us assume we are creating a **portfolio** and we want it at `~/Webroot/portfolio`.
 
     ```bash
     $ bin/grav new-project ~/webroot/portfolio
@@ -100,6 +100,3 @@ $ bin/grav backup ~/Documents/Backups
 ```
 
 Very simple. Like above, a new backup has been created, but this time in a different location: `~/Documents/Backups/portfolio-20140812174352.zip`
-
-[webroot]: http://en.wikipedia.org/wiki/Webroot
-[github-grav]: https://github.com/getgrav/grav

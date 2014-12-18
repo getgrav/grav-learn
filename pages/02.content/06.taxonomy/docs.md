@@ -12,7 +12,7 @@ With **Grav** the ability to group or tag pages is baked right into the system w
 
 There are a couple of key parts to using taxonomy in your site:
 
-1. Define a list of Taxonomy types in your [`site.yaml`][siteyaml]
+1. Define a list of Taxonomy types in your [`site.yaml`](../../basics/grav-configuration)
 2. Assign your pages to the appropriate `taxonomy` types with values.
 
 ## Taxonomy Example
@@ -92,7 +92,4 @@ This will find all posts with `tags` set to `animal` **and** `cat` **and** `auth
 
 ## Taxonomy based Collections
 
-We covered this in an earlier chapter, but it is important to remember that you can also use taxonomies in the [page headers][headers] to filter a collection of pages associated with a parent page.  If you need a refresher on this subject, please refer back to that [chapter on headers][headers].
-
-[siteyaml]: ../../basics/grav-configuration
-[headers]: ../content/headers
+We covered this in an earlier chapter, but it is important to remember that you can also use taxonomies in the [page headers](../content/headers) to filter a collection of pages associated with a parent page.  If you need a refresher on this subject, please refer back to that [chapter on headers](../content/headers).

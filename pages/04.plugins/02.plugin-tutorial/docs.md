@@ -26,7 +26,7 @@ OK! This sounds simple enough, right? So, let us get cracking!
 
 Before we can start writing our actual plugin logic, we need to create the base setup for the plugin.
 
-1. Follow the [Installation instruction][basicinstall] and ensure you have Grav properly installed.
+1. Follow the [Installation instruction](../../basics/installation) and ensure you have Grav properly installed.
 
 2. Create a folder called `random` within the `user/plugins` folder of your Grav site to provide the basis of our new plugin.
 
@@ -212,5 +212,3 @@ class RandomPlugin extends Plugin
 ```
 
 If you followed along, you should have a fully functional **Random** plugin enabled for your site.  Just point your browser to the `http://yoursite.com/random`, and you should see a random page.  You can also download this plugin directly from the [Plugins Download](http://getgrav.org/downloads/plugins#extras) section of the [getgrav.org](http://getgrav.org/downloads/plugins#extras) site.
-
-[basicinstall]: ../../basics/installation

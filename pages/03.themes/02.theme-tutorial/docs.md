@@ -14,13 +14,13 @@ Nucleus is a lightweight CSS framework that contains the essential CSS resets an
 
 ## Bootstrap
 
-For the sake of this tutorial, we will create a theme that utilizes the popular [Bootstrap framework][bootstrap].
+For the sake of this tutorial, we will create a theme that utilizes the popular [Bootstrap framework](http://getbootstrap.com/).
 
 Bootstrap is a full-featured HTML, CSS, and JS framework that contains a wide variety of components and styling to help create sites quickly. Over the past several years, Bootstrap has become a very popular framework. It is often used as a base for other designs because it already has essential styling for pretty much anything you can think of.
 
 ## Step 1 - Base Theme Setup
 
-As outlined in the [Theme Basics][themebasics] chapter, there are some key elements to a Grav theme, so we must create them for our new theme:
+As outlined in the [Theme Basics](../theme-basics) chapter, there are some key elements to a Grav theme, so we must create them for our new theme:
 
 1. Follow the [Installation instruction](../../basics/installation) and ensure you have Grav properly installed.
 
@@ -62,7 +62,7 @@ As outlined in the [Theme Basics][themebasics] chapter, there are some key eleme
 
 Of course, to create a Bootstrap theme, we must actually include Bootstrap in our theme.
 
-In this tutorial, we will use the latest version available (at the time of writing latest version is **v3.2.0**) so you will need to [download the Bootstrap distribution package][bootstrapdownload]. This package includes the essential bits needed to use the framework.
+In this tutorial, we will use the latest version available (at the time of writing latest version is **v3.2.0**) so you will need to [download the Bootstrap distribution package](http://getbootstrap.com/getting-started/#download). This package includes the essential bits needed to use the framework.
 
 >>>> NOTE: Be sure to download the regular version labeled "Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included."
 
@@ -93,9 +93,9 @@ bootstrap
 
 ## Step 3 - Base Template
 
-As you know from the [previous chapter][themebasics], each item of content in Grav has a particular filename, e.g. `default.md`, which instructs the Grav to look for a rendering template called `default.html.twig`.  It is possible to put everything you need to display a page in this one file, and it would work fine. However, there is a better solution.
+As you know from the [previous chapter](../theme-basics), each item of content in Grav has a particular filename, e.g. `default.md`, which instructs the Grav to look for a rendering template called `default.html.twig`.  It is possible to put everything you need to display a page in this one file, and it would work fine. However, there is a better solution.
 
-Utilizing the Twig [Extends][extends] tag you can define a base layout with [blocks][blocks] that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.
+Utilizing the Twig [Extends](http://twig.sensiolabs.org/doc/tags/extends.html) tag you can define a base layout with [blocks](http://twig.sensiolabs.org/doc/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.
 
 >>> As a general rule, we use the `templates/partials` folder to contain Twig templates that represent either little chunks of HTML, or are shared.
 
@@ -414,10 +414,3 @@ At this point you have created your first theme!  There are a couple of minor th
 1. Create a **favicon** in `images/favicon.png`.
 2. Create a thumbnail of the new theme in `/images/thumbnail.jpg`.
 3. Add missing **templates** for other pages other than `default.html.twig`, e.g. `blog.html.twig` that you might need.
-
-[bootstrap]: http://getbootstrap.com/
-[themebasics]: ../theme-basics
-[installation]: ../../basics/installation
-[bootstrapdownload]: http://getbootstrap.com/getting-started/#download
-[extends]: http://twig.sensiolabs.org/doc/tags/extends.html
-[blocks]: http://twig.sensiolabs.org/doc/tags/block.html

@@ -22,7 +22,7 @@ The underlying architecture of Grav has been designed to use well established an
 
 ## Grav's Place in the Universe
 
-There are many powerful existing open source CMS solutions for building complex sites.  Some of the more commonly used ones are [Joomla][joomla], [WordPress][wordpress], and [Drupal][drupal]. The downside of these platforms is that they require serious commitment to learn how to use them before you can even begin to think about creating a website with them.
+There are many powerful existing open source CMS solutions for building complex sites.  Some of the more commonly used ones are [Joomla](http://joomla.org), [WordPress](http://wordpress.org), and [Drupal](http://drupal.org). The downside of these platforms is that they require serious commitment to learn how to use them before you can even begin to think about creating a website with them.
 
 These platforms provide a wealth of features and functionality that you can extend with a wide-variety of community and professionally developed extensions and themes.  These extensions and themes are themselves often feature-packed, requiring yet more knowledge and time on the part of the implementor.
 
@@ -39,7 +39,3 @@ To get a basic site up-and-running requires very little Web development experien
 You can find a summary about Grav including **Grav logos** and **press information** on our [media page](http://getgrav.org/media)
 
 >>>>>> The simplest way to navigate the documentation is to use the **Next** arrow (<i class="icon-right-open"></i>) on each page. You can see your progress represented by the green progress bar at the top of the page as well as checks (<i class="icon-check"></i>) in the sidebar.  You can also star (<i class="icon-star"></i>) pages for easy reference.
-
-[joomla]: http://joomla.org
-[wordpress]: http://wordpress.org
-[drupal]: http://drupal.org
