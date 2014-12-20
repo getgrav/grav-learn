@@ -24,7 +24,7 @@ debugger:
 
 The PHP Debug Bar still provides an overall **processing time** as well as **memory usage**, but it now has several tabs that provide more detailed information.
 
-The first tab is for **messages** and you can use this to help debug your Grav development process by posting information to this tab from your code via `$grav['debugger']->addMessage($my_var)`.  Also you can dump values directly from Twig templates into this panel by using the `{{ dump(my_var) }}` [twig dump function](dump).
+The first tab is for **messages** and you can use this to help debug your Grav development process by posting information to this tab from your code via `$grav['debugger']->addMessage($my_var)`.  Also you can dump values directly from Twig templates into this panel by using the `{{ dump(my_var) }}` [twig dump function](http://twig.sensiolabs.org/doc/functions/dump.html).
 
 Along with **Request**, **Exceptions**, and **Configuration** information, you can also see a detailed breakdown of Grav timing in the **Timeline** panel:
 

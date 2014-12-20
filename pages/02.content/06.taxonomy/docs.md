@@ -92,4 +92,4 @@ This will find all posts with `tags` set to `animal` **and** `cat` **and** `auth
 
 ## Taxonomy based Collections
 
-We covered this in an earlier chapter, but it is important to remember that you can also use taxonomies in the [page headers](../content/headers) to filter a collection of pages associated with a parent page.  If you need a refresher on this subject, please refer back to that [chapter on headers](../content/headers).
+We covered this in an earlier chapter, but it is important to remember that you can also use taxonomies in the [page headers](../headers) to filter a collection of pages associated with a parent page.  If you need a refresher on this subject, please refer back to that [chapter on headers](../headers).
