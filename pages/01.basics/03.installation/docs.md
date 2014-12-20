@@ -25,7 +25,7 @@ The alternative method is to install Grav from the GitHub repository and then ru
    $ git clone https://github.com/getgrav/grav.git
    ```
 
-2. Install the **plugin** and **theme dependencies** by using the [Grav CLI application](../../advanced/grav-cli) `bin/grav`:
+2. Install the **plugin** and **theme dependencies** by using the [Grav CLI application](http://learn.getgrav.org/advanced/grav-cli) `bin/grav`:
    ```
    $ cd ~/webroot/grav
    $ bin/grav install
@@ -96,13 +96,13 @@ The preferred method for updating Grav (from v0.9.3 onwards) is to use the **Gra
 bin/gpm selfupgrade
 ```
 
-Full information can be found in the [Grav GPM Documentation](../../advanced/grav-gpm).  We also plan on having GPM integrated in our the upcoming **Admin Panel** plugin which will check, prompt, and automatically install any updates.
+Full information can be found in the [Grav GPM Documentation](http://learn.getgrav.org/advanced/grav-gpm).  We also plan on having GPM integrated in our the upcoming **Admin Panel** plugin which will check, prompt, and automatically install any updates.
 
 ### Manual Updates
 
 To manually update the process is:
 
-1. Backup your site using `bin/grav backup` (more information in [Grav CLI Documentation](../../advanced/grav-cli) or alternatively zipping up the whole Grav site, or specifically the `user/` folder.
+1. Backup your site using `bin/grav backup` (more information in [Grav CLI Documentation](http://learn.getgrav.org/advanced/grav-cli) or alternatively zipping up the whole Grav site, or specifically the `user/` folder.
 
 2. Download the Update Package from our [Downloads section](http://getgrav.org/downloads). It is important to download the **update** package and **not the core** package.
 
