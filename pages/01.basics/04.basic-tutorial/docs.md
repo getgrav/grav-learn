@@ -55,7 +55,7 @@ When you edit the page in a text editor, the content will look something like th
 
 	>>>> TODO: Walk through the process of creating a new page with title + content with simple markdown
 
-Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers](../../content/headers), and these are written in a very simple format called [YAML](yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.
+Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers](../../content/headers), and these are written in a very simple format called [YAML](../../advanced/yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.
 
 ```ruby
 title: Home

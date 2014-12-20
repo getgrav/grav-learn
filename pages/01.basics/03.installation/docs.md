@@ -37,7 +37,7 @@ The alternative method is to install Grav from the GitHub repository and then ru
 
 #### Apache/IIS/Nginx
 
-Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is PHP 5.4 or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](requirements) chapter of this guide.
+Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is PHP 5.4 or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](../requirements) chapter of this guide.
 
 If your web root is, for example, `~/public_html` then you could extract it into this folder and reach it via `http://localhost`.  If you extracted it into `~/public_html/grav` you would reach it via `http://localhost/grav`.
 

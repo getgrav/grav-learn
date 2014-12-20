@@ -80,7 +80,7 @@ taxonomy:
 
 A very useful header variable, `taxonomy` lets you assign values to **taxonomy** you defined as valid types in the [Site Configuration](../../basics/grav-configuration) file.
 
-If the taxonomy is not defined in that file, it will be ignored.  In this example, the page is defined as being in the `blog` category, and has the tags: `sample`, `demo`, and `grav`.  These taxonomies can be used to find these pages from other pages, plugins and even themes. The [Taxonomy](taxonomy) chapter will cover this concept in more detail.
+If the taxonomy is not defined in that file, it will be ignored.  In this example, the page is defined as being in the `blog` category, and has the tags: `sample`, `demo`, and `grav`.  These taxonomies can be used to find these pages from other pages, plugins and even themes. The [Taxonomy](../taxonomy) chapter will cover this concept in more detail.
 
 ### Date
 
@@ -235,7 +235,7 @@ content:
        @taxonomy.tag: [foo, bar]
 ```
 
-The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. Pages that have **both** `foo` **and** `bar` tags will be collected.  The [Taxonomy](../../taxonomy) chapter will cover this concept in more detail.
+The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. Pages that have **both** `foo` **and** `bar` tags will be collected.  The [Taxonomy](../taxonomy) chapter will cover this concept in more detail.
 
 >>> NOTE: If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `@taxonomy: {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the hierarchy, each with listed values placed within `[]` brackets. Pages must meet **all** these requirements to be found.
 

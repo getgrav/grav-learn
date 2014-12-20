@@ -27,7 +27,7 @@ So let us dig a little deeper into each of these top level folders and explain w
 
 ### /bin
 
-The `bin` folder contains the [Grav CLI application](../advanced/grav-cli) that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers, so will set-aside this topic for later discussion.
+The `bin` folder contains the [Grav CLI application](../../advanced/grav-cli) that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers, so will set-aside this topic for later discussion.
 
 ### /cache
 
@@ -39,7 +39,7 @@ If Grav decides that the **filesystem** is the best caching method, the cached f
 
 ### /images
 
-Grav comes built-in with a powerful yet very [easy-to-use image manipulation library](../content/media).  This means you can easily resize an image on-the-fly from your content or even from a plugin.  These images are stored in the `images` folder so that they can be reused if the same image with the same size is requested again.
+Grav comes built-in with a powerful yet very [easy-to-use image manipulation library](../../content/media).  This means you can easily resize an image on-the-fly from your content or even from a plugin.  These images are stored in the `images` folder so that they can be reused if the same image with the same size is requested again.
 
 It acts like an image cache folder.  This is intended for automatically generated files, user provided media should be stored in the `user/pages/`, `user/themes/` or even a custom `user/images/` folder.
 
@@ -80,7 +80,7 @@ The `accounts` folder is where you will define any user accounts you may need if
 
 ### /user/config
 
-The [configuration files](grav-configuration) are used to configure the web site and have been discussed in the previous chapter.
+The [configuration files](../grav-configuration) are used to configure the web site and have been discussed in the previous chapter.
 
 ### /user/data
 
@@ -90,8 +90,8 @@ The `data` folder can be used by plugins to store data that you can reference la
 
 ### /user/pages
 
-This is the heart of Grav. the `pages` folder is where you create and edit your content.  We will go in to much more depth in the [next section](../content).
+This is the heart of Grav. the `pages` folder is where you create and edit your content.  We will go in to much more depth in the [next section](../../content).
 
 ### /user/themes
 
-A theme turns your content into a true website.  It converts the content you have constructed into the HTML that a browser understands and can represent visually to your audience.  There is a base theme that is provided with Grav, and you can also download others from the [GetGrav.org](http://getgrav.org) web site, or even create your own.  The [Themes](../themes) section will outline this in detail.
+A theme turns your content into a true website.  It converts the content you have constructed into the HTML that a browser understands and can represent visually to your audience.  There is a base theme that is provided with Grav, and you can also download others from the [GetGrav.org](http://getgrav.org) web site, or even create your own.  The [Themes](../../themes) section will outline this in detail.

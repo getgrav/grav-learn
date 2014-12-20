@@ -62,7 +62,7 @@ The textual name of each folder defaults to the _slug_ that the system uses as p
 
 If no number is provided as a prefix of the folder name, the page is considered to be **invisible**, and will not show up in the navigation. An example of this would be the `error` page in the above folder structure.
 
->>> This can actually be overridden in the page itself by setting the [visible parameter](../headers) in the headers.
+>>> This can actually be overridden in the page itself by setting the [visible parameter](../headers#visible) in the headers.
 
 ## Ordering
 
@@ -91,7 +91,7 @@ The important thing to understand is the name of the file directly references th
 
 You can of course name your file whatever you like, for example: `document.md`, which would cause Grav to look for a template file in the theme that matches, such as the **document** template.
 
->>> This behavior can be overridden in the page by setting the [template parameter](../headers) in the headers.
+>>> This behavior can be overridden in the page by setting the [template parameter](../headers#template) in the headers.
 
 An example page file could look like this:
 
