@@ -84,7 +84,7 @@ If any issues are discovered during the initial page load (or after a cache-flus
 
 ![Grav with Problems](problems.png?cropResize=600,600)  {.border}
 
-Please consult the [Troubleshooting](../troubleshooting) section for help regarding specific issues.
+Please consult the [Troubleshooting](../../troubleshooting) section for help regarding specific issues.
 
 ## Grav Updates
 
