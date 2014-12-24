@@ -155,7 +155,7 @@ For example if you have an image that is `640` x `480` and you perform a `cropZo
 
 ##### quality(value)
 
-Dynamically allows the setting of a **compression percentage** `value` for the image between `0` and `100`. A lower number means less quaility, where `100` means maximum quality.
+Dynamically allows the setting of a **compression percentage** `value` for the image between `0` and `100`. A lower number means less quality, where `100` means maximum quality.
 
 {% set tab1 %}
 ```
