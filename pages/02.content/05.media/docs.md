@@ -541,16 +541,18 @@ images:
 		default:
 			- [cropResize, 300, 300]
 			- sharp
-alt_text: My Alt Text 
+alt_text: My Alt Text
 ```
 
 If you are using this method to add file-specific styling or meta tags for a single file, you will want to put the YAML file in the same folder as the referenced file. This will ensure that the file is pulled along with the YAML data. It's a handy way to even set file-specific metadata as you are unable to do so from the page itself.
 
 Let's say you wanted to just pull the alt_text value listed for the image file `sample-image.jpg`. You would then create a file called `sample-image.jpg.meta.yaml` and place it in the folder with the referenced image file. Then, insert the data used in the example above and save that YAML file. In the markdown file for the page, you can display this data by using the following line:
 
+{% verbatim %}
 ```ruby
 {{ page.media['sample-image.jpg'].alt_text }}
 ```
+{% endverbatim %}
 
 This will pull up the example phrase `My Alt Text` instead of the image. This is just a basic example. You can use this method for a number of things, including creating a gallery with multiple unique data points you want to have referenced for each image. Your images, in essence, have a set of data unique to them that can be easily referenced and pulled as needed.
 
