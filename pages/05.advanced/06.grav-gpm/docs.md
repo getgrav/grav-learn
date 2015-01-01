@@ -12,7 +12,7 @@ videoembed:
                 showinfo: 0
 ---
 
-Since the release of version **0.9.3**, Grav includes a _GPM_ (Grav Package Manager) which allows you to install, update, and list all the themes and plugins available on the Grav repository, as well as upgrade Grav itself to the latest version.
+Since the release of version **0.9.3**, Grav includes a _GPM_ (Grav Package Manager) which allows you to install, update, uninstall and list all the themes and plugins available on the Grav repository, as well as upgrade Grav itself to the latest version.
 
 Like the [Grav CLI](../grav-cli), the _GPM_ is a command-line tool which requires the user to run commands via a command-line interface, such as **Terminal** in OS X. UNIX style commands are not natively available in Windows cmd. Installing the [msysgit](http://msysgit.github.io/) package on a Windows machine adds [Git](http://git-scm.com/) and Git BASH, which is an alternative command prompt that makes UNIX commands available.
 
@@ -101,6 +101,16 @@ Alternatively, you can limit the updates to specific resources only.
 ![](update-limit.jpg)
 
 https://www.youtube.com/watch?v=rSWdmdx9TDA
+
+## Uninstall
+
+The `uninstall` command removes an installed theme or plugin and cleares the cache. Because Grav is purely filesystem, uninstalling a theme or a plugin means deleting the folder fisically.
+
+The command will also detect if a resource is symbolically linked, and prompts you on what to do.
+
+You can also uninstall multiple resources at once by separating the slugs with a space.
+
+>>> You can use the option `--all-yes (-y)` to skip any prompts. If a resource is detected as symbolic link, it will automatically be skipped.
 
 ## Self-upgrade
 
