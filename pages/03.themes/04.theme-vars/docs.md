@@ -346,13 +346,13 @@ Get the top-level pages for a simple menu:
 
 The Uri object has several methods to access parts of the current URI. For the full URL `http://mysite.com/grav/section/category/page.json/param:foo?query=bar`:
 
-##### paths()
-
-This returns the path portion of the URL: (e.g. `uri.paths` = `/section/category/page`)
-
 ##### path()
 
-This returns the array of path elements: (e.g. `uri.path` = `[section, category, page]`)
+This returns the path portion of the URL: (e.g. `uri.path` = `/section/category/page`)
+
+##### paths()
+
+This returns the array of path elements: (e.g. `uri.paths` = `[section, category, page]`)
 
 ##### route([absolute = false][, domain = false])
 
