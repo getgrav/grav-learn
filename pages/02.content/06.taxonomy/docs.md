@@ -38,7 +38,7 @@ The next step is to create some pages that makes use of these taxonomy types.  F
 	---
 	title: Post 1
 	taxonomy:
-	    tag: animal, dog
+	    tag: [animal, dog]
 	    author: ksmith
 	---
 
@@ -55,7 +55,7 @@ The next step is to create some pages that makes use of these taxonomy types.  F
 	---
 	title: Post 2
 	taxonomy:
-	    tag: animal, cat
+	    tag: [animal, cat]
 	    author: jdoe
 	---
 
