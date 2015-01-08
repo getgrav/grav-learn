@@ -104,7 +104,7 @@ https://www.youtube.com/watch?v=rSWdmdx9TDA
 
 ## Uninstall
 
-The `uninstall` command removes an installed theme or plugin and cleares the cache. Because Grav is purely filesystem, uninstalling a theme or a plugin means deleting the folder fisically.
+The `uninstall` command removes an installed theme or plugin and cleares the cache. Because Grav is purely filesystem, uninstalling a theme or a plugin means deleting the folder physically.
 
 The command will also detect if a resource is symbolically linked, and prompts you on what to do.
 
