@@ -37,7 +37,7 @@ In this example, we're moving up a directory and loading the default page locate
 [link](../water)
 ```
 
-This next example does a very similar thing, linking from `pages/01.blue/01.sky/item.md` to `pages/01.green/02.tree/item.md`, but when loading the `item.md` file, a slug has been assigned to the file of `tree-is-green`. 
+This next example does a very similar thing, linking from `pages/01.blue/01.sky/item.md` to `pages/02.green/02.tree/item.md`, but when loading the `item.md` file, a slug has been assigned to the file of `tree-is-green`. 
 
 ```markdown
 [link](../../green/tree-is-green)
