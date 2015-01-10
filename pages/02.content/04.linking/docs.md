@@ -49,17 +49,17 @@ The slug placed in the header of `item.md` replaces the `green` slug from the de
 
 **Directory Relative** links use destinations set relative to the current page. This can be as simple as linking to another file in the current directory, such as an image file, or as complex as going up several directory levels and then back down to the specific folder/file you need to have displayed. 
 
-With relative links, the location of the source file is very bit as important as that of the destination. If either file in the mix is moved, changing the path between them, the link can be broken.
+With relative links, the location of the source file is every bit as important as that of the destination. If either file in the mix is moved, changing the path between them, the link can be broken.
 
 The advantage of this type of linking structure is that you can easily switch between a local development server and a live server with a different domain name and as long as the file structure remains consistent, the links should work without a problem.
 
 A file link points to a particular file by name, rather than its directory or slug. If you were creating a link from `pages/01.blue/01.sky/item.md` to `/pages/02.green/01.grass/item.md` you would use the following command.
 
 ```markdown
-[link](../../01.green/01.grass/item.md)
+[link](../../02.green/01.grass/item.md)
 ```
 
-This link moves up two folders, as indicated by the double `../`, and then down two folders, pointing directly to `item.md` as the destination.
+This link moves up two folders, as indicated by `../../`, and then down two folders, pointing directly to `item.md` as the destination.
 
 Sometimes, you just want to direct the user up a single directory, loading the default page. Since an exact file is not indicated, Grav is trusted to choose the right one to load. For a well-organized Grav site, this should be no problem.
 
@@ -72,20 +72,20 @@ In this example, we will be linking `pages/01.blue/01.sky/item.md` to `/pages/02
 If you want to link to a directory two steps up, you can do so using this process. In this example, we will link `pages/01.blue/01.sky/item.md` to `/pages/02.green/`.
 
 ```markdown
-[link](../02.green)
+[link](../../02.green)
 ```
 
 The next example is a lot like the file link we demonstrated earlier. Instead of linking directly to the file, we're linking to its directory, which should load the file we want anyway since it's the default file. If you were creating a link from `pages/01.blue/01.sky/item.md` to `/pages/02.green/01.grass/` you would use the following command.
 
 ```markdown
-[link](../../01.green/01.grass)
+[link](../../02.green/01.grass)
 ```
 
 ### Absolute
 
 Absolute links are similar to relative links, but are relative to the root of the site. In **Grav**, this is typically based in your **/user/pages/** directory. This type of link can be done in two different ways. 
 
-You can do it in a similar fashion to the **Slug Relative** style which uses the slug, or directory name to in the path for simplicity. This method removes potential issues of order changes later on (changing the number at the beginning of the folder name) breaking the link. This would be the most commonly used method of absolute linking.
+You can do it in a similar fashion to the **Slug Relative** style which uses the slug, or directory name in the path for simplicity. This method removes potential issues of order changes later on (changing the number at the beginning of the folder name) breaking the link. This would be the most commonly used method of absolute linking.
 
 In an absolute link, the link opens with a `/`. Here is an example of an absolute link made to `pages/01.blue/01.sky/item.md` in the **Slug** style. 
 
