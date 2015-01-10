@@ -33,6 +33,7 @@ pages:
   dateformat:
     short: 'jS M Y'                    # Short date format
     long: 'F jS \a\t g:ia'             # Long date format
+  publish_dates: true                  # automatically publish/unpublish based on dates
   process:
     markdown: true                     # Process Markdown
     twig: false                        # Process Twig
@@ -43,20 +44,23 @@ pages:
 cache:
   enabled: true                        # Set to true to enable caching
   check:
-    pages: true                        # Check to see if page has been modifying to flush the cache
-  driver: auto                         # One of: auto|file|apc|xcache|memcache|memcached|wincache
+    method: file                       # Method to check for updates in pages: file|folder|none
+  driver: auto                         # One of: auto|file|apc|xcache|memcache|wincache
   prefix: 'g'                          # Cache prefix string (prevents cache conflicts)
-  lifetime: 0                          # Lifetime of cached data in seconds (0 = infinite)
+  lifetime: 604800                     # Lifetime of cached data in seconds (0 = infinite)
 
 twig:
   cache: true                          # Set to true to enable twig caching
   debug: false                         # Enable Twig debug
   auto_reload: true                    # Refresh cache on changes
   autoescape: false                    # Autoescape Twig vars
+  undefined_functions: true            # Allow undefined functions
+  undefined_filters: true              # Allow undefined filters
 
 assets:                                # Configuration for Assets Manager (JS, CSS)
   css_pipeline: false                  # The CSS pipeline is the unification of multiple CSS resources into one file
   css_minify: true                     # Minify the CSS during pipelining
+  css_minify_windows: false            # Minify Override for Windows platforms. False by default due to ThreadStackSize
   css_rewrite: true                    # Rewrite any CSS relative URLs during pipelining
   js_pipeline: false                   # The JS pipeline is the unification of multiple JS resources into one file
   js_minify: true                      # Minify the JS during pipelining

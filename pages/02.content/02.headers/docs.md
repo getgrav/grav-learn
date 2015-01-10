@@ -40,6 +40,30 @@ menu: My Page
 
 The `menu` variable lets you set the text to be used in the navigation. There are several layers of fall-backs for the menu, so if no `menu` variable is set, Grav will try to use the `title` variable.
 
+### Published
+
+```ruby
+published: true
+```
+
+By default, a page is **published** unless you explicitly set `published: false` or an via a `publish_date` being in the future, or `unpublish_date` in the past. Valid values are `true` or `false`.
+
+### Publish Date
+
+```ruby
+publish_date: 01/23/2015 13:00
+```
+
+Optional field, but can provide a date to automatically trigger publication. Valid values are any string date values that [strtotime()](http://php.net/manual/en/function.strtotime.php) supports.
+
+### Unpublish Date
+
+```ruby
+unpublish_date: 05/17/2015 00:32
+```
+
+Optional field, but can provide a date to automatically trigger un-publication. Valid values are any string date values that [strtotime()](http://php.net/manual/en/function.strtotime.php) supports.
+
 ### Visible
 
 ```ruby
@@ -269,22 +293,37 @@ content:
 
 Ordering of sub-pages follows the same rules as ordering of folders, the available options are:
 
-| Ordering     | Details                                                                                                       |
-| :----------  | :----------                                                                                                   |
-| **default**  | The order based on the file system, i.e. `01.home` before `02.advark`                                         |
-| **title**    | The order is based on the title as defined in each page                                                       |
-| **basename** | The order is based on the alphabetic folder name after it has been processed by the `basename()` PHP function |
-| **date**     | The order based on the date as defined in each page                                                           |
-| **modified** | The order based on the modified timestamp of the page                                                         |
-| **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                             |
-| **manual**   | The order based on the `order_manual` variable                                                                |
-| **random**   | The order is randomized                                                                                       |
+| Ordering     | Details                                                                                                                                            |
+| :----------  | :----------                                                                                                                                        |
+| **default**  | The order based on the file system, i.e. `01.home` before `02.advark`                                                                              |
+| **title**    | The order is based on the title as defined in each page                                                                                            |
+| **basename** | The order is based on the alphabetic folder name after it has been processed by the `basename()` PHP function                                      |
+| **date**     | The order based on the date as defined in each page                                                                                                |
+| **modified** | The order based on the modified timestamp of the page                                                                                              |
+| **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                  |
+| **header.x** | The order based on any page header field. i.e. `header.taxonomy.year`. Also a deafult can be added via a pipe. i.e. header.taxonomy.year&#124;2015 |
+| **manual**   | The order based on the `order_manual` variable                                                                                                     |
+| **random**   | The order is randomized                                                                                                                            |
 
 The `content.items.dir` variable controls which direction the ordering should be in. Valid values are either **desc** or **asc**.
 
 In in this configuration, you can see that `content.order.custom` is defining a **custom manual ordering** to ensure the page is constructed with the **showcase** first, **highlights** section second etc. Please note that if a page is not specified in the custom ordering list, then Grav falls back on the `content.order.by` for the unspecified pages.
 
 `content.limit` is pretty self explanatory, and the `content.pagination` is a simple boolean flag to be used by plugins etc to know if **pagination** should be initialized for this collection.
+
+### Date Range
+
+New as of **Grav 0.9.13** is the ability to filter by a date range:
+
+```
+content:
+    items: @self.children
+    dateRange:
+        start: 1/1/2014
+        end: 1/1/2015
+```
+
+You can use any string date format supported by [strtotime()](http://php.net/manual/en/function.strtotime.php) such as `-6 weeks` or `last Monday` as well as more traditional dates such as `01/23/2014` or `23 January 2014`. The dateRange will filter out any pages that have a date outside the provided dateRange.  Both **start** and **end** dates are optional, but at least one should be provided.
 
 ## Custom Page Headers
 

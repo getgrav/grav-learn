@@ -73,6 +73,10 @@ This method will add assets to the list of CSS assets.  The priority defaults to
 
 Add an entire directory of CSS assets in one go. The order will be alphabetical. This method does not provide the control of the individual methods and is generally not the preferred approach.
 
+#### addInlineCss(css)
+
+Let's you add a string of CSS inside an inline style tag. Useful for initialization or anything dynamic.
+
 #### addJs(asset [, priority=10] [, pipeline=true])
 
 This method will add assets to the list of JavaScript assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.  The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
@@ -80,6 +84,10 @@ This method will add assets to the list of JavaScript assets.  The priority defa
 #### addDirJs(directory)
 
 Add an entire directory of JavaScript assets in one go. The order will be alphabetical. This method does not provide the control of the individual methods and is generally not the preferred approach.
+
+#### addInlineJs(javascript)
+
+Let's you add a string of JavaScript inside an inline script tag. Useful for initialization or anything dynamic.
 
 #### css()
 
