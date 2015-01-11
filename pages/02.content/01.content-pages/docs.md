@@ -117,4 +117,34 @@ In this example, we are explicitly setting the title, as well setting the taxono
 
 >>> NOTE: Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
 
+### Summary Size and Separator
+
+There is a setting in the `site.yaml` file that lets you define a default size (in characters) of the summary that can be used via `page.summary()` to display a summary or synopsis of the page.  This is particularly useful for blogs where you want to have a listing that contains just summary information, and not the full page content.
+
+By default this value is `300` characters.  You can override this in your own `user/config/site.yaml` file, but an even more useful approach is to use the manual **summary separator** also known as the **summary delimiter**: `===`.
+
+You just need to ensure you put this in your content with blank lines **above** and **below**.  For example:
+
+```
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat.
+
+===
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
+
+This will use the text above the separator when referenced by `page.summary()` and the full page content when referenced by `page.content()`.
+
+>>> NOTE: When using `page.summary()`, the summary size setting will be used if the separator is not found in the page content.
+
 In the next section we will continue and dig into the specifics of a page in detail.
