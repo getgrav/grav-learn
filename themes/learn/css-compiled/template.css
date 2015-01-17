@@ -202,11 +202,11 @@ pre {
   border: 1px solid #ddd;
   border-radius: 2px;
   line-height: 1.15;
-  font-size: 0.9rem; }
+  font-size: 1rem; }
   pre code {
     color: #237794;
     background: inherit;
-    font-size: 0.9rem; }
+    font-size: 1rem; }
 
 hr {
   border-bottom: 4px solid #F0F2F4; }
