@@ -1,4 +1,4 @@
-@import url(//fonts.googleapis.com/css?family=Montserrat:400|Raleway:400,500,600);
+@import url(//fonts.googleapis.com/css?family=Montserrat:400|Muli:300,400|Inconsolata);
 .main-nav ul {
   margin: 0;
   padding: 0;
@@ -124,7 +124,7 @@ a {
   margin: 0 0 1.563rem 0; }
 
 body {
-  font-family: "Raleway", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-family: "Muli", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   font-weight: 400; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -188,7 +188,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: "Menlo", "Monaco", monospace; }
+  font-family: "Inconsolata", monospace; }
 
 code {
   background: #f9f2f4;
@@ -2093,7 +2093,7 @@ b, strong, label, th {
         #header.navbar ul li > a:hover, #header.navbar ul li > span:hover {
           color: #2a4450; }
   #header.navbar h4 {
-    font-family: "Raleway", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "Muli", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     font-weight: 400;
     line-height: 60px;
     padding: 0 1rem 0 250px;
@@ -2344,7 +2344,7 @@ body.searchbox-hidden .padding {
     padding-bottom: 3rem;
     max-width: 80%; }
   #chapter h3 {
-    font-family: "Raleway", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "Muli", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     font-weight: 400;
     text-align: center; }
   #chapter h1 {
@@ -2363,7 +2363,7 @@ body.font-serif {
   body.font-serif h1, body.font-serif h2, body.font-serif h3, body.font-serif h4, body.font-serif h5, body.font-serif h6 {
     font-family: "Georgia", "Times", "Times New Roman", serif; }
   body.font-serif .font-toggle {
-    font-family: "Raleway", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; }
+    font-family: "Muli", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; }
 
 .lightbox-active #body {
   overflow: visible; }
