@@ -209,7 +209,7 @@ Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific ta
 ```ruby
 metadata:
     'twitter:card' : summary
-    'twitter:site' : `@flickr`
+    'twitter:site' : @flickr
     'twitter:title' : Your Page Title
     'twitter:description' : Your page description can contain summary information
     'twitter:image' : https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg
