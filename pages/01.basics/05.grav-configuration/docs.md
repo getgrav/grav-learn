@@ -24,7 +24,6 @@ home:
 
 pages:
   theme: antimatter                    # Default theme (defaults to "antimatter" theme)
-  markdown_extra: false                # Enable support for Markdown Extra support (GFM by default)
   order:
     by: defaults                       # Order pages by "default", "alpha" or "date"
     dir: asc                           # Default ordering direction, "asc" or "desc"
@@ -40,6 +39,14 @@ pages:
   events:
     page: true                         # Enable page level events
     twig: true                         # Enable twig level events
+  markdown:
+    extra: false                       # Enable support for Markdown Extra support (GFM by default)
+    auto_line_breaks: false            # Enable automatic line breaks
+    auto_url_links: false              # Enable automatic HTML links
+    escape_markup: false               # Escape markup tags into entities
+    special_chars:                     # List of special characters to automatically convert to entities
+      '>': 'gt'
+      '<': 'lt'
 
 cache:
   enabled: true                        # Set to true to enable caching
@@ -48,6 +55,7 @@ cache:
   driver: auto                         # One of: auto|file|apc|xcache|memcache|wincache
   prefix: 'g'                          # Cache prefix string (prevents cache conflicts)
   lifetime: 604800                     # Lifetime of cached data in seconds (0 = infinite)
+  gzip: false                          # GZip compress the page output
 
 twig:
   cache: true                          # Set to true to enable twig caching

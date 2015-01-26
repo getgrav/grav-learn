@@ -103,4 +103,4 @@ For slight performance gains, you can disable the `debug` extension, and also di
 
 ## Caching and Events
 
-For the most part, [events are still fired](../../plugins/event-hooks) even when caching is enabled.  This holds true for all the events except for `onPageProcessed`, `onPageContentProcessed`, `onTwigPageVariables`, and `onFolderProcessed`.  These events are run as all pages and folders are recursed and they fire on each page or folder found.  As their name implies they are only run during the **processing**, and not after the page has been cached.
+For the most part, [events are still fired](../../plugins/event-hooks) even when caching is enabled.  This holds true for all the events except for `onPageContentRaw`, `onPageProcessed`, `onPageContentProcessed`, `onTwigPageVariables`, and `onFolderProcessed`.  These events are run as all pages and folders are recursed and they fire on each page or folder found.  As their name implies they are only run during the **processing**, and not after the page has been cached.

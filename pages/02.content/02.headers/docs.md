@@ -140,13 +140,34 @@ You may want to disable `markdown` on a particular page if you want to use 100% 
 
 There are situations when you want to use Twig templating functionality in your content, and this is accomplished by setting the `twig` variable to true.
 
-### Markdown Extra
+### Process Twig First
 
 ```ruby
-markdown_extra: true
+twig_first: false
 ```
 
-Markdown Extra is a new feature we added in **v0.9.0**.  You can enable this globally via your `user/config/system.yaml` configuration file, or you can override this global setting _per-page_ with this header option.
+If set to `true` Twig processing will occur before any Markdown processing. This can be particularly useful if your twig generates markdown that needs to be available in order to be processed by the Markdown compiler.  One thing to note, if have `cache_enable: false` **and** `twig_first: true` page caching is effectively disabled.
+
+### Markdown
+
+```ruby
+  markdown:
+    extra: false
+    auto_line_breaks: false
+    auto_url_links: false
+    escape_markup: false
+    special_chars:
+      '>': 'gt'
+      '<': 'lt'
+```
+
+* `extra`: Enable support for Markdown Extra support (GFM by default)
+* `auto_line_breaks`: Enable automatic line breaks
+* `auto_url_links`: Enable automatic HTML links
+* `escape_markup`: Escape markup tags into entities
+* `special_chars`: List of special characters to automatically convert to
+
+These Markdown settings are a new feature we added in **v0.9.14**.  You can enable these globally via your `user/config/system.yaml` configuration file, or you can override this global setting _per-page_ with this `markdown` header option.
 
 ### Lightbox
 

@@ -19,6 +19,7 @@ Most events within Grav fire in a specific order and it is important to understa
 1. [onTwigInitialized](#ontwiginitialized)
 1. [onTwigExtensions](#ontwigextensions)
 1. [onTwigPageVariables](#ontwigpagevariables) _(each page not cached yet)_
+1. [onPageContentRaw](#onpagecontentraw) _(each page not cached yet)_
 1. [onPageProcessed](#onpageprocessed) _(each page not cached yet)_
 1. [onPageContentProcessed](#onpagecontentprocessed) _(each page not cached yet)_
 1. [onFolderProcessed](#onfolderprocessed) _(for each folder found)_
@@ -120,6 +121,10 @@ If you need to manipulate a collection after it has been processed this is the t
 #### onBlueprintCreated
 
 This is used for processing and handling forms.
+
+#### onPageContentRaw
+
+After a page has been found, header processed, but content **not** processed.  This is fired for **every page** in the Grav system.  Performance is not a problem because this event will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
 
 #### onPageProcessed
 

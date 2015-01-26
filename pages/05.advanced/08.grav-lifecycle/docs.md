@@ -9,7 +9,6 @@ markdown_extra: true
 
 It is often useful to know how Grav processes in order to fully understand how best to extend Grav via plugins.  This is the Grav lifecycle:
 
-
 * ### index.php {.level-1}
   1. Check PHP version to ensure we're running at least version **5.4.0**
   1. Class loader initialization
@@ -88,4 +87,11 @@ It is often useful to know how Grav processes in order to fully understand how b
   	  1. Fire **onOutputRendered** event
       1. Connection to client is closed
       1. Fire **onShutdown** event
+
+Whenever a page has its `content()` method called, the following lifecycle occurs:
+
+* ### Page.php {.level-1}
+    1. Fire **onPageContentRaw** event
+    1. Process the page according to Markdown and Twig settings
+    1. Fire **onPageContentProcessed** event
 
