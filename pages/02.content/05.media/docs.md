@@ -445,18 +445,18 @@ Similar to the `html` action, the **lightbox** outputs the required HTML tag inf
 
 {% set tab1 %}
 ```
-![Sample Image](sample-image.jpg?lightbox=1024,768&grayscale&cropZoom=200,200)
+![Sample Image](sample-image.jpg?lightbox=1024,768cropZoom=200,200)
 ```
 {% endset %}
 {% set tab2 %}
 {% verbatim %}
 ```
-{{ page.media['sample-image.jpg'].lightbox(1024,768).grayscale.cropResize(200,200).html('Sample Image') }}
+{{ page.media['sample-image.jpg'].lightbox(1024,768).cropResize(200,200).html('Sample Image') }}
 ```
 {% endverbatim %}
 {% endset %}
 {% set tab3 %}
-![Sample Image](sample-image.jpg?lightbox=1024,768&grayscale&cropZoom=200,200)
+![Sample Image](sample-image.jpg?lightbox=1024,768&cropZoom=200,200)
 {% endset %}
 {{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
