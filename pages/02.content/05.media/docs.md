@@ -460,7 +460,7 @@ Similar to the `html` action, the **lightbox** outputs the required HTML tag inf
 {% endset %}
 {{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-This is a **Twig** output that will take the `image1.jpg` file associated with the page, and output a `lightbox` tag that will link to an image that is `resize`'d to `1024` x `768` from a thumbnail image that is `cropResize`'d  to `400` x `300`.
+This is a **Twig** output that will take the `image1.jpg` file associated with the page, and output a `lightbox` tag that will link to an image that is `resize`'d to `1024` x `768` from a thumbnail image that is `cropResize`'d  to `200` x `200`.
 
 ### Combinations
 
