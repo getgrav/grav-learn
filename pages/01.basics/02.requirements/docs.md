@@ -6,7 +6,7 @@ taxonomy:
 
 Grav has intentionally been designed with few requirements.  You can easily run Grav on your local computer, as well as 99% of all Web hosting providers. If you have a pen handy, jot down the following Grav system requirements:
 
-1. Webserver (Apache, IIS, Nginx) with **Rewrite rules** support
+1. Webserver (Apache, LiteSpeed, IIS, Nginx)
 2. PHP 5.4 or higher
 3. hmm... that's it!
 
@@ -14,7 +14,7 @@ Grav is built with plain text files for your content. There is no database neede
 
 >>> A PHP user cache such as APC, APCU, XCache, Memcache, Redis is highly recommended for optimal performance.  Not to worry though, these are usually already part of your hosting package!
 
-## Recommended Web Servers
+## Web Servers
 
 Even though technically you do not need a standalone Web server, it is better to run one, even for local development. Luckily there are many options depending on your platform:
 
@@ -63,6 +63,28 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 * `opcache` (PHP 5.5+) for increased PHP performance
 * `xcache` alternative to *apc*, not as fast, but still pretty good
 * `xdebug` useful for debugging in development environment
+
+
+### Permissions
+
+For Grav to function properly your webserver needs to have appropriate **file permissions** in order to write logs, caches, etc.  Also when using either the [CLI](/advanced/grav-cli) or [GPM](/advanced/gpm), the user running PHP from the command line, also needs to have permission to modify files also.
+
+By default Grav will install with `644` and `755` permissions for folders and files respectively. Most hosting providers have configurations that ensure the webserver running PHP, will create and modify files as your user account.  This means that Grav runs **out-of-the-box** on the vast majority of hosting providers.
+
+However, if you are running on a dedicated server, or even your local environment, you may need to adjust permissions to ensure you **user** and your **webserver** can modify files as needed.  There are a couple of approaches you can take.
+
+1. In a **local development environment**, you can usually configure your webserver to run as your user.  This way the web server will always create and modify files as your user and you will never have issues.
+
+2. Change the **group permissions** on all files and folders so that the webserver's group has write access to files and folders while keeping the standard permissions.  This requires some commands (note: adjust `www-data` to be the group your apache runs under (`www-data`, `apache`, `nobody`, etc):
+
+```
+chgrp -R www-data .
+find . -type f | xargs chmod 664
+find . -type d | xargs chmod 775
+find . -type d | xargs +s
+umask 0002
+```
+
 
 
 ## Recommended Tools
