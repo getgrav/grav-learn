@@ -38,6 +38,32 @@ Even though technically you do not need a standalone Web server, it is better to
 
 >>> Running Grav with the built-in Web server provided with PHP 5.4 is explained in more detail in the next chapter.
 
+### Apache Requirements
+
+Even though most distributions of Apache usually come with everything needed, for the sake of completeness, here is a list required Apache modules:
+
+* `mod_cache`
+* `mod_expires`
+* `mod_headers`
+* `mod_rewrite`
+* `mod_ssl`
+
+### PHP Requirements
+
+Most hosting providers and even local LAMP setups have PHP pre-configured with everything you need for Grav to run out of the box.  However, some windows setups, and even Linux distributions (I'm look at you Debian!) ship with a very minimal PHP compile. Therefore, you may need to install or enable these PHP modules:
+
+* `gd` (a graphics library used to manipulate images)
+* `curl` (client for URL handling used by GPM)
+* `openssl` (secure sockets library used by GPM)
+* `mbstring` (multibyte string support)
+
+##### Optional Modules
+
+* `apc` (PHP 5.4) or `apcu` (PHP 5.5+) for increased cache performance
+* `opcache` (PHP 5.5+) for increased PHP performance
+* `xcache` alternative to *apc*, not as fast, but still pretty good
+* `xdebug` useful for debugging in development environment
+
 
 ## Recommended Tools
 
