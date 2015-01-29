@@ -37,7 +37,7 @@ Because of the tight coupling with Grav pages and themes, a **Grav Theme** is an
 
 The Twig templating engine is a very powerful system, and because there really are no restrictions by Grav itself, you are free to create any kind of design you wish.  This is one of the great things that sets Grav apart from a traditional CMS that has a loose coupling between content and design.
 
-# GitHub Setup
+## GitHub Setup
 
 As is the way of things these days, GitHub is going to be your best friend when it comes to developing for Grav.  We have created some tools to make this as easy as possible, but there are some development patterns that you should follow to make the process simpler.
 
