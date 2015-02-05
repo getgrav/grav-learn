@@ -27,7 +27,7 @@ There are some rules that YAML has in place to avoid issues related to ambiguity
 Basic Data Types
 -----
 
-YAML excels at working with **mappings** (hashes / dictionaries), **sequences** (arrays / lists), and **scalars** (strings / numbers). While it can be used with most programming languages, it works best with languages that are built around these data structure types. This includes: PHP, Pyton, Perl, JavaScript, and Ruby.
+YAML excels at working with **mappings** (hashes / dictionaries), **sequences** (arrays / lists), and **scalars** (strings / numbers). While it can be used with most programming languages, it works best with languages that are built around these data structure types. This includes: PHP, Python, Perl, JavaScript, and Ruby.
 
 ## Scalars
 
