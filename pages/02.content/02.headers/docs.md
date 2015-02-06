@@ -82,6 +82,28 @@ By default, all pages are **routable**.  This means that they can be reached by 
 
 Grav automatically looks for a page with the route `/error` if another page cannot be found.  With this being an actual page within Grav, you would have complete control over what this page looks like.  You probably do not want people accessing this page directly in their browser, however, so this page commonly has its `routable` variable set to false. Valid values are `true` or `false`.
 
+### Summary
+
+```ruby
+summary:
+  enabled: true
+  format: short | long
+  size: int
+```
+
+The **summary** option configures what the `page.summary()` method returns.  This is most often used in a blog-listing type scenario, but can be used anytime you need a synopsis or summary of the page content.  The scenarios are as follows:
+
+1. `enabled: false` -- Switch off page summary (the summary returns the same as the page content)
+2. `enabled: true`:
+    1. `size: 0` -- No truncation of content happens except if a summary delimiter is found.
+    2. `size: int` -- Content greater than length **int** will be truncated. If a summary delimiter is found, then the content will be truncated up to the summary delimiter.
+    3. `format: long` -- Any summary delimiter of the content will be ignored.
+        1. `size: 0` -- Summary equals the entire page content.
+        2. `size: int` -- The content will be truncated after **int** chars, independent of summary delimiter position.
+    4. `format: short` -- Detect and truncate content up to summary delimiter position.
+        1. `size: 0` -- If no summary delimiter is found, the summary equals the page content, otherwise the content will be truncated up to summary delimiter position.
+        2. `size: int` -- Always truncate the content after **int** chars. If a summary delimiter was found, then truncate content up to summary delimiter position.
+
 ### Template
 
 ```ruby
