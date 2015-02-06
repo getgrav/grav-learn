@@ -48,6 +48,8 @@ Even though most distributions of Apache usually come with everything needed, fo
 * `mod_rewrite`
 * `mod_ssl`
 
+You should also ensure you have `AllowOveride All` set in the `<Directory>` and/or `<VirtualHost>` blocks so that the `.htaccess` file will process correctly and you the rewrite rules will take effect.
+
 ### PHP Requirements
 
 Most hosting providers and even local LAMP setups have PHP pre-configured with everything you need for Grav to run out of the box.  However, some windows setups, and even Linux distributions (I'm look at you Debian!) ship with a very minimal PHP compile. Therefore, you may need to install or enable these PHP modules:
