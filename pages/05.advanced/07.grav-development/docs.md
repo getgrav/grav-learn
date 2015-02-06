@@ -37,6 +37,18 @@ Because of the tight coupling with Grav pages and themes, a **Grav Theme** is an
 
 The Twig templating engine is a very powerful system, and because there really are no restrictions by Grav itself, you are free to create any kind of design you wish.  This is one of the great things that sets Grav apart from a traditional CMS that has a loose coupling between content and design.
 
+## Grav Release Process
+
+When you have created your new theme or plugin and would like to see it added to the [Grav Repository](http://getgrav.org/downloads) there are a few standard things that you need to ensure:
+
+1. It is open source with a `LICENSE` file that provides an [MIT](http://en.wikipedia.org/wiki/MIT_License) compatible license [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/LICENSE)
+2. Contains a `README.md` file with a summary of functionality and instructions on how to install and configure it. [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/README.md)
+3. Contains a `blueprints.yaml` file with [all required fields](../blueprints). [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/blueprints.yaml)
+4. Provide a `CHANGELOG.md` [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/CHANGELOG.md)
+5. Provides appropriate attribution if you use any other libraries, scripts, code.
+6. [Create a release](https://help.github.com/articles/creating-releases) for your finished plugin/theme. The Grav repository system requires a release and will not find your plugin/theme unless there is a release that contains all of the above.
+7. Add an issue to the Grav issues tracker with details about your plugin, and we will give it a quick test to ensure it functions, and then add it.
+
 ## GitHub Setup
 
 As is the way of things these days, GitHub is going to be your best friend when it comes to developing for Grav.  We have created some tools to make this as easy as possible, but there are some development patterns that you should follow to make the process simpler.
