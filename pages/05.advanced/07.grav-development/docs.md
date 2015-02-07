@@ -51,7 +51,7 @@ When you have created your new theme or plugin and would like to see it added to
 
 ## ChangeLog Format
 
-The GetGrav.org site uses a custom ChangeLog format that is written in standard markdown but can be manipulated with some simple CSS.  In order to ensure your ChangeLogs can be parsed and formatted properly, please use this syntax:
+The GetGrav.org site uses a custom ChangeLog format that is written in standard markdown but can be manipulated with some simple CSS and [displayed in an attractive format](http://getgrav.org/downloads#changelog).  In order to ensure your ChangeLogs can be parsed and formatted properly, please use this syntax:
 
 ```
 # vX.Y.Z
