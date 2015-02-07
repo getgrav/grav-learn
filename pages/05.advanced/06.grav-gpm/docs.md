@@ -140,6 +140,8 @@ On your end all you have to do is ensure you have updated the blueprints with th
 
 #### Add your resource to the repository
 
+Follow the instructions in the [Theme/Plugin Release Process](../grav-development#theme/plugin-release-process) section.
+
 To add your new plugin/theme to the Grav repository, please open a Grav Issue on GitHub. You can also [use this precompiled link](https://github.com/getgrav/grav/issues/new?title=[add-resource]%20New%20Plugin/Theme&body=I%20would%20like%20to%20add%20my%20new%20plugin/theme%20to%20the%20Grav%20Repository.%0AHere%20are%20the%20project%20details:%20**user/repository**). Make sure you update the body to the proper `user/repository`.
 
 More details about what the plugin/theme does are welcome, and can can be placed in the Issue.

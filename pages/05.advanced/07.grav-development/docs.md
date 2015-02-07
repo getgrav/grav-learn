@@ -37,7 +37,7 @@ Because of the tight coupling with Grav pages and themes, a **Grav Theme** is an
 
 The Twig templating engine is a very powerful system, and because there really are no restrictions by Grav itself, you are free to create any kind of design you wish.  This is one of the great things that sets Grav apart from a traditional CMS that has a loose coupling between content and design.
 
-## Grav Release Process
+## Theme/Plugin Release Process
 
 When you have created your new theme or plugin and would like to see it added to the [Grav Repository](http://getgrav.org/downloads) there are a few standard things that you need to ensure:
 
@@ -47,7 +47,7 @@ When you have created your new theme or plugin and would like to see it added to
 4. Provide a `CHANGELOG.md` [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/CHANGELOG.md)
 5. Provides appropriate attribution if you use any other libraries, scripts, code.
 6. [Create a release](https://help.github.com/articles/creating-releases) for your finished plugin/theme. The Grav repository system requires a release and will not find your plugin/theme unless there is a release that contains all of the above.
-7. Add an issue to the Grav issues tracker with details about your plugin, and we will give it a quick test to ensure it functions, and then add it.
+7. [Add an issue to the Grav issues tracker](https://github.com/getgrav/grav/issues/new?title=[add-resource]%20New%20Plugin/Theme&body=I%20would%20like%20to%20add%20my%20new%20plugin/theme%20to%20the%20Grav%20Repository.%0AHere%20are%20the%20project%20details:%20**user/repository**) with details about your plugin, and we will give it a quick test to ensure it functions, and then add it.
 
 ## GitHub Setup
 
