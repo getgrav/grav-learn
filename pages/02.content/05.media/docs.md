@@ -462,6 +462,8 @@ Similar to the `html` action, the **lightbox** outputs the required HTML tag inf
 
 This is a **Twig** output that will take the `image1.jpg` file associated with the page, and output a `lightbox` tag that will link to an image that is `resize`'d to `1024` x `768` from a thumbnail image that is `cropResize`'d  to `200` x `200`.
 
+>>>> NOTE: A lightbox-compatible plugin is **required** in order to have a functioning lightbox on your Grav site.  You can use the [FeatherLight Grav plugin](https://github.com/getgrav/grav-plugin-featherlight) to achieve this.
+
 ### Combinations
 
 As you can see: Grav provides some powerful image manipulation functionality that makes it really easy to work with images!  The real power comes when you combine multiple effects and produce some very sophisticated dynamic image manipulations.  For example, this is totally valid:
