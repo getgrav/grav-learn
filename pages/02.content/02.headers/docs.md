@@ -382,4 +382,25 @@ The significance of these headers is that Grav does not use them by default, the
 
 Any page header such as this should be documented, and generally there will be some default value that will be used if the page does not provide it.
 
-Another example would be to store page-specific data that could then be used by Twig in the content of the page.  This really provides a lot of flexibility and power.
+Another example would be to store page-specific data that could then be used by Twig in the content of the page.  
+
+For example you might have want to associate some author reference for the page. If you added these YAML settings to the page header:
+
+```ruby
+author:
+    name: Sandy Johnson
+    twitter: @sandyjohnson
+    bio: Sandy is a freelance journalist and author of several publications on open source CMS platforms.
+```
+
+You could then access them from Twig:
+
+```
+<section id="author-details">
+    <h2>{{ page.header.author.name }}</h2>
+    <p>{{ page.header.author.bio }}</p>
+    <span>Contact: <a href="https://twitter.com/{{ page.header.author.twitter }}"><i class="fa fa-twitter"></i></a></span>
+</section>
+```
+
+This really provides a lot of flexibility and power.
