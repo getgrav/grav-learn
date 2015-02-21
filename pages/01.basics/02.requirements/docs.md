@@ -50,6 +50,11 @@ Even though most distributions of Apache usually come with everything needed, fo
 
 You should also ensure you have `AllowOveride All` set in the `<Directory>` and/or `<VirtualHost>` blocks so that the `.htaccess` file will process correctly and you the rewrite rules will take effect.
 
+### IIS Requirements
+
+Although IIS is considered a webserver ready to 'run-out-of-box' there are some changes that need to be made.
+To get **Grav** to run on an IIS server you need to install **URL Rewrite.** This can be accomplished using **Microsoft Web Platform Installer** from within IIS. You can also install URL Rewrite by going to [iis.net](http://www.iis.net/downloads/microsoft/url-rewrite).
+
 ### PHP Requirements
 
 Most hosting providers and even local LAMP setups have PHP pre-configured with everything you need for Grav to run out of the box.  However, some windows setups, and even Linux distributions (I'm look at you Debian!) ship with a very minimal PHP compile. Therefore, you may need to install or enable these PHP modules:
@@ -58,11 +63,6 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 * `curl` (client for URL handling used by GPM)
 * `openssl` (secure sockets library used by GPM)
 * `mbstring` (multibyte string support)
-
-### IIS Requirements
-
-Although IIS is considered a webserver ready to 'run-out-of-box' there are some changes that need to be made.
-To get **Grav** to run on an IIS server you need to install **URL Rewrite.** This can be accomplished using **Microsoft Web Platform Installer** from within IIS. You can also install URL Rewrite by going to [iis.net](http://www.iis.net/downloads/microsoft/url-rewrite).
 
 ##### Optional Modules
 
