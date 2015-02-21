@@ -6,7 +6,7 @@ taxonomy:
 
 Grav has intentionally been designed with few requirements.  You can easily run Grav on your local computer, as well as 99% of all Web hosting providers. If you have a pen handy, jot down the following Grav system requirements:
 
-1. Webserver (Apache, LiteSpeed, IIS, Nginx)
+1. Webserver (Apache, Nginx, LiteSpeed, IIS, etc.)
 2. PHP 5.4 or higher
 3. hmm... that's it!
 
@@ -29,8 +29,6 @@ Even though technically you do not need a standalone Web server, it is better to
 * [EasyPHP](http://www.easyphp.org/) provides a personal Web hosting package as well as a more powerful developer version
 * [MAMP](http://mamp.info) is a long-time Mac favorite, but now available for Windows.
 * [IIS with PHP](http://php.iis.net/) is a fast way to run PHP on Windows.
-
->>> IIS Web server is currently untested with Grav, but should work fine.
 
 ### Linux
 
