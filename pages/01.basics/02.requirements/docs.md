@@ -59,6 +59,11 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 * `openssl` (secure sockets library used by GPM)
 * `mbstring` (multibyte string support)
 
+### IIS Requirements
+
+Although IIS is considered a webserver ready to 'run-out-of-box' there are some changes that need to be made.
+To get **Grav** to run on an IIS server you need to install **URL Rewrite.** This can be accomplished using **Microsoft Web Platform Installer** from within IIS. You can also install URL Rewrite by going to [iis.net](http://www.iis.net/downloads/microsoft/url-rewrite).
+
 ##### Optional Modules
 
 * `apc` (PHP 5.4) or `apcu` (PHP 5.5+) for increased cache performance
