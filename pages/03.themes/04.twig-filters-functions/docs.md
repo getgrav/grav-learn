@@ -38,7 +38,7 @@ Converts a string to "Title Case" format
 
 ##### Camelize
 
-Converts a string into "camelCase" format
+Converts a string into "CamelCase" format
 
 `'send_email'|camelize` <i class="icon-right-open"></i> **{{ 'send_email'|camelize }}**
 
@@ -74,7 +74,7 @@ Creates an md5 hash for the string
 
 ##### Randomize
 
-Randomizes the list provided.  If a value is past, it will skip those values and keep them in order.
+Randomizes the list provided.  If a value is provided as a parameter, it will skip those values and keep them in order.
 
 `array|randomize` {% verbatim %}
 ```
@@ -83,8 +83,8 @@ Randomizes the list provided.  If a value is past, it will skip those values and
 ```
 {% endverbatim %}
 
-{% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
 <strong>
+{% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
 {% for ritem in ritems %}{{ ritem }}, {% endfor %}
 </strong>
 
@@ -94,13 +94,13 @@ Sort an array map by a particular key
 
 `array|sort_by_key` {% verbatim %}
 ```
-{% set people = [{'email':'fred@yahoo.com', 'name':'Fred Smith'}, {'email':'tim@exchange.com', 'name':'Tim Hardy'}, {'email':'john@apple.com', 'name':'John Jones'}]|sort_by_key('email') %}
-{% for person in people %}{{ person.email }}:{{ person.name }}, {% endfor %}
+{% set people = [{'email':'fred@yahoo.com', 'id':34}, {'email':'tim@exchange.com', 'id':21}, {'email':'john@apple.com', 'id':2}]|sort_by_key('id') %}
+{% for person in people %}{{ person.email }}:{{ person.id }}, {% endfor %}
 ```
 {% endverbatim %}
 
-{% set people = [{'email':'fred@yahoo.com', 'id':34}, {'email':'tim@exchange.com', 'id':21}, {'email':'john@apple.com', 'id':2}]|sort_by_key('id') %}
 <strong>
+{% set people = [{'email':'fred@yahoo.com', 'id':34}, {'email':'tim@exchange.com', 'id':21}, {'email':'john@apple.com', 'id':2}]|sort_by_key('id') %}
 {% for person in people %}{{ person.email }}:{{ person.id }}, {% endfor %}
 </strong>
 
@@ -114,6 +114,7 @@ Sort an array map by each key
 {% for key, value in ritems %}{{ key }}:{{ value }}, {% endfor %}
 ```
 {% endverbatim %}
+
 <strong>
 {% set ritems = {'orange':1, 'apple':2, 'peach':3}|ksort %}
 {% for key, value in ritems %}{{ key }}:{{ value }}, {% endfor %}
@@ -155,7 +156,7 @@ Will repeat whatever is passed in a certain amount of times.
 
 ##### Url
 
-Will create a URL and convert any PHP URL streams into a valid HTML resources
+Will create a URL and convert any PHP URL streams into a valid HTML resources. A default value can be passed in in case the URL cannot be resolved.
 
 `url('theme://images/logo.png')|default('http://www.placehold.it/150x100/f4f4f4')` <i class="icon-right-open"></i> **{{ url('theme://images/logo.png')|default('http://www.placehold.it/150x100/f4f4f4') }}**
 
