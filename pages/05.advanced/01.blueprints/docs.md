@@ -14,6 +14,43 @@ Blueprints are a container of metadata informations regarding a resource. The fi
 
 Each plugin and theme identity is defined in the `blueprints.yaml` file. Without properly formatted and compiled Blueprints, a resource won't be added in the Grav repository. Consequently, it won't be available through [Grav downloads](http://getgrav.org/downloads) and [GPM](../grav-gpm).
 
+## Blueprints Example
+
+```
+name: Assets
+version: 1.0.4
+description: "This plugin provides a convenient way to add CSS and JS assets directly from your pages."
+icon: list-alt
+author:
+  name: Team Grav
+  email: devs@getgrav.org
+  url: http://getgrav.org
+homepage: https://github.com/getgrav/grav-plugin-assets
+demo: http://learn.getgrav.org
+keywords: assets, javascript, css, inline
+bugs: https://github.com/getgrav/grav-plugin-assets/issues
+license: MIT
+
+dependencies:
+  - afterburner2
+  - github: https://github.com/getgrav/grav-plugin-github.git
+  - email: https://rhuk@bitbucket.org/rockettheme/grav-plugin-email.git
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+```
+
 There are different properties that you can use to give your resource and identity, some are **required**, others are _optional_.
 
 |      property     |                                                                                                                                                                                description                                                                                                                                                                                |
@@ -24,7 +61,7 @@ There are different properties that you can use to give your resource and identi
 | __icon*__         | Icon is what will be used on [getgrav.org](http://getgrav.org). At this stage, we are using [FontAwesome](http://fortawesome.github.io/Font-Awesome/icons/) icons library, so if you are developing a new plugin or theme, it should be your job to ensure the icon you picked is not already used. Otherwise we will have to change it for you.                          |
 | _screenshot_      | _(optional)_ Screenshot is only ever evaluated for _Themes_ and completely ignored for _Plugins_. For _Themes_, this would be the filename of the screenshot that comes with the theme (default: `screenshot.jpg`). If you have a _screenshot.jpg_ image at the root of your theme, then you can avoid using this property, our repository will automatically pick it up. |
 | __author.name*__  | The developer full name                                                                                                                                                                                                                                                                                                                                                   |
-| __author.email*__ | The developer email.                                                                                                                                                                                                                                                                                                                                                      |
+| _author.email_    | The developer email.                                                                                                                                                                                                                                                                                                                                                      |
 | _author.url_      | _(optional)_ The developer homepage.                                                                                                                                                                                                                                                                                                                                      |
 | _homepage_        | _(optional)_ If you have a dedicated homepage for your resource, this would be the place for it.                                                                                                                                                                                                                                                                          |
 | _docs_            | _(optional)_ If you have written documentation for your resource, you can link them here.                                                                                                                                                                                                                                                                                 |
@@ -33,6 +70,7 @@ There are different properties that you can use to give your resource and identi
 | _keywords_        | _(optional)_ Although there is no real use of keywords yet, you can list keywords relative to your resource here, comma separated.                                                                                                                                                                                                                                        |
 | _bugs_            | _(optional)_ The URL where bugs can be reported, usually this would be the [GitHub issues](https://guides.github.com/features/issues/) link.                                                                                                                                                                                                                              |
 | _license_         | _(optional)_ The type of license your resource is (MIT, GPL, etc). It is adviced that you always provide a `LICENSE` file with your resource.                                                                                                                                                                                                                             |
+| _dependencies_    | _(optional)_ A list of dependencies that the plugin/theme requires.  The default process is to use GPM to install them, however, if an optional GIT repository URL is provided, installing direct from the repository will be an option also. |
 
 Here is an example of the identity portion of the [github plugin](http://github.com/getgrav/grav-plugin-github) Blueprints:
 

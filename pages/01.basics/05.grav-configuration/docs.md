@@ -18,6 +18,8 @@ Here's the default `system/config/system.yaml` file:
 
 ```ruby
 absolute_urls: false                   # Absolute or relative URLs for `base_url`
+timezone: ''                           # Valid values: http://php.net/manual/en/timezones.php
+param_sep: ':'                         # Parameter separator
 
 home:
   alias: '/home'                       # Default path for home, ie /
@@ -82,6 +84,9 @@ debugger:
   twig: true                           # Enable debugging of Twig templates
   shutdown:
     close_connection: true             # Close the connection before calling onShutdown(). false for debugging
+
+images:
+  debug: false                         # Show an overlay over images indicating the pixel depth of the image when working with retina for example
 ```
 
 >>> You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
