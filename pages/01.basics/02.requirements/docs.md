@@ -6,7 +6,7 @@ taxonomy:
 
 Grav has intentionally been designed with few requirements.  You can easily run Grav on your local computer, as well as 99% of all Web hosting providers. If you have a pen handy, jot down the following Grav system requirements:
 
-1. Webserver (Apache, LiteSpeed, IIS, Nginx)
+1. Webserver (Apache, Nginx, LiteSpeed, IIS, etc.)
 2. PHP 5.4 or higher
 3. hmm... that's it!
 
@@ -30,8 +30,6 @@ Even though technically you do not need a standalone Web server, it is better to
 * [MAMP](http://mamp.info) is a long-time Mac favorite, but now available for Windows.
 * [IIS with PHP](http://php.iis.net/) is a fast way to run PHP on Windows.
 
->>> IIS Web server is currently untested with Grav, but should work fine.
-
 ### Linux
 
 * Many distributions of Linux already come with Apache and PHP built-in, if it's not built-in, then usually the distribution provides a package manager where you can install Apache and PHP without much hassle.  More advanced configurations should be investigated with the help of a good search engine.
@@ -49,6 +47,11 @@ Even though most distributions of Apache usually come with everything needed, fo
 * `mod_ssl`
 
 You should also ensure you have `AllowOveride All` set in the `<Directory>` and/or `<VirtualHost>` blocks so that the `.htaccess` file will process correctly and you the rewrite rules will take effect.
+
+### IIS Requirements
+
+Although IIS is considered a webserver ready to 'run-out-of-box' there are some changes that need to be made.
+To get **Grav** to run on an IIS server you need to install **URL Rewrite.** This can be accomplished using **Microsoft Web Platform Installer** from within IIS. You can also install URL Rewrite by going to [iis.net](http://www.iis.net/downloads/microsoft/url-rewrite).
 
 ### PHP Requirements
 
