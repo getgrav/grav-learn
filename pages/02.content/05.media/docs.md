@@ -502,15 +502,6 @@ Video files with the following file extensions: `mp4`, `mov`, `m4v`, `swf` are a
 
 All the regular actions are available for videos but interact with the thumbnail of the video only.  The **tag** action for videos is slightly different from images as you have to also provide an `x` width and a `y` height.
 
-
-{% verbatim %}
-```
-{{ page.media['sample-trailer.mov'].lightbox(852,480).cropResize(200,100).html() }}
-```
-{% endverbatim %}
-
-{{ page.media['sample-trailer.mov'].lightbox(852,480).cropResize(200,100).html() }}
-
 ### Files
 
 >>>> NOTE: **File** media are work-in-progress. They are not fully implemented currently.
