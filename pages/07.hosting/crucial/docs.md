@@ -11,7 +11,7 @@ taxonomy:
 {% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
 {% set grav_version = release['tag_name'] %}
 
-[Crucial Web Hosting](http://www.crucialwebhost.com/) is another of the new bread of modern web hosting platforms that focuses on both speed and support.  The use of **SSD drives** and **Litespeed** web servers with the latest **Intel XEON processors** ensures that Grav performs fantastically.
+[Crucial Web Hosting](http://www.crucialwebhost.com/promo/1421086/) is another of the new bread of modern web hosting platforms that focuses on both speed and support.  The use of **SSD drives** and **Litespeed** web servers with the latest **Intel XEON processors** ensures that Grav performs fantastically.
 
 ![](crucial.png)
 
@@ -19,7 +19,7 @@ In this guide, we will cover the essentials for configuring the **Tier-1 Split-S
 
 ## Picking your Hosting Plan
 
-[Crucial Web Hosting](http://www.crucialwebhost.com/hosting/) has two primary options when it comes to hosting: **Spit-Shared** and **Split-Dedicated** hosting.  According to Crucial, these cloud-based options are superior to traditional hosting setups as they provide better isolation and performance.
+[Crucial Web Hosting](http://www.crucialwebhost.com/promo/1421086/) has two primary options when it comes to hosting: **Spit-Shared** and **Split-Dedicated** hosting.  According to Crucial, these cloud-based options are superior to traditional hosting setups as they provide better isolation and performance.
 
 Split-Shared hosting ranges from $10/month to $100/month depending on memory and SSD space.  Split Dedicated ranges from $150/month to $650/month depending on number of cores, memory, SSD space and bandwidth.  We'll just be using the baseline $10/moth option that comes with 256MB of memory and 10GB of SSD space.
 
