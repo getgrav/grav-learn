@@ -72,12 +72,14 @@
 
     {% block sidebar %}
     <nav id="sidebar">
-        {#
-        <div class="searchbox">
-            <input type="text" placeholder="Search Documentation" data-search-input="{{ base_url_relative }}/search.json/query" />
-            <span data-search-clear>&times;</span>
+        <div id="header">
+            <a id="logo" href="http://getgrav.org">{% include 'partials/logo.html.twig' %}</a>
+            <div class="searchbox">
+                <label for="search-by"><i class="fa fa-search"></i></label>
+                <input id="search-by" type="text" placeholder="Search Documentation" data-search-input="{{ base_url_relative }}/search.json/query" />
+                <span data-search-clear><i class="fa fa-close"></i></span>
+            </div>
         </div>
-        #}
         <div class="padding">
         {% include 'partials/sidebar.html.twig' %}
         </div>
@@ -93,8 +95,8 @@
 
             {% block footer %}
                 <blockquote id="github-contrib"><blockquote><blockquote><blockquote>
-                    <p>
-                    <i class="icon-github"></i> Found errors? Think you can improve this documentation? Please <a href="{{ site.github.tree ~  ('/'~page.filePathClean)|replace({'/user/':''}) }}">edit this page</a>.
+                <p>
+                    <i class="fa fa-2x fa-github"></i> Found errors? Think you can improve this documentation? <a href="{{ site.github.tree ~  ('/'~page.filePathClean)|replace({'/user/':''}) }}"><i class="fa fa-1x fa-edit"></i> edit this page</a>.
                 </p>
                 </blockquote></blockquote></blockquote></blockquote>
             {% endblock %}

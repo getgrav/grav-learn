@@ -5,11 +5,12 @@
 $header-height: 0;
 $sidebar-width: 300px;
 $sidebar-bg: #2B303B;
-$sidebar-text: #5d6577;
-$sidebar-link: #B4C5CE;
+$sidebar-text: #bbbbbb;
+$sidebar-link: #bbbbbb;
 $navbar-text: desaturate($core-accent,50%);
-$navbar-bg: #FCFCFD;
-$progress-bar: #4FCB51;
+$navbar-bg: #F6F6F6;
+$progress-bar: #50D681;
+$check-color: lighten($sidebar-bg, 30%);
 $star-color: #F8C74A;
 
 // Font Weights
@@ -33,14 +34,6 @@ b, strong {
 
 .default-animation {
 	@include transition(all 0.5s ease);
-}
-
-.bookmarked {
-	#header.navbar {
-		a[data-bookmark-toggle] {
-			color: $star-color;
-		}
-	}
 }
 
 #header.navbar {
@@ -115,6 +108,76 @@ b, strong {
 	}
 }
 
+#header {
+    background: $core-accent;
+    color: $white;
+    text-align: center;
+
+    padding: 1rem;
+
+    a {
+        display: inline-block;
+    }
+
+
+    #logo-svg {
+        @extend .default-animation;
+        width: 8rem;
+        height: 2rem;
+
+        path {
+            @extend .default-animation;
+            fill: $white;
+        }
+    }
+
+}
+
+.searchbox {
+
+    margin-top: 0.5rem;
+    position: relative;
+
+    border: 1px solid lighten($core-accent, 5%);
+    background: darken($core-accent,5%);
+    border-radius: 4px;
+
+    label {
+        color: rgba($white, 0.8);
+        position: absolute;
+        left: 10px;
+        top: 3px;
+    }
+
+    span {
+        color: rgba($white, 0.6);
+        position: absolute;
+        right: 10px;
+        top: 3px;
+        cursor: pointer;
+
+        &:hover {
+            color: rgba($white, 0.9);
+        }
+    }
+
+    input {
+        display: inline-block;
+        color: $white;
+        width: 100%;
+        height: 30px;
+        background: transparent;
+        border: 0;
+        padding: 0 25px 0 30px;
+        margin: 0;
+        font-weight: $font-weight-regular;
+
+        @include placeholder {
+            color: rgba($white, 0.6);
+        }
+    }
+}
+
 body {
 
 	&.sidebar-hidden {
@@ -161,9 +224,6 @@ body {
     z-index: 200;
 	font-weight: $font-weight-medium;
 	font-size: 15px;
-	.padding {
-		padding: 1rem 5px 1rem 1rem;
-	}
 
     a {
         color: $sidebar-link;
@@ -172,23 +232,91 @@ body {
         }
     }
 
+    hr {
+        border-bottom: 4px solid darken($sidebar-bg, 5%);
+    }
+
+    a.padding {
+        padding: 0 1rem;
+    }
+
+
 	ul {
+        @extend .default-animation;
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		ul {
-			padding-left: 1rem;
-		}
+
+        &.searched {
+            a {
+                color: darken($sidebar-link, 20%);
+            }
+
+            .search-match {
+                a {
+                    color: lighten($sidebar-link, 10%);
+                    &:hover {
+                        color: lighten($sidebar-link, 20%);
+                    }
+                }
+            }
+        }
+
+        &.topics {
+            margin: 1rem;
+
+            &.searched {
+                ul {
+                    display: block;
+                }
+            }
+
+            ul {
+                display: none;
+
+            }
+
+            li.parent ul {
+                display: block;
+            }
+
+            > li {
+
+                > a {
+                    line-height: 2rem;
+                    font-size: 1.1rem;
+
+
+                    .fa {
+                        margin-top: 9px;
+                    }
+                }
+
+                &.parent, &.active {
+                    background: darken($sidebar-bg, 5%);
+                    margin-left: -1rem;
+                    margin-right: -1rem;
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                }
+            }
+        }
+
+
+
+        li.active > a {
+            background: $white;
+            color: $core-text !important;
+            margin-left: -1rem;
+            margin-right: -1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
 		li {
 			padding: 0;
-			&.bookmarked + span {
-				margin-right: 16px;
-			}
 			&.visited + span {
 				margin-right: 16px;
-			}
-			&.bookmarked.visited + span {
-				margin-right: 32px;
 			}
 			a {
 				display: block;
@@ -204,44 +332,27 @@ body {
 				padding: 4px 0;
 			}
 
-			i {
+			.fa {
 				display: none;
 				float: right;
 				font-size: 13px;
 				min-width: 16px;
-				margin: 0;
+				margin: 4px 0 0 0;
+                text-align: right;
 			}
-
-
 
 			&.visited {
 				> a .read-icon {
-					color: $progress-bar;
-					display: inline;
-				}
-			}
-
-			&.bookmarked {
-				> a .bookmark-icon {
-					color: $star-color;
-					display: inline;
-				}
-			}
-		}
-		&.searched {
-			a {
-				color: lighten($core-accent, 25%);
-			}
-
-			.search-match {
-				a {
 					color: $core-accent;
-					&:hover {
-						color: darken($core-accent, 20%);
-					}
+					display: inline;
 				}
 			}
+
+            li {
+                text-indent: 1rem;
+            }
 		}
+
 	}
 
 	.padding {
@@ -285,7 +396,7 @@ body {
 
 	.padding {
 		@extend .default-animation;
-		padding: 15px ($body-margin + 2rem);
+		padding: $body-margin ($body-margin + 2rem);
 
 		@include breakpoint(desktop-only) {
 			position: static;
@@ -345,7 +456,7 @@ body {
 
 
 		&:hover {
-			background: darken($sidebar-bg,5%);
+			background: $navbar-bg;
 		}
 
 		&.nav-pref {
@@ -364,53 +475,7 @@ body {
 	margin-bottom: 5rem;
 }
 
-.searchbox {
-	@extend .default-animation;
-	position: absolute;
-	top: 0;
-	background: darken($sidebar-bg,5%);
-	left: 0;
-	right: 0;
-	height: $header-height;
-	line-height: $header-height;
-	padding: 0 1rem;
 
-	input {
-		display: inline-block;
-		width: 100%;
-		height: 30px;
-		border: 1px solid darken($sidebar-bg,10%);
-		background: $sidebar-bg;
-		border-radius: 4px;
-		font-size: 16px;
-		padding: 0 25px 0 10px;
-		margin: 0;
-		font-weight: $font-weight-regular;
-	}
-
-	span[data-search-clear] {
-		display: inline-block;
-		position: absolute;
-		width: 18px;
-		height: 18px;
-		line-height: 18px;
-		border-radius: 3px;
-		background: #f3f3f3;
-		color: #999;
-		text-align: center;
-		font-weight: bold;
-		right: 0;
-		font-size: 18px;
-		z-index: 10;
-		top: 20px;
-		right: 20px;
-		cursor: pointer;
-
-		&:hover {
-			background: #ebebeb;
-		}
-	}
-}
 
 // Progress Bar
 #progress-wrapper {
@@ -494,8 +559,6 @@ body.font-serif {
 //Github
 #github-contrib {
 	i {
-		font-size: 30px;
-		line-height: 30px;
 		vertical-align: middle;
 	}
 }

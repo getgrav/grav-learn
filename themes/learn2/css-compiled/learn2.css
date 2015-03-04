@@ -295,19 +295,16 @@ body {
 b, strong, label, th {
   font-weight: 600; }
 
-.default-animation, #header.navbar h4, #sidebar, #sidebar .padding, #body, #body .padding, #body .nav, .searchbox, #progress {
+.default-animation, #header.navbar h4, #header #logo-svg, #header #logo-svg path, #sidebar, #sidebar ul, #sidebar .padding, #body, #body .padding, #body .nav, #progress {
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease; }
-
-.bookmarked #header.navbar a[data-bookmark-toggle] {
-  color: #F8C74A; }
 
 #header.navbar {
   width: 100%;
   min-height: 0;
   display: block;
-  background: #FCFCFD; }
+  background: #F6F6F6; }
   #header.navbar #logo img {
     margin-bottom: -5px; }
   #header.navbar ul {
@@ -359,6 +356,57 @@ b, strong, label, th {
     bottom: 0;
     z-index: 10;
     cursor: pointer; } }
+#header {
+  background: #1694CA;
+  color: #fff;
+  text-align: center;
+  padding: 1rem; }
+  #header a {
+    display: inline-block; }
+  #header #logo-svg {
+    width: 8rem;
+    height: 2rem; }
+    #header #logo-svg path {
+      fill: #fff; }
+
+.searchbox {
+  margin-top: 0.5rem;
+  position: relative;
+  border: 1px solid #19a5e1;
+  background: #1383b3;
+  border-radius: 4px; }
+  .searchbox label {
+    color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    left: 10px;
+    top: 3px; }
+  .searchbox span {
+    color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    cursor: pointer; }
+    .searchbox span:hover {
+      color: rgba(255, 255, 255, 0.9); }
+  .searchbox input {
+    display: inline-block;
+    color: #fff;
+    width: 100%;
+    height: 30px;
+    background: transparent;
+    border: 0;
+    padding: 0 25px 0 30px;
+    margin: 0;
+    font-weight: 400; }
+    .searchbox input::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, 0.6); }
+    .searchbox input::-moz-placeholder {
+      color: rgba(255, 255, 255, 0.6); }
+    .searchbox input:-moz-placeholder {
+      color: rgba(255, 255, 255, 0.6); }
+    .searchbox input:-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.6); }
+
 body.sidebar-hidden #sidebar {
   left: -300px; }
 body.sidebar-hidden #body {
@@ -387,26 +435,54 @@ body.searchbox-hidden .padding {
   z-index: 200;
   font-weight: 500;
   font-size: 15px; }
-  #sidebar .padding {
-    padding: 1rem 5px 1rem 1rem; }
   #sidebar a {
-    color: #B4C5CE; }
+    color: #bbbbbb; }
     #sidebar a:hover {
-      color: #d3dde2; }
+      color: #d4d4d4; }
+  #sidebar hr {
+    border-bottom: 4px solid #20242c; }
+  #sidebar a.padding {
+    padding: 0 1rem; }
   #sidebar ul {
     list-style: none;
     padding: 0;
     margin: 0; }
-    #sidebar ul ul {
-      padding-left: 1rem; }
+    #sidebar ul.searched a {
+      color: #888888; }
+    #sidebar ul.searched .search-match a {
+      color: #d4d4d4; }
+      #sidebar ul.searched .search-match a:hover {
+        color: #eeeeee; }
+    #sidebar ul.topics {
+      margin: 1rem; }
+      #sidebar ul.topics.searched ul {
+        display: block; }
+      #sidebar ul.topics ul {
+        display: none; }
+      #sidebar ul.topics li.parent ul {
+        display: block; }
+      #sidebar ul.topics > li > a {
+        line-height: 2rem;
+        font-size: 1.1rem; }
+        #sidebar ul.topics > li > a .fa {
+          margin-top: 9px; }
+      #sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
+        background: #20242c;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        padding-left: 1rem;
+        padding-right: 1rem; }
+    #sidebar ul li.active > a {
+      background: #fff;
+      color: #555 !important;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem; }
     #sidebar ul li {
       padding: 0; }
-      #sidebar ul li.bookmarked + span {
-        margin-right: 16px; }
       #sidebar ul li.visited + span {
         margin-right: 16px; }
-      #sidebar ul li.bookmarked.visited + span {
-        margin-right: 32px; }
       #sidebar ul li a {
         display: block;
         padding: 2px 0; }
@@ -417,24 +493,18 @@ body.searchbox-hidden .padding {
           display: block; }
       #sidebar ul li > a {
         padding: 4px 0; }
-      #sidebar ul li i {
+      #sidebar ul li .fa {
         display: none;
         float: right;
         font-size: 13px;
         min-width: 16px;
-        margin: 0; }
+        margin: 4px 0 0 0;
+        text-align: right; }
       #sidebar ul li.visited > a .read-icon {
-        color: #4FCB51;
+        color: #1694CA;
         display: inline; }
-      #sidebar ul li.bookmarked > a .bookmark-icon {
-        color: #F8C74A;
-        display: inline; }
-    #sidebar ul.searched a {
-      color: #70c9ef; }
-    #sidebar ul.searched .search-match a {
-      color: #1694CA; }
-      #sidebar ul.searched .search-match a:hover {
-        color: #0c516e; }
+      #sidebar ul li li {
+        text-indent: 1rem; }
   #sidebar .padding {
     margin-top: 0; }
 
@@ -459,7 +529,7 @@ body.searchbox-hidden .padding {
   #body .bordered {
     border: 1px solid #ccc; }
   #body .padding {
-    padding: 15px 6rem; }
+    padding: 4rem 6rem; }
     @media only all and (max-width: 59.938em) {
       #body .padding {
         position: static;
@@ -503,7 +573,7 @@ body.searchbox-hidden .padding {
         #body .nav > i {
           display: inline-block; } }
     #body .nav:hover {
-      background: #20242c; }
+      background: #F6F6F6; }
     #body .nav.nav-pref {
       left: 0; }
     #body .nav.nav-next {
@@ -511,46 +581,6 @@ body.searchbox-hidden .padding {
 
 #body-inner {
   margin-bottom: 5rem; }
-
-.searchbox {
-  position: absolute;
-  top: 0;
-  background: #20242c;
-  left: 0;
-  right: 0;
-  height: 0;
-  line-height: 0;
-  padding: 0 1rem; }
-  .searchbox input {
-    display: inline-block;
-    width: 100%;
-    height: 30px;
-    border: 1px solid #16181d;
-    background: #2B303B;
-    border-radius: 4px;
-    font-size: 16px;
-    padding: 0 25px 0 10px;
-    margin: 0;
-    font-weight: 400; }
-  .searchbox span[data-search-clear] {
-    display: inline-block;
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    line-height: 18px;
-    border-radius: 3px;
-    background: #f3f3f3;
-    color: #999;
-    text-align: center;
-    font-weight: bold;
-    right: 0;
-    font-size: 18px;
-    z-index: 10;
-    top: 20px;
-    right: 20px;
-    cursor: pointer; }
-    .searchbox span[data-search-clear]:hover {
-      background: #ebebeb; }
 
 #progress-wrapper {
   background: #20242c;
@@ -567,7 +597,7 @@ body.searchbox-hidden .padding {
     transition: all 1s ease-out;
     display: block;
     height: 4px;
-    background: #4FCB51; }
+    background: #50D681; }
 
 #chapter {
   display: flex;
@@ -605,8 +635,6 @@ body.font-serif {
     overflow: visible; }
 
 #github-contrib i {
-  font-size: 30px;
-  line-height: 30px;
   vertical-align: middle; }
 
 .lifecycle #body-inner ul {
