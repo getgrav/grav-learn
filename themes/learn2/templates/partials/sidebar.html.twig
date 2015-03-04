@@ -11,7 +11,7 @@
         <li class="dd-item{{ parent_page }}{{ current_page }}" data-nav-level='{{ data_level }}' data-nav-id="{{ p.route }}">
             <a href="{{ p.url }}">
                 <i class="fa fa-check read-icon"></i>
-                <span>{{ p.menu }}</span>
+                <span><b>{% if data_level == 0 %}{{ loop.index }}. {% endif %}</b>{{ p.menu }}</span>
             </a>
             {% if p.children.count > 0 %}
             <ul>

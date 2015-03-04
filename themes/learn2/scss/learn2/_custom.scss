@@ -286,6 +286,11 @@ body {
                     line-height: 2rem;
                     font-size: 1.1rem;
 
+                    b {
+                        opacity: 0.5;
+                        font-weight: normal;
+                    }
+
 
                     .fa {
                         margin-top: 9px;
@@ -349,7 +354,7 @@ body {
 			}
 
             li {
-                text-indent: 1rem;
+                text-indent: 1.2rem;
             }
 		}
 

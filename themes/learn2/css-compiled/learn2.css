@@ -464,6 +464,9 @@ body.searchbox-hidden .padding {
       #sidebar ul.topics > li > a {
         line-height: 2rem;
         font-size: 1.1rem; }
+        #sidebar ul.topics > li > a b {
+          opacity: 0.5;
+          font-weight: normal; }
         #sidebar ul.topics > li > a .fa {
           margin-top: 9px; }
       #sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
@@ -504,7 +507,7 @@ body.searchbox-hidden .padding {
         color: #1694CA;
         display: inline; }
       #sidebar ul li li {
-        text-indent: 1rem; }
+        text-indent: 1.2rem; }
   #sidebar .padding {
     margin-top: 0; }
 
