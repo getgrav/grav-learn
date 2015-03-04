@@ -6,7 +6,7 @@ process:
     twig: true
 ---
 
-The concept of **modular pages** is a little tricky to get your head around at first, but when it _clicks_, you will want to use them for everything!  A **modular page** is really a collection of pages stacked on top of each other to create a unified single-page experience for visitors.  This enables you to create complex page structures by using a **lego building-block** approach to your page design by letting you build a complex page from smaller simpler pages.
+The concept of **modular pages** is a little tricky to get your head around at first, but when it _clicks_, you will want to use them for everything!  A **modular page** is really a collection of pages stacked on top of each other to create a unified single-page experience for visitors.  This enables you to create complex page structures by using a **LEGO building-brick** approach to your page design by letting you build a complex page from smaller simpler pages.
 
 Using our **One-Page Skeleton** as an example, we will explain how modular pages work in greater detail.
 
