@@ -619,7 +619,7 @@ b, strong, label, th {
       top: 0;
       bottom: 0;
       z-index: 10;
-      background: rgba(0, 0, 0, 0.001);
+      background: rgba(255, 255, 255, 0.5);
       cursor: pointer; } }
 
 /*# sourceMappingURL=learn2.css.map */
