@@ -4,7 +4,7 @@
 //
 $header-height: 0;
 $sidebar-width: 300px;
-$sidebar-bg: #2B303B;
+$sidebar-bg: #38424D;
 $sidebar-text: #bbbbbb;
 $sidebar-link: #bbbbbb;
 $navbar-text: desaturate($core-accent,50%);
@@ -233,7 +233,7 @@ body {
     }
 
     hr {
-        border-bottom: 4px solid darken($sidebar-bg, 5%);
+        border-bottom: 1px solid darken($sidebar-bg, 3%);
     }
 
     a.padding {
@@ -276,7 +276,7 @@ body {
 
             }
 
-            li.parent ul {
+            li.parent ul, > li.active ul {
                 display: block;
             }
 

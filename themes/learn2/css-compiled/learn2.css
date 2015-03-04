@@ -426,7 +426,7 @@ body.searchbox-hidden .padding {
   margin-top: 0 !important; }
 
 #sidebar {
-  background-color: #2B303B;
+  background-color: #38424D;
   position: fixed;
   top: 0;
   width: 300px;
@@ -440,7 +440,7 @@ body.searchbox-hidden .padding {
     #sidebar a:hover {
       color: #d4d4d4; }
   #sidebar hr {
-    border-bottom: 4px solid #20242c; }
+    border-bottom: 1px solid #323a44; }
   #sidebar a.padding {
     padding: 0 1rem; }
   #sidebar ul {
@@ -459,7 +459,7 @@ body.searchbox-hidden .padding {
         display: block; }
       #sidebar ul.topics ul {
         display: none; }
-      #sidebar ul.topics li.parent ul {
+      #sidebar ul.topics li.parent ul, #sidebar ul.topics > li.active ul {
         display: block; }
       #sidebar ul.topics > li > a {
         line-height: 2rem;
@@ -470,7 +470,7 @@ body.searchbox-hidden .padding {
         #sidebar ul.topics > li > a .fa {
           margin-top: 9px; }
       #sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
-        background: #20242c;
+        background: #2d353e;
         margin-left: -1rem;
         margin-right: -1rem;
         padding-left: 1rem;
@@ -586,7 +586,7 @@ body.searchbox-hidden .padding {
   margin-bottom: 5rem; }
 
 #progress-wrapper {
-  background: #20242c;
+  background: #2d353e;
   position: absolute;
   left: 0;
   right: 0;
