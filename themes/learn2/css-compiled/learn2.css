@@ -390,7 +390,8 @@ b, strong, label, th {
       #sidebar ul.topics.searched ul {
         display: block; }
       #sidebar ul.topics ul {
-        display: none; }
+        display: none;
+        padding-bottom: 1rem; }
       #sidebar ul.topics li.parent ul, #sidebar ul.topics > li.active ul {
         display: block; }
       #sidebar ul.topics > li > a {
