@@ -38,7 +38,7 @@ There is also some configuration settings to **control the order** of the listin
 
 {{ media['content-modular.jpg'].html('Modular Page','border') }}
 
-A modular page is a special type of listing page because it actually builds a **single page** from its **child pages**. This allows for the ability to build very complex **one-page layouts** from smaller modular content pages.  This is accomplished by constructing the **modular page** from all the **modular folders** found in the folder.
+A modular page is a special type of listing page because it actually builds a **single page** from its **child pages**. This allows for the ability to build very complex **one-page layouts** from smaller modular content pages. This is accomplished by constructing the **modular page** from multiple **modular folders** found in the page's primary folder.
 
 >>> A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](http://getgrav.org/downloads).
 
