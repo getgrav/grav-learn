@@ -57,37 +57,9 @@ function getScrollBarWidth () {
 jQuery(document).ready(function(){
   var sidebarStatus = searchStatus = 'open';
 
-  var font = 'sans';
-
-  if (jQuery(window).width() < 768) {
-    jQuery('body').addClass('sidebar-hidden');
-  }
-
-  if (localStorage.getItem('font') === null) {
-    localStorage.setItem('font', font);
-  } else {
-    font = localStorage.getItem('font');
-  }
-
-  jQuery(document.body).addClass('font-'+font);
-
   jQuery('#overlay').on('click', function() {
     jQuery(document.body).toggleClass('sidebar-hidden');
     sidebarStatus = (jQuery(document.body).hasClass('sidebar-hidden') ? 'closed' : 'open');
-
-    return false;
-  });
-
-  jQuery('[data-font-toggle]').on('click', function() {
-
-    font = localStorage.getItem('font');
-
-    new_font = font == 'serif' ? 'sans' : 'serif';
-
-    jQuery(document.body).removeClass('font-'+font);
-    jQuery(document.body).addClass('font-'+new_font);
-
-    localStorage.setItem('font',new_font);
 
     return false;
   });
@@ -100,22 +72,6 @@ jQuery(document).ready(function(){
   });
   jQuery('[data-clear-history-toggle]').on('click', function(){
     sessionStorage.clear();
-    location.reload();
-    return false;
-  });
-  jQuery('[data-clear-bookmark-toggle]').on('click', function(){
-    localStorage.clear();
-    location.reload();
-    return false;
-  });
-  jQuery('[data-bookmark-toggle]').on('click', function(){
-
-    var key = jQuery('body').data('url');
-    if (localStorage.getItem(key) === null) {
-      localStorage.setItem(key, 1);
-    } else {
-      localStorage.removeItem(key);
-    }
     location.reload();
     return false;
   });
@@ -194,29 +150,12 @@ jQuery(window).on('load',function(){
     adjustForScrollbar();
   });
 
-  // set the progress bar width after load
-  var progress = jQuery('#progress'),
-  new_val  = progress.data('progress-value'),
-  max      = progress.data('progress-max');
-
-  jQuery('.progress-bar').css({width: (new_val/max * 100) + '%'});
-
   // store this page in session
   sessionStorage.setItem(jQuery('body').data('url'),1);
 
   // loop through the sessionStorage and see if something should be marked as visited
   for (var url in sessionStorage) {
     if (sessionStorage.getItem(url) == 1) jQuery('[data-nav-id="' + url + '"]').addClass('visited');
-  }
-
-  // loop through the localStorage and see if something should be marked as bookmarked
-  for (var url in localStorage) {
-    if (localStorage.getItem(url) == 1) {
-      jQuery('[data-nav-id="' + url + '"]').addClass('bookmarked');
-      if (url == jQuery('body').data('url')) {
-        jQuery('body').addClass('bookmarked');
-      }
-    }
   }
 
 });

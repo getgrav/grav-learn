@@ -89,8 +89,10 @@
     {% block body %}
 
     <section id="body">
+        <div id="overlay"></div>
 
         <div class="padding">
+            <a href="#" id="sidebar-toggle" data-sidebar-toggle><i class="fa fa-2x fa-bars"></i></a>
             {% block content %}{% endblock %}
 
             {% block footer %}

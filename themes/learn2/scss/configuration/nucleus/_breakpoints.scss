@@ -7,6 +7,7 @@ $mobile-container:				100% !default;
 
 // Breakpoint Variables For Particles
 $media: "all" !default;
+$desktop-max: "#{$media} and (max-width:#{$desktop-container - 0.062})" !default;
 $mobile-only: "#{$media} and (max-width:#{$tablet-container - 0.062})" !default;
 $no-mobile: "#{$media} and (min-width:#{$tablet-container})" !default;
 $small-mobile-range: "#{$media} and (max-width:#{$large-mobile-container})" !default;

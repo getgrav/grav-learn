@@ -4,6 +4,7 @@
 //
 $header-height: 0;
 $sidebar-width: 300px;
+$sidebar-width-smaller: 230px;
 $sidebar-bg: #38424D;
 $sidebar-text: #bbbbbb;
 $sidebar-link: #bbbbbb;
@@ -20,7 +21,6 @@ $font-weight-regular: 400;
 
 $body-margin: 4rem;
 
-
 body {
 	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
@@ -36,78 +36,6 @@ b, strong {
 	@include transition(all 0.5s ease);
 }
 
-#header.navbar {
-
-	width: 100%;
-	min-height: $header-height;
-	display: block;
-	background: $navbar-bg; // Change this color in settings to change the navbar color
-
-	#logo img {
-		margin-bottom: -5px;
-	}
-
-	ul {
-		position: absolute;
-		top: 0;
-		padding-left: 10px;
-		display: table;
-		vertical-align: middle;
-		margin: 0;
-		float: none;
-
-		li {
-			display: table-cell;
-			text-align: center;
-			padding: 0;
-			height: $header-height;
-			line-height: $header-height;
-
-			> a, > span {
-				color: $navbar-text;
-				padding: 0 5px;
-				font-size: 24px;
-				@include breakpoint(mobile-only) {
-					font-size: 18px;
-					padding: 0;
-				}
-				&:hover {
-					color: darken($navbar-text, 20%);
-				}
-			}
-		}
-	}
-	h4 {
-		@extend .default-animation;
-		font-family: $font-family-default;
-		font-weight: $font-weight-regular;
-		line-height: $header-height;
-		padding: 0 1rem 0 $sidebar-width;
-		text-align: center;
-		color: $navbar-text;
-		margin: 0;
-		font-size: 26px;
-		@include breakpoint(mobile-only) {
-			font-size: 20px;
-			text-align: right;
-			padding-left: 0;
-		}
-	}
-}
-
-@include breakpoint(mobile-only) {
-	#overlay {
-		display: static;
-		position: fixed;
-		top: $header-height;
-		left: $sidebar-width;
-		right: 0;
-		bottom: 0;
-		z-index: 10;
-		cursor: pointer;
-	}
-}
-
 #header {
     background: $core-accent;
     color: $white;
@@ -119,7 +47,6 @@ b, strong {
         display: inline-block;
     }
 
-
     #logo-svg {
         @extend .default-animation;
         width: 8rem;
@@ -130,11 +57,18 @@ b, strong {
             fill: $white;
         }
     }
+}
+
+#sidebar-toggle {
+    display: none;
+
+    @include breakpoint(mobile-only) {
+         display: inline-block;
+     }
 
 }
 
 .searchbox {
-
     margin-top: 0.5rem;
     position: relative;
 
@@ -176,41 +110,6 @@ b, strong {
             color: rgba($white, 0.6);
         }
     }
-}
-
-body {
-
-	&.sidebar-hidden {
-		#sidebar {
-			left: - $sidebar-width;
-		}
-		#body {
-			left: 0;
-			@include breakpoint(mobile-only) {
-				overflow-y: auto;
-			}
-		}
-		#header.navbar {
-			h3 {
-				padding-left: 0;
-			}
-		}
-		#progress {
-			margin-left: 0;
-		}
-		#overlay {
-			display: none;
-		}
-	}
-
-	&.searchbox-hidden {
-		.searchbox {
-			top: - $header-height;
-		}
-		.padding {
-			margin-top: 0 !important;
-		}
-	}
 }
 
 #sidebar {
@@ -273,7 +172,6 @@ body {
 
             ul {
                 display: none;
-
             }
 
             li.parent ul, > li.active ul {
@@ -281,7 +179,6 @@ body {
             }
 
             > li {
-
                 > a {
                     line-height: 2rem;
                     font-size: 1.1rem;
@@ -290,7 +187,6 @@ body {
                         opacity: 0.5;
                         font-weight: normal;
                     }
-
 
                     .fa {
                         margin-top: 9px;
@@ -306,8 +202,6 @@ body {
                 }
             }
         }
-
-
 
         li.active > a {
             background: $white;
@@ -359,11 +253,6 @@ body {
 		}
 
 	}
-
-	.padding {
-		@extend .default-animation;
-		margin-top: $header-height;
-	}
 }
 
 #body {
@@ -381,19 +270,10 @@ body {
 		}
 	}
 
+    @extend .default-animation;
     position: relative;
-
-	@extend .default-animation;
-
 	margin-left: $sidebar-width;
     min-height: 100%;
-
-	@include breakpoint(mobile-only) {
-		overflow: hidden;
-		position: fixed;
-		width: 100%;
-		-webkit-overflow-scrolling: touch;
-	}
 
 	.bordered {
 		border: 1px solid #ccc;
@@ -472,35 +352,10 @@ body {
 			right: 0;
 		}
 	}
-
-
 }
 
 #body-inner {
 	margin-bottom: 5rem;
-}
-
-
-
-// Progress Bar
-#progress-wrapper {
-	background: darken($sidebar-bg,5%);
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 56px;
-}
-
-#progress {
-	@extend .default-animation;
-	margin-left: $sidebar-width;
-
-	.progress-bar {
-		@include transition(all 1s ease-out);
-		display: block;
-		height: 4px;
-		background: $progress-bar;
-	}
 }
 
 // Chapter title
@@ -510,6 +365,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	height: 100%;
+    padding: 2rem 0;
 
 	#body-inner {
 		padding-bottom: 3rem;
@@ -534,22 +390,7 @@ body {
 	}
 }
 
-// Sans Fonts
-.font-toggle {
-	font-family: $font-family-serif;
-}
 
-// Serif Fonts
-body.font-serif {
-	font-family: $font-family-serif;
-
-	h1, h2, h3, h4, h5, h6 {
-		font-family: $font-family-serif;
-	}
-	.font-toggle {
-		font-family: $font-family-default;
-	}
-}
 
 //Fluidbox fixes
 .lightbox-active {
@@ -671,6 +512,49 @@ $asbestos: #7F8C8D;
 			}
 		}
 	}
+}
+
+// Media Query stuff
+@include breakpoint(desktop-only) {
+    #sidebar {
+        width: $sidebar-width-smaller;
+    }
+    #body {
+        margin-left: $sidebar-width-smaller;
+    }
+}
+@include breakpoint(mobile-only) {
+    #sidebar {
+        width: $sidebar-width-smaller;
+        left: - $sidebar-width-smaller;
+    }
+    #body {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .sidebar-hidden {
+        overflow: hidden;
+
+        #sidebar {
+            left: 0;
+        }
+        #body {
+            margin-left: $sidebar-width-smaller;
+
+            overflow: hidden;
+        }
+        #overlay {
+            position: absolute;
+            left:0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index:10;
+            background: rgba(0,0,0,0.001);
+            cursor: pointer;
+        }
+    }
 }
 
 
