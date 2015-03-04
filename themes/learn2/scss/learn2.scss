@@ -1,0 +1,49 @@
+// REQUIRED DEPENDENCIES - DO NOT CHANGE
+
+// Load Third Party Libraries
+@import "vendor/bourbon/bourbon";
+
+// Load Nucleus Configuration
+@import "configuration/nucleus/base";
+
+// Load Template Configuration
+@import "configuration/learn2/base";
+
+// Load Nucleus Mixins and Functions
+@import "nucleus/functions/base";
+@import "nucleus/mixins/base";
+
+// Load Template Library
+@import "learn2/modules/base";
+
+//-------------------------------------------
+
+// TEMPLATE COMPONENTS
+
+// Core
+@import "learn2/core";
+@import "learn2/fonts";
+
+// Nav
+@import "learn2/nav";
+
+// Main
+@import "learn2/main";
+
+// Typography
+@import "learn2/typography";
+
+// Forms
+@import "learn2/forms";
+
+// Tables
+@import "learn2/tables";
+
+// Buttons
+@import "learn2/buttons";
+
+// Bullets
+@import "learn2/bullets";
+
+// Custom
+@import "learn2/custom";
