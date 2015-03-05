@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-There are many ways to customize a theme, and Grav really doesn't limit your creativity regarding this.  However, there are several features and functionality that Grav provides to make this process either.
+There are many ways to customize a theme, and Grav really doesn't limit your creativity regarding this.  However, there are several features and some functionality that Grav provides to make this process easier.
 
 ## Custom CSS
 
@@ -58,7 +58,7 @@ This is the preferred approach to modifying or customizing a theme, but it does 
 
 The basic concept is that you define a theme as your **base-theme** that you are inheriting from, and then you provide **only the bits you wish to modify** and let the base theme handle the rest.  The great benefit to this is that you can more easily keep the base theme updated and current without directly impacting your customized inherited theme.
 
-To achieve this you need to follow the following steps:
+To achieve this you need to follow these steps:
 
 1. Create a new folder: `user/themes/mytheme` to house your new theme.
 2. Create a new theme YAML file: `/user/themes/mytheme/mytheme.yaml` with the following content:
