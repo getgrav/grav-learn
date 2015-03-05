@@ -59,15 +59,6 @@ b, strong {
     }
 }
 
-#sidebar-toggle {
-    display: none;
-
-    @include breakpoint(mobile-only) {
-         display: inline-block;
-     }
-
-}
-
 .searchbox {
     margin-top: 0.5rem;
     position: relative;
@@ -112,6 +103,15 @@ b, strong {
     }
 }
 
+#sidebar-toggle {
+    display: none;
+
+    @include breakpoint(mobile-only) {
+         display: inline-block;
+     }
+
+}
+
 #sidebar {
 	@extend .default-animation;
 	background-color: $sidebar-bg;
@@ -123,6 +123,7 @@ b, strong {
     z-index: 200;
 	font-weight: $font-weight-medium;
 	font-size: 15px;
+    overflow-y: auto;
 
     a {
         color: $sidebar-link;

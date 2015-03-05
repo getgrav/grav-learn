@@ -313,12 +313,6 @@ b, strong, label, th {
     #header #logo-svg path {
       fill: #fff; }
 
-#sidebar-toggle {
-  display: none; }
-  @media only all and (max-width: 47.938em) {
-    #sidebar-toggle {
-      display: inline-block; } }
-
 .searchbox {
   margin-top: 0.5rem;
   position: relative;
@@ -357,6 +351,12 @@ b, strong, label, th {
     .searchbox input:-ms-input-placeholder {
       color: rgba(255, 255, 255, 0.6); }
 
+#sidebar-toggle {
+  display: none; }
+  @media only all and (max-width: 47.938em) {
+    #sidebar-toggle {
+      display: inline-block; } }
+
 #sidebar {
   background-color: #38424D;
   position: fixed;
@@ -366,7 +366,8 @@ b, strong, label, th {
   left: 0;
   z-index: 200;
   font-weight: 500;
-  font-size: 15px; }
+  font-size: 15px;
+  overflow-y: auto; }
   #sidebar a {
     color: #bbbbbb; }
     #sidebar a:hover {
