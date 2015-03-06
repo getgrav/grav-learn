@@ -85,8 +85,9 @@ cache:
 
 >>>> Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
 
+<!-- -->
 
->>>>> You can easily force the cache to clear by just touching/saving a configuration file.
+>>>>>> You can easily force the cache to clear by just touching/saving a configuration file.
 
 The `cache: check: pages:` option can provide some slight performance improvements, but this will cause Grav to not check for any page edits.  This is intended as a **Production-only** setting.
 
