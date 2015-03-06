@@ -24,8 +24,8 @@ git:
         path: user/plugins/gravui
         branch: develop
     learn2:
-        url: https://bitbucket.org/rockettheme/grav-theme-learn2
-        path: user/theme/learn2
+        url: https://github.com/getgrav/grav-theme-learn2
+        path: user/themes/learn2
         branch: develop
 links:
     anchors:
@@ -55,4 +55,4 @@ links:
     learn2:
         src: grav-theme-learn2
         path: user/themes/learn2
-        scm: bitbucket
+        scm: github
