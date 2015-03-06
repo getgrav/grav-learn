@@ -64,7 +64,7 @@ Of course, to create a Bootstrap theme, we must actually include Bootstrap in ou
 
 In this tutorial, we will use the latest version available (at the time of writing latest version is **v3.2.0**) so you will need to [download the Bootstrap distribution package](http://getbootstrap.com/getting-started/#download). This package includes the essential bits needed to use the framework.
 
->>>> NOTE: Be sure to download the regular version labeled "Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included."
+>>>> Be sure to download the regular version labeled "Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included."
 
 Next **unzip** the package you downloaded into a temporary location. You should see **3 folders**: `css`, `fonts`, and `js`.  Copy the contents of each of these folders into the similarly-named folders you just created in your theme.
 

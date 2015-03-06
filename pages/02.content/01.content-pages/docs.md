@@ -115,7 +115,7 @@ The settings between the pair of `---` markers is known as the YAML front matter
 
 In this example, we are explicitly setting the title, as well setting the taxonomy to **blog** so we can filter it later.  The content after the second `---` is the actual content that will be compiled and rendered as HTML on your site.  This is written in [Markdown](../markdown), which will be covered in detail in a future chapter.  Just know that the `#`, `**`, and `_` markers translate to a **heading1**, **bold**, and **italics**, respectively.
 
->>> NOTE: Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
+>>> Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
 
 ### Summary Size and Separator
 
@@ -145,6 +145,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 This will use the text above the separator when referenced by `page.summary()` and the full page content when referenced by `page.content()`.
 
->>> NOTE: When using `page.summary()`, the summary size setting will be used if the separator is not found in the page content.
+>>> When using `page.summary()`, the summary size setting will be used if the separator is not found in the page content.
 
 In the next section we will continue and dig into the specifics of a page in detail.

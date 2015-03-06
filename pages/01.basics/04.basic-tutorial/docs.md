@@ -92,7 +92,7 @@ Creating unordered lists is super simple in markdown. Simply use an `*`, `-`, or
 
 This overview should provide you with a few key pointers for writing Markdown, but you should check out our more [detailed explanation](../../content/markdown) to get a thorough understanding.
 
->>> NOTE: Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
+>>> Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
 
 ## Adding a New Page
 

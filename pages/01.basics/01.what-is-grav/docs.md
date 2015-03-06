@@ -38,4 +38,4 @@ To get a basic site up-and-running requires very little Web development experien
 
 You can find a summary about Grav including **Grav logos** and **press information** on our [media page](http://getgrav.org/media)
 
->>>>>> The simplest way to navigate the documentation is to use the **Next** arrow (<i class="icon-right-open"></i>) on each page. You can see your progress represented by the green progress bar at the top of the page as well as checks (<i class="icon-check"></i>) in the sidebar.  You can also star (<i class="icon-star"></i>) pages for easy reference.
+>>>>>> The simplest way to navigate the documentation is to use the **Next** and **Previous** arrows (<i class="fa fa-chevron-left"></i> <i class="fa fa-chevron-right"></i>) on each page. You can see your progress represented check marks (<i class="fa fa-check"></i>) in the sidebar.

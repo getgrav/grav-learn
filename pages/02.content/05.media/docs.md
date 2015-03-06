@@ -462,7 +462,7 @@ Similar to the `html` action, the **lightbox** outputs the required HTML tag inf
 
 This is a **Twig** output that will take the `image1.jpg` file associated with the page, and output a `lightbox` tag that will link to an image that is `resize`'d to `1024` x `768` from a thumbnail image that is `cropResize`'d  to `200` x `200`.
 
->>>> NOTE: A lightbox-compatible plugin is **required** in order to have a functioning lightbox on your Grav site.  You can use the [FeatherLight Grav plugin](https://github.com/getgrav/grav-plugin-featherlight) to achieve this.
+>>>> A lightbox-compatible plugin is **required** in order to have a functioning lightbox on your Grav site.  You can use the [FeatherLight Grav plugin](https://github.com/getgrav/grav-plugin-featherlight) to achieve this.
 
 ### Combinations
 
@@ -494,7 +494,7 @@ Thumbnails are automatically created from the image provided.
 
 ### Videos
 
->>>> NOTE: **Video** media are work-in-progress. They are not fully implemented currently.
+>>>> **Video** media are work-in-progress. They are not fully implemented currently.
 
 >>> This method is only intended to be used in **Twig** templates, hence the Twig syntax.
 
@@ -504,7 +504,7 @@ All the regular actions are available for videos but interact with the thumbnail
 
 ### Files
 
->>>> NOTE: **File** media are work-in-progress. They are not fully implemented currently.
+>>>> **File** media are work-in-progress. They are not fully implemented currently.
 
 >>> This method is only intended to be used in **Twig** templates, hence the Twig syntax.
 
@@ -551,6 +551,6 @@ This will pull up the example phrase `My Alt Text` instead of the image. This is
 
 The other **metafile** that is supported is the overriding of the thumbnail for a particular medium.  This is particularly important for **videos** and **files** that natively don't have an associated image that can be used and manipulated. Simply create a `<filename>.meta.jpg|png|gif` and it will be used for any media manipulation requiring an image.
 
->>>> NOTE: If you do not provide a **metafile** image for **videos** and **files**, a default image will be used.
+>>>> If you do not provide a **metafile** image for **videos** and **files**, a default image will be used.
 
 

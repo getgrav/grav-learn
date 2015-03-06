@@ -153,7 +153,7 @@ Some example configuration files could be structured:
 | **user/config/site.yaml**             | A site-specific configuration file                |
 | **user/config/plugins/myplugin.yaml** | Individual configuration file for myplugin plugin |
 
->>> NOTE: Having a namespaced configuration file will override or mask all options having the same path in the default configuration files
+>>> Having a namespaced configuration file will override or mask all options having the same path in the default configuration files
 
 Most plugins will come with their own YAML configuration file. We recommend copying this file to the **user/config/plugins/** directory rather than editing configuration options directly to the file located in the plugin's directory. Doing this will ensure that an update to the plugin will not overwrite your settings, and keep all of your configurable options in one, convenient place.
 
