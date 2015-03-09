@@ -27,31 +27,6 @@ To get us started, here is a quick look at some of the common components of a Gr
 
 ### Slug Relative
 
-Grav has integrated support for slugs, which are set in the page's primary markdown file. This slug superseedes the folder name for the page, and any media files contained within. 
-
-For example, **Test Post 2** has a slug set through its markdown file (`/pages/01.blog/test-post-2/item.md`). The header of this file contains the following:
-
-```yaml
----
-title: Test Post 2
-slug: test-slug
-taxonomy:
-    category: blog
----
-```
-
-You will notice the slug `test-slug` has been set. Slugs are completely optional, and do not have to be present. As mentioned in the last chapter, they do provide an easy way of linking. If a slug is set, then any link you make to a media file within that folder will have to be either **Slug Relative** or **Absolute** with a full URL set for the link.
-
-If we want to link `test_image_2.jpg` from **Test Post 1**, we would enter the following:
-
-```markdown
-![Test Image 2](../test-slug/test_image_2.jpg)
-```
-
-You will notice that we navigated up one directory using (`../`) and then to the `test-slug` page folder using the slug which was set in `/pages/01.blog/test-post-2/item.md` file.
-
-### Relative
-
 **Relative** links use destinations set relative to the current page. This can be as simple as linking to another file in the current directory, such as an image file, or as complex as going up several directory levels and then back down to the specific folder/file you need to have displayed. 
 
 With relative links, the location of the source file is every bit as important as that of the destination. If either file in the mix is moved, changing the path between them, the link can be broken.
@@ -73,6 +48,29 @@ If we want to load `blog-header.jpg` from the `01.blog` directory, we would do t
 ```
 
 >>>>> You do not need to include ordering numerals (`01.`) for relative links. 
+
+Grav has integrated support for slugs in the header of the page's primary markdown file. This slug superseedes the folder name for the page, and any media files contained within. 
+
+For example, **Test Post 2** has a slug set through its markdown file (`/pages/01.blog/test-post-2/item.md`). The header of this file contains the following:
+
+```yaml
+---
+title: Test Post 2
+slug: test-slug
+taxonomy:
+    category: blog
+---
+```
+
+You will notice the slug `test-slug` has been set. Slugs set this way are completely optional, and do not have to be present. As mentioned in the last chapter, they do provide an easy way of linking. If a slug is set, then any link you make to a media file within that folder will have to be either **Slug Relative** or **Absolute** with a full URL set for the link.
+
+If we want to link `test_image_2.jpg` from **Test Post 1**, we would enter the following:
+
+```markdown
+![Test Image 2](../test-slug/test_image_2.jpg)
+```
+
+You will notice that we navigated up one directory using (`../`) and then to the `test-slug` page folder using the slug which was set in `/pages/01.blog/test-post-2/item.md` file.
 
 ### Absolute
 
