@@ -10,24 +10,30 @@ We will run to some easy examples using this very basic, trimmed down model of w
 
 ![Pages Directory](pages.png)
 
-Using this directory structure as an example, we will take a look at the different types of links you can use to display media files in your content. We have image files in every folder, including one image for each blog post, and three images in a special `/images` directory which acts as a page, but contains only media files. 
+Using this directory structure as an example, we will take a look at the different types of links you can use to display media files in your content. We have image files in every folder, including one image for each blog post, and three images in a special `/images` directory which acts as a page, but contains only media files.
 
 The use of the `/images` folder serves as an example of how you can maintain a simple centralized image directory to store files that are frequently used by multiple pages. This simplifies the linking process in these cases.
 
 >>>> If you decide to use a centralized image directory, be advised that this directory should exist within the `/pages` folder as this folder is intended for front-facing content.
 
-To get us started, here is a quick look at some of the common components of a Grav link, and what they mean.
+To get us started, here is a quick look at some of the common components of a Grav markdown-based image tag.
+
+```
+![Alt Text](../path/image.ext)
+```
 
 | String |                                                                           Description                                                                            |
 | :----- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `[]`   | The square bracket is used to wrap the text or alternate content that becomes linked. In HTML, this would be the content placed between `<a href="">` and `</a>` |
-| `()`   | The parenthesis is used to surround the link itself. This is placed directly after the square bracket.                                                           |
+| `!`    | When placed at the beginning of a traditional markdown link tag, it indicates this is an image tag.                        |
+| `[]`   | The square bracket is used to wrap the **optional** alt-text for the image. |
+| `()`   | The parenthesis is used to surround the reference to the image itself. This is placed directly after the square bracket.                                                           |
 | `../`  | When used in the link, it indicates a move up a directory.                                                                                                       |
-| `!`    | When placed at the beginning of a link, it indicates that content contained within should be loaded into the page, such as an image file.                        |
+
+>>>>>> You can combine a regular page link and an image link like to wrap an image in a link: `[![Alt text](/path/to/img.jpg)](http://example.net/)`
 
 ### Slug Relative
 
-**Relative** links use destinations set relative to the current page. This can be as simple as linking to another file in the current directory, such as an image file, or as complex as going up several directory levels and then back down to the specific folder/file you need to have displayed. 
+**Relative** image links use destinations set relative to the current page. This can be as simple as linking to another file in the current directory, such as an image file associated with the current page, or as complex as going up several directory levels and then back down to the specific folder/file where an image may reside.
 
 With relative links, the location of the source file is every bit as important as that of the destination. If either file in the mix is moved, changing the path between them, the link can be broken.
 
@@ -47,9 +53,9 @@ If we want to load `blog-header.jpg` from the `01.blog` directory, we would do t
 ![Blog Header](../../blog/blog-header.jpg)
 ```
 
->>>>> You do not need to include ordering numerals (`01.`) for relative links. 
+>>>>> You do not need to include ordering numerals (`01.`) for relative links. However, if you wish to include the numerals (to maintain referential integrity in other non-Grav systems), you may do so. Grav will sort out the link for either approach.
 
-Grav has integrated support for slugs in the header of the page's primary markdown file. This slug superseedes the folder name for the page, and any media files contained within. 
+Grav has integrated support for slugs in the header of the page's primary markdown file. This slug supersedes the folder name for the page, and any media files contained within.
 
 For example, **Test Post 2** has a slug set through its markdown file (`/pages/01.blog/test-post-2/item.md`). The header of this file contains the following:
 
@@ -70,21 +76,23 @@ If we want to link `test_image_2.jpg` from **Test Post 1**, we would enter the f
 ![Test Image 2](../test-slug/test_image_2.jpg)
 ```
 
-You will notice that we navigated up one directory using (`../`) and then to the `test-slug` page folder using the slug which was set in `/pages/01.blog/test-post-2/item.md` file.
+You will notice that we navigated up one directory using (`../`) and then to down into the `test-slug` page folder using the slug which was set in `/pages/01.blog/test-post-2/item.md` file.
 
 ### Absolute
 
-Absolute links are similar to relative links, but are relative to the root of the site. In **Grav**, this is typically based in your **/user/pages/** directory. This type of link can be done in two different ways. 
+Absolute links are similar to relative links, but are relative to the root of the site. In **Grav**, this is typically based in your **/user/pages/** directory. This type of link can be done in two different ways.
 
 You can do it in a similar fashion to the **Slug Relative** style which uses the slug, or directory name in the path for simplicity. This method removes potential issues of order changes later on (changing the number at the beginning of the folder name) breaking the link. This would be the most commonly used method of absolute linking.
 
-In an absolute link, the link opens with a `/`. Here is an example of an absolute link made to `pages/01.blog/test-post-2/test_image_2.jpg` in the **Slug** style from `pages/01.blog/blog.md`. 
+In an absolute link, the link opens with a `/`. Here is an example of an absolute link made to `pages/01.blog/test-post-2/test_image_2.jpg` in the **Slug** style from `pages/01.blog/blog.md`.
 
 ```markdown
 ![Test Image 2](/blog/test-slug/test_image_2.jpg)
 ```
 
-### Remote 
+>>>>>> A powerful technique is to create a `user/images/` folder in your Grav site and put your images here.  Then you can easily reference them with an absolute URL from any Grav page: `/images/test_image_4.jpg` and still be able to perform [media actions](../media) on them.
+
+### Remote
 
 Remote image links enable you to directly display pretty much any media file via its URL. This doesn't have to include your own site's content, but it can. Here is an example of how you would display to a remote image file.
 
@@ -94,11 +102,12 @@ Remote image links enable you to directly display pretty much any media file via
 
 You can link to pretty much any direct URL, including secured HTTPS links.
 
-### Styling
+### Media Actions on Images
 
-You can also style files, even if they have been linked remotely using one of the methods described in this page. For example, here is a line you would use to load an image from `/pages/01.blog/test-post-3/test_image_3.jpg` from `/pages/01.blog/test-post-1/test_image_1.jpg`
+One of the main benefits of using images associated with pages is that it enables you to take advantage of [Grav's powerful media actions](../media). For example, here is a line you would use to load an image from `/pages/01.blog/test-post-3/test_image_3.jpg` from `/pages/01.blog/test-post-1/test_image_1.jpg`
 
 ```markdown
-![Styling Example](../test-post-3/test_image_3.jpg?resize=400,200)
+![Styling Example](../test-post-3/test_image_3.jpg?cropResize=400,200)
 ```
-You will find more information about styling and other media file handling in the next chapter.
+
+You will find more information about actions and other [media file functionality in the next chapter](../media).
