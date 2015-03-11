@@ -39,7 +39,7 @@ With relative links, the location of the source file is every bit as important a
 
 The advantage of this type of linking structure is that you can easily switch between a local development server and a live server with a different domain name and as long as the file structure remains consistent, the links should work without a problem.
 
-A file link points to a particular file by name, rather than its directory or slug. If you were creating a link from `pages/01.blog/test-post-1/item.md` to `/pages/01.blog/test-post-3/test_image_3.jpg` you would use the following command.
+A file link points to a particular file by name, rather than its directory or slug. If you were creating an image link in `pages/01.blog/test-post-1/item.md` to `/pages/01.blog/test-post-3/test_image_3.jpg` you would use the following command.
 
 ```markdown
 ![Test Image 3](../test-post-3/test_image_3.jpg)
@@ -53,7 +53,7 @@ If we want to load `blog-header.jpg` from the `01.blog` directory, we would do t
 ![Blog Header](../../blog/blog-header.jpg)
 ```
 
->>>>> You do not need to include ordering numerals (`01.`) for relative links. However, if you wish to include the numerals (to maintain referential integrity in other non-Grav systems), you may do so. Grav will sort out the link for either approach.
+>>>>> You do not need to include ordering numerals (`01.`) for slug relative links.
 
 Grav has integrated support for slugs in the header of the page's primary markdown file. This slug supersedes the folder name for the page, and any media files contained within.
 
@@ -77,6 +77,18 @@ If we want to link `test_image_2.jpg` from **Test Post 1**, we would enter the f
 ```
 
 You will notice that we navigated up one directory using (`../`) and then to down into the `test-slug` page folder using the slug which was set in `/pages/01.blog/test-post-2/item.md` file.
+
+### Directory relative
+
+**Directory Relative** image links use destinations set relative to the current page. The main difference between a slug relative, and directory relative link, is that rather than using the URL slugs, you reference via the full path with folder names.
+
+An example of this wuld be something like:
+
+```markdown
+![Test Image 3](../../01.blog/02.my_folder/test_image_3.jpg)
+```
+
+>>> The main benefit of this, is that you can maintain link integrity in other systems outside of Grav, such as GitHub.
 
 ### Absolute
 
