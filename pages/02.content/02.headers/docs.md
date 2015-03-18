@@ -82,6 +82,28 @@ By default, all pages are **routable**.  This means that they can be reached by 
 
 Grav automatically looks for a page with the route `/error` if another page cannot be found.  With this being an actual page within Grav, you would have complete control over what this page looks like.  You probably do not want people accessing this page directly in their browser, however, so this page commonly has its `routable` variable set to false. Valid values are `true` or `false`.
 
+### Summary
+
+```ruby
+summary:
+  enabled: true
+  format: short | long
+  size: int
+```
+
+The **summary** option configures what the `page.summary()` method returns.  This is most often used in a blog-listing type scenario, but can be used anytime you need a synopsis or summary of the page content.  The scenarios are as follows:
+
+1. `enabled: false` -- Switch off page summary (the summary returns the same as the page content)
+2. `enabled: true`:
+    1. `size: 0` -- No truncation of content happens except if a summary delimiter is found.
+    2. `size: int` -- Content greater than length **int** will be truncated. If a summary delimiter is found, then the content will be truncated up to the summary delimiter.
+    3. `format: long` -- Any summary delimiter of the content will be ignored.
+        1. `size: 0` -- Summary equals the entire page content.
+        2. `size: int` -- The content will be truncated after **int** chars, independent of summary delimiter position.
+    4. `format: short` -- Detect and truncate content up to summary delimiter position.
+        1. `size: 0` -- If no summary delimiter is found, the summary equals the page content, otherwise the content will be truncated up to summary delimiter position.
+        2. `size: int` -- Always truncate the content after **int** chars. If a summary delimiter was found, then truncate content up to summary delimiter position.
+
 ### Template
 
 ```ruby
@@ -282,7 +304,7 @@ content:
 
 The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. Pages that have **both** `foo` **and** `bar` tags will be collected.  The [Taxonomy](../taxonomy) chapter will cover this concept in more detail.
 
->>> NOTE: If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `@taxonomy: {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the hierarchy, each with listed values placed within `[]` brackets. Pages must meet **all** these requirements to be found.
+>>> If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `@taxonomy: {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the hierarchy, each with listed values placed within `[]` brackets. Pages must meet **all** these requirements to be found.
 
 If you have multiple variables in a single parent to set, you can do this using the inline method, but for simplicity, we recommend using the standard method. Here is an example.
 
@@ -360,4 +382,25 @@ The significance of these headers is that Grav does not use them by default, the
 
 Any page header such as this should be documented, and generally there will be some default value that will be used if the page does not provide it.
 
-Another example would be to store page-specific data that could then be used by Twig in the content of the page.  This really provides a lot of flexibility and power.
+Another example would be to store page-specific data that could then be used by Twig in the content of the page.
+
+For example you might have want to associate some author reference for the page. If you added these YAML settings to the page header:
+
+```ruby
+author:
+    name: Sandy Johnson
+    twitter: @sandyjohnson
+    bio: Sandy is a freelance journalist and author of several publications on open source CMS platforms.
+```
+
+You could then access them from Twig:
+
+```
+<section id="author-details">
+    <h2>{{ page.header.author.name }}</h2>
+    <p>{{ page.header.author.bio }}</p>
+    <span>Contact: <a href="https://twitter.com/{{ page.header.author.twitter }}"><i class="fa fa-twitter"></i></a></span>
+</section>
+```
+
+This really provides a lot of flexibility and power.

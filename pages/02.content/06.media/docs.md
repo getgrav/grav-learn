@@ -10,9 +10,9 @@ process:
 	twig: true
 ---
 
-When creating content in **Grav**, you often need to display different types of media like **images**, **videos**, and various other **file**. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of of the page to leverage thumbnails, access metadata and modify the media dynamically (e.g. resizing images, setting the display size for videos, etc.) as you need them.
+When creating content in **Grav**, you often need to display different types of media like **images**, **videos**, and various other **file**. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of the page to leverage thumbnails, access metadata and modify the media dynamically (e.g. resizing images, setting the display size for videos, etc.) as you need them.
 
-Grav uses a **smart-caching** system to automatically create in-cache copies of the dynamically generated media to use with each subsequent request.
+Grav uses a **smart-caching** system that automatically creates in-cache copies of the dynamically generated media when necessary. This way all subsequent requests can use the cached version instead of having to generate the media all over again.
 
 **Supported Media Files**
 
@@ -32,25 +32,28 @@ Grav provides a few different display modes for every kind of media object.
 
 |    Mode   |                                   Explanation                                   |
 | :-------- | :------------------------------------------------------------------------------ |
-| Source    | Visual representation of the media itself, i.e. the acutal image, video or file |
-| Textual   | Textual representation of the media                                             |
-| Thumbnail | The thumbnail image for this media object                                       |
+| source    | Visual representation of the media itself, i.e. the acutal image, video or file |
+| text      | Textual representation of the media                                             |
+| thumbnail | The thumbnail image for this media object                                       |
 
->>>> Data / Information type media do not support `source` mode, the will default to `link` mode if another mode is not explicitly chosen.
+>>>> **Data / Information** type media do not support `source` mode, they will default to `link` mode if another mode is not explicitly chosen.
 
 ## Thumbnail
 
 There are thee locations Grav will look for your thumbnail.
 
 1. In the same folder as your media file: `[media-name].[media-extension].thumb.[thumb-extension]` where `media-name` and `media-extension` are respectively the name and extension of the original media file and `thumb-extension` is any extension that is supported by the `image` media type. Examples are `my_video.mp4.thumb.jpg` and `my-image.jpg.thumb.png`
+2. **For images only!** The image itself will be used as thumbnail.
 2. Your user folder: `user/images/media/thumb-[media-extension].png` where `media-extension` is the extension of the original media file. Examples are `thumb-mp4.png` and `thumb-jpg.jpg`
 3. The system folder: `system/images/media/thumb-[media-extension].png` where `media-extension` is the extension of the original media file. **The thumbnails in the system folders are pre-provided by Grav.**
+
+>>> You can also manually select the desired thumbnail with the actions explained below.
 
 ## Links and Lightboxes
 
 The display modes above can also be used in combination with links and lightboxes, which are explained in more detail later. Important to note however is:
 
->>>> Grav does not provide lightbox-functionality, you need a plugin for this.
+>>>> Grav does not provide lightbox-functionality, you need a plugin for this. You can use the [FeatherLight Grav plugin](https://github.com/getgrav/grav-plugin-featherlight) to achieve this.
 
 When you use Grav's media functionality to render a lightbox, all Grav does is output an **anchor** tag that has some attributes for the lightbox plugin to read. If you are interested in using a lightbox library that is not in our plugin repository or you want to create your own plugin, you can use the table below as a reference.
 
@@ -64,7 +67,7 @@ When you use Grav's media functionality to render a lightbox, all Grav does is o
 
 ## Actions
 
-Grav employs a **builder-pattern** when handling media, so you can perform **multiple actions** on a particular medium.  Grav currently has the following actions built-in. Some actions are available for every kind of medium while others are specific to the medium.
+Grav employs a **builder-pattern** when handling media, so you can perform **multiple actions** on a particular medium. Some actions are available for every kind of medium while others are specific to the medium.
 
 ### General
 
@@ -122,38 +125,80 @@ The `html` action will output a valid HTML tag for the media based on the curren
 
 ##### display(mode)
 
-Switch display mode. Explain that all previous actions will be lost if you switch display mode: .sepia().display('thumbnail').html() won't give you a sepia thumbnail, but .display('thumbnail').sepia().html() will.
+Use this action to switch between the various display modes that Grav provides. Once you switch display mode, all previous actions will be reset. The exceptions to this rule are the `lightbox` and `link` actions and any actions that have been used before those two.
 
-Explain that image actions become available in thumb mode, and no actions are available for textual display.
+For example, the thumbnail that results from calling `page.media['sample-image.jpg'].sepia().display('thumbnail').html()` will not have the `sepia()` action applied, but `page.media['sample-image.jpg'].display('thumbnail').sepia().html()` will.
+
+>>>>> Once you switch to thumbnail mode, you will be manipulating an image. This means that even if your current media is a video, you can use all the image-type actions on the thumbnail.
 
 ##### link()
 
-Enable link mode. Here I need to explain that the context of actions switches to thumbnail and all previous actions apply to the object we will link to but all following actions will apply to the object displayed in the page. You still need to call html at the end.
+Turn your media object into a link. All actions that you call before `link()` will be applied to the target of the link, while any actions called after will apply to what's displayed on your page.
 
-##### lightbox([width, height])
+>>> After calling `link()`, Grav will automatically switch the display mode to **thumbnail**.
 
-Enable lightbox mode. Explain that it works just like link but with extra attributes.
-
-Similar to the `html` action, the **lightbox** outputs the required HTML tag information to display the current image (resized, cropped, etc) as a thumbnail with a link to resized image in a lightbox. The `width` and `height` dictate the size of the lightbox when activated.
+The following example will display a textual link (`display('text')`) to a sepia version of the `sample-image.jpg` file:
 
 {% set tab1 %}
 ```
-![Sample Image](sample-image.jpg?lightbox=1024,cropResize=200,200)
+![Image link](sample-image.jpg?sepia&link&display=text)
 ```
 {% endset %}
 {% set tab2 %}
 {% verbatim %}
 ```
-{{ page.media['sample-image.jpg'].lightbox(1024,768).cropResize(200,200).html('Sample Image') }}
+{{ page.media['sample-image.jpg'].sepia().link().display('text').html('Image link') }}
 ```
 {% endverbatim %}
 {% endset %}
 {% set tab3 %}
-![Sample Image](sample-image.jpg?lightbox=1024,768&cropResize=200,200)
+![Image link](sample-image.jpg?sepia&link&display=text)
 {% endset %}
 {{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-This is a **Twig** output that will take the `image1.jpg` file associated with the page, and output a `lightbox` tag that will link to an image that is `resize`'d to `1024` x `768` from a thumbnail image that is `cropResize`'d  to `200` x `200`.
+##### lightbox([width, height])
+
+The lightbox action is essentially the same as the link action but with a few extras. Like explained above, the lightbox action will not do anything more than create a link with some extra attributes. It differs from the link action in that it adds a `rel="lightbox"` attribute and accepts a width and height attribute.
+
+If possible (currently only in the case of images), Grav will resize your media to the requested width and height. Otherwise it will simply add a `data-width` and `data-height` attribute to the link.
+
+{% set tab1 %}
+```
+![Sample Image](sample-image.jpg?lightbox=200,200)
+```
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].lightbox(200,200).html('Sample Image') }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
+![Sample Image](sample-image.jpg?lightbox=200,200)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
+
+##### Thumbnail
+
+Manually choose the thumbnail Grav should use. You can choose between `page` and `default` for any type of media as well as `media` for image media if you want to use the media object itself as your thumbnail.
+
+{% set tab1 %}
+```
+![Sample Image](sample-image.jpg?thumbnail=default&display=thumbnail)
+```
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].thumbnail('default').display('thumbnail').html('Sample Image') }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
+![Sample Image](sample-image.jpg?thumbnail=default&display=thumbnail)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
 ### Image actions
 
@@ -518,11 +563,11 @@ This applies a **sepia filter** on the image to produce a vintage look.
 {% endset %}
 {{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-### Video actions
+### Animated and vectorized image and video actions
 
 ##### resize(width, height)
 
-Because PHP cannot handle dynamically resizing videos, the resize action will only make sure that a `width` and `height` or `data-width`and `data-height` attribute are set on your `<video>` or `<a>` tag respectively. This means your video will be displayed in the requested size, but the actual video file will not be converted in any way.
+Because PHP cannot handle dynamically resizing these types of media, the resize action will only make sure that a `width` and `height` or `data-width`and `data-height` attribute are set on your `<img>`/`<video>` or `<a>` tag respectively. This means your image or video will be displayed in the requested size, but the actual image or video file will not be converted in any way.
 
 {% set tab1 %}
 ```
@@ -568,53 +613,15 @@ As you can see: Grav provides some powerful image manipulation functionality tha
 {% endset %}
 {{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
-
-### ~~Images~~ Any relevant information needs to be migrated upwards in this doc
-
-JPEG, PNG, and GIF image formats are supported with the following file extensions: `jpg`, `jpeg`, `png`, `gif`.
-
-Thumbnails are automatically created from the image provided.
-
-### ~~Videos~~ Any relevant information needs to be migrated upwards in this doc
-
->>>> NOTE: **Video** media are work-in-progress. They are not fully implemented currently.
-
->>> This method is only intended to be used in **Twig** templates, hence the Twig syntax.
-
-Video files with the following file extensions: `mp4`, `mov`, `m4v`, `swf` are also supported in Grav. Because PHP cannot handle dynamically resizing videos, you will have to create your videos in the size and format you wish to display on your site.
-
-All the regular actions are available for videos but interact with the thumbnail of the video only.  The **tag** action for videos is slightly different from images as you have to also provide an `x` width and a `y` height.
-
-
-{% verbatim %}
-```
-{{ page.media['sample-trailer.mov'].lightbox(852,480).cropResize(200,100).html() }}
-```
-{% endverbatim %}
-
-{{ page.media['sample-trailer.mov'].lightbox(852,480).cropResize(200,100).html() }}
-
-### ~~Files~~ Any relevant information needs to be migrated upwards in this doc
-
->>>> NOTE: **File** media are work-in-progress. They are not fully implemented currently.
-
->>> This method is only intended to be used in **Twig** templates, hence the Twig syntax.
-
-Grav supports a selection of other assorted document file types including: `txt`, `doc`,` html`, `pdf`, `zip`, `gz`.
-
-These are handled in a similar fashion to video files so thumbnails need to be provided if you don't want to use the default images for thumbnails.
-
-The **lightbox** action is not supported for files, and the **tag** action will **link** to download the file, but has a boolean set to `true` to show the image thumbnail, or `false` to show just the plain text filename with a class that indicates the file-type.
-
-{% verbatim %}
-```
-{{ page.media['archive.zip'].html() }}
-```
-{% endverbatim %}
-
 ### Responsive images
 
-Add information about responsive images here.
+Grav has built-in support for responsive images for higher density displays (e.g. **Retina** screens). Grav accomplishes this by implementing `srcset` from the [Picture element HTML proposal](https://html.spec.whatwg.org/multipage/embedded-content.html#the-picture-element). A good article to read if you want to understand this better is [this blog post by Eric Portis](http://ericportis.com/posts/2014/srcset-sizes/).
+
+>>> Grav sets the `sizes` argument mentioned in the posts above to full viewport width because it does not have more specific information up front.
+
+To start using responsive images, all you need to to is add higher density images to your pages by adding a suffix to the file name. If you only provide higher density images, Grav will automatically generate lower quality versions for you. Naming works as follows: `[image-name]@[density-ratio]x.[image-extension]`, so for example adding `sample-image@3x.jpg` to your page will result in Grav creating a `2x` and a `1x` (regular size) version by default.
+
+>>>>> These files generated by Grav will not be placed in your page folder.
 
 ### Metafiles
 
@@ -644,4 +651,3 @@ Let's say you wanted to just pull the alt_text value listed for the image file `
 {% endverbatim %}
 
 This will pull up the example phrase `My Alt Text` instead of the image. This is just a basic example. You can use this method for a number of things, including creating a gallery with multiple unique data points you want to have referenced for each image. Your images, in essence, have a set of data unique to them that can be easily referenced and pulled as needed.
-

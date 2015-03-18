@@ -1,5 +1,5 @@
 ---
-title: Linking
+title: Page Linking
 taxonomy:
     category: docs
 ---
@@ -14,12 +14,15 @@ Using this directory structure as an example, we will take a look at the differe
 
 To get us started, here is a quick look at some of the common components of a Grav link, and what they mean.
 
+```
+![Linked Content](../path/slug/page)
+```
+
 | String |                                                                           Description                                                                            |
 | :----- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `[]`   | The square bracket is used to wrap the text or alternate content that becomes linked. In HTML, this would be the content placed between `<a href="">` and `</a>` |
 | `()`   | The parenthesis is used to surround the link itself. This is placed directly after the square bracket.                                                           |
 | `../`  | When used in the link, it indicates a move up a directory.                                                                                                       |
-| `!`    | When placed at the beginning of a link, it indicates that content contained within should be loaded into the page, such as an image file.                        |
 
 ### Slug Relative
 
@@ -37,7 +40,7 @@ In this example, we're moving up a directory and loading the default page locate
 [link](../water)
 ```
 
-This next example does a very similar thing, linking from `pages/01.blue/01.sky/item.md` to `pages/02.green/02.tree/item.md`, but when loading the `item.md` file, a slug has been assigned to the file of `tree-is-green`. 
+This next example does a very similar thing, linking from `pages/01.blue/01.sky/item.md` to `pages/02.green/02.tree/item.md`, but when loading the `item.md` file, a slug has been assigned to the file of `tree-is-green`.
 
 ```markdown
 [link](../../green/tree-is-green)
@@ -47,7 +50,7 @@ The slug placed in the header of `item.md` replaces the `green` slug from the de
 
 ### Directory relative
 
-**Directory Relative** links use destinations set relative to the current page. This can be as simple as linking to another file in the current directory, such as an image file, or as complex as going up several directory levels and then back down to the specific folder/file you need to have displayed. 
+**Directory Relative** links use destinations set relative to the current page. This can be as simple as linking to another file in the current directory, such as an image file, or as complex as going up several directory levels and then back down to the specific folder/file you need to have displayed.
 
 With relative links, the location of the source file is every bit as important as that of the destination. If either file in the mix is moved, changing the path between them, the link can be broken.
 
@@ -83,11 +86,11 @@ The next example is a lot like the file link we demonstrated earlier. Instead of
 
 ### Absolute
 
-Absolute links are similar to relative links, but are relative to the root of the site. In **Grav**, this is typically based in your **/user/pages/** directory. This type of link can be done in two different ways. 
+Absolute links are similar to relative links, but are relative to the root of the site. In **Grav**, this is typically based in your **/user/pages/** directory. This type of link can be done in two different ways.
 
 You can do it in a similar fashion to the **Slug Relative** style which uses the slug, or directory name in the path for simplicity. This method removes potential issues of order changes later on (changing the number at the beginning of the folder name) breaking the link. This would be the most commonly used method of absolute linking.
 
-In an absolute link, the link opens with a `/`. Here is an example of an absolute link made to `pages/01.blue/01.sky/item.md` in the **Slug** style. 
+In an absolute link, the link opens with a `/`. Here is an example of an absolute link made to `pages/01.blue/01.sky/item.md` in the **Slug** style.
 
 ```markdown
 [link](/blue/sky)
@@ -99,7 +102,7 @@ The second method is fashioned after the **Directory Relative** style detailed p
 [link](/01.blue/01.sky)
 ```
 
-### Remote 
+### Remote
 
 Remote links enable you to link directly to pretty much any file or document out there via its URL. This doesn't have to include your own site's content, but it can. Here is an example of how you would link to Google's home page.
 

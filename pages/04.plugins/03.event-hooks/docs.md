@@ -54,7 +54,7 @@ This is the first plugin event available. At this point the following objects ha
 * Cache
 * Plugins
 
->>>> NOTE: A plugin will not be loaded at all if the `enabled: false` configuration option has been set for that particular plugin.
+>>>> A plugin will not be loaded at all if the `enabled: false` configuration option has been set for that particular plugin.
 
 
 #### onAssetsInitialized

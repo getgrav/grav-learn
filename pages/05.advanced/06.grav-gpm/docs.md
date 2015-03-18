@@ -28,7 +28,7 @@ To receive help for a specific command, you can add help to the line before the 
 $ bin/gpm help install
 ```
 
->>> NOTE: To be able to perform **install**, **upgrade**, and **selfupgrade**, PHP must have the `php_openssl` extension enabled.  If you get a fatal error while downloading, this is probably the cause.
+>>> To be able to perform **install**, **upgrade**, and **selfupgrade**, PHP must have the `php_openssl` extension enabled.  If you get a fatal error while downloading, this is probably the cause.
 
 #### PHP CGI-FCGI Information
 
@@ -139,6 +139,8 @@ Grav repository refreshes every hour and automatically detects when there are ne
 On your end all you have to do is ensure you have updated the blueprints with the new version, and that you tagged and released the new version. The Grav repository will do the rest for you and as soon as your release is picked up, it will be available to everyone via Grav website or through _GPM_.
 
 #### Add your resource to the repository
+
+Follow the instructions in the [Theme/Plugin Release Process](../grav-development#theme/plugin-release-process) section.
 
 To add your new plugin/theme to the Grav repository, please open a Grav Issue on GitHub. You can also [use this precompiled link](https://github.com/getgrav/grav/issues/new?title=[add-resource]%20New%20Plugin/Theme&body=I%20would%20like%20to%20add%20my%20new%20plugin/theme%20to%20the%20Grav%20Repository.%0AHere%20are%20the%20project%20details:%20**user/repository**). Make sure you update the body to the proper `user/repository`.
 

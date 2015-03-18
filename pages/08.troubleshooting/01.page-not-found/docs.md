@@ -16,6 +16,12 @@ The first thing to check is if you have the provided `.htaccess` file at the roo
 
 It is **strongly advised** to unzip Grav and move the **entire folder** into place, then simply rename the folder. This will ensure all the files retain their proper positions.
 
+### AllowOverride All
+
+In order for the Grav-provided `.htaccess` to be able to set the rewrite rules required for routing to work properly, Apache needs to first read the file.  when your `<Directory>` or `<VirtualHost>` directive is setup with `AllowOverride None`, the `.htaccess` file is completely ignored.  The simplest solution is to change this to `AllowOverride All`
+
+More details on `AllowOverride` and all the possible configuration options can be found in the [Apache Documentation](http://httpd.apache.org/docs/2.4/mod/core.html#allowoverride).
+
 ### RewriteBase Issue
 
 If the homepage of your Grav site loads, but **any other page** displays this very rough _Apache-style_ error, then the most likely cause is that there is a problem with your `.htaccess` file.
@@ -55,6 +61,8 @@ Then restart your Apache server.
 If you receive a _Grav-style_ error saying **Error 404** then your `.htaccess` is functioning correctly, but your trying to reach a page that Grav cannot find.
 
 The most common cause of this is simply that the page has been moved or renamed.  Another thing to check is if the page has a `slug` set in the page YAML headers.  This overrides the explicit folder name that is used by default to construct the URL.
+
+Another cause could be your page is **not routable**.  The routable option for a page can be set in the [page headers](../../content/headers).
 
 
 

@@ -20,7 +20,7 @@ taxonomy:
 
 6. **Multi-core processors** are better. Faster and more advanced processors will always help, but not as much as the other points.
 
->>> NOTE: The getgrav.org runs on a single dedicated server with quad core processors, 16GB of memory and 6G SSD drives. We also run PHP 5.6 with Zend opcache and APCu user cache. The web servers do run a few other websites but not as many as you would find in a shared-hosting environment.
+>>> The getgrav.org runs on a single dedicated server with quad core processors, 16GB of memory and 6G SSD drives. We also run PHP 5.6 with Zend opcache and APCu user cache. The web servers do run a few other websites but not as many as you would find in a shared-hosting environment.
 
 ## Caching Options
 
@@ -83,9 +83,11 @@ cache:
     port: 11211
 ```
 
->>>> NOTE: Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
+>>>> Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
 
->>> TIP: You can easily force the cache to clear by just touching/saving a configuration file.
+<!-- -->
+
+>>>>>> You can easily force the cache to clear by just touching/saving a configuration file.
 
 The `cache: check: pages:` option can provide some slight performance improvements, but this will cause Grav to not check for any page edits.  This is intended as a **Production-only** setting.
 

@@ -38,7 +38,7 @@ There is also some configuration settings to **control the order** of the listin
 
 {{ media['content-modular.jpg'].html('Modular Page','border') }}
 
-A modular page is a special type of listing page because it actually builds a **single page** from its **child pages**. This allows for the ability to build very complex **one-page layouts** from smaller modular content pages.  This is accomplished by constructing the **modular page** from all the **modular folders** found in the folder.
+A modular page is a special type of listing page because it actually builds a **single page** from its **child pages**. This allows for the ability to build very complex **one-page layouts** from smaller modular content pages. This is accomplished by constructing the **modular page** from multiple **modular folders** found in the page's primary folder.
 
 >>> A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](http://getgrav.org/downloads).
 
@@ -115,7 +115,7 @@ The settings between the pair of `---` markers is known as the YAML front matter
 
 In this example, we are explicitly setting the title, as well setting the taxonomy to **blog** so we can filter it later.  The content after the second `---` is the actual content that will be compiled and rendered as HTML on your site.  This is written in [Markdown](../markdown), which will be covered in detail in a future chapter.  Just know that the `#`, `**`, and `_` markers translate to a **heading1**, **bold**, and **italics**, respectively.
 
->>> NOTE: Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
+>>> Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
 
 ### Summary Size and Separator
 
@@ -145,6 +145,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 This will use the text above the separator when referenced by `page.summary()` and the full page content when referenced by `page.content()`.
 
->>> NOTE: When using `page.summary()`, the summary size setting will be used if the separator is not found in the page content.
+>>> When using `page.summary()`, the summary size setting will be used if the separator is not found in the page content.
 
 In the next section we will continue and dig into the specifics of a page in detail.

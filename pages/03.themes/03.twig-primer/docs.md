@@ -40,10 +40,10 @@ Here is a basic template created using Twig:
     <body>
         My name is {{ name }} and I love cookies.
         My favorite flavors of cookies are:
-				<ul>
-				{% for types of cookies %}
-            <li>{{ cookie.flavor }}</li>
-        {% endfor %}
+	<ul>
+		{% for types of cookies %}
+    			<li>{{ cookie.flavor }}</li>
+		{% endfor %}
         </ul>
 
         <h1>Cookies are the best!</h1>

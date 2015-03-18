@@ -37,7 +37,46 @@ Because of the tight coupling with Grav pages and themes, a **Grav Theme** is an
 
 The Twig templating engine is a very powerful system, and because there really are no restrictions by Grav itself, you are free to create any kind of design you wish.  This is one of the great things that sets Grav apart from a traditional CMS that has a loose coupling between content and design.
 
-# GitHub Setup
+## Demo Content
+
+With the release of Grav 0.9.18, you are now able to provide demo content as part of a plugin or theme package. This means that anything found in a folder called `_demo/` will be copied over to the `user/` folder as part of the installation procedure.  This means you can provide **pages**, or **configuration** or anything else that sits in the `user/` folder.  The user is prompted to do this, and it's purely optional.
+
+## Theme/Plugin Release Process
+
+When you have created your new theme or plugin and would like to see it added to the [Grav Repository](http://getgrav.org/downloads) there are a few standard things that you need to ensure:
+
+1. It is open source with a `LICENSE` file that provides an [MIT](http://en.wikipedia.org/wiki/MIT_License) compatible license [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/LICENSE)
+2. Contains a `README.md` file with a summary of functionality and instructions on how to install and configure it. [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/README.md)
+3. Contains a `blueprints.yaml` file with [all required fields](../blueprints). [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/blueprints.yaml)
+4. Provide a `CHANGELOG.md` in the [correct format](#changelog-format) an [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/CHANGELOG.md)
+5. Provides appropriate attribution if you use any other libraries, scripts, code.
+6. [Create a release](https://help.github.com/articles/creating-releases) for your finished plugin/theme. The Grav repository system requires a release and will not find your plugin/theme unless there is a release that contains all of the above.
+7. [Add an issue to the Grav issues tracker](https://github.com/getgrav/grav/issues/new?title=[add-resource]%20New%20Plugin/Theme&body=I%20would%20like%20to%20add%20my%20new%20plugin/theme%20to%20the%20Grav%20Repository.%0AHere%20are%20the%20project%20details:%20**user/repository**) with details about your plugin, and we will give it a quick test to ensure it functions, and then add it.
+
+## ChangeLog Format
+
+The GetGrav.org site uses a custom ChangeLog format that is written in standard markdown but can be manipulated with some simple CSS and [displayed in an attractive format](http://getgrav.org/downloads#changelog).  In order to ensure your ChangeLogs can be parsed and formatted properly, please use this syntax:
+
+```
+# vX.Y.Z
+## 01/01/2015
+
+1. [](#new)
+    * New features added
+    * Another new feature
+2. [](#improved)
+    * Improvement made
+    * Another improvement
+3. [](#bugfix)
+     * Bugfix implemented
+     * Another bugfix
+
+...repeat...
+```
+
+Each section `#new, #improvement, #bugfix` are optional, just include the sections you need.
+
+## GitHub Setup
 
 As is the way of things these days, GitHub is going to be your best friend when it comes to developing for Grav.  We have created some tools to make this as easy as possible, but there are some development patterns that you should follow to make the process simpler.
 
