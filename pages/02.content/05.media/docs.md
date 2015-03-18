@@ -48,7 +48,7 @@ There are thee locations Grav will look for your thumbnail.
 
 ## Links and Lightboxes
 
-The display modes above can also be used in combination with links and lightboxes, which are explained in more detail later. Important to not however is:
+The display modes above can also be used in combination with links and lightboxes, which are explained in more detail later. Important to note however is:
 
 >>>> Grav does not provide lightbox-functionality, you need a plugin for this.
 
