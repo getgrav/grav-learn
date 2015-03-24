@@ -10,7 +10,7 @@ process:
 	twig: true
 ---
 
-When creating content in **Grav**, you often need to display different types of media like **images**, **videos**, and various other **file**. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of the page to leverage thumbnails, access metadata and modify the media dynamically (e.g. resizing images, setting the display size for videos, etc.) as you need them.
+When creating content in **Grav**, you often need to display different types of media like **images**, **videos**, and various other **files**. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of the page to leverage thumbnails, access metadata and modify the media dynamically (e.g. resizing images, setting the display size for videos, etc.) as you need them.
 
 Grav uses a **smart-caching** system that automatically creates in-cache copies of the dynamically generated media when necessary. This way all subsequent requests can use the cached version instead of having to generate the media all over again.
 
@@ -36,7 +36,7 @@ Grav provides a few different display modes for every kind of media object.
 | text      | Textual representation of the media                                             |
 | thumbnail | The thumbnail image for this media object                                       |
 
->>>> **Data / Information** type media do not support `source` mode, they will default to `link` mode if another mode is not explicitly chosen.
+>>>> **Data / Information** type media do not support `source` mode, they will default to `text` mode if another mode is not explicitly chosen.
 
 ## Thumbnail
 
@@ -53,7 +53,7 @@ There are thee locations Grav will look for your thumbnail.
 
 The display modes above can also be used in combination with links and lightboxes, which are explained in more detail later. Important to note however is:
 
->>>> Grav does not provide lightbox-functionality, you need a plugin for this. You can use the [FeatherLight Grav plugin](https://github.com/getgrav/grav-plugin-featherlight) to achieve this.
+>>>> Grav does not provide lightbox-functionality out of the box, you need a plugin for this. You can use the [FeatherLight Grav plugin](https://github.com/getgrav/grav-plugin-featherlight) to achieve this.
 
 When you use Grav's media functionality to render a lightbox, all Grav does is output an **anchor** tag that has some attributes for the lightbox plugin to read. If you are interested in using a lightbox library that is not in our plugin repository or you want to create your own plugin, you can use the table below as a reference.
 
