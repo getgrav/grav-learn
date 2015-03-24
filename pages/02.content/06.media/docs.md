@@ -445,7 +445,7 @@ Similar to the `html` action, the **lightbox** outputs the required HTML tag inf
 
 {% set tab1 %}
 ```
-![Sample Image](sample-image.jpg?lightbox=1024,cropResize=200,200)
+![Sample Image](sample-image.jpg?lightbox=1024,768&cropResize=200,200)
 ```
 {% endset %}
 {% set tab2 %}
