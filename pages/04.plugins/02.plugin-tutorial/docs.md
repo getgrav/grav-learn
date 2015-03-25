@@ -212,3 +212,24 @@ class RandomPlugin extends Plugin
 ```
 
 If you followed along, you should have a fully functional **Random** plugin enabled for your site.  Just point your browser to the `http://yoursite.com/random`, and you should see a random page.  You can also download this plugin directly from the [Plugins Download](http://getgrav.org/downloads/plugins) section of the [getgrav.org](http://getgrav.org/downloads/plugins) site.
+
+### Merging Plugin and Page Configuration
+
+One popular technique that is used in a variety of plugins is the concept of merging the plugin configuration (either default or overridden user config) with page-level configuration.  This means you can set **site-wide** configuration, and then have a specific configuration for a given page as needed.  This is provides a lot of power and flexibility for your plugin.
+
+In recent versions of Grav, a helper method was added to perform this functionality automatically rather than you having to code that logic yourself.  The **SmartyPants** plugin provides a good example of this functionality in action:
+
+```
+public function onPageContentProcessed(Event $event)
+{
+    $page = $event['page'];
+    $config = $this->mergeConfig($page);
+
+    if ($config->get('process_content')) {
+        $page->setRawContent(\Michelf\SmartyPants::defaultTransform(
+            $page->getRawContent(),
+            $config->get('options')
+        ));
+    }
+}
+```
