@@ -66,18 +66,47 @@ color: blue
 
 Also you should provide a `300px` x `300px` image of your theme and call it `thumbnail.jpg` at the root of the theme.
 
-### Plugin Events
+### Theme and Plugin Events
 
-Another powerful feature that is purely optional is the ability for a theme to interact with Grav via the **plugins** architecture.  To accomplish this, simply create a file called `your_theme.php` and use the following format:
+Another powerful feature that is purely optional is the ability for a theme to interact with Grav via the **plugins** architecture.  To accomplish this, simply create a file called `mytheme.php` and use the following format:
 
 	<?php
 	namespace Grav\Theme;
 
 	use Grav\Common\Theme;
 
-	class Antimatter extends Theme
+	class MyTheme extends Theme
 	{
 
+        public static function getSubscribedEvents()
+        {
+            return [
+                'onThemeInitialized' => ['onThemeInitialized', 0]
+            ];
+        }
+
+        public function onThemeInitialized()
+        {
+            if ($this->isAdmin()) {
+                $this->active = false;
+                return;
+            }
+
+            $this->enable([
+                'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
+            ]);
+        }
+
+        public function onTwigSiteVariables()
+        {
+            $this->grav['assets']
+                ->addCss('plugin://css/mytheme-core.css')
+                ->addCss('plugin://css/mytheme-custom.css');
+
+            $this->grav['assets']
+                ->add('jquery', 101)
+                ->addJs('theme://js/jquery.myscript.min.js');
+        }
 	}
 
 You can then use provide **plugins methods** which are covered in the [next section](../../plugins) in greater detail.
