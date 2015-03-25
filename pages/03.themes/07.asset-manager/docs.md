@@ -95,7 +95,38 @@ Retrieves a list of HTML CSS link tags based on all the CSS assets that have bee
 
 #### js()
 
-Retrieves a list of HTML Javascript link tags based on all the Javascript assets that have been added to the Asset Manager. Depending on whether or not pipelining has been turned on in the configuration, this could be a list of individual assets, or one combined and potentially minified file.
+Retrieves a list of HTML JavaScript link tags based on all the JavaScript assets that have been added to the Asset Manager. Depending on whether or not pipelining has been turned on in the configuration, this could be a list of individual assets, or one combined and potentially minified file.
+
+#### registerCollection(name, array)
+
+Allows you to register an array of JS and JavaScript assets with a name for later use by the `add()` method. Particularly useful if you want to register a collection that may be used by multiple themes or plugins, such as JQuery or Bootstrap.
+
+## Named Assets
+
+Grav now has a powerful feature called **named assets** that allows you to register a collection of CSS and JavaScript assets with a name.  Then you can simple **add** those assets to the Asset Manager via the name you registered the collection with.  Grav comes preconfigured with **JQuery** but has the ability to define custom collections in the `system.yaml` to be used by any theme or plugin:
+
+```
+assets:
+  collections:
+    jquery: system://assets/jquery/jquery-2.1.3.min.js
+    bootstrap:
+        - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css
+        - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css
+        - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js
+```
+
+You can also use the `registerCollection()` method programatically.
+
+```
+$assets = $this->grav['assets'];
+$bootstrapper_bits = [https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css,
+                      https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css,
+                      https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js];
+$assets->registerCollection('bootstrap', $bootstrap_bits);
+$assets->add('bootstrap', 100);
+```
+
+An example of this is action can be found in the [**bootstrapper** plugin](https://github.com/getgrav/grav-plugin-bootstrapper/blob/develop/bootstrapper.php#L51-L71).
 
 ## Static Assets
 
