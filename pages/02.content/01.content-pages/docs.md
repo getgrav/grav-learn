@@ -147,4 +147,20 @@ This will use the text above the separator when referenced by `page.summary()` a
 
 >>> When using `page.summary()`, the summary size setting will be used if the separator is not found in the page content.
 
+### Finding other Pages
+
+Grav has a useful feature that allows you to find another page and perform actions on that page. This can be accomplished with the `find()` method that simply takes the **route** and returns a new page object.
+
+This allows you to perform a wide variety of functionality from any page on your Grav site.  For example, you may want to provide a list of all current projects on a particular project detail page:
+
+{% verbatim %}
+```
+# All Projects
+{% for p in page.find('/projects').children if p != page %}
+<li><a href="{{p.url}}">{{ p.title }}</a></li>
+{% endfor %}
+</ul>
+```
+{% endverbatim %}
+
 In the next section we will continue and dig into the specifics of a page in detail.
