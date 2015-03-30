@@ -49,7 +49,7 @@ After uploading, you should see the key listed at the **Public Keys** section of
 
 ![](authorized-keys.png)
 
->>> Rochen does not seem to enable **Shell Access** on their accounts by default.  You will need to open a support ticket, and request shell access to be enabled for your account.
+To **enable SSH** access for your account, simply navigate to the **Managed Services** section on the **my.rochen.com** portal, and click on your **Shared Hosting** account information.  Next to the **SSH** option, click the **Disabled** link, and confirm that you wish to enable SSH.
 
 This means you are ready to test ssh'ing to your server.
 
