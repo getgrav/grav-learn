@@ -406,6 +406,16 @@ The content object is an alias for the `page.content()` of the original page.
 
 The global Taxonomy object that contains all the taxonomy information for the site.
 
+### browser object
+
+Grav has built-in support for programmatically determining the platform, browser, and version of the user.
+
+```
+{{ browser.platform}}   # macintosh
+{{ browser.browser}}    # chrome
+{{ browser.version}}    # 41
+```
+
 ## Adding Custom Variables
 
 You can easily add custom variables in a variety of ways.  If the variable is a site-wide variable, you can put the variable in your `user/config/site.yaml` file and then access it via:
