@@ -91,7 +91,7 @@ This returns **raw url path** to the media.
 {{ page.media['sample-image.jpg'].url|e }}
 ```
 {% endset %}
-{{ gravui_tabs({'Twig':tab2, 'Result':tab3}) }}
+{{ gravui_tabs({'Twig':tab2, 'HTML Result':tab3}) }}
 
 
 ##### html([title][, alt][, classes])
@@ -113,11 +113,14 @@ The `html` action will output a valid HTML tag for the media based on the curren
 {% endverbatim %}
 {% endset %}
 {% set tab3 %}
+{{ page.media['sample-image.jpg'].html('My title', 'some ALT text', 'myclass') }}
+{% endset %}
+{% set tab4 %}
 ```
 {{ page.media['sample-image.jpg'].html('My title', 'some ALT text', 'myclass')|e }}
 ```
 {% endset %}
-{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3, 'HTML Result':tab4}) }}
 
 >>> To use classes in Markdown, you need to enable Markdown Extra.
 
@@ -152,9 +155,14 @@ The following example will display a textual link (`display('text')`) to a sepia
 {% endverbatim %}
 {% endset %}
 {% set tab3 %}
-![Image link](sample-image.jpg?sepia&link&display=text)
+{{ page.media['sample-image.jpg'].sepia().link().display('text').html('Image link') }}
 {% endset %}
-{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
+{% set tab4 %}
+```
+{{ page.media['sample-image.jpg'].sepia().link().display('text').html('Image link')|e }}
+```
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3, 'HTML Result':tab4}) }}
 
 ##### lightbox([width, height])
 
@@ -177,7 +185,12 @@ If possible (currently only in the case of images), Grav will resize your media 
 {% set tab3 %}
 ![Sample Image](sample-image.jpg?lightbox=600,400&resize=100,100)
 {% endset %}
-{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
+{% set tab4 %}
+```
+{{ page.media['sample-image.jpg'].lightbox(600,400).resize(100,100).html('Sample Image')|e }}
+```
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3, 'HTML Result':tab4}) }}
 
 ##### Thumbnail
 
@@ -198,7 +211,12 @@ Manually choose the thumbnail Grav should use. You can choose between `page` and
 {% set tab3 %}
 ![Sample Image](sample-image.jpg?thumbnail=default&display=thumbnail)
 {% endset %}
-{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
+{% set tab4 %}
+```
+{{ page.media['sample-image.jpg'].thumbnail('default').display('thumbnail').html('Sample Image')|e }}
+```
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3, 'HTML Result':tab4}) }}
 
 ### Image actions
 
