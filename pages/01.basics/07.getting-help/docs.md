@@ -24,7 +24,7 @@ If you find a bug, have a general question, or even if you want to contribute to
 
 ## Chat on Gitter.im
 
-You can **chat with us live** on [Gitter.im](https://gitter.im/getgrav/grav). Gitter.im is a great new chat tool that is tightly coupled with GitHub so you will need to create a free GitHub account if you don't already have one.  Once done, you can use the [https://gitter.im/getgrav/grav]() URL or you can download one of their [native apps](https://gitter.im/apps).
+You can **chat with us live** on [Gitter.im](https://gitter.im/getgrav/grav). Gitter.im is a great new chat tool that is tightly coupled with GitHub so you will need to create a free GitHub account if you don't already have one.  Once done, you can use the [https://gitter.im/getgrav/grav](https://gitter.im/getgrav/grav) URL or you can download one of their [native apps](https://gitter.im/apps).
 
 
 
