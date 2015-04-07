@@ -63,8 +63,6 @@ Obviously, you will need to put in your Crucial-provided username for `crucial_u
 
 Currently Crucial Web Hosting defaults to **PHP 5.3** which is not up to the minimum requirements for Grav.  We will have to change the PHP version to something more current.
 
->>> Currently the most recent version of PHP available in the shared hosting accounts is **PHP 5.4**.  Crucial support has indicated this will be improved in the coming weeks with PHP 5.5 and 5.6.
-
 To do this, we have to add a special handler call in the `.htaccess` file in the web root.  So create the `~/www/.htaccess` file and put the following:
 
 ```
@@ -80,6 +78,20 @@ Save the file. To test that you have the **correct version of PHP**, you can cre
 Save the file and point your browser to this info.php file on your site, and you should be greeted with PHP information reflecting the version you selected earlier:
 
 ![](php-info.png)
+
+
+
+Crucial now also supports PHP 5.5 and 5.6.  To make use of these newer versions of PHP, simply modify the `AddHandler` method in the `.htaccess` file to use the appropriate version:
+
+```
+AddHandler application/x-httpd-php55 .php
+```
+
+or
+
+```
+AddHandler application/x-httpd-php56 .php
+```
 
 >>> If you are installing Grav at the root of your hosting account, you will need to add the **AddHandler** method to the top of the `.htaccess` file that is provided with Grav
 
