@@ -19,7 +19,7 @@ Here's the default `system/config/system.yaml` file:
 ```ruby
 absolute_urls: false                   # Absolute or relative URLs for `base_url`
 timezone: ''                           # Valid values: http://php.net/manual/en/timezones.php
-param_sep: ':'                         # Parameter separator
+param_sep: ':'                         # Parameter separator, use ';' for Apache on windows
 
 home:
   alias: '/home'                       # Default path for home, ie /
@@ -74,6 +74,8 @@ assets:                                # Configuration for Assets Manager (JS, C
   css_rewrite: true                    # Rewrite any CSS relative URLs during pipelining
   js_pipeline: false                   # The JS pipeline is the unification of multiple JS resources into one file
   js_minify: true                      # Minify the JS during pipelining
+  collections:
+    jquery: system://assets/jquery/jquery-2.1.3.min.js
 
 errors:
   display: true                        # Display full backtrace-style error page
@@ -86,6 +88,7 @@ debugger:
     close_connection: true             # Close the connection before calling onShutdown(). false for debugging
 
 images:
+  default_image_quality: 85            # Default image quality to use when resampling images (85%)
   debug: false                         # Show an overlay over images indicating the pixel depth of the image when working with retina for example
 ```
 
