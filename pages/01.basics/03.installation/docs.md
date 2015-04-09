@@ -108,6 +108,6 @@ To manually update the process is:
 
 3. Extract the update package over the top of your existing Grav installation and it will copy over any updates in the `core system folder`.
 
-4. Clear the Grav cache with bin/grav clear-cache` to ensure any cache or compiled files are recreated cleanly.
+4. Clear the Grav cache with `bin/grav clear-cache` to ensure any cache or compiled files are recreated cleanly.
 
 >>>> It's important not to copy the **core** Grav zip file over your current site as it could overrwrite your `user/` folder and resulting in a loss of your data.
