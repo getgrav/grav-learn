@@ -41,7 +41,7 @@ Here is a basic template created using Twig:
         My name is {{ name }} and I love cookies.
         My favorite flavors of cookies are:
 	<ul>
-		{% for types of cookies %}
+		{% for cookie in cookies %}
     			<li>{{ cookie.flavor }}</li>
 		{% endfor %}
         </ul>
