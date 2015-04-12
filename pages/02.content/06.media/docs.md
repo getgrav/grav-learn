@@ -24,7 +24,7 @@ The following media file types are supported natively by Grav. Additional suppor
 | Animated image     | gif                         |
 | Vectorized image   | svg                         |
 | Video              | mp4, mov, m4v, swf          |
-| Data / Information | txt, doc,html, pdf, zip, gz |
+| Data / Information | txt, doc, html, pdf, zip, gz |
 
 ## Display modes
 
@@ -40,7 +40,7 @@ Grav provides a few different display modes for every kind of media object.
 
 ## Thumbnail Location
 
-There are thee locations Grav will look for your thumbnail.
+There are three locations Grav will look for your thumbnail.
 
 1. In the same folder as your media file: `[media-name].[media-extension].thumb.[thumb-extension]` where `media-name` and `media-extension` are respectively the name and extension of the original media file and `thumb-extension` is any extension that is supported by the `image` media type. Examples are `my_video.mp4.thumb.jpg` and `my-image.jpg.thumb.png`
 2. **For images only!** The image itself will be used as thumbnail.
