@@ -76,13 +76,13 @@ If we want to link `test_image_2.jpg` from **Test Post 1**, we would enter the f
 ![Test Image 2](../test-slug/test_image_2.jpg)
 ```
 
-You will notice that we navigated up one directory using (`../`) and then to down into the `test-slug` page folder using the slug which was set in `/pages/01.blog/test-post-2/item.md` file.
+You will notice that we navigated up one directory using (`../`) and then down into the `test-slug` page folder using the slug which was set in `/pages/01.blog/test-post-2/item.md` file.
 
 ### Directory relative
 
 **Directory Relative** image links use destinations set relative to the current page. The main difference between a slug relative, and directory relative link, is that rather than using the URL slugs, you reference via the full path with folder names.
 
-An example of this wuld be something like:
+An example of this would be something like:
 
 ```markdown
 ![Test Image 3](../../01.blog/02.my_folder/test_image_3.jpg)
