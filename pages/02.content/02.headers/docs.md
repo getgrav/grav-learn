@@ -56,7 +56,7 @@ The `date` variable allows you to specifically set a date associated with this p
 published: true
 ```
 
-By default, a page is **published** unless you explicitly set `published: false` or an via a `publish_date` being in the future, or `unpublish_date` in the past. Valid values are `true` or `false`.
+By default, a page is **published** unless you explicitly set `published: false` or via a `publish_date` being in the future, or `unpublish_date` in the past. Valid values are `true` or `false`.
 
 ### Publish Date
 
@@ -80,7 +80,7 @@ Optional field, but can provide a date to automatically trigger un-publication. 
 visible: false
 ```
 
-By default, a page is **visibile** in the **navigation** if the surrounding folder has a numerical prefix, i.e. `/01.home` is visible, while `/error` is **not visible**. This behavior can be overwritten by setting the `visible` variable in the header. Valid values are `true` or `false`.
+By default, a page is **visible** in the **navigation** if the surrounding folder has a numerical prefix, i.e. `/01.home` is visible, while `/error` is **not visible**. This behavior can be overwritten by setting the `visible` variable in the header. Valid values are `true` or `false`.
 
 ### Routable
 
@@ -344,13 +344,13 @@ Ordering of sub-pages follows the same rules as ordering of folders, the availab
 | **date**     | The order based on the date as defined in each page                                                                                                |
 | **modified** | The order based on the modified timestamp of the page                                                                                              |
 | **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                  |
-| **header.x** | The order based on any page header field. i.e. `header.taxonomy.year`. Also a deafult can be added via a pipe. i.e. header.taxonomy.year&#124;2015 |
+| **header.x** | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. header.taxonomy.year&#124;2015 |
 | **manual**   | The order based on the `order_manual` variable                                                                                                     |
 | **random**   | The order is randomized                                                                                                                            |
 
-The `content.items.dir` variable controls which direction the ordering should be in. Valid values are either **desc** or **asc**.
+The `content.items.dir` variable controls which direction the ordering should be in. Valid values are either `desc` or `asc`.
 
-In in this configuration, you can see that `content.order.custom` is defining a **custom manual ordering** to ensure the page is constructed with the **showcase** first, **highlights** section second etc. Please note that if a page is not specified in the custom ordering list, then Grav falls back on the `content.order.by` for the unspecified pages.
+In this configuration, you can see that `content.order.custom` is defining a **custom manual ordering** to ensure the page is constructed with the **showcase** first, **highlights** section second etc. Please note that if a page is not specified in the custom ordering list, then Grav falls back on the `content.order.by` for the unspecified pages.
 
 `content.limit` is pretty self explanatory, and the `content.pagination` is a simple boolean flag to be used by plugins etc to know if **pagination** should be initialized for this collection.
 
