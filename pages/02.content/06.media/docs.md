@@ -63,7 +63,7 @@ When you use Grav's media functionality to render a lightbox, all Grav does is o
 | href        | A URL to the media object itself                                                                             |
 | data-width  | The width the user requested this lightbox to be                                                             |
 | data-height | The height the user requested this lightbox to be                                                            |
-| data-srcset | In case of image media, this contains the `srcset` string. ([more info](#responsive-images))                 |
+| data-srcset | In case of image media, this contains the `srcset` string. ([more info](../media#responsive-images))                 |
 
 ## Actions
 
