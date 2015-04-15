@@ -76,7 +76,7 @@ When dealing with collections, there are several options available to control ho
 | **date**     | The order based on the date as defined in each page                                                                                                  |
 | **modified** | The order based on the modified timestamp of the page                                                                                                |
 | **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                    |
-| **header.x** | The order based on any page header field. i.e. `header.taxonomy.year`. Also a deafult can be added via a pipe. i.e. header.taxonomy.year&#124;2015 |
+| **header.x** | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year&#124;2015` |
 | **manual**   | The order based on the `order_manual` variable                                                                                                       |
 | **random**   | The order is randomized                                                                                                                              |
 
