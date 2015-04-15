@@ -12,27 +12,27 @@ To fully harness the power of Grav plugins you need to know which event hooks ar
 
 Most events within Grav fire in a specific order and it is important to understand this order if you are creating plugins:
 
-1. [onFatalException](#onfatalexception) _(no order, can occur anytime)_
-1. [onPluginsInitialized](#onpluginsinitialized)
-1. [onAssetsInitialized](#onassetsinitialized)
-1. [onTwigTemplatePaths](#ontwigtemplatepaths)
-1. [onTwigInitialized](#ontwiginitialized)
-1. [onTwigExtensions](#ontwigextensions)
-1. [onTwigPageVariables](#ontwigpagevariables) _(each page not cached yet)_
-1. [onPageContentRaw](#onpagecontentraw) _(each page not cached yet)_
-1. [onPageProcessed](#onpageprocessed) _(each page not cached yet)_
-1. [onPageContentProcessed](#onpagecontentprocessed) _(each page not cached yet)_
-1. [onFolderProcessed](#onfolderprocessed) _(for each folder found)_
-1. [onBlueprintCreated](#onblueprintcreated)
-1. [onPagesInitialized](#onpagesinitialized)
-1. [onPageNotFound](#onpagenotfound)
-1. [onPageInitialized](#onpageinitialized)
-1. [onCollectionProcessed](#oncollectionprocessed) _(when collection is requested)_
-1. [onTwigSiteVariables](#ontwigsitevariables)
-1. [onBeforeDownload](#onbeforedownload)
-1. [onOutputGenerated](#onoutputgenerated)
-1. [onOutputRendered](#onoutputrendered)
-1. [onShutdown](#onshutdown)
+1. [onFatalException](../event-hooks#onfatalexception) _(no order, can occur anytime)_
+1. [onPluginsInitialized](../event-hooks#onpluginsinitialized)
+1. [onAssetsInitialized](../event-hooks#onassetsinitialized)
+1. [onTwigTemplatePaths](../event-hooks#ontwigtemplatepaths)
+1. [onTwigInitialized](../event-hooks#ontwiginitialized)
+1. [onTwigExtensions](../event-hooks#ontwigextensions)
+1. [onTwigPageVariables](../event-hooks#ontwigpagevariables) _(each page not cached yet)_
+1. [onPageContentRaw](../event-hooks#onpagecontentraw) _(each page not cached yet)_
+1. [onPageProcessed](../event-hooks#onpageprocessed) _(each page not cached yet)_
+1. [onPageContentProcessed](../event-hooks#onpagecontentprocessed) _(each page not cached yet)_
+1. [onFolderProcessed](../event-hooks#onfolderprocessed) _(for each folder found)_
+1. [onBlueprintCreated](../event-hooks#onblueprintcreated)
+1. [onPagesInitialized](../event-hooks#onpagesinitialized)
+1. [onPageNotFound](../event-hooks#onpagenotfound)
+1. [onPageInitialized](../event-hooks#onpageinitialized)
+1. [onCollectionProcessed](../event-hooks#oncollectionprocessed) _(when collection is requested)_
+1. [onTwigSiteVariables](../event-hooks#ontwigsitevariables)
+1. [onOutputGenerated](../event-hooks#onoutputgenerated)
+1. [onOutputRendered](../event-hooks#onoutputrendered)
+1. [onShutdown](../event-hooks#onshutdown)
+1. [onBeforeDownload](../event-hooks#onbeforedownload)
 
 
 ## Core Grav Event Hooks
