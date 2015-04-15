@@ -29,6 +29,7 @@ Most events within Grav fire in a specific order and it is important to understa
 1. [onPageInitialized](#onpageinitialized)
 1. [onCollectionProcessed](#oncollectionprocessed) _(when collection is requested)_
 1. [onTwigSiteVariables](#ontwigsitevariables)
+1. [onBeforeDownload](#onbeforedownload)
 1. [onOutputGenerated](#onoutputgenerated)
 1. [onOutputRendered](#onoutputrendered)
 1. [onShutdown](#onshutdown)
@@ -84,6 +85,10 @@ The output has been fully processed and sent to the display.
 #### onShutdown
 
 A new and very powerful even that lets you perform actions after Grav has finished processing and the connection to the client has been closed.  This is particularly useful for performing actions that don't need user interaction and potentially could impact performance.  Possible uses include user tracking and jobs processing.
+
+#### onBeforeDownload
+
+This new event passes in an event object that contains a `file`.  This event can be used to perform logging, or grant/deny access to download said file.
 
 
 ## Twig Event Hooks
