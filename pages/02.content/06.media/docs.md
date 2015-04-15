@@ -32,7 +32,7 @@ Grav provides a few different display modes for every kind of media object.
 
 |    Mode   |                                   Explanation                                   |
 | :-------- | :------------------------------------------------------------------------------ |
-| source    | Visual representation of the media itself, i.e. the acutal image, video or file |
+| source    | Visual representation of the media itself, i.e. the actual image, video or file |
 | text      | Textual representation of the media                                             |
 | thumbnail | The thumbnail image for this media object                                       |
 
@@ -316,7 +316,7 @@ For example, an image that is `640` x `480` that has the `crop(0, 0, 400, 100)` 
 
 Similar to regular `cropResize`, `cropZoom` also takes a `width` and a `height` but will **resize and crop** the image to ensure the resulting image is the exact size you requested.  The aspect ratio is maintained but parts of the image may be cropped, however the resulting image is centered.
 
->>> The primary difference between **resizeCrop** and **cropZoom** is that in resizeCrop, the image is resized maintaining aspect ratio so that the entire image is shown, and any extra space is considered background.
+>>> The primary difference between **cropResize** and **cropZoom** is that in cropResize, the image is resized maintaining aspect ratio so that the entire image is shown, and any extra space is considered background.
 
 With **cropZoom**, the image is resized so that there is no background visible, and the extra image area of the image outside of the new image size is cropped.
 
@@ -585,7 +585,7 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 ##### resize(width, height)
 
-Because PHP cannot handle dynamically resizing these types of media, the resize action will only make sure that a `width` and `height` or `data-width`and `data-height` attribute are set on your `<img>`/`<video>` or `<a>` tag respectively. This means your image or video will be displayed in the requested size, but the actual image or video file will not be converted in any way.
+Because PHP cannot handle dynamically resizing these types of media, the resize action will only make sure that a `width` and `height` or `data-width` and `data-height` attribute are set on your `<img>`/`<video>` or `<a>` tag respectively. This means your image or video will be displayed in the requested size, but the actual image or video file will not be converted in any way.
 
 {% set tab1 %}
 ```
@@ -708,7 +708,7 @@ alt_text: My Alt Text
 
 If you are using this method to add file-specific styling or meta tags for a single file, you will want to put the YAML file in the same folder as the referenced file. This will ensure that the file is pulled along with the YAML data. It's a handy way to even set file-specific metadata as you are unable to do so from the page itself.
 
-Let's say you wanted to just pull the alt_text value listed for the image file `sample-image.jpg`. You would then create a file called `sample-image.jpg.meta.yaml` and place it in the folder with the referenced image file. Then, insert the data used in the example above and save that YAML file. In the markdown file for the page, you can display this data by using the following line:
+Let's say you wanted to just pull the `alt_text` value listed for the image file `sample-image.jpg`. You would then create a file called `sample-image.jpg.meta.yaml` and place it in the folder with the referenced image file. Then, insert the data used in the example above and save that YAML file. In the markdown file for the page, you can display this data by using the following line:
 
 {% verbatim %}
 ```ruby
