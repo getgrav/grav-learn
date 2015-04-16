@@ -70,7 +70,7 @@ taxonomy:
 
 You will notice the slug `test-slug` has been set. Slugs set this way are completely optional, and do not have to be present. As mentioned in the last chapter, they do provide an easy way of linking. If a slug is set, then any link you make to a media file within that folder will have to be either **Slug Relative** or **Absolute** with a full URL set for the link.
 
-If we want to link `test_image_2.jpg` from **Test Post 1**, we would enter the following:
+If we want to link `test_image_2.jpg` from **Test Post 2**, we would enter the following:
 
 ```markdown
 ![Test Image 2](../test-slug/test_image_2.jpg)
