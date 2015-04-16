@@ -14,7 +14,7 @@ When creating content in **Grav**, you often need to display different types of 
 
 Grav uses a **smart-caching** system that automatically creates in-cache copies of the dynamically generated media when necessary. This way all subsequent requests can use the cached version instead of having to generate the media all over again.
 
-**Supported Media Files**
+## Supported Media Files
 
 The following media file types are supported natively by Grav. Additional support for media files and streaming embeds may be added via plugins.
 
@@ -43,7 +43,7 @@ Grav provides a few different display modes for every kind of media object.
 There are three locations Grav will look for your thumbnail.
 
 1. In the same folder as your media file: `[media-name].[media-extension].thumb.[thumb-extension]` where `media-name` and `media-extension` are respectively the name and extension of the original media file and `thumb-extension` is any extension that is supported by the `image` media type. Examples are `my_video.mp4.thumb.jpg` and `my-image.jpg.thumb.png`
-2. **For images only!** The image itself will be used as thumbnail.
+**For images only!** The image itself will be used as thumbnail.
 2. Your user folder: `user/images/media/thumb-[media-extension].png` where `media-extension` is the extension of the original media file. Examples are `thumb-mp4.png` and `thumb-jpg.jpg`
 3. The system folder: `system/images/media/thumb-[media-extension].png` where `media-extension` is the extension of the original media file. **The thumbnails in the system folders are pre-provided by Grav.**
 
@@ -166,7 +166,7 @@ The following example will display a textual link (`display('text')`) to a sepia
 
 ##### lightbox([width, height])
 
-The lightbox action is essentially the same as the link action but with a few extras. Like explained above, the lightbox action will not do anything more than create a link with some extra attributes. It differs from the link action in that it adds a `rel="lightbox"` attribute and accepts a width and height attribute.
+The lightbox action is essentially the same as the link action but with a few extras. Like explained above, the lightbox action will not do anything more than create a link with some extra attributes. It differs from the link action in that it adds a `rel="lightbox"` attribute and accepts a `width` and `height` attribute.
 
 If possible (currently only in the case of images), Grav will resize your media to the requested width and height. Otherwise it will simply add a `data-width` and `data-height` attribute to the link.
 
@@ -691,7 +691,7 @@ To start using responsive images, all you need to to is add higher density image
 
 ### Metafiles
 
-Every medium that you reference in Grav, e.g. `image1.jpg`, `sample-trailer.mov`, or even `archive.zip` has the ability to have variables set or even overridden via a **metafile**.  These files take the format of `<filename>.meta.yaml`.  For example, for a image with the filename `image1.jpg` you could create a metafile called `image1.jpg.meta.yaml`.
+Every medium that you reference in Grav, e.g. `image1.jpg`, `sample-trailer.mov`, or even `archive.zip` has the ability to have variables set or even overridden via a **metafile**.  These files take the format of `<filename>.meta.yaml`.  For example, for an image with the filename `image1.jpg` you could create a metafile called `image1.jpg.meta.yaml`.
 
 You can add just about any setting or piece of metadata you would like using this method.
 
