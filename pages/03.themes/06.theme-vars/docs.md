@@ -6,7 +6,7 @@ taxonomy:
 
 When you are designing a theme, Grav gives you access to all sorts of objects and variables from your twig templates.  The Twig templating framework provides powerful ways to read and manipulate these objects and variables.  This is [fully explained in their own documentation](http://twig.sensiolabs.org/doc/templates.html) as well as [summarized succinctly in our own documentation](../twig-primer).
 
->>>> In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provide those after the method name.  `page.content` is equivalant to `page.content()`
+>>>> In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provide those after the method name.  `page.content` is equivalent to `page.content()`
 
 ## Core Objects
 
@@ -132,7 +132,7 @@ menu: my-page
 
 ##### visible()
 
-This returns whether or not the page is visible.  By default pages with numeric value followed by a period are visible by default (`01.somefolder1`) while those without (`subfolder2`) are not considered visible. This can be overriden in the page headers:
+This returns whether or not the page is visible.  By default pages with numeric value followed by a period are visible by default (`01.somefolder1`) while those without (`subfolder2`) are not considered visible. This can be overridden in the page headers:
 
 ```
 title: My Page
@@ -222,7 +222,7 @@ This returns the next page from the array of siblings based on the current posit
 
 ##### prevSibling()
 
-This returns the next page from the array of siblings based on the current position.
+This returns the previous page from the array of siblings based on the current position.
 
 ##### children()
 
@@ -356,7 +356,7 @@ This returns the array of path elements: (e.g. `uri.paths` = `[section, category
 
 ##### route([absolute = false][, domain = false])
 
-This returns the route as either an absolute or relative URL.  (e.g. `uri.route(true)` = `http://mysite.com/grav/section/category/page` or `uri.route()` = `)/section/category/page`.
+This returns the route as either an absolute or relative URL.  (e.g. `uri.route(true)` = `http://mysite.com/grav/section/category/page` or `uri.route()` = `/section/category/page`)
 
 ##### query()
 
@@ -364,31 +364,31 @@ This returns the query portion of the URL: (e.g. `uri.query` = `query=foo`)
 
 ##### params()
 
-This returns the params portion of the URL: (e.g. `uri.params` = `param:food`)
+This returns the params portion of the URL: (e.g. `uri.params` = `param:foo`)
 
 ##### param(id)
 
-This returns the value of a particular param.  (e.g. `uri.param['param']` = `foo`
+This returns the value of a particular param.  (e.g. `uri.param['param']` = `foo`)
 
 ##### url([include_host = true])
 
-This returns the full URL with or without the host.  (e.g. `uri.url(false)` = `grav/section/category/page/param:foo?query=bar`
+This returns the full URL with or without the host.  (e.g. `uri.url(false)` = `grav/section/category/page/param:foo?query=bar`)
 
 ##### extension()
 
-This returns the extension, or will return `html` if not provided: (e.g. `uri.extension` = `json`
+This returns the extension, or will return `html` if not provided: (e.g. `uri.extension` = `json`)
 
 ##### host()
 
-This returns the host portion of the URL. (e.g. `uri.host` = `mysite.com`
+This returns the host portion of the URL. (e.g. `uri.host` = `mysite.com`)
 
 ##### base()
 
-This returns the base portion of the URL. (e.g. `uri.base` = `http://mysite.com`
+This returns the base portion of the URL. (e.g. `uri.base` = `http://mysite.com`)
 
 ##### rootUrl([include_host = true])
 
-This returns the root url to the grav instance.  (e.g. `uri.rootUrl()` = `http://mysite.com/grav`
+This returns the root url to the grav instance.  (e.g. `uri.rootUrl()` = `http://mysite.com/grav`)
 
 ##### referrer()
 
