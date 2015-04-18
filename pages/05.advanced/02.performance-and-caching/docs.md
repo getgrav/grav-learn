@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
- One of the core features that make Grav so compelling is just how fast it is.  This is has always been a key consideration in the inherent design of Grav and is primarily due to caching, but does include several other components.
+ One of the core features that make Grav so compelling is just how fast it is.  This has always been a key consideration in the inherent design of Grav and is primarily due to caching, but does include several other components.
 
 ## Performance
 
@@ -12,9 +12,9 @@ taxonomy:
 
 2. **SSD drives** can make a big difference. Most things can get cached in PHP user cache, but some are stored as files, so SSD drives can make a big impact on performance.
 
-3. **Native hosting** will always be faster than a Virtual Machine.  VMs are a great way hosting providers can offer flexible “cloud” type environments. These add a layer of processing that will always effect performance. Grav can still be fast on a VM (much faster than wordpress, joomla, etc), but still for optimal performance, you can't beat a native hosting option.
+3. **Native hosting** will always be faster than a Virtual Machine.  VMs are a great way hosting providers can offer flexible “cloud” type environments. These add a layer of processing that will always affect performance. Grav can still be fast on a VM (much faster than wordpress, joomla, etc), but still for optimal performance, you can't beat a native hosting option.
 
-4. **Faster memory** is better. Because Grav is so fast, and because many of it's caching solutions use memory heavily, the speed of the memory on your server can have a big impact on performance. Grav does not use extensive amounts of memory compared to some platforms so the amount of memory is not as important, nor does it impact performance as much, as memory type and speed.
+4. **Faster memory** is better. Because Grav is so fast, and because many of its caching solutions use memory heavily, the speed of the memory on your server can have a big impact on performance. Grav does not use extensive amounts of memory compared to some platforms so the amount of memory is not as important, nor does it impact performance as much, as memory type and speed.
 
 5. **Shared hosting** is cheap and readily available, but sharing resources will always slow things down a bit. Again, Grav can run very well on a shared server (better than other CMSes), but for ultimate speed, a dedicated server is the way to go.
 
@@ -30,16 +30,16 @@ Grav uses the established and well-respected [Doctrine Cache](http://docs.doctri
 
 * **Auto** _(Default)_ - Finds the best option automatically
 * **File** - Stores in cache files in the `cache/` folder
-* **APC** - [http://php.net/manual/en/book.apc.php]()
-* **XCache** - [http://xcache.lighttpd.net/]()
-* **Couchbase** - [http://www.couchbase.com/]()
-* **Memcache** - [http://php.net/manual/en/book.memcache.php]()
-* **Memcached** - [http://memcached.org/]()
-* **MongoDB** - [http://www.mongodb.org/]()
-* **Redis** - [http://redis.io]()
-* **Riak** - [http://basho.com/riak/]()
-* **WinCache** - [http://www.iis.net/downloads/microsoft/wincache-extension]()
-* **ZendDataCache** - [http://files.zend.com/help/Zend-Server/content/data_cache_component.htm]()
+* **APC** - [http://php.net/manual/en/book.apc.php](http://php.net/manual/en/book.apc.php)
+* **XCache** - [http://xcache.lighttpd.net/](http://xcache.lighttpd.net/)
+* **Couchbase** - [http://www.couchbase.com/](http://www.couchbase.com/)
+* **Memcache** - [http://php.net/manual/en/book.memcache.php](http://php.net/manual/en/book.memcache.php)
+* **Memcached** - [http://memcached.org/](http://memcached.org/)
+* **MongoDB** - [http://www.mongodb.org/](http://www.mongodb.org/)
+* **Redis** - [http://redis.io](http://redis.io)
+* **Riak** - [http://basho.com/riak/](http://basho.com/riak/)
+* **WinCache** - [http://www.iis.net/downloads/microsoft/wincache-extension](http://www.iis.net/downloads/microsoft/wincache-extension)
+* **ZendDataCache** - [http://files.zend.com/help/Zend-Server/content/data_cache_component.htm](http://files.zend.com/help/Zend-Server/content/data_cache_component.htm)
 
 
 By default, Grav comes preconfigured to use the `auto` setting.  This will try **APC**, then **WinCache**, then **XCache**, and lastly **File**.  You can, of course, explicitly configure the cache in your `user/config/system.yaml` file, which could make things ever so slightly faster.
@@ -52,7 +52,7 @@ There are actually **5 types** of caching happening in Grav.  They are:
 2. Core Grav caching for page objects.
 3. Twig caching of template files as PHP classes.
 4. Image caching for media resources.
-5. Asset caching of CSS and JQuery with pipelining
+5. Asset caching of CSS and JQuery with pipelining.
 
 The YAML configuration caching is not configurable, and will always compile and cache the configuration into the `/cache` folder. Image caching is also always on, and stores its processed images in the `/images` folder.
 
