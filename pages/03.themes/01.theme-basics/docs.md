@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Themes in Grav are quite simple, and very flexible because they are built with the powerful [Twig Templating engine](http://twig.sensiolabs.org/). We typically use [Sass CSS Extension](http://sass-lang.com) to generate our CSS files, but there is nothing stopping you from using [LESS](http://lesscss.org/), or even regular CSS. It simply comes down to your own personal preferences.
+Themes in Grav are quite simple, and very flexible because they are built with the powerful [Twig Templating engine](http://twig.sensiolabs.org/). We typically use [Sass CSS Extension](http://sass-lang.com) to generate our CSS files, but there is nothing stopping you from using [Less](http://lesscss.org/), or even regular CSS. It simply comes down to your own personal preferences.
 
 ## Content Pages & Twig Templates
 
@@ -125,7 +125,7 @@ The story for support **forms** is the same. Create another sub-folder called `f
 
 ### Blueprints
 
-The **blueprints** folder is used to define forms for options and configuration for each of the template files. These are used by the **Administrator Panel** and are optional. The theme is 100% functional without these, but they will not be editable via the administrator panel, unless provided.
+The `blueprints/` folder is used to define forms for options and configuration for each of the template files. These are used by the **Administrator Panel** and are optional. The theme is 100% functional without these, but they will not be editable via the administrator panel, unless provided.
 
 ### SCSS / LESS / CSS
 
@@ -142,7 +142,7 @@ By default, this will compile your scss files into the `css-compiled/` folder.  
 
 ### Other Folders
 
-We recommend creating individual folders at the root of your theme for `images/`, `fonts/` and `js` to contain your custom theme images, any custom web fonts, and javascript files required.
+We recommend creating individual folders at the root of your theme for `images/`, `fonts/` and `js/` to contain your custom theme images, any custom web fonts, and javascript files required.
 
 ## Theme Example
 
