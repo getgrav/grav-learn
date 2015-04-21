@@ -4,11 +4,11 @@ taxonomy:
     category: docs
 ---
 
-**Blueprints** are an important aspect of a plugin and theme, they serve two purposes and we are going to cover them both.
+**Blueprints** are an important aspect of a plugin and theme. They serve two purposes and we are going to cover them both.
 
 The honest truth is that if you are not a developer, and just use Grav, then you could live without knowing that Blueprints even existed and you should not care much about them.
 
-Blueprints are a container of metadata informations regarding a resource. The first set of metadata informations is the identity of the resource itself, the second set is about the forms. All this information is stored in a `blueprints.yaml` file and can be found at the root of each plugin and theme.
+Blueprints are a container of metadata information regarding a resource. The first set of metadata information is the identity of the resource itself, the second set is about the forms. All this information is stored in a `blueprints.yaml` file and can be found at the root of each plugin and theme.
 
 ## Resource Identity
 
@@ -51,17 +51,17 @@ form:
         type: bool
 ```
 
-There are different properties that you can use to give your resource and identity, some are **required**, others are _optional_.
+There are different properties that you can use to give your resource an identity. Some are **required**, others are _optional_.
 
 |      property     |                                                                                                                                                                                description                                                                                                                                                                                |
 | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| __name*__         | This is the name of the resource. Avoid appending Plugin or Theme, there is no need for that                                                                                                                                                                                                                                                                              |
+| __name*__         | This is the name of the resource. Avoid appending Plugin or Theme, there is no need for that.                                                                                                                                                                                                                                                                              |
 | __version*__      | The version of the resource. This value should always change on each release, incrementally. You should follow the [semver](http://semver.org/) standard, too.                                                                                                                                                                                                            |
 | __description*__  | The description of your resource. Please don't exceed **200** characters. A description should be short and straight to the point. You can use markdown syntax if needed. It's also a good idea to wrap your description in quotation marks.                                                                                                                              |
 | __icon*__         | Icon is what will be used on [getgrav.org](http://getgrav.org). At this stage, we are using [FontAwesome](http://fortawesome.github.io/Font-Awesome/icons/) icons library, so if you are developing a new plugin or theme, it should be your job to ensure the icon you picked is not already used. Otherwise we will have to change it for you.                          |
-| _screenshot_      | _(optional)_ Screenshot is only ever evaluated for _Themes_ and completely ignored for _Plugins_. For _Themes_, this would be the filename of the screenshot that comes with the theme (default: `screenshot.jpg`). If you have a _screenshot.jpg_ image at the root of your theme, then you can avoid using this property, our repository will automatically pick it up. |
+| _screenshot_      | _(optional)_ Screenshot is only ever evaluated for _Themes_ and completely ignored for _Plugins_. For _Themes_, this would be the filename of the screenshot that comes with the theme (default: `screenshot.jpg`). If you have a _screenshot.jpg_ image at the root of your theme, then you can avoid using this property. Our repository will automatically pick it up. |
 | __author.name*__  | The developer full name                                                                                                                                                                                                                                                                                                                                                   |
-| _author.email_    | The developer email.                                                                                                                                                                                                                                                                                                                                                      |
+| _author.email_    | _(optional)_ The developer email.                                                                                                                                                                                                                                                                                                                                                      |
 | _author.url_      | _(optional)_ The developer homepage.                                                                                                                                                                                                                                                                                                                                      |
 | _homepage_        | _(optional)_ If you have a dedicated homepage for your resource, this would be the place for it.                                                                                                                                                                                                                                                                          |
 | _docs_            | _(optional)_ If you have written documentation for your resource, you can link them here.                                                                                                                                                                                                                                                                                 |
@@ -94,4 +94,4 @@ license: MIT
 
 The **Forms** metadata defines what aspect of the resource is configurable through the **Admin Plugin**.
 
->>> Although this is working already, the Admin Plugin is still a work in progress, further updates to this document will come as soon as the new admin will be available.
+>>> Although this is working already, the Admin Plugin is still a work in progress. Further updates to this document will come as soon as the new admin will be available.
