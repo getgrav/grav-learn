@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-A new feature introduced in Grav 0.9.0 was the **Asset Manager** to unify the interface throughout Grav for adding and managing **CSS** and **JavaScript**.  The primary purpose of the Asset Manager is to simplify the process of adding assets from themes and plugins while providing enhanced capabilities such as ordering, and providing an **Asset Pipeline** that can be used to **minify** and **compress** assets to reduce the number of browser requests, and also the over size of the assets.
+A new feature introduced in Grav 0.9.0 was the **Asset Manager** to unify the interface throughout Grav for adding and managing **CSS** and **JavaScript**.  The primary purpose of the Asset Manager is to simplify the process of adding assets from themes and plugins while providing enhanced capabilities such as ordering, and providing an **Asset Pipeline** that can be used to **minify** and **compress** assets to reduce the number of browser requests, and also the overall size of the assets.
 
 The Asset Manager is just a class that is available throughout Grav via the plugin event hooks, but also directly in themes via Twig calls.
 
@@ -23,7 +23,7 @@ assets:                                # Configuration for Assets Manager (JS, C
 
 ## Assets in Themes
 
-An example of how you can add CSS files in your theme can be found in the default **antimatter** theme that comes bundled with Grav. If you have a look at the `base.html.twig` partial and specifically the [stylesheets block](https://github.com/getgrav/grav-theme-antimatter/blob/develop/templates/partials/base.html.twig#L19-L40) you will see the following:
+An example of how you can add CSS files in your theme can be found in the default **antimatter** theme that comes bundled with Grav. If you have a look at the `base.html.twig` partial and specifically the [stylesheets block](https://github.com/getgrav/grav-theme-antimatter/blob/develop/templates/partials/base.html.twig#L12-L28) you will see the following:
 
 ```
     {% block stylesheets %}
@@ -63,7 +63,7 @@ The `assets.css()` call renders the CSS assets out as HTML tags.
 
 #### add(asset [, priority=10] [, pipeline=true])
 
-The add method does it's best attempt to match an asset based on file extension.  It is a convenience method, it's better to call one of the direct methods for CSS or JS.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets. The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
+The add method does its best attempt to match an asset based on file extension.  It is a convenience method, it's better to call one of the direct methods for CSS or JS.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets. The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
 
 #### addCss(asset [, priority=10] [, pipeline=true])
 
@@ -99,11 +99,11 @@ Retrieves a list of HTML JavaScript link tags based on all the JavaScript assets
 
 #### registerCollection(name, array)
 
-Allows you to register an array of JS and JavaScript assets with a name for later use by the `add()` method. Particularly useful if you want to register a collection that may be used by multiple themes or plugins, such as JQuery or Bootstrap.
+Allows you to register an array of JS and JavaScript assets with a name for later use by the `add()` method. Particularly useful if you want to register a collection that may be used by multiple themes or plugins, such as jQuery or Bootstrap.
 
 ## Named Assets
 
-Grav now has a powerful feature called **named assets** that allows you to register a collection of CSS and JavaScript assets with a name.  Then you can simple **add** those assets to the Asset Manager via the name you registered the collection with.  Grav comes preconfigured with **JQuery** but has the ability to define custom collections in the `system.yaml` to be used by any theme or plugin:
+Grav now has a powerful feature called **named assets** that allows you to register a collection of CSS and JavaScript assets with a name.  Then you can simply **add** those assets to the Asset Manager via the name you registered the collection with.  Grav comes preconfigured with **jQuery** but has the ability to define custom collections in the `system.yaml` to be used by any theme or plugin:
 
 ```
 assets:
@@ -126,7 +126,7 @@ $assets->registerCollection('bootstrap', $bootstrap_bits);
 $assets->add('bootstrap', 100);
 ```
 
-An example of this is action can be found in the [**bootstrapper** plugin](https://github.com/getgrav/grav-plugin-bootstrapper/blob/develop/bootstrapper.php#L51-L71).
+An example of this action can be found in the [**bootstrapper** plugin](https://github.com/getgrav/grav-plugin-bootstrapper/blob/develop/bootstrapper.php#L51-L71).
 
 ## Static Assets
 
