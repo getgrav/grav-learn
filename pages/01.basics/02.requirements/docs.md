@@ -86,7 +86,7 @@ However, if you are running on a dedicated server, or even your local environmen
 chgrp -R www-data .
 find . -type f | xargs chmod 664
 find . -type d | xargs chmod 775
-find . -type d | xargs +s
+find . -type d | xargs chmod +s
 umask 0002
 ```
 
