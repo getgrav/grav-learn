@@ -129,7 +129,7 @@ So we will now create a simple Bootstrap friendly base template:
         	{# Bootstrap core CSS #}
         	{% do assets.add('theme://css/bootstrap.min.css',101) %}
 
-			{# Custom styles for this theme #}
+		{# Custom styles for this theme #}
         	{% do assets.add('theme://css/bootstrap-custom.css',100) %}
 
         	{{ assets.css() }}
@@ -247,7 +247,7 @@ This is a very simple file because all of the hard-work has already been done by
 
 ### Step 7 - Theme CSS
 
-You might have noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via the chunk of HTML: `<link href="{{ theme_url }}/css/bootstrap-custom.css" rel="stylesheet">`.  This file will house any custom CSS we need to fill in the gaps not provided by the Bootstrap CSS.
+You might have noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via Asset Manager: `do assets.add('theme://css/bootstrap-custom.css',100)`.  This file will house any custom CSS we need to fill in the gaps not provided by the Bootstrap CSS.
 
 1. In your `user/themes/bootstrap/css` folder, create a file called `bootstrap-custom.css` with the following content:
 
