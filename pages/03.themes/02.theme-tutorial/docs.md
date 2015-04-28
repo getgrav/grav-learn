@@ -348,7 +348,7 @@ You might have noticed that in the `partials/base.html.twig` file we made refere
 		}
 
 		blockquote > blockquote > blockquote > blockquote > blockquote > blockquote > p {
-			/* Blue */
+			/* Green */
 			margin-left: -150px;
 			color: #3c763d;
 			background-color: #dff0d8;
