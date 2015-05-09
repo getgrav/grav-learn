@@ -12,7 +12,7 @@ However, we knew that we wanted to ensure Grav could grow and provide powerful f
 
 All the key objects in Grav are accessible through a powerful [Dependency Injection Container](http://en.wikipedia.org/wiki/Dependency_injection).  With Grav's event hooks throughout the entire life cycle, you can access anything that Grav knows about, and manipulate it as you need.  With this system you have complete control to add as much functionality as you need.
 
-The plugins have proved so easy to write, and so flexible and powerful, that we can not stop creating them! We already have [30 freely downloadable plugins](http://getgrav.org/downloads/plugins#extras) that do everything from displaying a **sitemap**, providing **breadcrumbs**, displaying blog **archives**, a simple **search engine**, to providing a fully-functional JavaScript-powered **shopping cart**!
+The plugins have proved so easy to write, and so flexible and powerful, that we can not stop creating them! We already have [46 freely downloadable plugins](http://getgrav.org/downloads/plugins#extras) that do everything from displaying a **sitemap**, providing **breadcrumbs**, displaying blog **archives**, a simple **search engine**, to providing a fully-functional JavaScript-powered **shopping cart**!
 
 The best way to learn what can be done with plugins is to download some of these and look at what they are doing, and how they are doing it. In the next chapter we will [create a simple plugin from scratch](../plugin-tutorial)!
 
