@@ -15,7 +15,7 @@ Using this directory structure as an example, we will take a look at the differe
 To get us started, here is a quick look at some of the common components of a Grav link, and what they mean.
 
 ```
-![Linked Content](../path/slug/page)
+[Linked Content](../path/slug/page)
 ```
 
 | String |                                                                           Description                                                                            |
