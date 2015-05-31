@@ -102,7 +102,7 @@ In an absolute link, the link opens with a `/`. Here is an example of an absolut
 ![Test Image 2](/blog/test-slug/test_image_2.jpg)
 ```
 
->>>>>> A powerful technique is to create a `user/images/` folder in your Grav site and put your images here.  Then you can easily reference them with an absolute URL from any Grav page: `/images/test_image_4.jpg` and still be able to perform [media actions](../media) on them.
+>>>>>> A powerful technique is to create a `user/pages/images/` folder in your Grav site and put your images here.  Then you can easily reference them with an absolute URL from any Grav page: `/images/test_image_4.jpg` and still be able to perform [media actions](../media) on them.
 
 ### Remote
 
