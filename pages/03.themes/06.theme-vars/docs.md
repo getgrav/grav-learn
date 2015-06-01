@@ -36,6 +36,8 @@ The `{{ theme_dir }}` variable returns the file directory folder of the current 
 
 The `{{ theme_url }}` returns the relative URL to the current theme.
 
+>>> When linking to assets like images or JavaScript and CSS files, it's recommended to use the `url()` function in combination with the `theme://` stream as described on the [Twig Filters & Functions](/themes/twig-filters-functions#url) page. For JavaScript and CSS, the [Asset Manager](/themes/asset-manager) is even easier to use but in some cases like dynamic or conditional loading of assets, it will not work.
+
 ### config object
 
 You can access any Grav configuration setting via the config object as set in the `configuration.yaml` file.  For example:
