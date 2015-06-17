@@ -1,1 +1,6 @@
 home_url: http://getgrav.org
+github:
+    enabled: true
+    position: top
+    tree: https://github.com/getgrav/grav-learn/blob/develop/
+    commits: https://github.com/getgrav/grav-learn/commits/develop/
