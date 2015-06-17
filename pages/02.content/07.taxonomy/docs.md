@@ -85,10 +85,10 @@ In your theme, you can easily display a list of pages that are written by `ksmit
 You can also do sophisticated searches based on multiple taxonomies by using arrays/hashes, for example:
 
 ```bash
-{% for post in taxonomy.findTaxonomy({'tags':['animal','cat'],'author':'jdoe'}) %}
+{% for post in taxonomy.findTaxonomy({'tag':['animal','cat'],'author':'jdoe'}) %}
 ```
 
-This will find all posts with `tags` set to `animal` **and** `cat` **and** `author` set to `jdoe`.  Basically, this will specifically find **Post 2**.
+This will find all posts with `tag` set to `animal` **and** `cat` **and** `author` set to `jdoe`.  Basically, this will specifically find **Post 2**.
 
 ## Taxonomy based Collections
 
