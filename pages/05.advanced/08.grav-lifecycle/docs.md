@@ -51,10 +51,11 @@ It is often useful to know how Grav processes in order to fully understand how b
   	      1. Set standard Twig variables (config, uri, taxonomy, assets, browser, etc)
   	  1. Initialize `pages`
   	      ### Pages.php {.level-3}
-  	      1. Call `buildPages()`
+          1. Call `buildPages()`
   	      1. Check if cache is good
   	      1. If **cache is good** load pages date from cache
   	      1. If **cache is not good** call `recurse()`
+          1. Fire **onBuildPagesInitialized** event in `recurse()`
   	      1. If a `.md` file is found:
   	          ### Page.php {.level-4}
   	          1. Call `init()` to load the file details

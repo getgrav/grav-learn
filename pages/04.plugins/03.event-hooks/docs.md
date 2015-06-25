@@ -23,6 +23,7 @@ Most events within Grav fire in a specific order and it is important to understa
 1. [onPageProcessed](../event-hooks#onpageprocessed) _(each page not cached yet)_
 1. [onPageContentProcessed](../event-hooks#onpagecontentprocessed) _(each page not cached yet)_
 1. [onFolderProcessed](../event-hooks#onfolderprocessed) _(for each folder found)_
+1. [onBuildPagesInitialized](../event-hooks#onbuildpagesinitialized) _(once when pages are reprocessed)_
 1. [onBlueprintCreated](../event-hooks#onblueprintcreated)
 1. [onPagesInitialized](../event-hooks#onpagesinitialized)
 1. [onPageNotFound](../event-hooks#onpagenotfound)
@@ -122,6 +123,10 @@ Where Twig processes the full site template hierarchy.  This is where you should
 If you need to manipulate a collection after it has been processed this is the time to do it.
 
 ## Page Event Hooks
+
+#### onBuildPagesInitialized
+
+This event is triggered once when pages are going to be reprocessed.  This typically happens if the cache has expired or needs refreshing.  This is a useful event to use for plugins that need to manipulate content and cache the results.
 
 #### onBlueprintCreated
 
