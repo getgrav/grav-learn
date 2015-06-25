@@ -108,7 +108,7 @@ The `html` action will output a valid HTML tag for the media based on the curren
 {% set tab2 %}
 {% verbatim %}
 ```
-{{ page.media['sample-image.jpg'].html('My title', Some ALT text', 'myclass') }}
+{{ page.media['sample-image.jpg'].html('My title', 'Some ALT text', 'myclass') }}
 ```
 {% endverbatim %}
 {% endset %}
