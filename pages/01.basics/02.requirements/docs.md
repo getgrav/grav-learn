@@ -74,7 +74,7 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 
 For Grav to function properly your webserver needs to have appropriate **file permissions** in order to write logs, caches, etc.  Also when using either the [CLI](/advanced/grav-cli) or [GPM](/advanced/grav-gpm), the user running PHP from the command line, also needs to have permission to modify files also.
 
-By default Grav will install with `644` and `755` permissions for folders and files respectively. Most hosting providers have configurations that ensure the webserver running PHP, will create and modify files as your user account.  This means that Grav runs **out-of-the-box** on the vast majority of hosting providers.
+By default Grav will install with `644` and `755` permissions for files and folders respectively. Most hosting providers have configurations that ensure the webserver running PHP, will create and modify files as your user account.  This means that Grav runs **out-of-the-box** on the vast majority of hosting providers.
 
 However, if you are running on a dedicated server, or even your local environment, you may need to adjust permissions to ensure you **user** and your **webserver** can modify files as needed.  There are a couple of approaches you can take.
 
