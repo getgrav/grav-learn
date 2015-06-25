@@ -144,6 +144,18 @@ Take an arbitrary string containing markdown and convert it to HTML using the ma
 
 `'something with **markdown** and [a link](http://www.cnn.com)'|markdown` <i class="icon-right-open"></i> {{ 'something with **markdown** and [a link](http://www.cnn.com)'|markdown }}
 
+##### Starts-With Filter
+
+Takes a needle and a haystack and determines if the haystack starts with the needle.  Also now works with an array of needles and will return `true` if **any** haystack starts with the needle.
+
+`'the quick brown fox'|starts_with('the')` = {{  'the quick brown fox'|starts_with('the') ? 'true' : 'false' }}
+
+##### Ends-With Filter
+
+Takes a needle and a haystack and determines if the haystack ends with the needle.  Also now works with an array of needles and will return `true` if **any** haystack ends with the needle.
+
+`'the quick brown fox'|ends_with('fox')` = {{  'the quick brown fox'|ends_with('fox') ? 'true' : 'false' }}
+
 ### Twig Functions
 
 Twig functions are called directly with any parameters being passed in via parenthesis.
