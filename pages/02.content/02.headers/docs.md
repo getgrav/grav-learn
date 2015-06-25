@@ -207,6 +207,22 @@ http_response_code: 404
 
 Allows the dynamic setting of an HTTP Response Code.
 
+### ETag
+
+```ruby
+etag: true
+```
+
+Enable or disable on a page level whether or not to display an ETag header variable with a unique value. False by default unless overridden in your `system.yaml`.
+
+### LastModified
+
+```ruby
+last_modified: true
+```
+
+Enable or disable on a page level whether or not to display an Last Modified header variable with modified date. False by default unless overridden in your `system.yaml`.
+
 
 ## Meta Page Headers
 
