@@ -55,13 +55,13 @@ errors:
 The ability to log information is often useful, and once again, Grav provides us with a simple put powerful logging feature.  Use one of the following syntaxes:
 
 ```
-$grav['logger']->info('My informational message');
-$grav['logger']->notice('My notice message');
-$grav['logger']->debug('My debug message');
-$grav['logger']->warning('My warning message');
-$grav['logger']->error('My error message');
-$grav['logger']->critical('My critical message');
-$grav['logger']->emergency('Emergency, emergency, there is an emergency here!');
+$grav['log']->info('My informational message');
+$grav['log']->notice('My notice message');
+$grav['log']->debug('My debug message');
+$grav['log']->warning('My warning message');
+$grav['log']->error('My error message');
+$grav['log']->critical('My critical message');
+$grav['log']->emergency('Emergency, emergency, there is an emergency here!');
 
 ```
 
