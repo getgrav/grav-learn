@@ -149,4 +149,20 @@ The `include_lang` option forces the language to be included in the url.  For ex
 
 #### Language-Based Twig Templates
 
-By default, Grav chooses
+By default, Grav uses the markdown filename to determine the Twig template to use to render.  This works with multi-language the same way.  For example, `default.fr.md` would look for a twig file called `default.html.twig` in the appropriate Twig template paths of the current theme and any plugins that register Twig template paths.  With multi-language, Grav also adds the current active language to the path structure.  What this means is that if you need to have a language-specific Twig file, you can just put those into a root level language folder.  For example if your current theme is using a template located at `templates/default.html.twig` you can create an `templates/fr/` folder, and put your French-specific Twig file in there: `templates/fr/default.html.twig`.
+
+Another option which requires manual setup is to override the `template:` setting in the page headers. For example:
+
+```
+template: default.fr
+```
+
+This will look for a template located at `templates/default.fr.html.twig`
+
+This provides you with two options for providing language specific Twig overrides.
+
+>>> If no language-specific Twig template is provided, the default one will be used.
+
+#### Translation Support
+
+Grav provides a simple yet powerful mechanism for providing translations in Twig and also via PHP for use in themes and plugins.
