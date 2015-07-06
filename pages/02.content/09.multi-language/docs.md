@@ -71,7 +71,7 @@ Now you have defined two pages for you current homepage in multiple languages.
 
 >>> Please excuse my awful Google-translate-based translations! Feel free to edit this page and issue a PR if you have a more accurate translation :)
 
-#### Active Language based on URL
+#### Active Language Via URL
 
 As English is the default language, if you were to point your browser without specifying a language you would get the content as described in the `default.en.md` file, but you could also explicitly request English by pointing your browser to
 
@@ -165,4 +165,4 @@ This provides you with two options for providing language specific Twig override
 
 #### Translation Support
 
-Grav provides a simple yet powerful mechanism for providing translations in Twig and also via PHP for use in themes and plugins.
+Grav provides a simple yet powerful mechanism for providing translations in Twig and also via PHP for use in themes and plugins. The translations use the same list of languages as defined by the `languages: supported:` in your `system.yaml`.
