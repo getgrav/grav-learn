@@ -82,6 +82,27 @@ visible: false
 
 By default, a page is **visible** in the **navigation** if the surrounding folder has a numerical prefix, i.e. `/01.home` is visible, while `/error` is **not visible**. This behavior can be overwritten by setting the `visible` variable in the header. Valid values are `true` or `false`.
 
+### Routes
+
+```
+routes:
+  default: /my/example/page
+  canonical: /canonical/url/alias
+  aliases:
+    - /some/other/route
+    - /can-be-any-valid-slug
+```
+
+With Grav **0.9.30** you can now provide a **default route** that overrides the standard route structure as defined by the folder structure.
+
+You can also specify a specific **canonical route** that can be used in themes to output a canonical link:
+
+```
+<link rel="canonical" href="https://yoursite/dresses/green-dresses-are-awesome" />
+```
+
+Lastly, you can specify an array of **route aliases** that can be used as alternative routes for a particular page.
+
 ### Routable
 
 ```ruby

@@ -117,7 +117,7 @@ Les mammifères (classe des Mammalia) forment un taxon inclus dans les vertébr�
 
 This combined with appropriate **slug-overrides** in the other files should result in a URL of `http://yoursite.com/animaux/mammiferes/ours` which is much more French looking!
 
-Another option is to make use of the new [page-level route alias](../headers#routes) support and provide a full route alias for the page.
+Another option is to make use of the new [page-level routes](../headers#routes) support and provide a full route alias for the page.
 
 #### Language-Based Homepage
 
