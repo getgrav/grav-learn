@@ -163,6 +163,88 @@ This provides you with two options for providing language specific Twig override
 
 >>> If no language-specific Twig template is provided, the default one will be used.
 
-#### Translation Support
+### Translation Support
 
 Grav provides a simple yet powerful mechanism for providing translations in Twig and also via PHP for use in themes and plugins. The translations use the same list of languages as defined by the `languages: supported:` in your `system.yaml`.
+
+The translation system works in a similar fashion to Grav configuration and there are several places and ways you can provide translations.
+
+The first place Grav looks for translation files is in the `system/languages` folder. Files are expected to be created in the format: `en.yaml`, `fr.yaml`, etc.  Each yaml file should contain an array or nested arrays of key/values pairs:
+
+```
+SITE_NAME: My Blog Site
+HEADER:
+    MAIN_TEXT: Welcome to my new blog site
+    SUB_TEXT: Check back daily for the latest news
+```
+
+For ease of identification, Grav prefers the use of capitalized language strings as this helps to determine untranslated strings and also makes it clearer when used in Twig templates.
+
+#### Translation via Twig
+
+The simplest way to use these translation strings in your Twig templates is to use the `|t` Twig filter.  You can also use the `t()` Twig function, but frankly the filter is cleaner and does the same thing:
+
+```
+<h1 id="site-name">{{ "SITE_NAME"|t }}</h1>
+<section id="header">
+    <h2>{{ "HEADER.MAIN_TEXT"|t }}</h2>
+    <h3>{{ "HEADER.SUB_TEXT"|t }}</h3>
+</section>
+```
+
+Using the Twig function `t()` the solution is similar:
+
+```
+<h1 id="site-name">{{ t("SITE_NAME") }}</h1>
+<section id="header">
+    <h2>{{ t("HEADER.MAIN_TEXT") }}</h2>
+    <h3>{{ t("HEADER.SUB_TEXT") }}</h3>
+</section>
+```
+
+#### Translations with Variables
+
+You can also use variables in your Twig translations by using [PHP's sprintf](http://php.net/sprintf) syntax:
+
+```
+SIMPLE_TEXT: There are %d monkeys in the %s
+```
+
+And then you can populate those variables with the Twig:
+
+```
+{{ "SIMPLE_TEXT"|t(12, "London Zoo" }}      // There are 12 monkeys in the London Zoo
+```
+
+#### PHP Translations
+
+As well as the Twig filter and functions you can use the same approach within your plugin
+
+#### Plugin and Theme Support
+
+You can also provide your own translations in plugins and themes.  This is done by creating a `languages.yaml` file in the root of your plugin or theme (e.g. `/user/plugins/error/languages.yaml`), and should contain all the supported languages prefixed by the language or locale code:
+
+```
+en:
+    PLUGIN_ERROR_TITLE: Error Plugin
+    PLUGIN_ERROR_DESCRIPTION: The error plugin provides a simple mechanism for handling error pages within Grav.
+fr:
+    PLUGIN_ERROR_TITLE: Plugin d'Erreur
+    PLUGIN_ERROR_DESCRIPTION: Le plugin d'erreur fournit un mécanisme simple pour la manipulation des pages d'erreur au sein.
+```
+
+#### Translation Overrides
+
+If you wish to override a particular translation, simply put the modified key/value pair in an appropriate language file in your `user/languages/` folder.  For example a file called `user/languages/en.yaml` could contain:
+
+```
+PLUGIN_ERROR_TITLE: My Error Plugin
+```
+
+This will ensure that you can always override a translation string without messing around with the plugins or themes themselves.
+
+>>>>> It's a good idea to use a more specific prefix for your translation keys to ensure your keys are unique and do not override other core, plugins, or theme translations.
+
+
+
+
