@@ -138,14 +138,14 @@ There are a couple of other optional `language:` settings that effect the homepa
 
 ```
 languages:
-  home:
-    redirect: true
+  home_redirect:
     include_lang: true
+    include_route: false
 ```
 
-The `redirect` setting will force Grav to redirect you to the homepage route.  So `http://yoursite.com` automatically becomes `http://yoursite.com/homepage`.
+The `home_redirect.include_lang: true` setting will force Grav to redirect you to the default language route.  For example, if English is your default language, `http://yoursite.com` automatically redirects to `http://yoursite.com/en`.
 
-The `include_lang` option forces the language to be included in the url.  For example if you had both `redirect: true` and `include_lang: true`, going to `http://yoursite.com` would result in `http://yoursite.com/en/homepage`.
+The `include_route` option forces the language to be included in the url.  For example if you had both `home_redirect.include_route: true` then pointing your browser to `http://yoursite.com` would result in `http://yoursite.com/en/homepage`.
 
 #### Language-Based Twig Templates
 
