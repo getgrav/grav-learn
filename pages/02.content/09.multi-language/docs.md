@@ -265,7 +265,17 @@ And then you can populate those variables with the Twig:
 
 #### PHP Translations
 
-As well as the Twig filter and functions you can use the same approach within your plugin
+As well as the Twig filter and functions you can use the same approach within your Grav plugin:
+
+```
+$translation = $grav['Language']->translate(['HEADER.MAIN_TEXT']);
+```
+
+You can also specify a language:
+
+```
+$translation = $grav['Language']->translate(['HEADER.MAIN_TEXT'], 'fr');
+```
 
 #### Plugin and Theme Support
 
