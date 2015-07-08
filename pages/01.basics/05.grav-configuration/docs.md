@@ -50,9 +50,10 @@ pages:
       '>': 'gt'
       '<': 'lt'
   types: 'txt|xml|html|json|rss|atom'  # Pipe separated list of valid page types
-  expires: 0                           # Page expires time in seconds (604800 seconds = 7 days)
+  expires: 604800                      # Page expires time in seconds (604800 seconds = 7 days)
   last_modified: false                 # Set the last modified date header based on file modifcation timestamp
   etag: false                          # Set the etag header tag
+  redirect_default_route: false        # Automatically redirect to a page's default route
 
 cache:
   enabled: true                        # Set to true to enable caching
@@ -81,7 +82,7 @@ assets:                                # Configuration for Assets Manager (JS, C
   js_minify: true                      # Minify the JS during pipelining
   enable_asset_timestamp: false        # Enable asset timestamps
   collections:
-    jquery: system://assets/jquery/jquery-2.1.3.min.js
+    jquery: system://assets/jquery/jquery-2.1.4.min.js
 
 errors:
   display: true                        # Display full backtrace-style error page
@@ -100,6 +101,11 @@ images:
 media:
   enable_media_timestamp: false        # Enable media timetsamps
   upload_limit: 0                      # Set maximum upload size in bytes (0 is unlimited)
+
+session:
+    enabled: true                      # Enable Session support
+    timeout: 1800                      # Timeout in seconds
+    name: grav-site                    # Name prefix of the session cookie
 ```
 
 >>> You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
