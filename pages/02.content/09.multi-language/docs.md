@@ -4,17 +4,19 @@ taxonomy:
     category: docs
 ---
 
-Multi-Language support was added to Grav in version **0.9.30** as a result of a great [community discussion](https://github.com/getgrav/grav/issues/1700) on the subject. Basically multi-language support in Grav consists of several key parts:
+Multi-Language support was added to Grav in version **0.9.30** as a result of a great [community discussion](https://github.com/getgrav/grav/issues/1700) on the subject. Multi-language support in Grav consists of several key parts:
 
-1. Multiple concurrent languages for a given Grav site
-1. Multiple language-based markdown files providing custom header/contents
-1. Auto-detected language based on URL
-1. Custom home page aliases based on language
-1. Language fallback based on language order
+1. [Multiple concurrent languages](#multi-language#multi-language-basics) for a given Grav site
+1. [Language fallback](#language-configuration) based on language order
 1. Language code (`en`) or Local-based codes (`en-GB`)
-1. Custom routes based on language
-1. Active language based Twig template overrides
-1. Translation support in `.yaml` format via Twig filters, functions and PHP function
+1. [Multiple language-based markdown files](#multiple-language-pages) providing custom header/contents
+1. Auto-detected [active language based on URL](#active-language-via-url)
+1. [Custom routes based on language](#multi-language-routing)
+1. [Language-based home page aliases](#language-based-homepage)
+1. Active language-based [Twig template overrides](#language-based-twig-templates)
+1. [Environment-based language handling](#environment-based-language-handl)
+1. [Language alias routes](#language-alias-routes) and switching between language versions of a page
+1. [Translation support](#translation-support) in `.yaml` format via Twig filters, functions and PHP function
 
 We will now break these down and provide examples on how you can setup your Grav site with multiple languages.
 
@@ -290,6 +292,8 @@ This will ensure that you can always override a translation string without messi
 
 >>>>> It's a good idea to use a more specific prefix for your translation keys to ensure your keys are unique and do not override other core, plugins, or theme translations.
 
+#### Language Switcher
 
+You can download a simple **Language Switching** plugin via GPM.  The [documentation for it can be found on GitHub](https://github.com/getgrav/grav-plugin-langswitcher.
 
 
