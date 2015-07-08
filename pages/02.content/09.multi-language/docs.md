@@ -163,6 +163,21 @@ This provides you with two options for providing language specific Twig override
 
 >>> If no language-specific Twig template is provided, the default one will be used.
 
+#### Environment-Based Language Handling
+
+You can take advantage of [Grav's Environment Configuration](../../advanced/environment-config) to automatically route users to the correct version of your site based on URL.  For example, if you had a URL such as `http://french.mysite.com` that was an alias for your standard `http://www.mysite.com`, you could setup an environment configuration:
+
+`/user/french.mysite.com/config/system.yaml`
+
+```
+languages:
+  supported:
+    - fr
+    - en
+```
+
+This uses an **inverted language order** so the default language is now `fr` so the French language will show by default.
+
 ### Translation Support
 
 Grav provides a simple yet powerful mechanism for providing translations in Twig and also via PHP for use in themes and plugins. The translations use the same list of languages as defined by the `languages: supported:` in your `system.yaml`.
