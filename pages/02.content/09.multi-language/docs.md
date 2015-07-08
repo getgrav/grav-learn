@@ -14,9 +14,12 @@ Multi-Language support was added to Grav in version **0.9.30** as a result of a 
 1. [Custom routes based on language](#multi-language-routing)
 1. [Language-based home page aliases](#language-based-homepage)
 1. Active language-based [Twig template overrides](#language-based-twig-templates)
+1. [Translation support](#translation-support) in `.yaml` format via Twig filters, functions and PHP function
 1. [Environment-based language handling](#environment-based-language-handl)
 1. [Language alias routes](#language-alias-routes) and switching between language versions of a page
-1. [Translation support](#translation-support) in `.yaml` format via Twig filters, functions and PHP function
+1. [Session-based active language](#session-based-active-language)
+1. [Language Switcher plugin](#language-switcher)
+
 
 We will now break these down and provide examples on how you can setup your Grav site with multiple languages.
 
@@ -165,67 +168,7 @@ This provides you with two options for providing language specific Twig override
 
 >>> If no language-specific Twig template is provided, the default one will be used.
 
-#### Environment-Based Language Handling
 
-You can take advantage of [Grav's Environment Configuration](../../advanced/environment-config) to automatically route users to the correct version of your site based on URL.  For example, if you had a URL such as `http://french.mysite.com` that was an alias for your standard `http://www.mysite.com`, you could setup an environment configuration:
-
-`/user/french.mysite.com/config/system.yaml`
-
-```
-languages:
-  supported:
-    - fr
-    - en
-```
-
-This uses an **inverted language order** so the default language is now `fr` so the French language will show by default.
-
-#### Language Alias Routes
-
-Because each page can have it's own custom route, it would be hard to switch between different language versions of the same page.  However, there is a new **Page.rawRoute()** method on the Page object that will get the same raw route for any of the various language translations of a single page.  All you would need to do is to put the lang code in front to get the proper route to a specific language version of a page.
-
-For example, say you are on a page in English with a custom route of:
-
-```
-/my-custom-english-page
-```
-
-The French page has the custom route of:
-
-```
-/ma-page-francaise-personnalise
-```
-
-You could get the raw page of the English page and that might be:
-
-```
-/blog/custom/my-page
-```
-
-Then just add the language you want and that is your new URL;
-
-```
-/fr/blog/custom/my-page
-```
-
-This will retrieve the same page as `/ma-page-francaise-personnalise`.
-
-### Translation Support
-
-Grav provides a simple yet powerful mechanism for providing translations in Twig and also via PHP for use in themes and plugins. The translations use the same list of languages as defined by the `languages: supported:` in your `system.yaml`.
-
-The translation system works in a similar fashion to Grav configuration and there are several places and ways you can provide translations.
-
-The first place Grav looks for translation files is in the `system/languages` folder. Files are expected to be created in the format: `en.yaml`, `fr.yaml`, etc.  Each yaml file should contain an array or nested arrays of key/values pairs:
-
-```
-SITE_NAME: My Blog Site
-HEADER:
-    MAIN_TEXT: Welcome to my new blog site
-    SUB_TEXT: Check back daily for the latest news
-```
-
-For ease of identification, Grav prefers the use of capitalized language strings as this helps to determine untranslated strings and also makes it clearer when used in Twig templates.
 
 #### Translation via Twig
 
@@ -302,8 +245,89 @@ This will ensure that you can always override a translation string without messi
 
 >>>>> It's a good idea to use a more specific prefix for your translation keys to ensure your keys are unique and do not override other core, plugins, or theme translations.
 
+
+### Advanced
+
+#### Environment-Based Language Handling
+
+You can take advantage of [Grav's Environment Configuration](../../advanced/environment-config) to automatically route users to the correct version of your site based on URL.  For example, if you had a URL such as `http://french.mysite.com` that was an alias for your standard `http://www.mysite.com`, you could setup an environment configuration:
+
+`/user/french.mysite.com/config/system.yaml`
+
+```
+languages:
+  supported:
+    - fr
+    - en
+```
+
+This uses an **inverted language order** so the default language is now `fr` so the French language will show by default.
+
+#### Language Alias Routes
+
+Because each page can have it's own custom route, it would be hard to switch between different language versions of the same page.  However, there is a new **Page.rawRoute()** method on the Page object that will get the same raw route for any of the various language translations of a single page.  All you would need to do is to put the lang code in front to get the proper route to a specific language version of a page.
+
+For example, say you are on a page in English with a custom route of:
+
+```
+/my-custom-english-page
+```
+
+The French page has the custom route of:
+
+```
+/ma-page-francaise-personnalise
+```
+
+You could get the raw page of the English page and that might be:
+
+```
+/blog/custom/my-page
+```
+
+Then just add the language you want and that is your new URL;
+
+```
+/fr/blog/custom/my-page
+```
+
+This will retrieve the same page as `/ma-page-francaise-personnalise`.
+
+### Translation Support
+
+Grav provides a simple yet powerful mechanism for providing translations in Twig and also via PHP for use in themes and plugins. The translations use the same list of languages as defined by the `languages: supported:` in your `system.yaml`.
+
+The translation system works in a similar fashion to Grav configuration and there are several places and ways you can provide translations.
+
+The first place Grav looks for translation files is in the `system/languages` folder. Files are expected to be created in the format: `en.yaml`, `fr.yaml`, etc.  Each yaml file should contain an array or nested arrays of key/values pairs:
+
+```
+SITE_NAME: My Blog Site
+HEADER:
+    MAIN_TEXT: Welcome to my new blog site
+    SUB_TEXT: Check back daily for the latest news
+```
+
+For ease of identification, Grav prefers the use of capitalized language strings as this helps to determine untranslated strings and also makes it clearer when used in Twig templates.
+
+#### Session-Based Active Language
+
+If you wish to remember the active language independently from the URL, you can activate **session-based** storage of the active language.  To enable this, you must ensure you have `session: enabled: true` in [the system.yaml](../../basics/grav-configuration).  Then you need to enable the language setting:
+
+```
+languages:
+  session_store_active: true
+```
+
+This will then store the active language in the session.
+
 #### Language Switcher
 
-You can download a simple **Language Switching** plugin via GPM.  The [documentation for it can be found on GitHub](https://github.com/getgrav/grav-plugin-langswitcher.
+You can download a simple **Language Switching** plugin via GPM:
 
+```
+$ bin/gpm install langswitcher
+```
+
+The [documentation for configuration and implementation can be found on GitHub](https://github.com/getgrav/grav-plugin-langswitcher).
 
