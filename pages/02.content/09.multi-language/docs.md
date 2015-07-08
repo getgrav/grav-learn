@@ -6,7 +6,7 @@ taxonomy:
 
 Multi-Language support was added to Grav in version **0.9.30** as a result of a great [community discussion](https://github.com/getgrav/grav/issues/1700) on the subject. Multi-language support in Grav consists of several key parts:
 
-1. [Multiple concurrent languages](#multi-language#multi-language-basics) for a given Grav site
+1. [Multiple concurrent languages](#multi-language-basics) for a given Grav site
 1. [Language fallback](#language-configuration) based on language order
 1. Language code (`en`) or Local-based codes (`en-GB`)
 1. [Multiple language-based markdown files](#multiple-language-pages) providing custom header/contents
