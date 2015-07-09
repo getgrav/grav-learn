@@ -220,9 +220,9 @@ You can also specify a language:
 $translation = $grav['Language']->translate(['HEADER.MAIN_TEXT'], 'fr');
 ```
 
-#### Plugin and Theme Support
+#### Plugin and Theme Language Translations
 
-You can also provide your own translations in plugins and themes.  This is done by creating a `languages.yaml` file in the root of your plugin or theme (e.g. `/user/plugins/error/languages.yaml`), and should contain all the supported languages prefixed by the language or locale code:
+You can also provide your own translations in plugins and themes.  This is done by creating a `languages.yaml` file in the root of your plugin or theme (e.g. `/user/plugins/error/languages.yaml`, or `user/themes/antimatter/languages.yaml`), and should contain all the supported languages prefixed by the language or locale code:
 
 ```
 en:
