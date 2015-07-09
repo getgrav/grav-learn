@@ -15,6 +15,7 @@ Multi-Language support was added to Grav in version **0.9.30** as a result of a 
 1. [Language-based home page aliases](#language-based-homepage)
 1. Active language-based [Twig template overrides](#language-based-twig-templates)
 1. [Translation support](#translation-support) in `.yaml` format via Twig filters, functions and PHP function
+1. [Plugin and Theme language translations](#plugin-and-theme-language-transl)
 1. [Environment-based language handling](#environment-based-language-handl)
 1. [Language alias routes](#language-alias-routes) and switching between language versions of a page
 1. [Session-based active language](#session-based-active-language)
