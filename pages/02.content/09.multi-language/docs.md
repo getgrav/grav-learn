@@ -11,6 +11,7 @@ Multi-Language support was added to Grav in version **0.9.30** as a result of a 
 1. Language code (`en`) or Local-based codes (`en-GB`)
 1. [Multiple language-based markdown files](#multiple-language-pages) providing custom header/contents
 1. Auto-detected [active language based on URL](#active-language-via-url)
+1. Auto-detected [active langauge based on browser](#active-language-via-browser)
 1. [Custom routes based on language](#multi-language-routing)
 1. [Language-based home page aliases](#language-based-homepage)
 1. Active language-based [Twig template overrides](#language-based-twig-templates)
@@ -77,7 +78,7 @@ Now you have defined two pages for you current homepage in multiple languages.
 
 >>> Please excuse my awful Google-translate-based translations! Feel free to edit this page and issue a PR if you have a more accurate translation :)
 
-#### Active Language Via URL
+#### Active Language via URL
 
 As English is the default language, if you were to point your browser without specifying a language you would get the content as described in the `default.en.md` file, but you could also explicitly request English by pointing your browser to
 
@@ -90,6 +91,18 @@ To access the French version, you would of course, use
 ```
 http://yoursite.com/fr
 ```
+
+#### Active Language via Browser
+
+Most browsers allow you to configure which languages you prefer to see content in. Grav has the ability to read this `http_accept_language` values and compare them to the current supported languages for the site, and if no specific language has been detected, show you content in your preferred language.
+
+For this to function you must enable the option in your `user/system.yaml` file in the `languages:` section:
+
+```
+languages:
+  http_accept_language: true
+```
+
 
 #### Multi-Language Routing
 
@@ -193,6 +206,21 @@ Using the Twig function `t()` the solution is similar:
 </section>
 ```
 
+Another new Twig filter/function allows you to translate from an array.  This is particularly useful if you have a list of values such as months of the year, or days of the week.  For example, say you have this translation:
+
+```
+en:
+  MONTHS_OF_THE_YEAR: [January, February, March, April, May, June, July, August, September, October, November, December]
+```
+
+You could get the appropriate translation for a post's month with the following:
+
+```
+{{ 'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }}
+```
+
+You can also use this as a Twig function with `ta()`.
+
 #### Translations with Variables
 
 You can also use variables in your Twig translations by using [PHP's sprintf](http://php.net/sprintf) syntax:
@@ -219,6 +247,12 @@ You can also specify a language:
 
 ```
 $translation = $grav['Language']->translate(['HEADER.MAIN_TEXT'], 'fr');
+```
+
+To translate a specific item in an array use:
+
+```
+$translation = $grav['Language']->translateArray('MONTHS_OF_THE_YEAR', 3);
 ```
 
 #### Plugin and Theme Language Translations
@@ -296,7 +330,14 @@ This will retrieve the same page as `/ma-page-francaise-personnalise`.
 
 ### Translation Support
 
-Grav provides a simple yet powerful mechanism for providing translations in Twig and also via PHP for use in themes and plugins. The translations use the same list of languages as defined by the `languages: supported:` in your `system.yaml`.
+Grav provides a simple yet powerful mechanism for providing translations in Twig and also via PHP for use in themes and plugins. This is enabled by default, and will use `en` language if no languages are defined.  To manually enable or disable translations, there is a setting in your `system.yaml`:
+
+```
+languages:
+  translations: true
+```
+
+The translations use the same list of languages as defined by the `languages: supported:` in your `system.yaml`.
 
 The translation system works in a similar fashion to Grav configuration and there are several places and ways you can provide translations.
 

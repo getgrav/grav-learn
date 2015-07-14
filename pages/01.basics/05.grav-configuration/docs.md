@@ -21,6 +21,9 @@ absolute_urls: false                   # Absolute or relative URLs for `base_url
 timezone: ''                           # Valid values: http://php.net/manual/en/timezones.php
 param_sep: ':'                         # Parameter separator, use ';' for Apache on windows
 
+languages:
+    translations: true                 # Enable translations by default
+
 home:
   alias: '/home'                       # Default path for home, ie /
 
@@ -49,7 +52,7 @@ pages:
     special_chars:                     # List of special characters to automatically convert to entities
       '>': 'gt'
       '<': 'lt'
-  types: 'txt|xml|html|json|rss|atom'  # Pipe separated list of valid page types
+  types: [txt,xml,html,json,rss,atom]  # list of valid page types
   expires: 604800                      # Page expires time in seconds (604800 seconds = 7 days)
   last_modified: false                 # Set the last modified date header based on file modifcation timestamp
   etag: false                          # Set the etag header tag
@@ -63,7 +66,6 @@ cache:
   prefix: 'g'                          # Cache prefix string (prevents cache conflicts)
   lifetime: 604800                     # Lifetime of cached data in seconds (0 = infinite)
   gzip: false                          # GZip compress the page output
-
 
 twig:
   cache: true                          # Set to true to enable twig caching
@@ -101,11 +103,12 @@ images:
 media:
   enable_media_timestamp: false        # Enable media timetsamps
   upload_limit: 0                      # Set maximum upload size in bytes (0 is unlimited)
+  unsupported_inline_types: []         # Array of unsupported media file types to try to display inline
 
 session:
-    enabled: true                      # Enable Session support
-    timeout: 1800                      # Timeout in seconds
-    name: grav-site                    # Name prefix of the session cookie
+  enabled: true                        # Enable Session support
+  timeout: 1800                        # Timeout in seconds
+  name: grav-site                      # Name prefix of the session cookie
 ```
 
 >>> You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
