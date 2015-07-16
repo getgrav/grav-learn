@@ -712,7 +712,7 @@ Let's say you wanted to just pull the `alt_text` value listed for the image file
 
 {% verbatim %}
 ```ruby
-{{ page.media['sample-image.jpg'].alt_text }}
+{{ page.media['sample-image.jpg'].meta.alt_text }}
 ```
 {% endverbatim %}
 
