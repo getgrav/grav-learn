@@ -34,7 +34,7 @@ Simply find the `/blog` page, obtain it's children, order them by date in a desc
 
 ##### Problem:
 
-You want to display all the blogs posts that have occurred in this calendar year.
+You want to display all the blog posts that have occurred in this calendar year.
 
 ##### Solution:
 
