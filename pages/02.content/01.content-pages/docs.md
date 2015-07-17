@@ -156,6 +156,7 @@ This allows you to perform a wide variety of functionality from any page on your
 {% verbatim %}
 ```
 # All Projects
+<ul>
 {% for p in page.find('/projects').children if p != page %}
 <li><a href="{{p.url}}">{{ p.title }}</a></li>
 {% endfor %}
