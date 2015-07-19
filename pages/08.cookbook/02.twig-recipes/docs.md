@@ -6,11 +6,11 @@ taxonomy:
 
 This page contains an assortment of problems and their respective solutions related to Twig templating.
 
-1. [List the Last 5 Recent Blog Posts](#list-the-last-5-recent-blog-post)
-1. [List the Blog Posts for the Year](#list-the-blog-posts-for-the-year)
-1. [Displaying a Translated Month](#displaying-a-translated-month)
+1. [List the last 5 recent blog posts](#list-the-last-5-recent-blog-post)
+1. [List the blog bosts for the year](#list-the-blog-posts-for-the-year)
+1. [Displaying a translated month](#displaying-a-translated-month)
 
-### List the Last 5 Recent Blog Posts
+### List the last 5 recent blog posts
 
 ##### Problem:
 
@@ -30,7 +30,7 @@ Simply find the `/blog` page, obtain it's children, order them by date in a desc
 </ul>
 ```
 
-### List the Blog Posts for the Year
+### List the blog bosts for the year
 
 ##### Problem:
 
@@ -51,7 +51,7 @@ Simply find the `/blog` page, obtain it's children, filter by appropriate `dateR
 </ul>
 ```
 
-### Displaying a Translated Month
+### Displaying a translated month
 
 ##### Problem:
 

@@ -6,10 +6,11 @@ taxonomy:
 
 This page contains an assortment of problems and their respective solutions related to Grav in general.
 
-1. [Creating a Simple Gallery](#creating-a-simple-gallery)
+1. [Creating a simple gallery](#creating-a-simple-gallery)
+1. [Render content in blocks or columns](#render-content-in-columns)
 
 
-### Creating a Simple Gallery
+### Creating a simple gallery
 
 ##### Problem:
 
@@ -69,3 +70,47 @@ Now we need to display these images in reverse chronological order so the newest
 Basically this extends the standard `partials/base.html.twig` (assuming your theme has this file), it then defines the `content` block and provides the content for it.  The first thing we do is echou out any `page.content`.  This would be the content of the `gallery.md` file, so it could contain a title, and a description of this page.
 
 The next section simply loops over all the media of the page that are **images**.  We are outputting these in an unordered list to make the output semantic, and easy to style with CSS.  we are assigning each image the variable name `image` and then we are able to perform a simple `cropResize()` method to resize the image to something suitable, and then below it we provide an information section with the `title` and `description`.
+
+### Render content in columns
+
+##### Problem:
+
+A question that has come up several times is how to quickly render a single page in multiple columns.
+
+##### Solution:
+
+There are many potential solutions, but one simple solutions is to divide up your content into logical sections using a delimiter such as as the HTML `<hr />` or *thematic break* tag.  In markdown this is represented by 3 or more dashes or `---`.  We simply create our content and separate are sections of content with these dashes:
+
+**columns.md**
+
+    ---
+    title: 'Columns Page Test'
+    ---
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas arcu leo, hendrerit ut rhoncus eu, dictum vitae ligula. Suspendisse interdum at purus eget congue. Aliquam erat volutpat. Proin ultrices ligula vitae nisi congue sagittis. Nulla mollis, libero id maximus elementum, ante dolor auctor sem, sed volutpat mauris nisl non quam.
+
+    ---
+    Phasellus id eleifend risus. In dui tellus, dignissim id viverra non, convallis sed ante. Suspendisse dignissim, felis vitae faucibus dictum, dui mi tempor lectus, non porta elit libero quis orci. Morbi porta neque quis magna imperdiet hendrerit.
+
+    ---
+    Praesent eleifend commodo purus, sit amet viverra nunc dictum nec. Mauris vehicula, purus sed convallis blandit, massa sem egestas ex, a congue odio lacus non quam. Donec vitae metus vitae enim imperdiet tempus vitae sit amet quam. Nam sed aliquam justo, in semper eros. Suspendisse magna turpis, mollis quis dictum sit amet, luctus id tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eu rutrum mi.
+
+>>> Note: the extra line after the column and before the `---`.  This is because if you put a triple dash right underneath text, it's actually interpreted as a header.
+
+Then we simply need to render this content with a `columns.html.twig` template (as the page file was named `columns.md`):
+
+```
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    <table>
+        <tr>
+            {% for column in page.content|split('<hr />') %}
+            <td>{{ column }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+{% endblock %}
+```
+
+You can see how the content is being **split** by the `<hr />` tag and converted into an array of 3 columns which we loop over and render.  In this example we are using a simple HTML table tag, but you could use anything you wish.
