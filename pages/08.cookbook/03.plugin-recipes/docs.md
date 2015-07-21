@@ -6,7 +6,7 @@ taxonomy:
 
 This page contains an assortment of problems and their respective solutions related to Grav plugins.
 
-1. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
+1. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxo)
  
 ### Filter taxonomies using the taxonomylist plugin
  
