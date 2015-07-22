@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Multi-Language support was added to Grav in version **0.9.30** as a result of a great [community discussion](https://github.com/getgrav/grav/issues/1700) on the subject. Multi-language support in Grav consists of several key parts:
+Multi-Language support was added to Grav in version **0.9.30** as a result of a great [community discussion](https://github.com/getgrav/grav/issues/170) on the subject. Multi-language support in Grav consists of several key parts:
 
 1. [Multiple concurrent languages](#multi-language-basics) for a given Grav site
 1. [Language fallback](#language-configuration) based on language order
