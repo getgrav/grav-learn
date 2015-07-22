@@ -26,31 +26,32 @@ Each theme should have a definition file called `blueprints.yaml` which has some
 
 ```ruby
 name: Antimatter
-version: 1.0
-author: Team Grav
-url: http://getgrav.org
-description: This is the default theme for Grav
+version: 1.6.0
+description: "Antimatter is the default theme included with **Grav**"
+icon: empire
+author:
+  name: Team Grav
+  email: devs@getgrav.org
+  url: http://getgrav.org
+homepage: https://github.com/getgrav/grav-theme-antimatter
+demo: http://demo.getgrav.org/blog-skeleton
+keywords: antimatter, theme, core, modern, fast, responsive, html5, css3
+bugs: https://github.com/getgrav/grav-theme-antimatter/issues
+license: MIT
 
 form:
+  validation: loose
   fields:
-    enabled:
+    dropdown.enabled:
         type: toggle
-        label: Theme status
+        label: Dropdown in navbar
         highlight: 1
         default: 1
         options:
-            1: Enabled
-            0: Disabled
+          1: Enabled
+          0: Disabled
         validate:
-            type: bool
-    color:
-        type: select
-        label: Color
-        default: blue
-        options:
-            blue: Blue
-            red: Red
-            green: Green
+          type: bool
 ```
 
 >>>> The form fields can be safely ignored at this point. These are provided for our testing of a new administration plugin to provide configuration of the theme. As this is not currently available, they are unused.
