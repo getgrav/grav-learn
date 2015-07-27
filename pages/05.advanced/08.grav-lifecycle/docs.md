@@ -15,34 +15,50 @@ It is often useful to know how Grav processes in order to fully understand how b
   1. Obtain Grav instances
   	  ### Grav.php {.level-2}
   	  1. No instance exists, so call `load()`
-  	  1. Add `config_path`
   	  1. Add `grav`
-  	  1. Add `events`
+      1. Initializer the debugger and add it to `debugger`
+      1. Register the `log` hanlder
+      1. Register the `error` handler
   	  1. Add `uri`
-  	  1. Add `config`
-  	  1. Add `cache`
-  	  1. Add `plugins`
+  	  1. Add `task`
+      1. Add `events`
+      1. Add `cache`
+      1. Add `session`
+      1. Add `plugins`
   	  1. Add `themes`
   	  1. Add `twig`
-  	  1. Add `taxonomy`
+      1. Add `taxonomy`
+      1. Add `language`
   	  1. Add `pages`
-  	  1. Add `assetes`
+  	  1. Add `assets`
   	  1. Add `page`
   	  1. Add `output`
-  	  1. Add `browser`
-  	  1. Register `streams`
-  1. Initializer debugger
+      1. Add `browser`
+      1. Add `base_url_absolute`
+      1. Add `base_url_relative`
+      1. Add `base_url`
+  	  1. Register the `stream` handler
+      1. Register the `config` handler
   1. call `$grav->process()`
   	  ### Grav.php {.level-2}
+      1. Initialize the configuration
+      1. Initialize the Session
+      1. Initialize the Uri object
+      1. Initialize the error handler
+      1. Initialize the debugger
   	  1. Start output buffering
-  	  1. Initialize the stream `locator`
-  	  1. Initialize `plugins`
+      1. Initialize the timezone
+      1. Initialize the `plugins`
   	  1. Fire **onPluginsInitalized** event
+      1. Initialize the theme
+      1. Fire **onThemeInitialized** event
+      1. Fire **onTask[TASK]** event
   	  1. Initalize `assets`
   	  1. Fire **onAssetsInitalized** event
   	  1. Initialize `twig`
   	      ### Twig.php {.level-3}
   	      1. Set Twig template paths based on configuration
+          1. Handle language templates if available
   	      1. Fire **onTwigTemplatePaths** event
   	      1. Load Twig configuration and loader chain
   	      1. Fire **onTwigInitialized** event
@@ -68,24 +84,25 @@ It is often useful to know how Grav processes in order to fully understand how b
   	       1. If a `folder` found `recurse()` the children
   	       1. Fire **onFolderProcessed** event
   	       1. Call `buildRoutes()`
-  	       1. Initialize `taxonomoy` for all pages
+  	       1. Initialize `taxonomy` for all pages
   	       1. Build `route` table for fast lookup
   	  1. Fire **onPagesInitialized** event
-  	  1. Get current `page` via `dispatch()`
-  	  1. If page not found, fire **onPageNotFound** event
   	  1. Fire **onPageInitialized** event
-  	  1. Get Output with Twig's `processSite()` method
-  	      ### Twig.php {.level-3}
-  	      1. Fire **onTwigSiteVariables** event
-  	      1. Set all Twig variables on the Twig object
-  	      1. Set the template name based on file/header/extension information
-  	      1. Call `render()` method
-  	      1. Return resulting HTML
-  	  1. Fire **onOutputGenerated** event
-  	  1. Set the HTTP headers
-  	  1. Echo the the output
-  	  1. Flush the output buffers to the page
-  	  1. Fire **onOutputRendered** event
+      1. Add the debugger CSS/JS to the assets
+      1. Get Output with Twig's `processSite()` method
+          ### Twig.php {.level-3}
+          1. Fire **onTwigSiteVariables** event
+          1. Get the page output
+          1. Fire **onPageNotFound** if page is not found or not routable
+          1. Set all Twig variables on the Twig object
+          1. Set the template name based on file/header/extension information
+          1. Call `render()` method
+          1. Return resulting HTML
+      1. Fire **onOutputGenerated** event
+      1. Set the HTTP headers
+      1. Echo the the output
+      1. Flush the output buffers to the page
+      1. Fire **onOutputRendered** event
       1. Connection to client is closed
       1. Fire **onShutdown** event
 
