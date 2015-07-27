@@ -8,6 +8,7 @@ This page contains an assortment of problems and their respective solutions rela
 
 1. [Creating a simple gallery](#creating-a-simple-gallery)
 1. [Render content in blocks or columns](#render-content-in-columns)
+1. [Realy simple css image slider](#realy-simple-css-image-slider)
 
 
 ### Creating a simple gallery
@@ -114,3 +115,63 @@ Then we simply need to render this content with a `columns.html.twig` template (
 ```
 
 You can see how the content is being **split** by the `<hr />` tag and converted into an array of 3 columns which we loop over and render.  In this example we are using a simple HTML table tag, but you could use anything you wish.
+
+### Realy simple css image slider
+
+##### Problem:
+
+You need a image slider without any overhead.
+
+##### Solution:
+
+This recipe is for 4 images! Simply put the images where the .md file is. I create a new twig template and extend the base.html.twig.  
+
+```
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+
+    <div id="slider">
+        <figure>
+        {% for image in page.media.images %}
+            {{ image.html }}
+        {% endfor %}
+        </figure>
+    </div>
+
+    {{ page.content }}
+{% endblock %}
+```
+
+Time for css stuff. Add this to you _custom.scss
+
+```
+@keyframes slidy {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+}
+body { margin: 0; }
+div#slider {
+    overflow: hidden;
+    margin-top: -3rem;
+    max-height: 30rem;
+}
+div#slider figure img { width: 20%; float: left; }
+div#slider figure {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    animation: 30s slidy infinite;
+}
+```
+
+Thats all.
+
