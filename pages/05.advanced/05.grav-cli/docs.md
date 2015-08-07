@@ -79,6 +79,8 @@ $ cd ~/webroot/my-grav-project
 $ bin/grav clear-cache
 ```
 
+There are several options for this command.  They include: `--all`, `--assets-only`, `--images-only`, and `--cache-only`
+
 ## Creating a Backup
 
 Backing up your project is nothing more than creating an archive of the _ROOT_ of Grav. No Database, no complications.
@@ -90,13 +92,12 @@ $ cd ~/workspace/portfolio
 $ bin/grav backup
 ```
 
-A new backup `portfolio-20140812174352.zip` file has been created at the _ROOT_ of the project. The long number after the name is just the date in the format of _year month day hour minute second_.
+A new backup `portfolio-20140812174352.zip` file has been created at the `backup/` folder of the project. The long number after the name is just the date in the format of _year month day hour minute second_.
 
-You can also pass a destination. So let's say we want to backup our `portfolio` project under `~/Documents/Backups`, this is what we will do instead:
+## Composer Update
+
+If you installed Grav via GitHub and have manually installed composer-based vendor packages, you can easily update with:
 
 ```bash
-$ cd ~/workspace/portfolio
-$ bin/grav backup ~/Documents/Backups
+$ bin/grav composer
 ```
-
-Very simple. Like above, a new backup has been created, but this time in a different location: `~/Documents/Backups/portfolio-20140812174352.zip`
