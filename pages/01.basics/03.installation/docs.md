@@ -66,7 +66,7 @@ $ php -S localhost:8000
 
 This runs the built-in PHP web server.  Then, point your browser to `http://localhost:8000` and you should see your Grav site.
 
->>>> Using the built-in PHP web server is not intended for production environments.  It is intended for development environments only.
+>>>> Using the built-in PHP web server is **intended for quick testing only!**.  Also due to lack of routing functionality with the built-in web server, may Grav plugins will not work.  This includes **Admin**, **SimpleSearch**, **TaxonomyList**, **Feed**, and many others. So please use a proper web server!
 
 ## Successful Installation
 
