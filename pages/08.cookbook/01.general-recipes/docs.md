@@ -8,7 +8,7 @@ This page contains an assortment of problems and their respective solutions rela
 
 1. [Creating a simple gallery](#creating-a-simple-gallery)
 1. [Render content in blocks or columns](#render-content-in-columns)
-1. [Realy simple css image slider](#realy-simple-css-image-slider)
+1. [Really simple css image slider](#really-simple-css-image-slider)
 
 
 ### Creating a simple gallery
@@ -116,7 +116,7 @@ Then we simply need to render this content with a `columns.html.twig` template (
 
 You can see how the content is being **split** by the `<hr />` tag and converted into an array of 3 columns which we loop over and render.  In this example we are using a simple HTML table tag, but you could use anything you wish.
 
-### Realy simple css image slider
+### Really simple css image slider
 
 ##### Problem:
 
