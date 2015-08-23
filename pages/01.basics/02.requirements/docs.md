@@ -10,7 +10,7 @@ Grav has intentionally been designed with few requirements.  You can easily run 
 2. PHP 5.4 or higher
 3. hmm... that's it!
 
-Grav is built with plain text files for your content. There is no database needed, at all.
+Grav is built with plain text files for your content. There is no database needed.
 
 >>> A PHP user cache such as APC, APCU, XCache, Memcache, Redis is highly recommended for optimal performance.  Not to worry though, these are usually already part of your hosting package!
 
@@ -27,7 +27,7 @@ Even though technically you do not need a standalone Web server, it is better to
 
 * [XAMPP](https://www.apachefriends.org/index.html) provides Apache, PHP, and MySQL in one simple package
 * [EasyPHP](http://www.easyphp.org/) provides a personal Web hosting package as well as a more powerful developer version
-* [MAMP](http://mamp.info) is a long-time Mac favorite, but now available for Windows.
+* [MAMP for Windows](http://mamp.info) is a long-time Mac favorite, but now available for Windows.
 * [IIS with PHP](http://php.iis.net/) is a fast way to run PHP on Windows.
 
 ### Linux
@@ -38,7 +38,7 @@ Even though technically you do not need a standalone Web server, it is better to
 
 ### Apache Requirements
 
-Even though most distributions of Apache usually come with everything needed, for the sake of completeness, here is a list required Apache modules:
+Even though most distributions of Apache come with everything needed, for the sake of completeness, here is a list required Apache modules:
 
 * `mod_cache`
 * `mod_expires`
@@ -46,7 +46,7 @@ Even though most distributions of Apache usually come with everything needed, fo
 * `mod_rewrite`
 * `mod_ssl`
 
-You should also ensure you have `AllowOveride All` set in the `<Directory>` and/or `<VirtualHost>` blocks so that the `.htaccess` file will process correctly and you the rewrite rules will take effect.
+You should also ensure you have `AllowOveride All` set in the `<Directory>` and/or `<VirtualHost>` blocks so that the `.htaccess` file processes correctly and rewrite rules take effect.
 
 ### IIS Requirements
 
@@ -72,15 +72,15 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 
 ### Permissions
 
-For Grav to function properly your webserver needs to have appropriate **file permissions** in order to write logs, caches, etc.  Also when using either the [CLI](/advanced/grav-cli) or [GPM](/advanced/grav-gpm), the user running PHP from the command line, also needs to have permission to modify files also.
+For Grav to function properly your webserver needs to have the appropriate **file permissions** in order to write logs, caches, etc.  When using either the [CLI](/advanced/grav-cli) or [GPM](/advanced/grav-gpm), the user running PHP from the command line, also needs to have the appropriate permissions to modify files.
 
-By default Grav will install with `644` and `755` permissions for files and folders respectively. Most hosting providers have configurations that ensure the webserver running PHP, will create and modify files as your user account.  This means that Grav runs **out-of-the-box** on the vast majority of hosting providers.
+By default, Grav will install with `644` and `755` permissions for files and folders respectively. Most hosting providers have configurations that ensure the webserver running PHP will allow you to create and modify files within your user account.  This means that Grav runs **out-of-the-box** on the vast majority of hosting providers.
 
 However, if you are running on a dedicated server, or even your local environment, you may need to adjust permissions to ensure you **user** and your **webserver** can modify files as needed.  There are a couple of approaches you can take.
 
-1. In a **local development environment**, you can usually configure your webserver to run as your user.  This way the web server will always create and modify files as your user and you will never have issues.
+1. In a **local development environment**, you can usually configure your webserver to run under you user profile.  This way the web server will always allow you to create and modify files.
 
-2. Change the **group permissions** on all files and folders so that the webserver's group has write access to files and folders while keeping the standard permissions.  This requires some commands (note: adjust `www-data` to be the group your apache runs under (`www-data`, `apache`, `nobody`, etc):
+2. Change the **group permissions** on all files and folders so that the webserver's group has write access to files and folders while keeping the standard permissions.  This requires a few commands to make this work (note: adjust `www-data` to be the group your apache runs under [`www-data`, `apache`, `nobody`, etc.]):
 
 ```
 chgrp -R www-data .
@@ -96,7 +96,7 @@ umask 0002
 
 ### Text Editors
 
-Although you can get away with Notepad, Textedit, Vi, or whatever default text editor comes on your platform, we recommend using a good text editor with syntax highlighting to make things easier.  Here are some recommended options:
+Although you can get away with Notepad, Textedit, Vi, or whatever default text editor comes with your platform, we recommend using a good text editor with syntax highlighting to make things easier.  Here are some recommended options:
 
 1. [SublimeText](http://www.sublimetext.com/) - OS X/Windows/Linux - A commercial developer's editor, but well worth the price. Very powerful especially combined with plugins such as [Markdown Extended](https://sublime.wbond.net/packages/Markdown%20Extended), [Pretty YAML](https://sublime.wbond.net/packages/Pretty%20YAML), and [PHP-Twig](https://sublime.wbond.net/packages/PHP-Twig).
 2. [Atom](http://atom.io) - OS X/Windows - A new editor developed by Github. It's free and open source.  It is similar to Sublime, but does not have the sheer depth of plugins available yet.
@@ -109,7 +109,7 @@ Another option if you primarily work with just creating content, is to use a **M
 
 1. [LightPaper](http://www.ashokgelal.com/lightpaper-for-mac) - OS X - Free, clean, powerful.  Our markdown editor of choice on the Mac.
 2. [MarkDrop](http://culturezoo.com/markdrop/) - OS X - $5, but super clean and and Droplr support built-in.
-3. [MarkdownPad](http://markdownpad.com/) - Windows - Free and Pro versions. Even as YAML front-matter support.  A very solid solution for Windows users .
+3. [MarkdownPad](http://markdownpad.com/) - Windows - Free and Pro versions. Even has YAML front-matter support.  A very solid solution for Windows users .
 
 ### FTP Clients
 
@@ -118,6 +118,6 @@ Although there are many ways to deploy **Grav**, the simplest is to simply copy 
 1. [Transmit](http://panic.com/transmit/) - OS X - The de facto FTP/SFTP client on OS X.  Easy to use, fast, folder-syncing and pretty much anything else you could ask for.
 2. [FileZilla](https://filezilla-project.org/) - OS X/Windows/Linux - Probably the best option for Windows and Linux users. Free and very powerful (but very ugly on the Mac!).
 3. [Cyberduck](http://cyberduck.io/) - OS X/Windows - A decent free option for both OS X and Windows users.  Not as full featured as the others.
-4. [ForkLift](http://www.binarynights.com/forklift/) - OS X.  A solid alternative to Transmit, and slightly cheaper to boot.
+4. [ForkLift](http://www.binarynights.com/forklift/) - OS X - A solid alternative to Transmit, and slightly cheaper to boot.
 
 
