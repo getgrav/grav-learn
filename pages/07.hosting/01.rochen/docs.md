@@ -69,7 +69,7 @@ You will see a page that shows the current version of PHP.  Below is a dropdown 
 
 ![](php-settings.png)
 
-Rochen is a rare bread in the world of hosting providers, in that they provide some sophisticated caching extensions for PHP.  To take advantage of these, enable the `apcu` caching extension, and also the Zend `opcache` extension.  Then, click `Save` at the bottom of these options.
+Rochen is a rare breed in the world of hosting providers, in that they provide some sophisticated caching extensions for PHP.  To take advantage of these, enable the `apcu` caching extension, and also the Zend `opcache` extension.  Then, click `Save` at the bottom of these options.
 
 One optimization that you should make is to **disable** the `xdebug` extension which is enabled by default, but not needed in a production environment, in fact it only slows things down.
 
