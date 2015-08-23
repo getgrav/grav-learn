@@ -68,15 +68,13 @@ Then you could create a new page located in the same `01.home/` folder called `d
 
 ```
 ---
-title: Page d'Accueil
+title: Page d'accueil
 ---
 
-Ceci est ma page d'accueil Grav alimenté !
+Ceci est ma page d'accueil alimentée par Grav !
 ```
 
 Now you have defined two pages for you current homepage in multiple languages.
-
->>> Please excuse my awful Google-translate-based translations! Feel free to edit this page and issue a PR if you have a more accurate translation :)
 
 #### Active Language via URL
 
@@ -265,7 +263,7 @@ en:
     PLUGIN_ERROR_DESCRIPTION: The error plugin provides a simple mechanism for handling error pages within Grav.
 fr:
     PLUGIN_ERROR_TITLE: Plugin d'Erreur
-    PLUGIN_ERROR_DESCRIPTION: Le plugin d'erreur fournit un mécanisme simple pour la manipulation des pages d'erreur au sein.
+    PLUGIN_ERROR_DESCRIPTION: Le plugin d'erreur fournit un mécanisme simple de manipulation des pages d'erreur au sein de Grav.
 ```
 
 #### Translation Overrides
@@ -311,7 +309,7 @@ For example, say you are on a page in English with a custom route of:
 The French page has the custom route of:
 
 ```
-/ma-page-francaise-personnalise
+/ma-page-francaise-personnalisee
 ```
 
 You could get the raw page of the English page and that might be:
@@ -326,7 +324,7 @@ Then just add the language you want and that is your new URL;
 /fr/blog/custom/my-page
 ```
 
-This will retrieve the same page as `/ma-page-francaise-personnalise`.
+This will retrieve the same page as `/ma-page-francaise-personnalisee`.
 
 ### Translation Support
 
