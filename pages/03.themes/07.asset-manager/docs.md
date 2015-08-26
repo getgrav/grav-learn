@@ -43,7 +43,7 @@ An example of how you can add CSS files in your theme can be found in the defaul
         {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
             {% do assets.addCss('theme://css/nucleus-ie9.css') %}
             {% do assets.addCss('theme://css/pure-0.5.0/grids-min.css') %}
-            {% do assets.addCss('theme://js/html5shiv-printshiv.min.js') %}
+            {% do assets.addJs('theme://js/html5shiv-printshiv.min.js') %}
         {% endif %}
 
         {{ assets.css() }}
