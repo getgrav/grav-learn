@@ -99,7 +99,7 @@ Retrieves a list of HTML JavaScript link tags based on all the JavaScript assets
 
 #### registerCollection(name, array)
 
-Allows you to register an array of JS and JavaScript assets with a name for later use by the `add()` method. Particularly useful if you want to register a collection that may be used by multiple themes or plugins, such as jQuery or Bootstrap.
+Allows you to register an array of CSS and JavaScript assets with a name for later use by the `add()` method. Particularly useful if you want to register a collection that may be used by multiple themes or plugins, such as jQuery or Bootstrap.
 
 ## Named Assets
 
