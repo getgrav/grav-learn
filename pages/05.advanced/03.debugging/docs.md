@@ -61,6 +61,7 @@ $grav['log']->debug('My debug message');
 $grav['log']->warning('My warning message');
 $grav['log']->error('My error message');
 $grav['log']->critical('My critical message');
+$grav['log']->alert('My alert message');
 $grav['log']->emergency('Emergency, emergency, there is an emergency here!');
 
 ```
