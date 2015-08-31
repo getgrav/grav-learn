@@ -8,6 +8,9 @@ Grav has a powerful regex-based mechanism for handling **route aliases** and **r
 
 These are handled via the [Site Configuration](../../basics/grav-configuration#site-configuration). Grav comes with a sample `system/config/site.yaml` but you can override or add any of your own settings by editing the `user/config/site.yaml` file.
 
+>>> all redirect rules apply on the slug-path beginning after the language part (if you use multi-language pages)
+
+
 ## Route Aliases
 
 ### Simple Aliases
