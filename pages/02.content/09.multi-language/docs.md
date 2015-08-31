@@ -379,12 +379,12 @@ make sure the option
 ```
 pages.redirect_default_route: true
 ```
-is the to true.
+is set to true.
 
-Add following to your .htaccess file and adopt the domain names to your needs:
+Add following to your .htaccess file and adopt the language slugs and domain names to your needs:
 
 ```
-RedirectMatch "^/en/(.*)" "http://grav-site.com/$1"
-RedirectMatch "^/de/(.*)" "http://grav-site.de/$1"
+RewriteRule ^en/(.?) "http://grav-site.com/$1" [R=301,L]
+RewriteRule ^de/(.?) "http://grav-site.de/$1" [R=301,L]
 ```
 
