@@ -2,31 +2,31 @@ git:
     anchors:
         url: https://github.com/getgrav/grav-plugin-anchors
         path: user/plugins/anchors
-        branch: develop
+        branch: master
     simplesearch:
         url: https://github.com/getgrav/grav-plugin-simplesearch
         path: user/plugins/simplesearch
-        branch: develop
+        branch: master
     error:
         url: https://github.com/getgrav/grav-plugin-error
         path: user/plugins/error
-        branch: develop
+        branch: master
     github:
         url: https://github.com/getgrav/grav-plugin-github
         path: user/plugins/github
-        branch: develop
+        branch: master
     highlight:
         url: https://github.com/getgrav/grav-plugin-highlight
         path: user/plugins/highlight
-        branch: develop
+        branch: master
     gravui:
         url: https://bitbucket.org/rockettheme/grav-plugin-gravui
         path: user/plugins/gravui
-        branch: develop
+        branch: master
     learn2:
         url: https://github.com/getgrav/grav-theme-learn2
         path: user/themes/learn2
-        branch: develop
+        branch: master
 links:
     anchors:
         src: grav-plugin-anchors
