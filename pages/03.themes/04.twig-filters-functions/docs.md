@@ -12,97 +12,43 @@ Although Twig already provides an extensive list of [filters, functions, and tag
 
 Twig filters are applied to Twig variables by using the `|` character then the filter name.  Parameters can be passed in just like Twig functions using parenthesis.
 
-##### Safe Email
+##### Absolute URL
 
-The safe email filter converts an email address into ASCII characters to make it harder for email spam bots to recognize and capture.
+Take a relative path and convert it to an absolute URL format including hostname
 
-`"someone@domain.com"|safe_email` <i class="icon-right-open"></i> {{ "someone@domain.com"|safe_email }}
-
-##### Pluralize
-
-Converts a string to the English plural version
-
-`'person'|pluralize` <i class="icon-right-open"></i> **{{ 'person'|pluralize }}**
-
-##### Singularize
-
-Converts a string to the English singular version
-
-`'shoes'|singularize` <i class="icon-right-open"></i> **{{ 'shoes'|singularize }}**
-
-##### Titleize
-
-Converts a string to "Title Case" format
-
-`'welcome page'|titleize` <i class="icon-right-open"></i> **{{ 'welcome page'|titleize }}**
+`'<img src="/some/path/to/image.jpg" />'|absolute_url` <i class="fa fa-long-arrow-right"></i> `{{ '<img src="/some/path/to/image.jpg" />'|absolute_url }}`
 
 ##### Camelize
 
 Converts a string into "CamelCase" format
 
-`'send_email'|camelize` <i class="icon-right-open"></i> **{{ 'send_email'|camelize }}**
+`'send_email'|camelize` <i class="fa fa-long-arrow-right"></i> **{{ 'send_email'|camelize }}**
 
-##### Underscoreize
+##### Contains
 
-Converts a string into "under_scored" format
+Determine if a particular string contains another string
 
-`'CamelCased'|underscorize` <i class="icon-right-open"></i> **{{ 'CamelCased'|underscorize }}**
+`'some string with things in it'|contains('things')` <i class="fa fa-long-arrow-right"></i> **{{ 'some string with things in it'|contains('things') }}**
+
+##### Defined
+
+Sometimes you want to check if some variable is defined, and if it's not, provide a default value.  For example:
+
+`{% set header_image_width  = page.header.header_image_width|defined(900) %}`
+
+This will set the variable `header_image_width` to the value `900` if it's not defined in the page header.
+
+##### Ends-With Filter
+
+Takes a needle and a haystack and determines if the haystack ends with the needle.  Also now works with an array of needles and will return `true` if **any** haystack ends with the needle.
+
+`'the quick brown fox'|ends_with('fox')` <i class="fa fa-long-arrow-right"></i> {{  'the quick brown fox'|ends_with('fox') ? 'true' : 'false' }}
 
 ##### Humanize
 
 Converts a string into a more "human readable" format
 
-`'something_text_to_read'|humanize` <i class="icon-right-open"></i> **{{ 'something_text_to_read'|humanize }}**
-
-##### Monthize
-
-Converts an integer number of days into the number of months
-
-`'181'|monthize` <i class="icon-right-open"></i> **{{ '181'|monthize }}**
-
-##### Ordinalize
-
-Adds an ordinal to the integer (such as 1st, 2nd, 3rd, 4th)
-
-`'10'|ordinalize` <i class="icon-right-open"></i> **{{ '10'|ordinalize }}**
-
-##### MD5
-
-Creates an md5 hash for the string
-
-`'anything'|md5` <i class="icon-right-open"></i> **{{ 'anything'|md5 }}**
-
-##### Randomize
-
-Randomizes the list provided.  If a value is provided as a parameter, it will skip those values and keep them in order.
-
-`array|randomize` {% verbatim %}
-```
-{% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
-{% for ritem in ritems %}{{ ritem }}, {% endfor %}
-```
-{% endverbatim %}
-
-<strong>
-{% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
-{% for ritem in ritems %}{{ ritem }}, {% endfor %}
-</strong>
-
-##### SortByKey
-
-Sort an array map by a particular key
-
-`array|sort_by_key` {% verbatim %}
-```
-{% set people = [{'email':'fred@yahoo.com', 'id':34}, {'email':'tim@exchange.com', 'id':21}, {'email':'john@apple.com', 'id':2}]|sort_by_key('id') %}
-{% for person in people %}{{ person.email }}:{{ person.id }}, {% endfor %}
-```
-{% endverbatim %}
-
-<strong>
-{% set people = [{'email':'fred@yahoo.com', 'id':34}, {'email':'tim@exchange.com', 'id':21}, {'email':'john@apple.com', 'id':2}]|sort_by_key('id') %}
-{% for person in people %}{{ person.email }}:{{ person.id }}, {% endfor %}
-</strong>
+`'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i> **{{ 'something_text_to_read'|humanize }}**
 
 ##### Ksort
 
@@ -120,63 +66,140 @@ Sort an array map by each key
 {% for key, value in ritems %}{{ key }}:{{ value }}, {% endfor %}
 </strong>
 
-##### Contains
+##### Markdown
 
-Determine if a particular string contains another string
+Take an arbitrary string containing markdown and convert it to HTML using the markdown parser of Grav
 
-`'some string with things in it'|contains('things')` <i class="icon-right-open"></i> **{{ 'some string with things in it'|contains('things') }}**
+`'something with **markdown** and [a link](http://www.cnn.com)'|markdown` <i class="fa fa-long-arrow-right"></i> {{ 'something with **markdown** and [a link](http://www.cnn.com)'|markdown }}
+
+##### MD5
+
+Creates an md5 hash for the string
+
+`'anything'|md5` <i class="fa fa-long-arrow-right"></i> **{{ 'anything'|md5 }}**
+
+##### Monthize
+
+Converts an integer number of days into the number of months
+
+`'181'|monthize` <i class="fa fa-long-arrow-right"></i> **{{ '181'|monthize }}**
 
 ##### Nice Time
 
 Output a date in a human readable nice time format
 
-`page.date|nicetime(false)` <i class="icon-right-open"></i> **{{ page.date|nicetime(false) }}**
+`page.date|nicetime(false)` <i class="fa fa-long-arrow-right"></i> **{{ page.date|nicetime(false) }}**
 
-##### Absolute URL
+##### Ordinalize
 
-Take a relative path and convert it to an absolute URL format including hostname
+Adds an ordinal to the integer (such as 1st, 2nd, 3rd, 4th)
 
-`'<img src="/some/path/to/image.jpg" />'|absolute_url` <i class="icon-right-open"></i> `{{ '<img src="/some/path/to/image.jpg" />'|absolute_url }}`
+`'10'|ordinalize` <i class="fa fa-long-arrow-right"></i> **{{ '10'|ordinalize }}**
 
-##### Markdown
+##### Pluralize
 
-Take an arbitrary string containing markdown and convert it to HTML using the markdown parser of Grav
+Converts a string to the English plural version
 
-`'something with **markdown** and [a link](http://www.cnn.com)'|markdown` <i class="icon-right-open"></i> {{ 'something with **markdown** and [a link](http://www.cnn.com)'|markdown }}
+`'person'|pluralize` <i class="fa fa-long-arrow-right"></i> **{{ 'person'|pluralize }}**
+
+##### Randomize
+
+Randomizes the list provided.  If a value is provided as a parameter, it will skip those values and keep them in order.
+
+`array|randomize` {% verbatim %}
+```
+{% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
+{% for ritem in ritems %}{{ ritem }}, {% endfor %}
+```
+{% endverbatim %}
+
+<strong>
+{% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
+{% for ritem in ritems %}{{ ritem }}, {% endfor %}
+</strong>
+
+##### Singularize
+
+Converts a string to the English singular version
+
+`'shoes'|singularize` <i class="fa fa-long-arrow-right"></i> **{{ 'shoes'|singularize }}**
+
+##### Safe Email
+
+The safe email filter converts an email address into ASCII characters to make it harder for email spam bots to recognize and capture.
+
+`"someone@domain.com"|safe_email` <i class="fa fa-long-arrow-right"></i> {{ "someone@domain.com"|safe_email }}
+
+##### SortByKey
+
+Sort an array map by a particular key
+
+`array|sort_by_key` {% verbatim %}
+```
+{% set people = [{'email':'fred@yahoo.com', 'id':34}, {'email':'tim@exchange.com', 'id':21}, {'email':'john@apple.com', 'id':2}]|sort_by_key('id') %}
+{% for person in people %}{{ person.email }}:{{ person.id }}, {% endfor %}
+```
+{% endverbatim %}
+
+<strong>
+{% set people = [{'email':'fred@yahoo.com', 'id':34}, {'email':'tim@exchange.com', 'id':21}, {'email':'john@apple.com', 'id':2}]|sort_by_key('id') %}
+{% for person in people %}{{ person.email }}:{{ person.id }}, {% endfor %}
+</strong>
 
 ##### Starts-With Filter
 
 Takes a needle and a haystack and determines if the haystack starts with the needle.  Also now works with an array of needles and will return `true` if **any** haystack starts with the needle.
 
-`'the quick brown fox'|starts_with('the')` = {{  'the quick brown fox'|starts_with('the') ? 'true' : 'false' }}
+`'the quick brown fox'|starts_with('the')` <i class="fa fa-long-arrow-right"></i> {{  'the quick brown fox'|starts_with('the') ? 'true' : 'false' }}
 
-##### Ends-With Filter
+##### Translate
 
-Takes a needle and a haystack and determines if the haystack ends with the needle.  Also now works with an array of needles and will return `true` if **any** haystack ends with the needle.
+Translate a string into the current language
 
-`'the quick brown fox'|ends_with('fox')` = {{  'the quick brown fox'|ends_with('fox') ? 'true' : 'false' }}
+`'MY_LANGUAGE_KEY_STRING|t'` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
+
+This assumes you have these language strings translated in your site and have enabled multi-language support.  Please refer to the [multi-language documentation](../../content/multi-language) for more detailed information.
+
+##### Titleize
+
+Converts a string to "Title Case" format
+
+`'welcome page'|titleize` <i class="fa fa-long-arrow-right"></i> **{{ 'welcome page'|titleize }}**
+
+##### Trimming a String
+
+You can left-trim and right-trim a string with the following two filters:
+
+`'/this/is/a/path/'|ltrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/this/is/a/path/'|ltrim('/') }}
+
+`'/this/is/a/path/'|rtrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/this/is/a/path/'|rtrim('/') }}
+
+##### Truncate a String
+
+You can easily generated a shortened, truncated, version of a string by using this filter.  It takes a number of characters as the only required field, but has some other options:
+
+`'one sentence. two sentences'|truncate(5)` <i class="fa fa-long-arrow-right"></i> {{ 'one sentence. two sentences'|truncate(5) }}
+
+Simply truncates to 5 characters.
+
+`'one sentence. two sentences'|truncate(5, true)` <i class="fa fa-long-arrow-right"></i> {{ 'one sentence. two sentences'|truncate(5, true) }}
+
+Truncates to closest sentence-end after 5 characters.
+
+You can also truncate HTML text, but should first use the `striptags` filter to remove any HTML formatting that could get broken if you end between tags:
+
+`'<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5)` <i class="fa fa-long-arrow-right"></i> {{ '<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5) }}
+
+##### Underscoreize
+
+Converts a string into "under_scored" format
+
+`'CamelCased'|underscorize` <i class="fa fa-long-arrow-right"></i> **{{ 'CamelCased'|underscorize }}**
+
 
 ### Twig Functions
 
 Twig functions are called directly with any parameters being passed in via parenthesis.
-
-##### Repeat
-
-Will repeat whatever is passed in a certain amount of times.
-
-`repeat('blah ', 10)` <i class="icon-right-open"></i> **{{ repeat('blah ', 10) }}**
-
-##### Url
-
-Will create a URL and convert any PHP URL streams into a valid HTML resources. A default value can be passed in in case the URL cannot be resolved.
-
-`url('theme://images/logo.png')|default('http://www.placehold.it/150x100/f4f4f4')` <i class="icon-right-open"></i> **{{ url('theme://images/logo.png')|default('http://www.placehold.it/150x100/f4f4f4') }}**
-
-##### Gist
-
-Takes a Github Gist ID and creates appropriate Gist embed code
-
-`gist('bc448ff158df4bc56217')` <i class="icon-right-open"></i> {{ gist('bc448ff158df4bc56217')}}
 
 ##### Dump
 
@@ -184,8 +207,28 @@ Takes a valid twig variable and dumps it out into the [Grav debugger panel](../.
 
 `dump(page.header)`
 
-##### Generate Random String
+##### Gist
+
+Takes a Github Gist ID and creates appropriate Gist embed code
+
+`gist('bc448ff158df4bc56217')` <i class="fa fa-long-arrow-right"></i> {{ gist('bc448ff158df4bc56217')}}
+
+##### Random String Generation
 
 Will generate a random string of the required number of characters.  Particularly useful in creating a unique id or key.
 
-`generate_random_string(10)` <i class="icon-right-open"></i> **{{ random_string(10) }}**
+`generate_random_string(10)` <i class="fa fa-long-arrow-right"></i> **{{ random_string(10) }}**
+
+##### Repeat
+
+Will repeat whatever is passed in a certain amount of times.
+
+`repeat('blah ', 10)` <i class="fa fa-long-arrow-right"></i> **{{ repeat('blah ', 10) }}**
+
+##### Url
+
+Will create a URL and convert any PHP URL streams into a valid HTML resources. A default value can be passed in in case the URL cannot be resolved.
+
+`url('theme://images/logo.png')|default('http://www.placehold.it/150x100/f4f4f4')` <i class="fa fa-long-arrow-right"></i> **{{ url('theme://images/logo.png')|default('http://www.placehold.it/150x100/f4f4f4') }}**
+
+
