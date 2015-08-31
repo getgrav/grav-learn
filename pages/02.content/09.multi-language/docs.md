@@ -371,3 +371,20 @@ $ bin/gpm install langswitcher
 
 The [documentation for configuration and implementation can be found on GitHub](https://github.com/getgrav/grav-plugin-langswitcher).
 
+
+#### language specific domains
+
+make sure the option
+
+```
+pages.redirect_default_route: true
+```
+is the to true.
+
+Add following to your .htaccess file and adopt the domain names to your needs:
+
+```
+RedirectMatch "^/en/(.*)" "http://grav-site.com/$1"
+RedirectMatch "^/de/(.*)" "http://grav-site.de/$1"
+```
+
