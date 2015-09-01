@@ -372,19 +372,33 @@ $ bin/gpm install langswitcher
 The [documentation for configuration and implementation can be found on GitHub](https://github.com/getgrav/grav-plugin-langswitcher).
 
 
-#### language specific domains
+#### Setup with language specific domains
+
+configure your site with [Environment-based language handling](#environment-based-language-handling) to assign default languages (the first language) to domains.
+
 
 make sure the option
 
 ```
 pages.redirect_default_route: true
 ```
-is set to true.
+is set to true in your system.yaml.
 
 Add following to your .htaccess file and adopt the language slugs and domain names to your needs:
 
 ```
-RewriteRule ^en/(.?) "http://grav-site.com/$1" [R=301,L]
-RewriteRule ^de/(.?) "http://grav-site.de/$1" [R=301,L]
+# http://www.cheat-sheets.org/saved-copy/mod_rewrite_cheat_sheet.pdf
+# http://www.workingwith.me.uk/articles/scripting/mod_rewrite
+
+# handle top level e.g. http://grav-site.com/de
+RewriteRule ^en/?$ "http://grav-site.com" [R=301,L]
+RewriteRule ^de/?$ "http://grav-site.de" [R=301,L]
+
+# handle sub pages, exclude admin path
+RewriteCond %{REQUEST_URI} !(admin) [NC]
+RewriteRule ^en/(.*)$ "http://grav-site.com/$1" [R=301,L]
+RewriteCond %{REQUEST_URI} !(admin) [NC]
+RewriteRule ^de/(.*)$ "http://grav-site.de/$1" [R=301,L]
 ```
 
+if you know how to simplify the rewrite rules, please edit this page through the github link in the upper left corner
