@@ -201,4 +201,7 @@ order.dir:
 
 The Admin plugin defines many other field types that can be used, in `plugins/admin/themes/grav/templates/forms/fields`.
 
+It's important to note that when `form.validation` is set to `strict`, like in the Archives plugin example, you need to add form blueprints for _all_ the options, otherwise an error will pop up on save.
+If you instead want to just allow to customize a couple of fields to the Admin interface, not all of them, set `form.validation` as `loose`.
+
 >>> Although this is working already, the Admin Plugin is still a work in progress. Further updates to this document will come as soon as the new admin will be available.
