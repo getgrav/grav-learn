@@ -22,7 +22,8 @@ A simple **permissions-fixing** shell script can be used to do this:
     #!/bin/sh
     chown joeblow:staff .
     chown -R joeblow:staff *
-    find . -type f | xargs chmod 664
+    find . -type f ! -path "./bin/" | xargs chmod 664
+    find . -type f -path "./bin/" | xargs chmod 775
     find . -type d | xargs chmod 775
     find . -type d | xargs chmod +s
     umask 0002
