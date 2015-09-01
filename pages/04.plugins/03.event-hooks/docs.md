@@ -91,7 +91,7 @@ The output has been fully processed and sent to the display.
 <a name="onShutdown"></a>
 #### onShutdown
 
-A new and very powerful even that lets you perform actions after Grav has finished processing and the connection to the client has been closed.  This is particularly useful for performing actions that don't need user interaction and potentially could impact performance.  Possible uses include user tracking and jobs processing.
+A new and very powerful event that lets you perform actions after Grav has finished processing and the connection to the client has been closed.  This is particularly useful for performing actions that don't need user interaction and potentially could impact performance.  Possible uses include user tracking and jobs processing.
 
 <a name="onBeforeDownload"></a>
 #### onBeforeDownload
@@ -159,7 +159,7 @@ After a page is parsed and processed.  This is fired for **every page** in the G
 <a name="onPageContentProcessed"></a>
 #### onPageContentProcessed
 
-This even is fired after the page's `content()` method has processed the page content.  This is particularly useful if you want to perform actions on the post-processed content but ensure the results are cached.  Performance is not a problem because this event will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
+This event is fired after the page's `content()` method has processed the page content.  This is particularly useful if you want to perform actions on the post-processed content but ensure the results are cached.  Performance is not a problem because this event will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
 
 <a name="onFolderProcessed"></a>
 #### onFolderProcessed
