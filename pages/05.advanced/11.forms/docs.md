@@ -19,8 +19,29 @@ form:
     name: my-nice-form
     action: /form
     method: post
-    fields: [{ name: name, label: Name, placeholder: 'Enter your name', autofocus: 'on', autocomplete: 'on', type: text, validate: { required: true } }, { name: email, label: Email, placeholder: 'Enter your email address', type: text, validate: { rule: email, required: true } }]
-    buttons: [{ type: submit, value: Submit }, { type: reset, value: Reset }]
+    fields:
+        - name: name
+          label: Name
+          placeholder: Enter your name
+          autofocus: on
+          autocomplete: on
+          type: text
+          validate:
+            required: true
+
+        - name: email
+          label: Email
+          placeholder: Enter your email address
+          type: text
+          validate:
+            rule: email
+            required: true
+
+    buttons:
+        - type: submit
+          value: Submit
+        - type: reset
+          value: Reset
 ```
 
 This is enough to show a form in the page, below the page content.
@@ -30,7 +51,21 @@ It’s as simple form with a name and email field, with two buttons, one to subm
 What happens when you press the `Submit` button? Right now, nothing. You need to specify how the form will be processed. How? By adding a `process` field to the page yaml frontmatter:
 
 ```
-    process: [{ email: { from: '{{ config.plugins.email.from }}', to: ['{{ config.plugins.email.from }}', '{{ form.value.email }}'], subject: '[Feedback] {{ form.value.name|e }}', body: '{% include ''forms/data.html.twig'' %}' } }, { save: { fileprefix: feedback-, dateformat: Ymd-His-u, extension: txt, body: '{% include ''forms/data.txt.twig'' %}' } }, { message: 'Thank you from your feedback!' }, { display: thankyou }]
+process:
+    - email:
+        from: "{{ config.plugins.email.from }}"
+        to:
+          - "{{ config.plugins.email.from }}"
+          - "{{ form.value.email }}"
+        subject: "[Feedback] {{ form.value.name|e }}"
+        body: "{% include 'forms/data.html.twig' %}"
+    - save:
+        fileprefix: feedback-
+        dateformat: Ymd-His-u
+        extension: txt
+        body: "{% include 'forms/data.txt.twig' %}"
+    - message: Thank you from your feedback!
+    - display: thankyou
 ```
 
 What does this do is simple: it executes the passed actions in serie.
