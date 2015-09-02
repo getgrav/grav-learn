@@ -346,7 +346,7 @@ Get the top-level pages for a simple menu:
 
 ### uri object
 
-The Uri object has several methods to access parts of the current URI. For the full URL `http://mysite.com/grav/section/category/page.json/param:foo?query=bar`:
+The Uri object has several methods to access parts of the current URI. For the full URL `http://mysite.com/grav/section/category/page.json/param1:foo/param2:bar/?query1=baz&query2=qux`:
 
 ##### path()
 
@@ -360,17 +360,21 @@ This returns the array of path elements: (e.g. `uri.paths` = `[section, category
 
 This returns the route as either an absolute or relative URL.  (e.g. `uri.route(true)` = `http://mysite.com/grav/section/category/page` or `uri.route()` = `/section/category/page`)
 
-##### query()
-
-This returns the query portion of the URL: (e.g. `uri.query` = `query=foo`)
-
 ##### params()
 
-This returns the params portion of the URL: (e.g. `uri.params` = `param:foo`)
+This returns the params portion of the URL: (e.g. `uri.params` = `/param1:foo/param2:bar`)
 
 ##### param(id)
 
-This returns the value of a particular param.  (e.g. `uri.param['param']` = `foo`)
+This returns the value of a particular param.  (e.g. `uri.param('param1')` = `foo`)
+
+##### query()
+
+This returns the query portion of the URL: (e.g. `uri.query` = `query1=bar&query2=qux`)
+
+##### query(id)
+
+You can also retrieve specfic query items: (e.g. `uri.query('query1')` = `bar`)
 
 ##### url([include_host = true])
 
