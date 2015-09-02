@@ -370,7 +370,7 @@ This returns the params portion of the URL: (e.g. `uri.params` = `param:foo`)
 
 ##### param(id)
 
-This returns the value of a particular param.  (e.g. `uri.param['param']` = `foo`)
+This returns the value of a particular param.  (e.g. `uri.param('param')` = `foo`)
 
 ##### url([include_host = true])
 
