@@ -6,13 +6,13 @@ process:
     twig: true
 ---
 
-![Grav Admin Themes](themes.png) 
+![Grav Admin Themes](themes.png)
 
 The **Themes** in the admin is where you can go to add and manage your site's themes.
 
 In this page, we will explore how to manage existing themes, and add a new one to your site.
 
-## Controls
+### Controls
 
 ![Grav Admin Themes](themes_1.png)
 
@@ -22,11 +22,11 @@ Along the top of the **Themes** area of the admin, you will find the <i class="f
 
 <i class="fa fa-refresh"></i> **Check for Updates** checks your presently-installed themes for any updates.
 
-### Adding a New Theme
+#### Adding a New Theme
 
 ![Grav Admin Themes](themes_2.png)
 
-<i class="fa fa-plus"></i> **Add** pulls up a display of currently-available Grav themes you can add to your site. This is a quick and easy way to install a new theme. Simply select the <i class="fa fa-plus"></i> **Install** button to install the theme. 
+<i class="fa fa-plus"></i> **Add** pulls up a display of currently-available Grav themes you can add to your site. This is a quick and easy way to install a new theme. Simply select the <i class="fa fa-plus"></i> **Install** button to install the theme.
 
 ![Grav Admin Themes](themes_3.png)
 
@@ -34,7 +34,7 @@ Doing so will take you to the themes **Information** panel which contains more d
 
 You can also delete the theme from your site by selecting the red <i class="fa fa-fw fa-warning"></i> **Remove Theme** button in the bottom-right area of the panel.
 
-## Installed Themes
+### Installed Themes
 
 ![Grav Admin Themes](themes_4.png)
 

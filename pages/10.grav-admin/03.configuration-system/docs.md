@@ -8,7 +8,7 @@ process:
 
 ![Grav Admin Configuration](configuration.png)
 
-The **Configuration** page gives you access to your site's **System** and **Site** configuration settings. Additionally, you can view a breakdown of your server's properties in a number of areas including PHP, SQL, server environment, and other various components that determine how your site operates.
+The **Configuration** page gives you access to your site's **System** and **Site** configuration settings. Additionally, you can view a breakdown of your server's properties in a number of areas including PHP, server environment, and other various components that determine how your site operates.
 
 The **System** tab enables you to customize the settings found in the `/user/config/system.yaml` file. These settings affect how many of the primary system-related features of Grav operate. The site's home page, caching settings, and more can be configured here.
 
@@ -16,7 +16,7 @@ These settings are separated into several sections, each focusing on a specific 
 
 Below is a breakdown of the different configuration sections that appear in the **System** tab.
 
-## Content
+### Content
 
 ![Grav Admin Configuration](configuration_system_content.png)
 
@@ -37,7 +37,7 @@ This section is where you set the basic properties of content handling for your 
 | Events                  | Enable or Disable specific events.  Disabling these can break plugins.     |
 | Redirect Default Route  | Automatically redirect to a page's default route.                          |
 
-## Languages
+### Languages
 
 ![Grav Admin Configuration](configuration_system_languages.png)
 
@@ -52,7 +52,7 @@ Multilanguage features are set in this section.
 | Home Redirect Include Language | Include language in home redirect (/en).                                  |
 | Home Redirect Include Route    | Home redirect include route.                                              |
 
-## HTTP Headers
+### HTTP Headers
 
 ![Grav Admin Configuration](configuration_system_http.png)
 
@@ -65,7 +65,7 @@ HTTP header options can be set in this section. This is useful for browser-based
 | ETag                 | Sets the etag header to help identify when a page has been modified.            |
 | Vary Accept Encoding | Sets the *Vary: Accept Encoding* header to help with proxy and CDN caching.     |
 
-## Markdown
+### Markdown
 
 ![Grav Admin Configuration](configuration_system_markdown.png)
 
@@ -78,7 +78,7 @@ Markdown makes up the bulk of Grav's page content. This section gives you option
 | Auto URL Links   | Enable automatic conversion of URLs into HTML hyperlinks.                                     |
 | Escape Markup    | Escape markup tags into HTML entities.                                                        |
 
-## Caching
+### Caching
 
 ![Grav Admin Configuration](configuration_system_caching.png)
 
@@ -93,7 +93,7 @@ Grav's integrated caching feature helps make it one of the fastest flat-file CMS
 | Lifetime           | Sets the cache lifetime in seconds. 0 = infinite.                                           |
 | Gzip Compression   | Enable GZip compression of the Grav page for increased performance.                         |
 
-## Twig Templating
+### Twig Templating
 
 ![Grav Admin Configuration](configuration_system_twig.png)
 
@@ -106,7 +106,7 @@ This section focuses on Grav's Twig templating feature. You can set Twig caching
 | Detect Changes       | Twig will automatically recompile the Twig cache if it detects any changes in Twig templates. |
 | Autoescape Variables | Autoescapes all variables. This will break your site most likely.                             |
 
-## Assets
+### Assets
 
 ![Grav Admin Configuration](configuration_system_assets.png)
 
@@ -123,7 +123,7 @@ This section deals with assets handling, including CSS and JavaScript assets.
 | Enable Timestamps on Assets | Enable asset timestamps.                                                        |
 | Collections                 | Add individual asset collections.                                               |
 
-## Error Handler
+### Error Handler
 
 ![Grav Admin Configuration](configuration_system_error.png)
 
@@ -134,7 +134,7 @@ You can set how Grav handles error reporting and display here. This is a useful 
 | Display Error | Display full backtrace-style error page. |
 | Log Errors    | Log errors to /logs folder.              |
 
-## Debugger
+### Debugger
 
 ![Grav Admin Configuration](configuration_system_debugger.png)
 
@@ -146,7 +146,7 @@ Like error handling, Grav's integrated debugging tools give you the ability to l
 | Debug Twig                | Enable debugging of Twig templates.                                    |
 | Shutdown Close Connection | Close the connection before calling onShutdown(). false for debugging. |
 
-## Media
+### Media
 
 ![Grav Admin Configuration](configuration_system_media.png)
 
@@ -160,7 +160,7 @@ This section determines how Grav handles media content. Image quality, file uplo
 | File Upload Limit          | Set maximum upload size in bytes (0 is unlimited).                                                        |
 | Enable Timestamps on Media | Appends a timestamp based on last modified date to each media item.                                       |
 
-## Session
+### Session
 
 ![Grav Admin Configuration](configuration_system_session.png)
 
@@ -172,7 +172,7 @@ This section gives you the ability to enable session support, set timeout limits
 | Timeout | Sets the session timeout in seconds.                       |
 | Name    | An identifier used to form the name of the session cookie. |
 
-## Advanced
+### Advanced
 
 ![Grav Admin Configuration](configuration_system_advanced.png)
 

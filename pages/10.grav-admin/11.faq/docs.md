@@ -8,7 +8,7 @@ process:
 
 This FAQ is intended to provide useful tutorials, tips, and tricks to help you get the most out of the Grav Admin plugin.
 
-## Adding and Managing Users
+### Adding and Managing Users
 
 Adding new users to the Grav Admin is actually pretty simple, but it requires a bit of work in the terminal/command prompt to do. From your terminal, access the root of the Grav site you'd like to add users to, and type the following command:
 

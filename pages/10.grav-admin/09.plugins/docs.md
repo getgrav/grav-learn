@@ -6,25 +6,25 @@ process:
     twig: true
 ---
 
-![Grav Admin Plugins](plugins.png) 
+![Grav Admin Plugins](plugins.png)
 
 The **Plugins** area of the admin is where you can go to manage your plugins, add new ones, remove existing ones, and quickly access links to documentation and other information.
 
 In this page, we will explore this area of the admin in detail, including how to active and deactivate installed plugins, and add new ones with ease.
 
-## Controls
+### Controls
 
 ![Grav Admin Plugins](plugins_1.png)
 
-The **Controls** area at the top of the page give you access to the ability to add new plugins, as well as check for updates for existing ones. 
+The **Controls** area at the top of the page give you access to the ability to add new plugins, as well as check for updates for existing ones.
 
 ![Grav Admin Plugins](plugins_2.png)
 
 The <i class="fa fa-plus"></i> Add button takes you to a page listing all of the currently-available Grav plugins, enabling you to view their information and install them by selecting the <i class="fa fa-plus"></i> Install button to the right of the plugin.
 
-The <span color="purple"><i class="fa fa-check-circle"></i></span> icon indicates that the plugin is created and supported by the Grav team. Plugins without this icon were created by third-party developers.
+>>>>> The <span color="purple"><i class="fa fa-check-circle"></i></span> icon indicates that the plugin is created and supported by the Grav team. Plugins without this icon were created by third-party developers.
 
-## Installed Plugins
+### Installed Plugins
 
 ![Grav Admin Plugins](plugins_4.png)
 

@@ -12,11 +12,11 @@ The **Page Editor** in the admin is a powerful text editor and page manager that
 
 It's essentially a one-stop-shop for managing a specific page.
 
-In this page, we will go over the features and functionality found in the **Options** tab of the **Page Editor**. 
+In this page, we will go over the features and functionality found in the **Options** tab of the **Page Editor**.
 
 >>>>> You might notice the check boxes to the left of some of the options in this area of the admin. These boxes indicate that you would like to override the default values for this page. Leaving them unchecked reverts to blank or default states.
 
-## Publishing
+### Publishing
 
 ![Grav Admin Page Editor](page_options_publishing.png)
 
@@ -30,7 +30,7 @@ This section is all about controlling the way your content is published. You can
 | Unpublished Date | This is the date/time you would like to mark for the page to to automatically trigger un-publication.                                                    |
 | Metadata         | Default metadata values that will be displayed on every page unless overridden by the page                                                               |
 
-## Taxonomies
+### Taxonomies
 
 ![Grav Admin Page Editor](page_options_taxonomies.png)
 
@@ -43,7 +43,7 @@ The Taxonomies area is where you can configure your page's organizational proper
 | Month    |                                                                                                                                                                         |
 |          |                                                                                                                                                                         |
 
-## Sitemap
+### Sitemap
 
 ![Grav Admin Page Editor](page_options_sitemap.png)
 

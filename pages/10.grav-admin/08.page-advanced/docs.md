@@ -12,15 +12,15 @@ The **Page Editor** in the admin is a powerful text editor and page manager that
 
 It's essentially a one-stop-shop for managing a specific page.
 
-In this page, we will go over the features and functionality found in the **Advanced** tab of the **Page Editor**. 
+In this page, we will go over the features and functionality found in the **Advanced** tab of the **Page Editor**.
 
 >>>>> You might notice the check boxes to the left of some of the options in this area of the admin. These boxes indicate that you would like to override the default values for this page. Leaving them unchecked reverts to blank or default states.
 
-## Settings
+### Settings
 
 ![Grav Admin Page Editor](page_advanced_settings.png)
 
-The **Settings** area focuses on various critical options for your page. This is where you would go to change the name of the folder the page is stored in, its parent, and the template used when displaying the page. 
+The **Settings** area focuses on various critical options for your page. This is where you would go to change the name of the folder the page is stored in, its parent, and the template used when displaying the page.
 
 | Option                | Description                                                                                                                      |
 | :-----                | :-----                                                                                                                           |
@@ -30,7 +30,7 @@ The **Settings** area focuses on various critical options for your page. This is
 | Display Template      | Sets the template (provided by the theme) to be applied to the page. This has a direct affect on how the page looks.             |
 | Body Classes          | Classes entered in this field are applied to the body of the page.                                                               |
 
-## Ordering
+### Ordering
 
 ![Grav Admin Page Editor](page_advanced_ordering.png)
 
@@ -40,7 +40,7 @@ The **Ordering** section gives you the ability to configuring page ordering of n
 | :-----     | :-----                                              |
 | Page Order | Enables you to configure the ordering for the page. |
 
-## Overrides
+### Overrides
 
 ![Grav Admin Page Editor](page_advanced_overrides.png)
 
