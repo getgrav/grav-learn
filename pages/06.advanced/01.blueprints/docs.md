@@ -204,4 +204,44 @@ The Admin plugin defines many other field types that can be used, in `plugins/ad
 It's important to note that when `form.validation` is set to `strict`, like in the Archives plugin example, you need to add form blueprints for _all_ the options, otherwise an error will pop up on save.
 If you instead want to just allow to customize a couple of fields to the Admin interface, not all of them, set `form.validation` as `loose`.
 
+## Available form fields for use in the admin
+
+Plugins and themes can take advantage of the built-in form fields, or build their own.
+
+Here's a list of the available form fields:
+
+### Common form fields
+
+- **Checkbox**: a simple checkbox
+- **Checkboxes**: a serie of checkboxes
+- **Date**: a date selection field
+- **Datetime**: a date and time selection field
+- **Email**: an email field, with validation
+- **Hidden**: an hidden field
+- **Password**: a password field
+- **Radio**: a radio input type
+- **Select**: a select field
+- **Spacer**: used to add a title, text or an horizontal line to the form
+- **Text**: a simple text field
+- **Textarea**: a textarea
+
+### Special form fields
+
+- **Array**: a special field used for example in the Page Metadata. Allows the user to add multiple key-value rows.
+- **Ignore**: used to remove unused fields when extending from another blueprint
+- **Columns**: used to break the form in multiple columns
+- **Column**: used to show a single column (used with the `Columns` field)
+- **Dateformat**: a special select that renders the current datetime in the passed formats
+- **Display**: simply shows a text value, with no input field
+- **Frontmatter**: show the page frontmatter in a raw format
+- **List**: similar to `Array`, shows a list of items, but without a key
+- **Markdown**: show a markdown editor
+- **Pages**: shows a list of the site pages
+- **Section**: used to divide a setting page into sections; each section comes with a title
+- **Selectize**: a hybrid of a textbox and a select box. Mostly useful for tagging and other element picking fields.
+- **Tabs**: divides the settings in a list of tabs
+- **Tab**: used by the `Tabs` field to render a tab
+- **Taxonomy**: a special select preconfigured to select one or more taxonomies
+- **Toggle**: a on/off kind of input, with configurable labels
+
 >>> Although this is working already, the Admin Plugin is still a work in progress. Further updates to this document will come as soon as the new admin will be available.
