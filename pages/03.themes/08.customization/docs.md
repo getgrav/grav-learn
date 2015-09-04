@@ -8,7 +8,7 @@ There are many ways to customize a theme, and Grav really doesn't limit your cre
 
 ## Custom CSS
 
-The simplest way to customize a theme is to provide your own `custom.css` file. The **Antimatter** default theme provides a reference to a `css/custom.css` file via the **Asset Manager**. Luckily, the **Asset Manager** handles this for us, and if the file is not found, the reference is not added to the HTML. 
+The simplest way to customize a theme is to provide your own `custom.css` file. The **Antimatter** default theme provides a reference to a `css/custom.css` file via the **Asset Manager**. Luckily, the **Asset Manager** handles this for us, and if the file is not found, the reference is not added to the HTML.
 
 However, if you do provide a file called `custom.css` in Antimatter's `css/` folder, this will get picked up and referenced. You just need to ensure that you provide CSS elements with enough [specificity](http://www.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) to override the default CSS. For example:
 
@@ -23,7 +23,7 @@ This will override the default link color and use a **red** color instead.
 
 ## Custom SCSS/LESS
 
-The next step up from providing a custom CSS file is to use the `custom.scss` file (as provided in Antimatter). Antimatter is written using [SCSS](http://sass-lang.com/), which is a CSS compatible preprocessor that enables you to write CSS more efficiently via the use of [variables, nested structures, partials, imports, operators and mix-ins](http://sass-lang.com/guide). 
+The next step up from providing a custom CSS file is to use the `custom.scss` file (as provided in Antimatter). Antimatter is written using [SCSS](http://sass-lang.com/), which is a CSS compatible preprocessor that enables you to write CSS more efficiently via the use of [variables, nested structures, partials, imports, operators and mix-ins](http://sass-lang.com/guide).
 
 This may sound a little daunting at first, but you can use as much or as little SCSS as you like, and once you start, you will have trouble going back to traditional CSS. Promise!
 
@@ -76,7 +76,20 @@ To achieve this you need to follow these steps:
              - user/themes/mytheme
              - user/themes/antimatter
    ```
-3. Change your default theme to use your new **mytheme** by editing the `pages: theme:` option in your `user/config/system.yaml` configuration file:
+3. Create a `/user/themes/mytheme/blueprints.yaml` file that contains at least the basic elements required to define a theme:
+   ```
+   name: MyTheme
+   version: 1.0.0
+   description: "Extending Antimatter"
+   icon: crosshairs
+   author:
+     name: Team Grav
+     email: devs@getgrav.org
+     url: http://getgrav.org
+   ```
+   You can provide more details including form definitions to control functionality of your form.  Fore more details on this you should examine the Antimatter theme's blueprint.yaml file
+
+4. Change your default theme to use your new **mytheme** by editing the `pages: theme:` option in your `user/config/system.yaml` configuration file:
    ```
    pages:
      theme: mytheme
