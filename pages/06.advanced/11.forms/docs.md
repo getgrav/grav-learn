@@ -8,10 +8,10 @@ The Forms plugin for Grav is a Form Construction Kit available for you to use in
 
 ## Create a simple form
 
-At the moment there’s not yet an easy-to-use interface for the Forms plugin, although that is in the plans.
-You need to write your own page frontmatter code to show a form.
+Every page in the site can host a form. The form is defined in the page YAML frontmatter.
+At the moment there isn't an easy-to-use interface for the Forms plugin, although that is in the plans for the future.
 
-It all starts in a page header:
+Here's an example of a form:
 
 ```yaml
 title: A page with a form
@@ -44,9 +44,7 @@ form:
           value: Reset
 ```
 
-This is enough to show a form in the page, below the page content.
-
-It’s as simple form with a name and email field, with two buttons, one to submit the form and one to reset the fields.
+This is enough to show a form in the page, below the page content. It’s as simple form with a name and email field, with two buttons, one to submit the form and one to reset the fields.
 
 What happens when you press the `Submit` button? Right now, nothing. You need to specify how the form will be processed. How? By adding a `process` field to the page yaml frontmatter:
 
@@ -74,7 +72,70 @@ What does this do is simple: it executes the passed actions in serie.
 
 2. A file is created in `user/data` to store the form input data. The template is defined in forms/data.txt.twig of the theme in use.
 
-3. The `thankyou` subpage is shown, along with the passed message.
+3. The `thankyou` subpage is shown, along with the passed message. The `thankyou` page must be a subpage of the page containing the form.
+
+## Which fields you can use
+
+The Forms plugin comes with
+
+- **Checkbox**: a simple checkbox
+- **Checkboxes**: a serie of checkboxes
+- **Date**: a date selection field
+- **Datetime**: a date and time selection field
+- **Email**: an email field, with validation
+- **Hidden**: an hidden field
+- **Password**: a password field
+- **Radio**: a radio input type
+- **Select**: a select field
+- **Spacer**: used to add a title, text or an horizontal line to the form
+- **Text**: a simple text field
+- **Textarea**: a textarea
+
+## Fields parameters
+
+Every field accepts a list of parameters you can use to customize their appearance.
+They are:
+
+- **label**: sets the field label
+- **validate.required**: if set to a positive value, sets the field as required.
+- **validate.pattern**: sets a validation pattern
+- **validate.message**: sets the message shown if the validation fails
+- **type**: sets the field type
+- **default**: sets the field default value
+- **size**: sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template you use
+- **name**: sets the field name
+- **classes**: accepts a string with one of more CSS classes to add
+- **id**: sets the field id
+- **style**: sets the field style
+- **title**: sets the field title value
+- **disabled**: sets the field disabled state
+- **placeholder**: sets the field placeholder value
+- **autofocus**: if enabled, autofocus on that field
+- **novalidate**: sets the field novalidate state
+- **readonly**: sets the field readonly state
+- **autocomplete**: Accepts `on` or `off`
+
+Some fields allow specific parameters. Listed here:
+
+- **date** and **datetime**: set `validate.min` and `validate.max` to set a min & max value
+- **spacer** allows the use of `underline` to add an `<hr>` tag, `text` to add a text value and uses `title` as an `h3` tag.
+- **select** allows `multiple` to allow accepting multiple values
+- **select** and **checkboxes** use the `options` field to set the available options.
+
+Example:
+
+```yaml
+my_field:
+    type: checkboxes
+    label: A couple of checkboxes
+    default: [option1: true, option2: true]
+    options:
+        option1: Option 1
+        option2: Option 2
+```
+
+You can set positive values in multiple ways: `'on'`, `'true'`, `1`.
+Other values are interpreted as negative.
 
 ## More custom stuff
 
