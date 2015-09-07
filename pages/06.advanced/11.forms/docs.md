@@ -84,6 +84,7 @@ The Forms plugin comes with
 - **Checkboxes**: a serie of checkboxes
 - **Date**: a date selection field
 - **Datetime**: a date and time selection field
+- **Display**: a text or instructions field (not an input field)
 - **Email**: an email field, with validation
 - **Hidden**: an hidden field
 - **Password**: a password field
@@ -123,8 +124,9 @@ Some fields allow specific parameters. Listed here:
 - **spacer** allows the use of `underline` to add an `<hr>` tag, `text` to add a text value and uses `title` as an `h3` tag.
 - **select** allows `multiple` to allow accepting multiple values
 - **select** and **checkboxes** use the `options` field to set the available options.
+- **display** accepts `content` to set the content to show. Set `markdown` to true to parse the markdown in `content`.
 
-Example:
+Examples:
 
 ```yaml
 my_field:
@@ -134,6 +136,15 @@ my_field:
     options:
         option1: Option 1
         option2: Option 2
+```
+
+```yaml
+test:
+    type: display
+    size: large
+    label: Instructions
+    markdown: true
+    content: "This is a test of **bold** and _italic_ in a text/display field\n\nanother paragraph...."
 ```
 
 You can set positive values in multiple ways: `'on'`, `'true'`, `1`.
