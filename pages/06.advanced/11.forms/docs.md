@@ -6,6 +6,10 @@ taxonomy:
 
 The Forms plugin for Grav is a Form Construction Kit available for you to use in your own pages.
 
+## The form page 
+
+To add a form to a page, name the page file as `form.md`
+
 ## Create a simple form
 
 Every page in the site can host a form. The form is defined in the page YAML frontmatter.
@@ -17,8 +21,6 @@ Here's an example of a form:
 title: A page with a form
 form:
     name: my-nice-form
-    action: /form
-    method: post
     fields:
         - name: name
           label: Name
@@ -256,8 +258,6 @@ template: form
 
 form:
     name: login
-    action:
-    method: post
 
     fields:
         - name: username
@@ -270,7 +270,7 @@ form:
           placeholder: Password
 ```
 
-The Forms plugin correctly generates and shows the form. Notice there’s no `action` nor `process` defined.
+The Forms plugin correctly generates and shows the form. Notice there’s no `process` defined.
 
 The form `buttons` are missing too, since they’re manually added in `templates/login.html.twig`. That’s where the form `action` and `task` is defined too.
 
