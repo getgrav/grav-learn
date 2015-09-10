@@ -12,6 +12,9 @@ The **Dashboard** serves as a hub of information for the **Grav Administration P
 
 It's a starting point for your administrative experience.
 
+>>> The Dashboard content will change depending on the user permissions. For example, giving `access.admin.super` unlocks everything. If that access level is not granted, `access.admin.maintenance` allows cache clearing and updates. `access.admin.pages` allows access to pages. `access.admin.statistics` allows display of the site visitors stats.
+
+
 ### Cache and Updates Checking
 
 ![Grav Admin Dashboard](grav_dashboard_cache.png)

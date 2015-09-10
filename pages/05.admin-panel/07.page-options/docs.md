@@ -14,6 +14,8 @@ It's essentially a one-stop-shop for managing a specific page.
 
 In this page, we will go over the features and functionality found in the **Options** tab of the **Page Editor**.
 
+>>> Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` access level.
+
 >>>>> You might notice the check boxes to the left of some of the options in this area of the admin. These boxes indicate that you would like to override the default values for this page. Leaving them unchecked reverts to blank or default states.
 
 ### Publishing
@@ -53,4 +55,3 @@ Having a good, clean sitemap is important for several reasons. Among them being 
 | :-----                   | :-----                                                                                                                                                                                                                          |
 | Sitemap Change Frequency | This drop-down enables you to set a frequency by which the page's sitemap is updated. This can be any time a change is made, hourly, daily, weekly, monthly, yearly, or never. By default, the global sitemap options are used. |
 | Sitemap Priority         | Sets the priority of this page in your sitemap.                                                                                                                                                                                 |
-

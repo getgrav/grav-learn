@@ -10,6 +10,8 @@ process:
 
 The **Configuration** page gives you access to your site's **System** and **Site** configuration settings. Additionally, you can view a breakdown of your server's properties in a number of areas including PHP, SQL, server environment, and other various components that determine how your site operates.
 
+>>> The Configuration requires an `access.admin.super` or `access.admin.configuration` access level.
+
 The **Site** tab enables you to customize the settings found in the `/user/config/site.yaml` file. This tab gives you access to options and fields that determine site-related variables, such as the name, default author, and metadata used in your site.
 
 Below is a breakdown of the different configuration sections that appear in the **Site** tab.
@@ -32,7 +34,7 @@ This section is where you set the basic properties of content handling for your 
 
 ![Grav Admin Configuration](configuration_system_page.png)
 
-Page summaries are a great way to give a small preview of a page's content. You can use a delimiter in the page to set a "cut off" point between the summary content, and the full body content of the page. These settings give you the ability to 
+Page summaries are a great way to give a small preview of a page's content. You can use a delimiter in the page to set a "cut off" point between the summary content, and the full body content of the page. These settings give you the ability to
 
 
 | Option       | Description                                                                                                                                                  |

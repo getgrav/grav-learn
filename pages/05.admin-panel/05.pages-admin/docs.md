@@ -10,6 +10,8 @@ process:
 
 The **Pages** page gives you quick editorial access to your site's content. This is where you can access a page's editor, delete pages, create new pages, and find out if a page is visible at a glance.
 
+>>> Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` access level.
+
 If you frequently create or modify content on your site, this area of the admin will become very familiar to you.
 
 ### Adding New Pages
