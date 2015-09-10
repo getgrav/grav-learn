@@ -12,6 +12,8 @@ The **Plugins** area of the admin is where you can go to manage your plugins, ad
 
 In this page, we will explore this area of the admin in detail, including how to active and deactivate installed plugins, and add new ones with ease.
 
+>>> Accessing the Plugins functionality requires an `access.admin.super` or `access.admin.plugins` access level.
+
 ### Controls
 
 ![Grav Admin Plugins](plugins_1.png)

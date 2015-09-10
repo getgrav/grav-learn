@@ -12,6 +12,8 @@ The **Themes** in the admin is where you can go to add and manage your site's th
 
 In this page, we will explore how to manage existing themes, and add a new one to your site.
 
+>>> Accessing the Themes functionality requires an `access.admin.super` or `access.admin.themes` access level.
+
 ### Controls
 
 ![Grav Admin Themes](themes_1.png)

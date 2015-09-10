@@ -33,6 +33,7 @@ The **Grav Administration Panel** plugin for [Grav](http://github.com/getgrav/gr
 * Plugin manager that allows listing and configuration of installed plugins
 * Theme manager that allows listing and configuration of installed themes
 * GPM-powered installation of new plugins and themes
+* ACL for admin users access to features
 
 ### Support
 
@@ -44,7 +45,7 @@ For **bugs, features, improvements**, please ensure you [create issues in the ad
 
 ### Installation
 
-First ensure you are running the latest **Grav 0.9.34 or later**.  This is required for the admin plugin to run properly (`-f` forces a refresh of the GPM index).
+First ensure you are running the latest **Grav {{ grav_version }} or later**.  This is required for the admin plugin to run properly (`-f` forces a refresh of the GPM index).
 
 ```
 $ bin/gpm selfupgrade -f
@@ -58,7 +59,7 @@ $ bin/gpm install admin
 
 ### Creating a User
 
-With Grav 0.9.36, you can now create a user account with the CLI:
+With Grav {{ grav_version }}, you can now create a user account with the CLI:
 
 ```
 $ bin/grav newuser

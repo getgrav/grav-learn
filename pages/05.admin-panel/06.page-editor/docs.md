@@ -12,6 +12,8 @@ The **Page Editor** in the admin is a powerful text editor and page manager that
 
 It's essentially a one-stop-shop for managing a specific page.
 
+>>> Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` access level.
+
 Tabs that appear in the **Page Editor** are not universal. There are a default set of form fields that are commonly found in Grav themes, however these can vary between themes. The admin pulls form field information from a number of sources including the theme and the template used for the specific page.
 
 >>> The tabs and options represented in this documentation are by default. Theme developers have the ability to add their own options to these tabs, or even to do away with these tabs and replace them with something entirely different. We are documenting a common-case scenario based on the Antimatter theme to serve as an example.
