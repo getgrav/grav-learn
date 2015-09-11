@@ -237,11 +237,27 @@ Converts a string into "under_scored" format
 
 Twig functions are called directly with any parameters being passed in via parenthesis.
 
+##### Array
+
+Cast a value to array
+
+`array(value)`
+
+##### Authorize
+
+Authorizes an authenticated user to see a resource. Accepts an a single permission string or an array of permission strings.
+
+`authorize(['admin.statistics', 'admin.super'])`
+
 ##### Dump
 
 Takes a valid twig variable and dumps it out into the [Grav debugger panel](../../advanced/debugging).  The debugger must be **enabled** to see the values in the messages tab.
 
 `dump(page.header)`
+
+##### Debug
+
+Same as `dump()`
 
 ##### Gist
 
@@ -260,6 +276,22 @@ Will generate a random string of the required number of characters.  Particularl
 Will repeat whatever is passed in a certain amount of times.
 
 `repeat('blah ', 10)` <i class="fa fa-long-arrow-right"></i> **{{ repeat('blah ', 10) }}**
+
+##### String
+
+Generates a random string. Pass count to set the characters lenght.
+
+`ta(23)`
+
+##### Translate
+
+Translate a string, as the `|t` filter.
+
+`t('SITE_NAME')` <i class="fa fa-long-arrow-right"></i> **Site Name**
+
+##### Translate Array
+
+Function related to the `|ta` filter.
 
 ##### Url
 
