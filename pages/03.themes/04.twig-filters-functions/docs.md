@@ -34,7 +34,7 @@ Determine if a particular string contains another string
 
 Sometimes you want to check if some variable is defined, and if it's not, provide a default value.  For example:
 
-`{% set header_image_width  = page.header.header_image_width|defined(900) %}`
+`set header_image_width  = page.header.header_image_width|defined(900)`
 
 This will set the variable `header_image_width` to the value `900` if it's not defined in the page header.
 
