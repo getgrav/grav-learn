@@ -38,17 +38,23 @@ Sometimes you want to check if some variable is defined, and if it's not, provid
 
 This will set the variable `header_image_width` to the value `900` if it's not defined in the page header.
 
-##### Ends-With Filter
+##### Ends-With
 
 Takes a needle and a haystack and determines if the haystack ends with the needle.  Also now works with an array of needles and will return `true` if **any** haystack ends with the needle.
 
 `'the quick brown fox'|ends_with('fox')` <i class="fa fa-long-arrow-right"></i> {{  'the quick brown fox'|ends_with('fox') ? 'true' : 'false' }}
 
+##### FieldName
+
+Filters field name by changing dot notation into array notation
+
+`'field.name|fieldName`
+
 ##### Humanize
 
 Converts a string into a more "human readable" format
 
-`'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i> **{{ 'something_text_to_read'|humanize }}**
+`'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i> 
 
 ##### Ksort
 
@@ -65,6 +71,10 @@ Sort an array map by each key
 {% set ritems = {'orange':1, 'apple':2, 'peach':3}|ksort %}
 {% for key, value in ritems %}{{ key }}:{{ value }}, {% endfor %}
 </strong>
+
+##### Ltrim
+
+Removes trailing spaces at the beginning of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.ltrim.php](http://php.net/manual/en/function.ltrim.php))
 
 ##### Markdown
 
@@ -118,6 +128,10 @@ Randomizes the list provided.  If a value is provided as a parameter, it will sk
 {% for ritem in ritems %}{{ ritem }}, {% endfor %}
 </strong>
 
+##### Rtrim
+
+Removes trailing spaces at the end of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.rtrim.php](http://php.net/manual/en/function.rtrim.php))
+
 ##### Singularize
 
 Converts a string to the English singular version
@@ -146,7 +160,7 @@ Sort an array map by a particular key
 {% for person in people %}{{ person.email }}:{{ person.id }}, {% endfor %}
 </strong>
 
-##### Starts-With Filter
+##### Starts-With
 
 Takes a needle and a haystack and determines if the haystack starts with the needle.  Also now works with an array of needles and will return `true` if **any** haystack starts with the needle.
 
@@ -159,6 +173,14 @@ Translate a string into the current language
 `{{'MY_LANGUAGE_KEY_STRING'|t}}` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
 
 This assumes you have these language strings translated in your site and have enabled multi-language support.  Please refer to the [multi-language documentation](../../content/multi-language) for more detailed information.
+
+##### Translate Admin
+
+Translate a string into the current language set in the admin interface user preferences
+
+`{{'MY_LANGUAGE_KEY_STRING'|tu}}` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
+
+This uses the language field set in the user yaml.
 
 ##### Titleize
 
@@ -189,6 +211,20 @@ Truncates to closest sentence-end after 5 characters.
 You can also truncate HTML text, but should first use the `striptags` filter to remove any HTML formatting that could get broken if you end between tags:
 
 `'<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5)` <i class="fa fa-long-arrow-right"></i> {{ '<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5) }}
+
+##### Specialized versions:
+
+**safe_truncate**
+
+Truncate text by number of characters in a "word-safe" manor.
+
+**truncate_html**
+
+Truncate HTML by number of characters. not "word-safe"!
+
+**safe_truncate_html**
+
+Truncate HTML by number of characters in a "word-safe" manor.
 
 ##### Underscoreize
 
