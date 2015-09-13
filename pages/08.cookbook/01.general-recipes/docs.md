@@ -9,7 +9,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Creating a simple gallery](#creating-a-simple-gallery)
 1. [Render content in blocks or columns](#render-content-in-columns)
 1. [Really simple css image slider](#really-simple-css-image-slider)
-
+1. [Wrapping Markdown into html](#wrapping-markdown-into-html)
 
 ### Creating a simple gallery
 
@@ -175,3 +175,30 @@ div#slider figure {
 
 Thats all.
 
+
+### Wrapping markdown into html
+
+On some pages you might want to wrap parts of the markdown content into some custom html code instead of creating a new twig template.
+
+To achieve this you follow these steps:
+
+in your system configuration file `user/config/system.yaml` make sure to activate the markdown extra option:
+
+```
+pages:
+  markdown:
+    extra: true
+```
+
+in your wrapper tag make sure to add the parameter `markdown="1"` to activate processing of markdown content:
+
+```
+<div class="myWrapper" markdown="1" >
+	# my markdown content
+	
+	this content is wrapped into a div with class "myWrapper"
+</div>
+
+```
+
+done.
