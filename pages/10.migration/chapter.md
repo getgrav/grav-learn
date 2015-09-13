@@ -6,6 +6,6 @@ taxonomy:
 
 ### Chapter 7
 
-# Migration from other CMS
+# Migration
 
-This section is dedicated to support migrations from other CMS like Wordpress
+This section is dedicated to support migrations from other CMSes like Wordpress
