@@ -44,6 +44,14 @@ form:
           validate:
             required: true
 
+        - name: g-recaptcha-response
+          label: Captcha
+          type: captcha
+          recatpcha_site_key: aeio43kdk3idko3k4ikd4
+          recaptcha_not_validated: 'Captcha not valid!'
+          validate:
+            required: true
+
     buttons:
         - type: submit
           value: Submit
@@ -62,6 +70,8 @@ form:
         - message: Thank you for getting in touch!
         - display: thankyou
 ```
+
+Make sure you add your own `recatpcha_site_key` reCAPTCHA parameter ([see the reCAPTCHA docs](https://developers.google.com/recaptcha/docs/start)).
 
 Now create a subpage under the `thankyou/` subfolder, and name it `formdata.md`. Users submitting the form will be redirected on that page.
 
