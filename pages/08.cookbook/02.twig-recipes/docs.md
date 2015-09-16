@@ -30,6 +30,15 @@ Simply find the `/blog` page, obtain it's children, order them by date in a desc
 </ul>
 ```
 
+when using within pages make sure you add following configuration to the page header:
+
+```
+twig_first: true
+process:
+    twig: true
+```    
+
+
 ### List the blog bosts for the year
 
 ##### Problem:
