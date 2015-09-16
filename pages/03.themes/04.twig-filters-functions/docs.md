@@ -54,7 +54,7 @@ Filters field name by changing dot notation into array notation
 
 Converts a string into a more "human readable" format
 
-`'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i> 
+`'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i>
 
 ##### Ksort
 
@@ -72,7 +72,9 @@ Sort an array map by each key
 {% for key, value in ritems %}{{ key }}:{{ value }}, {% endfor %}
 </strong>
 
-##### Ltrim
+##### Left Trim
+
+`'/strip/leading/slash/'|ltrim('/')`
 
 Removes trailing spaces at the beginning of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.ltrim.php](http://php.net/manual/en/function.ltrim.php))
 
@@ -128,7 +130,9 @@ Randomizes the list provided.  If a value is provided as a parameter, it will sk
 {% for ritem in ritems %}{{ ritem }}, {% endfor %}
 </strong>
 
-##### Rtrim
+##### Right Trim
+
+`'/strip/trailing/slash/'|ltrim('/')`
 
 Removes trailing spaces at the end of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.rtrim.php](http://php.net/manual/en/function.rtrim.php))
 
@@ -212,17 +216,17 @@ You can also truncate HTML text, but should first use the `striptags` filter to 
 
 `'<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5)` <i class="fa fa-long-arrow-right"></i> {{ '<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5) }}
 
-##### Specialized versions:
+###### Specialized versions:
 
-**safe_truncate**
+**|safe_truncate**
 
 Truncate text by number of characters in a "word-safe" manor.
 
-**truncate_html**
+**|truncate_html**
 
 Truncate HTML by number of characters. not "word-safe"!
 
-**safe_truncate_html**
+**|safe_truncate_html**
 
 Truncate HTML by number of characters in a "word-safe" manor.
 
@@ -298,5 +302,3 @@ Function related to the `|ta` filter.
 Will create a URL and convert any PHP URL streams into a valid HTML resources. A default value can be passed in in case the URL cannot be resolved.
 
 `url('theme://images/logo.png')|default('http://www.placehold.it/150x100/f4f4f4')` <i class="fa fa-long-arrow-right"></i> **{{ url('theme://images/logo.png')|default('http://www.placehold.it/150x100/f4f4f4') }}**
-
-

@@ -26,28 +26,23 @@ assets:                                # Configuration for Assets Manager (JS, C
 An example of how you can add CSS files in your theme can be found in the default **antimatter** theme that comes bundled with Grav. If you have a look at the `base.html.twig` partial and specifically the [stylesheets block](https://github.com/getgrav/grav-theme-antimatter/blob/develop/templates/partials/base.html.twig#L12-L28) you will see the following:
 
 ```
-    {% block stylesheets %}
-        {% do assets.addCss('theme://css-compiled/nucleus.css',102) %}
-        {% do assets.addCss('theme://css-compiled/template.css',101) %}
-        {% do assets.addCss('theme://css/font-awesome.min.css',100) %}
-        {% do assets.addCss('theme://css/slidebars.min.css') %}
+{% block stylesheets %}
+    {% do assets.addCss('theme://css/pure-0.5.0/grids-min.css', 103) %}
+    {% do assets.addCss('theme://css-compiled/nucleus.css',102) %}
+    {% do assets.addCss('theme://css-compiled/template.css',101) %}
+    {% do assets.addCss('theme://css/custom.css',100) %}
+    {% do assets.addCss('theme://css/font-awesome.min.css',100) %}
+    {% do assets.addCss('theme://css/slidebars.min.css') %}
 
-        {% if page.header.lightbox %}
-            {% do assets.addCss('theme://css/featherlight.min.css') %}
-        {% endif %}
-
-        {% if browser.getBrowser == 'msie' and browser.getVersion == 10 %}
-            {% do assets.addCss('theme://css/nucleus-ie10.css') %}
-        {% endif %}
-
-        {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
-            {% do assets.addCss('theme://css/nucleus-ie9.css') %}
-            {% do assets.addCss('theme://css/pure-0.5.0/grids-min.css') %}
-            {% do assets.addJs('theme://js/html5shiv-printshiv.min.js') %}
-        {% endif %}
-
-        {{ assets.css() }}
-    {% endblock %}
+    {% if browser.getBrowser == 'msie' and browser.getVersion == 10 %}
+        {% do assets.addCss('theme://css/nucleus-ie10.css') %}
+    {% endif %}
+    {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
+        {% do assets.addCss('theme://css/nucleus-ie9.css') %}
+        {% do assets.addJs('theme://js/html5shiv-printshiv.min.js') %}
+    {% endif %}
+{% endblock %}
+{{ assets.css() }}
 ```
 
 The `block` twig tag just defines a region that can be replaced or appended to in templates that extend the one. Within the block, you will see a number of `do assets.addCss()` calls.
@@ -58,14 +53,28 @@ The `addCss()` method adds CSS assets to the Asset Manager. If you specify a sec
 
 The `assets.css()` call renders the CSS assets out as HTML tags.
 
+JavaScript assets are very similar:
 
-## Available Methods
+```
+{% block javascripts %}
+    {% do assets.addJs('jquery',101) %}
+    {% do assets.addJs('theme://js/modernizr.custom.71422.js',100) %}
+    {% do assets.addJs('theme://js/antimatter.js') %}
+    {% do assets.addJs('theme://js/slidebars.min.js') %}
+    {% do assets.addInineJs('alert(\'This is inline!\')') %}
+{% endblock %}
+{{ assets.js() }}
+```
 
-#### add(asset [, priority=10] [, pipeline=true])
+## Adding Assets
+
+#### add(asset, [options])
 
 The add method does its best attempt to match an asset based on file extension.  It is a convenience method, it's better to call one of the direct methods for CSS or JS.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets. The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
 
-#### addCss(asset [, priority=10] [, pipeline=true])
+>>> The options array is the preferred approach for passing multiple options. However as in the previous examples, you can use a shortcut and pass in an integer for the **second attribute** in the method if all you wish to set is the **priority**
+
+#### addCss(asset, [options])
 
 This method will add assets to the list of CSS assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.  The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
 
@@ -73,33 +82,59 @@ This method will add assets to the list of CSS assets.  The priority defaults to
 
 Add an entire directory of CSS assets in one go. The order will be alphabetical. This method does not provide the control of the individual methods and is generally not the preferred approach.
 
-#### addInlineCss(css)
+#### addInlineCss(css, [options])
 
 Let's you add a string of CSS inside an inline style tag. Useful for initialization or anything dynamic.
 
-#### addJs(asset [, priority=10] [, pipeline=true])
+#### addJs(asset, [options])
 
 This method will add assets to the list of JavaScript assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.  The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
+
+#### addInlineJs(javascript, [options])
+
+Let's you add a string of JavaScript inside an inline script tag. Useful for initialization or anything dynamic.
 
 #### addDirJs(directory)
 
 Add an entire directory of JavaScript assets in one go. The order will be alphabetical. This method does not provide the control of the individual methods and is generally not the preferred approach.
 
-#### addInlineJs(javascript)
-
-Let's you add a string of JavaScript inside an inline script tag. Useful for initialization or anything dynamic.
-
-#### css()
-
-Retrieves a list of HTML CSS link tags based on all the CSS assets that have been added to the Asset Manager. Depending on whether or not pipelining has been turned on in the configuration, this could be a list of individual assets, or one combined and potentially minified file.
-
-#### js()
-
-Retrieves a list of HTML JavaScript link tags based on all the JavaScript assets that have been added to the Asset Manager. Depending on whether or not pipelining has been turned on in the configuration, this could be a list of individual assets, or one combined and potentially minified file.
-
 #### registerCollection(name, array)
 
 Allows you to register an array of CSS and JavaScript assets with a name for later use by the `add()` method. Particularly useful if you want to register a collection that may be used by multiple themes or plugins, such as jQuery or Bootstrap.
+
+## Options
+
+Where appropriate, you can pass in an array of asset options. Those options are
+
+#### For CSS
+
+* **priority** = Integer value (default value is `100`)
+* **pipeline** = `false` if this asset should **not** be included in pipeline (default is `true`)
+
+#### For JS
+
+* **priority** = Integer value (default value is `100`)
+* **pipeline** = `false` if this asset should **not** be included in pipeline (default is `true`)
+* **loading** = supports empty, `async` and `defer`
+* **group** = string to specify a unique group name for asset (default is `head`)
+
+for example:
+
+```
+{% do assets.addJs('theme://js/example.js', {'priority':102, 'pipeline':false, 'loading':'async', 'group':'bottom'}) %}
+```
+
+## Rendering Assets
+
+The following allow you to render the current state of the CSS and JavaScript assets
+
+#### css()
+
+Renders a list of HTML CSS link tags based on all the CSS assets that have been added to the Asset Manager. Depending on whether or not pipelining has been turned on in the configuration, this could be a list of individual assets, or one combined and potentially minified file.
+
+#### js()
+
+Renders a list of HTML JavaScript link tags based on all the JavaScript assets that have been added to the Asset Manager. Depending on whether or not pipelining has been turned on in the configuration, this could be a list of individual assets, or one combined and potentially minified file.
 
 ## Named Assets
 
@@ -127,6 +162,24 @@ $assets->add('bootstrap', 100);
 ```
 
 An example of this action can be found in the [**bootstrapper** plugin](https://github.com/getgrav/grav-plugin-bootstrapper/blob/develop/bootstrapper.php#L51-L71).
+
+## Grouped Assets
+
+A new feature was added in Grav **0.9.43** that lets you pass an optional `group` as part of an options array when adding assets.  This is most useful for JavaScript where you may need to have some JS files or Inline JS referenced in the header, and some at the bottom of the page.  Prior to this Grav release, this was not possible using the Asset manager, but it is now.
+
+To take advantage of this capability you must specify the group when adding the asset, and should use the options syntax:
+
+```
+{% do assets.addJs('theme://js/example.js', {'priority':102, 'group':'bottom'}) %}
+```
+
+Then for these assets in the bottom group to render, you must add the following to your theme:
+
+```
+{{ assets.js('bottom') }}
+```
+
+If no group is defined for an asset, then `head` is the default group.  If no group is set for rendering, the `head` group will be rendered. This ensures thew new functionality is 100% backwards compatible with existing themes.
 
 ## Static Assets
 

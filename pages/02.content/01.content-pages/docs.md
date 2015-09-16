@@ -44,6 +44,9 @@ A modular page is a special type of listing page because it actually builds a **
 
 Each of these page types follow the same basic structure, so before we can get into the nitty-gritty of each type, we must explain how pages in Grav are constructed.
 
+>>> A modular page, because it is intended to be part of another page, is inherently not a page you can reach
+directly via a URL.  Because of this, all modular pages are by default set as **non-routable**.
+
 ## Folders
 
 All content pages are located in the `/user/pages` folder. Each **page** should be placed in its own folder.

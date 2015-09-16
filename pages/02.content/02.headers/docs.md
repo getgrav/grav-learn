@@ -82,6 +82,20 @@ visible: false
 
 By default, a page is **visible** in the **navigation** if the surrounding folder has a numerical prefix, i.e. `/01.home` is visible, while `/error` is **not visible**. This behavior can be overwritten by setting the `visible` variable in the header. Valid values are `true` or `false`.
 
+### Redirect
+
+```ruby
+redirect: /some/custom/route
+```
+
+or
+
+```ruby
+redirect: http://someexternalsite.com
+```
+
+As of Grav **0.9.41** can now redirect to another internal or external page right from a page header.  Of course this means this page will not be displayed, but the page can still be in a collection, menu, etc because it will exist as a page within Grav.
+
 ### Routes
 
 ```
@@ -310,7 +324,7 @@ content:
     items: @self.children
 ```
 
-The `content.items` value tells Grav to gather up a collection of items and specifically `@self.children` indicates that the collection should consist of the child pages below this page in the folder structure.
+The `content.items` value tells Grav to gather up a collection of items and specifically `@self.children` indicates that the collection should consist of the **published child pages** below this page in the folder structure.
 
 ### Collection of Modular Children
 
@@ -319,7 +333,17 @@ content:
     items: @self.modular
 ```
 
-The `@self.modular` configuration option tells Grav that the page should consist of all the modular pages that exist as children of this particular page.
+The `@self.modular` configuration option tells Grav that the page should consist of all the **published modular pages** that exist as children of this particular page.
+
+### Collection of Page's Children
+
+```ruby
+content:
+    items:
+      @page: /blog
+```
+
+the `@page` configuration will find all **non-modular** and **published** pages for a particular page. You must provide a valid page route to this option.
 
 ### Collection by Taxonomy
 
@@ -331,7 +355,7 @@ content:
 
 Using the `@taxonomy` option, you can utilize Grav's powerful taxonomy functionality.  This is where the `taxonomy` variable in the [Site Configuration](../../basics/grav-configuration#site-configuration) file comes into play. There **must** be a definition for the taxonomy defined in that configuration file for Grav to interpret a page reference to it as valid.
 
-By setting `@taxonomy.tag: foo`, Grav will find all the pages in the `/user/pages` folder that have themselves set `tag: foo` in their taxonomy variable.
+By setting `@taxonomy.tag: foo`, Grav will find all the **published pages** in the `/user/pages` folder that have themselves set `tag: foo` in their taxonomy variable.
 
 ```ruby
 content:
@@ -339,7 +363,7 @@ content:
        @taxonomy.tag: [foo, bar]
 ```
 
-The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. Pages that have **both** `foo` **and** `bar` tags will be collected.  The [Taxonomy](../taxonomy) chapter will cover this concept in more detail.
+The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. Publsihed pages that have **both** `foo` **and** `bar` tags will be collected.  The [Taxonomy](../taxonomy) chapter will cover this concept in more detail.
 
 >>> If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `@taxonomy: {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the hierarchy, each with listed values placed within `[]` brackets. Pages must meet **all** these requirements to be found.
 
@@ -354,6 +378,18 @@ content:
 ```
 
 Each level in the hierarchy adds two whitespaces before the variable. YAML will allow you to use as many spaces as you want here, but two is standard practice. In the above example, both the `category` and `tag` variables are set under `@taxonomy`.
+
+### Multiple Collections
+
+With Grav **0.9.41** you can not provide multiple collection definition and the resulting collection will be the sum of all the pages found from each of the collection definitions.  for example:
+
+```ruby
+content:
+  items:
+    @self.children
+    @taxonomy:
+      category: [blog, featured]
+```
 
 ### Ordering Options
 

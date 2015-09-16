@@ -19,10 +19,19 @@ Here's the default `system/config/system.yaml` file:
 ```ruby
 absolute_urls: false                   # Absolute or relative URLs for `base_url`
 timezone: ''                           # Valid values: http://php.net/manual/en/timezones.php
+default_locale:                        # Default locale (defaults to system)
 param_sep: ':'                         # Parameter separator, use ';' for Apache on windows
 
 languages:
-    translations: true                 # Enable translations by default
+  supported: []                        # List of languages supported. eg: [en, fr, de]
+  translations: true                   # Enable translations by default
+  translations_fallback: true          # Fallback through supported translations if active lang doesn't exist
+  session_store_active: false          # Store active language in session
+  home_redirect:
+    include_lang: true                 # Include language in home redirect (/en)
+    include_route: false               # Include route in home redirect (/blog)
+  http_accept_language: false          # Attempt to set the language based on http_accept_language header in the browser
+  override_locale: false               # Override the default or system locale with language specific one
 
 home:
   alias: '/home'                       # Default path for home, ie /
@@ -35,6 +44,7 @@ pages:
   list:
     count: 20                          # Default item count per page
   dateformat:
+    default:                           # The default date format Grav expects in the `date: ` field
     short: 'jS M Y'                    # Short date format
     long: 'F jS \a\t g:ia'             # Long date format
   publish_dates: true                  # automatically publish/unpublish based on dates
@@ -56,7 +66,11 @@ pages:
   expires: 604800                      # Page expires time in seconds (604800 seconds = 7 days)
   last_modified: false                 # Set the last modified date header based on file modifcation timestamp
   etag: false                          # Set the etag header tag
+  vary_accept_encoding: false          # Add `Vary: Accept-Encoding` header
   redirect_default_route: false        # Automatically redirect to a page's default route
+  redirect_trailing_slash:  true       # Handle automatically or 301 redirect a trailing / URL
+  ignore_files: [.DS_Store]            # Files to ignore in Pages
+  ignore_folders: [.git, .idea]        # Folders to ignore in Pages
 
 cache:
   enabled: true                        # Set to true to enable caching
@@ -92,12 +106,12 @@ errors:
 
 debugger:
   enabled: false                       # Enable Grav debugger and following settings
-  twig: true                           # Enable debugging of Twig templates
   shutdown:
     close_connection: true             # Close the connection before calling onShutdown(). false for debugging
 
 images:
   default_image_quality: 85            # Default image quality to use when resampling images (85%)
+  cache_all: false                     # Cache all image by default
   debug: false                         # Show an overlay over images indicating the pixel depth of the image when working with retina for example
 
 media:
