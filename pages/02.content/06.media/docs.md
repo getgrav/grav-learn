@@ -657,6 +657,8 @@ As you can see: Grav provides some powerful image manipulation functionality tha
 
 ### Responsive images
 
+#### Higher density displays
+
 Grav has built-in support for responsive images for higher density displays (e.g. **Retina** screens). Grav accomplishes this by implementing `srcset` from the [Picture element HTML proposal](https://html.spec.whatwg.org/multipage/embedded-content.html#the-picture-element). A good article to read if you want to understand this better is [this blog post by Eric Portis](http://ericportis.com/posts/2014/srcset-sizes/).
 
 >>> Grav sets the `sizes` argument mentioned in the posts above to full viewport width by default. Use the `sizes` action showcased below to choose yourself.
@@ -688,6 +690,29 @@ To start using responsive images, all you need to to is add higher density image
 {{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3, 'HTML Result':tab4}) }}
 
 >>>> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
+
+#### Sizes with media queries
+
+Grav has also support for media queries inside the sizes attribute, allowing you to use different widths on devices. In contrast to the first method, you don't have to create multiple images, they will get created automatically. The fallback image is the current image, so browser without support for srcset, will display the original image.
+
+>>>> For the moment it does not work inside markdown, only in your ```twig``` files.
+
+{% set tab1 %}
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].derivatives(320, 1440, 100).sizes('(max-width:26em) 100vw, 50vw').html() }}
+```
+{% endverbatim %}
+{% endset %}
+{% set tab2 %}
+```
+{{ page.media['sample-image.jpg'].derivatives(320, 1440, 100).sizes('(max-width:26em) 100vw, 50vw').html()|e }}
+```
+{% endset %}
+{{ gravui_tabs({'Twig':tab1, 'HTML Result':tab2}) }}
+
+>>>> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
+
 
 ### Metafiles
 
