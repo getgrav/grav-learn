@@ -6,7 +6,7 @@ taxonomy:
 
 The Forms plugin for Grav is a Form Construction Kit available for you to use in your own pages.
 
-## The form page 
+## The form page
 
 To add a form to a page, name the page file as `form.md`
 
@@ -80,6 +80,7 @@ What does this do is simple: it executes the passed actions in serie.
 
 The Forms plugin comes with
 
+- **Captcha**: a captcha antispam field, using reCAPTCHA
 - **Checkbox**: a simple checkbox
 - **Checkboxes**: a serie of checkboxes
 - **Date**: a date selection field
@@ -125,6 +126,7 @@ Some fields allow specific parameters. Listed here:
 - **select** allows `multiple` to allow accepting multiple values
 - **select** and **checkboxes** use the `options` field to set the available options.
 - **display** accepts `content` to set the content to show. Set `markdown` to true to parse the markdown in `content`.
+- **captcha** accepts `recatpcha_site_key` and `recaptcha_not_validated`.
 
 Examples:
 
@@ -149,6 +151,24 @@ test:
 
 You can set positive values in multiple ways: `'on'`, `'true'`, `1`.
 Other values are interpreted as negative.
+
+### A note on Captcha
+
+Google reCAPTCHA stores the Captcha confirmation code in a field named `g-recaptcha-response`. For this reason, name the Captcha
+form fields as `g-recaptcha-response`, e.g.:
+
+```yaml
+-
+    name: g-recaptcha-response
+    label: Captcha
+    type: captcha
+    recatpcha_site_key: ij3eoij3oirj3oiejio3wjeioje
+    recaptcha_not_validated: 'Captcha not valid!'
+    validate:
+        required: true
+```
+
+In this way, the validation will work out of the box.
 
 ## Form actions
 
