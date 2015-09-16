@@ -32,15 +32,9 @@ Grav uses the established and well-respected [Doctrine Cache](http://docs.doctri
 * **File** - Stores in cache files in the `cache/` folder
 * **APC** - [http://php.net/manual/en/book.apc.php](http://php.net/manual/en/book.apc.php)
 * **XCache** - [http://xcache.lighttpd.net/](http://xcache.lighttpd.net/)
-* **Couchbase** - [http://www.couchbase.com/](http://www.couchbase.com/)
 * **Memcache** - [http://php.net/manual/en/book.memcache.php](http://php.net/manual/en/book.memcache.php)
-* **Memcached** - [http://memcached.org/](http://memcached.org/)
-* **MongoDB** - [http://www.mongodb.org/](http://www.mongodb.org/)
 * **Redis** - [http://redis.io](http://redis.io)
-* **Riak** - [http://basho.com/riak/](http://basho.com/riak/)
 * **WinCache** - [http://www.iis.net/downloads/microsoft/wincache-extension](http://www.iis.net/downloads/microsoft/wincache-extension)
-* **ZendDataCache** - [http://files.zend.com/help/Zend-Server/content/data_cache_component.htm](http://files.zend.com/help/Zend-Server/content/data_cache_component.htm)
-
 
 By default, Grav comes preconfigured to use the `auto` setting.  This will try **APC**, then **WinCache**, then **XCache**, and lastly **File**.  You can, of course, explicitly configure the cache in your `user/config/system.yaml` file, which could make things ever so slightly faster.
 
