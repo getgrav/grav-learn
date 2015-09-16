@@ -77,6 +77,18 @@ cache:
     port: 11211
 ```
 
+#### Redis Specific Options
+
+There are some extra configuration options that are required if you are connecting to a **redis** server via the `redis` driver option.  These options should go under the `cache:` group in your `user/config/system.yaml`:
+
+```
+cache:
+  ...
+  redis:
+    server: localhost
+    port: 6379
+```
+
 >>>> Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
 
 <!-- -->
