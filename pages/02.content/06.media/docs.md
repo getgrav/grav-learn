@@ -699,18 +699,27 @@ Grav has also support for media queries inside the sizes attribute, allowing you
 >>> For the moment it does not work inside markdown, only in your ```twig``` files.
 
 {% set tab1 %}
+```
+![](sample-image.jpg?derivatives=320,1440,100&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+
+```
+{% endset %}
+{% set tab2 %}
 {% verbatim %}
 ```
 {{ page.media['sample-image.jpg'].derivatives(320, 1440, 100).sizes('(max-width:26em) 100vw, 50vw').html() }}
 ```
 {% endverbatim %}
 {% endset %}
-{% set tab2 %}
+{% set tab3 %}
+![](sample-image.jpg?derivatives=320,1440,100&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+{% endset %}
+{% set tab4 %}
 ```
 {{ page.media['sample-image.jpg'].derivatives(320, 1440, 100).sizes('(max-width:26em) 100vw, 50vw').html()|e }}
 ```
 {% endset %}
-{{ gravui_tabs({'Twig':tab1, 'HTML Code':tab2}) }}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3, 'HTML Code':tab4}) }}
 
 >>>> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
 
