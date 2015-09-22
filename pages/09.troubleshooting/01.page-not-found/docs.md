@@ -12,7 +12,7 @@ There are a couple of reasons you might receive a **Not Found** error, and they 
 
 ### Missing .htaccess File
 
-The first thing to check is if you have the provided `.htaccess` file at the root of your Gav installation.  Because this is a **hidden** file, you won't normally see this in your explorer or finder windows.  If you have extracted Grav then **selected** and **moved** or **copied** the files, you may well have left this very important file behind.
+The first thing to check is if you have the provided `.htaccess` file at the root of your Grav installation. Because this is a **hidden** file, you won't normally see this in your explorer or finder windows.  If you have extracted Grav then **selected** and **moved** or **copied** the files, you may well have left this very important file behind.
 
 It is **strongly advised** to unzip Grav and move the **entire folder** into place, then simply rename the folder. This will ensure all the files retain their proper positions.
 
@@ -28,7 +28,7 @@ If the homepage of your Grav site loads, but **any other page** displays this ve
 
 The default `.htaccess` that comes bundled with Grav works fine out-of-the-box in most cases.  However, there are certain setups involving virtual hosts where the file system does not match the virtual hosting setup directly.  In these cases you must configure the `RewriteBase` option in the `.htaccess` to point to the correct path.
 
-There is a short explanation of this in the `.htacces` file itself:
+There is a short explanation of this in the `.htaccess` file itself:
 
 ```
 ##
@@ -60,10 +60,6 @@ Then restart your Apache server.
 
 If you receive a _Grav-style_ error saying **Error 404** then your `.htaccess` is functioning correctly, but your trying to reach a page that Grav cannot find.
 
-The most common cause of this is simply that the page has been moved or renamed.  Another thing to check is if the page has a `slug` set in the page YAML headers.  This overrides the explicit folder name that is used by default to construct the URL.
+The most common cause of this is simply that the page has been moved or renamed. Another thing to check is if the page has a `slug` set in the page YAML headers. This overrides the explicit folder name that is used by default to construct the URL.
 
-Another cause could be your page is **not routable**.  The routable option for a page can be set in the [page headers](../../content/headers).
-
-
-
-
+Another cause could be your page is **not routable**. The routable option for a page can be set in the [page headers](../../content/headers).
