@@ -7,4 +7,4 @@ twig:
   debug: true
 
 debugger:
-  enabled: true
+  enabled: false

@@ -173,3 +173,9 @@ hr {
     a.anchor-link { color: #ccc; }
     a.anchor-link:hover { color: $core-accent; }
 }
+
+// Scrollbar
+.scrollbar-inner > .scroll-element .scroll-element_track { background-color: rgba($white, 0.3); }
+.scrollbar-inner > .scroll-element .scroll-bar { background-color: lighten(#9C6FB6, 5%); }
+.scrollbar-inner > .scroll-element:hover .scroll-bar { background-color: #ccc; }
+.scrollbar-inner > .scroll-element.scroll-draggable .scroll-bar { background-color: #ccc; }
