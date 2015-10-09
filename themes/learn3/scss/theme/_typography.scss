@@ -124,13 +124,17 @@ kbd,
 pre,
 samp {
 	font-family: $font-family-mono;
+    font-size: 16px;
 }
 
 code {
-	background: $code-bg;
-	color: darken($code-text,10%);
-	padding: .2rem .4rem;
-  border-radius: 3px;
+    border-radius: 2px;
+    padding: .2rem .5rem;
+    margin: 0 .2rem;
+    white-space: nowrap;
+    color: #5e5e5e;
+    background: #fefaed;
+    border: 1px solid #fbf0cb;
 }
 
 pre {
@@ -140,12 +144,12 @@ pre {
 	border: 1px solid $core-border-color;
 	border-radius: 2px;
 	line-height: 1.15;
-	font-size: 1rem;
 
 	code {
 		color: $pre-text;
 		background: inherit;
-		font-size: 1rem;
+        white-space: inherit;
+        border: 0;
 	}
 }
 

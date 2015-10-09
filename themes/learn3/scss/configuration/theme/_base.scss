@@ -47,8 +47,8 @@ $footer-bg:                     #404040;
 $footer-text:                   #ccc;
 
 $rule-color:                    #F0F2F4;
-$code-text:                     #c7254e;
-$code-bg:                       #f9f2f4;
+$code-text:                     darken($core-text,10%);
+$code-bg:                       lighten(#FDF7E3, 2%);
 $pre-text:                      #237794;
 $pre-bg:                        #f6f6f6;
 
