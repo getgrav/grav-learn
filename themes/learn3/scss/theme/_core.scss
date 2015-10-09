@@ -40,4 +40,10 @@ b, strong {
 
 #sidebar  {
     font-weight: 300 !important;
+    
+    .padding.highlightable {
+        overflow-y: auto;
+        height: 100%;
+    }
+}
 }
