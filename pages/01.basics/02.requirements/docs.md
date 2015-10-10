@@ -63,12 +63,12 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 * zip support (used by GPM)
 * `mbstring` (multibyte string support)
 
-For enabling `openssl` and unzipping you will need to find in the `php.ini` file of your Linux distribution for lines like:
+For enabling `openssl` and (un)zip support you will need to find in the `php.ini` file of your Linux distribution for lines like:
 
   - `;extension=openssl.so`.
   - `;extension=zip.so`.
 
-and removing the leading semicolon.
+and remove the leading semicolon.
 
 ##### Optional Modules
 
