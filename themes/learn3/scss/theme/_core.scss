@@ -1,6 +1,20 @@
 body {
     background: $page-bg;
     color: #777;
+
+    #chapter {
+        h1 {
+            font-size: 3.5rem;
+
+            @include breakpoint(tablet-range) {
+                font-size: 3rem;
+            }
+
+            @include breakpoint(mobile-only) {
+                font-size: 2rem;
+            }
+        }
+    }
 }
 
 a {
@@ -41,3 +55,5 @@ b, strong {
 #sidebar  {
     font-weight: 300 !important;
 }
+
+

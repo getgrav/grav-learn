@@ -33,6 +33,14 @@
 body {
   background: #fff;
   color: #777; }
+  body #chapter h1 {
+    font-size: 3.5rem; }
+    @media only all and (min-width: 48em) and (max-width: 59.938em) {
+      body #chapter h1 {
+        font-size: 3rem; } }
+    @media only all and (max-width: 47.938em) {
+      body #chapter h1 {
+        font-size: 2rem; } }
 
 a {
   color: #00BDF3; }
