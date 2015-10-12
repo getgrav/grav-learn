@@ -7,11 +7,12 @@ taxonomy:
 Multi-Language support was added to Grav in version **0.9.30** as a result of a great [community discussion](https://github.com/getgrav/grav/issues/170) on the subject. Multi-language support in Grav consists of several key parts:
 
 1. [Multiple concurrent languages](#multi-language-basics) for a given Grav site
-1. [Language fallback](#language-configuration) based on language order
+1. [Language fall-back](#language-configuration) based on language order
 1. Language code (`en`) or Local-based codes (`en-GB`)
 1. [Multiple language-based markdown files](#multiple-language-pages) providing custom header/contents
 1. Auto-detected [active language based on URL](#active-language-via-url)
-1. Auto-detected [active langauge based on browser](#active-language-via-browser)
+1. Auto-detected [active language based on browser](#active-language-via-browser)
+1. [Set locale to active language](#set-locale-to-the-active-language)
 1. [Custom routes based on language](#multi-language-routing)
 1. [Language-based home page aliases](#language-based-homepage)
 1. Active language-based [Twig template overrides](#language-based-twig-templates)
@@ -52,7 +53,7 @@ If no language is explicitly asked for (via the URL or by code), Grav will use t
 
 By default in Grav, each page is represented by a markdown file, for example `default.md`. When you enable multi-language support, Grav will look for the appropriately named markdown file.  For example as English is our default language, it will first look for `default.en.md`.
 
-If this file is not found, it will try the next language and look for `default.fr.md`.  If that file is not found, it will fallbak to the Grav default and look for `default.md` to provide information for the page.
+If this file is not found, it will try the next language and look for `default.fr.md`.  If that file is not found, it will fall-back to the Grav default and look for `default.md` to provide information for the page.
 
 If we had the most basic of Grav sites, with a single `01.home/default.md` file, we could start by renaming `default.md` to `default.en.md`, and it's contents might look like this:
 
@@ -98,9 +99,17 @@ For this to function you must enable the option in your `user/system.yaml` file 
 
 ```
 languages:
-  http_accept_language: true
+  http_accept_language: false
 ```
 
+#### Set Locale to the Active Language
+
+The boolean setting will set the PHP `setlocale()` method that controls things such as monetary values, dates, string comparisons, character classifications and other locale-specific settings to that of the active language.  This defaults to `false`, and then it will use the system locale, if you set this value to `true` it will override the locale with the current active language.
+
+```
+languages:
+   override_locale: false
+```
 
 #### Multi-Language Routing
 
@@ -138,7 +147,7 @@ Another option is to make use of the new [page-level routes](../headers#routes) 
 
 #### Language-Based Homepage
 
-If you override the route/slug for the homepage, Grav won't be able to find the homepage as defined by your `home.alias` option in your `system.yaml`. It will be looking for `/homepage` and your french homepage might have a route of `/page-d-accueil`.
+If you override the route/slug for the homepage, Grav won't be able to find the homepage as defined by your `home.alias` option in your `system.yaml`. It will be looking for `/homepage` and your French homepage might have a route of `/page-d-accueil`.
 
 In order to support multi-language homepages Grav has a new option that can be used instead of `home.alias` and that is simple `home.aliases` and it could look something like this:
 
@@ -162,7 +171,7 @@ languages:
 
 The `home_redirect.include_lang: true` setting will force Grav to redirect you to the default language route.  For example, if English is your default language, `http://yoursite.com` automatically redirects to `http://yoursite.com/en`.
 
-The `include_route` option forces the language to be included in the url.  For example if you had both `home_redirect.include_route: true` then pointing your browser to `http://yoursite.com` would result in `http://yoursite.com/en/homepage`.
+The `include_route` option forces the language to be included in the URL.  For example if you had both `home_redirect.include_route: true` then pointing your browser to `http://yoursite.com` would result in `http://yoursite.com/en/homepage`.
 
 #### Language-Based Twig Templates
 
@@ -401,4 +410,4 @@ RewriteCond %{REQUEST_URI} !(admin) [NC]
 RewriteRule ^de/(.*)$ "http://grav-site.de/$1" [R=301,L]
 ```
 
-if you know how to simplify the rewrite rules, please edit this page through the github link in the upper left corner
+if you know how to simplify the rewrite rules, please edit this page through the Github link in the upper left corner

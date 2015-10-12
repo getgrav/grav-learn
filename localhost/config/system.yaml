@@ -1,3 +1,8 @@
+cache:
+  enabled: true
+  check:
+    method: file
+
 assets:
   css_pipeline: false
   js_pipeline: false
