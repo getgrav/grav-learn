@@ -129,12 +129,21 @@ samp {
 
 code {
     border-radius: 2px;
-    padding: .2rem .5rem;
-    margin: 0 .2rem;
     white-space: nowrap;
     color: #5e5e5e;
     background: #fefaed;
     border: 1px solid #fbf0cb;
+    padding: 0px 2px;
+}
+
+code + .copy-to-clipboard {
+    border: 1px solid #fbf0cb;
+    margin-left: -1px;
+    border-left: 0 !important;
+    font-size: inherit !important;
+    vertical-align: middle;
+    height: 21px;
+    top: 0;
 }
 
 pre {
@@ -150,6 +159,8 @@ pre {
 		background: inherit;
         white-space: inherit;
         border: 0;
+        padding: 0;
+        margin: 0;
 	}
 }
 
