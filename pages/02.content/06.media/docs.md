@@ -632,22 +632,22 @@ Some examples of this:
 
 #### Audio actions
 
-Audio media will display an audio link:
+Audio media will display an HTML5 audio link:
 
 {% set tab1 %}
 ```
-[Hal 9000: I'm Sorry Dave](hal9000.mp3)
+![Hal 9000: I'm Sorry Dave](hal9000.mp3)
 ```
 {% endset %}
 {% set tab2 %}
 {% verbatim %}
 ```
-<a href="{{ page.media['hal9000.mp3'].url() }}">Hal 9000: I'm Sorry Dave</a>
+{{ page.media['hal9000.mp3'].html() }}
 ```
 {% endverbatim %}
 {% endset %}
 {% set tab3 %}
-[Hal 9000: I'm Sorry Dave](hal9000.mp3)
+![Hal 9000: I'm Sorry Dave](hal9000.mp3)
 {% endset %}
 {{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
