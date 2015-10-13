@@ -19,12 +19,13 @@ Grav uses a **smart-caching** system that automatically creates in-cache copies 
 
 The following media file types are supported natively by Grav. Additional support for media files and streaming embeds may be added via plugins.
 
-|     Media Type     |          File Type          |
-| :----------------- | :-------------------------- |
-| Image              | jpg, jpeg, png              |
-| Animated image     | gif                         |
-| Vectorized image   | svg                         |
-| Video              | mp4, mov, m4v, swf          |
+| Media Type         | File Type                    |
+| :----------------- | :--------------------------  |
+| Image              | jpg, jpeg, png               |
+| Audio              | mp3, wav, wma, ogg, m4a      |
+| Animated image     | gif                          |
+| Vectorized image   | svg                          |
+| Video              | mp4, mov, m4v, swf           |
 | Data / Information | txt, doc, html, pdf, zip, gz |
 
 ## Display modes
@@ -629,11 +630,47 @@ Some examples of this:
 {% endset %}
 {{ gravui_tabs({'Vector image':tab1, 'Animated image':tab2, 'Video':tab3}) }}
 
+#### Audio actions
 
+Audio media will display an audio link:
+
+{% set tab1 %}
+```
+[Hal 9000: I'm Sorry Dave](hal9000.mp3)
+```
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+<a href="{{ page.media['hal9000.mp3'].url() }}">Hal 9000: I'm Sorry Dave</a>
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
+[Hal 9000: I'm Sorry Dave](hal9000.mp3)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
 #### File actions
 
 Grav does not provide any custom actions on files at this point in time and there are no plans to add any. Should you think of something, please contact us.
+
+{% set tab1 %}
+```
+[View Text File](acronyms.txt)
+```
+{% endset %}
+{% set tab2 %}
+{% verbatim %}
+```
+<a href="{{ page.media['acronyms.txt'].url() }}">View Text File</a>
+```
+{% endverbatim %}
+{% endset %}
+{% set tab3 %}
+[View Text File](acronyms.txt)
+{% endset %}
+{{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3}) }}
 
 ### Combinations
 
