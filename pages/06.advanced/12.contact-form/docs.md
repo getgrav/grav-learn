@@ -74,7 +74,7 @@ form:
 
 Make sure you add your own `recatpcha_site_key` reCAPTCHA parameter ([see the reCAPTCHA docs](https://developers.google.com/recaptcha/docs/start)).
 
-Now create a subpage under the `thankyou/` subfolder, and name it `formdata.md`. Users submitting the form will be redirected on that page.
+Now inside the page folder create a subfolder named `thankyou/`, create a new file named `formdata.md`. Users submitting the form will be redirected on that page.
 
 The `formdata` page template is provided in Antimatter and other themes. If your theme does not provide it, you'll see an error. You can just copy it from Antimatter and things should work fine.
 
