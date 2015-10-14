@@ -68,6 +68,8 @@ process:
     - display: thankyou
 ```
 
+>>>>>> Make sure you configured the "Email from" and "Email to" email addresses in the Email plugin with your email address
+
 What does this do is simple: it executes the passed actions in serie.
 
 1. An email is sent to the email entered, with the subject `[Feedback] [name entered]`. The body of the email is defined in the forms/data.html.twig file of the theme in use.
