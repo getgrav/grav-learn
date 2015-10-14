@@ -70,6 +70,8 @@ form:
         - display: thankyou
 ```
 
+>>>>>> Make sure you configured the "Email from" and "Email to" email addresses in the Email plugin with your email address
+
 Make sure you add your own `recatpcha_site_key` reCAPTCHA parameter ([see the reCAPTCHA docs](https://developers.google.com/recaptcha/docs/start)).
 
 Now create a subpage under the `thankyou/` subfolder, and name it `formdata.md`. Users submitting the form will be redirected on that page.
