@@ -11,6 +11,7 @@ streams:
   schemes:
     theme:
       type: ReadOnlyStream
-      paths:
+      prefixes:
+        '':
         - user/themes/learn3
         - user/themes/learn2
