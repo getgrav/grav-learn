@@ -320,6 +320,10 @@ To add a form inside a modular page, follow those steps:
 1. In your theme, add a `templates/modular/form.html.twig` file copying `templates/forms/form.html.twig`.
 2. Create a modular folder with page type `form.md`
 3. Add the form header to the main modular page, `modular.md`
-4. To the form header, make sure you add the `action` parameter, with the modular page route
+4. In the form header, make sure you add the `action` parameter, with the modular page route
+
+Step 4 is needed because if you don't explicitly add form.action, the code usually looks for the page route, which is _form as it's a modular subpage, not an actual page, and it's wrong and breaks the form submit.
+
+So if the modular page is e.g. `site.com/my-page`, just put `form: action: /my-page` in `modular.md`
 
 Then it should just work as a normal form.
