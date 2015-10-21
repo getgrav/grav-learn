@@ -8,7 +8,7 @@ Grav has intentionally been designed with few requirements.  You can easily run 
 
 1. Webserver (Apache, Nginx, LiteSpeed, IIS, etc.)
 2. PHP 5.4 or higher
-3. hmm... that's it!
+3. hmm... that's it, (but please look at php requirements for a smooth experience)!
 
 Grav is built with plain text files for your content. There is no database needed.
 
@@ -55,12 +55,20 @@ To get **Grav** to run on an IIS server you need to install **URL Rewrite.** Thi
 
 ### PHP Requirements
 
-Most hosting providers and even local LAMP setups have PHP pre-configured with everything you need for Grav to run out of the box.  However, some windows setups, and even Linux distributions (I'm looking at you Debian!) ship with a very minimal PHP compile. Therefore, you may need to install or enable these PHP modules:
+Most hosting providers and even local LAMP setups have PHP pre-configured with everything you need for Grav to run out of the box.  However, some windows setups, and even Linux distributions local or on VPS (I'm looking at you Debian!) ship with a very minimal PHP compile. Therefore, you may need to install or enable these PHP modules:
 
 * `gd` (a graphics library used to manipulate images)
 * `curl` (client for URL handling used by GPM)
 * `openssl` (secure sockets library used by GPM)
+* zip support (used by GPM)
 * `mbstring` (multibyte string support)
+
+For enabling `openssl` and (un)zip support you will need to find in the `php.ini` file of your Linux distribution for lines like:
+
+  - `;extension=openssl.so`.
+  - `;extension=zip.so`.
+
+and remove the leading semicolon.
 
 ##### Optional Modules
 
