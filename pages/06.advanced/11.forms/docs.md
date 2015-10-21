@@ -312,3 +312,14 @@ In this case, `task` is `login.login`, and `action` is set to the page url.
 When a user presses 'Login' in the form, Grav calls the `onTask.login.login` event.
 
 `user/plugins/login/login.php` hooks up to `onTask.login.login` to its classes/controller.php file, and that's where the authentication happens.
+
+## Using forms in modular pages
+
+To add a form inside a modular page, follow those steps:
+
+1. In your theme, add a `templates/modular/form.html.twig` file copying `templates/forms/form.html.twig`.
+2. Create a modular folder with page type `form.md`
+3. Add the form header to the main modular page, `modular.md`
+4. To the form header, make sure you add the `action` parameter, with the modular page route
+
+Then it should just work as a normal form.
