@@ -10,6 +10,8 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Render content in blocks or columns](#render-content-in-columns)
 1. [Really simple css image slider](#really-simple-css-image-slider)
 1. [Wrapping Markdown into html](#wrapping-markdown-into-html)
+1. [Add a recent post widget to your sidebar](#add-a-recent-post-widget-to-your-sidebar)
+
 
 ### Creating a simple gallery
 
@@ -80,7 +82,7 @@ A question that has come up several times is how to quickly render a single page
 
 ##### Solution:
 
-There are many potential solutions, but one simple solutions is to divide up your content into logical sections using a delimiter such as as the HTML `<hr />` or *thematic break* tag.  In markdown this is represented by 3 or more dashes or `---`.  We simply create our content and separate are sections of content with these dashes:
+There are many potential solutions, but one simple solutions is to divide up your content into logical sections using a delimiter such as as the HTML `<hr />` or *thematic break* tag.  In markdown this is represented by 3 or more dashes or `---`.  We simply create our content and separate our sections of content with these dashes:
 
 **columns.md**
 
@@ -124,7 +126,7 @@ You need a image slider without any overhead.
 
 ##### Solution:
 
-This recipe is for 4 images! Simply put the images where the .md file is. I create a new twig template and extend the base.html.twig.  
+This recipe is for 4 images! Simply put the images where the .md file is. Next, create a new twig template and extend base.html.twig.
 
 ```
 {% extends 'partials/base.html.twig' %}
@@ -143,7 +145,7 @@ This recipe is for 4 images! Simply put the images where the .md file is. I crea
 {% endblock %}
 ```
 
-Time for css stuff. Add this to you _custom.scss
+Time for css stuff. Add this to your _custom.scss
 
 ```
 @keyframes slidy {
@@ -173,8 +175,7 @@ div#slider figure {
 }
 ```
 
-Thats all.
-
+That's all.
 
 ### Wrapping markdown into html
 
@@ -194,11 +195,87 @@ in your wrapper tag make sure to add the parameter `markdown="1"` to activate pr
 
 ```
 <div class="myWrapper" markdown="1" >
-	# my markdown content
-	
-	this content is wrapped into a div with class "myWrapper"
-</div>
+    # my markdown content
 
+    this content is wrapped into a div with class "myWrapper"
+</div>
 ```
 
 done.
+
+### Add a recent post widget to your sidebar
+
+#### Problem:
+
+You want to create a recent post widget similar to this on your blog sidebar:
+
+![Recent post widget](http://5to9design.ca/images/recent-pages.png)
+
+#### Solution:
+
+The final code in your Twig template (or create a seperate temple, store it in `partials` and extend `partials/base.html.twig`) is shown below:
+
+```
+<div class="sidebar-content recent-posts">
+    <h3>Recent Posts</h3>
+    {% for p in page.find('/blog').children.order('date', 'desc').slice(0, 5) %}
+        {% set bannerimage = p.media['banner.jpg'] %}
+        <div class="recent-post">
+            {% if bannerimage %}
+                <div class="recent-post-image">{{ bannerimage.cropZoom(60,60).quality(60) }}</div>
+            {% else %}
+                <div class="recent-post-image"><img src="{{ url('theme://images/logo.png') }}" width="60" height="60"></div>
+            {% endif %}
+            <div class="recent-post-text">
+                <h4><a href="{{p.url}}">{{ p.title }}</a></h4>
+                <p>{{ p.date|date("M j, Y")}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+```
+
+All this code does is sort the children (blog posts) of the `/blog` page by decending date order. It then takes the first five blog posts using the `slice` Twig filter. By the way, `slice(n,m)` takes elements from `n` to `m-1`. In this example, any blog posts that have a banner image have been named `banner.jpg`. This is set in a variable `bannerimage`. If `bannerimage` exists, it is shrunk down to a `60px x 60px` box and will appear to the left of the post title text and date. If it does not exist, the website logo is resized to `60px x 60px` and placed to the left of the title and date text instead.
+
+The CSS for this widget is listed below:
+
+```
+.sidebar-content .recent-post {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #F0F0F0;
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+.sidebar-content [class~='recent-post']:last-of-type {
+    border-bottom: none;
+}
+
+.sidebar-content .recent-post .recent-post-image,
+.sidebar-content .recent-post .recent-post-text {
+    float: left;
+}
+
+.sidebar-content .recent-post .recent-post-image {
+    margin-right: 10px;
+}
+
+.sidebar-content .recent-post .recent-post-text h4 {
+    font-family: serif;
+    margin-bottom: 10px;
+}
+
+.sidebar-content .recent-post .recent-post-text h4 a {
+    color: #193441;
+}
+
+.sidebar-content .recent-post .recent-post-text p {
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    color: #737373;
+    margin: 0;
+}
+```
+Adjust the spacing between recent post items, font-family, font-size and font-weight to taste.
