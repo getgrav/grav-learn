@@ -176,7 +176,7 @@ To take advantage of this capability you must specify the group when adding the 
 Then for these assets in the bottom group to render, you must add the following to your theme:
 
 ```
-{{ assets.js('bottom') }}
+{{ assets.js({'group':'bottom'}) }}
 ```
 
 If no group is defined for an asset, then `head` is the default group.  If no group is set for rendering, the `head` group will be rendered. This ensures thew new functionality is 100% backwards compatible with existing themes.
