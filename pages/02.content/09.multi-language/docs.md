@@ -8,7 +8,7 @@ Multi-Language support was added to Grav in version **0.9.30** as a result of a 
 
 1. [Multiple concurrent languages](#multi-language-basics) for a given Grav site
 1. [Language fall-back](#language-configuration) based on language order
-1. Language code (`en`) or Local-based codes (`en-GB`)
+1. Language code (`en`) or Locale-based codes (`en-GB`)
 1. [Multiple language-based markdown files](#multiple-language-pages) providing custom header/contents
 1. Auto-detected [active language based on URL](#active-language-via-url)
 1. Auto-detected [active language based on browser](#active-language-via-browser)
@@ -75,7 +75,7 @@ title: Page d'accueil
 Ceci est ma page d'accueil alimentée par Grav !
 ```
 
-Now you have defined two pages for you current homepage in multiple languages.
+Now you have defined two pages for your current homepage in multiple languages.
 
 #### Active Language via URL
 
