@@ -1,5 +1,5 @@
 ---
-title: Internal Server Error
+title: 500 Internal Server Error
 taxonomy:
     category: docs
 ---
