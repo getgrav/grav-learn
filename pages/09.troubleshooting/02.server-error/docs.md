@@ -1,5 +1,5 @@
 ---
-title: Server Error
+title: Grav Server Error
 markdown_extra: true
 taxonomy:
     category: docs
