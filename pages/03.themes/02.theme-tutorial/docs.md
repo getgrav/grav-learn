@@ -385,7 +385,7 @@ bootstrap
 │   │   ├── base.html.twig
 │   │   └── header.html.twig
 │   └── default.html.twig
-├── boostrap.yaml
+├── bootstrap.yaml
 └── bootstrap.php
 ```
 
