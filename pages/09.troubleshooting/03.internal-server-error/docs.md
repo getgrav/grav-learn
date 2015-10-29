@@ -1,5 +1,5 @@
 ---
-title: Internal Server Error
+title: 500 Internal Server Error
 taxonomy:
     category: docs
 ---
@@ -48,3 +48,14 @@ If your server is running on Windows, you could be getting a 500 Internal Server
 ```
 
 Then restart your Apache server.
+
+### Options -Indexes
+
+Grav uses a `-Indexes` option to force no directory listings of folders. Some hosts do not like Apache `.htaccess` manipulating the `Options` setting.
+
+We have seen reports that simply commenting out this line in Grav's `.htaccess` file can fix the Internal Server error problems for users in this situation:
+
+```
+# Prevent file browsing
+#Options -Indexes
+```

@@ -4,20 +4,20 @@ taxonomy:
     category: docs
 ---
 
-Installation of Grav is a trivial process. In fact, there is no real installation.  You have **two** options for installing Grav.  The first, and simplicity way is simply grab the **zip**, the other way is to install the source from **GitHub** and run a command to install dependencies:
+Installation of Grav is a trivial process. In fact, there is no real installation.  You have **two** options for installing Grav.  The first - and simplest - way is to simply download the **zip** archive, and extract it. The other way is to clone the source project directly from **GitHub**, and then run an included script command to install needed dependencies:
 
-## Option 1: Install with ZIP package
+## Option 1: Install from ZIP package
 
-The easiest way to install Grav is to use the ZIP package and install it:
+The easiest way to install Grav is to download the ZIP package and extract it:
 
 1. Download the latest-and-greatest **Grav Base** package from the [Downloads](http://getgrav.org/downloads)
-2. Extract the ZIP file in your [webroot](https://www.wordnik.com/words/webroot) of your web server, e.g. `~/webroot/grav`
+2. Extract the ZIP file in the [webroot](https://www.wordnik.com/words/webroot) of your web server, e.g. `~/webroot/grav`
 
 >>>> If you downloaded the ZIP file and then plan to move it to your webroot, please move the **ENTIRE FOLDER** because it contains several hidden files (such as .htaccess) that will not be selected by default. The omission of these hidden files can cause problems when running Grav.
 
 ## Option 2: Install from GitHub
 
-The alternative method is to install Grav from the GitHub repository and then run a simple dependency installation script:
+The alternative method is to clone Grav from the GitHub repository, and then run a simple dependency installation script:
 
 1. Clone the Grav repository from [GitHub](https://github.com/getgrav/grav) to a folder in the webroot of your server, e.g. `~/webroot/grav`. Launch a **terminal** or **console** and navigate to the webroot folder:
    ```
@@ -70,7 +70,7 @@ This runs the built-in PHP web server.  Then, point your browser to `http://loca
 
 ## Successful Installation
 
-The first time it loads, there is some compilation happening. Refresh your browser and you will get a faster, cached version.
+The first time it loads, Grav pre-compiles some files. If you now refresh your browser, you will get a faster, cached version.
 
 ![Grav Installed](install.png?cropResize=600,600)  {.border}
 
@@ -90,7 +90,7 @@ Please consult the [Troubleshooting](../../troubleshooting) section for help reg
 
 ### Automatic Updates
 
-The preferred method for updating Grav (from v0.9.3 onwards) is to use the **Grav Package Manager (GPM)**. All you need to do then is navigate to the root of your Grav site and type:
+The preferred method for updating Grav (from v0.9.3 onwards) is to use the **Grav Package Manager (GPM)**. All you need to do  is to navigate to the root of your Grav site and type:
 
 ```
 bin/gpm selfupgrade
@@ -100,7 +100,7 @@ Full information can be found in the [Grav GPM Documentation](../../advanced/gra
 
 ### Manual Updates
 
-To manually update the process is:
+The process to manually update Grav is:
 
 1. Backup your site using `bin/grav backup` (more information in [Grav CLI Documentation](../../advanced/grav-cli) or alternatively zipping up the whole Grav site, or specifically the `user/` folder.
 

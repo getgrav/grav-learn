@@ -1,5 +1,5 @@
 ---
-title: Not Found
+title: 404 Not Found
 taxonomy:
     category: docs
 ---

@@ -61,7 +61,7 @@ JavaScript assets are very similar:
     {% do assets.addJs('theme://js/modernizr.custom.71422.js',100) %}
     {% do assets.addJs('theme://js/antimatter.js') %}
     {% do assets.addJs('theme://js/slidebars.min.js') %}
-    {% do assets.addInineJs('alert(\'This is inline!\')') %}
+    {% do assets.addInlineJs('alert(\'This is inline!\')') %}
 {% endblock %}
 {{ assets.js() }}
 ```

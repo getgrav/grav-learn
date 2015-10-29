@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Grav is a **Fast**, **Simple**, and **Flexible** file-based Web-platform.  There is **Zero** installation required.  Just extract the ZIP archive, and you are already up and running.  Although Grav follows principals similar to other flat-file CMS platforms, it has a different design philosophy than most.
+Grav is a **Fast**, **Simple**, and **Flexible** file-based Web-platform.  There is **Zero** installation required.  Just extract the ZIP archive, and you are already up and running.  Although Grav follows principles similar to other flat-file CMS platforms, it has a different design philosophy than most.
 
 The name **Grav** is just a shortened version of the word **Gravity**. The shared name space of our platform and a movie starring Sandra Bullock is pure coincidence! More importantly, gravity is also a very important physical principle that describes the forces of attraction between objects. Frankly, the name was chosen as a temporary "codename" for the project and it just stuck.
 
@@ -22,7 +22,7 @@ The underlying architecture of Grav is built using well established and _best-in
 
 ## Grav's Place in the Universe
 
-There are many powerful open source CMS solutions for building complex websites.  Some of the more commonly used ones are [Joomla](http://joomla.org), [WordPress](http://wordpress.org), and [Drupal](http://drupal.org). The downside of these platforms is that they have a steep learning curve associated with them. This requires a significant amout of your time and may be time that you do not have.
+There are many powerful open source CMS solutions for building complex websites.  Some of the more commonly used ones are [Joomla](http://joomla.org), [WordPress](http://wordpress.org), and [Drupal](http://drupal.org). The downside of these platforms is that they have a steep learning curve associated with them. This requires a significant amout of your time - and this may be time that you do not have.
 
 These platforms provide a wealth of features and functionality that you can extend with a wide variety of open source and proprietary plug-ins and themes.  These extensions and themes are themselves often feature-packed, requiring yet more knowledge and time on the part of the developer.
 

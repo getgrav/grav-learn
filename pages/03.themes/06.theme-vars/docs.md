@@ -43,7 +43,7 @@ The `{{ theme_url }}` returns the relative URL to the current theme.
 You can access any Grav configuration setting via the config object as set in the `configuration.yaml` file.  For example:
 
 ```
-{{ config.pages.theme }}{# returns the currently configured theme #}
+{{ config.system.pages.theme }}{# returns the currently configured theme #}
 ```
 
 ### site object
