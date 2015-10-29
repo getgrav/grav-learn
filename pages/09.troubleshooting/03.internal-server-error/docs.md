@@ -59,3 +59,17 @@ We have seen reports that simply commenting out this line in Grav's `.htaccess` 
 # Prevent file browsing
 #Options -Indexes
 ```
+
+
+### Admin Panel Navigation
+
+When navigating through Grav's admin panel, **Internal Server Error** message appears in the top left.  This is due to incorrect permissions on your /cache folder.
+
+ ![Internal Server Error](http://i.imgur.com/vyPfoZ7.png)
+
+If this error is popping up the chances are you haven't set the correct permission on the /cache folder, rather than just making the folder writable you need to make it reclusively writable.  Running the below command from within your Grav directory should sort out the problem.
+
+```
+sudo chmod 777 cache/ -R
+```
+
