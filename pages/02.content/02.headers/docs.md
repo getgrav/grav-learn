@@ -394,28 +394,6 @@ content:
       category: [blog, featured]
 ```
 
-### Summary of collection options
-
-| String       | Result                                                                                                                                            |
-| :----------  | :---------- |
-| '@root'  | Get the root children|
-| '@root.children'    | Get the root children (alternative) |
-| '@root.recurse' | Get the root and recurse through ALL children     |
-|  |  |
-| '@self.parent'     | Get the parent of the current page            |
-| '@self.siblings'| A collection of all other pages on this level|
-| '@self.modular'                               | Get only the modular children|
-| '@self.children'                              | Get the non-modular children|
-| '@self.recurse'                               | Recurse through all the children|
-|  |  |
-| '@page': '/fruit'                             | Get all the children of page `/fruit'|
-| '@page.children': '/fruit'                    | Alternative to above|
-| '@page.self': '/fruit'                        | Get a collecton with only the page `/fruit'|
-| '@page.recurse': '/fruit'                     | Get and recurse through all the children of page '/fruit'|
-|  |  |
-| '@taxonomy.tag': photography                  | taxonomy with tag='photography'|
-| '@taxonomy': {tag: birds, category: blog}     | taxonomy with tag='photography' && category='blog'|
-
 ### Ordering Options
 
 ```ruby
@@ -442,7 +420,7 @@ Ordering of sub-pages follows the same rules as ordering of folders, the availab
 | **date**     | The order based on the date as defined in each page                                                                                                |
 | **modified** | The order based on the modified timestamp of the page                                                                                              |
 | **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                  |
-| **header.x** | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015` |
+| **header.x** | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015`    |
 | **manual**   | The order based on the `order_manual` variable                                                                                                     |
 | **random**   | The order is randomized                                                                                                                            |
 
