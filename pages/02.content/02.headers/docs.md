@@ -276,6 +276,18 @@ metadata:
     my_key: 'my_value'
 ```
 
+This will produce the HTML:
+
+```
+<meta name="generator" content="Grav" />
+<meta name="description" content="Your page &quot;description&quot; goes here" />
+<meta name="testkey" content="testvalue" />
+<meta http-equiv="refresh" content="30" />
+<meta name="keywords" content="HTML, CSS, XML, JavaScript" />
+<meta name="author" content="John Smith" />
+<meta name="robots" content="noindex, nofollow" />
+```
+
 All HTML5 metatags are supported.
 
 ### OpenGraph Metatag examples
@@ -289,6 +301,15 @@ metadata:
         image: http://ia.media-imdb.com/images/rock.jpg
 ```
 
+This will produce the HTML:
+
+```
+<meta property="og:title" content="The Rock" />
+<meta property="og:type" content="video.movie" />
+<meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
+<meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
+```
+
 For a full outline of all OpenGraph metatags that can be used, please consult the [official documentation](http://ogp.me/).
 
 ### Facebook Metatag examples
@@ -297,6 +318,12 @@ For a full outline of all OpenGraph metatags that can be used, please consult th
 metadata:
     fb:
         app_id: your_facebook_app_id
+```
+
+This will produce the HTML:
+
+```
+<meta property="fb:app_id" content="your_facebook_app_id" />
 ```
 
 Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific tags and these are support automatically by Grav.
@@ -310,6 +337,16 @@ metadata:
     'twitter:title' : Your Page Title
     'twitter:description' : Your page description can contain summary information
     'twitter:image' : https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg
+```
+
+This will produce the HTML:
+
+```
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@flickr" />
+<meta name="twitter:title" content="Your Page Title" />
+<meta name="twitter:description" content="Your page description can contain summary information" />
+<meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" />
 ```
 
 For a full outline of all Twitter metatags that can be used, please consult the [official documentation](https://dev.twitter.com/cards/overview).
