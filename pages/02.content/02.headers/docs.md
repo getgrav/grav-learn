@@ -267,10 +267,13 @@ Meta headers allow you to set the [standard set of HTML **<meta> tags**](http://
 
 ```ruby
 metadata:
-    description: Your page description goes here
-    keywords: HTML, CSS, XML, JavaScript
-    author: John Smith
-    robots: noindex, nofollow
+    refresh: 30
+    generator: 'Grav'
+    description: 'Your page description goes here'
+    keywords: 'HTML, CSS, XML, JavaScript'
+    author: 'John Smith'
+    robots: 'noindex, nofollow'
+    my_key: 'my_value'
 ```
 
 All HTML5 metatags are supported.
