@@ -95,6 +95,16 @@ To achieve this you need to follow these steps:
      theme: mytheme
    ```
 
+5. Create a new theme Class file that can be used to add advanced event-driven functionality. Create a `user/themes/mytheme/mytheme.php` file:
+   ```
+   namespace Grav\Theme;
+
+   class Mytheme extends Antimatter
+   {
+      // Some new methods, properties etc.
+   }
+   ```
+
 You have now created a new theme called **mytheme** and set up the streams so that it will first look in the **mytheme** theme first, then try **antimatter**.  So in essence, Antimatter is the base-theme for this new theme.
 
 You can then provide just the files you need, including **JS**, **CSS**, or even modifications to **Twig template files** if you wish.

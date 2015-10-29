@@ -36,11 +36,16 @@ As well as detailed information related to Twig rendering to quickly see which T
 
 ## Error Display
 
-Our new error display page provides detailed information, backtraces and even relevant code block.  This helps to more quickly isolate, identify and resolve critical errors.
+Our new error display page provides detailed information, backtraces and even relevant code block.  This helps to more quickly isolate, identify and resolve critical errors. By default in Grav 1.0+, these are turned off by default, so you will need to enable them to take advantage of this helpful error handling for development:
+
+```
+errors:
+  display: true
+```
 
 ![](error.png)
 
-For production environments you can disable the detailed error page with something more subtle by configuring the errors options in your `user/config/system.yaml` file:
+For production environments you can disable the detailed error page with something more subtle by configuring the errors options in your `user/config/system.yaml` file and rely on errors being logged to file:
 
 ```
 errors:

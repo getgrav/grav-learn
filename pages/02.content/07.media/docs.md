@@ -28,6 +28,8 @@ The following media file types are supported natively by Grav. Additional suppor
 | Video              | mp4, mov, m4v, swf           |
 | Data / Information | txt, doc, html, pdf, zip, gz |
 
+A full list of supported mimetypes can be found in the `system/config/media.yaml` file.  If there is a mimetype that is not currently supported, you can simply create your own `user/config/media.yaml` and add it in there.  Just ensure you follow the same format as the original `system` file.  The simplest approach is to copy the whole original file and make your edits.
+
 ## Display modes
 
 Grav provides a few different display modes for every kind of media object.

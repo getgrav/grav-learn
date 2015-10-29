@@ -13,6 +13,7 @@ Multi-Language support was added to Grav in version **0.9.30** as a result of a 
 1. Auto-detected [active language based on URL](#active-language-via-url)
 1. Auto-detected [active language based on browser](#active-language-via-browser)
 1. [Set locale to active language](#set-locale-to-the-active-language)
+1. [Default Language Prefix](#default-language-prefix)
 1. [Custom routes based on language](#multi-language-routing)
 1. [Language-based home page aliases](#language-based-homepage)
 1. Active language-based [Twig template overrides](#language-based-twig-templates)
@@ -111,6 +112,15 @@ languages:
    override_locale: false
 ```
 
+#### Default Language Prefix
+
+By default, the default language code is prefixed in all URLs.  For example if you have support for English and French (`en` and `fr`), and the default is English.  A page route might look like `/en/my-page` in English and `/fr/ma-page` in French. However it's often preferrable to have the default language without the prefix, so you can just set this option to `true` and the English page would appear as `/my-page`.
+
+```
+languages:
+    include_default_lang: false
+```
+
 #### Multi-Language Routing
 
 Grav typically uses the names of the folders to produce a URL route for a particular page.  This allows for the site architecture to be easily understood and implemented as a nested set of folders.  However with a multi-language site you may wish to use a URL that makes more sense in that particular language.
@@ -159,19 +169,6 @@ home:
 ```
 
 This way Grav knows how to route your to the homepage if the active language is English or French.
-
-There are a couple of other optional `language:` settings that effect the homepage too:
-
-```
-languages:
-  home_redirect:
-    include_lang: true
-    include_route: false
-```
-
-The `home_redirect.include_lang: true` setting will force Grav to redirect you to the default language route.  For example, if English is your default language, `http://yoursite.com` automatically redirects to `http://yoursite.com/en`.
-
-The `include_route` option forces the language to be included in the URL.  For example if you had both `home_redirect.include_route: true` then pointing your browser to `http://yoursite.com` would result in `http://yoursite.com/en/homepage`.
 
 #### Language-Based Twig Templates
 

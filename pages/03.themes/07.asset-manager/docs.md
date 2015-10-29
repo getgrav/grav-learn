@@ -165,7 +165,7 @@ An example of this action can be found in the [**bootstrapper** plugin](https://
 
 ## Grouped Assets
 
-A new feature was added in Grav **0.9.43** that lets you pass an optional `group` as part of an options array when adding assets.  This is most useful for JavaScript where you may need to have some JS files or Inline JS referenced in the header, and some at the bottom of the page.  Prior to this Grav release, this was not possible using the Asset manager, but it is now.
+A new feature was added in Grav **0.9.43** that lets you pass an optional `group` as part of an options array when adding assets.  This is useful for CSS, but especially for  JavaScript where you may need to have some JS files or Inline JS referenced in the header, and some at the bottom of the page.  Prior to this Grav release, this was not possible using the Asset manager, but it is now.
 
 To take advantage of this capability you must specify the group when adding the asset, and should use the options syntax:
 
@@ -180,6 +180,19 @@ Then for these assets in the bottom group to render, you must add the following 
 ```
 
 If no group is defined for an asset, then `head` is the default group.  If no group is set for rendering, the `head` group will be rendered. This ensures thew new functionality is 100% backwards compatible with existing themes.
+
+The same goes for CSS files:
+
+```
+{% do assets.addCss('theme://css/ie8.css', {'group':'ie'}) %}
+```
+
+and to render:
+
+
+```
+{{ assets.css('ie') }}
+```
 
 ## Static Assets
 

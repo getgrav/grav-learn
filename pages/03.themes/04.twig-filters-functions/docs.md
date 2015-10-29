@@ -90,6 +90,12 @@ Creates an md5 hash for the string
 
 `'anything'|md5` <i class="fa fa-long-arrow-right"></i> **{{ 'anything'|md5 }}**
 
+##### Modulus
+
+Performs the same functionality as the Modulus `%` symbol in PHP. It operates on a number by passing in a numeric divider and an optional array of items to select from.
+
+`7|modulus(3, [red, blue, green])`
+
 ##### Monthize
 
 Converts an integer number of days into the number of months
@@ -262,6 +268,13 @@ Takes a valid twig variable and dumps it out into the [Grav debugger panel](../.
 ##### Debug
 
 Same as `dump()`
+
+##### Evaluate
+
+The evaluate function can be used to evaluate a string as Twig:
+
+`{{ evaluate('grav.language.getLanguage') }}`
+
 
 ##### Gist
 

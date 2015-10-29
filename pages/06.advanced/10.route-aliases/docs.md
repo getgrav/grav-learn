@@ -64,11 +64,37 @@ This route would not match anything that doesn't start with `complex/category` o
 
 ### Redirects
 
-The other corollary option to **route aliases** is provided by **redirects**. These are similar, but rather than keeping the URL and simply serving the content from the aliased route, Grav actually redirects the browser to the mapped page. For example:
+The other corollary option to **route aliases** is provided by **redirects**. These are similar, but rather than keeping the URL and simply serving the content from the aliased route, Grav actually redirects the browser to the mapped page.
+
+There are three system-level configuration options that effect Redirects:
+
+```
+pages:
+  redirect_default_route: false
+  redirect_default_code: 301
+  redirect_trailing_slash: true
+```
+
+* `redirect_default_route` enables Grav to automatically redirect to the page's default route.
+* `redirect_default_code` allows you to set the default HTTP redirect codes:
+    * **301**: Permanent redirect. Clients making subsequent requests for this resource should use the new URI. Clients should not follow the redirect automatically for POST/PUT/DELETE requests.
+    * **302**: Redirect for undefined reason. Clients making subsequent requests for this resource should not use the new URI. Clients should not follow the redirect automatically for POST/PUT/DELETE requests.
+    * **303**: Redirect for undefined reason. Typically, 'Operation has completed, continue elsewhere.' Clients making subsequent requests for this resource should not use the new URI. Clients should follow the redirect for POST/PUT/DELETE requests.
+    * **307**: Temporary redirect. Resource may return to this location at a later point. Clients making subsequent requests for this resource should use the old URI. Clients should not follow the redirect automatically for POST/PUT/DELETE requests.
+* `redirect_trailing_slash` option lets you redirect to a non-trailing slash version of the current URL
+
+For example:
 
 ```
 redirects:
     /jungle: '/blog/the-urban-jungle'
+```
+
+You can also explicity pass the redirect code between square brackets `[]` as part of the URL:
+
+```
+redirects:
+    /jungle: '/blog/the-urban-jungle[303]'
 ```
 
 If you were to point your browser to `http://mysite.com/jungle`, you would actually get redirected and end up on the page: `http://mysite.com/blog/the-urban-jungle`.

@@ -75,7 +75,9 @@ and remove the leading semicolon.
 * `apc` (PHP 5.4) or `apcu` (PHP 5.5+) for increased cache performance
 * `opcache` (PHP 5.5+) for increased PHP performance
 * `xcache` alternative to *apc*, not as fast, but still pretty good
+* `yaml` PECL Yaml provides native yaml processing and can dramatically increase performance
 * `xdebug` useful for debugging in development environment
+
 
 
 ### Permissions
