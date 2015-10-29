@@ -36,7 +36,7 @@ We will cover these more in detail. The `content.items` value tells Grav to gath
 
 ## Root Collections
 
-### @root - Top level children
+##### @root - Top level children
 
 This can be used to retrieve the top/root level **published non-modular children** of a site. Particular useful for getting the items that make up the primary navigation for example:
 
@@ -52,7 +52,7 @@ content:
     items: '@root.children'
 ```
 
-### @root - Top level children + all descendants
+##### @root - Top level children + all descendants
 
 This will effectively get every page in your site as it recursively navigates through all the children from the root page down, and builds a collection of **all** the **published non-modular children** of a site.
 
@@ -63,7 +63,7 @@ content:
 
 ## Self Collections
 
-### @self.children - Children of the current page
+##### @self.children - Children of the current page
 
 This is used to list the **published non-modular children** of the current page:
 
@@ -72,7 +72,7 @@ content:
     items: '@self.children'
 ```
 
-### @self.descendants - Modular children + all descendants of the current page
+##### @self.descendants - Modular children + all descendants of the current page
 
 Similar to `.children`, the `.descendants` collection will retrieve all the **published non-modular children** but continue to recurse through all their children.
 
@@ -81,7 +81,7 @@ content:
     items: '@self.descendants'
 ```
 
-### @self.modular - Modular children of the current page
+##### @self.modular - Modular children of the current page
 
 The inverse of `.children`, this method retrieves only **published modular children** of the current page (`_features`, `_showcase`, etc.)
 
@@ -90,7 +90,7 @@ content:
     items: '@self.modular'
 ```
 
-### @self.parent - The parent page of the current page
+##### @self.parent - The parent page of the current page
 
 This is a special case collection because it will always return just the one **parent** of the current page
 
@@ -99,7 +99,7 @@ content:
     items: '@self.parent'
 ```
 
-### @self.siblings - All the sibling pages
+##### @self.siblings - All the sibling pages
 
 This collection will collect all the **published** Pages at the same level of the current page, excluding the current page.
 
@@ -110,7 +110,7 @@ content:
 
 ## Page Collections
 
-### @page - Collection of children of a specific page
+##### @page - Collection of children of a specific page
 
 This collection takes a slug route of a page as an argument and will return all the **publish non-modular** children of that page
 
@@ -128,7 +128,7 @@ content:
       '@page.children': /blog
 ```
 
-### @page.self - Collection of just the specific page
+##### @page.self - Collection of just the specific page
 
 This collection takes a slug route of a page as an argument and will return collection containing that page (if it is **published and non-modular**)
 
@@ -138,7 +138,7 @@ content:
       '@page.self': /blog
 ```
 
-### @page.descendants - Collection of children + all descendants of a specific page
+##### @page.descendants - Collection of children + all descendants of a specific page
 
 This collection takes a slug route of a page as an argument and will return all the **publish non-modular** children and all their descendants of that page
 
