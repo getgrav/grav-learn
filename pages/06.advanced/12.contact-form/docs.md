@@ -34,6 +34,7 @@ form:
           placeholder: Enter your email address
           type: email
           validate:
+            rule: email
             required: true
 
         - name: message
