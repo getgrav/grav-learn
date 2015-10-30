@@ -70,6 +70,6 @@ When navigating through Grav's admin panel, **Internal Server Error** message ap
 If this error is popping up the chances are you haven't set the correct permission on the /cache folder, rather than just making the folder writable you need to make it reclusively writable.  Running the below command from within your Grav directory should sort out the problem.
 
 ```
-sudo chmod 775 cache/ -R
+sudo chmod 755 cache/ -R
 ```
 
