@@ -67,3 +67,15 @@ Here are the currently supported access levels explained:
 - `admin.maintenance`: allows a user to update Grav from the admin side, check for updates and clear the cache
 - `admin.plugins`: allows a user to access the plugins functionality, edit the plugins settings, disable plugins or add new ones
 - `admin.themes`: allows a user to access the themes functionality, edit theme settings, change themes and add new ones
+
+
+### Custom Admin URL
+
+One way to help keep your admin panel secure is to hide it's location, to do this would be to change the URL from 
+```
+http://yourwebsite.com/admin
+```
+To something more ambiguous, that is going to be harder for someone to guess.  To do this you need to locate `admin.yaml` which can be found in `user\plugins\admin\` and change or add the line `route: '/admin'` to something more ambiguous, for example `route: '/myspecialplace'`, this way if you need to access the admin panel for your grav site you will enter
+```
+http://yourwebsite.com/myspecialplace
+```
