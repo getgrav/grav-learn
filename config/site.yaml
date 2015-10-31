@@ -10,3 +10,11 @@ taxonomies: [category,tag]
 summary:
   size: 300
 
+redirects:
+  '/hosting/rochen': '/hosting/shared/rochen'
+  '/hosting/wirenine': '/hosting/shared/wirenine'
+  '/hosting/crucial': '/hosting/shared/crucial'
+  '/hosting/arvixe': '/hosting/shared/arvixe'
+  '/hosting/siteground': '/hosting/shared/siteground'
+  '/hosting/dreamhost': '/hosting/shared/dreamhost'
+

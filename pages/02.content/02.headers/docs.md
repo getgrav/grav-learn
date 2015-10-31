@@ -85,26 +85,32 @@ By default, a page is **visible** in the **navigation** if the surrounding folde
 ### Redirect
 
 ```ruby
-redirect: /some/custom/route
+redirect: '/some/custom/route'
 ```
 
 or
 
 ```ruby
-redirect: http://someexternalsite.com
+redirect: 'http://someexternalsite.com'
 ```
 
 As of Grav **0.9.41** can now redirect to another internal or external page right from a page header.  Of course this means this page will not be displayed, but the page can still be in a collection, menu, etc because it will exist as a page within Grav.
+
+As of Grav **1.0.0** you can also append a redirect code to a URL by using square brackets:
+
+```ruby
+redirect: '/some/custom/route[303]'
+```
 
 ### Routes
 
 ```
 routes:
-  default: /my/example/page
-  canonical: /canonical/url/alias
+  default: '/my/example/page'
+  canonical: '/canonical/url/alias'
   aliases:
-    - /some/other/route
-    - /can-be-any-valid-slug
+    - '/some/other/route'
+    - '/can-be-any-valid-slug'
 ```
 
 With Grav **0.9.30** you can now provide a **default route** that overrides the standard route structure as defined by the folder structure.
