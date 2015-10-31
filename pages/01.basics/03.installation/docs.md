@@ -96,7 +96,7 @@ The preferred method for updating Grav (from v0.9.3 onwards) is to use the **Gra
 bin/gpm selfupgrade
 ```
 
-Full information can be found in the [Grav GPM Documentation](../../advanced/grav-gpm).  We also plan on having GPM integrated in our the upcoming **Admin Panel** plugin which will check, prompt, and automatically install any updates.
+Full information can be found in the [Grav GPM Documentation](../../advanced/grav-gpm).  We also plan on having GPM integrated in our upcoming **Admin Panel** plugin which will check, prompt, and automatically install any updates.
 
 ### Manual Updates
 
