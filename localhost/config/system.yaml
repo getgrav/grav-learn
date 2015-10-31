@@ -12,4 +12,4 @@ twig:
   debug: true
 
 debugger:
-  enabled: false
+  enabled: true

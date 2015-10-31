@@ -8,4 +8,4 @@ taxonomy:
 
 # Hosting
 
-Discover detailed guides to setting up Grav in a hosted environment
+Discover detailed guides to set up Grav on a variety of **Shared** and **VPS** hosting providers

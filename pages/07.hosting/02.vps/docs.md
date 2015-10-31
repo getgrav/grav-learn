@@ -1,4 +1,5 @@
 ---
 menu: VPS Hosting
-redirect: '/hosting/vps/linode'
+redirect: '/hosting/vps/digitalocean'
+class: subtitle
 ---

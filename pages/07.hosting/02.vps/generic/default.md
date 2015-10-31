@@ -26,6 +26,8 @@ $ apt-get install vim zip nginx git php5-fpm php5-cli php5-gd php5-curl php5-apc
 
 This will install the complete VIM editor (rather than the mini version that ships with Ubuntu), Nginx web server, GIT commands, and **PHP 5.5**.
 
+>>> If you would prefer to use **PHP 5.6**, you probably should start over and provision your server with **Ubuntu 15.10** which is the more cutting edge version of Ubuntu.
+
 ### Configure Nginx Connection Pool
 
 Nginx has already been installed, but you should configure is so that it uses a user-specific PHP connection pool.  This will ensure you are secure and avoid any potential file permissions when working on the files as your user account, and via the web server.

@@ -156,6 +156,8 @@ textarea, input[type="email"], input[type="number"], input[type="password"], inp
     color: #ccc; }
     #sidebar a:hover {
       color: #e6e6e6; }
+    #sidebar a.subtitle {
+      color: rgba(204, 204, 204, 0.6); }
   #sidebar hr {
     border-bottom: 1px solid #2a232f; }
   #sidebar a.padding {
