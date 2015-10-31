@@ -9,7 +9,7 @@ localname: linode.dev
 github: true
 ---
 
-[Linode](https://www.linode.com) has been in the VPS game for quite some time and focus on provide **lightning-quick SSD equipped Linux servers** for developers.  There is a quick and easy process to getting a server up and running that involves: picking a **pricing plan**, picking a **Linux distribution**, and then choosing a **node location** that is best suited to your needs.
+[Linode](https://www.linode.com) has been in the VPS game for quite some time and focus on providing **lightning-quick SSD equipped Linux servers** for developers.  There is a quick and easy process to getting a server up and running that involves: picking a **pricing plan**, picking a **Linux distribution**, and then choosing a **node location** that is best suited to your needs.
 
 ![](linode.png) {.center}
 
