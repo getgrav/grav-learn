@@ -23,6 +23,18 @@ There are many benefits of providing functionality in plugins, but a couple of t
 1. The Grav Core Remains Lean - You only need to add the plugins you need for a particular site. For example, a blog may need many more plugins than a simple landing page.
 2. Third-Party Development of New Functionality - You don't have to wait until Grav gets a bit of functionality you want. You can simply create a plugin to extend Grav to do what you want it to do.
 
+#### Plugin Requirements
+
+A proper Grav plugin requires certain files in order to function properly, be listed in the Grav repository, and be visible in the Grav admin plugin.  Please ensure your plugin contains all these files:
+
+* **yourplugin.php** - plugin PHP file that should be named the same as the folder
+* **yourplugin.yaml** - plugin configuration file that contains any options and stream inheritance information
+* **blueprints.yaml** - plugin definition file and form definition file
+* **CHANGELOG.md** - a changelog file that should be in the proper Grav format for consistent rendering
+* **README.md** - required file to explain and preview the plugin
+* **LICENSE** - license file, probably MIT if in line with Grav core
+* **languages.yaml** (optional) - a language definition file
+
 ## Grav Skeletons
 
 A **Grav Skeleton** is effectively an **all-in-one sample site**.  They include the **Grav Core**, required **plugins**, as well as appropriate **pages** for content and a **theme** for pulling it all together.
@@ -31,11 +43,36 @@ Grav was designed to make the process of creating a site as easy as possible. Fo
 
 These skeletons are a base on which you can grow your site, quickly and efficiently. You aren't locked in to a specific set of features. It is every bit as flexible as any other Grav install.
 
+#### Skeleton Requirements
+
+A proper Grav plugin requires certain files in order to function properly, be listed in the Grav repository, and be visible in the Grav admin plugin.  Please ensure your plugin contains all these files:
+
+* **.dependencies** - A file to define theme and plugin dependencies for this skeleton
+* **blueprints.yaml** - skeleton definition file and form definition file
+* **CHANGELOG.md** - a changelog file that should be in the proper Grav format for consistent rendering
+* **README.md** - required file to explain and preview the plugin
+* **LICENSE** - license file, probably MIT if in line with Grav core
+* **screenshot.jpg** - a 1:1 aspect ratio preview of the theme.  Should be at least 800px x 800px
+
 ## Grav Themes
 
 Because of the tight coupling with Grav pages and themes, a **Grav Theme** is an integral and very important part of a Grav site.  By this we mean that each Grav page references a template in the theme, so your theme needs to provide the appropriate **twig templates** that your pages are using.
 
 The Twig templating engine is a very powerful system, and because there really are no restrictions by Grav itself, you are free to create any kind of design you wish.  This is one of the great things that sets Grav apart from a traditional CMS that has a loose coupling between content and design.
+
+#### Theme Requirements
+
+A proper Grav theme requires certain files in order to function properly, be listed in the Grav repository, and be visible in the Grav admin plugin.  Please ensure your theme contains all these files:
+
+* **yourtheme.php** - theme PHP file that should be named the same as the folder
+* **yourtheme.yaml** - theme configuration file that contains any options and stream inheritance information
+* **blueprints.yaml** - theme definition file and form definition file
+* **CHANGELOG.md** - a changelog file that should be in the proper Grav format for consistent rendering
+* **README.md** - required file to explain and preview the theme
+* **LICENSE** - license file, probably MIT if in line with Grav core
+* **screenshot.jpg** - a 1:1 aspect ratio preview of the theme.  Should be at least 800px x 800px
+* **thumbnail.jpg** - a smaller thumbnail image used by the admin plug. 1:1 aspect ratio and should be at 300px x 300px
+* **languages.yaml** (optional) - a language definition file
 
 ## Demo Content
 
@@ -52,7 +89,7 @@ When you have created your new theme or plugin and would like to see it added to
 5. Provides appropriate attribution if you use any other libraries, scripts, code.
 6. [Create a release](https://help.github.com/articles/creating-releases) for your finished plugin/theme. The Grav repository system requires a release and will not find your plugin/theme unless there is a release that contains all of the above.
 7. [Add an issue to the Grav issues tracker](https://github.com/getgrav/grav/issues/new?title=[add-resource]%20New%20Plugin/Theme&body=I%20would%20like%20to%20add%20my%20new%20plugin/theme%20to%20the%20Grav%20Repository.%0AHere%20are%20the%20project%20details:%20**user/repository**) with details about your plugin, and we will give it a quick test to ensure it functions, and then add it.
- 
+
 >>>>> Ensure your **naming for each tag is consistent**. GPM uses this information to determine if your plugin/theme is newer than the last.  We recommend using [Semantic Version Numbers](http://semver.org/) for tags.  E.g. `1.2.4`. Consistency for all tags is paramount!
 
 ## ChangeLog Format
