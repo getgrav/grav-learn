@@ -152,3 +152,9 @@ Cleared:  assets/*
 
 Touched: /home/your_user/public_html/grav/user/config/system.yaml
 ```
+
+In order to use the Grav package manager (gpm) you'll have to set it as an executable by running this command in your Grav folder
+
+```
+$ chmod +x bin/gpm
+```
