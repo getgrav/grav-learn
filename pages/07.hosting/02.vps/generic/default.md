@@ -21,7 +21,7 @@ Just answer `Y` if prompted.
 Next you will want to install some essential packages:
 
 ```
-$ apt-get install vim zip nginx git php5-fpm php5-cli php5-gd php5-curl php5-apcu
+$ apt-get install vim zip unzip nginx git php5-fpm php5-cli php5-gd php5-curl php5-apcu
 ```
 
 This will install the complete VIM editor (rather than the mini version that ships with Ubuntu), Nginx web server, GIT commands, and **PHP 5.5**.
@@ -73,8 +73,6 @@ Provide a strong password, and leave the other values as default. We need to nex
 
 ```
 $ su - grav
-$ mkdir www
-$ cd www
 $ mkdir www;cd www;mkdir html;cd html
 ```
 
