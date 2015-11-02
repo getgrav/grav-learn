@@ -60,6 +60,21 @@ We have seen reports that simply commenting out this line in Grav's `.htaccess` 
 #Options -Indexes
 ```
 
+### RewriteBase problems
+
+Have had some reports of 500 Internal Server Errors without setting the RewriteBase, on 1&1 hosting (but can apply to others too). Try changing
+
+```
+# RewriteBase /
+```
+
+to
+
+```
+RewriteBase /
+```
+
+(Credit: [http://ahcox.com/webdev/1and1-internal-server-error-grav/](http://ahcox.com/webdev/1and1-internal-server-error-grav/))
 
 ### Admin Panel Navigation
 
