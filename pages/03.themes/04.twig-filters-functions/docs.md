@@ -180,7 +180,7 @@ Takes a needle and a haystack and determines if the haystack starts with the nee
 
 Translate a string into the current language
 
-`{{'MY_LANGUAGE_KEY_STRING'|t}}` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
+`'MY_LANGUAGE_KEY_STRING'|t` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
 
 This assumes you have these language strings translated in your site and have enabled multi-language support.  Please refer to the [multi-language documentation](../../content/multi-language) for more detailed information.
 
@@ -188,7 +188,7 @@ This assumes you have these language strings translated in your site and have en
 
 Translate a string into the current language set in the admin interface user preferences
 
-`{{'MY_LANGUAGE_KEY_STRING'|tu}}` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
+`'MY_LANGUAGE_KEY_STRING'|tu` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
 
 This uses the language field set in the user yaml.
 
@@ -273,7 +273,7 @@ Same as `dump()`
 
 The evaluate function can be used to evaluate a string as Twig:
 
-`{{ evaluate('grav.language.getLanguage') }}`
+`evaluate('grav.language.getLanguage')`
 
 
 ##### Gist
