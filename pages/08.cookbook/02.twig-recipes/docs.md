@@ -39,7 +39,7 @@ process:
 ```    
 
 
-### List the blog bosts for the year
+### List the blog posts for the year
 
 ##### Problem:
 
