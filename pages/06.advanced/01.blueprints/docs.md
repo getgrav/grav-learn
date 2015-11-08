@@ -94,7 +94,7 @@ license: MIT
 
 The **Forms** metadata defines what aspect of the resource is configurable through the **Admin Plugin**.
 
-If you want your plugin, or theme, to have options directly configurable from the admin interaface, you need to fill the blueprints.yaml file with forms.
+If you want your plugin, or theme, to have options directly configurable from the admin interface, you need to fill the blueprints.yaml file with forms.
 
 For example, here's the Archives plugin archives.yaml file:
 
