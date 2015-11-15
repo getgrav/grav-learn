@@ -229,9 +229,11 @@ process:
     - display: thankyou
 ```
 
-You can use any page type you want, as a destination page. If you want, Antimatter and compatible themes have a `formdata.html.twig` Twig template that's perfect for this.
+The Form plugin provides a `formdata` template that's suitable for the process destination page, as it outputs the result of the form submission. In the above example, you coudld create a pages/form/thankyou/formdata.md page.
 
-The Antimatter theme looks like this
+If you're redirecting to a subpage, `display: thankyou` works perfect. If you're redirecting to an absolute page path, like `site.com/thankyou`, prepend it with `/`, for example: `display: /thankyou`.
+
+Antimatter and compatible themes provide the`formdata.html.twig` Twig template, that looks like this:
 
 ```
 {% extends 'partials/base.html.twig' %}
@@ -262,6 +264,8 @@ process:
 ```
 
 The output will be a page with the "Email sent!" title, followed by a confirmation message and the form data entered in the previous page."
+
+You could use any page type you want, as a destination page. Just create your own and set the destination page type accordingly.
 
 ### Save
 
