@@ -325,5 +325,6 @@ To add a form inside a modular page, follow those steps:
 Step 4 is needed because if you don't explicitly add form.action, the code usually looks for the page route, which is _form as it's a modular subpage, not an actual page, and it's wrong and breaks the form submit.
 
 So if the modular page is e.g. `site.com/my-page`, just put `form: action: /my-page` in `modular.md`
+If the modular page is the homepage, just put `form: action: /`
 
 Then it should just work as a normal form.
