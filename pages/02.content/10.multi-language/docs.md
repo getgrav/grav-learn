@@ -23,6 +23,7 @@ Multi-Language support was added to Grav in version **0.9.30** as a result of a 
 1. [Language alias routes](#language-alias-routes) and switching between language versions of a page
 1. [Session-based active language](#session-based-active-language)
 1. [Language Switcher plugin](#language-switcher)
+1. [Language logic in Twig templates](#language-logic-in-twig-templates)
 
 
 We will now break these down and provide examples on how you can setup your Grav site with multiple languages.
@@ -415,3 +416,23 @@ RewriteRule ^de/(.*)$ "http://grav-site.de/$1" [R=301,L]
 ```
 
 if you know how to simplify the rewrite rules, please edit this page through the Github link in the upper left corner
+
+#### Language Logic in Twig Templates
+
+There is often a need to access Language state and logic from Twig templates.  For example if you need to access a certain image file that is different for a particular language and is named differently (`myimage.en.jpg` and `myimage.fr.jpg`).
+
+To display the correct version of the image you would need to know the current active language.  This is possible in Grav by accessing the `Language` object via the `Grav` object, and calling the appropriate method. In the example above this could be achieved with the following Twig code:
+
+```
+{{ page.media.images['myimage.'~grav.language.getActive~'.jpg'].html }}
+```
+
+The `getActive` call in the Twig is effectively calling `Language->getActive()` to return the current active language code.  A few useful Language methods include:
+
+* `getLanguages()` - Returns an array of all supported languages
+* `getLanguage()` - Returns current active, else returns default language
+* `getActive()` - Returns current active language
+* `getDefault()` - Returns the default (first) language
+
+For a complete list of available methods, you can look in the `\Grav\Common\Language\Language.php` file.
+
