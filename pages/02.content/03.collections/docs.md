@@ -184,7 +184,7 @@ Each level in the hierarchy adds two whitespaces before the variable. YAML will 
 
 ### Multiple Collections
 
-With Grav **0.9.41** you can not provide multiple collection definition and the resulting collection will be the sum of all the pages found from each of the collection definitions.
+With Grav **0.9.41** you can now provide multiple collection definition and the resulting collection will be the sum of all the pages found from each of the collection definitions.
 
 for example:
 
