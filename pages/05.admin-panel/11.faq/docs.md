@@ -13,7 +13,7 @@ This FAQ is intended to provide useful tutorials, tips, and tricks to help you g
 Adding new users to the Grav Admin is actually pretty simple, but it requires a bit of work in the terminal/command prompt to do. From your terminal, access the root of the Grav site you'd like to add users to, and type the following command:
 
 ```text
-bin/grav newuser
+bin/plugin login new-user
 ```
 
 ![Grav Admin FAQ](faq_1.png)
@@ -30,7 +30,7 @@ At one point during the creation process you will be asked to choose a set of pe
 | Site           | Gives user access to all pages in the front end. This is the equivalent of a logged-in user.                      |
 | Admin and Site | Gives user access to the entire site, front and back end.                                                         |
 
-User data is stored in `SITE_ROOT/user/accounts/` and each user is given a **YAML** file containing that users login information and other details. Here is an example of the data contained within a user account file. For example this could be the content of `SITE_ROOT/user/accounts/tester.md`. 
+User data is stored in `SITE_ROOT/user/accounts/` and each user is given a **YAML** file containing that users login information and other details. Here is an example of the data contained within a user account file. For example this could be the content of `SITE_ROOT/user/accounts/tester.md`.
 
 >>> The filename `tester.md` dictates the username is `tester`
 
@@ -71,7 +71,7 @@ Here are the currently supported access levels explained:
 
 ### Custom Admin URL
 
-One way to help keep your admin panel secure is to hide it's location, to do this would be to change the URL from 
+One way to help keep your admin panel secure is to hide it's location, to do this would be to change the URL from
 ```
 http://yourwebsite.com/admin
 ```

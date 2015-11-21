@@ -62,7 +62,7 @@ $ bin/gpm install admin
 With Grav {{ grav_version }}, you can now create a user account with the CLI:
 
 ```
-$ bin/grav newuser
+$ bin/plugin login new-user
 ```
 
 Simply follow along with the prompts to create the user account.
