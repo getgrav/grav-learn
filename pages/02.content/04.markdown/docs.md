@@ -233,6 +233,8 @@ odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac 
 
 ## Notices
 
+These effects are determined by the template that you are using, so may not display in the way they do here.
+
 We have four notice styles and they extend the standard markdown syntax for block quotes.  Basically levels of 3 block quote or greater produce notices in 4 colors:
 
 ### Yellow
