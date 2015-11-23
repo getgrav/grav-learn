@@ -15,7 +15,6 @@ Grav comes with a great tool to make this effort easier called via a **Debug Bar
 ```
 debugger:
   enabled: false                       # Enable Grav debugger and following settings
-  twig: true                           # Enable debugging of Twig templates
   shutdown:
     close_connection: true             # Close the connection before calling onShutdown(). false for debugging
 ```
@@ -29,10 +28,6 @@ The first tab is for **messages** and you can use this to help debug your Grav d
 Along with **Request**, **Exceptions**, and **Configuration** information, you can also see a detailed breakdown of Grav timing in the **Timeline** panel:
 
 ![](timeline.png)
-
-As well as detailed information related to Twig rendering to quickly see which Twig templates are being processed and how long those are taking:
-
-![](twig.png)
 
 ## Error Display
 
