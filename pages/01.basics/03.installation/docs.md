@@ -6,6 +6,22 @@ taxonomy:
 
 Installation of Grav is a trivial process. In fact, there is no real installation.  You have **two** options for installing Grav.  The first - and simplest - way is to simply download the **zip** archive, and extract it. The other way is to clone the source project directly from **GitHub**, and then run an included script command to install needed dependencies:
 
+## Check for PHP version
+
+Grav is incredibly easy to set up and get running. Be sure you have at least PHP version 5.4 by going to the terminal and typing:
+
+```bash
+$ php -v
+```
+
+This should report the version and build information.  For example:
+
+```bash
+PHP 5.4.24 (cli) (built: Jan 19 2014 21:32:15)
+Copyright (c) 1997-2013 The PHP Group
+Zend Engine v2.4.0, Copyright (c) 1998-2013 Zend Technologies
+```
+
 ## Option 1: Install from ZIP package
 
 The easiest way to install Grav is to download the ZIP package and extract it:
@@ -41,33 +57,6 @@ Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extra
 
 If your web root is, for example, `~/public_html` then you could extract it into this folder and reach it via `http://localhost`.  If you extracted it into `~/public_html/grav` you would reach it via `http://localhost/grav`.
 
-##### PHP's built-in Web Server
-
->>>> Using the built-in PHP web server is **intended for quick testing only!**.  Also due to lack of routing functionality with the built-in web server, many Grav plugins will **simply not work**.  This includes **Admin**, **SimpleSearch**, **TaxonomyList**, **Feed**, and many others. So please use a proper web server!
-
-Grav is incredibly easy to set up and get running. You can do this without even installing or configuring a web server!  Be sure you have at least PHP version 5.4 by going to the terminal and typing:
-
-```bash
-$ php -v
-```
-
-This should report the version and build information.  For example:
-
-```bash
-PHP 5.4.24 (cli) (built: Jan 19 2014 21:32:15)
-Copyright (c) 1997-2013 The PHP Group
-Zend Engine v2.4.0, Copyright (c) 1998-2013 Zend Technologies
-```
-
-
-To try Grav, simply navigate to the folder where you extracted your **Grav Base** package file in your terminal and type:
-
-```bash
-$ php -S localhost:8000
-```
-
-This runs the built-in PHP web server.  Then, point your browser to `http://localhost:8000` and you should see your Grav site.
-
 ## Successful Installation
 
 The first time it loads, Grav pre-compiles some files. If you now refresh your browser, you will get a faster, cached version.
@@ -85,6 +74,8 @@ If any issues are discovered during the initial page load (or after a cache-flus
 ![Grav with Problems](problems.png?cropResize=600,600)  {.border}
 
 Please consult the [Troubleshooting](../../troubleshooting) section for help regarding specific issues.
+
+>>>>> If you have issues with file permissions, please check the [Permissions Troubleshooting documentation](/troubleshooting/permissions).  Also you could look at the [Hosting Guides documentation](/hosting) that have specific instructions for various hosting environments
 
 ## Grav Updates
 
