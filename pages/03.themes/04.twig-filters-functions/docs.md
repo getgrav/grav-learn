@@ -54,7 +54,7 @@ Filters field name by changing dot notation into array notation
 
 Converts a string into a more "human readable" format
 
-`'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i>
+`'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i> **{{ 'something_text_to_read'|humanize }}**
 
 ##### Ksort
 
@@ -138,7 +138,7 @@ Randomizes the list provided.  If a value is provided as a parameter, it will sk
 
 ##### Right Trim
 
-`'/strip/trailing/slash/'|ltrim('/')`
+`'/strip/trailing/slash/'|rtrim('/')`
 
 Removes trailing spaces at the end of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.rtrim.php](http://php.net/manual/en/function.rtrim.php))
 
@@ -208,7 +208,7 @@ You can left-trim and right-trim a string with the following two filters:
 
 ##### Truncate a String
 
-You can easily generated a shortened, truncated, version of a string by using this filter.  It takes a number of characters as the only required field, but has some other options:
+You can easily generate a shortened, truncated, version of a string by using this filter.  It takes a number of characters as the only required field, but has some other options:
 
 `'one sentence. two sentences'|truncate(5)` <i class="fa fa-long-arrow-right"></i> {{ 'one sentence. two sentences'|truncate(5) }}
 
@@ -255,7 +255,7 @@ Cast a value to array
 
 ##### Authorize
 
-Authorizes an authenticated user to see a resource. Accepts an a single permission string or an array of permission strings.
+Authorizes an authenticated user to see a resource. Accepts a single permission string or an array of permission strings.
 
 `authorize(['admin.statistics', 'admin.super'])`
 
@@ -296,7 +296,7 @@ Will repeat whatever is passed in a certain amount of times.
 
 ##### String
 
-Generates a random string. Pass count to set the characters lenght.
+Generates a random string. Pass count to set the characters length.
 
 `ta(23)`
 
