@@ -74,7 +74,7 @@ Sort an array map by each key
 
 ##### Left Trim
 
-`'/strip/leading/slash/'|ltrim('/')`
+`'/strip/leading/slash/'|ltrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/leading/slash/'|ltrim('/') }}
 
 Removes trailing spaces at the beginning of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.ltrim.php](http://php.net/manual/en/function.ltrim.php))
 
@@ -138,7 +138,7 @@ Randomizes the list provided.  If a value is provided as a parameter, it will sk
 
 ##### Right Trim
 
-`'/strip/trailing/slash/'|rtrim('/')`
+`'/strip/trailing/slash/'|rtrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/trailing/slash/'|rtrim('/') }}
 
 Removes trailing spaces at the end of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.rtrim.php](http://php.net/manual/en/function.rtrim.php))
 
@@ -226,7 +226,7 @@ You can also truncate HTML text, but should first use the `striptags` filter to 
 
 **|safe_truncate**
 
-Truncate text by number of characters in a "word-safe" manor.
+Truncate text by number of characters in a "word-safe" manner.
 
 **|truncate_html**
 
@@ -234,7 +234,7 @@ Truncate HTML by number of characters. not "word-safe"!
 
 **|safe_truncate_html**
 
-Truncate HTML by number of characters in a "word-safe" manor.
+Truncate HTML by number of characters in a "word-safe" manner.
 
 ##### Underscoreize
 
