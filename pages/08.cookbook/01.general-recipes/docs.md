@@ -6,12 +6,51 @@ taxonomy:
 
 This page contains an assortment of problems and their respective solutions related to Grav in general.
 
+1. [Change the PHP CLI version](#change-the-php-cli-version)
 1. [Creating a simple gallery](#creating-a-simple-gallery)
 1. [Render content in blocks or columns](#render-content-in-columns)
 1. [Really simple css image slider](#really-simple-css-image-slider)
 1. [Wrapping Markdown into html](#wrapping-markdown-into-html)
 1. [Add a recent post widget to your sidebar](#add-a-recent-post-widget-to-your-sidebar)
 
+### Change the PHP CLI version
+
+Sometimes on the terminal the PHP version is different than the PHP version used by the web server.
+
+You can check the PHP version running in the CLI by running the command `php -v`.
+If the PHP version is less than 5.4, Grav won't run as it requires at least PHP 5.4.
+
+How to fix?
+
+You need to enter some configuration to `.bashrc`, or to `.bash_profile` in your user home folder. Create those files if you don't already have them in the user folder. They are hidden files, so you might have to do `ls -al` to show them. Once the configuration is added, you'll need to start a new terminal session for those settings to apply.
+
+An example configuration could be:
+
+```
+alias php="/usr/local/bin/php53"
+export PHP_PATH = "/usr/local/bin/php53"
+```
+
+An alternative way is to add:
+
+```
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=/usr/local/lib/php-5.4/bin:$PATH:$HOME/bin
+
+export PATH
+```
+
+The exact path of course depends on how your system is setup, where it stores the more recent PHP version binaries. That might be something you find in the Hosting documentation, or you can ask your hosting setup if you do not find it anywhere.
+
+You could also try looking in the `php-something` files or folders under the `/usr/local/bin` or `/usr/local/lib` folders, with `ls -la /usr/local/lib/ |grep -i php`.
 
 ### Creating a simple gallery
 
