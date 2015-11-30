@@ -172,7 +172,7 @@ This section gives you the ability to enable session support, set timeout limits
 | :-----  | :-----                                                     |
 | Enable  | Enable session support within Grav.                        |
 | Timeout | Sets the session timeout in seconds.                       |
-| Name    | An identifier used to form the name of the session cookie. |
+| Name    | An identifier used to form the name of the session cookie. Use alphanumeric, dashes or underscores only. Do not use dots in the session name |
 
 ### Advanced
 
