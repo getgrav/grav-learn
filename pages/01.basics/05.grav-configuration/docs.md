@@ -127,7 +127,7 @@ media:
 session:
   enabled: true                             # Enable Session support
   timeout: 1800                             # Timeout in seconds
-  name: grav-site                           # Name prefix of the session cookie
+  name: grav-site                           # Name prefix of the session cookie. Use alphanumeric, dashes or underscores only. Do not use dots in the session name
 ```
 
 >>> You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
