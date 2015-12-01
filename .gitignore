@@ -17,3 +17,4 @@ Thumbs.db
 
 # phpstorm
 .idea/*
+localhost/config/security.yaml
