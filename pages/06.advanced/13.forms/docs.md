@@ -89,6 +89,7 @@ The Forms plugin comes with
 - **Datetime**: a date and time selection field
 - **Display**: a text or instructions field (not an input field)
 - **Email**: an email field, with validation
+- **File**: a file field for uploading
 - **Hidden**: an hidden field
 - **Password**: a password field
 - **Radio**: a radio input type
@@ -129,6 +130,7 @@ Some fields allow specific parameters. Listed here:
 - **select** and **checkboxes** use the `options` field to set the available options.
 - **display** accepts `content` to set the content to show. Set `markdown` to true to parse the markdown in `content`.
 - **captcha** accepts `recatpcha_site_key` and `recaptcha_not_validated`.
+- **file** accepts a `files` object with `destination`, `multiple` and `accept` properties
 
 Examples:
 
@@ -153,6 +155,27 @@ test:
 
 You can set positive values in multiple ways: `'on'`, `'true'`, `1`.
 Other values are interpreted as negative.
+
+### File field
+
+With the `file` field you can let users to upload files through the form. The field by default allows **one file** only, of type **image** and will get uploaded in the **current** page where the form has been declared.
+
+``` yaml
+# Default settings
+- files:
+      multiple: false
+      destination: '@self'
+      accept:
+        - image/*
+```
+
+* `multiple`:  Can be `true` or `false`, when set to **true**, multiple files can be selected at the same time
+* `destination`: Can be either **@self**, **@page:/route** or **local/rel/path/**
+    * **'@self'**: When set to **@self**, the files will be uploaded where the form has been declared (current .md)
+    * **'@page:/route'**: **@page:/route** will upload to the specified route of a page, if exists (e.g., **@page:/blog/a-blog-post**)
+    * **'local/rel/path'**: Can be any path relative to the Grav instance. For instance, `user/data/files`. If the path doesn't exist, it will get created so make sure it is writable.
+* `accept`: Takes an array of MIME types that are allowed. For instance to allow only gifs and mp4 files: `accept: ['image/gif', 'video/mp4']`
+
 
 ### A note on Captcha
 
