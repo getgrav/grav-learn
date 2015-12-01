@@ -59,6 +59,8 @@ form:
           value: Reset
 
     process:
+        - captcha:
+            recatpcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
         - email:
             subject: "[Site Contact Form] {{ form.value.name|e }}"
             body: "{% include 'forms/data.html.twig' %}"
