@@ -22,7 +22,7 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 | '@self.siblings'                          | A collection of all other pages on this level             |
 | '@self.modular'                           | Get only the modular children                             |
 | '@self.children'                          | Get the non-modular children                              |
-| '@self.descendants'                       | Recurse through all the children                          |
+| '@self.descendants'                       | Recurse through all the non-modular children              |
 |                                           |                                                           |
 | '@page': '/fruit'                         | Get all the children of page `/fruit'                     |
 | '@page.children': '/fruit'                | Alternative to above                                      |
