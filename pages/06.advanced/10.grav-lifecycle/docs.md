@@ -93,6 +93,7 @@ It is often useful to know how Grav processes in order to fully understand how b
           ### Twig.php {.level-3}
           1. Fire **onTwigSiteVariables** event
           1. Get the page output
+          1. Fire **onTwigPageVariables**, also called for each modular subpage
           1. Fire **onPageNotFound** if page is not found or not routable
           1. Set all Twig variables on the Twig object
           1. Set the template name based on file/header/extension information
