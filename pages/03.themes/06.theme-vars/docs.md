@@ -107,9 +107,18 @@ The author of this page is: {{ page.header.author }}
 
 This returns an array containing all the media associated with a page. These include **images**, **videos**, and other **files**.  You can access media methods as described in the [media documentation](../../content/media) for content. Because it is an array, Twig filters and functions can be used.
 
+Get a specific file or image:
 ```
-{% set first_image = page.media|first %}
 {% set my_pdf = page.media['myfile.pdf'] %}
+```
+
+Get the frist image:
+```
+{% set first_image = page.media.images|first %}
+```
+
+Loop over all images and output the HTML tag to display it:
+```
 {% for image in page.media.images %}
    {{ image.html }}
 {% endfor %}
