@@ -16,13 +16,13 @@ The underlying architecture of Grav is built using well established and _best-in
 * [Parsedown](http://parsedown.org/): for fast Markdown and Markdown Extra support
 * [Doctrine Cache](http://docs.doctrine-project.org/en/latest/reference/caching.html): for performance
 * [Pimple Dependency Injection Container](http://pimple.sensiolabs.org/): for extensibility and maintainability
-* [Symfony Event Dispacher](http://symfony.com/doc/current/components/event_dispatcher/introduction.html): for plugin event handling
+* [Symfony Event Dispatcher](http://symfony.com/doc/current/components/event_dispatcher/introduction.html): for plugin event handling
 * [Symfony Console](http://symfony.com/doc/current/components/console/introduction.html): for CLI interface
 * [Gregwar Image Library](https://github.com/Gregwar/Image): for dynamic image manipulation
 
 ## Grav's Place in the Universe
 
-There are many powerful open source CMS solutions for building complex websites.  Some of the more commonly used ones are [Joomla](http://joomla.org), [WordPress](http://wordpress.org), and [Drupal](http://drupal.org). The downside of these platforms is that they have a steep learning curve associated with them. This requires a significant amout of your time - and this may be time that you do not have.
+There are many powerful open source CMS solutions for building complex websites.  Some of the more commonly used ones are [Joomla](http://joomla.org), [WordPress](http://wordpress.org), and [Drupal](http://drupal.org). The downside of these platforms is that they have a steep learning curve associated with them. This requires a significant amount of your time - and this may be time that you do not have.
 
 These platforms provide a wealth of features and functionality that you can extend with a wide variety of open source and proprietary plug-ins and themes.  These extensions and themes are themselves often feature-packed, requiring yet more knowledge and time on the part of the developer.
 
