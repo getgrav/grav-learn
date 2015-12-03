@@ -30,9 +30,9 @@ At one point during the creation process you will be asked to choose a set of pe
 | Site           | Gives user access to all pages in the front end. This is the equivalent of a logged-in user.                      |
 | Admin and Site | Gives user access to the entire site, front and back end.                                                         |
 
-User data is stored in `SITE_ROOT/user/accounts/` and each user is given a **YAML** file containing that users login information and other details. Here is an example of the data contained within a user account file. For example this could be the content of `SITE_ROOT/user/accounts/tester.md`.
+User data is stored in `SITE_ROOT/user/accounts/` and each user is given a **YAML** file containing that users login information and other details. Here is an example of the data contained within a user account file. For example this could be the content of `SITE_ROOT/user/accounts/tester.yaml`.
 
->>> The filename `tester.md` dictates the username is `tester`
+>>> The filename `tester.yaml` dictates the username is `tester`
 
 ```yaml
 email: test@rockettheme.com
