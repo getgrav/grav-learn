@@ -40,7 +40,7 @@ Either way, decide which setup suits your best.
 
 ##### Snippets
 
-For subsites accessible via sub-domains copy the [setup_subdomain.php](setup_subdomain.php) file otherwise for subsites accessible via sub-directories the [setup_subdirectory.php](setup_subdirectory.php) file into your `setup.php`.
+For subsites accessible via sub-domains copy the `setup_subdomain.php` file, otherwise for subsites accessible via sub-directories the `setup_subdirectory.php` file into your `setup.php`.
 
 **setup_subdomain.php**:
 ```php
