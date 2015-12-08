@@ -60,7 +60,6 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 * `openssl` (secure sockets library used by GPM)
 * zip support (used by GPM)
 * `mbstring` (multibyte string support)
-* `iconv` (enabled by default)
 
 For enabling `openssl` and (un)zip support you will need to find in the `php.ini` file of your Linux distribution for lines like:
 
