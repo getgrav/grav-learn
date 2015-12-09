@@ -8,7 +8,7 @@ taxonomy:
 
 When developing themes and plugins, there is often a need to display **debugging** information. Grav has powerful debugging capabilities via a variety of features:
 
-## PHP Debug Bar
+## Debug Bar
 
 Grav comes with a great tool to make this effort easier called via a **Debug Bar**.  This feature is **disabled** by default, but can be turned on either globally or for your [development environment](../environment-config) only via the `system.yaml` configuration file:
 
@@ -23,11 +23,47 @@ debugger:
 
 The PHP Debug Bar still provides an overall **processing time** as well as **memory usage**, but it now has several tabs that provide more detailed information.
 
-The first tab is for **messages** and you can use this to help debug your Grav development process by posting information to this tab from your code via `$grav['debugger']->addMessage($my_var)`.  Also you can dump values directly from Twig templates into this panel by using the `{{ dump(my_var) }}` [twig dump function](http://twig.sensiolabs.org/doc/functions/dump.html).
+The first tab is for **Messages** and you can use this to help debug your Grav development process by posting information to this tab from your code.
 
 Along with **Request**, **Exceptions**, and **Configuration** information, you can also see a detailed breakdown of Grav timing in the **Timeline** panel:
 
 ![](timeline.png)
+
+### Dump Command for PHP
+
+If you are trying to debug some PHP, for example a custom plugin you are developing, and wish to quickly examine some object or variable, you can use the powerful `dump()` command.  This accepts basically any valid PHP variable and will output the results in a nicely formatted and colorized display in your browser.
+
+For example, you can easily dump a PHP variable or object:
+
+```
+dump($this);
+```
+
+and see the results in your browser:
+
+![](dump.png)
+
+You can also dump variables into the **Messages** tab of the Debug Bar by using the syntax:
+
+```
+$grav['debugger']->addMessage($this)
+```
+
+### Dump command for Twig
+
+You can also display Twig variables from your Twig templates.  This done in a similar fashion, but the results are displayed in the **Messages** panel of the Debug Bar.
+
+For example, you can easily dump a Twig variable or object:
+
+{% verbatim %}
+```
+{{ dump(page.header) }}
+```
+{% endverbatim %}
+
+and see the results in the Debugbar:
+
+![](twig-dump.png)
 
 ## Error Display
 
