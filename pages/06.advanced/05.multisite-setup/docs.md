@@ -4,6 +4,10 @@ taxonomy:
     category: docs
 ---
 
+>>> Preliminary multisite support is now available in Grav 1.0.  However, CLI commands as well as the Admin plugin still need to be updated to fully support multisite configurations.  We will continue to work on this in subsequent releases of Grav.
+
+### What is a Multisite Setup?
+
 > A multisite setup allows you to create and manage a network of multiple websites, all running on a single installation.
 
 Grav has built-in multisite support. Unlike the [automatic environment configuration](../environment-config), which lets you define custom environments to support different configurations and scenarios, a multisite setup gives you the power to change the way how and from where Grav loads all its files.
