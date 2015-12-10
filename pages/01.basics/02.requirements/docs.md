@@ -38,9 +38,6 @@ Even though technically you do not need a standalone Web server, it is better to
 
 Even though most distributions of Apache come with everything needed, for the sake of completeness, here is a list required Apache modules:
 
-* `mod_cache`
-* `mod_expires`
-* `mod_headers`
 * `mod_rewrite`
 * `mod_ssl`
 

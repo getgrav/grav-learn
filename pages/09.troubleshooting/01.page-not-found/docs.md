@@ -43,13 +43,12 @@ There is a short explanation of this in the `.htaccess` file itself:
 
 Simply remove the `#` before the `RewriteBase /` directive to uncomment it, and adjust the path to match your server environment.
 
-### Missing Rewrite or Headers Modules
+### Missing Rewrite Modules
 
-Some webserver packages (I'm looking at your EasyPHP and WAMP!) do not come with the Apache **rewrite** or **headers** modules enabled by default. They usually can be enabled from the configuration settings for Apache, or you can do so manually via the `httpd.conf` by uncommenting these lines (or something similar) so they are loaded by Apache:
+Some webserver packages (I'm looking at your EasyPHP and WAMP!) do not come with the Apache **rewrite** module enabled by default. They usually can be enabled from the configuration settings for Apache, or you can do so manually via the `httpd.conf` by uncommenting this line (or something similar) so they are loaded by Apache:
 
 ```
 #LoadModule rewrite_module modules/mod_rewrite.so
-#LoadModule headers_module modules/mod_headers.so
 ```
 
 Then restart your Apache server.
