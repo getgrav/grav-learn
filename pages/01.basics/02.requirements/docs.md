@@ -39,7 +39,7 @@ Even though technically you do not need a standalone Web server, it is better to
 Even though most distributions of Apache come with everything needed, for the sake of completeness, here is a list required Apache modules:
 
 * `mod_rewrite`
-* `mod_ssl`
+* `mod_ssl` (if you wish to run Grav under SSL)
 
 You should also ensure you have `AllowOveride All` set in the `<Directory>` and/or `<VirtualHost>` blocks so that the `.htaccess` file processes correctly and rewrite rules take effect.
 
