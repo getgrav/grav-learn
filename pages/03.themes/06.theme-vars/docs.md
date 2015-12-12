@@ -112,7 +112,7 @@ Get a specific file or image:
 {% set my_pdf = page.media['myfile.pdf'] %}
 ```
 
-Get the frist image:
+Get the first image:
 ```
 {% set first_image = page.media.images|first %}
 ```
