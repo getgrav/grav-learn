@@ -8,12 +8,27 @@ process:
 
 This FAQ is intended to provide useful tutorials, tips, and tricks to help you get the most out of the Grav Admin plugin.
 
+### Manual Installation of Admin
+
+Manual installation is not the recommended method of installation, however, it is still possible to install the admin plugin manually. Basically, you need to download each of the following plugins individually:
+
+* [admin](https://github.com/getgrav/grav-plugin-admin/archive/develop.zip)
+* [login](https://github.com/getgrav/grav-plugin-login/archive/develop.zip)
+* [form](https://github.com/getgrav/grav-plugin-form/archive/develop.zip)
+* [email](https://github.com/getgrav/grav-plugin-email/archive/develop.zip)
+
+Extract each archive file into your `user/plugins` folder, then ensure the folders are renamed to just `admin/`, `login/`, `form/`, and `email/`.  Then proceed with the **Usage instructions below**.
+
 ### Adding and Managing Users
 
-Adding new users to the Grav Admin is actually pretty simple, but it requires a bit of work in the terminal/command prompt to do. From your terminal, access the root of the Grav site you'd like to add users to, and type the following command:
+When you first install the Grav Admin plugin, you will be prompted to create an admin user when you point your browser at your site. This is a simple web form that ensure at least one admin user has been created.
+
+![New User](../introduction/new-user.png)
+
+You can easily add other users but it requires a bit of work in the terminal/command prompt to do. From your terminal, access the root of the Grav site you'd like to add users to, and type the following command:
 
 ```text
-bin/plugin login new-user
+bin/plugin login newuser
 ```
 
 ![Grav Admin FAQ](faq_1.png)

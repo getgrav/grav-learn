@@ -57,41 +57,17 @@ The admin plugin actually requires the help of 3 other plugins, so to get the ad
 $ bin/gpm install admin
 ```
 
+You can also [install the plugin manually](../faq#manual-installation-of-admin) if you are unable to use GPM on your system.
+
 ### Creating a User
 
-With Grav {{ grav_version }}, you can now create a user account with the CLI:
+With the latest version of the Grav admin, you will be prompted to create an admin user account when you point your browser to your site.  You must complete this step to ensure straight away to ensure a valid admin user is under your control.
 
-```
-$ bin/plugin login new-user
-```
+![](new-user.png)
 
-Simply follow along with the prompts to create the user account.
+Simply fill out the form and click the `Create User` button.
 
-Alternatively, you can create a `user/accounts/admin.yaml` file manually. This filename is actually the **username** that you will use to login. The contents will contain the other information for the user.
-
-```
-password: 'password'
-email: 'youremail@mail.com'
-fullname: 'Johnny Appleseed'
-title: 'Site Administrator'
-access:
-  admin:
-    login: true
-    super: true
-```
-
-Of course you should edit your `email`, `password`, `fullname`, and `title` to suit your needs.
-
-### Manual Installation
-
-Manual installation is not the recommended method of installation, however, it is still possible to install the admin plugin manually. Basically, you need to download each of the following plugins individually:
-
-* [admin](https://github.com/getgrav/grav-plugin-admin/archive/develop.zip)
-* [login](https://github.com/getgrav/grav-plugin-login/archive/develop.zip)
-* [form](https://github.com/getgrav/grav-plugin-form/archive/develop.zip)
-* [email](https://github.com/getgrav/grav-plugin-email/archive/develop.zip)
-
-Extract each archive file into your `user/plugins` folder, then ensure the folders are renamed to just `admin/`, `login/`, `form/`, and `email/`.  Then proceed with the **Usage instructions below**.
+The user information is stored in the `user/accounts/` folder of your Grav installation.  You can edit the values manually or via the Admin plugin itself.  You can also create new users manually or via a the `bin/grav login newuser` CLI command.  More information is contained in the [Grav Admin FAQ](../faq#adding-and-managing-users).
 
 ### Usage
 
