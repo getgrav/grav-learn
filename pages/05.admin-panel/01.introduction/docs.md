@@ -67,7 +67,7 @@ With the latest version of the Grav admin, you will be prompted to create an adm
 
 Simply fill out the form and click the `Create User` button.
 
-The user information is stored in the `user/accounts/` folder of your Grav installation.  You can edit the values manually or via the Admin plugin itself.  You can also create new users manually or via a the `bin/grav login newuser` CLI command.  More information is contained in the [Grav Admin FAQ](../faq#adding-and-managing-users).
+The user information is stored in the `user/accounts/` folder of your Grav installation.  You can edit the values manually or via the Admin plugin itself.  You can also create new users manually or via a the `bin/plugin login newuser` CLI command.  More information is contained in the [Grav Admin FAQ](../faq#adding-and-managing-users).
 
 ### Usage
 
