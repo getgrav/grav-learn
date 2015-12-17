@@ -63,7 +63,7 @@ process:
         dateformat: Ymd-His-u
         extension: txt
         body: "{% include 'forms/data.txt.twig' %}"
-    - message: Thank you from your feedback!
+    - message: Thank you for your feedback!
     - display: thankyou
 ```
 
@@ -246,7 +246,7 @@ Sets a message to be shown in the next page. Works if you set a `display` action
 
 ```
 process:
-    - message: Thank you from your feedback!
+    - message: Thank you for your feedback!
     - display: thankyou
 ```
 
@@ -418,7 +418,7 @@ form:
 
     process:
         -
-            message: 'Thank you from your feedback!'
+            message: 'Thank you for your feedback!'
 ---
 
 ```
