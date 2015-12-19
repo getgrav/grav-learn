@@ -412,5 +412,5 @@ Then, open your browser, and point it to your Grav site.  You should see somethi
 At this point you have created your first theme!  There are a couple of minor things missing:
 
 1. Create a **favicon** in `images/favicon.png`.
-2. Create a thumbnail of the new theme in `/images/thumbnail.jpg`.
+2. Create a thumbnail called `thumbnail.jpg' and place in the root of your theme.
 3. Add missing **templates** for other pages other than `default.html.twig`, e.g. `blog.html.twig` that you might need.
