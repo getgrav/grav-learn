@@ -266,25 +266,26 @@ You can also provide your own translations in plugins and themes.  This is done 
 
 ```
 en:
-    PLUGIN_ERROR_TITLE: Error Plugin
-    PLUGIN_ERROR_DESCRIPTION: The error plugin provides a simple mechanism for handling error pages within Grav.
+  PLUGIN_ERROR:
+    TITLE: Error Plugin
+    DESCRIPTION: The error plugin provides a simple mechanism for handling error pages within Grav.
 fr:
-    PLUGIN_ERROR_TITLE: Plugin d'Erreur
-    PLUGIN_ERROR_DESCRIPTION: Le plugin d'erreur fournit un mécanisme simple de manipulation des pages d'erreur au sein de Grav.
+  PLUGIN_ERROR:
+    TITLE: Plugin d'Erreur
+    DESCRIPTION: Le plugin d'erreur fournit un mécanisme simple de manipulation des pages d'erreur au sein de Grav.
 ```
+
+>>>>> The convention for plugins is to use PLUGIN_PLUGINNAME.* as a prefix for all language strings, to avoid any name conflict. Themes are less likely to introduce language strings conflicts, but it's a good idea to prefix with THEME_THEMENAME.* strings added in themes.
 
 #### Translation Overrides
 
 If you wish to override a particular translation, simply put the modified key/value pair in an appropriate language file in your `user/languages/` folder.  For example a file called `user/languages/en.yaml` could contain:
 
 ```
-PLUGIN_ERROR_TITLE: My Error Plugin
+PLUGIN_ERROR.TITLE: My Error Plugin
 ```
 
-This will ensure that you can always override a translation string without messing around with the plugins or themes themselves.
-
->>>>> It's a good idea to use a more specific prefix for your translation keys to ensure your keys are unique and do not override other core, plugins, or theme translations.
-
+This will ensure that you can always override a translation string without messing around with the plugins or themes themselves, and also will avoid overwriting a custom translation when updating them.
 
 ### Advanced
 
