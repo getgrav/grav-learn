@@ -217,6 +217,7 @@ Here's a list of the available form fields:
 - **Checkboxes**: a serie of checkboxes
 - **Date**: a date selection field
 - **Datetime**: a date and time selection field
+- **Display**: a text or instructions field (not an input field)
 - **Email**: an email field, with validation
 - **File**: a file upload field, with validation
 - **Hidden**: an hidden field

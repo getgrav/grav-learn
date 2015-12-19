@@ -6,13 +6,21 @@ taxonomy:
 
 The Forms plugin for Grav is a Form Construction Kit available for you to use in your own pages.
 
-## The form page
+1. [Create a simple form](#create-a-simple-form)
+1. [Which fields you can use](#which-fields-you-can-use)
+1. [Form actions](#form-actions)
+1. [Add your own custom processing to a form](#add-your-own-custom-processing-to-a-form)
+1. [Using forms in modular pages](#using-forms-in-modular-pages)
 
-To add a form to a page, name the page file as `form.md`
+
 
 ## Create a simple form
 
-Every page in the site can host a form. The form is defined in the page YAML frontmatter.
+Every page in the site can host a form.
+
+To add a form to a page, name the page file as `form.md`
+
+The form is defined in the page YAML frontmatter.
 At the moment there isn't an easy-to-use interface for the Forms plugin, although that is in the plans for the future.
 
 Here's an example of a form:
@@ -97,7 +105,7 @@ The Forms plugin comes with
 - **Text**: a simple text field
 - **Textarea**: a textarea
 
-## Fields parameters
+### Fields parameters
 
 Every field accepts a list of parameters you can use to customize their appearance.
 They are:
@@ -323,9 +331,60 @@ To also validate the captcha server-side, add the captcha process action.
             recatpcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
 ```
 
-## More custom stuff
+## Add your own custom processing to a form
 
-The forms plugin offers this ability of sending emails, saving files, setting status messages and it’s really handy.
+You can "hook" into a form processing and perform any kind of operation. Perform custom processing, add data for an online web application, even save to a database.
+
+To do this, in the form process field add your own processing action name, for example 'yourAction'.
+
+Then, create a simple plugin.
+
+In its main PHP file, register for the event `onFormProcessed`
+
+```php
+<?php
+namespace Grav\Plugin;
+use Grav\Common\Plugin;
+
+class EmailPlugin extends Plugin
+{
+    public static function getSubscribedEvents()
+    {
+        return [
+            'onFormProcessed' => ['onFormProcessed', 0]
+        ];
+    }
+}
+```
+
+Then provide a handler for the saveToDatabase action:
+
+```php
+    public function onFormProcessed(Event $event)
+    {
+        $form = $event['form'];
+        $action = $event['action'];
+        $params = $event['params'];
+
+        switch ($action) {
+            case 'yourAction':
+                //do what you want
+        }
+    }
+```
+
+If your processing might go wrong and you want to stop the next form actions, which are executed in series, you can stop the processing by calling `stopPropagation` on the $event object:
+
+```php
+$event->stopPropagation();
+return;
+```
+
+Sample code with form handling is available in the Form plugin, and in the Email plugin repositories.
+
+### An example of custom form handling
+
+The Form plugin offers this ability of sending emails, saving files, setting status messages and it’s really handy.
 Sometimes however you need total control. That’s for example what the Login plugin does.
 
 It defines the login.md page frontmatter:
@@ -363,7 +422,7 @@ When a user presses 'Login' in the form, Grav calls the `onTask.login.login` eve
 Forms in modular pages are a bit different than regular forms.
 To add a form inside a modular page, follow those steps:
 
-### In your theme, add a `templates/modular/form.html.twig` file copying `templates/forms/form.html.twig`
+In your theme, add a `templates/modular/form.html.twig` file copying `templates/forms/form.html.twig`
 
 An example of its content could be:
 
@@ -382,13 +441,13 @@ If your theme does not provide a `templates/forms/form.html.twig` file, it's not
 - `templates/form.html.twig`
 - `templates/formdata.html.twig`
 
-### Create a modular folder with page type `form.md`
+Now, create a modular folder with page type `form.md`
 
 For example: `01.your-modular-page/_contact/form.md`
 
 The `form.md` page will not contain any form definition. It’s just an indication that this is the part that should output the form.
 
-### Add the form header to the main modular page, `modular.md`
+Add the form header to the main modular page, `modular.md`
 
 The modular.md page should contain the whole form definition, with fields etc, as if it was a “full-page” form.md file header. With its own page path as the `form.action` field.
 
@@ -424,7 +483,7 @@ form:
 
 ```
 
-### In the form header, make sure you add the `action` parameter, with the modular page route
+In the form header, make sure you add the `action` parameter, with the modular page route
 
 Like present in the example above.
 This step is needed because if you don't explicitly add `form.action`, the code usually looks for the page route, but being the form in a modular subpage, not an actual page, the path is wrong and breaks the form submit.
@@ -432,7 +491,10 @@ This step is needed because if you don't explicitly add `form.action`, the code 
 So if the modular page is e.g. `site.com/my-page`, just put `form: action: /my-page` in `modular.md`
 If the modular page is the homepage, just put `form: action: /`
 
-### Troubleshooting modular forms
+#### Troubleshooting forms in modular pages
+
+The best way to troubleshoot a form is to first get back to the roots, and add your customizations one-by-one to see what might be going wrong.
 
 - First, I suggest creating a "regular form", making sure it works, then try putting that into a modular form.
 - Second, try making the form work on an Antimatter-based skeleton, which provides all the files you already need.
+
