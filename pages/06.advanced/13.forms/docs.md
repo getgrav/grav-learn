@@ -259,7 +259,7 @@ process:
     - display: thankyou
 ```
 
-The Form plugin provides a `formdata` template that's suitable for the process destination page, as it outputs the result of the form submission. In the above example, you coudld create a pages/form/thankyou/formdata.md page.
+The Form plugin provides a `formdata` template that's suitable for the process destination page, as it outputs the result of the form submission. In the above example, you could create a pages/form/thankyou/formdata.md page.
 
 If you're redirecting to a subpage, `display: thankyou` works perfect. If you're redirecting to an absolute page path, like `site.com/thankyou`, prepend it with `/`, for example: `display: /thankyou`.
 
