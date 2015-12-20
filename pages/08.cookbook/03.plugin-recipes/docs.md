@@ -6,14 +6,14 @@ taxonomy:
 
 This page contains an assortment of problems and their respective solutions related to Grav plugins.
 
-1. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxo)
+1. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
 2. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
  
 ### Filter taxonomies using the taxonomylist plugin
  
 #### Problem:
  
-You want to use the [taxonomy list Grav plugin](https://github.com/getgrav/grav-plugin-taxonomylist) to list the tags that are used in your blog posts, but intead of listing all of them, you only want to list the most used items in a given taxonomy (such as the top five tags, for example).
+You want to use the [taxonomy list Grav plugin](https://github.com/getgrav/grav-plugin-taxonomylist) to list the tags that are used in your blog posts, but instead of listing all of them, you only want to list the most used items in a given taxonomy (such as the top five tags, for example).
  
 #### Solution:
  
