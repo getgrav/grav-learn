@@ -12,6 +12,8 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Really simple css image slider](#really-simple-css-image-slider)
 1. [Wrapping Markdown into html](#wrapping-markdown-into-html)
 1. [Add a recent post widget to your sidebar](#add-a-recent-post-widget-to-your-sidebar)
+1. [Create a private area](#create-a-private-area)
+
 
 ### Change the PHP CLI version
 
@@ -318,3 +320,76 @@ The CSS for this widget is listed below:
 }
 ```
 Adjust the spacing between recent post items, font-family, font-size and font-weight to taste.
+
+## Create a private area
+
+Grav makes it very easy to create a private area on a website.
+It all works thanks to the Login Plugin.
+
+### Require users to login prior to access a part of the site
+
+If you don’t have it already, install it through the Admin Panel or using the GPM command line utility.
+
+Next, open a page in Admin, switch to expert mode and in the Frontmatter section add
+
+```yaml
+access:
+    site.login: true
+```
+
+Users accessing the page will need to login prior to see the page content.
+
+Notice that the permission does not extend by default to subpages. To do so, from the Login plugin configuration enable "Use parent access rules".
+
+This option allows you to create extended private areas without worrying further about access level. Just put all under a page which has a restriction on access.
+
+### Require special permissions to view one or more pages
+
+Similarly to the above process, you can assign any permission you want to a page. You can even come up with your own permission names.
+
+For example:
+
+```yaml
+access:
+    site.onlybob: true
+```
+
+Next, add the `site.onlybob` permission to Bob, in its bob.yaml user file under the `user/accounts` folder:
+
+```yaml
+access:
+    site.onlybob: true
+```
+
+### Use group-based permissions
+
+You can also assign users to a group, and assign permissions to the group instead of to individual users. Users will inherit the group permissions.
+
+Add a `user/config/groups.yaml` file, for example with this content:
+
+```yaml
+registered:
+  readableName: 'Registered Users'
+  description: 'The group of registered users'
+  access:
+    site:
+      login: true
+premium:
+  readableName: 'Premium Members'
+  description: 'The group of premium members'
+  access:
+    site:
+      login: true
+      paid: true
+```
+
+Now assign users to a group by adding
+
+```yaml
+groups:
+      - premium
+```
+
+to their yaml user file, under `user/accounts`
+
+Now users belonging to the `premium` group will be allowed to access pages with a `site.paid` permission.
