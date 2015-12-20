@@ -74,7 +74,7 @@ Then you could create a new page located in the same `01.home/` folder called `d
 title: Page d'accueil
 ---
 
-Ceci est ma page d'accueil alimentée par Grav !
+Ceci est ma page d'accueil générée par Grav !
 ```
 
 Now you have defined two pages for your current homepage in multiple languages.
