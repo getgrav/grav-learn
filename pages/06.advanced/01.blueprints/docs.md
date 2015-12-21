@@ -251,15 +251,26 @@ Here's a list of the available form fields:
 
 ### File Uploads
 
-You can add file upload functionality in Plugins and Themes blueprints.
+Starting with the next Admin plugin release, you'll be able to add file upload functionality in Plugins and Themes blueprints.
+
 Example usage:
 
 ```
 custom_file:
   type: file
-  label: Custom File
-  multiple: false
+  label: A Label
   destination: 'user/plugins/my-plugin/assets'
+  blueprint: 'plugins.admin-pro'
+  accept:
+    - image/*
+```
+
+```
+custom_file:
+  type: file
+  label: A Label
+  destination: 'user/themes/my-theme/assets'
+  blueprint: 'themes.mytheme'
   accept:
     - image/*
 ```
