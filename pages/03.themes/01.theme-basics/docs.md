@@ -22,7 +22,7 @@ If you were to have a page file called `blog.md`, Grav would try to render it wi
 
 ### Definition & Configuration
 
-Each theme should have a definition file called `blueprints.yaml` which has some information about the theme.  It can optionally provide **form** definitions to be used in the **Administrator Panel** to allow for editing of theme options.  The **Antimatter** theme has the following `blueprints.yaml` file:
+Each theme should have a definition file called `blueprints.yaml` which has some information about the theme.  It can optionally provide **form** definitions to be used in the [**Administrator Panel**](../../admin-panel/introduction) to allow for editing of theme options.  The **Antimatter** theme has the following `blueprints.yaml` file:
 
 ```ruby
 name: Antimatter
@@ -53,8 +53,6 @@ form:
         validate:
           type: bool
 ```
-
-!!!! The form fields can be safely ignored at this point. These are provided for our testing of a new administration plugin to provide configuration of the theme. As this is not currently available, they are unused.
 
 If you want to use theme configuration options you should provide default settings in a file called `<your_theme>.yaml`.  For example:
 
