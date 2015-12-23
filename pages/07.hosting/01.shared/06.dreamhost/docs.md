@@ -18,7 +18,7 @@ Let’s focus on the lower end offer, shared hosting. It comes with a great admi
 
 ## Configuring PHP
 
-You can set every (sub)domain to have its own PHP version. At the time of writing, the default PHP version for new sites is 5.4, which is ok for Grav. You can choose to use a later version (5.6 available), and we recommend doing so.
+You can set every (sub)domain to have its own PHP version. At the time of writing, the default PHP version for new sites is 5.4. You can choose to use a later version (5.6 available), and we recommend doing so as PHP 5.5.9+ is required for Grav.
 
 ![](php-version.png)
 
@@ -26,7 +26,7 @@ You can set every (sub)domain to have its own PHP version. At the time of writin
 
 Open the Users panel. Every Dreamhost user can have different access levels. Set your user to Shell User.
 
-At the time of writing the default PHP CLI version is 5.4, so you don’t need to do anything to make the Grav CLI tools work properly.
+At the time of writing the default PHP CLI version is 5.5, so you don’t need to do anything to make the Grav CLI tools work properly.
 
 ## Install and Test Grav
 

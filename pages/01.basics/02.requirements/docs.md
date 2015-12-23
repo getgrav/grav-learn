@@ -7,7 +7,7 @@ taxonomy:
 Grav has intentionally been designed with few requirements.  You can easily run Grav on your local computer, as well as 99% of all Web hosting providers. If you have a pen handy, jot down the following Grav system requirements:
 
 1. Webserver (Apache, Nginx, LiteSpeed, Lightly, IIS, etc.)
-2. PHP 5.4 or higher
+2. PHP 5.5.9 or higher
 3. hmm... that's it really, (but please look at php requirements for a smooth experience)!
 
 Grav is built with plain text files for your content. There is no database needed.
@@ -20,7 +20,7 @@ Even though technically you do not need a standalone Web server, it is better to
 
 ### Mac
 
-* OS X 10.9 Mavericks already ships with the Apache Web server and PHP 5.4, so job done!
+* OS X 10.9 Mavericks already ships with the Apache Web server and PHP 5.5, so job done!
 * [MAMP/MAMP Pro](http://mamp.info) comes with Apache, MySQL and of course PHP.  It is a great way to get more control over which version of PHP you are running, setting up virtual hosts, plus other useful features such as automatically handling dynamic DNS.
 
 ### Windows
@@ -67,9 +67,9 @@ and remove the leading semicolon.
 
 ##### Optional Modules
 
-* `apc` (PHP 5.4) or `apcu` (PHP 5.5+) for increased cache performance
-* `opcache` (PHP 5.5+) for increased PHP performance
-* `xcache` alternative to *apc*, not as fast, but still pretty good
+* `apcu` for increased cache performance
+* `opcache` for increased PHP performance
+* `xcache` alternative to *apcu*, not as fast, but still pretty good
 * `yaml` PECL Yaml provides native yaml processing and can dramatically increase performance
 * `xdebug` useful for debugging in development environment
 

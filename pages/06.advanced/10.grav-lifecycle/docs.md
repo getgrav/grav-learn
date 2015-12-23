@@ -10,7 +10,7 @@ markdown_extra: true
 It is often useful to know how Grav processes in order to fully understand how best to extend Grav via plugins.  This is the Grav lifecycle:
 
 * ### index.php {.level-1}
-  1. Check PHP version to ensure we're running at least version **5.4.0**
+  1. Check PHP version to ensure we're running at least version **5.5.9**
   1. Class loader initialization
   1. Obtain Grav instances
   	  ### Grav.php {.level-2}

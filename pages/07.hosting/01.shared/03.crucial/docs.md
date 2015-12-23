@@ -97,7 +97,7 @@ AddHandler application/x-httpd-php56 .php
 
 ## Setup CLI PHP
 
-At the time of this writing, Crucial's default PHP version is **5.3**.  Because Grav requires PHP **5.4+**, we need to ensure that Grav is using a newer version of PHP on the command line (CLI).  To accomplish this, you should use SSH to access your server and edit your `.bash_profile` file and change the path so that it references the appropriate PHP path before the regular path:
+At the time of this writing, Crucial's default PHP version is **5.3**.  Because Grav requires PHP **5.5+**, we need to ensure that Grav is using a newer version of PHP on the command line (CLI).  To accomplish this, you should use SSH to access your server and edit your `.bash_profile` file and change the path so that it references the appropriate PHP path before the regular path:
 
 ```
 # .bash_profile
@@ -109,7 +109,7 @@ fi
 
 # User specific environment and startup programs
 
-PATH=/usr/local/lib/php-5.4/bin:$PATH:$HOME/bin
+PATH=/usr/local/lib/php-5.5/bin:$PATH:$HOME/bin
 
 export PATH
 ```
@@ -118,7 +118,7 @@ You will need _source_ the profile: `$ source ~/.bash_profile` or re-login to yo
 
 ```
 $ php -v
-PHP 5.4.27 (cli) (built: Apr  6 2014 14:43:05)
+PHP 5.5.20 (cli) (built: Apr  6 2014 14:43:05)
 Copyright (c) 1997-2014 The PHP Group
 Zend Engine v2.4.0, Copyright (c) 1998-2014 Zend Technologies
     with the ionCube PHP Loader v4.6.1, Copyright (c) 2002-2014, by ionCube Ltd., and

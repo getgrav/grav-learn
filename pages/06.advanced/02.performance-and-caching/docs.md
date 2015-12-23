@@ -8,7 +8,7 @@ taxonomy:
 
 ## Performance
 
-1. **PHP caching is critical**.  You should run a PHP **opcache** and **usercache** in order to get the best performance out of Grav. WIth PHP 5.4 **APC cache** works well, but with PHP 5.5 and 5.6, **Zend opcache** with **APCu user cache** is slightly faster.
+1. **PHP caching is critical**.  You should run a PHP **opcache** and **usercache** in order to get the best performance out of Grav. With PHP 5.5 and 5.6, **Zend opcache** with **APCu user cache** is slightly faster.
 
 2. **SSD drives** can make a big difference. Most things can get cached in PHP user cache, but some are stored as files, so SSD drives can make a big impact on performance.
 

@@ -8,7 +8,7 @@ Installation of Grav is a trivial process. In fact, there is no real installatio
 
 ## Check for PHP version
 
-Grav is incredibly easy to set up and get running. Be sure you have at least PHP version 5.4 by going to the terminal and typing:
+Grav is incredibly easy to set up and get running. Be sure you have at least PHP version 5.5.9 by going to the terminal and typing:
 
 ```bash
 $ php -v
@@ -17,7 +17,7 @@ $ php -v
 This should report the version and build information.  For example:
 
 ```bash
-PHP 5.4.24 (cli) (built: Jan 19 2014 21:32:15)
+PHP 5.5.20 (cli) (built: Jan 19 2014 21:32:15)
 Copyright (c) 1997-2013 The PHP Group
 Zend Engine v2.4.0, Copyright (c) 1998-2013 Zend Technologies
 ```
@@ -53,7 +53,7 @@ The alternative method is to clone Grav from the GitHub repository, and then run
 
 #### Apache/IIS/Nginx
 
-Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is PHP 5.4 or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](../requirements) chapter of this guide.
+Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is PHP 5.5.9 or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](../requirements) chapter of this guide.
 
 If your web root is, for example, `~/public_html` then you could extract it into this folder and reach it via `http://localhost`.  If you extracted it into `~/public_html/grav` you would reach it via `http://localhost/grav`.
 

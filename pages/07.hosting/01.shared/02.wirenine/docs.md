@@ -70,7 +70,7 @@ You will need to re-login to your terminal to get this change picked up.
 
 ## Configuring PHP & Caching
 
-WireNine uses PHP **5.4** by default which is great for Grav, but you do have the option to use a newer **5.5** or **5.6** version.
+WireNine uses PHP **5.4** by default, but you do have the option to use a newer **5.5** or **5.6** version which is required for Grav.
 
 WireNine provides a very full-featured **cPanel** control panel. This is directly accessible via the **My Accounts** tab.
 

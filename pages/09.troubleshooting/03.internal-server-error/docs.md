@@ -29,7 +29,7 @@ Then point your browser at this file: `http://yoursite.com/your_grav_directory/i
 
 ### Register Globals Issue
 
-Some people who have recently upgraded to PHP 5.4 from version 5.3 may still have some out of date settings in their `php.ini` file.  One item that can cause a **500 Internal Server Error** is the `register_globals` setting.  Simply remove or comment out the line:
+Some people who have recently upgraded to PHP 5.5 from version 5.4 or 5.3, may still have some out of date settings in their `php.ini` file.  One item that can cause a **500 Internal Server Error** is the `register_globals` setting.  Simply remove or comment out the line:
 
 ```
 register_global = On

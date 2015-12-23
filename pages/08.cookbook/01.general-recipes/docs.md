@@ -20,7 +20,7 @@ This page contains an assortment of problems and their respective solutions rela
 Sometimes on the terminal the PHP version is different than the PHP version used by the web server.
 
 You can check the PHP version running in the CLI by running the command `php -v`.
-If the PHP version is less than 5.4, Grav won't run as it requires at least PHP 5.4.
+If the PHP version is less than 5.5.9, Grav won't run as it requires at least PHP 5.4.
 
 How to fix?
 
@@ -45,7 +45,7 @@ fi
 
 # User specific environment and startup programs
 
-PATH=/usr/local/lib/php-5.4/bin:$PATH:$HOME/bin
+PATH=/usr/local/lib/php-5.5/bin:$PATH:$HOME/bin
 
 export PATH
 ```

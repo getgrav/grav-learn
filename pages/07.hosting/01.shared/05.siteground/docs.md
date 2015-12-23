@@ -64,7 +64,7 @@ Obviously, you will need to put in your SiteGround-provided username for `sitegr
 
 ## Setup CLI PHP
 
-At the time of this writing, SiteGround's default PHP version is **5.3**.  Because Grav requires PHP **5.4+**, we need to ensure that Grav is using a newer version of PHP on the command line (CLI).  To accomplish this, you should use SSH to access your server and edit your `.bash_profile` file and change the path so that it references a new `~/bin/` folder before the regular path:
+At the time of this writing, SiteGround's default PHP version is **5.3**.  Because Grav requires PHP **5.5+**, we need to ensure that Grav is using a newer version of PHP on the command line (CLI).  To accomplish this, you should use SSH to access your server and edit your `.bash_profile` file and change the path so that it references a new `~/bin/` folder before the regular path:
 
 ```
 # .bash_profile

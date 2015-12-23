@@ -61,7 +61,7 @@ Obviously, you will need to put in your Rochen-provided username for `rochen_use
 
 ## Configuring PHP & Caching
 
-Rochen uses PHP **5.4** by default which is great for Grav, but you do have the option to use a newer **5.5** or **5.6** version.
+Rochen uses PHP **5.4** by default, but you do have the option to use a newer **5.5** or **5.6** version which is required for Grav.
 
 The first thing to do is to change the default version of PHP your site runs with. So click the **Select PHP Version** link in the **Software and Services** Section.
 
