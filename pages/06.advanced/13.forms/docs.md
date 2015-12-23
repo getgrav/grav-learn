@@ -75,7 +75,7 @@ process:
     - display: thankyou
 ```
 
->>>>>> Make sure you configured the "Email from" and "Email to" email addresses in the Email plugin with your email address
+!!! Make sure you configured the "Email from" and "Email to" email addresses in the Email plugin with your email address
 
 What does this do is simple: it executes the passed actions in serie.
 
@@ -183,7 +183,7 @@ With the `file` field you can let users to upload files through the form. The fi
     * **'local/rel/path'**: Can be any path relative to the Grav instance. For instance, `user/data/files`. If the path doesn't exist, it will get created so make sure it is writable.
 * `accept`: Takes an array of MIME types that are allowed. For instance to allow only gifs and mp4 files: `accept: ['image/gif', 'video/mp4']`
 
->>>>>> The File field in the admin is a bit different, allowing also to delete a file uploaded to a form, because the use-case in admin is to upload and then associate a file to a field. In Admin, it works with Plugins and Themes blueprints. For Page Blueprints instead use the "pagemediaselect" field, which allows the user to choose a file uploaded to the page media.
+!!! The File field in the admin is a bit different, allowing also to delete a file uploaded to a form, because the use-case in admin is to upload and then associate a file to a field. In Admin, it works with Plugins and Themes blueprints. For Page Blueprints instead use the "pagemediaselect" field, which allows the user to choose a file uploaded to the page media.
 
 ### A note on Captcha
 

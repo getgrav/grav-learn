@@ -10,7 +10,7 @@ process:
 
 The **Configuration** page gives you access to your site's **System** and **Site** configuration settings. Additionally, you can view a breakdown of your server's properties in a number of areas including PHP, server environment, and other various components that determine how your site operates.
 
->>> The Configuration requires an `access.admin.super` or `access.admin.configuration` access level.
+!! The Configuration requires an `access.admin.super` or `access.admin.configuration` access level.
 
 The **System** tab enables you to customize the settings found in the `/user/config/system.yaml` file. These settings affect how many of the primary system-related features of Grav operate. The site's home page, caching settings, and more can be configured here.
 

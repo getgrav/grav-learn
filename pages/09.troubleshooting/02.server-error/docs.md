@@ -19,7 +19,7 @@ Possible reasons include:
 * Errors in parsing configuration due to invalidly formatted configuration files
 
 
->>>>>> If you have the **Grav Administration** plugin installed, you can browse the Server Errors from there. By clicking the individual errors you can see the debug pages even if the debugger was turned off.
+!!! If you have the **Grav Administration** plugin installed, you can browse the Server Errors from there. By clicking the individual errors you can see the debug pages even if the debugger was turned off.
 
 ## Out-of-date configuration
 
@@ -29,7 +29,7 @@ The first thing you should do is flush the cache to ensure that the configuratio
 bin/grav clear-cache
 ```
 
->>> Before moving on, make sure that you do not have other file permission issues like this.
+!! Before moving on, make sure that you do not have other file permission issues like this.
 
 ## Installation and configuration issues
 

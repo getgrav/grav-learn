@@ -6,9 +6,9 @@ taxonomy:
 
 There are a couple of reasons you might receive a **Not Found** error, and they are each caused by different factors.
 
-![404 Not Found](404-not-found.png) 		{.bordered}
+![404 Not Found](404-not-found.png)         {.bordered}
 
->>> The examples below are for the Apache Web Server which is the most common server software used.
+!! The examples below are for the Apache Web Server which is the most common server software used.
 
 ### Missing .htaccess File
 
@@ -55,7 +55,7 @@ Then restart your Apache server.
 
 ### Grav Error 404 Page
 
-![404 Not Found](error-404.png) 		{.bordered}
+![404 Not Found](error-404.png)         {.bordered}
 
 If you receive a _Grav-style_ error saying **Error 404** then your `.htaccess` is functioning correctly, but your trying to reach a page that Grav cannot find.
 

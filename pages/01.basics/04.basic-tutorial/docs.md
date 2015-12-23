@@ -34,26 +34,26 @@ Open the home page in your text editor. The file that controls the homepage is l
 
 When you edit the page in a text editor, the content will look something like this:
 
-	---
-	title: Home
-	---
+    ---
+    title: Home
+    ---
 
-	# Grav is Running!
-	## You have installed **Grav** successfully
+    # Grav is Running!
+    ## You have installed **Grav** successfully
 
-	Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **antimatter** theme to get you started.
+    Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **antimatter** theme to get you started.
 
-	>>>>> If you want a more **full-featured** base install, you should check out [**Skeleton** packages available in the downloads](http://getgrav.org/downloads).
+    ! If you want a more **full-featured** base install, you should check out [**Skeleton** packages available in the downloads](http://getgrav.org/downloads).
 
-	### Find out all about Grav
+    ### Find out all about Grav
 
-	* Learn about **Grav** by checking out our dedicated [Learn Grav](http://learn.getgrav.org) site.
-	* Download **plugins**, **themes**, as well as other Grav **skeleton** packages from the [Grav Downloads](http://getgrav.org/downloads) page.
-	* Check out our [Grav Development Blog](http://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
+    * Learn about **Grav** by checking out our dedicated [Learn Grav](http://learn.getgrav.org) site.
+    * Download **plugins**, **themes**, as well as other Grav **skeleton** packages from the [Grav Downloads](http://getgrav.org/downloads) page.
+    * Check out our [Grav Development Blog](http://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
 
-	## Create a new page
+    ## Create a new page
 
-	>>>> TODO: Walk through the process of creating a new page with title + content with simple markdown
+    !!!! TODO: Walk through the process of creating a new page with title + content with simple markdown
 
 Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers](../../content/headers), and these are written in a very simple format called [YAML](../../advanced/yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.
 
@@ -77,7 +77,7 @@ Congratulations! You have installed the **Base Grav Package** that provides a **
 This is a simple paragraph that would have been wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicate bold text or `<b>` in HTML.  Italic text is indicated by wrapping text in `_` markers.
 
 ```markdown
->>>>> If you want a more **full-featured** base install, you should check out [**Skeleton** packages available in the downloads](http://getgrav.org/downloads).
+! If you want a more **full-featured** base install, you should check out [**Skeleton** packages available in the downloads](http://getgrav.org/downloads).
 ```
 
 This is a special feature provided by the default Grav theme.  Usually in Markdown, a `>` indicates a `<blockquote>` in HTML.  We have overridden three level deep blockquotes and onwards to provide [styling for notices](../../content/markdown). In this case, 5 chevrons, or `>>>>>` will produce a blue notice box. Within this blue notice styling, we also have some text that is wrapped in brackets or `[` and `]` markers followed by a URL in parenthesis `(` and `)`.  This is the markdown syntax for hyperlinking text.  It is very simple when you get the hang of it.
@@ -92,7 +92,7 @@ Creating unordered lists is super simple in markdown. Simply use an `*`, `-`, or
 
 This overview should provide you with a few key pointers for writing Markdown, but you should check out our more [detailed explanation](../../content/markdown) to get a thorough understanding.
 
->>> Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
+!! Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
 
 ## Adding a New Page
 
@@ -101,14 +101,14 @@ Creating a new page is a simple affair in **Grav**.  Just follow these simple st
 1. Navigate to your pages folder: `user/pages/` and create a new folder.  In this example we will use [explicit default ordering](http://learn.getgrav.org/content/content-pages) and call the folder `02.mypage`.
 2. Launch your text editor, create a new file, and paste in the following sample code:
 
-	```markdown
-	---
-	title: My New Page
-	---
-	# My New Page!
+    ```markdown
+    ---
+    title: My New Page
+    ---
+    # My New Page!
 
-	This is the body of **my new page** and I can easily use _Markdown_ syntax here.
-	```
+    This is the body of **my new page** and I can easily use _Markdown_ syntax here.
+    ```
 
 3. Save this file in the `user/pages/02.mypage/` folder as `default.md`. This will tell **Grav** to render the page using the **default** template.
 4. That is it! Reload your browser to see your new page in the menu.
@@ -117,4 +117,4 @@ The page will automatically show up in the Menu after the **"Home"** menu item. 
 
 **Congratulations**, you have now successfully created a new page in Grav.  There is much more you can do with Grav, so please continue reading to find out about more advanced capabilities and in-depth features.
 
->>> If you have any issues accessing this new page, you are either missing an `.htaccess` file (Apache web server only) or you may need to edit the `RewriteBase` command in the `.htaccess` file. Please consult the [Troubleshooting](../../troubleshooting) section for more information.
+!! If you have any issues accessing this new page, you are either missing an `.htaccess` file (Apache web server only) or you may need to edit the `RewriteBase` command in the `.htaccess` file. Please consult the [Troubleshooting](../../troubleshooting) section for more information.

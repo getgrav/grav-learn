@@ -10,7 +10,7 @@ This is especially true for folks that are running their own development servers
 
 In the end, it all comes down to personal preference. On this page, we will list some great resources out there to help you become familiar with the command line.
 
->>> Not all operating systems are compatible with one-another when it comes to commands. There are minor differences between OS X and many Linux distros, with Windows' Command Promt having a very different set of commands from the other two.
+!! Not all operating systems are compatible with one-another when it comes to commands. There are minor differences between OS X and many Linux distros, with Windows' Command Promt having a very different set of commands from the other two.
 
 ## OS X
 
@@ -66,7 +66,7 @@ All of the commands listed below are compatible with any operating system.
 | `bin/gpm uninstall`               | Removes an installed theme or plugin and cleares the cache.                                                                        |
 | `bin/gpm self-upgrade`            | Enables you to update Grav to the latest version.                                                                                  |
 
->>> These commands are explained in greater detail within the [Grav CLI](../grav-cli) and [Grav GPM](../grav-gpm) documentation.
+!! These commands are explained in greater detail within the [Grav CLI](../grav-cli) and [Grav GPM](../grav-gpm) documentation.
 
 ## Symbolic Links
 

@@ -11,7 +11,7 @@ The **Grav Form Plugin** is the easiest way to have forms on your site. Let's se
 A form can be hosted by any page. Just rename the form file to `form.md`, or add a [Template Override](../../content/headers#template) in the page header.
 The form is defined in the YAML frontmatter of the page, so just open a Grav Page with your favorite editor.
 
->>>>>> In the future we want Grav to be able to dynamically generate forms from the Admin Plugin
+!!! In the future we want Grav to be able to dynamically generate forms from the Admin Plugin
 
 ```
 title: Contact Form
@@ -72,7 +72,7 @@ form:
         - display: thankyou
 ```
 
->>>>>> Make sure you configured the "Email from" and "Email to" email addresses in the Email plugin with your email address
+!!! Make sure you configured the "Email from" and "Email to" email addresses in the Email plugin with your email address
 
 Make sure you add your own `recatpcha_site_key` reCAPTCHA parameter ([see the reCAPTCHA docs](https://developers.google.com/recaptcha/docs/start)).
 

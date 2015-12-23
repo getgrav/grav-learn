@@ -49,7 +49,7 @@ In this example you can see that two supported languages have been described (`e
 
 If no language is explicitly asked for (via the URL or by code), Grav will use the order of the languages provided to select the correct language.  So in the example above, the **default** language is `en` or English. If you had `fr` first, French would be the default language.
 
->>> You can of course provide as many languages as you like and you may even use locale type codes such as `en-GB`, `en-US` and `fr-FR`.  If you use this locale based naming, you will have to replace all the short language codes with the locale versions.
+!! You can of course provide as many languages as you like and you may even use locale type codes such as `en-GB`, `en-US` and `fr-FR`.  If you use this locale based naming, you will have to replace all the short language codes with the locale versions.
 
 #### Multiple Language Pages
 
@@ -185,7 +185,7 @@ This will look for a template located at `templates/default.fr.html.twig`
 
 This provides you with two options for providing language specific Twig overrides.
 
->>> If no language-specific Twig template is provided, the default one will be used.
+!! If no language-specific Twig template is provided, the default one will be used.
 
 
 
@@ -275,7 +275,7 @@ fr:
     DESCRIPTION: Le plugin d'erreur fournit un mécanisme simple de manipulation des pages d'erreur au sein de Grav.
 ```
 
->>>>> The convention for plugins is to use PLUGIN_PLUGINNAME.* as a prefix for all language strings, to avoid any name conflict. Themes are less likely to introduce language strings conflicts, but it's a good idea to prefix with THEME_THEMENAME.* strings added in themes.
+! The convention for plugins is to use PLUGIN_PLUGINNAME.* as a prefix for all language strings, to avoid any name conflict. Themes are less likely to introduce language strings conflicts, but it's a good idea to prefix with THEME_THEMENAME.* strings added in themes.
 
 #### Translation Overrides
 

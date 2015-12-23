@@ -12,7 +12,7 @@ Grav has intentionally been designed with few requirements.  You can easily run 
 
 Grav is built with plain text files for your content. There is no database needed.
 
->>> A PHP user cache such as APC, APCU, XCache, Memcache, Redis is highly recommended for optimal performance.  Not to worry though, these are usually already part of your hosting package!
+!! A PHP user cache such as APC, APCU, XCache, Memcache, Redis is highly recommended for optimal performance.  Not to worry though, these are usually already part of your hosting package!
 
 ## Web Servers
 

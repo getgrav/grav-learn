@@ -28,7 +28,7 @@ First, you will have to open the **SSH Access** option in the **Security** secti
 
 There are two options at this point.  **Generate a New Key**, or **Import Key**. It's simpler to create your public/private key pair locally on your computer and then just import the DSA Public Key.
 
->>> Windows users will first need to install [Cygwin](https://www.cygwin.com/) to provide many useful GNU and open source tools that are available on Mac and Linux platforms. When prompted to choose packages, ensure you check the SSH option. After installation, launch the `Cygwin Terminal`
+!! Windows users will first need to install [Cygwin](https://www.cygwin.com/) to provide many useful GNU and open source tools that are available on Mac and Linux platforms. When prompted to choose packages, ensure you check the SSH option. After installation, launch the `Cygwin Terminal`
 
 Fire up a terminal window and type:
 
@@ -46,7 +46,7 @@ After uploading, you should see the key listed at the **Public Keys** section of
 
 ![](authorized-keys.png)
 
->>> WireNine does not seem to enable **Shell Access** on their accounts by default.  You will need to open a support ticket, and request shell access to be enabled for your account.
+!! WireNine does not seem to enable **Shell Access** on their accounts by default.  You will need to open a support ticket, and request shell access to be enabled for your account.
 
 This means you are ready to test ssh'ing to your server.
 

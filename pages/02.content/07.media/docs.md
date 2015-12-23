@@ -8,7 +8,7 @@ gravui:
 taxonomy:
     category: docs
 process:
-	twig: true
+    twig: true
 ---
 
 When creating content in **Grav**, you often need to display different types of media like **images**, **videos**, and various other **files**. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of the page to leverage thumbnails, access metadata and modify the media dynamically (e.g. resizing images, setting the display size for videos, etc.) as you need them.
@@ -40,7 +40,7 @@ Grav provides a few different display modes for every kind of media object.
 | text      | Textual representation of the media                                             |
 | thumbnail | The thumbnail image for this media object                                       |
 
->>>> **Data / Information** type media do not support `source` mode, they will default to `text` mode if another mode is not explicitly chosen.
+!!!! **Data / Information** type media do not support `source` mode, they will default to `text` mode if another mode is not explicitly chosen.
 
 ## Thumbnail Location
 
@@ -51,13 +51,13 @@ There are three locations Grav will look for your thumbnail.
 2. Your user folder: `user/images/media/thumb-[media-extension].png` where `media-extension` is the extension of the original media file. Examples are `thumb-mp4.png` and `thumb-jpg.jpg`
 3. The system folder: `system/images/media/thumb-[media-extension].png` where `media-extension` is the extension of the original media file. **The thumbnails in the system folders are pre-provided by Grav.**
 
->>> You can also manually select the desired thumbnail with the actions explained below.
+!! You can also manually select the desired thumbnail with the actions explained below.
 
 ## Links and Lightboxes
 
 The display modes above can also be used in combination with links and lightboxes, which are explained in more detail later. Important to note however is:
 
->>>> Grav does not provide lightbox-functionality out of the box, you need a plugin for this. You can use the [FeatherLight Grav plugin](https://github.com/getgrav/grav-plugin-featherlight) to achieve this.
+!!!! Grav does not provide lightbox-functionality out of the box, you need a plugin for this. You can use the [FeatherLight Grav plugin](https://github.com/getgrav/grav-plugin-featherlight) to achieve this.
 
 When you use Grav's media functionality to render a lightbox, all Grav does is output an **anchor** tag that has some attributes for the lightbox plugin to read. If you are interested in using a lightbox library that is not in our plugin repository or you want to create your own plugin, you can use the table below as a reference.
 
@@ -79,7 +79,7 @@ These actions are available for all media types.
 
 ##### url()
 
->>> This method is only intended to be used in **Twig** templates, hence the lack of Markdown syntax.
+!! This method is only intended to be used in **Twig** templates, hence the lack of Markdown syntax.
 
 This returns **raw url path** to the media.
 
@@ -100,7 +100,7 @@ This returns **raw url path** to the media.
 
 ##### html([title][, alt][, classes])
 
->>> In Markdown this method is implicitly called when using the `![]` syntax.
+!! In Markdown this method is implicitly called when using the `![]` syntax.
 
 The `html` action will output a valid HTML tag for the media based on the current display mode.
 
@@ -126,7 +126,7 @@ The `html` action will output a valid HTML tag for the media based on the curren
 {% endset %}
 {{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3, 'HTML Code':tab4}) }}
 
->>> To use classes in Markdown, you need to enable Markdown Extra.
+!! To use classes in Markdown, you need to enable Markdown Extra.
 
 <div></div>
 
@@ -136,13 +136,13 @@ Use this action to switch between the various display modes that Grav provides. 
 
 For example, the thumbnail that results from calling `page.media['sample-image.jpg'].sepia().display('thumbnail').html()` will not have the `sepia()` action applied, but `page.media['sample-image.jpg'].display('thumbnail').sepia().html()` will.
 
->>>>> Once you switch to thumbnail mode, you will be manipulating an image. This means that even if your current media is a video, you can use all the image-type actions on the thumbnail.
+! Once you switch to thumbnail mode, you will be manipulating an image. This means that even if your current media is a video, you can use all the image-type actions on the thumbnail.
 
 ##### link()
 
 Turn your media object into a link. All actions that you call before `link()` will be applied to the target of the link, while any actions called after will apply to what's displayed on your page.
 
->>> After calling `link()`, Grav will automatically switch the display mode to **thumbnail**.
+!! After calling `link()`, Grav will automatically switch the display mode to **thumbnail**.
 
 The following example will display a textual link (`display('text')`) to a sepia version of the `sample-image.jpg` file:
 
@@ -320,7 +320,7 @@ For example, an image that is `640` x `480` that has the `crop(0, 0, 400, 100)` 
 
 Similar to regular `cropResize`, `cropZoom` also takes a `width` and a `height` but will **resize and crop** the image to ensure the resulting image is the exact size you requested.  The aspect ratio is maintained but parts of the image may be cropped, however the resulting image is centered.
 
->>> The primary difference between **cropResize** and **cropZoom** is that in cropResize, the image is resized maintaining aspect ratio so that the entire image is shown, and any extra space is considered background.
+!! The primary difference between **cropResize** and **cropZoom** is that in cropResize, the image is resized maintaining aspect ratio so that the entire image is shown, and any extra space is considered background.
 
 With **cropZoom**, the image is resized so that there is no background visible, and the extra image area of the image outside of the new image size is cropped.
 
@@ -701,11 +701,11 @@ As you can see: Grav provides some powerful image manipulation functionality tha
 
 Grav has built-in support for responsive images for higher density displays (e.g. **Retina** screens). Grav accomplishes this by implementing `srcset` from the [Picture element HTML proposal](https://html.spec.whatwg.org/multipage/embedded-content.html#the-picture-element). A good article to read if you want to understand this better is [this blog post by Eric Portis](http://ericportis.com/posts/2014/srcset-sizes/).
 
->>> Grav sets the `sizes` argument mentioned in the posts above to full viewport width by default. Use the `sizes` action showcased below to choose yourself.
+!! Grav sets the `sizes` argument mentioned in the posts above to full viewport width by default. Use the `sizes` action showcased below to choose yourself.
 
 To start using responsive images, all you need to to is add higher density images to your pages by adding a suffix to the file name. If you only provide higher density images, Grav will automatically generate lower quality versions for you. Naming works as follows: `[image-name]@[density-ratio]x.[image-extension]`, so for example adding `sample-image@3x.jpg` to your page will result in Grav creating a `2x` and a `1x` (regular size) version by default.
 
->>>>> These files generated by Grav will be stored in the `images/` cache folder, not your page folder.
+! These files generated by Grav will be stored in the `images/` cache folder, not your page folder.
 
 {% set tab1 %}
 ```
@@ -729,13 +729,13 @@ To start using responsive images, all you need to to is add higher density image
 {% endset %}
 {{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3, 'HTML Code':tab4}) }}
 
->>>> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
+!!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
 
 #### Sizes with media queries
 
 Grav has also support for media queries inside the sizes attribute, allowing you to use different widths on devices. In contrast to the first method, you don't have to create multiple images, they will get created automatically. The fallback image is the current image, so browser without support for srcset, will display the original image.
 
->>> For the moment it does not work inside markdown, only in your ```twig``` files.
+!! For the moment it does not work inside markdown, only in your ```twig``` files.
 
 {% set tab1 %}
 ```
@@ -760,7 +760,7 @@ Grav has also support for media queries inside the sizes attribute, allowing you
 {% endset %}
 {{ gravui_tabs({'Markdown':tab1, 'Twig':tab2, 'Result':tab3, 'HTML Code':tab4}) }}
 
->>>> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
+!!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
 
 
 ### Metafiles
@@ -773,10 +773,10 @@ The contents of this file should be in YAML syntax, an example could be:
 
 ```ruby
 image:
-	filters:
-		default:
-			- [cropResize, 300, 300]
-			- sharp
+    filters:
+        default:
+            - [cropResize, 300, 300]
+            - sharp
 alt_text: My Alt Text
 ```
 

@@ -38,7 +38,7 @@ You should be able to reach your site via your website URL with `phpinfo.php` ap
 
 You can ensure you are running the correct version of PHP.
 
->>> Arvixe's PHP 5.5 already includes Zend OPcache enabled, so there is no extra step required to getting this setup.
+!! Arvixe's PHP 5.5 already includes Zend OPcache enabled, so there is no extra step required to getting this setup.
 
 ## Enabling SSH
 
@@ -46,7 +46,7 @@ First, you will have to open the **SSH/Shell Access** option in the **Security**
 
 There are two options at this point.  **Generate a New Key**, or **Import Key**. It's simpler to create your public/private key pair locally on your computer and then just import the DSA Public Key.
 
->>> Windows users will first need to install [Cygwin](https://www.cygwin.com/) to provide many useful GNU and open source tools that are available on Mac and Linux platforms. When prompted to choose packages, ensure you check the SSH option. After installation, launch the `Cygwin Terminal`
+!! Windows users will first need to install [Cygwin](https://www.cygwin.com/) to provide many useful GNU and open source tools that are available on Mac and Linux platforms. When prompted to choose packages, ensure you check the SSH option. After installation, launch the `Cygwin Terminal`
 
 Fire up a terminal window and type:
 

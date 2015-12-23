@@ -29,7 +29,7 @@ The easiest way to install Grav is to download the ZIP package and extract it:
 1. Download the latest-and-greatest **Grav Base** package from the [Downloads](http://getgrav.org/downloads)
 2. Extract the ZIP file in the [webroot](https://www.wordnik.com/words/webroot) of your web server, e.g. `~/webroot/grav`
 
->>>> If you downloaded the ZIP file and then plan to move it to your webroot, please move the **ENTIRE FOLDER** because it contains several hidden files (such as .htaccess) that will not be selected by default. The omission of these hidden files can cause problems when running Grav.
+!!!! If you downloaded the ZIP file and then plan to move it to your webroot, please move the **ENTIRE FOLDER** because it contains several hidden files (such as .htaccess) that will not be selected by default. The omission of these hidden files can cause problems when running Grav.
 
 ## Option 2: Install from GitHub
 
@@ -63,7 +63,7 @@ The first time it loads, Grav pre-compiles some files. If you now refresh your b
 
 ![Grav Installed](install.png?cropResize=600,600)  {.border}
 
->>> In the previous examples, **$** represents the command prompt.  This may look different on various platforms.
+!! In the previous examples, **$** represents the command prompt.  This may look different on various platforms.
 
 By default, Grav comes with some sample pages to give you something to get started with.  Your site is already fully functional and you can configure it, add content, extend it, or customize it as much as you like.
 
@@ -75,7 +75,7 @@ If any issues are discovered during the initial page load (or after a cache-flus
 
 Please consult the [Troubleshooting](../../troubleshooting) section for help regarding specific issues.
 
->>>>> If you have issues with file permissions, please check the [Permissions Troubleshooting documentation](/troubleshooting/permissions).  Also you could look at the [Hosting Guides documentation](/hosting) that have specific instructions for various hosting environments
+! If you have issues with file permissions, please check the [Permissions Troubleshooting documentation](/troubleshooting/permissions).  Also you could look at the [Hosting Guides documentation](/hosting) that have specific instructions for various hosting environments
 
 ## Grav Updates
 
@@ -101,4 +101,4 @@ The process to manually update Grav is:
 
 4. Clear the Grav cache with `bin/grav clear-cache` to ensure any cache or compiled files are recreated cleanly.
 
->>>> It's important not to copy the **core** Grav zip file over your current site as it could overrwrite your `user/` folder and resulting in a loss of your data.
+!!!! It's important not to copy the **core** Grav zip file over your current site as it could overrwrite your `user/` folder and resulting in a loss of your data.

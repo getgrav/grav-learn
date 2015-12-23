@@ -14,7 +14,7 @@ Using this directory structure as an example, we will take a look at the differe
 
 The use of the `/images` folder serves as an example of how you can maintain a simple centralized image directory to store files that are frequently used by multiple pages. This simplifies the linking process in these cases.
 
->>>> If you decide to use a centralized image directory, be advised that this directory should exist within the `/pages` folder as this folder is intended for front-facing content.
+!!!! If you decide to use a centralized image directory, be advised that this directory should exist within the `/pages` folder as this folder is intended for front-facing content.
 
 To get us started, here is a quick look at some of the common components of a Grav markdown-based image tag.
 
@@ -29,7 +29,7 @@ To get us started, here is a quick look at some of the common components of a Gr
 | `()`   | The parenthesis is used to surround the reference to the image itself. This is placed directly after the square bracket.                                                           |
 | `../`  | When used in the link, it indicates a move up a directory.                                                                                                       |
 
->>>>>> You can combine a regular page link and an image link like to wrap an image in a link: `[![Alt text](/path/to/img.jpg)](http://example.net/)`
+!!! You can combine a regular page link and an image link like to wrap an image in a link: `[![Alt text](/path/to/img.jpg)](http://example.net/)`
 
 ### Slug Relative
 
@@ -53,7 +53,7 @@ If we want to load `blog-header.jpg` from the `01.blog` directory, we would do t
 ![Blog Header](../../blog/blog-header.jpg)
 ```
 
->>>>> You do not need to include ordering numerals (`01.`) for slug relative links.
+! You do not need to include ordering numerals (`01.`) for slug relative links.
 
 Grav has integrated support for slugs in the header of the page's primary markdown file. This slug supersedes the folder name for the page, and any media files contained within.
 
@@ -88,7 +88,7 @@ An example of this would be something like:
 ![Test Image 3](../../01.blog/02.my_folder/test_image_3.jpg)
 ```
 
->>> The main benefit of this, is that you can maintain link integrity in other systems outside of Grav, such as GitHub.
+!! The main benefit of this, is that you can maintain link integrity in other systems outside of Grav, such as GitHub.
 
 ### Absolute
 
@@ -102,7 +102,7 @@ In an absolute link, the link opens with a `/`. Here is an example of an absolut
 ![Test Image 2](/blog/test-slug/test_image_2.jpg)
 ```
 
->>>>>> A powerful technique is to create a `user/pages/images/` folder in your Grav site and put your images here.  Then you can easily reference them with an absolute URL from any Grav page: `/images/test_image_4.jpg` and still be able to perform [media actions](../media) on them.
+!!! A powerful technique is to create a `user/pages/images/` folder in your Grav site and put your images here.  Then you can easily reference them with an absolute URL from any Grav page: `/images/test_image_4.jpg` and still be able to perform [media actions](../media) on them.
 
 ### Remote
 

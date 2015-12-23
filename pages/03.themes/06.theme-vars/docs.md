@@ -6,7 +6,7 @@ taxonomy:
 
 When you are designing a theme, Grav gives you access to all sorts of objects and variables from your twig templates.  The Twig templating framework provides powerful ways to read and manipulate these objects and variables.  This is [fully explained in their own documentation](http://twig.sensiolabs.org/doc/templates.html) as well as [summarized succinctly in our own documentation](../twig-primer).
 
->>>> In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provide those after the method name.  `page.content` is equivalent to `page.content()`
+!!!! In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provide those after the method name.  `page.content` is equivalent to `page.content()`
 
 ## Core Objects
 
@@ -36,7 +36,7 @@ The `{{ theme_dir }}` variable returns the file directory folder of the current 
 
 The `{{ theme_url }}` returns the relative URL to the current theme.
 
->>> When linking to assets like images or JavaScript and CSS files, it's recommended to use the `url()` function in combination with the `theme://` stream as described on the [Twig Filters & Functions](/themes/twig-filters-functions#url) page. For JavaScript and CSS, the [Asset Manager](/themes/asset-manager) is even easier to use but in some cases like dynamic or conditional loading of assets, it will not work.
+!! When linking to assets like images or JavaScript and CSS files, it's recommended to use the `url()` function in combination with the `theme://` stream as described on the [Twig Filters & Functions](/themes/twig-filters-functions#url) page. For JavaScript and CSS, the [Asset Manager](/themes/asset-manager) is even easier to use but in some cases like dynamic or conditional loading of assets, it will not work.
 
 ### config object
 
@@ -325,7 +325,7 @@ This returns an array of the taxonomy associated with a page.  These can be iter
 
 ```
 {% for tag in page.taxonomy.tag %}
-	<a href="search/tag:{{ tag }}">{{ tag }}</a>
+    <a href="search/tag:{{ tag }}">{{ tag }}</a>
 {% endfor %}
 ```
 
@@ -344,9 +344,9 @@ Get the top-level pages for a simple menu:
 ```
 <ul class="navigation">
     {% for page in pages.children %}
-	    {% if page.visible %}
-	    	<li><a href="{{ page.url }}">{{ page.menu }}</a></li>
-	    {% endif %}
+        {% if page.visible %}
+            <li><a href="{{ page.url }}">{{ page.menu }}</a></li>
+        {% endif %}
     {% endfor %}
 </ul>
 ```

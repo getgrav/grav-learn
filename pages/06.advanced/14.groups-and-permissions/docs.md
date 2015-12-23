@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
->>> See the [Grav Admin FAQ](http://learn.getgrav.org/admin-panel/faq#adding-and-managing-users), to learn how to manage users
+!! See the [Grav Admin FAQ](http://learn.getgrav.org/admin-panel/faq#adding-and-managing-users), to learn how to manage users
 
 ## Defining groups
 

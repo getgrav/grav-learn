@@ -115,6 +115,69 @@ blockquote > blockquote > blockquote {
             content: 'Tip';
         }
 	}
+}
+
+div.notices {
+    margin: 2rem 0;
+    position: relative;
+
+    p {
+        padding: 15px;
+        display: block;
+        font-size: 1rem;
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        color: #666;
+
+        &:first-child {
+            &:before {
+                position: absolute;
+                top: 2px;
+                color: $white;
+                font-family: FontAwesome;
+                content: '';
+                left: 10px;
+            }
+            &:after {
+                position: absolute;
+                top: 2px;
+                color: $white;
+                left: 2rem;
+            }
+        }
+    }
+
+    &.info p {
+        border-top: 30px solid #F0B37E;
+        background: #FFF2DB;
+        &:first-child:after {
+            content: 'Info';
+        }
+    }
+
+    &.warning p {
+        border-top: 30px solid rgba(#D9534F, 0.8);
+        background: #FAE2E2;
+        &:first-child:after {
+            content: 'Warning';
+        }
+    }
+
+    &.note p {
+        border-top: 30px solid #6AB0DE;
+        background: #E7F2FA;
+        &:first-child:after {
+            content: 'Note';
+        }
+    }
+
+    &.tip p {
+        border-top: 30px solid rgba(#5CB85C, 0.8);
+        background: #E6F9E6;
+        &:first-child:after {
+            content: 'Tip';
+        }
+    }
 
 }
 

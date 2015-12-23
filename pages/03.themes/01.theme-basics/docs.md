@@ -16,7 +16,7 @@ Let us work through a simple example.  If you have [installed the **Grav Base** 
 
 If you were to have a page file called `blog.md`, Grav would try to render it with the twig template: `<your_theme>/templates/blog.html.twig`.
 
->>> The names of files in Grav do not appear on the frontend of Grav. Only the folder names do. Don't worry if all of your blog posts have the same file name. This is normal.
+!! The names of files in Grav do not appear on the frontend of Grav. Only the folder names do. Don't worry if all of your blog posts have the same file name. This is normal.
 
 ## Theme Organization
 
@@ -54,7 +54,7 @@ form:
           type: bool
 ```
 
->>>> The form fields can be safely ignored at this point. These are provided for our testing of a new administration plugin to provide configuration of the theme. As this is not currently available, they are unused.
+!!!! The form fields can be safely ignored at this point. These are provided for our testing of a new administration plugin to provide configuration of the theme. As this is not currently available, they are unused.
 
 If you want to use theme configuration options you should provide default settings in a file called `<your_theme>.yaml`.  For example:
 
@@ -63,7 +63,7 @@ enabled: true
 color: blue
 ```
 
->>> The `color: blue` configuration option does not actually do anything. It is merely used as an example of how to override a setting.
+!! The `color: blue` configuration option does not actually do anything. It is merely used as an example of how to override a setting.
 
 Also you should provide a `300px` x `300px` image of your theme and call it `thumbnail.jpg` at the root of the theme.
 
@@ -116,7 +116,7 @@ You can then use provide **plugins methods** which are covered in the [next sect
 
 There are **no set rules** regarding the structure of a Grav theme except that there must be appropriate twig templates provided in the `templates/` folder for each of the page types you use in your content.
 
->>> Because of this tight coupling between page content and twig templates in a theme, it often makes sense to develop themes in conjunction with the content they are intended to be used with.  A good way to create _general_ themes is to support the template types used by the Skeleton packages that are available on our [downloads page](http://getgrav.org/downloads). For example, support: **default**, **blog**, **error**, **item**, and **modular**.
+!! Because of this tight coupling between page content and twig templates in a theme, it often makes sense to develop themes in conjunction with the content they are intended to be used with.  A good way to create _general_ themes is to support the template types used by the Skeleton packages that are available on our [downloads page](http://getgrav.org/downloads). For example, support: **default**, **blog**, **error**, **item**, and **modular**.
 
 Generally speaking, the root of the `templates/` folder should be used to house the primary templates that are supported, then create a sub-folder called `partials/` to contain parts, or smaller template _chunks_.
 

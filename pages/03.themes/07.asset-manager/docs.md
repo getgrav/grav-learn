@@ -72,7 +72,7 @@ JavaScript assets are very similar:
 
 The add method does its best attempt to match an asset based on file extension.  It is a convenience method, it's better to call one of the direct methods for CSS or JS.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets. The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
 
->>> The options array is the preferred approach for passing multiple options. However as in the previous examples, you can use a shortcut and pass in an integer for the **second attribute** in the method if all you wish to set is the **priority**
+!! The options array is the preferred approach for passing multiple options. However as in the previous examples, you can use a shortcut and pass in an integer for the **second attribute** in the method if all you wish to set is the **priority**
 
 #### addCss(asset, [options])
 

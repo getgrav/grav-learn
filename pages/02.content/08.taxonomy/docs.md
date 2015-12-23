@@ -35,41 +35,41 @@ This will override the taxonomies that Grav knows about so that pages can be ass
 
 The next step is to create some pages that makes use of these taxonomy types.  For example you could have a page that looks like this:
 
-	---
-	title: Post 1
-	taxonomy:
-	    tag: [animal, dog]
-	    author: ksmith
-	---
+    ---
+    title: Post 1
+    taxonomy:
+        tag: [animal, dog]
+        author: ksmith
+    ---
 
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
 ...and another page that looks like:
 
-	---
-	title: Post 2
-	taxonomy:
-	    tag: [animal, cat]
-	    author: jdoe
-	---
+    ---
+    title: Post 2
+    taxonomy:
+        tag: [animal, cat]
+        author: jdoe
+    ---
 
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
 As you can see in the YAML configuration, each page is assigning **values** to the **taxonomy types** we defined in our user `site.yaml` configuration. This information is used by Grav when the pages are processed and creates an internal **taxonomy map** which can be used to find pages based on the taxonomy you defined.
 
->>>> Your pages do not have to use every taxonomy you define in your `site.yaml`, but you must define any taxonomy you use.
+!!!! Your pages do not have to use every taxonomy you define in your `site.yaml`, but you must define any taxonomy you use.
 
 In your theme, you can easily display a list of pages that are written by `ksmith` by using `taxonomy.findTaxonomy()` to find them and iterate over them:
 
@@ -77,7 +77,7 @@ In your theme, you can easily display a list of pages that are written by `ksmit
 <h2>Kevin Smith's Posts</h2>
 <ul>
 {% for post in taxonomy.findTaxonomy({'author':'ksmith'}) %}
-	<li>{{ post.title }}</li>
+    <li>{{ post.title }}</li>
 {% endfor %}
 <ul>
 ```

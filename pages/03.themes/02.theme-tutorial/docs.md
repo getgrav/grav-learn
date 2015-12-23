@@ -28,27 +28,27 @@ As outlined in the [Theme Basics](../theme-basics) chapter, there are some key e
 
 3. In your new `user/themes/bootstrap` folder you just created, create these folders:
 
-	```
-	css/
-	fonts/
-	images/
-	js/
-	templates/
-	```
+    ```
+    css/
+    fonts/
+    images/
+    js/
+    templates/
+    ```
 
 4. Next, create a Theme file called `bootstrap.php` in your `user/themes/bootstrap` folder with the following content:
 
-	```
-	<?php
-	namespace Grav\Theme;
+    ```
+    <?php
+    namespace Grav\Theme;
 
-	use Grav\Common\Theme;
+    use Grav\Common\Theme;
 
-	class Bootstrap extends Theme
-	{
+    class Bootstrap extends Theme
+    {
 
-	}
-	```
+    }
+    ```
 
 5. Then, create a Theme configuration file called `bootstrap.yaml` in your `/user/themes/bootstrap` folder with the following content:
 
@@ -64,7 +64,7 @@ Of course, to create a Bootstrap theme, we must actually include Bootstrap in ou
 
 In this tutorial, we will use the latest version available (at the time of writing latest version is **v3.2.0**) so you will need to [download the Bootstrap distribution package](http://getbootstrap.com/getting-started/#download). This package includes the essential bits needed to use the framework.
 
->>>> Be sure to download the regular version labeled "Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included."
+!!!! Be sure to download the regular version labeled "Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included."
 
 Next **unzip** the package you downloaded into a temporary location. You should see **3 folders**: `css`, `fonts`, and `js`.  Copy the contents of each of these folders into the similarly-named folders you just created in your theme.
 
@@ -97,7 +97,7 @@ As you know from the [previous chapter](../theme-basics), each item of content i
 
 Utilizing the Twig [Extends](http://twig.sensiolabs.org/doc/tags/extends.html) tag you can define a base layout with [blocks](http://twig.sensiolabs.org/doc/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.
 
->>> As a general rule, we use the `templates/partials` folder to contain Twig templates that represent either little chunks of HTML, or are shared.
+!! As a general rule, we use the `templates/partials` folder to contain Twig templates that represent either little chunks of HTML, or are shared.
 
 So we will now create a simple Bootstrap friendly base template:
 
@@ -126,13 +126,13 @@ So we will now create a simple Bootstrap friendly base template:
         <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
 
         {% block stylesheets %}
-        	{# Bootstrap core CSS #}
-        	{% do assets.add('theme://css/bootstrap.min.css',101) %}
+            {# Bootstrap core CSS #}
+            {% do assets.add('theme://css/bootstrap.min.css',101) %}
 
-		{# Custom styles for this theme #}
-        	{% do assets.add('theme://css/bootstrap-custom.css',100) %}
+        {# Custom styles for this theme #}
+            {% do assets.add('theme://css/bootstrap-custom.css',100) %}
 
-        	{{ assets.css() }}
+            {{ assets.css() }}
         {% endblock %}
 
         {% block javascripts %}
@@ -140,7 +140,7 @@ So we will now create a simple Bootstrap friendly base template:
             {% do assets.add('theme://js/bootstrap.min.js') %}
 
             {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
-            	{% do assets.add('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') %}
+                {% do assets.add('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') %}
                 {% do assets.add('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') %}
             {% endif %}
 
@@ -235,7 +235,7 @@ In your `user/themes/bootstrap/templates/` folder, create a file called `default
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-	{{ page.content }}
+    {{ page.content }}
 {% endblock %}
 ```
 
@@ -251,109 +251,109 @@ You might have noticed that in the `partials/base.html.twig` file we made refere
 
 1. In your `user/themes/bootstrap/css` folder, create a file called `bootstrap-custom.css` with the following content:
 
-		/* Constrain the width */
-		.container {
-		  width: auto;
-		  max-width: 960px;
-		  padding: 0 15px;
-		}
+        /* Constrain the width */
+        .container {
+          width: auto;
+          max-width: 960px;
+          padding: 0 15px;
+        }
 
-		/* Center the footer text */
-		.container .text-muted {
-		  margin: 20px 0;
-		  text-align: center;
-		}
+        /* Center the footer text */
+        .container .text-muted {
+          margin: 20px 0;
+          text-align: center;
+        }
 
-		/* Sticky footer styles
-		-------------------------------------------------- */
-		html {
-		  position: relative;
-		  min-height: 100%;
-		}
+        /* Sticky footer styles
+        -------------------------------------------------- */
+        html {
+          position: relative;
+          min-height: 100%;
+        }
 
-		body {
-		  /* Margin bottom by footer height */
-		  margin-bottom: 60px;
-		}
+        body {
+          /* Margin bottom by footer height */
+          margin-bottom: 60px;
+        }
 
-		.footer {
-		  position: absolute;
-		  bottom: 0;
-		  width: 100%;
-		  /* Set the fixed height of the footer here */
-		  height: 60px;
-		  background-color: #f5f5f5;
-		}
+        .footer {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          /* Set the fixed height of the footer here */
+          height: 60px;
+          background-color: #f5f5f5;
+        }
 
-		/* Typography */
+        /* Typography */
 
-		/* Tables */
-		table {
-			width: 100%;
-			border: 1px solid #f0f0f0;
-			margin: 30px 0;
-		}
+        /* Tables */
+        table {
+            width: 100%;
+            border: 1px solid #f0f0f0;
+            margin: 30px 0;
+        }
 
-		th {
-			font-weight: bold;
-			background: #f9f9f9;
-			padding: 5px;
-		}
+        th {
+            font-weight: bold;
+            background: #f9f9f9;
+            padding: 5px;
+        }
 
-		td {
-			padding: 5px;
-			border: 1px solid #f0f0f0;
-		}
+        td {
+            padding: 5px;
+            border: 1px solid #f0f0f0;
+        }
 
-		/* Notice Styles */
-		blockquote {
-			padding: 0 0 0 20px !important;
-			font-size: 16px;
-			color: #666;
-		}
-		blockquote > blockquote > blockquote {
-			margin: 0;
-		}
+        /* Notice Styles */
+        blockquote {
+            padding: 0 0 0 20px !important;
+            font-size: 16px;
+            color: #666;
+        }
+        blockquote > blockquote > blockquote {
+            margin: 0;
+        }
 
-		blockquote > blockquote > blockquote p {
-			padding: 15px;
-			display: block;
-			margin-top: 0rem;
-			margin-bottom: 0rem;
-			border: 1px solid #f0f0f0;
-		}
+        blockquote > blockquote > blockquote p {
+            padding: 15px;
+            display: block;
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+            border: 1px solid #f0f0f0;
+        }
 
-		blockquote > blockquote > blockquote > p {
-			/* Yellow */
-			margin-left: -75px;
-			color: #8a6d3b;
-			background-color: #fcf8e3;
-			border-color: #faebcc;
-		}
+        blockquote > blockquote > blockquote > p {
+            /* Yellow */
+            margin-left: -75px;
+            color: #8a6d3b;
+            background-color: #fcf8e3;
+            border-color: #faebcc;
+        }
 
-		blockquote > blockquote > blockquote > blockquote > p {
-			/* Red */
-			margin-left: -100px;
-			color: #a94442;
-			background-color: #f2dede;
-			border-color: #ebccd1;
-		}
+        blockquote > blockquote > blockquote > blockquote > p {
+            /* Red */
+            margin-left: -100px;
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
 
-		blockquote > blockquote > blockquote > blockquote > blockquote > p {
-			/* Blue */
-			margin-left: -125px;
-			color: #31708f;
-			background-color: #d9edf7;
-			border-color: #bce8f1;
-		}
+        blockquote > blockquote > blockquote > blockquote > blockquote > p {
+            /* Blue */
+            margin-left: -125px;
+            color: #31708f;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+        }
 
-		blockquote > blockquote > blockquote > blockquote > blockquote > blockquote > p {
-			/* Green */
-			margin-left: -150px;
-			color: #3c763d;
-			background-color: #dff0d8;
-			border-color: #d6e9c6;
-		}
+        blockquote > blockquote > blockquote > blockquote > blockquote > blockquote > p {
+            /* Green */
+            margin-left: -150px;
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
 
 2. Most of this file contains Markdown-friendly **table** and **notice** style CSS that require CSS classes in normal bootstrap to utilize.
 

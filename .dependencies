@@ -19,6 +19,10 @@ git:
         url: https://github.com/getgrav/grav-plugin-highlight
         path: user/plugins/highlight
         branch: master
+    markdown-notices:
+        url: https://github.com/getgrav/grav-plugin-markdown-notices
+        path: user/plugins/markdown-notices
+        branch: develop
     gravui:
         url: https://bitbucket.org/rockettheme/grav-plugin-gravui
         path: user/plugins/gravui
@@ -52,6 +56,10 @@ links:
         src: grav-plugin-gravui
         path: user/plugins/gravui
         scm: bitbucket
+    markdown-notices:
+        src: grav-plugin-markdown-notices
+        path: user/plugins/markdown-notices
+        scm: github
     learn2:
         src: grav-theme-learn2
         path: user/themes/learn2
