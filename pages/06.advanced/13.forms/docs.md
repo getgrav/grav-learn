@@ -491,6 +491,14 @@ This step is needed because if you don't explicitly add `form.action`, the code 
 So if the modular page is e.g. `site.com/my-page`, just put `form: action: /my-page` in `modular.md`
 If the modular page is the homepage, just put `form: action: /`
 
+#### A live example
+
+The Deliver skeleton has a modular form page ready to see while reading this tutorial:
+
+[Live page](http://demo.getgrav.org/deliver-skeleton/contact)
+
+[Page markdown file](https://github.com/getgrav/grav-skeleton-deliver-site/blob/develop/pages/07.contact/modular_alt.md)
+
 #### Troubleshooting forms in modular pages
 
 The best way to troubleshoot a form is to first get back to the roots, and add your customizations one-by-one to see what might be going wrong.
