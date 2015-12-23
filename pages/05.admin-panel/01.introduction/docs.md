@@ -8,8 +8,6 @@ process:
 
 The **Grav Administration Panel** plugin for [Grav](http://github.com/getgrav/grav) is a web GUI (graphical user interface) that provides a convenient way to configure Grav and easily create and modify pages.  This will remain a totally optional plugin, and is not in any way required or needed to use Grav effectively.  In fact, the admin provides an intentionally limited view to ensure it remains easy to use and not overwhelming.  Power users will still prefer to work with the configuration files directly.
 
-!!!! This plugin is currently in development as is to be considered a **beta release**.  As such, use this in a production environment **at your own risk!**.
-
 ![](admin-dashboard.png)
 
 ### Features
@@ -37,7 +35,7 @@ The **Grav Administration Panel** plugin for [Grav](http://github.com/getgrav/gr
 
 ### Support
 
-We have tested internally, but we hope to use this public beta phase to identify, isolate, and fix issues related to the plugin to ensure it is as solid and reliable as possible.
+The Adminstration Panel is quite an ambitious plugin with lots of functionality that will give you a lot of power and flexibility when building out your Grav sites. So if you have any questions, problems, suggestions or find one of those rare bugs in it, please use one of the follwing ways to get support from us.
 
 For **live chatting**, please use the dedicated [Gitter Chat Room for the admin plugin](https://gitter.im/getgrav/grav-plugin-admin) for discussions directly related to the admin plugin.
 
