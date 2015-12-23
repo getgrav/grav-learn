@@ -4,16 +4,18 @@ taxonomy:
     category: docs
 ---
 
-The **Grav Form Plugin** is the easiest way to have forms on your site. Let's see how to create a simple contact form.
-
-## Choose a page
-
-A form can be hosted by any page. Just rename the form file to `form.md`, or add a [Template Override](../../content/headers#template) in the page header.
-The form is defined in the YAML frontmatter of the page, so just open a Grav Page with your favorite editor.
+The **Grav Form Plugin** is the easiest way to have forms on your site. Let's see how to create a simple contact form. 
 
 !!! In the future we want Grav to be able to dynamically generate forms from the Admin Plugin
 
+## Setup the page
+
+You can put a form inside any page of your site. All you need to do is rename the page markdown file to `form.md`, or add a [template](../../content/headers#template) header in the page frontmatter, to make it use the `form` template.
+
+The form fields and processing instructions are defined in the YAML frontmatter of the page, so just open the page markdown file with your favorite editor, and put the following code in it:
+
 ```
+---
 title: Contact Form
 
 form:
@@ -70,17 +72,25 @@ form:
             body: "{% include 'forms/data.txt.twig' %}"
         - message: Thank you for getting in touch!
         - display: thankyou
+---
+
+# Contact form
+
+Some sample page content
 ```
 
 !!! Make sure you configured the "Email from" and "Email to" email addresses in the Email plugin with your email address
 
-Make sure you add your own `recatpcha_site_key` reCAPTCHA parameter ([see the reCAPTCHA docs](https://developers.google.com/recaptcha/docs/start)).
+Make sure you add your own `recatpcha_site_key` reCAPTCHA parameter ([see the reCAPTCHA docs](https://developers.google.com/recaptcha/docs/start)). If you don't need captcha at all, just remove it from the form fields, and remove the captcha process action too.
 
 Now inside the page folder create a subfolder named `thankyou/`, create a new file named `formdata.md`. Users submitting the form will be redirected on that page.
 
 The `formdata` page template is provided in Antimatter and other themes. If your theme does not provide it, you'll see an error. You can just copy it from Antimatter and things should work fine.
 
 That's it!
+
+!!! Modular pages are a bit different. In this case, also see [using forms in modular pages
+](http://learn.getgrav.org/advanced/forms#using-forms-in-modular-pages)
 
 When users submit the form, the plugin will send an email to you (as set in the `from` setting of the Grav Email Plugin), and will save the entered data in the data/ folder.
 
