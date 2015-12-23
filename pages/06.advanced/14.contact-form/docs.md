@@ -8,6 +8,13 @@ The **Grav Form Plugin** is the easiest way to have forms on your site. Let's se
 
 !!! In the future we want Grav to be able to dynamically generate forms from the Admin Plugin
 
+## A live example
+
+The Sora Article skeleton has a form page ready to see:
+
+[Live page](http://demo.getgrav.org/soraarticle-skeleton/contact)
+[Page markdown file](https://raw.githubusercontent.com/getgrav/grav-skeleton-soraarticle-blog/develop/pages/03.contact/form.md)
+
 ## Setup the page
 
 You can put a form inside any page of your site. All you need to do is rename the page markdown file to `form.md`, or add a [template](../../content/headers#template) header in the page frontmatter, to make it use the `form` template.
