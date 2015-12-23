@@ -179,7 +179,7 @@ Then for these assets in the bottom group to render, you must add the following 
 {{ assets.js('bottom') }}
 ```
 
-If no group is defined for an asset, then `head` is the default group.  If no group is set for rendering, the `head` group will be rendered. This ensures thew new functionality is 100% backwards compatible with existing themes.
+If no group is defined for an asset, then `head` is the default group.  If no group is set for rendering, the `head` group will be rendered. This ensures the new functionality is 100% backwards compatible with existing themes.
 
 The same goes for CSS files:
 
