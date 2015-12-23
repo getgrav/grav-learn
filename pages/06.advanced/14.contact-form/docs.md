@@ -10,9 +10,10 @@ The **Grav Form Plugin** is the easiest way to have forms on your site. Let's se
 
 ## A live example
 
-The Sora Article skeleton has a form page ready to see:
+The Sora Article skeleton has a form page ready to see while reading this tutorial:
 
 [Live page](http://demo.getgrav.org/soraarticle-skeleton/contact)
+
 [Page markdown file](https://raw.githubusercontent.com/getgrav/grav-skeleton-soraarticle-blog/develop/pages/03.contact/form.md)
 
 ## Setup the page
