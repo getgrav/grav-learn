@@ -2,14 +2,6 @@
 title: Grav GPM
 taxonomy:
     category: docs
-videoembed:
-    responsive: true
-    services:
-        youtube:
-            embed_options:
-                autoplay: 0
-                vq: hd720
-                showinfo: 0
 ---
 
 Since the release of version **0.9.3**, Grav includes a _GPM_ (Grav Package Manager) which allows you to install, update, uninstall and list all the themes and plugins available on the Grav repository, as well as upgrade Grav itself to the latest version.
@@ -84,7 +76,7 @@ The command will also detect if a resource is already installed, or if it is sym
 
 You can also install multiple resources at once by separating the slugs with a space.
 
-https://www.youtube.com/watch?v=SUUtcYl2xrE
+[plugin:youtube](https://www.youtube.com/watch?v=SUUtcYl2xrE)
 
 !! You can use the option `--all-yes (-y)` to skip any prompts. Existing resources will be overridden and if they are symbolic links will automatically be skipped.
 
@@ -94,13 +86,13 @@ The `update` command shows a list of updatable resources and works similarly to 
 
 ![](update.jpg)
 
-https://www.youtube.com/watch?v=jkxk2xBr5TM
+[plugin:youtube](https://www.youtube.com/watch?v=jkxk2xBr5TM)
 
 Alternatively, you can limit the updates to specific resources only.
 
 ![](update-limit.jpg)
 
-https://www.youtube.com/watch?v=rSWdmdx9TDA
+[plugin:youtube](https://www.youtube.com/watch?v=rSWdmdx9TDA)
 
 ## Uninstall
 
@@ -122,7 +114,7 @@ It is strongly advised to always do a backup before performing a self-upgrade (s
 
 ![](upgrade.jpg)
 
-https://www.youtube.com/watch?v=15-E8l5aaUo
+[plugin:youtube](https://www.youtube.com/watch?v=15-E8l5aaUo)
 
 ## Important Developer Information
 
