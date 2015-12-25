@@ -392,57 +392,6 @@ blockquote {
     color: #666;
     font-size: 1.2rem; }
 
-blockquote {
-  position: relative; }
-
-blockquote blockquote {
-  position: static; }
-
-blockquote > blockquote > blockquote {
-  margin: 0; }
-  blockquote > blockquote > blockquote p {
-    padding: 15px;
-    display: block;
-    font-size: 1rem;
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-    color: #666; }
-    blockquote > blockquote > blockquote p:first-child:before {
-      position: absolute;
-      top: 2px;
-      color: #fff;
-      font-family: FontAwesome;
-      content: '';
-      left: 10px; }
-    blockquote > blockquote > blockquote p:first-child:after {
-      position: absolute;
-      top: 2px;
-      color: #fff;
-      left: 2rem;
-      content: 'Info'; }
-  blockquote > blockquote > blockquote > p {
-    margin-left: -71px;
-    border-top: 30px solid #F0B37E;
-    background: #FFF2DB; }
-  blockquote > blockquote > blockquote > blockquote > p {
-    margin-left: -94px;
-    border-top: 30px solid rgba(217, 83, 79, 0.8);
-    background: #FAE2E2; }
-    blockquote > blockquote > blockquote > blockquote > p:first-child:after {
-      content: 'Warning'; }
-  blockquote > blockquote > blockquote > blockquote > blockquote > p {
-    margin-left: -118px;
-    border-top: 30px solid #6AB0DE;
-    background: #E7F2FA; }
-    blockquote > blockquote > blockquote > blockquote > blockquote > p:first-child:after {
-      content: 'Note'; }
-  blockquote > blockquote > blockquote > blockquote > blockquote > blockquote > p {
-    margin-left: -142px;
-    border-top: 30px solid rgba(92, 184, 92, 0.8);
-    background: #E6F9E6; }
-    blockquote > blockquote > blockquote > blockquote > blockquote > blockquote > p:first-child:after {
-      content: 'Tip'; }
-
 div.notices {
   margin: 2rem 0;
   position: relative; }
