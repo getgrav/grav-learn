@@ -97,8 +97,7 @@ The `formdata` page template is provided in Antimatter and other themes. If your
 
 That's it!
 
-!!! Modular pages are a bit different. In this case, also see [using forms in modular pages
-](http://learn.getgrav.org/advanced/forms#using-forms-in-modular-pages)
+!!! Modular pages are a bit different. In this case, also see [using forms in modular pages](http://learn.getgrav.org/advanced/forms#using-forms-in-modular-pages)
 
 When users submit the form, the plugin will send an email to you (as set in the `from` setting of the Grav Email Plugin), and will save the entered data in the data/ folder.
 
