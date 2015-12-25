@@ -215,7 +215,7 @@ If you followed along, you should have a fully functional **Random** plugin enab
 
 ### Merging Plugin and Page Configuration
 
-One popular technique that is used in a variety of plugins is the concept of merging the plugin configuration (either default or overridden user config) with page-level configuration.  This means you can set **site-wide** configuration, and then have a specific configuration for a given page as needed.  This is provides a lot of power and flexibility for your plugin.
+One popular technique that is used in a variety of plugins is the concept of merging the plugin configuration (either default or overridden user config) with page-level configuration.  This means you can set **site-wide** configuration, and then have a specific configuration for a given page as needed.  This provides a lot of power and flexibility for your plugin.
 
 In recent versions of Grav, a helper method was added to perform this functionality automatically rather than you having to code that logic yourself.  The **SmartyPants** plugin provides a good example of this functionality in action:
 
