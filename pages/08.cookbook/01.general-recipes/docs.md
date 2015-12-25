@@ -393,3 +393,25 @@ groups:
 to their yaml user file, under `user/accounts`
 
 Now users belonging to the `premium` group will be allowed to access pages with a `site.paid` permission.
+
+### Add JavaScript to the footer
+
+In many cases you'd want "some" javascript to be added to the footer instead of the page header, to be loaded after the content has been rendered.
+
+A good example of doing this is to check the Antimatter theme.
+
+Antimatter's `templates/partials/base.html.twig` defines a bottom block for js by calling `{{ assets.js('bottom') }}`
+
+```twig
+{% block bottom %}
+    {{ assets.js('bottom') }}
+{% endblock %}
+```
+
+You can add assets in that block in Twig for example by calling
+
+`{% do assets.addJs('theme://js/slidebars.min.js', {group: 'bottom'}) %}`
+
+or in PHP by calling
+
+`$this->grav['assets']->addJs($this->grav['base_url'] . '/user/plugins/yourplugin/js/somefile.js', {group: 'bottom'});`
