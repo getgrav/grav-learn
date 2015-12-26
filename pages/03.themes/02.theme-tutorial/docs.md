@@ -87,7 +87,7 @@ bootstrap
 │   ├── bootstrap.js
 │   └── bootstrap.min.js
 ├── templates
-├── boostrap.yaml
+├── bootstrap.yaml
 └── bootstrap.php
 ```
 
