@@ -248,9 +248,7 @@ done.
 
 #### Problem:
 
-You want to create a recent post widget similar to this on your blog sidebar:
-
-![Recent post widget](http://5to9design.ca/images/recent-pages.png)
+You want to create a recent post widget on the sidebar
 
 #### Solution:
 
