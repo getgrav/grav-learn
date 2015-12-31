@@ -43,7 +43,7 @@ The alternative method is to clone Grav from the GitHub repository, and then run
    
 2. Install **vendor dependencies** via [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
    ```
-   $ composer update --no-dev
+   $ composer install --no-dev -o
    ```
 
 3. Install the **plugin** and **theme dependencies** by using the [Grav CLI application](../../advanced/grav-cli) `bin/grav`:
