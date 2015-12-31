@@ -120,7 +120,7 @@ Generally speaking, the root of the `templates/` folder should be used to house 
 
 If you want to support **modular** templates in your theme, you should also create a sub-folder of templates called `modular/` and store your modular twig template files in there.
 
-The story for support **forms** is the same. Create another sub-folder called `forms/` and store any custom form templates in it.
+The story for supporting **forms** is the same. Create another sub-folder called `forms/` and store any custom form templates in it.
 
 ### Blueprints
 
