@@ -151,4 +151,3 @@ Let us use the default **antimatter** theme as an example, below you can see the
 
 In this example, the actual `css`, `css-compiled`, `fonts`, `images`, `js`, `scss`, and `templates` files have been ignored to make it more readable.  The important thing to note is the overall structure of the theme.
 
->>>The `index.html` file is just a blank file.
