@@ -22,7 +22,7 @@ In the case of our **One-Page Skeleton**, we have created the folder structure p
 
 Each subfolder contains a markdown file which acts as a unique page.
 
-The data within these modular folders (including markdown files, images, etc.) is then pulled and displayed on the modular page. Here is an example of a modular page, highlighting the different modular folder which are used.
+The data within these modular folders (including markdown files, images, etc.) is then pulled and displayed on the modular page. Here is an example of a modular page, highlighting the different modular folders which are used.
 
 {{ media['modular-explainer-1.jpg'].html('Listing Page','border') }}
 
