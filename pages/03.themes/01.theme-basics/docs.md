@@ -22,7 +22,7 @@ If you were to have a page file called `blog.md`, Grav would try to render it wi
 
 ### Definition & Configuration
 
-Each theme should have a definition file called `blueprints.yaml` which has some information about the theme.  It can optionally provide **form** definitions to be used in the [**Administrator Panel**](../../admin-panel/introduction) to allow for editing of theme options.  The **Antimatter** theme has the following `blueprints.yaml` file:
+Each theme should have a definition file called `blueprints.yaml` which has some information about the theme.  It can optionally provide **form** definitions to be used in the [**Administration Panel**](../../admin-panel/introduction) to allow for editing of theme options.  The **Antimatter** theme has the following `blueprints.yaml` file:
 
 ```ruby
 name: Antimatter
@@ -124,7 +124,7 @@ The story for supporting **forms** is the same. Create another sub-folder called
 
 ### Blueprints
 
-The `blueprints/` folder is used to define forms for options and configuration for each of the template files. These are used by the **Administrator Panel** and are optional. The theme is 100% functional without these, but they will not be editable via the administrator panel, unless provided.
+The `blueprints/` folder is used to define forms for options and configuration for each of the template files. These are used by the **Administration Panel** and are optional. The theme is 100% functional without these, but they will not be editable via the administration panel, unless provided.
 
 ### SCSS / LESS / CSS
 
