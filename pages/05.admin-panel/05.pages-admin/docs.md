@@ -38,7 +38,7 @@ The **Add Page** button creates a non-modular page for your site. Once selected,
 
 Once you have filled out this information, selecting **Continue** will take you to the new page's editor. We will cover the Page Editor in more detail in [a following guide](../page-editor).
 
-!! Whether a page is visible or not in these settings only has an affect on navigation. A page's ability to be visited by a browser is determined in the page's
+!! Whether a page is visible or not in these settings only has an affect on navigation. A page's ability to be visited by a browser is determined by the page's [publishing settings](http://localhost/learn-grav/content/headers#published))
 
 #### Add Modular Page
 
