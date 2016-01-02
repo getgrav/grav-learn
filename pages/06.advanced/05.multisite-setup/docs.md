@@ -40,7 +40,7 @@ If you choose sub-directories or path based URLs for subsites, then the only thi
 
 If you choose sub-domains for structuring your website network, then you will have to configure (wildcard) sub-domains on your server in addition to the setup of your subsites in your `user/sites` directory.
 
-Either way, decide which setup suits your best.
+Either way, decide which setup suits you best.
 
 ##### Snippets
 
