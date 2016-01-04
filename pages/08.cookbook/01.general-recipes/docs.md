@@ -13,7 +13,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Wrapping Markdown into html](#wrapping-markdown-into-html)
 1. [Add a recent post widget to your sidebar](#add-a-recent-post-widget-to-your-sidebar)
 1. [Create a private area](#create-a-private-area)
-
+1. [Add JavaScript to the footer](#add-javascript-to-the-footer)
 
 ### Change the PHP CLI version
 
