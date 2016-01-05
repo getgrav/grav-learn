@@ -31,16 +31,31 @@ The easiest way to install Grav is to download the ZIP package and extract it:
 
 !!!! If you downloaded the ZIP file and then plan to move it to your webroot, please move the **ENTIRE FOLDER** because it contains several hidden files (such as .htaccess) that will not be selected by default. The omission of these hidden files can cause problems when running Grav.
 
-## Option 2: Install from GitHub
 
-The alternative method is to clone Grav from the GitHub repository, and then run a simple dependency installation script:
+## Option 2: Install with composer
+
+The alternative method is to install Grav with [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
+
+```
+$ composer create-project getgrav/grav ~/webroot/grav
+```
+
+If you want to check out the bleeding edge version of Grav, add `1.x-dev` as an additional parameter:
+
+```
+$ composer create-project getgrav/grav ~/webroot/grav 1.x-dev
+```
+
+## Option 3: Install from GitHub
+
+Another method is to clone Grav from the GitHub repository, and then run a simple dependency installation script:
 
 1. Clone the Grav repository from [GitHub](https://github.com/getgrav/grav) to a folder in the webroot of your server, e.g. `~/webroot/grav`. Launch a **terminal** or **console** and navigate to the webroot folder:
    ```
    $ cd ~/webroot
    $ git clone https://github.com/getgrav/grav.git
    ```
-   
+
 2. Install **vendor dependencies** via [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
    ```
    $ composer install --no-dev -o
