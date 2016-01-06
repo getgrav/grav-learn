@@ -50,14 +50,6 @@ You can access any Grav configuration setting via the config object as set in th
 
 An alias to the `config.site` object. This represents the configuration as set in the `site.yaml` file.
 
-### stylesheets object
-
-An array to store CSS stylesheet assets in.  This can be looped over and used to add CSS stylesheets to the template.
-
-### scripts object
-
-An array to store JavaScript assets in.  This can the be looped over and used to add JavaScript to the template.
-
 ### page object
 
 Because Grav is built using the structure defined in the `pages/` folder, each page is represented by a **page object**.
