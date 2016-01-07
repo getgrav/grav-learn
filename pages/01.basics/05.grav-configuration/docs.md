@@ -34,6 +34,7 @@ languages:
 
 home:
   alias: '/home'                            # Default path for home, ie /
+  hide_in_urls: false                       # Hide the home route in URLs
 
 pages:
   theme: antimatter                         # Default theme (defaults to "antimatter" theme)
@@ -50,6 +51,7 @@ pages:
   process:
     markdown: true                          # Process Markdown
     twig: false                             # Process Twig
+  twig_first: false                         # Process Twig before markdown when processing both on a page
   events:
     page: true                              # Enable page level events
     twig: true                              # Enable twig level events
@@ -116,6 +118,7 @@ debugger:
 images:
   default_image_quality: 85                 # Default image quality to use when resampling images (85%)
   cache_all: false                          # Cache all image by default
+  cache_perms: '0755'                       # MUST BE IN QUOTES!! Default cache folder perms. Usually '0755' or '0775'
   debug: false                              # Show an overlay over images indicating the pixel depth of the image when working with retina for example
 
 media:
@@ -128,6 +131,8 @@ session:
   enabled: true                             # Enable Session support
   timeout: 1800                             # Timeout in seconds
   name: grav-site                           # Name prefix of the session cookie. Use alphanumeric, dashes or underscores only. Do not use dots in the session name
+  secure: false                             # Set session secure. If true, indicates that communication for this cookie must be over an encrypted transmission. Enable this only on sites that run exclusively on HTTPS
+  httponly: true                            # Set session HTTP only. If true, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed.
 ```
 
 !! You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
