@@ -30,6 +30,24 @@ The following media file types are supported natively by Grav. Additional suppor
 
 A full list of supported mimetypes can be found in the `system/config/media.yaml` file.  If there is a mimetype that is not currently supported, you can simply create your own `user/config/media.yaml` and add it in there.  Just ensure you follow the same format as the original `system` file.  The simplest approach is to copy the whole original file and make your edits.
 
+## Where to put your media files
+
+Usually you’ll use a media file within a page, so just put the file in the page folder, and you can reference it in the Markdown of the page, for example:
+
+`![](image.jpg)`
+
+If you want to put all your images in a single folder, you can put them in a `user/pages/images` folder. That way you can reach them via
+
+`page->find('/images')->media['my-image.jpg']`
+
+and also you can find them easily via markdown and perform operations on them:
+
+`![](/images/my-image.jpg?cropResize=300,300)`
+
+Alternatively you can put them in your theme, as that is easily accessible via CSS references.
+
+!!!! Grav has a `/images` folder. Do not put your own images in that folder, as it hosts Grav auto-generated, cached images.
+
 ## Display modes
 
 Grav provides a few different display modes for every kind of media object.
