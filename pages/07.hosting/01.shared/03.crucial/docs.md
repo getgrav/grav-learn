@@ -66,7 +66,7 @@ Currently Crucial Web Hosting defaults to **PHP 5.3** which is not up to the min
 To do this, we have to add a special handler call in the `.htaccess` file in the web root.  So create the `~/www/.htaccess` file and put the following:
 
 ```
-AddHandler application/x-httpd-php54 .php
+AddHandler application/x-httpd-php56 .php
 ```
 
 Save the file. To test that you have the **correct version of PHP**, you can create a temporary file: `~/www/info.php` and put this in the contents:
@@ -79,19 +79,6 @@ Save the file and point your browser to this info.php file on your site, and you
 
 ![](php-info.png)
 
-
-
-Crucial now also supports PHP 5.5 and 5.6.  To make use of these newer versions of PHP, simply modify the `AddHandler` method in the `.htaccess` file to use the appropriate version:
-
-```
-AddHandler application/x-httpd-php55 .php
-```
-
-or
-
-```
-AddHandler application/x-httpd-php56 .php
-```
 
 !! If you are installing Grav at the root of your hosting account, you will need to add the **AddHandler** method to the top of the `.htaccess` file that is provided with Grav
 
