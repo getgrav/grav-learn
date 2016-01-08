@@ -17,4 +17,5 @@ redirects:
   '/hosting/arvixe': '/hosting/shared/arvixe'
   '/hosting/siteground': '/hosting/shared/siteground'
   '/hosting/dreamhost': '/hosting/shared/dreamhost'
+  '/advanced/route-aliases': '/content/routing'
 

@@ -1,8 +1,37 @@
 ---
-title: Route Aliases & Redirects
+title: Routing
 taxonomy:
     category: docs
 ---
+
+As we already described in the opening [Page -> Folders section](../content-pages#folders), **routing** in Grav is primarily controlled by the folder structure you use when you build your site content.
+
+There are certain scenarios where you need more flexibilty and Grav comes packed with a variety of tools and configuration options to make your life simpler in this regard.
+
+Imagine if you moved your site from some other CMS platform to Grav, you have several choices on how to setup your new site:
+
+1. Try to replicate the URLs of your old site by building the folder structure to match.
+2. Build your new site the way you want, and then have your web server 'rewrite' old URLs to redirect clients to the new location.
+3. Build your new site the way you want, and configure Grav to redirect clients from the old URLs to the new locations.
+
+There are many other use cases where you may wish to have the Grav site respond to different URLs than the folder structure dictates, and Grav has the following capabilities to help you realize your objectives.
+
+## Page Level Route Overrides
+
+As outlined in the [Headers -> Routes section](../headers#routes), you can provide explicit routing options for the **default route** as well as an array of **route aliases**:
+
+```
+routes:
+  default: '/my/example/page'
+  canonical: '/canonical/url/alias'
+  aliases:
+    - '/some/other/route'
+    - '/can-be-any-valid-slug'
+```
+
+These can are processed and cached per-page, and are available along with what we call the **raw route** which is the route based on the **slugs** of the page hierarchy (which is how Grav works out a route by default).  So even if you provide custom page routes, the **raw route** is still always valid too.
+
+## Site Level Routes and Redirects
 
 Grav has a powerful regex-based mechanism for handling **route aliases** and **redirects** from one page to another. This feature is particularly useful when you migrate a site to Grav and want to ensure the old URLs will still work with the new site. This is often best accomplished via **rewrite rules** using your web server, but sometimes it's more convenient and flexible just to let Grav handle them.
 
@@ -11,9 +40,9 @@ These are handled via the [Site Configuration](../../basics/grav-configuration#s
 !! all redirect rules apply on the slug-path beginning after the language part (if you use multi-language pages)
 
 
-## Route Aliases
+### Route Aliases
 
-### Simple Aliases
+#### Simple Aliases
 
 The most basic kind of alias is a direct one-to-one mapping. In the `routes:` section of the `site.yaml`, you can create a list of mappings to indicate the alias and the actual route that should be used.
 
@@ -26,7 +55,7 @@ routes:
 
 If you requested a URL `http://mysite.com/something/else` and that was not a valid page, the routes definition would actually serve you the page located at `/blog/focus-and-blur`, assuming it exists. This does not actually **redirect** the user to the provided page, it simply displays the page when you request the alias.
 
-### Regex-Based Aliases
+#### Regex-Based Aliases
 
 A more advanced type of alias redirect allows the use of a simple **regex** to map part of an alias to a route.  For example, if you had:
 
@@ -108,3 +137,23 @@ redirects:
 ```
 
 These look almost identical to the Route Alias version, but instead of transparently showing the new page, Grav actually redirects the browser and loads the new page specifically.
+
+## Hiding the Home Route
+
+When you set a certain page to be your site's home via the `system.yaml` file:
+
+```
+home:
+  alias: '/home'
+```
+
+You are effectively telling Grav to add a route of `/` as an alias for that page.  This means that when Grav is requesting the page for the `/` URL, it finds the page you have set.
+
+However, Grav really doesn't do anything special for pages that are beneath this homepage.  So if you have a page called `/blog` that displays a list of your blog posts, and you set this to be your homepage, it will work as expected.  If however, you click on a blog post that sits beneath the `/blog` folder, the URL could be `/blog/my-blog-post`.  This is expected behavior, but it might not be what you intend.  There is a new option available via the `system.yaml` that let's you hide this top level `/blog` from the route if so enabled.
+
+You can enable this behavior by toggling the following value:
+
+```
+home:
+  hide_in_urls: true
+```
