@@ -245,6 +245,14 @@ Antimatter sets it to
 
 In short, it just loops the values and prints them in the email body.
 
+##### Dynamic email attribute
+
+If you want for example to set the `email.from` field from a Form input, you can use get its content and use it in this way:
+
+`from: "{{ form.value.email }}"`
+
+In this case we get the field "email" from the form, and use it for the "from" attribute. This way the site owner will receive an email and will be able to directly reply to the email entered in the form.
+
 ### Redirect
 
 Redirects the user to another page. The action is immediate, so if you use this, you probably need to put it at the bottom of the actions list.
