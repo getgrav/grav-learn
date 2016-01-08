@@ -11,7 +11,7 @@ taxonomy:
 {% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
 {% set grav_version = release['tag_name'] %}
 
-[Crucial Web Hosting](http://www.crucialwebhost.com/promo/1421086/) is another of the new bread of modern web hosting platforms that focuses on both speed and support.  The use of **SSD drives** and **Litespeed** web servers with the latest **Intel XEON processors** ensures that Grav performs fantastically.
+[Crucial Web Hosting](http://www.crucialwebhost.com/promo/1421086/) is another of the new bread of modern web hosting platforms that focuses on both speed and support.  The use of **SSD drives** and **Litespeed** web servers with the latest **Intel XEON processors** ensures that Grav performs fantastically. Crucial also now provides PHP all the way up to the latest PHP 7.0 releases.
 
 ![](crucial.png)
 
@@ -61,12 +61,12 @@ Obviously, you will need to put in your Crucial-provided username for `crucial_u
 
 ## Configuring PHP
 
-Currently Crucial Web Hosting defaults to **PHP 5.3** which is not up to the minimum requirements for Grav.  We will have to change the PHP version to something more current.
+Currently Crucial Web Hosting defaults to **PHP 5.3**, which is not up to the minimum requirements for Grav. Luckily Crucial supports PHP all the way up to the latest **PHP 7.0** so we change the PHP version to something more current.
 
 To do this, we have to add a special handler call in the `.htaccess` file in the web root.  So create the `~/www/.htaccess` file and put the following:
 
 ```
-AddHandler application/x-httpd-php56 .php
+AddHandler application/x-httpd-php70 .php
 ```
 
 Save the file. To test that you have the **correct version of PHP**, you can create a temporary file: `~/www/info.php` and put this in the contents:
@@ -82,9 +82,17 @@ Save the file and point your browser to this info.php file on your site, and you
 
 !! If you are installing Grav at the root of your hosting account, you will need to add the **AddHandler** method to the top of the `.htaccess` file that is provided with Grav
 
+!!! You can choose another version of php to run Grav under using such as PHP 5.6 with `x-httpd-php56` for example
+
 ## Setup CLI PHP
 
-At the time of this writing, Crucial's default PHP version is **5.3**.  Because Grav requires PHP **5.5+**, we need to ensure that Grav is using a newer version of PHP on the command line (CLI).  To accomplish this, you should use SSH to access your server and edit your `.bash_profile` file and change the path so that it references the appropriate PHP path before the regular path:
+At the time of this writing, Crucial's default PHP version is **5.3**.  Because Grav requires PHP **5.5+**, we need to ensure that Grav is using a newer version of PHP on the command line (CLI).  To accomplish this, you should use SSH to access your server and create a new symbolic link to a newer PHP version in your user's `bin/` folder:
+
+```
+$ ln -s /usr/local/bin/php-70 ~/bin/php
+```
+
+Next, edit your `.bash_profile` file and add move the `$HOME/bin` reference in front of the regular `$PATH` string:
 
 ```
 # .bash_profile
@@ -96,7 +104,7 @@ fi
 
 # User specific environment and startup programs
 
-PATH=/usr/local/lib/php-5.5/bin:$PATH:$HOME/bin
+PATH=$HOME/bin:$PATH
 
 export PATH
 ```
@@ -105,11 +113,10 @@ You will need _source_ the profile: `$ source ~/.bash_profile` or re-login to yo
 
 ```
 $ php -v
-PHP 5.5.20 (cli) (built: Apr  6 2014 14:43:05)
-Copyright (c) 1997-2014 The PHP Group
-Zend Engine v2.4.0, Copyright (c) 1998-2014 Zend Technologies
-    with the ionCube PHP Loader v4.6.1, Copyright (c) 2002-2014, by ionCube Ltd., and
-    with Zend Guard Loader v3.3, Copyright (c) 1998-2013, by Zend Technologies
+PHP 7.0.1 (cli) (built: Dec 28 2015 17:55:36) ( NTS )
+Copyright (c) 1997-2015 The PHP Group
+Zend Engine v3.0.0, Copyright (c) 1998-2015 Zend Technologies
+    with Zend OPcache v7.0.6-dev, Copyright (c) 1999-2015, by Zend Technologies
 ```
 
 ## Install and Test Grav
