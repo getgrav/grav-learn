@@ -2,9 +2,6 @@
 title: Generic VPS Installation
 ---
 
-{% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
-{% set grav_version = release['tag_name'] %}
-
 ### Update and Upgrade Packages
 
 At this point, you might want to either setup a local `/etc/hosts` entry to give the IP provided a nice friendly name such as `{{ page.header.localname }}`.  That way you can more easily SSH to your server with `ssh root@{{ page.header.localname }}`.
