@@ -1,6 +1,7 @@
 ---
 title: Dreamhost
 visible: true
+twig_first: true
 process:
     twig: true
 github: true

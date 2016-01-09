@@ -1,6 +1,7 @@
 ---
 title: SiteGround
 visible: true
+twig_first: true
 process:
     twig: true
 github: true
