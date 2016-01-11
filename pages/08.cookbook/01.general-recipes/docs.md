@@ -81,7 +81,7 @@ Each of the `.jpg` files are a relatively good size that is appropriate for a fu
 
 ```
 title: Fido Playing with his Bone
-description. The other day, Fido got a new bone, and he became really captivated by it.
+description: The other day, Fido got a new bone, and he became really captivated by it.
 ```
 
 You have **complete control** over what you put in these meta files, they can be absolutely anything you need.
