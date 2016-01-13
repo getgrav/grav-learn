@@ -6,7 +6,6 @@ process:
 markdown:
     extra: true
 localname: vultr.dev
-github: true
 taxonomy:
     category: docs
 ---

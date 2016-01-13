@@ -5,12 +5,9 @@ visible: true
 twig_first: true
 process:
     twig: true
-github: true
 taxonomy:
     category: docs
 ---
-{% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
-{% set grav_version = release['tag_name'] %}
 
 [Rochen Web Hosting](http://www.rochen.com/?utm_source=RocketTheme&utm_medium=Showcase&utm_campaign=Promotions) is the long-time hosting partner for both **GetGrav.org** and **RocketTheme.com**.  Rochen now has a new premium shared hosting offering that uses **SSD drives**, **Litespeed** web servers with the latest **Intel XEON processors** ensures that Grav performs optimally.  They also offer the choice of US or UK-based servers, so you can pick the best option for your users.
 

@@ -4,12 +4,9 @@ visible: true
 twig_first: true
 process:
     twig: true
-github: true
 taxonomy:
     category: docs
 ---
-{% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
-{% set grav_version = release['tag_name'] %}
 
 [Dreamhost](http://dreamhost.com) is a famous hosting provider that offers various levels of service ranging from SSD-powered shared hosting to dedicated servers.
 

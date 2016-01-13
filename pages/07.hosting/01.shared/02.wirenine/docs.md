@@ -4,12 +4,9 @@ visible: true
 twig_first: true
 process:
     twig: true
-github: true
 taxonomy:
     category: docs
 ---
-{% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
-{% set grav_version = release['tag_name'] %}
 
 [WireNine](https://my.wirenine.com/aff.php?aff=023) is a fast, modern hosting provider that focuses on performance via their use of **100% SSD** storage, **Litespeed** web servers, the latest **Intel E5-based** processors with fast **DDR4 ram**. These features ensure their shared hosting offerings are a fantastic solution for Grav sites.
 

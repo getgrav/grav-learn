@@ -4,12 +4,9 @@ visible: true
 twig_first: true
 process:
     twig: true
-github: true
 taxonomy:
     category: docs
 ---
-{% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
-{% set grav_version = release['tag_name'] %}
 
 [Arvixe](http://www.arvixe.com) is an award winning hosting company that prides themselves on providing quality web hosting that is **affordable** and unmatched in **reliability**.  With great features, and a **developer-friendly** stance, Arvixe shared hosting is a great option for a Grav-based site.
 

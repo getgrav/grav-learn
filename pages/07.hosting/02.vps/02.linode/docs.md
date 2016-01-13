@@ -6,13 +6,9 @@ process:
 markdown:
     extra: true
 localname: linode.dev
-github: true
 taxonomy:
     category: docs
 ---
-
-{% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
-{% set grav_version = release['tag_name'] %}
 
 [Linode](https://www.linode.com) has been in the VPS game for quite some time and focus on providing **lightning-quick SSD equipped Linux servers** for developers.  There is a quick and easy process to getting a server up and running that involves: picking a **pricing plan**, picking a **Linux distribution**, and then choosing a **node location** that is best suited to your needs.
 

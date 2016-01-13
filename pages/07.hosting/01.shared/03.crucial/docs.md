@@ -5,12 +5,9 @@ visible: true
 twig_first: true
 process:
     twig: true
-github: true
 taxonomy:
     category: docs
 ---
-{% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
-{% set grav_version = release['tag_name'] %}
 
 [Crucial Web Hosting](http://www.crucialwebhost.com/promo/1421086/) is another of the new bread of modern web hosting platforms that focuses on both speed and support.  The use of **SSD drives** and **Litespeed** web servers with the latest **Intel XEON processors** ensures that Grav performs fantastically. Crucial also now provides PHP all the way up to the latest PHP 7.0 releases.
 

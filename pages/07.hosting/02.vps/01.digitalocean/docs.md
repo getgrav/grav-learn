@@ -6,13 +6,9 @@ process:
 markdown:
     extra: true
 localname: digitalocean.dev
-github: true
 taxonomy:
     category: docs
 ---
-
-{% set release = github.client.api('repo').releases().all('getgrav', 'grav')|first %}
-{% set grav_version = release['tag_name'] %}
 
 Perhaps the most popular and most widely used of all the VPS providers out there, [DigitalOcean](https://www.digitalocean.com/) provides a range of VPS options.  Starting at **$5/mo for a 1 CPU, 512MB system** up to $80/mo for a 4 CPU, 8GB setup, [DigitalOcean](https://www.digitalocean.com/) has solutions that can scale with you.  All their servers are built with **RAID SSD drives**, **modern hex-core hardware**, **KVM Virtualization**, and reliable **Tier-1 bandwidth** to ensure maximum performance.  They are a fantastic option for hosting your Grav-based site.
 
