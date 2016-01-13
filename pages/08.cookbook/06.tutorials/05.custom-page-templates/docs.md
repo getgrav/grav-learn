@@ -146,6 +146,16 @@ form:
                 one: One
                 two: Two
                 three: Three
+
+            route:
+              type: select
+              label: PLUGIN_ADMIN.PARENT
+              classes: fancy
+              '@data-options': '\Grav\Common\Page\Pages::parents'
+              '@data-default': '\Grav\Plugin\admin::route'
+              options:
+                '/': PLUGIN_ADMIN.DEFAULT_OPTION_ROOT
+
 ```
 
 ## Expert mode
