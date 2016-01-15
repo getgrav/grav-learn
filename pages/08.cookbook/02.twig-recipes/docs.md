@@ -9,6 +9,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [List the last 5 recent blog posts](#list-the-last-5-recent-blog-posts)
 1. [List the blog bosts for the year](#list-the-blog-posts-for-the-year)
 1. [Displaying a translated month](#displaying-a-translated-month)
+1. [Displaying page content without summary](#displaying-page-content-without-summary)
 
 ### List the last 5 recent blog posts
 
@@ -97,4 +98,19 @@ And the French:
 
 ```
 Un exemple d’article             Juillet 2015
+```
+
+### Displaying page content without summary
+
+##### Problem:
+
+You want to display the content of a page without the summary at top.
+
+##### Solution:
+
+Use the  `slice` filter to remove the summary from the page content:
+
+```
+{% set content = page.content|slice(page.summary|length) %}
+{{ content }}
 ```
