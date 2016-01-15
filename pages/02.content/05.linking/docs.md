@@ -115,3 +115,94 @@ You can link to pretty much any direct URL, including secured HTTPS links. For e
 ```markdown
 [link](https://github.com)
 ```
+
+### Link Attributes
+
+A great new feature you can take advantage of is providing link attributes directly via the markdown syntax. This allows you to easily add **class**, **id**, **rel**, and **target** HTML attributes without the need of [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/).
+
+Some examples of this are:
+
+##### Class/Classes Attribute
+
+```markdown
+[Big Button](../some-page?classes=button,big)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="/your/pages/some-page" class="button big">Big Button</a>
+```
+
+##### ID Attribute
+
+```markdown
+[Unique Button](../some-page?id=important-button)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="/your/pages/some-page" id="important-button">Unique Button</a>
+```
+
+##### Rel Attribute
+
+```markdown
+[NoFollow Link](../some-page?rel=nofollow)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="/your/pages/some-page" rel="nofollow">NoFollow Link</a>
+```
+
+##### Target Attribute
+
+```markdown
+[Link in new Tab](../some-page?target=_blank)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="/your/pages/some-page" target="_blank">Link in new Tab</a>
+```
+
+##### Attribute Combinations
+
+```markdown
+[Combinations of Attributes](../some-page?target=_blank&classes=button)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="/your/pages/some-page" target="_blank" class="button">Combinations of Attributes</a>
+```
+
+##### Pass-through of Non-Supported Attributes
+
+```markdown
+[Pass-through of 'cat' attribute](../some-page?classes=underline&cat=black)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="/your/pages/some-page?cat=black" class="underline">Pass-through of 'cat' attribute</a>
+```
+
+##### Pass-through Supported Attributes
+
+```markdown
+[Pass-through all attributes](../some-page?classes=underline&rel=nofollow&noprocess)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="/your/pages/some-page?rel=nofollow&classes=underline">Pass-through all attributes</a>
+```
+

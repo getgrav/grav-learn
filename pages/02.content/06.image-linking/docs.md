@@ -123,3 +123,45 @@ One of the main benefits of using images associated with pages is that it enable
 ```
 
 You will find more information about actions and other [media file functionality in the next chapter](../media).
+
+### Image Attributes
+
+A great new feature you can take advantage of is providing image attributes directly via the markdown syntax. This allows you to easily add **classes** and **id** HTML attributes without the need of [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/).
+
+Some examples of this are:
+
+##### Single Class Attribute
+
+```markdown
+![My Image](my-image.jpg?classes=float-left)
+```
+
+which will result in HTML similar to:
+
+```html
+<img src="/your/pages/some-page/my-image.jpg" class="float-left" />
+```
+
+##### Multiple Classes Attributes
+
+```markdown
+![My Image](my-image.jpg?classes=float-left,shadow)
+```
+
+which will result in HTML similar to:
+
+```html
+<img src="/your/pages/some-page/my-image.jpg" class="float-left shadow" />
+```
+
+##### ID Attribute
+
+```markdown
+![My Image](my-image.jpg?id=special-id)
+```
+
+which will result in HTML similar to:
+
+```html
+<img src="/your/pages/some-page/my-image.jpg" id="special-id" />
+```
