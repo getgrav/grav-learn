@@ -154,6 +154,14 @@ The safe email filter converts an email address into ASCII characters to make it
 
 `"someone@domain.com"|safe_email` <i class="fa fa-long-arrow-right"></i> {{ "someone@domain.com"|safe_email }}
 
+Usage example with a mailto link:
+
+```
+<a href="mailto:{{'your.email@server.com'|safe_email}}">
+  Email me
+</a>
+```
+
 ##### SortByKey
 
 Sort an array map by a particular key
