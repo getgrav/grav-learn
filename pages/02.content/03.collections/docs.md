@@ -112,7 +112,7 @@ content:
 
 ##### @page - Collection of children of a specific page
 
-This collection takes a slug route of a page as an argument and will return all the **publish non-modular** children of that page
+This collection takes a slug route of a page as an argument and will return all the **published non-modular** children of that page
 
 ```ruby
 content:
@@ -140,7 +140,7 @@ content:
 
 ##### @page.descendants - Collection of children + all descendants of a specific page
 
-This collection takes a slug route of a page as an argument and will return all the **publish non-modular** children and all their descendants of that page
+This collection takes a slug route of a page as an argument and will return all the **published non-modular** children and all their descendants of that page
 
 ```ruby
 content:
