@@ -236,4 +236,4 @@ public function onPageContentProcessed(Event $event)
 
 ### Implementing CLI to your Plugin
 
-Plugins have also the capability of integrating with the `bin/plugin` command line to execute tasks. You can follow the [advanced tutorial](../advanced/grav-cli-plugin) if you desire to implement such functionality.
+Plugins have also the capability of integrating with the `bin/plugin` command line to execute tasks. You can follow the [advanced tutorial](/advanced/grav-cli-plugin) if you desire to implement such functionality.
