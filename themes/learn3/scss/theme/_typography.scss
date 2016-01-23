@@ -171,6 +171,15 @@ hr {
     a.anchor-link:hover { color: $core-accent; }
 }
 
+// Tabs specific styling
+.tabs-wrapper pre {
+    margin: 1rem 0;
+    border: 0;
+    padding: 0;
+    background: inherit;
+    white-space: pre-wrap;
+}
+
 // Scrollbar
 .scrollbar-inner > .scroll-element .scroll-element_track { background-color: rgba($white, 0.3); }
 .scrollbar-inner > .scroll-element .scroll-bar { background-color: lighten(#9C6FB6, 5%); }

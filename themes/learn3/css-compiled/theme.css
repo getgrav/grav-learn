@@ -490,6 +490,13 @@ hr {
 #body a.anchor-link:hover {
   color: #00BDF3; }
 
+.tabs-wrapper pre {
+  margin: 1rem 0;
+  border: 0;
+  padding: 0;
+  background: inherit;
+  white-space: pre-wrap; }
+
 .scrollbar-inner > .scroll-element .scroll-element_track {
   background-color: rgba(255, 255, 255, 0.3); }
 
