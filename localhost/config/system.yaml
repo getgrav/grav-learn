@@ -1,5 +1,5 @@
 cache:
-  enabled: true
+  enabled: false
   check:
     method: file
 

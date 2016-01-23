@@ -440,7 +440,7 @@ kbd,
 pre,
 samp {
   font-family: "Consolas", menlo, monospace;
-  font-size: 16px; }
+  font-size: 14px; }
 
 code {
   border-radius: 2px;
@@ -451,7 +451,6 @@ code {
   padding: 0px 2px; }
 
 code + .copy-to-clipboard {
-  border: 1px solid #fbf0cb;
   margin-left: -1px;
   border-left: 0 !important;
   font-size: inherit !important;
@@ -462,8 +461,8 @@ code + .copy-to-clipboard {
 pre {
   padding: 1rem;
   margin: 2rem 0;
-  background: #f6f6f6;
-  border: 1px solid #ddd;
+  background: #1d1f21;
+  border: 0;
   border-radius: 2px;
   line-height: 1.15; }
   pre code {
@@ -490,12 +489,23 @@ hr {
 #body a.anchor-link:hover {
   color: #00BDF3; }
 
+#body-inner .tabs-wrapper.ui-theme-badges {
+  background: #1d1f21; }
+  #body-inner .tabs-wrapper.ui-theme-badges .tabs-nav li {
+    font-size: 0.9rem;
+    text-transform: uppercase; }
+    #body-inner .tabs-wrapper.ui-theme-badges .tabs-nav li a {
+      background: #35393c; }
+    #body-inner .tabs-wrapper.ui-theme-badges .tabs-nav li.current a {
+      background: #4d5257; }
+#body-inner pre {
+  white-space: pre-wrap; }
+
 .tabs-wrapper pre {
   margin: 1rem 0;
   border: 0;
   padding: 0;
-  background: inherit;
-  white-space: pre-wrap; }
+  background: inherit; }
 
 .scrollbar-inner > .scroll-element .scroll-element_track {
   background-color: rgba(255, 255, 255, 0.3); }
@@ -968,11 +978,12 @@ td {
     position: absolute;
     right: 4px;
     top: 4px;
-    background-color: #eee;
-    border-color: #ddd;
+    background-color: #4d5257;
+    color: #ccc;
     border-radius: 2px; }
     pre .copy-to-clipboard:hover {
-      background-color: #d9d9d9; }
+      background-color: #656c72;
+      color: #fff; }
 
 .parent-element {
   -webkit-transform-style: preserve-3d;

@@ -110,7 +110,7 @@ kbd,
 pre,
 samp {
 	font-family: $font-family-mono;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 code {
@@ -123,7 +123,6 @@ code {
 }
 
 code + .copy-to-clipboard {
-    border: 1px solid #fbf0cb;
     margin-left: -1px;
     border-left: 0 !important;
     font-size: inherit !important;
@@ -136,7 +135,7 @@ pre {
 	padding: 1rem;
 	margin: 2rem 0;
 	background: $pre-bg;
-	border: 1px solid $core-border-color;
+	border: 0;
 	border-radius: 2px;
 	line-height: 1.15;
 
@@ -171,13 +170,38 @@ hr {
     a.anchor-link:hover { color: $core-accent; }
 }
 
-// Tabs specific styling
+
+
+
+
+// Code Styling
+#body-inner {
+    .tabs-wrapper.ui-theme-badges {
+        background: $pre-bg;
+
+        .tabs-nav li {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+
+            a {
+                background: lighten($pre-bg, 10%);
+            }
+
+            &.current a {
+                background: lighten($pre-bg, 20%);
+            }
+        }
+    }
+    pre {
+        white-space: pre-wrap;
+    }
+}
+
 .tabs-wrapper pre {
     margin: 1rem 0;
     border: 0;
     padding: 0;
     background: inherit;
-    white-space: pre-wrap;
 }
 
 // Scrollbar
