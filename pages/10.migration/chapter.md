@@ -8,4 +8,4 @@ taxonomy:
 
 # Migration
 
-This section is dedicated to support migrations from other CMSes like Wordpress
+This section is dedicated to support migrations from other CMSes like WordPress
