@@ -80,6 +80,8 @@ to the group definition in `user/config/groups.yaml`.
 
 When a user is assigned to that group, it will inherit the site.paid: true permission.
 
+When a user belongs to multiple groups, it's enough that a group provides a permission, and it will be added to the user's permissions.
+
 ### Fine-tuning permissions on a user level
 
 You can fine-tune the permissions on a user level too, as usual. With groups, you can define a global permission and deny it on a user level, by adding
