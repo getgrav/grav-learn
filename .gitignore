@@ -11,7 +11,7 @@ themes/learn2
 
 # OS Generated
 .DS_Store*
-ehthumbs.db
+thumbs.db
 Thumbs.db
 *.swp
 

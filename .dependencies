@@ -2,43 +2,59 @@ git:
     anchors:
         url: https://github.com/getgrav/grav-plugin-anchors
         path: user/plugins/anchors
-        branch: master
-    simplesearch:
-        url: https://github.com/getgrav/grav-plugin-simplesearch
-        path: user/plugins/simplesearch
-        branch: master
+        branch: develop
+    breadcrumbs:
+        url: https://github.com/getgrav/grav-plugin-breadcrumbs
+        path: user/plugins/breadcrumbs
+        branch: develop
     error:
         url: https://github.com/getgrav/grav-plugin-error
         path: user/plugins/error
-        branch: master
+        branch: develop
     github:
         url: https://github.com/getgrav/grav-plugin-github
         path: user/plugins/github
-        branch: master
-    highlight:
-        url: https://github.com/getgrav/grav-plugin-highlight
-        path: user/plugins/highlight
-        branch: master
+        branch: develop
+    hightlight:
+        url: https://github.com/getgrav/grav-plugin-hightlight
+        path: user/plugins/hightlight
+        branch: develop
     markdown-notices:
         url: https://github.com/getgrav/grav-plugin-markdown-notices
         path: user/plugins/markdown-notices
         branch: develop
-    gravui:
-        url: https://bitbucket.org/rockettheme/grav-plugin-gravui
-        path: user/plugins/gravui
-        branch: master
+    page-inject:
+        url: https://github.com/getgrav/grav-plugin-page-inject
+        path: user/plugins/page-inject
+        branch: develop
+    simplesearch:
+        url: https://github.com/getgrav/grav-plugin-simplesearch
+        path: user/plugins/simplesearch
+        branch: develop
+    shortcode-core:
+        url: https://github.com/getgrav/grav-plugin-shortcode-core
+        path: user/plugins/shortcode-core
+        branch: develop
+    shortcode-ui:
+        url: https://github.com/getgrav/grav-plugin-shortcode-ui
+        path: user/plugins/shortcode-ui
+        branch: develop
+    youtube:
+        url: https://github.com/getgrav/grav-plugin-youtube
+        path: user/plugins/youtube
+        branch: develop
     learn2:
         url: https://github.com/getgrav/grav-theme-learn2
         path: user/themes/learn2
-        branch: master
+        branch: develop
 links:
     anchors:
         src: grav-plugin-anchors
         path: user/plugins/anchors
         scm: github
-    simplesearch:
-        src: grav-plugin-simplesearch
-        path: user/plugins/simplesearch
+    breadcrumbs:
+        src: grav-plugin-breadcrumbs
+        path: user/plugins/breadcrumbs
         scm: github
     error:
         src: grav-plugin-error
@@ -52,13 +68,29 @@ links:
         src: grav-plugin-highlight
         path: user/plugins/highlight
         scm: github
-    gravui:
-        src: grav-plugin-gravui
-        path: user/plugins/gravui
-        scm: bitbucket
     markdown-notices:
         src: grav-plugin-markdown-notices
         path: user/plugins/markdown-notices
+        scm: github
+    page-inject:
+        src: grav-plugin-page-inject
+        path: user/plugins/page-inject
+        scm: github
+    simplesearch:
+        src: grav-plugin-simplesearch
+        path: user/plugins/simplesearch
+        scm: github
+    shortcode-core:
+        src: grav-plugin-shortcode-core
+        path: user/plugins/shortcode-core
+        scm: github
+    shortcode-ui:
+        src: grav-plugin-shortcode-ui
+        path: user/plugins/shortcode-ui
+        scm: github
+    youtube:
+        src: grav-plugin-youtube
+        path: user/plugins/youtube
         scm: github
     learn2:
         src: grav-theme-learn2
