@@ -51,12 +51,13 @@ Every user can be assigned to a group.
 Simply add
 
 ```yaml
-groups: paid
+groups: 
+  - paid
 ```
 
 to a user’s yaml file under `user/accounts`.
 
-You can add multiple groups by listing the groups with an array notation:
+You can add multiple groups:
 
 ```yaml
 groups:
