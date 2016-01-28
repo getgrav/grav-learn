@@ -108,12 +108,12 @@ Where appropriate, you can pass in an array of asset options. Those options are
 
 #### For CSS
 
-* **priority** = Integer value (default value is `100`)
+* **priority** = Integer value (default value is `10`)
 * **pipeline** = `false` if this asset should **not** be included in pipeline (default is `true`)
 
 #### For JS
 
-* **priority** = Integer value (default value is `100`)
+* **priority** = Integer value (default value is `10`)
 * **pipeline** = `false` if this asset should **not** be included in pipeline (default is `true`)
 * **loading** = supports empty, `async` and `defer`
 * **group** = string to specify a unique group name for asset (default is `head`)
