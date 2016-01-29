@@ -623,6 +623,26 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sepia)
 
+#### fixOrientation()
+
+Fixes the orientation of the image when rotation is made via EXIF data (applies to jpeg images taken with phones and cameras).
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![Sample Image](sample-image.jpg?fixOrientation)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].fixOrientation }}
+```
+{% endverbatim %}
+[/ui-tab]
+[/ui-tabs]
+
+
 ## Animated / Vectorized Actions
 
 #### resize(width, height)
