@@ -227,6 +227,8 @@ This returns the next page from the array of siblings based on the current posit
 
 This returns the previous page from the array of siblings based on the current position.
 
+!! nextSibling() and prevSibling() order pages in a stack-like structure. It works best in a blog situation, where the first blog post has nextSibling null and prevSibling is the previous blog post. If this ordering direction confuses you, we suggest to use page.adjacentSibling(-1) to point to the next page instead of page.nextSibling() to reduce the confusion the terminology might make. You can also define a constant in the theme and use that for better readability, like page.adjacentSibling(NEXT_PAGE)
+
 ##### children()
 
 This returns an array of child pages for the page as defined in the pages content structure.
