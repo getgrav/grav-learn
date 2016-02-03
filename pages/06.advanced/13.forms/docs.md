@@ -169,7 +169,8 @@ With the `file` field you can let users to upload files through the form. The fi
 
 ``` yaml
 # Default settings
-- files:
+- my_files:
+      type: file
       multiple: false
       destination: '@self'
       accept:
