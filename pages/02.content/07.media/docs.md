@@ -623,6 +623,29 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sepia)
 
+#### rotate(angle)
+
+**rotates** the image by `angle` degrees counterclockwise, negative values rotate clockwise.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![Sample Image](sample-image.jpg?cropZoom=300,200&rotate=90)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).rotate(90).html() }}
+```
+{% endverbatim %}
+[/ui-tab]
+[/ui-tabs]
+
+##### Result:
+
+![Sample Image](sample-image.jpg?cropZoom=300,200&rotate=90)
+
 #### fixOrientation()
 
 Fixes the orientation of the image when rotation is made via EXIF data (applies to jpeg images taken with phones and cameras).
