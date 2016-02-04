@@ -76,6 +76,10 @@ RewriteBase /
 
 (Credit: [http://ahcox.com/webdev/1and1-internal-server-error-grav/](http://ahcox.com/webdev/1and1-internal-server-error-grav/))
 
+### File Permission Problems
+
+Some shared hosting servers will generate an HTTP 500 error if your file permissions are less restrictive that the server's enforced file permissions. For example, HostGator shared hosting servers enforce a policy that generates a HTTP 500 error if permissions are greater than 644 for files or 755 for directories.
+
 ### Admin Panel Navigation
 
 When navigating through Grav's admin panel, **Internal Server Error** message appears in the top left.  This is due to incorrect permissions on your /cache folder.
