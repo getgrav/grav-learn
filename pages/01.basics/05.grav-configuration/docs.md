@@ -22,6 +22,8 @@ timezone: ''                                # Valid values: http://php.net/manua
 default_locale:                             # Default locale (defaults to system)
 param_sep: ':'                              # Parameter separator, use ';' for Apache on windows
 wrapped_site: false                         # For themes/plugins to know if Grav is wrapped by another platform
+reverse_proxy_setup: false                  # Running in a reverse proxy scenario with different webserver ports than proxy
+proxy_url:                                  # Configure a manual proxy URL for GPM (eg 127.0.0.1:3128)
 
 languages:
   supported: []                             # List of languages supported. eg: [en, fr, de]
@@ -104,7 +106,7 @@ assets:                                     # Configuration for Assets Manager (
   js_minify: true                           # Minify the JS during pipelining
   enable_asset_timestamp: false             # Enable asset timestamps
   collections:
-    jquery: system://assets/jquery/jquery-2.1.4.min.js
+    jquery: system://assets/jquery/jquery-2.x.min.js
 
 errors:
   display: false                            # Display full backtrace-style error page
@@ -162,12 +164,12 @@ summary:
   delimiter: ===                            # The summary delimiter
 
 redirects:
-  '/redirect-test': '/'                     # Redirect test goes to home page
-  '/old/(.*)': '/new/$1'                    # Would redirect /old/my-page to /new/my-page
+#  /redirect-test: /                         # Redirect test goes to home page
+#  /old/(.*): /new/$1                        # Would redirect /old/my-page to /new/my-page
 
 routes:
-  '/something/else': '/blog/sample-3'       # Alias for /blog/sample-3
-  '/new/(.*)': '/blog/$1'                   # Regex any /new/my-page URL to /blog/my-page Route
+#  /something/else: '/blog/sample-3'         # Alias for /blog/sample-3
+#  /new/(.*): '/blog/$1'                     # Regex any /new/my-page URL to /blog/my-page Route
 
 blog:
   route: '/blog'                            # Custom value added (accessible via system.blog.route)
