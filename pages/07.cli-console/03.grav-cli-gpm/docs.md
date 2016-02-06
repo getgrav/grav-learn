@@ -1,5 +1,5 @@
 ---
-title: Grav GPM
+title: Grav CLI GPM
 taxonomy:
     category: docs
 ---
@@ -62,11 +62,15 @@ For instance, if we had a very old version of Antimatter (v1.1.1), but the lates
 
 ![](index-outdated.jpg)
 
+!! You can use --installed-only` option to show the state of **only your installed** plugins and themes.
+
 ## Info
 
 The `info` command displays the details of the desired package, such as description, author, homepage, etc.
 
 ![](info.jpg)
+
+!! You will also be prompted to view the plugin/theme **Changelog** via this option.
 
 ## Install
 

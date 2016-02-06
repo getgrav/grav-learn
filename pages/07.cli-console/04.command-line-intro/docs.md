@@ -1,5 +1,5 @@
 ---
-title: Command Line Introduction
+title: Command Line Intro
 taxonomy:
     category: docs
 ---

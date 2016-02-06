@@ -630,13 +630,13 @@ This applies a **sepia filter** on the image to produce a vintage look.
 [ui-tabs]
 [ui-tab title="Markdown"]
 ```
-![Sample Image](sample-image.jpg?cropZoom=300,200&rotate=90)
+![Sample Image](sample-image.jpg?cropZoom=300,200&rotate=-90)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
 ```
-{{ page.media['sample-image.jpg'].cropZoom(300,200).rotate(90).html() }}
+{{ page.media['sample-image.jpg'].cropZoom(300,200).rotate(-90).html() }}
 ```
 {% endverbatim %}
 [/ui-tab]
@@ -644,7 +644,30 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 ##### Result:
 
-![Sample Image](sample-image.jpg?cropZoom=300,200&rotate=90)
+![Sample Image](sample-image.jpg?cropZoom=300,200&rotate=-90)
+
+#### flip(flipVertical, flipHorizontal)
+
+**flips** the image in the given directions. Both params are `boolean` and at least one must be `true`.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![Sample Image](sample-image.jpg?cropZoom=300,200&flip=true,true)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].cropZoom(300,200).flip(true,true).html() }}
+```
+{% endverbatim %}
+[/ui-tab]
+[/ui-tabs]
+
+##### Result:
+
+![Sample Image](sample-image.jpg?cropZoom=300,200&flip=true,true)
 
 #### fixOrientation()
 

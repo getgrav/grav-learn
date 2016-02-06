@@ -82,6 +82,14 @@ visible: false
 
 By default, a page is **visible** in the **navigation** if the surrounding folder has a numerical prefix, i.e. `/01.home` is visible, while `/error` is **not visible**. This behavior can be overwritten by setting the `visible` variable in the header. Valid values are `true` or `false`.
 
+### SSL
+
+```ruby
+ssl: true
+```
+
+As of Grav 1.0.9 you can now enable a specific page to be forced with SSL **on** or **off**.  This **only works** with the `absolute_urls: true` option set in the `system.yaml` configuration.  This is because to be able to switch back and forth between SSL and non-SSL pages, you must be using full URLs with the protocol and host included.
+
 ### Redirect
 
 ```ruby

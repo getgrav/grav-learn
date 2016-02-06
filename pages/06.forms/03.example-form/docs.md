@@ -1,14 +1,16 @@
 ---
-title: Add a Contact Form
+title: Example Form
 taxonomy:
     category: docs
 ---
 
-The **Grav Form Plugin** is the easiest way to have forms on your site. Let's see how to create a simple contact form. 
+## Simple Contact Form
+
+The **Grav Form Plugin** is the easiest way to have forms on your site. Let's see how to create a simple contact form.
 
 !!! In the future we want Grav to be able to dynamically generate forms from the Admin Plugin
 
-## A live example
+### A Live Example
 
 The Sora Article skeleton has a form page ready to see while reading this tutorial:
 
@@ -16,7 +18,7 @@ The Sora Article skeleton has a form page ready to see while reading this tutori
 
 [Page markdown file](https://raw.githubusercontent.com/getgrav/grav-skeleton-soraarticle-blog/develop/pages/03.contact/form.md)
 
-## Setup the page
+### Setup the Page
 
 You can put a form inside any page of your site. All you need to do is rename the page markdown file to `form.md`, or add a [template](../../content/headers#template) header in the page frontmatter, to make it use the `form` template.
 
