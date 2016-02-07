@@ -21,6 +21,8 @@ debugger:
 
 ![](config.png)
 
+!! The first time you enable it, the debug bar might appear as a little Grav icon in the bottom left of the page. Clicking that will show the full debug bar.
+
 The PHP Debug Bar still provides an overall **processing time** as well as **memory usage**, but it now has several tabs that provide more detailed information.
 
 The first tab is for **Messages** and you can use this to help debug your Grav development process by posting information to this tab from your code.
