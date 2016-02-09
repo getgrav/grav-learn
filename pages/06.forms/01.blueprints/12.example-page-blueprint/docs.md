@@ -1,5 +1,5 @@
 ---
-title: Example: Page Blueprint
+title: Example: Page Blueprints
 taxonomy:
     category: docs
 ---
@@ -77,6 +77,9 @@ form:
 
 The fields types you can add are listed in [Available form fields for use in the admin](http://learn.getgrav.org/advanced/blueprints#available-form-fields-for-use-in-the-admin)
 
+### Field naming
+
+It's important that fields use the `header.*` structure, so field content is saved to the Page Header when saved.
 
 ### Create a completely custom page form
 
