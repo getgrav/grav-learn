@@ -12,8 +12,6 @@ The Forms plugin for Grav is a Form Construction Kit available for you to use in
 1. [Add your own custom processing to a form](#add-your-own-custom-processing-to-a-form)
 1. [Using forms in modular pages](#using-forms-in-modular-pages)
 
-
-
 ## Create a simple form
 
 Every page in the site can host a form.

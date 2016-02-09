@@ -1,40 +1,8 @@
 ---
-title: Custom Page Templates
+title: Example: Page Blueprint
 taxonomy:
     category: docs
 ---
-
-Grav Pages can really be anything. A page can be a blog listing, a blog post, a product page, an image gallery..
-
-What determines what a page should do and how it should appear is the Page Template.
-
-Page Templates are added and setup by the theme used.
-
-## A theme responsibility
-
-A Grav theme is much more flexible and powerful than what you might be used to on other platforms.
-
-This allows themes to be specific application. For example, a theme might specialize in one of those goals:
-
-- building a documentation site, like the one you’re reading now
-- building an e-commerce
-- build a blog
-- build a portfolio
-
-or a theme can allow its users to build all of them, but usually a fine-tuned theme thought for a single goal can satisfy that goal better than a generic theme.
-
-## Using Custom Page Template
-
-A page file is used by a page by setting its markdown file name, e.g. `blog.md`, `default.md` or `form.md`.
-
-Each of those files will use a different page file. You can also change the file type by [using the template header property](http://learn.getgrav.org/content/headers#template).
-
-## Page Templates and the Admin Plugin
-
-The template used by a page not only determines the "look and feel" in the frontend, but also determines how the Admin Plugin will render it, allowing you to add options, select boxes, custom inputs, toggles.
-
-How do to it? In your theme, add a `blueprints/` folder and add a YAML file with the name of the page template you added. For example if you add a `gallery` page template. add a `blueprints/gallery.yaml` file.
-
 
 ### Extend from the default page, and add some options
 
@@ -108,6 +76,7 @@ form:
 ```
 
 The fields types you can add are listed in [Available form fields for use in the admin](http://learn.getgrav.org/advanced/blueprints#available-form-fields-for-use-in-the-admin)
+
 
 ### Create a completely custom page form
 
