@@ -4,12 +4,11 @@ taxonomy:
     category: docs
 ---
 
-### Extend from the default page, and add some options
+**Page Blueprints** extend from the default page, and give you the ability to add options. Basically, custom pages can come to life by using page blueprints. With a page blueprint, you can 100% configure the editing form for a page as it appears in the Admin.
 
-With a page blueprint you can 100% configure the page editing form.
 If you want to use the default page form, and just add a couple of select boxes for example, you can extend from the default page.
 
-This will use the default page form, and append a text field to the "Advanced" tab:
+This will use the default page form, and append a text field to the **Advanced** tab:
 
 ```yaml
 title: Gallery
@@ -37,7 +36,7 @@ form:
                     type: int
 ```
 
-This will instead add a new tab, called 'Gallery', with some fields in it.
+This will instead add a new tab, called **Gallery**, with some fields in it.
 
 ```yaml
 title: Gallery
@@ -75,15 +74,15 @@ form:
                 three: Three
 ```
 
-The fields types you can add are listed in [Available form fields for use in the admin](http://learn.getgrav.org/advanced/blueprints#available-form-fields-for-use-in-the-admin)
+The fields types you can add are listed in [Available form fields for use in the admin](../reference-fields-available)
 
 ### Field naming
 
-It's important that fields use the `header.*` structure, so field content is saved to the Page Header when saved.
+It's important that fields use the `header.*` structure, so field content is saved to the **Page Header** when saved.
 
 ### Create a completely custom page form
 
-You can avoid extending from the default form, and add just the fields you want.
+You can avoid extending from the default form, and create a page form that is completely unique.
 
 For example:
 
@@ -132,4 +131,4 @@ form:
 
 ## Expert mode
 
-When editing pages in Expert mode, the Blueprint is not read, and the page form is the same across all pages. This is because in Expert mode you edit the page fields directly in the "Frontmatter" field, and there's no need to have a customized presentation.
+When editing pages in **Expert** mode, the **Blueprint** is not read, and the page form is the same across all pages. This is because in Expert mode you edit the page fields directly in the **Frontmatter** field, and there is no need to have a customized presentation.

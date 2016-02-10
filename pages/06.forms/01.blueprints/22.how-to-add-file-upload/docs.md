@@ -1,5 +1,5 @@
 ---
-title: Howto: Add a file upload
+title: How to: Add a file upload
 taxonomy:
     category: docs
 ---

@@ -1,5 +1,5 @@
 ---
-title: Howto: Forms in modular pages
+title: How to: Forms in modular pages
 taxonomy:
     category: docs
 ---
