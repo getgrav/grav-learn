@@ -6,7 +6,7 @@ taxonomy:
 
 ## Which fields you can use
 
-The Forms plugin comes with
+The Forms plugin comes with:
 
 - **Captcha**: a captcha antispam field, using reCAPTCHA
 - **Checkbox**: a simple checkbox
