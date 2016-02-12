@@ -34,7 +34,17 @@ For example: `01.your-modular-page/_contact/form.md`
 
 The `form.md` page will not contain any form definition. It’s just an indication that this is the part that should output the form.
 
-Add the form header to the main modular page, `modular.md`
+Important: set
+
+```
+---
+cache_enable: false
+---
+```
+
+in that page frontmatter header, because of how modular pages work, if you forget this the form will be cached, along with the nonce that is generated every 12 hours. So when reaching the 12 hours change, the form will stop working until the cache is refreshed. This step is not needed for standalone page forms.
+
+Now add the form header to the main modular page, `modular.md`
 
 The modular.md page should contain the whole form definition, with fields etc, as if it was a “full-page” form.md file header. With its own page path as the `form.action` field.
 
