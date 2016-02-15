@@ -10,7 +10,7 @@ To get an understanding of how the **Forms** plugin works, let's start by going 
 
 ## Create a simple form
 
-Every page in a Grav site can host a form. Adding a form to a page is very simple. 
+Every page in a Grav site can host a form. Adding a form to a page is very simple.
 
 To add a form to a page, name the page file as you would any page. In our example, we use the name `form.md` for simplicity. The form is defined in the page's YAML frontmatter.
 
@@ -77,5 +77,3 @@ What this does is simple: It executes the passed actions in series.
 2. A file is created in `user/data` to store the form input data. The template is defined in `forms/data.txt.twig` of the theme in use.
 
 3. The `thankyou` subpage is shown, along with the passed message. The `thankyou` page must be a subpage of the page containing the form.
-
-> TODO: add more examples and explanations
