@@ -1,6 +1,6 @@
 ---
 title: Heroku
-menu: heroku
+menu: Heroku
 visible: true
 taxonomy:
     category: docs
