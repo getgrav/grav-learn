@@ -203,7 +203,7 @@ This returns a page object as specified by a route URL.
 
 ##### collection()
 
-This returns the collection of pages for this context as determined by the [collection page headers](../../content/headers).
+This returns the collection of pages for this context as determined by the [collection page headers](../../content/collections).
 
 ```
 {% for child in page.collection %}

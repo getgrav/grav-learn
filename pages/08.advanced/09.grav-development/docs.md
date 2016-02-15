@@ -113,7 +113,7 @@ The GetGrav.org site uses a custom ChangeLog format that is written in standard 
 ...repeat...
 ```
 
-Each section `#new, #improvement, #bugfix` are optional, just include the sections you need.
+Each section `#new, #improved, #bugfix` are optional, just include the sections you need.
 
 ## GitHub Setup
 
