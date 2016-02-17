@@ -282,7 +282,8 @@ fr:
 If you wish to override a particular translation, simply put the modified key/value pair in an appropriate language file in your `user/languages/` folder.  For example a file called `user/languages/en.yaml` could contain:
 
 ```
-PLUGIN_ERROR.TITLE: My Error Plugin
+PLUGIN_ERROR:
+  TITLE: My Error Plugin
 ```
 
 This will ensure that you can always override a translation string without messing around with the plugins or themes themselves, and also will avoid overwriting a custom translation when updating them.
