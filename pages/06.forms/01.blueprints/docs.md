@@ -4,75 +4,81 @@ taxonomy:
     category: docs
 ---
 
-**Blueprints** are an important aspect of a plugin and theme. They serve two purposes and we are going to cover them both.
+1. [What is a Blueprint?](#what-is-a-blueprint)
+1. [Types of Blueprints](#types-of-blueprints)
+1. [Components of a Blueprint](#components-of-a-blueprint)
 
-The honest truth is that if you are not a developer, and just use Grav, then you could live without knowing that Blueprints even existed and you should not care much about them.
+## What is a Blueprint?
 
-Blueprints are a container of metadata information regarding a resource. The first set of metadata information is the identity of the resource itself, the second set is about the forms. All this information is stored in a `blueprints.yaml` file and can be found at the root of each plugin and theme.
+Blueprints are an important aspect of Grav. They are essentially the foundation of a theme or plugin's interaction with the Grav admin. They tell Grav what a theme or plugin is, its name, where it can be found on GitHub, etc. It also generates the configuration options for that theme or plugin in the Grav admin. 
 
-## Resource Identity
+A Blueprint is defined in a YAML file, and can generally host properties as well as form definitions.
 
-Each plugin and theme identity is defined in the `blueprints.yaml` file. Without properly formatted and compiled Blueprints, a resource won't be added in the Grav repository. Consequently, it won't be available through [Grav downloads](http://getgrav.org/downloads) and [GPM](../grav-gpm).
+The vast majority of Grav users will never have to work with Blueprints. Simply put, they determine how plugins and themes appear in the back-end of the site. For most users, this is where they pick up, configuring their themes and plugins using the Grav admin or manipulating options within the theme or plugin's primary YAML file.
 
-## Blueprints Example
+The folks that will work the most with Blueprints are developers that are creating new themes and plugins and customizing a resource's options in the back end. They're a powerful tool that defines what your resource is, where Grav can find updates for it, and what configuration options you should be able to set in the back end.
 
-```
-name: Assets
-version: 1.0.4
-description: "This plugin provides a convenient way to add CSS and JS assets directly from your pages."
-icon: list-alt
-author:
-  name: Team Grav
-  email: devs@getgrav.org
-  url: http://getgrav.org
-homepage: https://github.com/getgrav/grav-plugin-assets
-demo: http://learn.getgrav.org
-keywords: assets, javascript, css, inline
-bugs: https://github.com/getgrav/grav-plugin-assets/issues
-license: MIT
+## Types of Blueprints
 
-dependencies:
-  - afterburner2
-  - github: https://github.com/getgrav/grav-plugin-github.git
-  - email: https://rhuk@bitbucket.org/rockettheme/grav-plugin-email.git
+Grav uses Blueprints to:
 
-form:
-  validation: strict
-  fields:
-    enabled:
-      type: toggle
-      label: Plugin status
-      highlight: 1
-      default: 0
-      options:
-        1: Enabled
-        0: Disabled
-      validate:
-        type: bool
-```
+- define themes and plugins information.
+- define theme/plugin configuration options to be shown in the Admin.
+- define the Pages forms in the Admin.
+- define the options shown in the Configuration Admin section.
 
-There are different properties that you can use to give your resource an identity. Some are **required**, others are _optional_.
+At this point, we will break down additional details about how Blueprints work in Grav.
 
-|      property     |                                                                                                                                                                                description                                                                                                                                                                                |
-| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| __name*__         | This is the name of the resource. Avoid appending Plugin or Theme, there is no need for that.                                                                                                                                                                                                                                                                              |
-| __version*__      | The version of the resource. This value should always change on each release, incrementally. You should follow the [semver](http://semver.org/) standard, too.                                                                                                                                                                                                            |
-| __description*__  | The description of your resource. Please don't exceed **200** characters. A description should be short and straight to the point. You can use markdown syntax if needed. It's also a good idea to wrap your description in quotation marks.                                                                                                                              |
-| __icon*__         | Icon is what will be used on [getgrav.org](http://getgrav.org). At this stage, we are using [FontAwesome](http://fortawesome.github.io/Font-Awesome/icons/) icons library, so if you are developing a new plugin or theme, it should be your job to ensure the icon you picked is not already used. Otherwise we will have to change it for you.                          |
-| _screenshot_      | _(optional)_ Screenshot is only ever evaluated for _Themes_ and completely ignored for _Plugins_. For _Themes_, this would be the filename of the screenshot that comes with the theme (default: `screenshot.jpg`). If you have a _screenshot.jpg_ image at the root of your theme, then you can avoid using this property. Our repository will automatically pick it up. |
-| __author.name*__  | The developer full name                                                                                                                                                                                                                                                                                                                                                   |
-| _author.email_    | _(optional)_ The developer email.                                                                                                                                                                                                                                                                                                                                                      |
-| _author.url_      | _(optional)_ The developer homepage.                                                                                                                                                                                                                                                                                                                                      |
-| _homepage_        | _(optional)_ If you have a dedicated homepage for your resource, this would be the place for it.                                                                                                                                                                                                                                                                          |
-| _docs_            | _(optional)_ If you have written documentation for your resource, you can link them here.                                                                                                                                                                                                                                                                                 |
-| _demo_            | _(optional)_ If you have a demo up and running about your resource, link it here.                                                                                                                                                                                                                                                                                         |
-| _guide_           | _(optional)_ If you have tutorials or how-to guides for your resource, link it here.                                                                                                                                                                                                                                                                                      |
-| _keywords_        | _(optional)_ Although there is no real use of keywords yet, you can list keywords relative to your resource here, comma separated.                                                                                                                                                                                                                                        |
-| _bugs_            | _(optional)_ The URL where bugs can be reported, usually this would be the [GitHub issues](https://guides.github.com/features/issues/) link.                                                                                                                                                                                                                              |
-| _license_         | _(optional)_ The type of license your resource is (MIT, GPL, etc). It is adviced that you always provide a `LICENSE` file with your resource.                                                                                                                                                                                                                             |
-| _dependencies_    | _(optional)_ A list of dependencies that the plugin/theme requires.  The default process is to use GPM to install them, however, if an optional GIT repository URL is provided, installing direct from the repository will be an option also. |
+#### Themes and Plugins
 
-Here is an example of the identity portion of the [github plugin](http://github.com/getgrav/grav-plugin-github) Blueprints:
+When used with themes and plugins, the convention is to put a **blueprints.yaml** in the package. Doing this tells Grav the metadata of that resource, which introduces it to the Grav admin.
+
+A **blueprints.yaml** file is an important part of any theme and plugin. It's essential for the GPM (Grav Package Manager) system. GPM uses the information stored in the blueprint to make the plugin available to users.
+
+In our [example plugin blueprint](example-plugin-blueprint.md), we dive into the blueprint of the **Assets** plugin. This blueprint sets the name, author information, keywords, home page, bug report link, and other metadata that not only tells Grav where it can locate updates for the plugin, but to provide a useful resource to the user accessible from the Grav Admin.
+
+Once this information is given, further down in the Blueprint's page, you find forms information. This information creates the Admin Forms that are accessible by the user in the backend of Grav. For example, if you wanted to add a toggle that enables or disables a particular feature of that plugin, you would add it here.
+
+![Admin Forms](blueprints_1.png?classes=shadow)
+
+The **blueprints.yaml** file works with the plugin's named YAML file (example: **assets.yaml**). The blueprint sets what the configurable options are, and the resource's self-named named YAML file sets their values. It's this named YAML file that is then duplicated to the Grav instance's `user/config` section to override these defaults either manually or through the Grav admin.
+
+So essentially, when it comes to any configuration option for a theme or plugin, the **blueprints.yaml** file defines it, and the named YAML file for that resource tells you what it is set at.
+
+#### Pages
+
+Grav Pages can really be anything. A page can be a blog listing, a blog post, a product page, an image gallery, etc.
+
+What determines what a page should do and how it should appear is the **Page Blueprint**.
+
+Grav provides some basic Page Blueprints: Default and Modular. Those are the two main building blocks of Grav.
+
+Additional page Blueprints are added and setup by the theme, which might decide to add as many page Blueprints as possible, or focus on some particular Page blueprints focused on what it needs to do.
+
+A Grav theme is much more flexible and powerful than what you might be used to on other platforms.
+
+This allows themes to be specific application. For example, a theme might specialize in one of those goals:
+
+- building a documentation site, like the one you are reading now.
+- building an e-commerce site.
+- build a blog.
+- build a portfolio site.
+
+A theme can also allow its users to build all of them, but usually a fine-tuned theme created for a single purpose can satisfy that goal better than a generic theme.
+
+A page file is used by a page by setting its markdown file name, e.g. `blog.md`, `default.md` or `form.md`.
+
+Each of those files will use a different page file. You can also change the file type by [using the template header property](http://learn.getgrav.org/content/headers#template).
+
+The template used by a page not only determines the "look and feel" in the frontend, but also determines how the Admin Plugin will render it, allowing you to add options, select boxes, custom inputs, toggles.
+
+How do to it? In your theme, add a `blueprints/` folder and add a YAML file with the name of the page template you added. For example if you add a `blog` page template. add a `blueprints/blog.yaml` file. You can find an [example of this directory in the **Antimatter** theme](https://github.com/getgrav/grav-theme-antimatter/tree/develop/blueprints).
+
+## Components of a Blueprint
+
+There are two sets of information presented in a **blueprints.yaml** file. The first set of metadata information is the identity of the resource itself, the second set is about the forms. All this information is stored in a single **blueprints.yaml** file stored at the root of each plugin and theme.
+
+Here is an example of the metadata portion of a **blueprints.yaml** file:
 
 ```yaml
 name: GitHub
@@ -89,197 +95,28 @@ bugs: https://github.com/getgrav/grav-plugin-github/issues
 license: MIT
 ```
 
+As you can see here, this area contains a lot of general identifying information about the plugin, including its name, version number, description, author information, license, keywords, and URLs where you can find more information or report bugs. You can see this section in action in the screenshot taken from the Grav Admin below.
 
-## Forms
+![Admin Forms](blueprints_2.png?classes=shadow)
 
-The **Forms** metadata defines what aspect of the resource is configurable through the **Admin Plugin**.
-
-If you want your plugin, or theme, to have options directly configurable from the admin interface, you need to fill the blueprints.yaml file with forms.
-
-For example, here's the Archives plugin archives.yaml file:
+The next section is the forms area, which is just a couple spaces below the data listed above. This area of the blueprint generates forms and fields used to configure the plugin from the Grav Admin. Here is a quick example of this area of the **blueprints.yaml** file.
 
 ```yaml
-enabled: true
-built_in_css: true
-date_display_format: 'F Y'
-show_count: true
-limit: 12
-order:
-    by: date
-    dir: desc
-filter_combinator: and
-filters:
-    category: blog
-```
-
-Those are the default settings of the plugin. Without the Admin plugin, to configure those setting the user needs to copy this file in the `/user/config/plugins/archives.yaml` folder and change them there.
-
-By providing a correctly filled blueprints.yaml file, you can allow the user to change the settings from the Admin interface. When the settings are saved, they're automatically written to `/user/config/plugins/archives.yaml` (or under config/themes, if it's a theme). The structure starts as follows:
-
-```
-name: Archives
-version: 1.3.0
-description: The **Archives** plugin creates links for pages grouped by month/year
-icon: university
-author:
-  name: Team Grav
-  email: devs@getgrav.org
-  url: http://getgrav.org
-homepage: https://github.com/getgrav/grav-plugin-archives
-demo: http://demo.getgrav.org/blog-skeleton
-keywords: archives, plugin, blog, month, year, date, navigation, history
-bugs: https://github.com/getgrav/grav-plugin-archives/issues
-license: MIT
-
 form:
   validation: strict
   fields:
+    enabled:
+        type: toggle
+        label: Plugin status
+        highlight: 1
+        default: 1
+        options:
+            1: Enabled
+            0: Disabled
+        validate:
+            type: bool
 ```
 
-Here comes the part that we need. Every field in the archives.yaml file needs a corresponding form element, for example:
+This area of the file creates any administrative options accessible in the Grav Admin. In this particular instance, we have created a simple **Plugin Status** toggle which lets the user enable or disable the plugin from the admin (pictured below).
 
-**Toggle**
-
-```yaml
-enabled:
-  type: toggle
-  label: Plugin status
-  highlight: 1
-  default: 1
-  options:
-      1: Enabled
-      0: Disabled
-  validate:
-       type: bool
-```
-
-**Select**
-
-```yaml
-date_display_format:
-  type: select
-  size: medium
-  classes: fancy
-  label: Date Format
-  default: 'jS M Y'
-  options:
-    'F jS Y': "January 1st 2014"
-    'l jS of F': "Monday 1st of January"
-    'D, m M Y': "Mon, 01 Jan 2014"
-    'd-m-y': "01-01-14"
-    'jS M Y': "10th Feb 2014"
-```
-
-**Text**
-
-```yaml
-limit:
-  type: text
-  size: x-small
-  label: Count Limit
-  validate:
-    type: number
-    min: 1
-```
-
-The root element (in those examples `enabled`, `date_display_format`, `limit`) is the name of the option. The rest of each field determines how this field is displayed (`type`), its size (`size`), the label shown (`label`) and an optional help to show on hover (`help`). `default` and `placeholder` let you create some defaults and improve how the fields renders to the user.
-
-The rest of the fields can change depending on the field type. For example the `select` field type requires and `options` list.
-
-Nested options are reachable via dot notation (e.g. `order.dir`)
-
-```yaml
-order.dir:
-  type: toggle
-  label: Order Direction
-  highlight: asc
-  default: desc
-  options:
-    asc: Ascending
-    desc: Descending
-```
-
-The Admin plugin defines many other field types that can be used, in `plugins/admin/themes/grav/templates/forms/fields`.
-
-It's important to note that when `form.validation` is set to `strict`, like in the Archives plugin example, you need to add form blueprints for _all_ the options, otherwise an error will pop up on save.
-If you instead want to just allow to customize a couple of fields to the Admin interface, not all of them, set `form.validation` as `loose`.
-
-## Available form fields for use in the admin
-
-Plugins and themes can take advantage of the built-in form fields, or build their own.
-
-Here's a list of the available form fields:
-
-### Common form fields
-
-- **Captcha**: a captcha antispam field, using reCAPTCHA
-- **Checkbox**: a simple checkbox
-- **Checkboxes**: a serie of checkboxes
-- **Date**: a date selection field
-- **Datetime**: a date and time selection field
-- **Display**: a text or instructions field (not an input field)
-- **Email**: an email field, with validation
-- **File**: a file upload field, with validation
-- **Hidden**: an hidden field
-- **Password**: a password field
-- **Radio**: a radio input type
-- **Select**: a select field
-- **Spacer**: used to add a title, text or an horizontal line to the form
-- **Text**: a simple text field
-- **Textarea**: a textarea
-
-### Special form fields available only in admin
-
-- **Array**: a special field used for example in the Page Metadata. Allows the user to add multiple key-value rows.
-- **Ignore**: used to remove unused fields when extending from another blueprint
-- **Columns**: used to break the form in multiple columns
-- **Column**: used to show a single column (used with the `Columns` field)
-- **Dateformat**: a special select that renders the current datetime in the passed formats
-- **Display**: simply shows a text value, with no input field
-- **File**: in Admin, File is specialized to be used in Plugin and Theme configurations (Blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration
-- **Frontmatter**: show the page frontmatter in a raw format
-- **List**: similar to `Array`, shows a list of items, but without a key
-- **Markdown**: show a markdown editor
-- **PageMediaSelect**: shows a select with all the page media. Used in Pages blueprints to let the user choose a media file to be assigned to a field.
-- **Pages**: shows a list of the site pages
-- **Section**: used to divide a setting page into sections; each section comes with a title
-- **Selectize**: a hybrid of a textbox and a select box. Mostly useful for tagging and other element picking fields.
-- **Tabs**: divides the settings in a list of tabs
-- **Tab**: used by the `Tabs` field to render a tab
-- **Taxonomy**: a special select preconfigured to select one or more taxonomies
-- **Toggle**: a on/off kind of input, with configurable labels
-
-### File Uploads
-
-Starting with the next Admin plugin release, you'll be able to add file upload functionality in Plugins and Themes blueprints.
-
-Example usage:
-
-```
-custom_file:
-  type: file
-  label: A Label
-  destination: 'user/plugins/my-plugin/assets'
-  blueprint: 'plugins.admin-pro'
-  accept:
-    - image/*
-```
-
-```
-custom_file:
-  type: file
-  label: A Label
-  destination: 'user/themes/my-theme/assets'
-  blueprint: 'themes.mytheme'
-  accept:
-    - image/*
-```
-
-For pages, you cannot use the `file` type, but you use the special field for pages called `pagemediaselect`. It allows users to choose a media from one of the page media already uploaded through FTP or using the page media manager.
-Example usage:
-
-```
-header.img_link:
-  label: Choose media
-  type: pagemediaselect
-```
+![Admin Forms](blueprints_3.png?classes=shadow)
