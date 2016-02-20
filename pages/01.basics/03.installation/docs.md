@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Installation of Grav is a trivial process. In fact, there is no real installation.  You have **three** options for installing Grav.  The first - and simplest - way is to simply download the **zip** archive, and extract it. The other way is to clone the source project directly from **GitHub**, and then run an included script command to install needed dependencies:
+Installation of Grav is a trivial process. In fact, there is no real installation.  You have **three** options for installing Grav.  The first - and simplest - way is to simply download the **zip** archive, and extract it. The second way is to install with conposer. The third way is to clone the source project directly from **GitHub**, and then run an included script command to install needed dependencies:
 
 ## Check for PHP version
 
