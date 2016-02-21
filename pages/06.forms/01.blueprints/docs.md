@@ -35,7 +35,7 @@ When used with themes and plugins, the convention is to put a **blueprints.yaml*
 
 A **blueprints.yaml** file is an important part of any theme and plugin. It's essential for the GPM (Grav Package Manager) system. GPM uses the information stored in the blueprint to make the plugin available to users.
 
-In our [example plugin blueprint](example-plugin-blueprint.md), we dive into the blueprint of the **Assets** plugin. This blueprint sets the name, author information, keywords, home page, bug report link, and other metadata that not only tells Grav where it can locate updates for the plugin, but to provide a useful resource to the user accessible from the Grav Admin.
+In our [example plugin blueprint](example-plugin-blueprint), we dive into the blueprint of the **Assets** plugin. This blueprint sets the name, author information, keywords, home page, bug report link, and other metadata that not only tells Grav where it can locate updates for the plugin, but to provide a useful resource to the user accessible from the Grav Admin.
 
 Once this information is given, further down in the Blueprint's page, you find forms information. This information creates the Admin Forms that are accessible by the user in the backend of Grav. For example, if you wanted to add a toggle that enables or disables a particular feature of that plugin, you would add it here.
 
