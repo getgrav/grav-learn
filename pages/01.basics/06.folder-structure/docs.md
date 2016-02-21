@@ -76,8 +76,6 @@ This is the most important folder for the majority of people. This is where you 
 
 The `accounts` folder is where you will define any user accounts you may need if you wish to restrict access to portions of your site.
 
-! This is currently a placeholder folder until this functionality is fully developed.
-
 ### /user/config
 
 The [configuration files](../grav-configuration) are used to configure the web site and have been discussed in the previous chapter.
