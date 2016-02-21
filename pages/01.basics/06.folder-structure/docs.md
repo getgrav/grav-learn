@@ -90,6 +90,10 @@ The `data` folder can be used by plugins to store data that you can reference la
 
 This is the heart of Grav. The `pages` folder is where you create and edit your content.  We will go into much more depth in the [next section](../../content).
 
+### /user/plugins
+
+A plugin can extend the fast core of Grav with particular features you may need for your Website. Plugins can be downloaded from [GetGrav.org/downloads/plugins](https://getgrav.org/downloads/plugins) or you can [develop one](../../plugins/plugin-tutorial).
+
 ### /user/themes
 
-A theme turns your content into a true website.  It converts the content you have constructed into the HTML that a browser understands and can represent visually to your audience.  There is a base theme that is provided with Grav, and you can also download others from the [GetGrav.org](http://getgrav.org) web site, or even create your own.  The [Themes](../../themes) section will outline this in detail.
+A theme turns your content into a true website.  It converts the content you have constructed into the HTML that a browser understands and can represent visually to your audience.  There is a base theme that is provided with Grav, and you can also download others from [GetGrav.org/downloads/themes](https://getgrav.org/downloads/themes), or even create your own.  The [Themes](../../themes) section will outline this in detail.
