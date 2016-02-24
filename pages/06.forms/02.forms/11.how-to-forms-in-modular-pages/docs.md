@@ -6,25 +6,8 @@ taxonomy:
 
 ## Using forms in modular pages
 
-Forms in modular pages are a bit different than regular forms.
-To add a form inside a modular page, follow those steps:
+If your theme does not provide a `templates/forms/form.html.twig` file, it's not setup to use forms, but no fear - just copy the form templates from Antimatter, the default Grav theme:
 
-In your theme, add a `templates/modular/form.html.twig` file copying `templates/forms/form.html.twig`
-
-An example of its content could be:
-
-```
-{% block content %}
-    {{ content }}
-    {% include "forms/form.html.twig" %}
-{% endblock %}
-```
-
-Of course you can personalize it, as long as you include the Form twig.
-
-If your theme does not provide a `templates/forms/form.html.twig` file, it's not setup to use forms, but no fear - just copy the form-related files from Antimatter, the default Grav theme:
-
-- `templates/forms/*`
 - `templates/form.html.twig`
 - `templates/formdata.html.twig`
 
