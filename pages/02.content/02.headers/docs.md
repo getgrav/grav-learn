@@ -88,7 +88,7 @@ By default, a page is **visible** in the **navigation** if the surrounding folde
 ssl: true
 ```
 
-As of Grav 1.0.9 you can now enable a specific page to be forced with SSL **on** or **off**.  This **only works** with the `absolute_urls: true` option set in the `system.yaml` configuration.  This is because to be able to switch back and forth between SSL and non-SSL pages, you must be using full URLs with the protocol and host included.
+As of Grav **1.0.9** you can now enable a specific page to be forced with SSL **on** or **off**.  This **only works** with the `absolute_urls: true` option set in the `system.yaml` configuration.  This is because to be able to switch back and forth between SSL and non-SSL pages, you must be using full URLs with the protocol and host included.
 
 ### Redirect
 
@@ -102,7 +102,7 @@ or
 redirect: 'http://someexternalsite.com'
 ```
 
-As of Grav **0.9.41** can now redirect to another internal or external page right from a page header.  Of course this means this page will not be displayed, but the page can still be in a collection, menu, etc because it will exist as a page within Grav.
+As of Grav **0.9.41** you can now redirect to another internal or external page right from a page header.  Of course this means this page will not be displayed, but the page can still be in a collection, menu, etc because it will exist as a page within Grav.
 
 As of Grav **1.0.0** you can also append a redirect code to a URL by using square brackets:
 
@@ -270,7 +270,7 @@ Enable or disable on a page level whether or not to display an ETag header varia
 last_modified: true
 ```
 
-Enable or disable on a page level whether or not to display an Last Modified header variable with modified date. False by default unless overridden in your `system.yaml`.
+Enable or disable on a page level whether or not to display a Last Modified header variable with modified date. False by default unless overridden in your `system.yaml`.
 
 
 ## Meta Page Headers
@@ -373,7 +373,7 @@ sitemap:
     priority: 1.03
 ```
 
-The significance of these headers is that Grav does not use them by default, they are only read by the **sitemap plugin** to determine how often this particular page is modified and what its priority should be.
+The significance of these headers is that Grav does not use them by default. They are only read by the **sitemap plugin** to determine how often this particular page is modified and what its priority should be.
 
 Any page header such as this should be documented, and generally there will be some default value that will be used if the page does not provide it.
 
