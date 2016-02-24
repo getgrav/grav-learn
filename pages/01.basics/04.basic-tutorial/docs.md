@@ -51,10 +51,6 @@ When you edit the page in a text editor, the content will look something like th
     * Download **plugins**, **themes**, as well as other Grav **skeleton** packages from the [Grav Downloads](http://getgrav.org/downloads) page.
     * Check out our [Grav Development Blog](http://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
 
-    ## Create a new page
-
-    !!!! TODO: Walk through the process of creating a new page with title + content with simple markdown
-
 Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers](../../content/headers), and these are written in a very simple format called [YAML](../../advanced/yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.
 
 ```ruby
@@ -75,12 +71,6 @@ Congratulations! You have installed the **Base Grav Package** that provides a **
 ```
 
 This is a simple paragraph that would have been wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicate bold text or `<b>` in HTML.  Italic text is indicated by wrapping text in `_` markers.
-
-```markdown
->>>>> If you want a more **full-featured** base install, you should check out [**Skeleton** packages available in the downloads](http://getgrav.org/downloads).
-```
-
-This is a special feature provided by the default Grav theme.  Usually in Markdown, a `>` indicates a `<blockquote>` in HTML.  We have overridden three level deep blockquotes and onwards to provide [styling for notices](../../content/markdown). In this case, 5 chevrons, or `>>>>>` will produce a blue notice box. Within this blue notice styling, we also have some text that is wrapped in brackets or `[` and `]` markers followed by a URL in parenthesis `(` and `)`.  This is the markdown syntax for hyperlinking text.  It is very simple when you get the hang of it.
 
 ```markdown
 * Learn about **Grav** by checking out our dedicated [Learn Grav](http://learn.getgrav.org) site.
