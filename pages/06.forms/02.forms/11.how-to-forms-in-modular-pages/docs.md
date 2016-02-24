@@ -83,5 +83,6 @@ The Deliver skeleton has a modular form page ready to see while reading this tut
 
 The best way to troubleshoot a form is to first get back to the roots, and add your customizations one-by-one to see what might be going wrong.
 
-- First, I suggest creating a "regular form", making sure it works, then try putting that into a modular form.
-- Second, try making the form work on an Antimatter-based skeleton, which provides all the files you already need.
+- I suggest creating a "regular form", making sure it works, then try putting that into a modular form.
+- Try making the form work on an Antimatter-based skeleton, which provides all the files you already need.
+- If the form fields do not appear, if you have installed the Assets plugin disable / uninstall it. There's a known issue with it breaking modular forms will be soon fixed.
