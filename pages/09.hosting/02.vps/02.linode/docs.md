@@ -10,7 +10,7 @@ taxonomy:
     category: docs
 ---
 
-[Linode](https://www.linode.com) has been in the VPS game for quite some time and focus on providing **lightning-quick SSD equipped Linux servers** for developers.  There is a quick and easy process to getting a server up and running that involves: picking a **pricing plan**, picking a **Linux distribution**, and then choosing a **node location** that is best suited to your needs.
+[Linode](https://www.linode.com/?r=300c424631b602daaa0ecef22912c1c26c81e3af) has been in the VPS game for quite some time and focus on providing **lightning-quick SSD equipped Linux servers** for developers.  There is a quick and easy process to getting a server up and running that involves: picking a **pricing plan**, picking a **Linux distribution**, and then choosing a **node location** that is best suited to your needs.
 
 ![](linode.png) {.center}
 
@@ -30,7 +30,7 @@ The creation of your server should take about 30 seconds, and after that you can
 
 ![](booted.png) {.center}
 
-You can click on the **Remote Access** tab in the Linode Manager to get relevant information about how to remotely connect to the VPS instance you have just setup.  You can can SSH via the command provided in this tab using the password you entered when you created the distribution instance. Public key authentication is recommended, and Linode has good [SSH public key authentication documentation](https://www.linode.com/docs/security/use-public-key-authentication-with-ssh) that walks you through the steps required.
+You can click on the **Remote Access** tab in the Linode Manager to get relevant information about how to remotely connect to the VPS instance you have just setup.  You can can SSH via the command provided in this tab using the password you entered when you created the distribution instance. Public key authentication is recommended, and Linode has good [SSH public key authentication documentation](https://www.linode.com/docs/security/use-public-key-authentication-with-ssh?r=300c424631b602daaa0ecef22912c1c26c81e3af) that walks you through the steps required.
 
 ---
 
