@@ -294,7 +294,7 @@ Takes a Github Gist ID and creates appropriate Gist embed code
 
 Will generate a random string of the required number of characters.  Particularly useful in creating a unique id or key.
 
-`generate_random_string(10)` <i class="fa fa-long-arrow-right"></i> **{{ random_string(10) }}**
+`random_string(10)` <i class="fa fa-long-arrow-right"></i> **{{ random_string(10) }}**
 
 ##### Repeat
 
