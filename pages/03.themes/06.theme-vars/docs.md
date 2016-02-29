@@ -58,7 +58,7 @@ The **page object** is probably _the_ most important object you will work with a
 
 ##### summary([size])
 
-This returns a truncated or shortened version of your content.  You can provide an optional `size` parameter to specify the number of words.  Alternatively, if no size is provided, the value can be obtained via the site-wide variable `summary.size` from your `site.yaml` configuration.
+This returns a truncated or shortened version of your content.  You can provide an optional `size` parameter to specify the maximum length of the summary, in characters.  Alternatively, if no size is provided, the value can be obtained via the site-wide variable `summary.size` from your `site.yaml` configuration.
 
 ```
 {{ page.summary }}
