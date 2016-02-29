@@ -55,7 +55,7 @@ Some fields allow specific parameters. Listed here:
 - **select** allows `multiple` to allow accepting multiple values
 - **select** and **checkboxes** use the `options` field to set the available options.
 - **display** accepts `content` to set the content to show. Set `markdown` to true to parse the markdown in `content`.
-- **captcha** accepts `recatpcha_site_key` and `recaptcha_not_validated`.
+- **captcha** accepts `recaptcha_site_key` and `recaptcha_not_validated`.
 - **file** accepts a `files` object with `destination`, `multiple` and `accept` properties
 
 Examples:
@@ -116,7 +116,7 @@ form fields as `g-recaptcha-response`, e.g.:
     name: g-recaptcha-response
     label: Captcha
     type: captcha
-    recatpcha_site_key: ij3eoij3oirj3oiejio3wjeioje
+    recaptcha_site_key: ij3eoij3oirj3oiejio3wjeioje
     recaptcha_not_validated: 'Captcha not valid!'
     validate:
         required: true
@@ -127,7 +127,7 @@ To also validate the captcha server-side, add the captcha process action.
 ```
     process:
         - captcha:
-            recatpcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
+            recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
 ```
 
 In this way, the frontend validation will work out of the box.

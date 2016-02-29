@@ -129,7 +129,7 @@ To also validate the captcha server-side, add the captcha process action.
 ```
     process:
         - captcha:
-            recatpcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
+            recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
 ```
 
 ## Add your own custom processing to a form
