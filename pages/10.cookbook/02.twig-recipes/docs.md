@@ -11,6 +11,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Displaying a translated month](#displaying-a-translated-month)
 1. [Displaying page content without summary](#displaying-page-content-without-summary)
 1. [Hiding the email to spam bots](#hiding-the-email-to-spam-bots)
+1. [Picking a random item from a translated array](#picking-a-random-item-from-a-translated array)
 
 ### List the last 5 recent blog posts
 
@@ -138,4 +139,33 @@ Then use the `safe_email` Twig filter:
 <a href="mailto:{{'your.email@server.com'|safe_email}}">
   Email me
 </a>
+```
+
+### Picking a random item from a translated array
+
+##### Problem:
+
+You want to pick a random item from an array translated in a particular language.  For this to work, it's assumed you have your [multi-language site setup and configured](../../content/multi-language) as outlined in the documentation.
+
+##### Solution:
+
+Let's also assume you have some language translations setup in your `user/languages/` folder called `en.yaml` that contains the entry:
+
+```
+FRUITS: [Banana, Cherry, Lemon, Lime, Strawberry, Raspberry]
+```
+
+And in `fr.yaml`:
+
+```
+FRUITS: [Banana, Cerise, Citron, Citron Vert, Fraise, Framboise]
+```
+
+Then you have your Twig:
+
+```
+{% set langobj  = grav['language'] %}
+{% set curlang  = langobj.getLanguage() %}
+{% set fruits   = langobj.getTranslation(curlang,'FRUITS',true) %}
+<span data-ticker="{{ fruits|join(',') }}">{{ random(fruits) }}</span>
 ```
