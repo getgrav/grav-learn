@@ -30,7 +30,7 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 | '@page.descendants': '/fruit'             | Get and recurse through all the children of page '/fruit' |
 |                                           |                                                           |
 | '@taxonomy.tag': photography              | taxonomy with tag='photography'                           |
-| '@taxonomy': {tag: birds, category: blog} | taxonomy with tag='photography' && category='blog'        |
+| '@taxonomy': {tag: birds, category: blog} | taxonomy with tag='birds' && category='blog'              |
 
 We will cover these more in detail. The `content.items` value tells Grav to gather up a collection of items and information passed to this defines how the collection is to be built.
 
