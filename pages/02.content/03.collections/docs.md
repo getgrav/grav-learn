@@ -26,7 +26,7 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 |                                           |                                                           |
 | '@page': '/fruit'                         | Get all the children of page `/fruit'                     |
 | '@page.children': '/fruit'                | Alternative to above                                      |
-| '@page.self': '/fruit'                    | Get a collecton with only the page `/fruit'               |
+| '@page.self': '/fruit'                    | Get a collection with only the page `/fruit'               |
 | '@page.descendants': '/fruit'             | Get and recurse through all the children of page '/fruit' |
 |                                           |                                                           |
 | '@taxonomy.tag': photography              | taxonomy with tag='photography'                           |
