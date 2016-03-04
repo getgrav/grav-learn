@@ -35,7 +35,7 @@ Usually you'll use a media file within a page, so just put the file in the page 
 
 If you want to put all your images in a single folder, you can put them in a `user/pages/images` folder. That way you can reach them via
 
-`page->find('/images')->media['my-image.jpg']`
+`page.find('/images').media['my-image.jpg']`
 
 and also you can find them easily via markdown and perform operations on them:
 
