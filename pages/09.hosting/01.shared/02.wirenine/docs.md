@@ -141,11 +141,16 @@ Available in Cpanel, Softaculous is a quick-and-easy installation method for Gra
 
 [ui-callout]
 [ui-callout-item title="Download" position="67%, 85%, se"]
-Selecting the download icon will take you to the installation page for Grav.
+Selecting the download icon will take you to the product page for Grav.
 [/ui-callout-item]
 ![](soft_2.png)
 [/ui-callout]
 
 Once there, you can select the blue **Install** button in the upper-left area of the page to begin the installation process. This will take you to a configuration page enabling you to set up your Grav install, including the directory you wish to install it to, and an Admin account so you can hit the ground running in the Grav Admin.
 
+[ui-callout]
+[ui-callout-item title="Download" position="28%, 5%, se"]
+Selecting the download icon will take you to the installation page for Grav.
+[/ui-callout-item]
 ![](soft_3.png)
+[/ui-callout]
