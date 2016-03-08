@@ -146,7 +146,7 @@ Selecting the download icon will take you to the product page for Grav.
 ![](soft_2.png)
 [/ui-callout]
 
-Once there, you can select the blue **Install** button in the upper-left area of the page to begin the installation process. This will take you to a configuration page enabling you to set up your Grav install, including the directory you wish to install it to, and an Admin account so you can hit the ground running in the Grav Admin.
+At this point, you can select the **Downlaod** icon to progress to the main product page for Grav. This page includes additional information, as well as the link where you can install Grav directly to your server.
 
 [ui-callout]
 [ui-callout-item title="Download" position="28%, 5%, se"]
@@ -154,3 +154,9 @@ Selecting the download icon will take you to the installation page for Grav.
 [/ui-callout-item]
 ![](soft_3.png)
 [/ui-callout]
+
+Once there, you can select the blue **Install** button in the upper-left area of the page to begin the installation process. This will take you to a configuration page enabling you to set up your Grav install, including the directory you wish to install it to, and an Admin account so you can hit the ground running in the Grav Admin.
+
+![](soft_4.png)
+
+Once you have configured this page as you would like, you're good to go!
