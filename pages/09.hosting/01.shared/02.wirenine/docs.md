@@ -68,7 +68,7 @@ You will need to re-login to your terminal to get this change picked up.
 
 ## Configuring PHP & Caching
 
-WireNine uses PHP **5.4** by default, but you do have the option to use a newer **5.5** or **5.6** version which is required for Grav.
+WireNine uses PHP **5.4** by default, but you do have the option to use the newer **5.5**, **5.6**, or **7.0** versions. Grav requires at least PHP 5.5.9 to operate.
 
 WireNine provides a very full-featured **cPanel** control panel. This is directly accessible via the **My Accounts** tab.
 
@@ -127,3 +127,25 @@ Cleared:  assets/*
 
 Touched: /home/your_user/public_html/grav/user/config/system.yaml
 ```
+
+## Alternate Install Method: Softaculous
+
+[ui-callout]
+[ui-callout-item title="Portal/CMS" position="67%, 20%, se"]
+Selecting this category will take you to a page where you can find the Grav CMS.
+[/ui-callout-item]
+![](soft_1.png)
+[/ui-callout]
+
+Available in Cpanel, Softaculous is a quick-and-easy installation method for Grav. You will find it at the bottom of your Cpanel dashboard in the **Portals/CMS** category. Once you have selected that category, you can scroll down and find the Grav entry.
+
+[ui-callout]
+[ui-callout-item title="Download" position="67%, 85%, se"]
+Selecting the download icon will take you to the installation page for Grav.
+[/ui-callout-item]
+![](soft_2.png)
+[/ui-callout]
+
+Once there, you can select the blue **Install** button in the upper-left area of the page to begin the installation process. This will take you to a configuration page enabling you to set up your Grav install, including the directory you wish to install it to, and an Admin account so you can hit the ground running in the Grav Admin.
+
+![](soft_3.png)
