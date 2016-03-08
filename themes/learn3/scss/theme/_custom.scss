@@ -231,3 +231,13 @@
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
+
+.hljs::selection,
+.hljs span::selection {
+  background: #8b949e !important;
+}
+
+.hljs::-moz-selection,
+.hljs span::-moz-selection {
+  background: #8b949e !important;
+}
