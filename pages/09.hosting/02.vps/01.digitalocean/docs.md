@@ -28,7 +28,7 @@ Next, **select a Region** where your VPS will be located.  It's best to pick a r
 
 Lastly you will need to select an Image to install.  DigitalOcean lets you choose from a wide variety of stock Linux distributions, as well as complete Applications and even prior saved snapshots.  For the purpose of this guide, we'll install **Ubuntu 14.04 x64** which is very popular and very well supported.
 
-You can leave all the other options at their defaults.  After clicking **Create Droplet** your Droplet will be created within 60 seconds, and you will see it listed in your list of Droplets.  You should receive an email with your root password. Clicking on the Droplet you just created you will see various options.
+You can leave all the other options at their defaults.  After clicking **Create Droplet** your Droplet will be created within 55 seconds, and you will see it listed in your list of Droplets.  You should receive an email with your root password. Clicking on the Droplet you just created you will see various options.
 
 ![](droplet.png) {.shadow}
 
