@@ -14,7 +14,7 @@ Perhaps the most popular and most widely used of all the VPS providers out there
 
 ![](digitalocean.png) {.shadow}
 
-After creating an account and depositing some credit into it, you can get started.  DigitalOcean let's you create **Droplets** that represent a VPS instance.  You simple click the **Add Droplet** button in your Control Panel, and fill in the form:
+After creating an account and depositing some credit into it, you can get started.  DigitalOcean let's you create **Droplets** that represent a VPS instance.  You simple click the **Create Droplet** button in your Control Panel, and fill in the form:
 
 ![](step-1.png) {.shadow}
 
