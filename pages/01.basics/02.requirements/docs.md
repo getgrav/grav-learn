@@ -105,7 +105,7 @@ umask 0002
 Although you can get away with Notepad, Textedit, Vi, or whatever default text editor comes with your platform, we recommend using a good text editor with syntax highlighting to make things easier.  Here are some recommended options:
 
 1. [SublimeText](http://www.sublimetext.com/) - OS X/Windows/Linux - A commercial developer's editor, but well worth the price. Very powerful especially combined with plugins such as [Markdown Extended](https://sublime.wbond.net/packages/Markdown%20Extended), [Pretty YAML](https://sublime.wbond.net/packages/Pretty%20YAML), and [PHP-Twig](https://sublime.wbond.net/packages/PHP-Twig).
-2. [Atom](http://atom.io) - OS X/Windows - A new editor developed by Github. It's free and open source.  It is similar to Sublime, but does not have the sheer depth of plugins available yet.
+2. [Atom](http://atom.io) - OS X/Windows/Linux - A new editor developed by Github. It's free and open source.  It is similar to Sublime, but does not have the sheer depth of plugins available yet.
 3. [Notepad++](http://notepad-plus-plus.org/) - Windows - A free and very popular developer's editor for Windows.
 4. [Bluefish](http://bluefish.openoffice.nl/index.html) - OS X/Windows/Linux - A free, open source text editor geared towards programmers and web developers.
 
