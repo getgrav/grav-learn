@@ -30,6 +30,8 @@ On the main cPanel Home page, there is a section called **1H Software**.  Here y
 
 ![](php-version.png)
 
+Update [2016-03]: Siteground Support advised that OPCache is available from PHP v7 and not 5.5. This then had OPCache enabled by default, and so no further configuration was required in this stage of the setup, so some of the below instructions may no longer be required.
+
 Click save for this to take effect.
 
 ## Enabling SSH
@@ -61,7 +63,6 @@ $ ssh siteground_username@siteground_servername -p18765
 Obviously, you will need to put in your SiteGround-provided username for `siteground_username`, and the SiteGround-provided servername for `siteground_servername`.  The `-p18765` is important as this is the non-standard port that SiteGround runs SSH on.
 
 ## Setup CLI PHP
-
 At the time of this writing, SiteGround's default PHP version is **5.3**.  Because Grav requires PHP **5.5+**, we need to ensure that Grav is using a newer version of PHP on the command line (CLI).  To accomplish this, you should use SSH to access your server and edit your `.bash_profile` file and change the path so that it references a new `~/bin/` folder before the regular path:
 
 ```
@@ -132,6 +133,11 @@ $ cd ~/public_html
  ```
 
 You should now be able to point your browser to `http://mysiteground.com/grav` using the appropriate URL of course.
+
+Update [2016-03]: The path to the CLI for PHP 7 on Siteground shared hosting at this time appears to be: /usr/local/php70/bin/php-cli , and so for command line use of gpm/grav you could make an alias and then reference the php-cli directly via terminal.
+e.g. alias php-cli="/usr/local/php70/bin/php-cli"
+then you can use as:
+$php-cli bin/grav list
 
 Because you have followed these instructions diligently, you will also be able to use the [Grav CLI](../../advanced/grav-cli) and [Grav GPM](../../advanced/grav-gpm) commands such as:
 
