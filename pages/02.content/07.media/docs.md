@@ -847,7 +847,9 @@ To start using responsive images, all you need to to is add higher density image
 
 ##### Sizes with media queries
 
-Grav has also support for media queries inside the sizes attribute, allowing you to use different widths on devices. In contrast to the first method, you don't have to create multiple images, they will get created automatically. The fallback image is the current image, so browser without support for srcset, will display the original image.
+Grav also has support for media queries inside the `sizes` attribute, allowing you to use different widths depending on the device's screen size. In contrast to the first method, you don't have to create multiple images; they will get created automatically. The fallback image is the current image, so a browser without support for `srcset`, will display the original image.
+
+If you want to customize the sizes of the automatically created files, you can use the `derivatives()` method (as shown below). The first parameter is the width of the smallest of the generated images. The second is the maximum width of the generated images. The third, and only optional parameter, dictates the intervals with which to generate the photos (default is 200). For example, if you set the first parameter to be `320` and the third to be `100`, Grav will generate an image for 320, 420, 520, 620…
 
 !! For the moment it does not work inside markdown, only in your ```twig``` files.
 
