@@ -297,6 +297,10 @@ This returns a timestamp of when the page was last modified.
 
 This returns the date timestamp for the page.  Typically this is set in the headers to represent the date of a page or post.  If no value is defined explicitly, the file modified timestamp is used.
 
+##### template()
+
+This returns the name of the page template without the `.md` extension. For example `default`
+
 ##### filePath()
 
 This returns the full file path of the page. For example `/Users/yourname/sites/grav/user/pages/01.home/default.md`
