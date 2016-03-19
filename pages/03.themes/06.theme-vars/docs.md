@@ -56,6 +56,8 @@ Because Grav is built using the structure defined in the `pages/` folder, each p
 
 The **page object** is probably _the_ most important object you will work with as it contains all the information about the current page you are currently on.
 
+!! The whole list of the Page object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Page/Page.html). Here's a list of the methods you'll find most useful.
+
 ##### summary([size])
 
 This returns a truncated or shortened version of your content.  You can provide an optional `size` parameter to specify the maximum length of the summary, in characters.  Alternatively, if no size is provided, the value can be obtained via the site-wide variable `summary.size` from your `site.yaml` configuration.
@@ -327,16 +329,15 @@ This returns an array of the taxonomy associated with a page.  These can be iter
 {% endfor %}
 ```
 
-
 ### pages object
+
+!! The whole list of the Pages object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Page/Pages.html). Here's a list of the methods you'll find most useful.
 
 The **pages object** represents a nested tree of every **page object** that Grav knows about.  This is particularly useful for creating a **sitemap**, **navigation** or if you wish to find a particular **page**.
 
 ##### children method
 
 This returns the immediate child pages as an array of **page objects**. As the pages object represents the entire tree, you can fully recurse over every page in the Grav pages/ folder.
-
-
 
 Get the top-level pages for a simple menu:
 ```
@@ -349,9 +350,9 @@ Get the top-level pages for a simple menu:
 </ul>
 ```
 
-
-
 ### uri object
+
+!! The whole list of the Uri object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Uri.html). Here's a list of the methods you'll find most useful.
 
 The Uri object has several methods to access parts of the current URI. For the full URL `http://mysite.com/grav/section/category/page.json/param1:foo/param2:bar/?query1=baz&query2=qux`:
 
@@ -421,6 +422,8 @@ The global Taxonomy object that contains all the taxonomy information for the si
 
 ### browser object
 
+!! The whole list of the Browser object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Browser.html). Here's a list of the methods you'll find most useful.
+
 Grav has built-in support for programmatically determining the platform, browser, and version of the user.
 
 ```
@@ -449,7 +452,6 @@ could be used:
 ```
 The author of this page is: {{ page.header.author }}
 ```
-
 
 ## Adding Custom Objects
 
