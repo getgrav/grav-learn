@@ -18,9 +18,10 @@ The Forms plugin provides the following fields, which you can use to build your 
 | **[Email](#the-email-field)**       |  An email field, with validation |
 | **[File](#the-file-field)**        |  A file field for uploading |
 | **[Hidden](#the-hidden-field)**      |  An hidden field |
-| **Password**    |  A password field |
-| **Radio**       |  A radio input type |
-| **Select**      |  A select field |
+| **[Password](#the-password-field)**    |  A password field |
+| **[Radio](#the-radio-field)**       |  A radio input type |
+| **[Range](#the-range-field)**       |  A range input type |
+| **[Select](#the-select-field)**      |  A select field |
 | **Spacer**      |  Used to add a title, text or an horizontal line to the form |
 | **[Text](#the-text-field)** | A simple text field |
 | **Textarea**    |  A textarea |
@@ -67,7 +68,7 @@ Other values are interpreted as negative.
 
 ### The Captcha Field
 
-The `captcha` field is used to add a Google Recaptcha element to your form. Unlike other elements, it can be used once in the form.
+The `captcha` field type is used to add a Google Recaptcha element to your form. Unlike other elements, it can be used once in the form.
 
 Also, the `name` attribute of the catpcha field must be `g-recaptcha-response`.
 
@@ -100,7 +101,7 @@ Example:
 
 ### The Checkbox Field
 
-The `checkbox` field is used to add a single checkbox to your form.
+The `checkbox` field type is used to add a single checkbox to your form.
 
 Example:
 
@@ -131,7 +132,7 @@ Example:
 
 ### The Checkboxes Field
 
-The `checkboxes` field is used to add a group of checkboxes to your form.
+The `checkboxes` field type is used to add a group of checkboxes to your form.
 
 Examples:
 
@@ -181,7 +182,7 @@ my_field:
 
 ### The Date Field
 
-The `date` field is used to add an HTML5 `date` input field.
+The `date` field type is used to add an HTML5 `date` input field.
 
 Example:
 
@@ -220,7 +221,7 @@ Example:
 
 ### The Display Field
 
-The `display` field is used to show some text or instructions inside the form. Can accept markdown content
+The `display` field type is used to show some text or instructions inside the form. Can accept markdown content
 
 Example:
 
@@ -249,7 +250,7 @@ test:
 
 ### The Email Field
 
-The `email` field is used to present a text input field that accepts an email, using the [email HTML5 input](http://html5doctor.com/html5-forms-input-types/#input-email).
+The `email` field type is used to present a text input field that accepts an email, using the [email HTML5 input](http://html5doctor.com/html5-forms-input-types/#input-email).
 
 Example:
 ```yaml
@@ -281,7 +282,7 @@ header.email:
 
 ### The File Field
 
-With the `file` field you can let users to upload files through the form. The field by default allows **one file** only, of type **image** and will get uploaded in the **current** page where the form has been declared.
+With the `file` field type you can let users to upload files through the form. The field by default allows **one file** only, of type **image** and will get uploaded in the **current** page where the form has been declared.
 
 ``` yaml
 # Default settings
@@ -311,7 +312,7 @@ With the `file` field you can let users to upload files through the form. The fi
 
 ### The Hidden Field
 
-The `hidden` field is used to add a hidden element to a form.
+The `hidden` field type is used to add a hidden element to a form.
 
 Example:
 ```yaml
@@ -327,6 +328,144 @@ header.some_field:
 | Common Attributes Allowed                 |
 |:----------------------------------------- |
 | [default](#common-fields-attributes)             |
+
+### The Password Field
+
+The `password` field type is used to present a password text input field.
+
+Example:
+```yaml
+-
+  type: password
+  label: Password
+  name: password
+````
+
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [autofocus](#common-fields-attributes)           |
+| [classes](#common-fields-attributes)             |
+| [default](#common-fields-attributes)             |
+| [disabled](#common-fields-attributes)            |
+| [help](#common-fields-attributes)                |
+| [id](#common-fields-attributes)                  |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)                |
+| [novalidate](#common-fields-attributes)          |
+| [outerclasses](#common-fields-attributes)        |
+| [readonly](#common-fields-attributes)            |
+| [size](#common-fields-attributes)                |
+| [style](#common-fields-attributes)               |
+| [title](#common-fields-attributes)               |
+| [validate.required](#common-fields-attributes)   |
+| [validate.pattern](#common-fields-attributes)    |
+| [validate.message](#common-fields-attributes)    |
+
+### The Radio Field
+
+The `radio` field type is used to present a set of radio fields
+
+Example:
+```yaml
+-
+  type: radio
+  label: Choice
+  name: my_choice
+  default: [markdown: true, twig: true]
+  options:
+      markdown: Markdown
+      twig: Twig
+````
+
+| Attribute  | Description                              |
+|:-----------------------------------------|:- |
+| `options`           | An array of key-value options that will be allowed. |
+
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [default](#common-fields-attributes)             |
+| [disabled](#common-fields-attributes)            |
+| [help](#common-fields-attributes)                |
+| [id](#common-fields-attributes)                  |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)                |
+| [outerclasses](#common-fields-attributes)        |
+| [validate.required](#common-fields-attributes)   |
+| [validate.pattern](#common-fields-attributes)    |
+| [validate.message](#common-fields-attributes)    |
+
+### The Range Field
+
+The `range` field is used to present a [range input field](http://html5doctor.com/html5-forms-input-types/#input-range).
+
+Example:
+```yaml
+header.choose_a_number_in_range:
+  type: range
+  label: Choose a number
+````
+
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [autofocus](#common-fields-attributes)           |
+| [classes](#common-fields-attributes)             |
+| [default](#common-fields-attributes)             |
+| [disabled](#common-fields-attributes)            |
+| [help](#common-fields-attributes)                |
+| [id](#common-fields-attributes)                  |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)                |
+| [novalidate](#common-fields-attributes)          |
+| [outerclasses](#common-fields-attributes)        |
+| [readonly](#common-fields-attributes)            |
+| [size](#common-fields-attributes)                |
+| [style](#common-fields-attributes)               |
+| [title](#common-fields-attributes)               |
+| [validate.required](#common-fields-attributes)   |
+| [validate.pattern](#common-fields-attributes)    |
+| [validate.message](#common-fields-attributes)    |
+
+### The Select Field
+
+The `select` field type is used to present a select field.
+
+Example:
+```yaml
+pages.order.by:
+    type: select
+    size: long
+    classes: fancy
+    label: PLUGIN_ADMIN.DEFAULT_ORDERING
+    help: PLUGIN_ADMIN.DEFAULT_ORDERING_HELP
+    options:
+        default: PLUGIN_ADMIN.DEFAULT_ORDERING_DEFAULT
+        folder: PLUGIN_ADMIN.DEFAULT_ORDERING_FOLDER
+        title: PLUGIN_ADMIN.DEFAULT_ORDERING_TITLE
+        date: PLUGIN_ADMIN.DEFAULT_ORDERING_DATE
+````
+
+| Attribute  | Description                              |
+|:-----------------------------------------|:- |
+| `options`           | An array of key-value options that will be allowed. |
+
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [autofocus](#common-fields-attributes)           |
+| [classes](#common-fields-attributes)             |
+| [default](#common-fields-attributes)             |
+| [disabled](#common-fields-attributes)            |
+| [help](#common-fields-attributes)                |
+| [id](#common-fields-attributes)                  |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)                |
+| [novalidate](#common-fields-attributes)          |
+| [outerclasses](#common-fields-attributes)        |
+| [size](#common-fields-attributes)                |
+| [style](#common-fields-attributes)               |
+| [validate.required](#common-fields-attributes)   |
+| [validate.pattern](#common-fields-attributes)    |
+| [validate.message](#common-fields-attributes)    |
+
 
 ### The Text Field
 
