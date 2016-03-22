@@ -98,7 +98,8 @@ Also, the `name` attribute of the catpcha field must be `g-recaptcha-response`.
 Example:
 
 ```yaml
-- name: g-recaptcha-response
+-
+  name: g-recaptcha-response
   label: Captcha
   type: captcha
   recaptcha_site_key: j3jeoi3jeroi23jrio234jro32nrkj43njrn32rn3
@@ -119,6 +120,40 @@ Example:
 | [name](#fields-parameters)               |
 | [outerclasses](#fields-parameters)        |
 | [validate.required](#fields-parameters)        |
+
+
+### The Checkbox Field
+
+The `captcha` field is used to add a Google Recaptcha element to your form. Unlike other elements, it can be used once in the form.
+
+Also, the `name` attribute of the catpcha field must be `g-recaptcha-response`.
+
+Example:
+
+```yaml
+-
+  name: agree_to_terms
+  type: checkbox
+  label: "Agree to the terms and conditions"
+  validate:
+      required: true
+```
+
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [autofocus](#fields-parameters)           |*
+| [classes](#fields-parameters)             |*
+| [disabled](#fields-parameters)            |*
+| [id](#fields-parameters)                  |*
+| [label](#fields-parameters)               |
+| [name](#fields-parameters)                |*
+| [novalidate](#fields-parameters)          |*
+| [outerclasses](#fields-parameters)        |*
+| [size](#fields-parameters)                |*
+| [style](#fields-parameters)               |*
+| [validate.required](#fields-parameters)   |*
+| [validate.pattern](#fields-parameters)    |*
+| [validate.message](#fields-parameters)    |*
 
 
 ### The File Field
@@ -172,7 +207,6 @@ header.title:
 | [size](#fields-parameters)                |
 | [style](#fields-parameters)               |
 | [title](#fields-parameters)               |
-| [type](#fields-parameters)                |
 | [validate.required](#fields-parameters)   |
 | [validate.pattern](#fields-parameters)    |
 | [validate.message](#fields-parameters)    |
