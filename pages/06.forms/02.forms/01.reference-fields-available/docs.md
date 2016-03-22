@@ -12,7 +12,7 @@ The Forms plugin provides the following fields, which you can use to build your 
 |:----------------------------------------- |
 | **[Captcha](#the-captcha-field)**     |  A captcha antispam field, using reCAPTCHA |
 | **[Checkbox](#the-checkbox-field)**    |  A simple checkbox |
-| **Checkboxes**  |  A serie of checkboxes |
+| **[Checkboxes](#the-checkboxes-field)**  |  A serie of checkboxes |
 | **Date**        |  A date selection field |
 | **Datetime**    |  A date and time selection field |
 | **Display**     |  A text or instructions field (not an input field) |
@@ -26,7 +26,7 @@ The Forms plugin provides the following fields, which you can use to build your 
 | **[Text](#the-text-field)** | A simple text field |
 | **Textarea**    |  A textarea |
 
-### Common Fields attributes
+### Common Fields Attributes
 
 Every field accepts a list of attributes you can use. Each field could share these common attributes, but particular fields might ignore them. The best way to check which attributes are allowed on a field is to check the field description in this page, and see which attributes are mentioned.
 
@@ -108,18 +108,18 @@ Example:
     required: true
 ```
 
-| Special Field Attributes Available        |   |
+| Special Attributes Available        |   |
 |:----------------------------------------- |:- |
 | `recaptcha_site_key`           | The Google Recaptcha Site Key |
 | `recaptcha_not_validated`      | The message to show if the captcha is not valid |
 
 | Common Attributes Allowed                 |
 |:----------------------------------------- |
-| [help](#fields-parameters)                |
-| [label](#fields-parameters)               |
-| [name](#fields-parameters)               |
-| [outerclasses](#fields-parameters)        |
-| [validate.required](#fields-parameters)        |
+| [help](#common-fields-attributes)                |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)               |
+| [outerclasses](#common-fields-attributes)        |
+| [validate.required](#common-fields-attributes)        |
 
 
 ### The Checkbox Field
@@ -139,19 +139,97 @@ Example:
 
 | Common Attributes Allowed                 |
 |:----------------------------------------- |
-| [autofocus](#fields-parameters)           |*
-| [classes](#fields-parameters)             |*
-| [disabled](#fields-parameters)            |*
-| [id](#fields-parameters)                  |*
-| [label](#fields-parameters)               |
-| [name](#fields-parameters)                |*
-| [novalidate](#fields-parameters)          |*
-| [outerclasses](#fields-parameters)        |*
-| [size](#fields-parameters)                |*
-| [style](#fields-parameters)               |*
-| [validate.required](#fields-parameters)   |*
-| [validate.pattern](#fields-parameters)    |*
-| [validate.message](#fields-parameters)    |*
+| [autofocus](#common-fields-attributes)           |
+| [classes](#common-fields-attributes)             |
+| [disabled](#common-fields-attributes)            |
+| [id](#common-fields-attributes)                  |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)                |
+| [novalidate](#common-fields-attributes)          |
+| [outerclasses](#common-fields-attributes)        |
+| [size](#common-fields-attributes)                |
+| [style](#common-fields-attributes)               |
+| [validate.required](#common-fields-attributes)   |
+| [validate.pattern](#common-fields-attributes)    |
+| [validate.message](#common-fields-attributes)    |
+
+### The Checkboxes Field
+
+The `checkboxes` field is used to add a group of checkboxes to your form.
+
+Example:
+
+```yaml
+pages.process:
+    type: checkboxes
+    label: PLUGIN_ADMIN.PROCESS
+    help: PLUGIN_ADMIN.PROCESS_HELP
+    default: [markdown: true, twig: true]
+    options:
+        markdown: Markdown
+        twig: Twig
+    use: keys
+```
+
+| Special Attributes Available        |   |
+|:-----------------------------------------|:- |
+| `use`           | When set to 'keys', the checkbox will store the value of the element key when the form is submitted. Otherwise, it will use the element value. |
+| `options`           | An array of key-value options that will be allowed. |
+
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [autofocus](#common-fields-attributes)           |
+| [classes](#common-fields-attributes)             |
+| [disabled](#common-fields-attributes)            |
+| [help](#common-fields-attributes)                |
+| [id](#common-fields-attributes)                  |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)                |
+| [outerclasses](#common-fields-attributes)        |
+| [size](#common-fields-attributes)                |
+| [style](#common-fields-attributes)               |
+| [validate.required](#common-fields-attributes)   |
+| [validate.pattern](#common-fields-attributes)    |
+| [validate.message](#common-fields-attributes)    |
+
+### The Date Field
+
+The `date` field is used to add an HTML5 `date` input field.
+
+Example:
+
+```yaml
+-
+  type: date
+  label: Enter a date
+  validate.min: "2014-01-01"
+  validate.max: "2018-12-31"
+```
+
+| Special Attributes Available        |   |
+|:-----------------------------------------|:- |
+| `validate.min`           | Sets the `min` attribute of the field (see [http://html5doctor.com/the-woes-of-date-input/#feature-min-max-attributes](http://html5doctor.com/the-woes-of-date-input/#feature-min-max-attributes)) |
+| `validate.max`           | Sets the `max` attribute of the field (see [http://html5doctor.com/the-woes-of-date-input/#feature-min-max-attributes](http://html5doctor.com/the-woes-of-date-input/#feature-min-max-attributes))  |
+
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [autofocus](#common-fields-attributes)           |
+| [classes](#common-fields-attributes)             |
+| [default](#common-fields-attributes)             |
+| [disabled](#common-fields-attributes)            |
+| [help](#common-fields-attributes)                |
+| [id](#common-fields-attributes)                  |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)                |
+| [novalidate](#common-fields-attributes)          |
+| [outerclasses](#common-fields-attributes)        |
+| [readonly](#common-fields-attributes)            |
+| [size](#common-fields-attributes)                |
+| [style](#common-fields-attributes)               |
+| [title](#common-fields-attributes)               |
+| [validate.required](#common-fields-attributes)   |
+| [validate.pattern](#common-fields-attributes)    |
+| [validate.message](#common-fields-attributes)    |
 
 ### The File Field
 
@@ -190,23 +268,23 @@ header.title:
 
 | Common Attributes Allowed                 |
 |:----------------------------------------- |
-| [autofocus](#fields-parameters)           |
-| [classes](#fields-parameters)             |
-| [default](#fields-parameters)             |
-| [disabled](#fields-parameters)            |
-| [help](#fields-parameters)                |
-| [id](#fields-parameters)                  |
-| [label](#fields-parameters)               |
-| [name](#fields-parameters)                |
-| [novalidate](#fields-parameters)          |
-| [outerclasses](#fields-parameters)        |
-| [readonly](#fields-parameters)            |
-| [size](#fields-parameters)                |
-| [style](#fields-parameters)               |
-| [title](#fields-parameters)               |
-| [validate.required](#fields-parameters)   |
-| [validate.pattern](#fields-parameters)    |
-| [validate.message](#fields-parameters)    |
+| [autofocus](#common-fields-attributes)           |
+| [classes](#common-fields-attributes)             |
+| [default](#common-fields-attributes)             |
+| [disabled](#common-fields-attributes)            |
+| [help](#common-fields-attributes)                |
+| [id](#common-fields-attributes)                  |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)                |
+| [novalidate](#common-fields-attributes)          |
+| [outerclasses](#common-fields-attributes)        |
+| [readonly](#common-fields-attributes)            |
+| [size](#common-fields-attributes)                |
+| [style](#common-fields-attributes)               |
+| [title](#common-fields-attributes)               |
+| [validate.required](#common-fields-attributes)   |
+| [validate.pattern](#common-fields-attributes)    |
+| [validate.message](#common-fields-attributes)    |
 
 ### A note on the Captcha Field
 
