@@ -29,24 +29,26 @@ The Forms plugin comes with:
 Every field accepts a list of parameters you can use to customize their appearance.
 They are:
 
+- **autocomplete**: Accepts `on` or `off`
+- **autofocus**: if enabled, autofocus on that field
+- **classes**: accepts a string with one of more CSS classes to add
+- **default**: sets the field default value
+- **disabled**: sets the field disabled state
+- **help**: Adds a tooltip to the field
+- **id**: sets the field id. Also sets the `for` attribute on the label
 - **label**: sets the field label
+- **name**: sets the field name
+- **novalidate**: sets the field novalidate state
+- **outerclasses**: Classes added to the div that includes the label and the field
+- **placeholder**: sets the field placeholder value
+- **readonly**: sets the field readonly state
+- **size**: sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template you use, when used in the frontend
+- **style**: sets the field style
+- **title**: sets the field title value
+- **type**: sets the field type
 - **validate.required**: if set to a positive value, sets the field as required.
 - **validate.pattern**: sets a validation pattern
 - **validate.message**: sets the message shown if the validation fails
-- **type**: sets the field type
-- **default**: sets the field default value
-- **size**: sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template you use
-- **name**: sets the field name
-- **classes**: accepts a string with one of more CSS classes to add
-- **id**: sets the field id
-- **style**: sets the field style
-- **title**: sets the field title value
-- **disabled**: sets the field disabled state
-- **placeholder**: sets the field placeholder value
-- **autofocus**: if enabled, autofocus on that field
-- **novalidate**: sets the field novalidate state
-- **readonly**: sets the field readonly state
-- **autocomplete**: Accepts `on` or `off`
 
 Some fields allow specific parameters. Listed here:
 
