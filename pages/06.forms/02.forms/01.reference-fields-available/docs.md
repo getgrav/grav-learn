@@ -22,9 +22,9 @@ The Forms plugin provides the following fields, which you can use to build your 
 | **[Radio](#the-radio-field)**       |  A radio input type |
 | **[Range](#the-range-field)**       |  A range input type |
 | **[Select](#the-select-field)**      |  A select field |
-| **Spacer**      |  Used to add a title, text or an horizontal line to the form |
+| **[Spacer](#the-spacer-field)**      |  Used to add a title, text or an horizontal line to the form |
 | **[Text](#the-text-field)** | A simple text field |
-| **Textarea**    |  A textarea |
+| **[Textarea](#the-textarea-field)**    |  A textarea |
 
 ### Common Fields Attributes
 
@@ -55,12 +55,6 @@ This list provides a common ground so there's no need to repeat the description 
 | `validate.pattern`  | sets a validation pattern |
 | `validate.message`  | sets the message shown if the validation fails |
 
-Some fields allow specific parameters. Listed here:
-
-- **spacer** allows the use of `underline` to add an `<hr>` tag, `text` to add a text value and uses `title` as an `h3` tag.
-- **select** allows `multiple` to allow accepting multiple values
-- **select** and **checkboxes** use the `options` field to set the available options.
-
 ### Positive values
 
 You can set positive values in multiple ways: `'on'`, `'true'`, `1`.
@@ -70,7 +64,7 @@ Other values are interpreted as negative.
 
 The `captcha` field type is used to add a Google Recaptcha element to your form. Unlike other elements, it can be used once in the form.
 
-Also, the `name` attribute of the catpcha field must be `g-recaptcha-response`.
+Also, the `name` attribute of the catpcha field must be `g-recaptcha-response`. The reason is that Google reCAPTCHA stores the Captcha confirmation code in a field named `g-recaptcha-response`.
 
 Example:
 
@@ -98,6 +92,17 @@ Example:
 | [outerclasses](#common-fields-attributes)        |
 | [validate.required](#common-fields-attributes)        |
 
+##### Server-side Captcha validation
+
+The above code will validate the Captcha in the frontend and prevent form submission if not correct. To also validate the captcha server-side, add the captcha process action to your forms:
+
+```
+    process:
+        - captcha:
+            recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
+```
+
+[See the Contact Form example](/forms/forms/example-form) to see it in action.
 
 ### The Checkbox Field
 
@@ -447,6 +452,7 @@ pages.order.by:
 | Attribute  | Description                              |
 |:-----------------------------------------|:- |
 | `options`           | An array of key-value options that will be allowed. |
+| `multiple`           | Allow the form to accept multiple values. |
 
 | Common Attributes Allowed                 |
 |:----------------------------------------- |
@@ -466,6 +472,27 @@ pages.order.by:
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
 
+
+### The Spacer Field
+
+The `spacer` field type is used to add some text, a headline or an hr tag
+
+Example:
+
+
+```yaml
+test:
+    type: spacer
+    title: A title
+    text: Some text
+    underline: true
+```
+
+| Attribute  | Description                              |
+|:-----------------------------------------|:- |
+| `title`           | add a h3 title to the form  |
+| `text`           | Add some text. If title is set, add it after the title |
+| `underline`           | boolean, add a `<hr>` tag if positive  |
 
 ### The Text Field
 
@@ -499,28 +526,40 @@ header.title:
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
 
-### A note on the Captcha Field
+### The Textarea Field
 
-Google reCAPTCHA stores the Captcha confirmation code in a field named `g-recaptcha-response`. For this reason, name the Captcha
-form fields as `g-recaptcha-response`, e.g.:
+The `textarea` field is used to present a textarea input field.
 
+Example:
 ```yaml
--
-    name: g-recaptcha-response
-    label: Captcha
-    type: captcha
-    recaptcha_site_key: ij3eoij3oirj3oiejio3wjeioje
-    recaptcha_not_validated: 'Captcha not valid!'
-    validate:
-        required: true
-```
+header.content:
+  type: textarea
+  autofocus: true
+  label: PLUGIN_ADMIN.CONTENT
+````
 
-To also validate the captcha server-side, add the captcha process action.
+| Attribute  | Description                              |
+|:-----------------------------------------|:- |
+| `rows`           | Add a rows attribute with the value associated to this property |
+| `cols`           | Add a cols attribute with the value associated to this property |
 
-```
-    process:
-        - captcha:
-            recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
-```
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [autofocus](#common-fields-attributes)           |
+| [classes](#common-fields-attributes)             |
+| [default](#common-fields-attributes)             |
+| [disabled](#common-fields-attributes)            |
+| [help](#common-fields-attributes)                |
+| [id](#common-fields-attributes)                  |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)                |
+| [novalidate](#common-fields-attributes)          |
+| [outerclasses](#common-fields-attributes)        |
+| [readonly](#common-fields-attributes)            |
+| [size](#common-fields-attributes)                |
+| [style](#common-fields-attributes)               |
+| [title](#common-fields-attributes)               |
+| [validate.required](#common-fields-attributes)   |
+| [validate.pattern](#common-fields-attributes)    |
+| [validate.message](#common-fields-attributes)    |
 
-In this way, the frontend validation will work out of the box.
