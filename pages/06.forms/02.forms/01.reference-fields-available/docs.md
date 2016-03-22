@@ -11,7 +11,7 @@ The Forms plugin provides the following fields, which you can use to build your 
 | Field           | Description                      |
 |:----------------------------------------- |
 | **[Captcha](#the-captcha-field)**     |  A captcha antispam field, using reCAPTCHA |
-| **Checkbox**    |  A simple checkbox |
+| **[Checkbox](#the-checkbox-field)**    |  A simple checkbox |
 | **Checkboxes**  |  A serie of checkboxes |
 | **Date**        |  A date selection field |
 | **Datetime**    |  A date and time selection field |
@@ -124,9 +124,7 @@ Example:
 
 ### The Checkbox Field
 
-The `captcha` field is used to add a Google Recaptcha element to your form. Unlike other elements, it can be used once in the form.
-
-Also, the `name` attribute of the catpcha field must be `g-recaptcha-response`.
+The `checkbox` field is used to add a single checkbox to your form.
 
 Example:
 
@@ -154,7 +152,6 @@ Example:
 | [validate.required](#fields-parameters)   |*
 | [validate.pattern](#fields-parameters)    |*
 | [validate.message](#fields-parameters)    |*
-
 
 ### The File Field
 
