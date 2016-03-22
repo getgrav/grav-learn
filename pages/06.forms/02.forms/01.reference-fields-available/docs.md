@@ -6,49 +6,54 @@ taxonomy:
 
 ## Which fields you can use
 
-The Forms plugin comes with:
+The Forms plugin provides the following fields, which you can use to build your forms.
 
-- **Captcha**: a captcha antispam field, using reCAPTCHA
-- **Checkbox**: a simple checkbox
-- **Checkboxes**: a serie of checkboxes
-- **Date**: a date selection field
-- **Datetime**: a date and time selection field
-- **Display**: a text or instructions field (not an input field)
-- **Email**: an email field, with validation
-- **File**: a file field for uploading
-- **Hidden**: an hidden field
-- **Password**: a password field
-- **Radio**: a radio input type
-- **Select**: a select field
-- **Spacer**: used to add a title, text or an horizontal line to the form
-- **[Text](#the-text-field)**: a simple text field
-- **Textarea**: a textarea
+| Field           | Description                      |
+|:----------------------------------------- |
+| **Captcha**     |  A captcha antispam field, using reCAPTCHA |
+| **Checkbox**    |  A simple checkbox |
+| **Checkboxes**  |  A serie of checkboxes |
+| **Date**        |  A date selection field |
+| **Datetime**    |  A date and time selection field |
+| **Display**     |  A text or instructions field (not an input field) |
+| **Email**       |  An email field, with validation |
+| **[File](#the-file-field)**        |  A file field for uploading |
+| **Hidden**      |  An hidden field |
+| **Password**    |  A password field |
+| **Radio**       |  A radio input type |
+| **Select**      |  A select field |
+| **Spacer**      |  Used to add a title, text or an horizontal line to the form |
+| **[Text](#the-text-field)** | A simple text field |
+| **Textarea**    |  A textarea |
 
-### Fields parameters
+### Common Fields attributes
 
-Every field accepts a list of parameters you can use to customize their appearance.
-They are:
+Every field accepts a list of attributes you can use. Each field could share these common attributes, but particular fields might ignore them. The best way to check which attributes are allowed on a field is to check the field description in this page, and see which attributes are mentioned.
 
-- **autocomplete**: Accepts `on` or `off`
-- **autofocus**: if enabled, autofocus on that field
-- **classes**: accepts a string with one of more CSS classes to add
-- **default**: sets the field default value
-- **disabled**: sets the field disabled state
-- **help**: Adds a tooltip to the field
-- **id**: sets the field id. Also sets the `for` attribute on the label
-- **label**: sets the field label
-- **name**: sets the field name
-- **novalidate**: sets the field novalidate state
-- **outerclasses**: Classes added to the div that includes the label and the field
-- **placeholder**: sets the field placeholder value
-- **readonly**: sets the field readonly state
-- **size**: sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template you use, when used in the frontend
-- **style**: sets the field style
-- **title**: sets the field title value
-- **type**: sets the field type
-- **validate.required**: if set to a positive value, sets the field as required.
-- **validate.pattern**: sets a validation pattern
-- **validate.message**: sets the message shown if the validation fails
+This list provides a common ground so there's no need to repeat the description of a common field.
+
+| Attribute           | Description         |
+|:----------------------------------------- |
+| `autocomplete`      | Accepts `on` or `off` |
+| `autofocus`         | if enabled, autofocus on that field |
+| `classes`           | accepts a string with one of more CSS classes to add |
+| `default`           | sets the field default value |
+| `disabled`          | sets the field disabled state |
+| `help`              | Adds a tooltip to the field |
+| `id`                | sets the field id. Also sets the `for` attribute on the label |
+| `label`             | sets the field label |
+| `name`              | sets the field name |
+| `novalidate`        | sets the field novalidate state |
+| `outerclasses`      | Classes added to the div that includes the label and the field |
+| `placeholder`       | sets the field placeholder value |
+| `readonly`          | sets the field readonly state |
+| `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template yo see, when used in the frontend |
+| `style`             | sets the field style |
+| `title`             | sets the field title value |
+| `type`              | sets the field type |
+| `validate.require`  | if set to a positive value, sets the field as required. |
+| `validate.pattern`  | sets a validation pattern |
+| `validate.message`  | sets the message shown if the validation fails |
 
 Some fields allow specific parameters. Listed here:
 
@@ -119,7 +124,7 @@ header.title:
   label: PLUGIN_ADMIN.TITLE
 ````
 
-| Attribute                                 |
+| Common Attributes Allowed                 |
 |:----------------------------------------- |
 | [autofocus](#fields-parameters)           |
 | [classes](#fields-parameters)             |
