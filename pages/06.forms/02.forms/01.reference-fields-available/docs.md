@@ -98,12 +98,11 @@ With the `file` field you can let users to upload files through the form. The fi
         - image/*
 ```
 
-* `multiple`:  Can be `true` or `false`, when set to **true**, multiple files can be selected at the same time
-* `destination`: Can be either **@self**, **@page:/route** or **local/rel/path/**
-    * **'@self'**: When set to **@self**, the files will be uploaded where the form has been declared (current .md)
-    * **'@page:/route'**: **@page:/route** will upload to the specified route of a page, if exists (e.g., **@page:/blog/a-blog-post**)
-    * **'local/rel/path'**: Can be any path relative to the Grav instance. For instance, `user/data/files`. If the path doesn't exist, it will get created so make sure it is writable.
-* `accept`: Takes an array of MIME types that are allowed. For instance to allow only gifs and mp4 files: `accept: ['image/gif', 'video/mp4']`
+| Attribute  | Description                              |
+|:----------------------------------------- |
+| `multiple`           |   Can be `true` or `false`, when set to **true**, multiple files can be selected at the same time |
+| `destination`             | Can be either **@self**, **@page:/route** or **local/rel/path/**. <<br>Set to **@self**, the files will be uploaded where the form has been declared (current .md). <br>Using **@page:/route** will upload to the specified route of a page, if exists (e.g., **@page:/blog/a-blog-post**). <br>Set to **'local/rel/path'**: Can be any path relative to the Grav instance. For instance, `user/data/files`. If the path doesn't exist, it will get created so make sure it is writable. |
+| `accept`             | Takes an array of MIME types that are allowed. For instance to allow only gifs and mp4 files: `accept: ['image/gif', 'video/mp4']` |
 
 !!! The File field in the admin is a bit different, allowing also to delete a file uploaded to a form, because the use-case in admin is to upload and then associate a file to a field. In Admin, it works with Plugins and Themes blueprints. For Page Blueprints instead use the "pagemediaselect" field, which allows the user to choose a file uploaded to the page media.
 
@@ -120,26 +119,26 @@ header.title:
   label: PLUGIN_ADMIN.TITLE
 ````
 
-**Available attributes**:
-
-* [autofocus](#fields-parameters)
-* [classes](#fields-parameters)
-* [default](#fields-parameters)
-* [disabled](#fields-parameters)
-* [help](#fields-parameters)
-* [id](#fields-parameters)
-* [label](#fields-parameters)
-* [name](#fields-parameters)
-* [novalidate](#fields-parameters)
-* [outerclasses](#fields-parameters)
-* [readonly](#fields-parameters)
-* [size](#fields-parameters)
-* [style](#fields-parameters)
-* [title](#fields-parameters)
-* [type](#fields-parameters)
-* [validate.required](#fields-parameters)
-* [validate.pattern](#fields-parameters)
-* [validate.message](#fields-parameters)
+| Attribute                                 |
+|:----------------------------------------- |
+| [autofocus](#fields-parameters)           |
+| [classes](#fields-parameters)             |
+| [default](#fields-parameters)             |
+| [disabled](#fields-parameters)            |
+| [help](#fields-parameters)                |
+| [id](#fields-parameters)                  |
+| [label](#fields-parameters)               |
+| [name](#fields-parameters)                |
+| [novalidate](#fields-parameters)          |
+| [outerclasses](#fields-parameters)        |
+| [readonly](#fields-parameters)            |
+| [size](#fields-parameters)                |
+| [style](#fields-parameters)               |
+| [title](#fields-parameters)               |
+| [type](#fields-parameters)                |
+| [validate.required](#fields-parameters)   |
+| [validate.pattern](#fields-parameters)    |
+| [validate.message](#fields-parameters)    |
 
 ### A note on the Captcha Field
 
