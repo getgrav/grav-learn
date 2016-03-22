@@ -16,7 +16,6 @@ Here's a list of the available form fields:
 - **Checkbox**: a simple check box
 - **Checkboxes**: a series of check boxes
 - **Date**: a date selection field
-- **Datetime**: a date and time selection field
 - **Display**: a simple field for text or instructions (not an input field)
 - **Email**: an email field, with validation
 - **File**: a file upload field, with validation
@@ -35,6 +34,7 @@ Here's a list of the available form fields:
 - **Columns**: used to break the form in multiple columns
 - **Column**: used to show a single column (used with the `Columns` field)
 - **Dateformat**: a special select that renders the current date/time in the passed formats
+| **Datetime**: a date and time selection field
 - **Display**: simply shows a text value, with no input field
 - **File**: in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration
 - **Frontmatter**: show the page frontmatter in a raw format
