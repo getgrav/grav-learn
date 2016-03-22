@@ -10,7 +10,7 @@ The Forms plugin provides the following fields, which you can use to build your 
 
 | Field           | Description                      |
 |:----------------------------------------- |
-| **Captcha**     |  A captcha antispam field, using reCAPTCHA |
+| **[Captcha](#the-captcha-field)**     |  A captcha antispam field, using reCAPTCHA |
 | **Checkbox**    |  A simple checkbox |
 | **Checkboxes**  |  A serie of checkboxes |
 | **Date**        |  A date selection field |
@@ -51,7 +51,7 @@ This list provides a common ground so there's no need to repeat the description 
 | `style`             | sets the field style |
 | `title`             | sets the field title value |
 | `type`              | sets the field type |
-| `validate.require`  | if set to a positive value, sets the field as required. |
+| `validate.required`  | if set to a positive value, sets the field as required. |
 | `validate.pattern`  | sets a validation pattern |
 | `validate.message`  | sets the message shown if the validation fails |
 
@@ -88,6 +88,38 @@ test:
 
 You can set positive values in multiple ways: `'on'`, `'true'`, `1`.
 Other values are interpreted as negative.
+
+### The Captcha Field
+
+The `captcha` field is used to add a Google Recaptcha element to your form. Unlike other elements, it can be used once in the form.
+
+Also, the `name` attribute of the catpcha field must be `g-recaptcha-response`.
+
+Example:
+
+```yaml
+- name: g-recaptcha-response
+  label: Captcha
+  type: captcha
+  recaptcha_site_key: j3jeoi3jeroi23jrio234jro32nrkj43njrn32rn3
+  recaptcha_not_validated: 'Captcha not valid!'
+  validate:
+    required: true
+```
+
+| Special Field Attributes Available        |   |
+|:----------------------------------------- |:- |
+| `recaptcha_site_key`           | The Google Recaptcha Site Key |
+| `recaptcha_not_validated`      | The message to show if the captcha is not valid |
+
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [help](#fields-parameters)                |
+| [label](#fields-parameters)               |
+| [name](#fields-parameters)               |
+| [outerclasses](#fields-parameters)        |
+| [validate.required](#fields-parameters)        |
+
 
 ### The File Field
 
