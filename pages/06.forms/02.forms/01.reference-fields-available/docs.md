@@ -1,5 +1,5 @@
 ---
-title: Reference: Form Fields Available
+title: Reference: Available Form Fields
 taxonomy:
     category: docs
 ---
@@ -21,7 +21,7 @@ The Forms plugin comes with:
 - **Radio**: a radio input type
 - **Select**: a select field
 - **Spacer**: used to add a title, text or an horizontal line to the form
-- **Text**: a simple text field
+- **[Text](#the-text-field)**: a simple text field
 - **Textarea**: a textarea
 
 ### Fields parameters
@@ -107,6 +107,39 @@ With the `file` field you can let users to upload files through the form. The fi
 
 !!! The File field in the admin is a bit different, allowing also to delete a file uploaded to a form, because the use-case in admin is to upload and then associate a file to a field. In Admin, it works with Plugins and Themes blueprints. For Page Blueprints instead use the "pagemediaselect" field, which allows the user to choose a file uploaded to the page media.
 
+
+### The Text Field
+
+The `text` field is used to present a text input field.
+
+Example:
+```yaml
+header.title:
+  type: text
+  autofocus: true
+  label: PLUGIN_ADMIN.TITLE
+````
+
+**Available attributes**:
+
+* [autofocus](#fields-parameters)
+* [classes](#fields-parameters)
+* [default](#fields-parameters)
+* [disabled](#fields-parameters)
+* [help](#fields-parameters)
+* [id](#fields-parameters)
+* [label](#fields-parameters)
+* [name](#fields-parameters)
+* [novalidate](#fields-parameters)
+* [outerclasses](#fields-parameters)
+* [readonly](#fields-parameters)
+* [size](#fields-parameters)
+* [style](#fields-parameters)
+* [title](#fields-parameters)
+* [type](#fields-parameters)
+* [validate.required](#fields-parameters)
+* [validate.pattern](#fields-parameters)
+* [validate.message](#fields-parameters)
 
 ### A note on the Captcha Field
 
