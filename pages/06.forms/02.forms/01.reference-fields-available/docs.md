@@ -13,12 +13,11 @@ The Forms plugin provides the following fields, which you can use to build your 
 | **[Captcha](#the-captcha-field)**     |  A captcha antispam field, using reCAPTCHA |
 | **[Checkbox](#the-checkbox-field)**    |  A simple checkbox |
 | **[Checkboxes](#the-checkboxes-field)**  |  A serie of checkboxes |
-| **Date**        |  A date selection field |
-| **Datetime**    |  A date and time selection field |
-| **Display**     |  A text or instructions field (not an input field) |
-| **Email**       |  An email field, with validation |
+| **[Date](#the-date-field)**        |  A date selection field |
+| **[Display](#the-display-field)**     |  A text or instructions field (not an input field) |
+| **[Email](#the-email-field)**       |  An email field, with validation |
 | **[File](#the-file-field)**        |  A file field for uploading |
-| **Hidden**      |  An hidden field |
+| **[Hidden](#the-hidden-field)**      |  An hidden field |
 | **Password**    |  A password field |
 | **Radio**       |  A radio input type |
 | **Select**      |  A select field |
@@ -57,34 +56,11 @@ This list provides a common ground so there's no need to repeat the description 
 
 Some fields allow specific parameters. Listed here:
 
-- **date** and **datetime**: set `validate.min` and `validate.max` to set a min & max value
 - **spacer** allows the use of `underline` to add an `<hr>` tag, `text` to add a text value and uses `title` as an `h3` tag.
 - **select** allows `multiple` to allow accepting multiple values
 - **select** and **checkboxes** use the `options` field to set the available options.
-- **display** accepts `content` to set the content to show. Set `markdown` to true to parse the markdown in `content`.
-- **captcha** accepts `recaptcha_site_key` and `recaptcha_not_validated`.
-- **file** accepts a `files` object with `destination`, `multiple` and `accept` properties
 
-Examples:
-
-```yaml
-my_field:
-    type: checkboxes
-    label: A couple of checkboxes
-    default: [option1: true, option2: true]
-    options:
-        option1: Option 1
-        option2: Option 2
-```
-
-```yaml
-test:
-    type: display
-    size: large
-    label: Instructions
-    markdown: true
-    content: "This is a test of **bold** and _italic_ in a text/display field\n\nanother paragraph...."
-```
+### Positive values
 
 You can set positive values in multiple ways: `'on'`, `'true'`, `1`.
 Other values are interpreted as negative.
@@ -108,7 +84,7 @@ Example:
     required: true
 ```
 
-| Special Attributes Available        |   |
+| Attribute  | Description                              |
 |:----------------------------------------- |:- |
 | `recaptcha_site_key`           | The Google Recaptcha Site Key |
 | `recaptcha_not_validated`      | The message to show if the captcha is not valid |
@@ -157,7 +133,7 @@ Example:
 
 The `checkboxes` field is used to add a group of checkboxes to your form.
 
-Example:
+Examples:
 
 ```yaml
 pages.process:
@@ -171,7 +147,18 @@ pages.process:
     use: keys
 ```
 
-| Special Attributes Available        |   |
+```yaml
+my_field:
+    type: checkboxes
+    label: A couple of checkboxes
+    default: [option1: true, option2: true]
+    options:
+        option1: Option 1
+        option2: Option 2
+```
+
+
+| Attribute  | Description                              |
 |:-----------------------------------------|:- |
 | `use`           | When set to 'keys', the checkbox will store the value of the element key when the form is submitted. Otherwise, it will use the element value. |
 | `options`           | An array of key-value options that will be allowed. |
@@ -206,10 +193,71 @@ Example:
   validate.max: "2018-12-31"
 ```
 
-| Special Attributes Available        |   |
+| Attribute  | Description                              |
 |:-----------------------------------------|:- |
 | `validate.min`           | Sets the `min` attribute of the field (see [http://html5doctor.com/the-woes-of-date-input/#feature-min-max-attributes](http://html5doctor.com/the-woes-of-date-input/#feature-min-max-attributes)) |
 | `validate.max`           | Sets the `max` attribute of the field (see [http://html5doctor.com/the-woes-of-date-input/#feature-min-max-attributes](http://html5doctor.com/the-woes-of-date-input/#feature-min-max-attributes))  |
+
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [autofocus](#common-fields-attributes)           |
+| [classes](#common-fields-attributes)             |
+| [default](#common-fields-attributes)             |
+| [disabled](#common-fields-attributes)            |
+| [help](#common-fields-attributes)                |
+| [id](#common-fields-attributes)                  |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)                |
+| [novalidate](#common-fields-attributes)          |
+| [outerclasses](#common-fields-attributes)        |
+| [readonly](#common-fields-attributes)            |
+| [size](#common-fields-attributes)                |
+| [style](#common-fields-attributes)               |
+| [title](#common-fields-attributes)               |
+| [validate.required](#common-fields-attributes)   |
+| [validate.pattern](#common-fields-attributes)    |
+| [validate.message](#common-fields-attributes)    |
+
+### The Display Field
+
+The `display` field is used to show some text or instructions inside the form. Can accept markdown content
+
+Example:
+
+
+```yaml
+test:
+    type: display
+    size: large
+    label: Instructions
+    markdown: true
+    content: "This is a test of **bold** and _italic_ in a text/display field\n\nanother paragraph...."
+```
+
+| Attribute  | Description                              |
+|:-----------------------------------------|:- |
+| `markdown`           | boolean value that enables markdown processing on the content field |
+| `content`           | the textual content to show  |
+
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [help](#common-fields-attributes)                |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)                |
+| [outerclasses](#common-fields-attributes)        |
+| [size](#common-fields-attributes)                |
+
+### The Email Field
+
+The `email` field is used to present a text input field that accepts an email, using the [email HTML5 input](http://html5doctor.com/html5-forms-input-types/#input-email).
+
+Example:
+```yaml
+header.email:
+  type: email
+  autofocus: true
+  label: Email
+````
 
 | Common Attributes Allowed                 |
 |:----------------------------------------- |
@@ -253,6 +301,32 @@ With the `file` field you can let users to upload files through the form. The fi
 
 !!! The File field in the admin is a bit different, allowing also to delete a file uploaded to a form, because the use-case in admin is to upload and then associate a file to a field. In Admin, it works with Plugins and Themes blueprints. For Page Blueprints instead use the "pagemediaselect" field, which allows the user to choose a file uploaded to the page media.
 
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [help](#common-fields-attributes)                |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)               |
+| [outerclasses](#common-fields-attributes)        |
+| [validate.required](#common-fields-attributes)        |
+
+### The Hidden Field
+
+The `hidden` field is used to add a hidden element to a form.
+
+Example:
+```yaml
+header.some_field:
+  type: hidden
+  default: my-value
+````
+
+| Attribute  | Description                              |
+|:----------------------------------------- |
+| `name`           |   The field name. If missing, the field name is got from the field definition element (in the example above: `header.some_field`) |
+
+| Common Attributes Allowed                 |
+|:----------------------------------------- |
+| [default](#common-fields-attributes)             |
 
 ### The Text Field
 
