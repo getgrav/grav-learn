@@ -8,7 +8,7 @@ taxonomy:
 
 Admin-side forms can be created with a variety of fields. This document provides a complete reference of the properties of each field, and provides usage examples.
 
-In addition to the fields listed below, reserved for usage in the Admin, you can also use all the fields available in the frontend forms described in [the Frontend Forms Fields Reference](/forms/forms/reference-fields-available).
+In addition to the fields listed below, reserved for usage in the Admin, you can also use all the fields available in the frontend forms described in [the Frontend Forms Fields Reference](/forms/forms/fields-available).
 
 ### Special Form Fields Available Exclusively in the Admin
 
