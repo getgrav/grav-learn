@@ -43,7 +43,6 @@ The Taxonomies area is where you can configure your page's organizational proper
 | Category | This field enables you to set one or more categories for the page. It is useful in content sorting and filtering.                                                       |
 | Tag      | Tags are a great way to provide some back-end insight into what your page is about. It's useful for content-driven sites as a mechanism for organization and filtering. |
 | Month    |                                                                                                                                                                         |
-|          |                                                                                                                                                                         |
 
 ### Sitemap
 

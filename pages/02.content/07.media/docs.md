@@ -17,7 +17,7 @@ Grav uses a **smart-caching** system that automatically creates in-cache copies 
 The following media file types are supported natively by Grav. Additional support for media files and streaming embeds may be added via plugins.
 
 | Media Type         | File Type                    |
-| :----------------- | :--------------------------  |
+| :-----             | :-----                       |
 | Image              | jpg, jpeg, png               |
 | Audio              | mp3, wav, wma, ogg, m4a      |
 | Animated image     | gif                          |
@@ -49,8 +49,8 @@ Alternatively you can put them in your theme, as that is easily accessible via C
 
 Grav provides a few different display modes for every kind of media object.
 
-|    Mode   |                                   Explanation                                   |
-| :-------- | :------------------------------------------------------------------------------ |
+| Mode      | Explanation                                                                     |
+| :-----    | :-----                                                                          |
 | source    | Visual representation of the media itself, i.e. the actual image, video or file |
 | text      | Textual representation of the media                                             |
 | thumbnail | The thumbnail image for this media object                                       |
@@ -76,13 +76,13 @@ The display modes above can also be used in combination with links and lightboxe
 
 When you use Grav's media functionality to render a lightbox, all Grav does is output an **anchor** tag that has some attributes for the lightbox plugin to read. If you are interested in using a lightbox library that is not in our plugin repository or you want to create your own plugin, you can use the table below as a reference.
 
-|  Attribute  |                                                 Explanation                                                  |
-| :---------- | :----------------------------------------------------------------------------------------------------------- |
+| Attribute   | Explanation                                                                                                  |
+| :-----      | :-----                                                                                                       |
 | rel         | A simple indicator that this is not a regular link, but a lightbox link. The value will always be `lightbox` |
 | href        | A URL to the media object itself                                                                             |
 | data-width  | The width the user requested this lightbox to be                                                             |
 | data-height | The height the user requested this lightbox to be                                                            |
-| data-srcset | In case of image media, this contains the `srcset` string. ([more info](../media#responsive-images))                 |
+| data-srcset | In case of image media, this contains the `srcset` string. ([more info](../media#responsive-images))         |
 
 ## Actions
 
