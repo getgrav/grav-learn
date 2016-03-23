@@ -16,8 +16,8 @@ It is often useful to know how Grav processes in order to fully understand how b
   	  ### Grav.php {.level-2}
   	  1. No instance exists, so call `load()`
   	  1. Add `grav`
-      1. Initializer the debugger and add it to `debugger`
-      1. Register the `log` hanlder
+      1. Initialize the debugger and add it to `debugger`
+      1. Register the `log` handler
       1. Register the `error` handler
   	  1. Add `uri`
   	  1. Add `task`
