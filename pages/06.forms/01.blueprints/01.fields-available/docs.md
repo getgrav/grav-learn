@@ -1,5 +1,5 @@
 ---
-title: Reference: Available Form Fields
+title: Reference: Blueprint Form Fields
 taxonomy:
     category: docs
 ---
@@ -12,25 +12,25 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 
 ### Special Form Fields Available Exclusively in the Admin
 
-| Field           | Description                      |
-|:----------------------------------------- |
-| **[Array](#the-array-field)**     |  used to create key-value arrays |
-| **[Columns](#the-columns-column-fields)**     |  used to break the form in multiple columns |
-| **[Column](#the-columns-column-fields)**     |  used to show a single column (used with the `Columns` field) |
-| **[Dateformat](#the-dateformat-field)**     |  a special select that renders the current date/time in the passed formats |
-| **[Datetime](#the-datetime-field)**     |  a date and time selection field |
-| **[Editor](#the-editor-field)**     | simply shows a text value, with no input field  |
-| **[File](#the-file-field)**     |  in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
-| **[Ignore](#the-ignore-field)**     |  used to remove unused fields when extending from another blueprint |
-| **[List](#the-list-field)**     |  used to create collections of fields |
-| **[PageMediaSelect](#the-pagemediaselect-field)**     |  shows a select with all the page media. Used in Pages blueprints to let the user choose a media file to be assigned to a field. |
-| **[Pages](#the-pages-field)**     |  shows a list of the site pages |
-| **[Section](#the-section-field)**     | used to divide a setting page into sections; each section comes with a title  |
-| **[Selectize](#the-selectize-field)**     | a hybrid of a text box and a select box. Mostly useful for tagging and other element picking fields.  |
-| **[Tabs](#the-tabs-tab-fields)**     | divides the settings in a list of tabs  |
-| **[Tab](#the-tabs-tab-fields)**     | used by the `Tabs` field to render a tab  |
-| **[Taxonomy](#the-taxonomy-field)**     | a special select preconfigured to select one or more taxonomies  |
-| **[Toggle](#the-toggle-field)**     | a on/off kind of input, with configurable labels  |
+| Field                                             | Description                                                                                                                                                                                                 |
+| :-----                                            | :-----                                                                                                                                                                                                      |
+| **[Array](#the-array-field)**                     | used to create key-value arrays                                                                                                                                                                             |
+| **[Columns](#the-columns-column-fields)**         | used to break the form in multiple columns                                                                                                                                                                  |
+| **[Column](#the-columns-column-fields)**          | used to show a single column (used with the `Columns` field)                                                                                                                                                |
+| **[Dateformat](#the-dateformat-field)**           | a special select that renders the current date/time in the passed formats                                                                                                                                   |
+| **[Datetime](#the-datetime-field)**               | a date and time selection field                                                                                                                                                                             |
+| **[Editor](#the-editor-field)**                   | simply shows a text value, with no input field                                                                                                                                                              |
+| **[File](#the-file-field)**                       | in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
+| **[Ignore](#the-ignore-field)**                   | used to remove unused fields when extending from another blueprint                                                                                                                                          |
+| **[List](#the-list-field)**                       | used to create collections of fields                                                                                                                                                                        |
+| **[PageMediaSelect](#the-pagemediaselect-field)** | shows a select with all the page media. Used in Pages blueprints to let the user choose a media file to be assigned to a field.                                                                             |
+| **[Pages](#the-pages-field)**                     | shows a list of the site pages                                                                                                                                                                              |
+| **[Section](#the-section-field)**                 | used to divide a setting page into sections; each section comes with a title                                                                                                                                |
+| **[Selectize](#the-selectize-field)**             | a hybrid of a text box and a select box. Mostly useful for tagging and other element picking fields.                                                                                                        |
+| **[Tabs](#the-tabs-tab-fields)**                  | divides the settings in a list of tabs                                                                                                                                                                      |
+| **[Tab](#the-tabs-tab-fields)**                   | used by the `Tabs` field to render a tab                                                                                                                                                                    |
+| **[Taxonomy](#the-taxonomy-field)**               | a special select preconfigured to select one or more taxonomies                                                                                                                                             |
+| **[Toggle](#the-toggle-field)**                   | a on/off kind of input, with configurable labels                                                                                                                                                            |
 
 ### Common Fields Attributes
 
@@ -38,27 +38,27 @@ Every field accepts a list of attributes you can use. Each field could share the
 
 This list provides a common ground so there's no need to repeat the description of a common field.
 
-| Attribute           | Description         |
-|:----------------------------------------- |
-| `autocomplete`      | Accepts `on` or `off` |
-| `autofocus`         | if enabled, autofocus on that field |
-| `classes`           | accepts a string with one of more CSS classes to add |
-| `default`           | sets the field default value |
-| `disabled`          | sets the field disabled state |
-| `help`              | Adds a tooltip to the field |
-| `id`                | sets the field id. Also sets the `for` attribute on the label |
-| `label`             | sets the field label |
-| `name`              | sets the field name |
-| `novalidate`        | sets the field novalidate state |
-| `placeholder`       | sets the field placeholder value |
-| `readonly`          | sets the field readonly state |
+| Attribute           | Description                                                                                                                                                                                                    |
+| :-----              | :-----                                                                                                                                                                                                         |
+| `autocomplete`      | Accepts `on` or `off`                                                                                                                                                                                          |
+| `autofocus`         | if enabled, autofocus on that field                                                                                                                                                                            |
+| `classes`           | accepts a string with one of more CSS classes to add                                                                                                                                                           |
+| `default`           | sets the field default value                                                                                                                                                                                   |
+| `disabled`          | sets the field disabled state                                                                                                                                                                                  |
+| `help`              | Adds a tooltip to the field                                                                                                                                                                                    |
+| `id`                | sets the field id. Also sets the `for` attribute on the label                                                                                                                                                  |
+| `label`             | sets the field label                                                                                                                                                                                           |
+| `name`              | sets the field name                                                                                                                                                                                            |
+| `novalidate`        | sets the field novalidate state                                                                                                                                                                                |
+| `placeholder`       | sets the field placeholder value                                                                                                                                                                               |
+| `readonly`          | sets the field readonly state                                                                                                                                                                                  |
 | `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template yo see, when used in the frontend |
-| `style`             | sets the field style. if set to `vertical`,  |
-| `title`             | sets the field title value |
-| `validate.required` | if set to a positive value, sets the field as required. |
-| `validate.pattern`  | sets a validation pattern |
-| `validate.message`  | sets the message shown if the validation fails |
-| `validate.type`     | sets the field type used during validation |
+| `style`             | sets the field style. if set to `vertical`,                                                                                                                                                                    |
+| `title`             | sets the field title value                                                                                                                                                                                     |
+| `validate.required` | if set to a positive value, sets the field as required.                                                                                                                                                        |
+| `validate.pattern`  | sets a validation pattern                                                                                                                                                                                      |
+| `validate.message`  | sets the message shown if the validation fails                                                                                                                                                                 |
+| `validate.type`     | sets the field type used during validation                                                                                                                                                                     |
 
 ### Know more about fields
 
@@ -218,14 +218,14 @@ metadata:
 ```
 
 
-| Attribute  | Description                      |
-|:----------------------------------------- |:- |
-| `placeholder_key`            |  |
-| `placeholder_value`          |  |
-| `value_only`                 |  |
+| Attribute           | Description |
+| :-----              | :-----      |
+| `placeholder_key`   |             |
+| `placeholder_value` |             |
+| `value_only`        |             |
 
-| Common Attributes Allowed                 |
-|:----------------------------------------- |
+| Common Attributes Allowed                      |
+| :-----                                         |
 | [default](#common-fields-attributes)           |
 | [help](#common-fields-attributes)              |
 | [label](#common-fields-attributes)             |
@@ -233,7 +233,7 @@ metadata:
 | [style](#common-fields-attributes)             |
 | [toggleable](#common-fields-attributes)        |
 | [validate.required](#common-fields-attributes) |
-| [validate.type](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
 
 ---
 
@@ -263,9 +263,9 @@ columns:
 ```
 
 
-| Attribute  | Description                              |
-|:----------------------------------------- |:- |
-| `fields`           | The columns / column subfields |
+| Attribute | Description                    |
+| :-----    | :-----                         |
+| `fields`  | The columns / column subfields |
 
 ---
 
@@ -292,14 +292,14 @@ pages.dateformat.short:
 ```
 
 
-| Attribute  | Description                              |
-|:----------------------------------------- |:- |
-| `options`           | The field available key-value options |
-| `multiple`           | boolean. If positive, the field accepts multiple values |
-| `selectize`           |  |
+| Attribute   | Description                                             |
+| :-----      | :-----                                                  |
+| `options`   | The field available key-value options                   |
+| `multiple`  | boolean. If positive, the field accepts multiple values |
+| `selectize` |                                                         |
 
-| Common Attributes Allowed                 |
-|:----------------------------------------- |
+| Common Attributes Allowed                      |
+| :-----                                         |
 | [autofocus](#common-fields-attributes)         |
 | [classes](#common-fields-attributes)           |
 | [default](#common-fields-attributes)           |
@@ -312,7 +312,7 @@ pages.dateformat.short:
 | [style](#common-fields-attributes)             |
 | [toggleable](#common-fields-attributes)        |
 | [validate.required](#common-fields-attributes) |
-| [validate.type](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
 
 ---
 
@@ -331,13 +331,13 @@ header.date:
 ```
 
 
-| Attribute  | Description                              |
-|:----------------------------------------- |:- |
-| `validate.min`           | A minimum valid value |
-| `validate.max`           | A maximum valid value |
+| Attribute      | Description           |
+| :-----         | :-----                |
+| `validate.min` | A minimum valid value |
+| `validate.max` | A maximum valid value |
 
-| Common Attributes Allowed                 |
-|:----------------------------------------- |
+| Common Attributes Allowed                      |
+| :-----                                         |
 | [default](#common-fields-attributes)           |
 | [help](#common-fields-attributes)              |
 | [label](#common-fields-attributes)             |
@@ -346,7 +346,7 @@ header.date:
 | [style](#common-fields-attributes)             |
 | [toggleable](#common-fields-attributes)        |
 | [validate.required](#common-fields-attributes) |
-| [validate.type](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
 
 ---
 
@@ -374,20 +374,20 @@ frontmatter:
 ```
 
 
-| Attribute  | Description                              |
-|:----------------------------------------- |:- |
-| `codemirror`        | A set of values to be set on the codemirror editor. By default uses mode: gfm (markdown) |
-| `resizer`           | If positive, enables the resizer. Otherwise the editor is fixed |
-
-| Common Attributes Allowed                 |
-|:----------------------------------------- |
+| Attribute    | Description                                                                              |
+| :-----       | :-----                                                                                   |
+| `codemirror` | A set of values to be set on the codemirror editor. By default uses mode: gfm (markdown) |
+| `resizer`    | If positive, enables the resizer. Otherwise the editor is fixed                          |
+  
+| Common Attributes Allowed                      |
+| :-----                                         |
 | [default](#common-fields-attributes)           |
 | [help](#common-fields-attributes)              |
 | [label](#common-fields-attributes)             |
 | [name](#common-fields-attributes)              |
 | [style](#common-fields-attributes)             |
 | [validate.required](#common-fields-attributes) |
-| [validate.type](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
 | [autofocus](#common-fields-attributes)         |
 | [classes](#common-fields-attributes)           |
 | [disabled](#common-fields-attributes)          |
@@ -426,14 +426,14 @@ custom_file:
 ```
 
 
-| Attribute  | Description                              |
-|:----------------------------------------- |:- |
-| `destination`           | The folder where the files will be stored, relative to the Grav root. E.g. `user/plugins/my-plugin/assets` |
-| `blueprint`           | Set it to the package identifier. For plugins: 'themes.mythemeslug' or 'plugins.mypluginnameslug' |
-| `accept`           | Add a list of accepted page mime types. E.g. `["image/*"]` |
+| Attribute     | Description                                                                                                |
+| :-----        | :-----                                                                                                     |
+| `destination` | The folder where the files will be stored, relative to the Grav root. E.g. `user/plugins/my-plugin/assets` |
+| `blueprint`   | Set it to the package identifier. For plugins: 'themes.mythemeslug' or 'plugins.mypluginnameslug'          |
+| `accept`      | Add a list of accepted page mime types. E.g. `["image/*"]`                                                 |
 
-| Common Attributes Allowed                 |
-|:----------------------------------------- |
+| Common Attributes Allowed                      |
+| :-----                                         |
 | [default](#common-fields-attributes)           |
 | [disabled](#common-fields-attributes)          |
 | [help](#common-fields-attributes)              |
@@ -443,7 +443,7 @@ custom_file:
 | [style](#common-fields-attributes)             |
 | [toggleable](#common-fields-attributes)        |
 | [validate.required](#common-fields-attributes) |
-| [validate.type](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
 
 ---
 
@@ -533,20 +533,20 @@ header.features:
 ```
 
 
-| Attribute  | Description                              |
-|:----------------------------------------- |:- |
-| `fields`           | The subfields |
-| `btnLabel`         | The "add new item" label text |
-| `sort`         | Boolean. If negative, disables the ability to sort items |
+| Attribute  | Description                                              |
+| :-----     | :-----                                                   |
+| `fields`   | The subfields                                            |
+| `btnLabel` | The "add new item" label text                            |
+| `sort`     | Boolean. If negative, disables the ability to sort items |
 
-| Common Attributes Allowed                 |
-|:----------------------------------------- |
+| Common Attributes Allowed                      |
+| :-----                                         |
 | [default](#common-fields-attributes)           |
 | [help](#common-fields-attributes)              |
 | [label](#common-fields-attributes)             |
 | [name](#common-fields-attributes)              |
 | [validate.required](#common-fields-attributes) |
-| [validate.type](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
 | [size](#common-fields-attributes)              |
 
 ---
@@ -563,12 +563,12 @@ header.img_link:
   type: pagemediaselect
 ```
 
-| Attribute  | Description                              |
-|:----------------------------------------- |:- |
-| `multiple`           | Select multiple files |
+| Attribute  | Description           |
+| :-----     | :-----                |
+| `multiple` | Select multiple files |
 
-| Common Attributes Allowed                 |
-|:----------------------------------------- |
+| Common Attributes Allowed                      |
+| :-----                                         |
 | [default](#common-fields-attributes)           |
 | [help](#common-fields-attributes)              |
 | [label](#common-fields-attributes)             |
@@ -576,7 +576,7 @@ header.img_link:
 | [style](#common-fields-attributes)             |
 | [toggleable](#common-fields-attributes)        |
 | [validate.required](#common-fields-attributes) |
-| [validate.type](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
 | [autofocus](#common-fields-attributes)         |
 | [classes](#common-fields-attributes)           |
 | [disabled](#common-fields-attributes)          |
@@ -606,18 +606,18 @@ home.alias:
 
 ```
 
-| Attribute  | Description                              |
-|:----------------------------------------- |:- |
-| `show_all`           | Shows all pages |
-| `show_modular`           | Shows all pages |
-| `show_root`           | Shows all pages |
-| `options`           | An optional list of additional choices |
-| `multiple`           | Select multiple pages |
-| `selectize`           |  |
+| Attribute      | Description                            |
+| :-----         | :-----                                 |
+| `show_all`     | Shows all pages                        |
+| `show_modular` | Shows all pages                        |
+| `show_root`    | Shows all pages                        |
+| `options`      | An optional list of additional choices |
+| `multiple`     | Select multiple pages                  |
+| `selectize`    |                                        |
 
 
-| Common Attributes Allowed                 |
-|:----------------------------------------- |
+| Common Attributes Allowed                      |
+| :-----                                         |
 | [default](#common-fields-attributes)           |
 | [help](#common-fields-attributes)              |
 | [label](#common-fields-attributes)             |
@@ -625,7 +625,7 @@ home.alias:
 | [style](#common-fields-attributes)             |
 | [toggleable](#common-fields-attributes)        |
 | [validate.required](#common-fields-attributes) |
-| [validate.type](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
 | [autofocus](#common-fields-attributes)         |
 | [classes](#common-fields-attributes)           |
 | [disabled](#common-fields-attributes)          |
@@ -652,12 +652,12 @@ content:
 ```
 
 
-| Attribute  | Description                              |
-|:----------------------------------------- |:- |
-| `title`           | A heading title |
-| `underline`           | Add an underline after the title |
-| `text`           | A text to show beneath |
-| `security`           | An array of credentials a user needs to visualize this section |
+| Attribute   | Description                                                    |
+| :-----      | :-----                                                         |
+| `title`     | A heading title                                                |
+| `underline` | Add an underline after the title                               |
+| `text`      | A text to show beneath                                         |
+| `security`  | An array of credentials a user needs to visualize this section |
 
 ---
 
@@ -678,8 +678,8 @@ taxonomies:
         type: commalist
 ```
 
-| Common Attributes Allowed                 |
-|:----------------------------------------- |
+| Common Attributes Allowed                      |
+| :-----                                         |
 | [default](#common-fields-attributes)           |
 | [help](#common-fields-attributes)              |
 | [label](#common-fields-attributes)             |
@@ -687,23 +687,23 @@ taxonomies:
 | [style](#common-fields-attributes)             |
 | [toggleable](#common-fields-attributes)        |
 | [validate.required](#common-fields-attributes) |
-| [validate.type](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
 
 
-| Common Attributes IN INPUT BLOCK               |
-|:---------------------------------------------- |
-| [autocomplete](#common-fields-attributes)      |
-| [autofocus](#common-fields-attributes)         |
-| [classes](#common-fields-attributes)           |
-| [disabled](#common-fields-attributes)          |
-| [id](#common-fields-attributes)                |
-| [novalidate](#common-fields-attributes)        |
-| [placeholder](#common-fields-attributes)       |
-| [readonly](#common-fields-attributes)          |
-| [size](#common-fields-attributes)              |
-| [title](#common-fields-attributes)             |
-| [validate.pattern](#common-fields-attributes)  |
-| [validate.message](#common-fields-attributes)  |
+| Common Attributes IN INPUT BLOCK              |
+| :-----                                        |
+| [autocomplete](#common-fields-attributes)     |
+| [autofocus](#common-fields-attributes)        |
+| [classes](#common-fields-attributes)          |
+| [disabled](#common-fields-attributes)         |
+| [id](#common-fields-attributes)               |
+| [novalidate](#common-fields-attributes)       |
+| [placeholder](#common-fields-attributes)      |
+| [readonly](#common-fields-attributes)         |
+| [size](#common-fields-attributes)             |
+| [title](#common-fields-attributes)            |
+| [validate.pattern](#common-fields-attributes) |
+| [validate.message](#common-fields-attributes) |
 
 ---
 
@@ -737,9 +737,9 @@ tabs:
 ```
 
 
-| Attribute  | Description                              |
-|:----------------------------------------- |:- |
-| `active`           | The active tab number |
+| Attribute | Description           |
+| :-----    | :-----                |
+| `active`  | The active tab number |
 
 ---
 
@@ -758,12 +758,12 @@ header.taxonomy:
     type: array
 ```
 
-| Attribute  | Description                              |
-|:----------------------------------------- |:- |
-| `multiple`           | boolean. If positive, the field accepts multiple values |
+| Attribute  | Description                                             |
+| :-----     | :-----                                                  |
+| `multiple` | boolean. If positive, the field accepts multiple values |
 
 | Common Attributes Allowed                 |
-|:----------------------------------------- |
+| :----- |
 | [autofocus](#common-fields-attributes)           |
 | [classes](#common-fields-attributes)             |
 | [default](#common-fields-attributes)             |
@@ -803,12 +803,12 @@ summary.enabled:
 
 
 | Attribute   | Description                                                  |
-|:----------- |:------------------------------------------------------------ |
+| :-----      | :-----                                                       |
 | `highlight` | The key of the option to highlight (set green when selected) |
 | `options`   | The list of key - value options                              |
 
 | Common Attributes Allowed                      |
-|:---------------------------------------------- |
+| :-----                                         |
 | [default](#common-fields-attributes)           |
 | [help](#common-fields-attributes)              |
 | [label](#common-fields-attributes)             |
