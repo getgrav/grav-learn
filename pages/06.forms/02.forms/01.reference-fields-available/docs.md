@@ -51,7 +51,7 @@ This list provides a common ground so there's no need to repeat the description 
 | `style`             | sets the field style |
 | `title`             | sets the field title value |
 | `type`              | sets the field type |
-| `validate.required`  | if set to a positive value, sets the field as required. |
+| `validate.required` | if set to a positive value, sets the field as required. |
 | `validate.pattern`  | sets a validation pattern |
 | `validate.message`  | sets the message shown if the validation fails |
 
