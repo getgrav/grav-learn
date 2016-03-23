@@ -14,23 +14,23 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 
 | Field           | Description                      |
 |:----------------------------------------- |
-| **[Array](#the-array-field)**     |  a special field used for example in the **page metadata** allowing the user to add multiple key-value rows. |
-| **[Columns](#the-columns-field)**     |  used to break the form in multiple columns |
-| **[Column](#the-column-field)**     |  used to show a single column (used with the `Columns` field) |
+| **[Array](#the-array-field)**     |  used to create key-value arrays |
+| **[Columns](#the-columns-column-fields)**     |  used to break the form in multiple columns |
+| **[Column](#the-columns-column-fields)**     |  used to show a single column (used with the `Columns` field) |
 | **[Dateformat](#the-dateformat-field)**     |  a special select that renders the current date/time in the passed formats |
 | **[Datetime](#the-datetime-field)**     |  a date and time selection field |
 | **[Editor](#the-editor-field)**     | simply shows a text value, with no input field  |
-| **[File](#the-File-field)**     |  in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
-| **[Ignore](#the-Ignore-field)**     |  used to remove unused fields when extending from another blueprint |
-| **[List](#the-List-field)**     |  similar to `Array`, shows a list of items, but without a key |
-| **[PageMediaSelect](#the-PageMediaSelect-field)**     |  shows a select with all the page media. Used in Pages blueprints to let the user choose a media file to be assigned to a field. |
-| **[Pages](#the-Pages-field)**     |  shows a list of the site pages |
-| **[Section](#the-Section-field)**     | used to divide a setting page into sections; each section comes with a title  |
-| **[Selectize](#the-Selectize-field)**     | a hybrid of a text box and a select box. Mostly useful for tagging and other element picking fields.  |
-| **[Tabs](#the-Tabs-field)**     | divides the settings in a list of tabs  |
-| **[Tab](#the-Tab-field)**     | used by the `Tabs` field to render a tab  |
-| **[Taxonomy](#the-Taxonomy-field)**     | a special select preconfigured to select one or more taxonomies  |
-| **[Toggle](#the-Toggle-field)**     | a on/off kind of input, with configurable labels  |
+| **[File](#the-file-field)**     |  in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
+| **[Ignore](#the-ignore-field)**     |  used to remove unused fields when extending from another blueprint |
+| **[List](#the-list-field)**     |  used to create collections of fields |
+| **[PageMediaSelect](#the-pagemediaselect-field)**     |  shows a select with all the page media. Used in Pages blueprints to let the user choose a media file to be assigned to a field. |
+| **[Pages](#the-pages-field)**     |  shows a list of the site pages |
+| **[Section](#the-section-field)**     | used to divide a setting page into sections; each section comes with a title  |
+| **[Selectize](#the-selectize-field)**     | a hybrid of a text box and a select box. Mostly useful for tagging and other element picking fields.  |
+| **[Tabs](#the-tabs-tab-fields)**     | divides the settings in a list of tabs  |
+| **[Tab](#the-tabs-tab-fields)**     | used by the `Tabs` field to render a tab  |
+| **[Taxonomy](#the-taxonomy-field)**     | a special select preconfigured to select one or more taxonomies  |
+| **[Toggle](#the-toggle-field)**     | a on/off kind of input, with configurable labels  |
 
 ### Common Fields Attributes
 
@@ -202,7 +202,7 @@ folder:
 
 ### The Array Field
 
-The `array` field type is used to show a simple list of key - values objects.
+The `array` field type is used to create a simple list of key - values objects.
 
 Example:
 
@@ -463,7 +463,7 @@ content:
 
 ### The List Field
 
-The `list` field type is used to create collections of properties. The field accepts a `fields` attribute that will host subfields, and there will be a "Add item" button to allow the user to add more items to the collection.
+The `list` field type is used to create collections of fields. The field accepts a `fields` attribute that will host subfields, and there will be a "Add item" button to allow the user to add more items to the collection.
 
 Example:
 
