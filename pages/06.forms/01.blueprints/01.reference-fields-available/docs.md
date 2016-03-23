@@ -40,6 +40,7 @@ Here's a list of the available form fields:
 - **Frontmatter**: show the page frontmatter in a raw format
 - **List**: similar to `Array`, shows a list of items, but without a key
 - **Markdown**: show a markdown editor
+- **pagemedia**: a drag and drop field to import and insert media files in pages.
 - **PageMediaSelect**: shows a select with all the page media. Used in Pages blueprints to let the user choose a media file to be assigned to a field.
 - **Pages**: shows a list of the site pages
 - **Section**: used to divide a setting page into sections; each section comes with a title
