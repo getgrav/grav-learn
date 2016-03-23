@@ -199,6 +199,7 @@ folder:
     type: slug
 ```
 
+---
 
 ### The Array Field
 
@@ -234,6 +235,7 @@ metadata:
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes) |
 
+---
 
 ### The Columns / column Fields
 
@@ -265,6 +267,7 @@ columns:
 |:----------------------------------------- |:- |
 | `fields`           | The columns / column subfields |
 
+---
 
 ### The Dateformat Field
 
@@ -311,6 +314,7 @@ pages.dateformat.short:
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes) |
 
+---
 
 ### The Datetime Field
 
@@ -344,6 +348,7 @@ header.date:
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes) |
 
+---
 
 ### The Editor Field
 
@@ -371,7 +376,7 @@ frontmatter:
 
 | Attribute  | Description                              |
 |:----------------------------------------- |:- |
-| `codemirror`           | A set of values to be set on the codemirror editor. By default uses mode: gfm (markdown) |
+| `codemirror`        | A set of values to be set on the codemirror editor. By default uses mode: gfm (markdown) |
 | `resizer`           | If positive, enables the resizer. Otherwise the editor is fixed |
 
 | Common Attributes Allowed                 |
@@ -390,8 +395,6 @@ frontmatter:
 | [novalidate](#common-fields-attributes)        |
 | [placeholder](#common-fields-attributes)       |
 | [readonly](#common-fields-attributes)          |
-
-
 
 
 ---------------------
@@ -442,7 +445,7 @@ custom_file:
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes) |
 
-
+---
 
 ### The Ignore Field
 
@@ -457,9 +460,7 @@ content:
   type: ignore
 ```
 
-
-
----------------------
+---
 
 ### The List Field
 
@@ -548,6 +549,7 @@ header.features:
 | [validate.type](#common-fields-attributes) |
 | [size](#common-fields-attributes)              |
 
+---
 
 ### The PageMediaSelect Field
 
@@ -583,7 +585,7 @@ header.img_link:
 | [size](#common-fields-attributes)              |
 
 
-
+---
 
 ### The Pages Field
 
@@ -630,7 +632,7 @@ home.alias:
 | [novalidate](#common-fields-attributes)        |
 | [size](#common-fields-attributes)              |
 
-
+---
 
 ### The Section Field
 
@@ -657,7 +659,7 @@ content:
 | `text`           | A text to show beneath |
 | `security`           | An array of credentials a user needs to visualize this section |
 
-
+---
 
 ### The Selectize Field
 
@@ -703,7 +705,7 @@ taxonomies:
 | [validate.pattern](#common-fields-attributes)  |
 | [validate.message](#common-fields-attributes)  |
 
-
+---
 
 ### The Tabs / Tab Fields
 
@@ -739,6 +741,7 @@ tabs:
 |:----------------------------------------- |:- |
 | `active`           | The active tab number |
 
+---
 
 ### The Taxonomy Field
 
@@ -777,7 +780,7 @@ header.taxonomy:
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
 
-
+---
 
 ### The Toggle Field
 

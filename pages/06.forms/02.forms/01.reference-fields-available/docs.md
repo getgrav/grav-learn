@@ -60,6 +60,8 @@ This list provides a common ground so there's no need to repeat the description 
 You can set positive values in multiple ways: `'on'`, `'true'`, `1`.
 Other values are interpreted as negative.
 
+---
+
 ### The Captcha Field
 
 The `captcha` field type is used to add a Google Recaptcha element to your form. Unlike other elements, it can be used once in the form.
@@ -104,6 +106,8 @@ The above code will validate the Captcha in the frontend and prevent form submis
 
 [See the Contact Form example](/forms/forms/example-form) to see it in action.
 
+---
+
 ### The Checkbox Field
 
 The `checkbox` field type is used to add a single checkbox to your form.
@@ -134,6 +138,8 @@ Example:
 | [validate.required](#common-fields-attributes)   |
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
+
+---
 
 ### The Checkboxes Field
 
@@ -185,6 +191,8 @@ my_field:
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
 
+---
+
 ### The Date Field
 
 The `date` field type is used to add an HTML5 `date` input field.
@@ -224,6 +232,8 @@ Example:
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
 
+---
+
 ### The Display Field
 
 The `display` field type is used to show some text or instructions inside the form. Can accept markdown content
@@ -252,6 +262,8 @@ test:
 | [name](#common-fields-attributes)                |
 | [outerclasses](#common-fields-attributes)        |
 | [size](#common-fields-attributes)                |
+
+---
 
 ### The Email Field
 
@@ -285,6 +297,8 @@ header.email:
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
 
+---
+
 ### The File Field
 
 With the `file` field type you can let users to upload files through the form. The field by default allows **one file** only, of type **image** and will get uploaded in the **current** page where the form has been declared.
@@ -315,6 +329,8 @@ With the `file` field type you can let users to upload files through the form. T
 | [outerclasses](#common-fields-attributes)        |
 | [validate.required](#common-fields-attributes)        |
 
+---
+
 ### The Hidden Field
 
 The `hidden` field type is used to add a hidden element to a form.
@@ -333,6 +349,8 @@ header.some_field:
 | Common Attributes Allowed                 |
 |:----------------------------------------- |
 | [default](#common-fields-attributes)             |
+
+---
 
 ### The Password Field
 
@@ -365,6 +383,8 @@ Example:
 | [validate.required](#common-fields-attributes)   |
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
+
+---
 
 ### The Radio Field
 
@@ -399,6 +419,8 @@ Example:
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
 
+---
+
 ### The Range Field
 
 The `range` field is used to present a [range input field](http://html5doctor.com/html5-forms-input-types/#input-range).
@@ -429,6 +451,8 @@ header.choose_a_number_in_range:
 | [validate.required](#common-fields-attributes)   |
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
+
+---
 
 ### The Select Field
 
@@ -472,6 +496,7 @@ pages.order.by:
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
 
+---
 
 ### The Spacer Field
 
@@ -493,6 +518,8 @@ test:
 | `title`           | add a h3 title to the form  |
 | `text`           | Add some text. If title is set, add it after the title |
 | `underline`           | boolean, add a `<hr>` tag if positive  |
+
+---
 
 ### The Text Field
 
@@ -525,6 +552,8 @@ header.title:
 | [validate.required](#common-fields-attributes)   |
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
+
+---
 
 ### The Textarea Field
 
