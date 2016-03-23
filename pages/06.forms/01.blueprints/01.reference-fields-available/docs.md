@@ -467,24 +467,6 @@ The `list` field type is used to create collections of fields. The field accepts
 
 Example:
 
-```yaml
-header.features:
-  name: features
-  type: list
-  label: Features
-
-  fields:
-    .icon:
-      type: text
-      label: Icon
-    .header:
-      type: text
-      label: Header
-    .text:
-      type: text
-      label: Text
-```
-
 ```
 header.buttons:
   name: buttons
@@ -507,6 +489,46 @@ header.buttons:
           0: 'No'
       validate:
           type: bool
+```
+
+This example will generate this Admin interface:
+
+![](field_list_1.png)
+
+When saving the page, we'll some the following YAML added to the page frontmatter:
+
+```
+buttons:
+    -
+        text: 'Some text'
+        url: 'http://getgrav.org'
+        primary: false
+    -
+        text: 'Another text'
+        url: 'https://another-url.com'
+        primary: true
+```
+
+This will be used in the Theme twig to output the list in some nice way.
+
+Another example of this field definition is this list of Features, used by Antimatter's Features Modular child page. Every feature has an icon, a header and some text:
+
+```yaml
+header.features:
+  name: features
+  type: list
+  label: Features
+
+  fields:
+    .icon:
+      type: text
+      label: Icon
+    .header:
+      type: text
+      label: Header
+    .text:
+      type: text
+      label: Text
 ```
 
 
