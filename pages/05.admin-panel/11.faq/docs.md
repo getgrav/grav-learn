@@ -45,7 +45,7 @@ At one point during the creation process you will be asked to choose a set of pe
 | Site           | Gives user access to all pages in the front end. This is the equivalent of a logged-in user.                      |
 | Admin and Site | Gives user access to the entire site, front and back end.                                                         |
 
-User data is stored in `SITE_ROOT/user/accounts/` and each user is given a **YAML** file containing that users login information and other details. Here is an example of the data contained within a user account file. For example this could be the content of `SITE_ROOT/user/accounts/tester.yaml`.
+User data is stored in `SITE_ROOT/user/accounts/` and each user is given a **YAML** file containing that user's login information and other details. Here is an example of the data contained within a user account file. For example this could be the content of `SITE_ROOT/user/accounts/tester.yaml`.
 
 !! The filename `tester.yaml` dictates the username is `tester`
 
@@ -86,11 +86,11 @@ Here are the currently supported access levels explained:
 
 ### Custom Admin URL
 
-One way to help keep your admin panel secure is to hide it's location, to do this would be to change the URL from
+One way to help keep your admin panel secure is to hide its location. To do this would be to change the URL from
 ```
 http://yourwebsite.com/admin
 ```
-To something more ambiguous, that is going to be harder for someone to guess.  To do this you need to locate `admin.yaml` which can be found in `user\plugins\admin\` and change or add the line `route: '/admin'` to something more ambiguous, for example `route: '/myspecialplace'`, this way if you need to access the admin panel for your grav site you will enter
+to something more ambiguous that is going to be harder for someone to guess.  To do this you need to locate `admin.yaml` which can be found in `user\plugins\admin\` and change or add the line `route: '/admin'` to something more ambiguous, for example `route: '/myspecialplace'`, this way if you need to access the admin panel for your grav site you will enter
 ```
 http://yourwebsite.com/myspecialplace
 ```
