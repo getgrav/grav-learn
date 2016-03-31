@@ -38,13 +38,13 @@ The sky is the limit regarding the configuration of your themes.  You can use th
 
 ## Accessing Theme Info
 
-As of Grav 1.1, you can easily access theme configuration and blueprint-related information.  To access information via Twig from the `bluerpint.yaml` such as theme name you can simply use:
+As of Grav 1.1, you can easily access theme configuration and blueprint-related information.  To access information via Twig from the `blueprints.yaml` such as theme name you can simply use:
 
 ```
 {{ grav.theme.name }}
 ```
 
-For a given example `blueprint.yaml` configuration of:
+For a given example `blueprints.yaml` configuration of:
 
 ```
 name: Antimatter
