@@ -53,7 +53,7 @@ Another method is to clone Grav from the GitHub repository, and then run a simpl
 1. Clone the Grav repository from [GitHub](https://github.com/getgrav/grav) to a folder in the webroot of your server, e.g. `~/webroot/grav`. Launch a **terminal** or **console** and navigate to the webroot folder:
    ```
    $ cd ~/webroot
-   $ git clone https://github.com/getgrav/grav.git
+   $ git clone -b master https://github.com/getgrav/grav.git
    ```
 
 2. Install **vendor dependencies** via [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
