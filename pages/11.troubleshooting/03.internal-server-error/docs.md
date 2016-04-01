@@ -27,6 +27,10 @@ The first thing you should do is ensure PHP is working properly on your server, 
 
 Then point your browser at this file: `http://yoursite.com/your_grav_directory/info.php`.  You should get a report page listing all the information related to the PHP configuration including version and extensions loaded.
 
+### Check permissions
+
+A 500 error can be triggered by having the wrong permissions. Check [the permissions guide](/permissions)
+
 ### Register Globals Issue
 
 Some people who have recently upgraded to PHP 5.5 from version 5.4 or 5.3, may still have some out of date settings in their `php.ini` file.  One item that can cause a **500 Internal Server Error** is the `register_globals` setting.  Simply remove or comment out the line:
