@@ -29,7 +29,7 @@ Then point your browser at this file: `http://yoursite.com/your_grav_directory/i
 
 ### Check permissions
 
-A 500 error can be triggered by having the wrong permissions. Check [the permissions guide](/permissions)
+A 500 error can be triggered by having the wrong permissions. Check [the permissions guide](/troubleshooting/permissions)
 
 ### Register Globals Issue
 
