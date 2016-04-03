@@ -62,3 +62,7 @@ If you receive a _Grav-style_ error saying **Error 404** then your `.htaccess` i
 The most common cause of this is simply that the page has been moved or renamed. Another thing to check is if the page has a `slug` set in the page YAML headers. This overrides the explicit folder name that is used by default to construct the URL.
 
 Another cause could be your page is **not routable**. The routable option for a page can be set in the [page headers](../../content/headers).
+
+### 404 Page Not Found on Nginx
+
+If your site is in a subfolder, make sure your nginx.conf location points to that subfolder. Grav's [sample nginx.conf](https://github.com/getgrav/grav/blob/master/webserver-configs/nginx.conf) has a comment in the code that explains how.
