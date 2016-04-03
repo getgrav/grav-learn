@@ -77,6 +77,8 @@ Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extra
 
 If your web root is, for example, `~/public_html` then you could extract it into this folder and reach it via `http://localhost`.  If you extracted it into `~/public_html/grav` you would reach it via `http://localhost/grav`.
 
+!!! Every web server must be configured. Grav ships with .htaccess by default, for Apache, and comes with some [default server configuration files](https://github.com/getgrav/grav/tree/master/webserver-configs), for `nginx`, `caddy server`, `iis` and `lighttpd`. Use them accordingly when needed.
+
 ## Successful Installation
 
 The first time it loads, Grav pre-compiles some files. If you now refresh your browser, you will get a faster, cached version.
