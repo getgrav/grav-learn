@@ -6,6 +6,7 @@ taxonomy:
 
 Multi-Language support was added to Grav in version **0.9.30** as a result of a great [community discussion](https://github.com/getgrav/grav/issues/170) on the subject. Multi-language support in Grav consists of several key parts:
 
+1. [Single language different than English](#single-language-different-than-english)
 1. [Multiple concurrent languages](#multi-language-basics) for a given Grav site
 1. [Language fall-back](#language-configuration) based on language order
 1. Language code (`en`) or Locale-based codes (`en-GB`)
@@ -27,6 +28,24 @@ Multi-Language support was added to Grav in version **0.9.30** as a result of a 
 
 
 We will now break these down and provide examples on how you can setup your Grav site with multiple languages.
+
+### Single language different than English
+
+If you just use one language, enable translations and add your language code in the `user/config/system.yaml` file:
+
+```
+languages:
+  translations: true
+  supported:
+    - fr
+```
+
+or in the System configuration in the Admin:
+
+![Admin Translations Settings](translations-settings.png)
+
+This will make sure Grav uses the correct language strings in the frontend.
+Also, if the theme supports it, it will add your language code to the HTML tag.
 
 ### Multi-Language Basics
 
