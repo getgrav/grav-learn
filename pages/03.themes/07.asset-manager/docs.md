@@ -208,3 +208,17 @@ The `url()` method takes an optional second parameter of `true` or `false` to en
 ```
 url("theme://some/extra.css", true)
 ```
+
+## Change attribute of the rendered CSS/JS assets
+
+CSS is by default added using the `rel="stylesheet"` attribute, and `type="text/css"` , while JS has `type="text/javascript"`.
+
+To change the defaults, or to add new attributes, you need to create a new group of assets, and tell Grav to render it with that attribute.
+
+Example of editing the `rel` attribute on a group of assets:
+
+```
+{% do assets.addCSS('theme://whatever.css', {'group':'my-alternate-group'}) %}
+...
+{{ assets.css('my-alternate-group', {'rel': 'alternate'}) }}
+```
