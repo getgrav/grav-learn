@@ -75,7 +75,7 @@ Example:
   name: g-recaptcha-response
   label: Captcha
   type: captcha
-  recaptcha_site_key: j3jeoi3jeroi23jrio234jro32nrkj43njrn32rn3
+  recatpcha_site_key: j3jeoi3jeroi23jrio234jro32nrkj43njrn32rn3
   recaptcha_not_validated: 'Captcha not valid!'
   validate:
     required: true
@@ -83,7 +83,7 @@ Example:
 
 | Attribute                 | Description                                     |
 | :-----                    | :-----                                          |
-| `recaptcha_site_key`      | The Google Recaptcha Site Key                   |
+| `recatpcha_site_key`      | The Google Recaptcha Site Key                   |
 | `recaptcha_not_validated` | The message to show if the captcha is not valid |
 
 | Common Attributes Allowed                      |
@@ -101,7 +101,7 @@ The above code will validate the Captcha in the frontend and prevent form submis
 ```
     process:
         - captcha:
-            recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
+            recatpcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
 ```
 
 [See the Contact Form example](/forms/forms/example-form) to see it in action.
@@ -177,7 +177,7 @@ my_field:
 
 
 | Common Attributes Allowed                 |
-:----- |  
+:----- |
 | [autofocus](#common-fields-attributes)           |
 | [classes](#common-fields-attributes)             |
 | [disabled](#common-fields-attributes)            |
