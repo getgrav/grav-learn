@@ -66,7 +66,7 @@ Other values are interpreted as negative.
 
 The `captcha` field type is used to add a Google Recaptcha element to your form. Unlike other elements, it can be used once in the form.
 
-Also, the `name` attribute of the catpcha field must be `g-recaptcha-response`. The reason is that Google reCAPTCHA stores the Captcha confirmation code in a field named `g-recaptcha-response`.
+Also, the `name` attribute of the captcha field must be `g-recaptcha-response`. The reason is that Google reCAPTCHA stores the Captcha confirmation code in a field named `g-recaptcha-response`.
 
 Example:
 
