@@ -69,7 +69,7 @@ Like present in the example above.
 This step is needed because if you don't explicitly add `form.action`, the code usually looks for the page route, but being the form in a modular subpage, not an actual page, the path is wrong and breaks the form submit.
 
 So if the modular page is e.g. `site.com/my-page`, just put `form: action: /my-page` in `modular.md`
-If the modular page is the homepage, just put `form: action: /`
+Even if the modular page is the homepage, use the page route, e.g. `form: action: /home`
 
 #### A live example
 
