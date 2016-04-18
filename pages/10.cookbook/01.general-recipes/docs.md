@@ -170,9 +170,6 @@ You need a image slider without any overhead.
 This recipe is for 4 images! Simply put the images where the .md file is. Next, create a new twig template and extend base.html.twig.
 
 ```
-{% extends 'partials/base.html.twig' %}
-
-{% block content %}
 
     <div id="slider">
         <figure>
@@ -183,7 +180,7 @@ This recipe is for 4 images! Simply put the images where the .md file is. Next, 
     </div>
 
     {{ page.content }}
-{% endblock %}
+
 ```
 
 Time for css stuff. Add this to your _custom.scss
