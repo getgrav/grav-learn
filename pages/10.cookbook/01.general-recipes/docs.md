@@ -167,7 +167,8 @@ You need a image slider without any overhead.
 
 ##### Solution:
 
-This recipe is for 4 images! Simply put the images where the .md file is. Next, create a new twig template and extend base.html.twig.
+This recipe is for 4 images and a page called slider.md! Simply put the images where the .md file is. Next, create a new twig template and extend base.html.twig.
+
 
 ```
 {% extends 'partials/base.html.twig' %}
@@ -185,6 +186,13 @@ This recipe is for 4 images! Simply put the images where the .md file is. Next, 
     {{ page.content }}
 {% endblock %}
 ```
+
+For modular slider, please remove the 
+```
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+```  and ``` {% endblock %} ``` from the previous twig file.
 
 Time for css stuff. Add this to your _custom.scss
 
