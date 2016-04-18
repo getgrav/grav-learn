@@ -111,6 +111,17 @@ Now we need to display these images in reverse chronological order so the newest
 {% endblock %}
 ```
 
+For modular gallery to be displayed inside another page, remove the following code from the twig file in order to make it work:
+```
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {{ page.content }}
+``` and 
+``` {% endblock %}
+```
+
+
 Basically this extends the standard `partials/base.html.twig` (assuming your theme has this file), it then defines the `content` block and provides the content for it.  The first thing we do is echo out any `page.content`.  This would be the content of the `gallery.md` file, so it could contain a title, and a description of this page.
 
 The next section simply loops over all the media of the page that are **images**.  We are outputting these in an unordered list to make the output semantic, and easy to style with CSS.  we are assigning each image the variable name `image` and then we are able to perform a simple `cropResize()` method to resize the image to something suitable, and then below it we provide an information section with the `title` and `description`.
