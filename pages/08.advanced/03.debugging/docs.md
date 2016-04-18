@@ -1,7 +1,7 @@
 ---
 title: Debugging & Logging
 process:
-	twig: true
+    twig: true
 taxonomy:
     category: docs
 ---
@@ -14,7 +14,7 @@ Grav comes with a great tool to make this effort easier called via a **Debug Bar
 
 ```
 debugger:
-  enabled: false                       # Enable Grav debugger and following settings
+  enabled: true                        # Enable Grav debugger and following settings
   shutdown:
     close_connection: true             # Close the connection before calling onShutdown(). false for debugging
 ```
