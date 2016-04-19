@@ -23,7 +23,7 @@ Here you can find information on problems and issues raised on [Grav forum](http
 
 First, make sure PHP has cURL and OpenSSL installed. You can check this in the Admin panel, in Configuration -> Info. You should see a "OpenSSL" section with `OpenSSL support: enabled`. Same for cURL, a section with `cURL support: enabled`.
 
-If this is ok, make sure you're not behind a proxy. If so, [configure it](https://learn.getgrav.org/basics/grav-configuration#system-configuration) in the Grav System configuration and [make sure there are no issues with the connection](https://learn.getgrav.org/troubleshooting/proxy).
+If this is ok, make sure you're not behind a proxy. If so, [configure it](/basics/grav-configuration#system-configuration) in the Grav System configuration and [make sure there are no issues with the connection](/troubleshooting/proxy).
 
 Then, [check your permissions](/troubleshooting/permissions).
 
