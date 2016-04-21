@@ -4,6 +4,8 @@ taxonomy:
     category: docs
 ---
 
+!!!! **BETA REQUIRED** - These advanced features are only available in **Grav 1.1.0-beta.1+**.  They will not work in Grav 1.0.x
+
 There are some advanced features in the blueprints which allow you to extend them and to have dynamic fields.
 
 ## Defining Validation Rules
@@ -51,7 +53,7 @@ extends@: parent@
 There is no limit on how many blueprints you an extend. Fields defined in the first blueprint will be replaced by any later blueprints in the list.
 
 ``` yaml
-extends@: 
+extends@:
   - parent@
   - type: default
     context: blueprints://pages
@@ -148,7 +150,7 @@ You can use `config-*@` for any field; for example if you want to change the fie
 
 ## Using Function Calls (data-*@)
 
-You can make function calls with parameters from your blueprints to dynamically fetch a value for any property in your field. You can do this by using `data-*@:` notation as the key, where `*` is the field name you want to fill with the result of the function call. 
+You can make function calls with parameters from your blueprints to dynamically fetch a value for any property in your field. You can do this by using `data-*@:` notation as the key, where `*` is the field name you want to fill with the result of the function call.
 
 As an example we are editing a page and we want to have a field that allows us to change its parent or in another words move page into another location. For that we need default value that points to the current location as well as a list of options which consists of all possible locations. For that we need a way to ask Grav
 
@@ -195,7 +197,7 @@ Additionally you can pass parameters to the function call just by using array wh
 
 When you extend a blueprint or import a file, by default the new fields are added to the end of the list. Sometimes this is not what you want to do, you may want to add item as the first or after some existing field.
 
-For this every field can set `ordering@` property, which is either field name or integer (0 = first item). 
+For this every field can set `ordering@` property, which is either field name or integer (0 = first item).
 
 # Creating new form field type
 
