@@ -57,7 +57,6 @@ You can also display Twig variables from your Twig templates.  This is done in a
 
 ```
 twig:
-  cache: true
   debug: true                        # Enable Twig debugger
 ````
 
