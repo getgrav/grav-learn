@@ -56,6 +56,12 @@ Converts a string into a more "human readable" format
 
 `'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i> **{{ 'something_text_to_read'|humanize }}**
 
+##### Hyphenize
+
+Converts a string into a hyphenated version.
+
+`'Something Text to Read'|hyphenize` <i class="fa fa-long-arrow-right"></i> **{{ 'Something Text to Read'|hyphenize }}**
+
 ##### Ksort
 
 Sort an array map by each key
