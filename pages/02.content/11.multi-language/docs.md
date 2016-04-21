@@ -447,7 +447,7 @@ There is often a need to access Language state and logic from Twig templates.  F
 To display the correct version of the image you would need to know the current active language.  This is possible in Grav by accessing the `Language` object via the `Grav` object, and calling the appropriate method. In the example above this could be achieved with the following Twig code:
 
 ```
-{{ page.media.images['myimage.'~grav.language.getActive~'.jpg'].html }}
+{{ page.media.images['myimage.'~evaluate('grav.language.getLanguage')~'.jpg'].html }}
 ```
 
 The `getActive` call in the Twig is effectively calling `Language->getActive()` to return the current active language code.  A few useful Language methods include:
