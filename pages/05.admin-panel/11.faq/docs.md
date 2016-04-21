@@ -12,10 +12,10 @@ This FAQ is intended to provide useful tutorials, tips, and tricks to help you g
 
 Manual installation is not the recommended method of installation, however, it is still possible to install the admin plugin manually. Basically, you need to download each of the following plugins individually:
 
-* [admin](https://github.com/getgrav/grav-plugin-admin/archive/develop.zip)
-* [login](https://github.com/getgrav/grav-plugin-login/archive/develop.zip)
-* [form](https://github.com/getgrav/grav-plugin-form/archive/develop.zip)
-* [email](https://github.com/getgrav/grav-plugin-email/archive/develop.zip)
+* [admin](https://github.com/getgrav/grav-plugin-admin/archive/master.zip)
+* [login](https://github.com/getgrav/grav-plugin-login/archive/master.zip)
+* [form](https://github.com/getgrav/grav-plugin-form/archive/master.zip)
+* [email](https://github.com/getgrav/grav-plugin-email/archive/master.zip)
 
 Extract each archive file into your `user/plugins` folder, then ensure the folders are renamed to just `admin/`, `login/`, `form/`, and `email/`.  Then proceed with the **Usage instructions below**.
 
