@@ -49,12 +49,12 @@ It is often useful to know how Grav processes in order to fully understand how b
   	  1. Start output buffering
       1. Initialize the timezone
       1. Initialize the `plugins`
-  	  1. Fire **onPluginsInitalized** event
+  	  1. Fire **onPluginsInitialized** event
       1. Initialize the theme
       1. Fire **onThemeInitialized** event
       1. Fire **onTask[TASK]** event
-  	  1. Initalize `assets`
-  	  1. Fire **onAssetsInitalized** event
+  	  1. Initialize `assets`
+  	  1. Fire **onAssetsInitialized** event
   	  1. Initialize `twig`
   	      ### Twig.php {.level-3}
   	      1. Set Twig template paths based on configuration
