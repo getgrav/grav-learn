@@ -168,6 +168,8 @@ Usage example with a mailto link:
 </a>
 ```
 
+You might not notice a difference at first, but examining the page source (not using the Browser Developer Tools, the actual page source) will reveal the underlying characters encoding.
+
 ##### SortByKey
 
 Sort an array map by a particular key
