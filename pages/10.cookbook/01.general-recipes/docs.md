@@ -112,15 +112,19 @@ Now we need to display these images in reverse chronological order so the newest
 ```
 
 For modular gallery to be displayed inside another page, remove the following code from the twig file in order to make it work:
+
 ```
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
     {{ page.content }}
-``` and 
-``` {% endblock %}
 ```
 
+and
+
+```
+{% endblock %}
+```
 
 Basically this extends the standard `partials/base.html.twig` (assuming your theme has this file), it then defines the `content` block and provides the content for it.  The first thing we do is echo out any `page.content`.  This would be the content of the `gallery.md` file, so it could contain a title, and a description of this page.
 
