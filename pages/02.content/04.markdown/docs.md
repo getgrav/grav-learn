@@ -130,6 +130,25 @@ A **line break** can be done with 2 spaces followed by 1 return.
 <br>
 
 
+## Inline HTML
+
+If you need a certain HTML tag (with a class) you can simply use HTML:
+
+```
+Paragraph in Markdown.
+
+<div class="class">
+</div>
+
+Paragraph in Markdown.
+```
+
+
+<br>
+<br>
+<br>
+
+
 ## Emphasis
 
 ### Bold
