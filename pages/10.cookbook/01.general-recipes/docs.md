@@ -202,12 +202,20 @@ This recipe is for 4 images and a page called slider.md! Simply put the images w
 {% endblock %}
 ```
 
-For modular slider, please remove the 
+For modular slider, please remove the
 ```
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-```  and ``` {% endblock %} ``` from the previous twig file.
+```
+
+and
+
+```
+{% endblock %}
+```
+
+from the previous twig file.
 
 Time for css stuff. Add this to your _custom.scss
 
