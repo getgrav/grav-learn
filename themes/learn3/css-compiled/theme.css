@@ -32,7 +32,7 @@
   src: url("../fonts/Work_Sans_500.eot?#iefix") format("embedded-opentype"), url("../fonts/Work_Sans_500.woff") format("woff"), url("../fonts/Work_Sans_500.woff2") format("woff2"), url("../fonts/Work_Sans_500.svg#WorkSans") format("svg"), url("../fonts/Work_Sans_500.ttf") format("truetype"); }
 body {
   background: #fff;
-  color: #777; }
+  color: #444; }
   body #chapter h1 {
     font-size: 3.5rem; }
     @media only all and (min-width: 48em) and (max-width: 59.938em) {
