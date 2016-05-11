@@ -301,3 +301,46 @@ This sets up **2 collections** for this page, the first uses the default `conten
 {% set fruit_colleciton = page.collection('fruit') %}
 ```
 
+## Collection Object
+
+When you define a collection in the page header, you are dynamically creating a [Grav Collection](https://github.com/getgrav/grav/blob/develop/system/src/Grav/Common/Page/Collection.php).  This Collection object is **iterable** and can be treated like an **array** which allows you to do things such as:
+
+```
+{{ dump(collection[page.path]) }}
+```
+
+Standard methods Iterable methods include:
+
+* `Collection::append($items)` - Add another collection or array
+* `Collection::first()` - Get the first item in the collection
+* `Collection::last()` - Get the last item in the collection
+* `Collection::random($num)` - Pick `$num` random items from the collection
+* `Collection::reverse()` - Reverse the order of the collection
+* `Collection::shuffle()` - Randomize the entire collection
+* `Collection::slice($offset, $length)` - Slice the list
+
+Also has several useful Collection-specific methods:
+
+* `Collection::addPage($page)` - You can append another page to this collection.
+* `Collection::copy()` - Creates a copy of the current collection
+* `Collection::current()` - gets the current item in the collection
+* `Collection::key()` - Returns the current slug of the the current item
+* `Collection::remove($path)` - Removes a specific page in the collection, or current if `$path = null`
+* `Collection::order($by, $dir, $manual)` - Orders the current collection
+* `Collection::isFirst($path)` - Determines if the page identified by path is first
+* `Collection::isLast($path)` - Determines if the page identified by path is last
+* `Collection::prevSibling($path)` - Returns the previous sibling page if possible
+* `Collection::nextSibling($path)` - Returns the next sibling page if possible
+* `Collection::currentPosition($path)` - Returns the current index
+* `Collection::dateRange($startDate, $endDate, $field)` - Filters the current collection with dates
+* `Collection::visible()` - Filters the current collection to include only visible pages
+* `Collection::nonVisible()` - Filters the current collection to include only non-visible pages
+* `Collection::modular()`  - Filters the current collection to include only modular pages
+* `Collection::nonModular()` - Filters the current collection to include only non-modular pages
+* `Collection::published()` - Filters the current collection to include only published pages
+* `Collection::nonPublished()` - Filters the current collection to include only non-published pages
+* `Collection::routable()` - Filters the current collection to include only routable pages
+* `Collection::nonRoutable()` - Filters the current collection to include only non-routabe pages
+* `Collection::ofType($type)` - Filters the current collection to include only pages where template = `$type`.
+* `Collection::ofOneOfTheseTypes($types)` - Filters the current collection to include only pages where template is in the array `$types`.
+* `Collection::ofOneOfTheseAccessLevels($levels)` - Filters the current collection to include only pages where page access is in the array of `$levels`
