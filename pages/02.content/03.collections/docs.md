@@ -6,6 +6,35 @@ taxonomy:
 
 Collections have grown considerably since the early betas of Grav. We started off with a very limited set of page-based collections, but with the help of our community we have increased these capabilities to make them even more powerful!  So much so that they now have their own section in the documentation.
 
+## Example Collection Definition
+
+An example collection defined in the page's frontmatter:
+
+```
+content:
+    items: @self.children
+    order:
+        by: date
+        dir: desc
+    limit: 10
+    pagination: true
+```
+
+This definition creates a collection for the page that consists of the all **child pages** sorted by **date** in **descending** order with **pagination** showing **10 items** per-page.
+
+## Accessing Collections in Twig
+
+When this collection is defined in the header, you can access the collection with:
+
+```
+{% for p in page.collection %}
+<h2>{{ p.title }}</h2>
+{{ p.summary }}
+{% endfor %}
+```
+
+This simply loops over the pages in the collection displaying the title and summary.
+
 ## Collection Headers
 
 To tell Grav that a specific page should be a listing page and contain child-pages, there are a number of variables that can be used:
@@ -182,9 +211,9 @@ content:
 
 Each level in the hierarchy adds two whitespaces before the variable. YAML will allow you to use as many spaces as you want here, but two is standard practice. In the above example, both the `category` and `tag` variables are set under `@taxonomy`.
 
-### Multiple Collections
+### Complex Collections
 
-With Grav **0.9.41** you can now provide multiple collection definition and the resulting collection will be the sum of all the pages found from each of the collection definitions.
+With Grav **0.9.41** you can now provide multiple complex collection definitions and the resulting collection will be the sum of all the pages found from each of the collection definitions.
 
 for example:
 
@@ -230,7 +259,7 @@ The `content.order.dir` variable controls which direction the ordering should be
 
 In this configuration, you can see that `content.order.custom` is defining a **custom manual ordering** to ensure the page is constructed with the **showcase** first, **highlights** section second etc. Please note that if a page is not specified in the custom ordering list, then Grav falls back on the `content.order.by` for the unspecified pages.
 
-`content.limit` is pretty self explanatory, and the `content.pagination` is a simple boolean flag to be used by plugins etc to know if **pagination** should be initialized for this collection.
+The `content.pagination` is a simple boolean flag to be used by plugins etc to know if **pagination** should be initialized for this collection. `content.limit` is the number of items displayed per-page when pagination is enabled.
 
 ### Date Range
 
@@ -245,3 +274,30 @@ content:
 ```
 
 You can use any string date format supported by [strtotime()](http://php.net/manual/en/function.strtotime.php) such as `-6 weeks` or `last Monday` as well as more traditional dates such as `01/23/2014` or `23 January 2014`. The dateRange will filter out any pages that have a date outside the provided dateRange.  Both **start** and **end** dates are optional, but at least one should be provided.
+
+### Multiple Collections
+
+When you create a collection with `content: items:` in your YAML, you are defining a single collection based on a several conditions.  However, Grav does let you create an arbitrary set of collections per page, you just need to create another one:
+
+```
+content:
+    items: @self.children
+    order:
+        by: date
+        dir: desc
+    limit: 10
+    pagination: true
+
+fruit:
+    items:
+       '@taxonomy.tag': [fruit]
+```
+
+This sets up **2 collections** for this page, the first uses the default `content` collection, but the second one defines a taxonomy-based collection called `fruit`.  To access these two collections via Twig you can use the following syntax:
+
+```
+{% set default_collection = page.collection %}
+
+{% set fruit_colleciton = page.collection('fruit') %}
+```
+
