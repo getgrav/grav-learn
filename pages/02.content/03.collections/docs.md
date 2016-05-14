@@ -232,11 +232,6 @@ content:
     order:
         by: date
         dir: desc
-        custom:
-            - _showcase
-            - _highlights
-            - _callout
-            - _features
     limit: 5
     pagination: true
 ```
@@ -257,7 +252,20 @@ Ordering of sub-pages follows the same rules as ordering of folders, the availab
 
 The `content.order.dir` variable controls which direction the ordering should be in. Valid values are either `desc` or `asc`.
 
-In this configuration, you can see that `content.order.custom` is defining a **custom manual ordering** to ensure the page is constructed with the **showcase** first, **highlights** section second etc. Please note that if a page is not specified in the custom ordering list, then Grav falls back on the `content.order.by` for the unspecified pages.
+```ruby
+content:
+    order:
+        by: default
+        custom:
+            - _showcase
+            - _highlights
+            - _callout
+            - _features
+    limit: 5
+    pagination: true
+```
+
+In the above configuration, you can see that `content.order.custom` is defining a **custom manual ordering** to ensure the page is constructed with the **showcase** first, **highlights** section second etc. Please note that if a page is not specified in the custom ordering list, then Grav falls back on the `content.order.by` for the unspecified pages.
 
 The `content.pagination` is a simple boolean flag to be used by plugins etc to know if **pagination** should be initialized for this collection. `content.limit` is the number of items displayed per-page when pagination is enabled.
 
