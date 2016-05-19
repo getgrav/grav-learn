@@ -431,6 +431,9 @@ Example:
 header.choose_a_number_in_range:
   type: range
   label: Choose a number
+  validate:
+    min: 1
+    max: 10
 ````
 
 | Common Attributes Allowed                      |
