@@ -101,7 +101,7 @@ content:
     items: '@self.children'
 ```
 
-##### @self.descendants - Modular children + all descendants of the current page
+##### @self.descendants - Non-modular children + all descendants of the current page
 
 Similar to `.children`, the `.descendants` collection will retrieve all the **published non-modular children** but continue to recurse through all their children.
 
