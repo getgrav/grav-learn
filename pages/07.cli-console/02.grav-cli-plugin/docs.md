@@ -4,9 +4,9 @@ taxonomy:
     category: docs
 ---
 
-Plugins can integrate to the Grav's CLI `bin/plugin` and enhance the plugin functionalities via Terminal by executing specific tasks.
+Plugins can integrate to Grav's CLI `bin/plugin` and enhance the plugin functionalities via Terminal by executing specific tasks.
 
-Like explained in the [Grav CLI](../grav-cli) section, you need to use a **terminal** in order to be able to execute commands.
+As explained in the [Grav CLI](../grav-cli) section, you need to use a **terminal** in order to be able to execute commands.
 
 When running the command `bin/plugin`, all the plugins who provide CLI integration will be listed.
 
