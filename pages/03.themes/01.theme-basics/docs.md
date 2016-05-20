@@ -108,7 +108,7 @@ Another powerful feature that is purely optional is the ability for a theme to i
         }
 	}
 
-You can then use provide **plugins methods** which are covered in the [next section](../../plugins) in greater detail.
+You can then use the provided **plugins methods** which are covered in the [next section](../../plugins) in greater detail.
 
 ### Templates
 
