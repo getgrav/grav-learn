@@ -19,7 +19,7 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 | **[Column](#the-columns-column-fields)**          | used to show a single column (used with the `Columns` field)                                                                                                                                                |
 | **[Dateformat](#the-dateformat-field)**           | a special select that renders the current date/time in the passed formats                                                                                                                                   |
 | **[Datetime](#the-datetime-field)**               | a date and time selection field                                                                                                                                                                             |
-| **[Editor](#the-editor-field)**                   | simply shows a text value, with no input field                                                                                                                                                              |
+| **[Editor](#the-editor-field)**                   | show a markdown editor                                                                                                                                                                                      |
 | **[File](#the-file-field)**                       | in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
 | **[Ignore](#the-ignore-field)**                   | used to remove unused fields when extending from another blueprint                                                                                                                                          |
 | **[List](#the-list-field)**                       | used to create collections of fields                                                                                                                                                                        |
@@ -378,7 +378,7 @@ frontmatter:
 | :-----       | :-----                                                                                   |
 | `codemirror` | A set of values to be set on the codemirror editor. By default uses mode: gfm (markdown) |
 | `resizer`    | If positive, enables the resizer. Otherwise the editor is fixed                          |
-  
+
 | Common Attributes Allowed                      |
 | :-----                                         |
 | [default](#common-fields-attributes)           |
