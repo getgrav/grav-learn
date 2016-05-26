@@ -27,7 +27,7 @@ So let us dig a little deeper into each of these top level folders and explain w
 
 ### /bin
 
-The `bin` folder contains the [Grav CLI application](../../advanced/grav-cli) that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers, so will set-aside this topic for later discussion.
+The `bin` folder contains the [Grav CLI application](../../advanced/grav-cli) that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers, so we'll set this topic aside for later discussion.
 
 ### /cache
 
