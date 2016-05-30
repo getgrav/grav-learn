@@ -51,7 +51,7 @@ content:
 ---
 ```
 
-As you can see, there is no direct content in this file. Everything is handled in the **YAML Front Matter** in the header. The page's **Title**, **Menu** assignment, and other settings you would find in a typical page are found here. The [Content](../../content/headers#ordering-options) instructs Grav to use create the content based on a collection of modular pages, and even provides a custom **manual** ordering for them to render in.
+As you can see, there is no direct content in this file. Everything is handled in the **YAML Front Matter** in the header. The page's **Title**, **Menu** assignment, and other settings you would find in a typical page are found here. The [Content](../../content/headers#ordering-options) instructs Grav to create the content based on a collection of modular pages, and even provides a custom **manual** ordering for them to render in.
 
 ## Modular Pages
 
