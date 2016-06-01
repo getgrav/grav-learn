@@ -87,7 +87,7 @@ To achieve this you need to follow these steps:
      email: devs@getgrav.org
      url: http://getgrav.org
    ```
-   You can provide more details including form definitions to control functionality of your form.  Fore more details on this you should examine the Antimatter theme's blueprint.yaml file
+   You can provide more details including form definitions to control functionality of your form.  For more details on this you should examine the Antimatter theme's blueprint.yaml file
 
 4. Change your default theme to use your new **mytheme** by editing the `pages: theme:` option in your `user/config/system.yaml` configuration file:
    ```
