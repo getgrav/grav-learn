@@ -99,8 +99,7 @@ server {
     # for subfolders, simply adjust the rewrite:
     # to use `/subfolder/index.php`
     location / {
-        try_files $uri $uri/ /index.html;
-        if (!-e $request_filename){ rewrite ^(.*)$ /index.php last; }
+        location / { try_files $uri $uri/ /index.php?_url=$uri; }
     }
     ## End - Index
 
