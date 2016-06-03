@@ -12,13 +12,127 @@ Grav comes with a clean and modern theme called **Antimatter** which uses a simp
 
 Nucleus is a lightweight CSS framework that contains the essential CSS resets and styling for layout and HTML markup without any over-bearing design.  Antimatter has some custom styling on top of the Nucleus framework to give it a unique look and feel.
 
-## Bootstrap
+## Pure.io
 
-For the sake of this tutorial, we will create a theme that utilizes the popular [Bootstrap framework](http://getbootstrap.com/).
+For the sake of this tutorial, we will create a theme that utilizes the popular [Pure](http://purecss.io/) CSS framework developed by Yahoo.
 
-Bootstrap is a full-featured HTML, CSS, and JS framework that contains a wide variety of components and styling to help create sites quickly. Over the past several years, Bootstrap has become a very popular framework. It is often used as a base for other designs because it already has essential styling for pretty much anything you can think of.
+Pure is a small, fast, and reponsive CSS framework that contains the basics to get you developing your site without the overhead of larger frameworks such as Bootstrap or Foundation. It contains several modules that can be used independently, but even together the resulting package is only **4.0KB minified and gzipped**!
 
-## Step 1 - Base Theme Setup
+## Step 1 - Install DevTools Plugin
+
+!! Previous versions of this tutorial required creating a base theme by default.  This whole process can be skipped thanks to our new **DevTools Plugin**
+
+The first step in creating a new theme is install the **DevTools Plugin**.  This can be done in two ways.
+
+#### Install via CLI GPM
+
+* Navigate in the command line to the root of your Grav installation
+
+```
+$ bin/gpm install devtools
+```
+
+#### Install via Admin Plugin
+
+* After logging in, simply navigate to the **Plugins** section from the sidebar.
+* Click the <i class="fa fa-plus"></i> **Add** button in the top right.
+* Find **DevTools** in the list and click the <i class="fa fa-plus"></i> **Install** button.
+
+## Step 2 - Create Base Theme
+
+For this next step you really do need to be in the command line as the DevTools provide a couple of CLI commands to make the process of creating a new theme much easier!
+
+From the root of your Grav installation enter the following command:
+
+```
+$ bin/plugin devtools new-theme
+```
+
+This process will ask you a few questions that are required to create the new theme:
+
+! We're going to use **pure-blank** to create a new theme, but you can create a simple **inheritence** style template that inherits from another base theme
+
+```
+$ bin/plugin devtools new-theme
+Enter Theme Name: MyTheme
+Enter Theme Description: My New Theme
+Enter Developer Name: Acme Corp
+Enter Developer Email: contact@acme.co
+Please choose a template type
+  [0] pure-blank
+  [1] inheritence
+ > 0
+
+SUCCESS theme mytheme -> Created Successfully
+
+Path: /www/user/themes/my-theme
+```
+
+The DevTools command tells you where this new template was created. This created template is fully functional but also very simple.  You will want to modify this to suite your needs.
+
+In order to see your new theme in action, you will need to change the default theme from `antimatter` to `my-theme`, so edit your `user/config/system.yaml` and change it:
+
+```
+...
+pages:
+    theme: my-theme
+...
+```
+
+Reload your site in your browser and you should see the theme has now changed.
+
+## Step 3 - Theme Basics
+
+Now we've created a new basic theme that can be modified and developed, let's break it down and have a look at what makes up a theme.  If you look in the `user/themes/my-theme` folder you will see:
+
+```
+.
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── blueprints.yaml
+├── css
+│   └── custom.css
+├── fonts
+├── images
+│   └── logo.png
+├── js
+├── my-theme.php
+├── my-theme.yaml
+├── screenshot.jpg
+├── templates
+│   ├── default.html.twig
+│   ├── error.html.twig
+│   └── partials
+│       ├── base.html.twig
+│       ├── header.html.twig
+│       ├── metadata.html.twig
+│       └── navigation.html.twig
+└── thumbnail.jpg
+```
+
+This is a sample structure but some things are required:
+
+### Required Items to Function
+
+* `blueprints.yaml` - The configuration file used by Grav to get information on your theme. [This file is documented in the Forms section](/forms/blueprints)
+* `my-theme.php` - This file will be named according to your theme, but can be used to house any logic your theme needs.  You can use any [plugin event hook](/plugins/event-hooks) except `onPluginsInitialized()`, however there is a theme specific `onThemeInitialized()` hook specific for themes.
+* `my-theme.yaml` - This is the configuration used by the plugin to set options the theme might use.
+* `templates/` - This is a folder that contains the template to render your pages.
+
+### Required Items for Release
+
+* `CHANGELOG.md` - A file that follows the [Grav Changelog Format](/advanced/grav-development#changelog-format) to show changes in releases
+* `LICENSE` - a license file, should probably be MIT unless you have a specific need for something else.
+* `README.md` - A 'Readme' that should contain any documentation for the theme.  How to install it, configure it, and use it.
+* `screenshot.jpg` - 1009px x 1009px screenshot of the theme
+* `thumbnail.jpg` - 300px x 300px screenshot of the theme
+
+### Optional Stuff
+
+* `css/` - CSS folder containing cascading style sheets
+
+# ~ OLD STUFF ~
 
 As outlined in the [Theme Basics](../theme-basics) chapter, there are some key elements to a Grav theme, so we must create them for our new theme:
 
