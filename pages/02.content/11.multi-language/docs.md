@@ -256,7 +256,7 @@ SIMPLE_TEXT: There are %d monkeys in the %s
 And then you can populate those variables with the Twig:
 
 ```
-{{ "SIMPLE_TEXT"|t(12, "London Zoo" }}      // There are 12 monkeys in the London Zoo
+{{ "SIMPLE_TEXT"|t(12, "London Zoo") }}      // There are 12 monkeys in the London Zoo
 ```
 
 #### PHP Translations
