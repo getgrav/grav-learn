@@ -14,6 +14,8 @@ Each page you create references a specific template file, either by the name of 
 
 Let us work through a simple example.  If you have [installed the **Grav Base** package](../../basics/installation) you will notice that in the `user/pages/01.home` folder, you have a file called `default.md` which contains the markdown-based content for the page.  The name of this file, i.e. `default` tells Grav that this page should be rendered with the twig template called `default.html.twig` which is located in the theme's `templates/` folder.
 
+!! Page templates must be lowercase, like "default", "blog", etc.
+
 If you were to have a page file called `blog.md`, Grav would try to render it with the twig template: `<your_theme>/templates/blog.html.twig`.
 
 !! The names of files in Grav do not appear on the frontend of Grav. Only the folder names do. Don't worry if all of your blog posts have the same file name. This is normal.
