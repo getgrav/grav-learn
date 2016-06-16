@@ -6,9 +6,87 @@ taxonomy:
 
 This page contains an assortment of problems and their respective solutions related to Grav plugins.
 
+1. [Create a sample plugin](#create-sample-plugin)
 1. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
 2. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
  
+ 
+### Output some PHP code result in a Twig template
+
+#### Problem:
+
+You want to process some custom PHP code, and make the result available in a page.
+
+#### Solution:
+
+You create a new plugin that creates a Twig extension, and makes some PHP content available in your Twig templates.
+
+Create a new plugin folder in `user/plugins/example`, and add those files:
+
+`user/plugins/example/example.php`
+`user/plugins/example/example.yaml`
+`user/plugins/example/twig/ExampleTwigExtension.php`
+
+In `twig/ExampleTwigExtension.php` you'll do your custom processing, and return it as a string in `exampleFunction()`.
+
+Then in your Twig template file (or in a page Markdown file if you enabled Twig processing in Pages), render the output using: `{{ example() }}`. 
+
+The overview is over, let's see the actual code:
+
+`example.php`:
+
+```php
+<?php
+namespace Grav\Plugin;
+use \Grav\Common\Plugin;
+class ExamplePlugin extends Plugin
+{
+    public static function getSubscribedEvents()
+    {
+        return [
+            'onTwigExtensions' => ['onTwigExtensions', 0]
+        ];
+    }
+    public function onTwigExtensions()
+    {
+        require_once(__DIR__ . '/twig/ExampleTwigExtension.php');
+        $this->grav['twig']->twig->addExtension(new ExampleTwigExtension());
+    }
+}
+```
+
+`ExampleTwigExtension.php`:
+
+```
+<?php
+namespace Grav\Plugin;
+class ExampleTwigExtension extends \Twig_Extension
+{
+    public function getName()
+    {
+        return 'ExampleTwigExtension';
+    }
+    public function getFunctions()
+    {
+        return [
+            new \Twig_SimpleFunction('example', [$this, 'exampleFunction'])
+        ];
+    }
+    public function exampleFunction()
+    {
+        return 'something';
+    }
+}
+```
+
+`example.twig`:
+ 
+```
+enabled: true
+```
+
+The plugin is now installed and enabled, and it should all just work.
+
 ### Filter taxonomies using the taxonomylist plugin
  
 #### Problem:
