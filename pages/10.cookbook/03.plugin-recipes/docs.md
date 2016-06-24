@@ -6,7 +6,7 @@ taxonomy:
 
 This page contains an assortment of problems and their respective solutions related to Grav plugins.
 
-1. [Create a sample plugin](#create-sample-plugin)
+1. [Output some PHP code result in a Twig template](#output-some-php-code-result-in-a-twig-template)
 1. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
 2. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
  
