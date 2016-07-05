@@ -13,7 +13,7 @@ The **Grav Administration Panel** plugin for [Grav](http://github.com/getgrav/gr
 
 ### Features
 
-* User login with automatic password encryption
+* User login with automatic password hashing
 * Forgot password functionality
 * Logged-in-user management
 * One click Grav core updates
