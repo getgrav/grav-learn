@@ -50,7 +50,7 @@ First ensure you are running the latest **Grav {{ grav_version }} or later**.  T
 $ bin/gpm selfupgrade -f
 ```
 
-The admin plugin actually requires the help of 3 other plugins, so to get the admin plugin to work you first need to install **admin**, **login**, **forms**, and **email** plugins.  These are available via GPM, and because the plugin has dependencies you just need to proceed and install the admin plugin, and agree when prompted to install the others:
+The admin plugin actually requires the help of 3 other plugins, so to get the **admin** plugin to work you first need to install the **login**, **forms**, and **email** plugins.  These are available via GPM, and because the plugin has dependencies you just need to proceed and install the admin plugin, and agree when prompted to install the others:
 
 ```
 $ bin/gpm install admin
