@@ -21,7 +21,7 @@ Extract each archive file into your `user/plugins` folder, then ensure the folde
 
 ### Adding and Managing Users
 
-When you first install the Grav Admin plugin, you will be prompted to create an admin user when you point your browser at your site. This is a simple web form that ensure at least one admin user has been created.
+When you first install the Grav Admin plugin, you will be prompted to create an admin user when you point your browser at your site. This is a simple web form that ensures at least one admin user has been created.
 
 ![New User](../introduction/new-user.png)
 
