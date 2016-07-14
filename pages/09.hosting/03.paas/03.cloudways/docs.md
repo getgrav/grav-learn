@@ -1,5 +1,5 @@
 ---
-title: Cloudways - Managed Cloud Hosting
+title: Cloudways - Managed Cloud for PHP Hosting
 menu: Cloudways
 visible: true
 twig_first: true
@@ -9,11 +9,13 @@ taxonomy:
     category: docs
 ---
 
-[Cloudways](http://www.cloudways.com) is a managed cloud host provider for PHP based sites. On Cloudways, you can choose your server from four cloud providers; Digital Ocean, Vultr, GCE and AWS to run your PHP work on it. Cloudways employs thunder stack which you won’t find anywhere else. Recently, Cloudways interviewed one of the [lead developer of Grav CMS Andy Miller](https://www.cloudways.com/blog/interview-andy-miller/).
+[Cloudways](http://www.cloudways.com) is a Managed Cloud Platform for PHP-based web apps. On Cloudways, you can choose your server from four cloud providers: DigitalOcean, Vultr, Google Cloud Engine (GCE) and Amazon Web Services (AWS) to run your PHP work on it. It allows user to launch cloud servers with minutes for PHP app development. Cloud server management is the job of Cloudways; you're only responsible for your Grav CMS application. 
+
+Recently, Cloudways interviewed one of the [lead developer of Grav CMS Andy Miller](https://www.cloudways.com/blog/interview-andy-miller/).
 
 ![Cloudways](cw-logo.png)
 ## Signing Up On Cloudways
-First [Sign Up for an account](https://platform.cloudways.com/signup) on Cloudways, which will only require your email and password. After Signing Up on Cloudways and launching a PHP Stack application follow these steps to install and running Grav CMS on your server: 
+First [sign up for an account](https://platform.cloudways.com/signup) on Cloudways by using your GitHub account. If you do not want to use your Grav CMS credentials, you can create an account using a email address. After signing up on Cloudways and launching a PHP Stack application, follow these steps to install and run Grav CMS on your cloud server: 
 
 ## Installing And Running Grav On Cloudways
 Login in SSH Terminal and move to your application public_html folder.
@@ -22,7 +24,7 @@ Login in SSH Terminal and move to your application public_html folder.
 cd applications/<foldername>/public_html/
 ```
 
-Now go [Grav CMS download](https://getgrav.org/downloads) page and copy the download link. Now go to the terminal and download it there by the following command
+Go [Grav CMS download](https://getgrav.org/downloads) page and copy the download link. Now, go to the terminal and download it there by using the following command
 
 ```bash
 wget https://github.com/getgrav/grav/releases/download/1.0.10/grav-admin-v1.0.10.zip
@@ -34,4 +36,4 @@ After downloading it, unzip the file.
 unzip grav-admin-v1.0.10.zip
 ```
 
-That’s it! Grav is installed and is ready to use. Head to your application staging url and add /grav-admin at the end of the URL.
+That’s it! Grav CMS is ready for your use on Cloudways PHP Hosting Platform. Head to your Application Staging URL and add /grav-admin at the end of the URL.
