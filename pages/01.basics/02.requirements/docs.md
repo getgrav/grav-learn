@@ -55,7 +55,7 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 * `gd` (a graphics library used to manipulate images)
 * `curl` (client for URL handling used by GPM)
 * `openssl` (secure sockets library used by GPM)
-* zip support (used by GPM)
+* `zip` extension support (used by GPM)
 * `mbstring` (multibyte string support)
 * `xml` (XML support)
 
