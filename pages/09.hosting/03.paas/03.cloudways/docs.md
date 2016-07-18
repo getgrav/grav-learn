@@ -27,13 +27,13 @@ cd applications/<foldername>/public_html/
 Go [Grav CMS download](https://getgrav.org/downloads) page and copy the download link. Now, go to the terminal and download it there by using the following command
 
 ```bash
-wget https://github.com/getgrav/grav/releases/download/1.0.10/grav-admin-v1.0.10.zip
+wget https://github.com/getgrav/grav/releases/download/{{ grav_version }}/grav-admin-v{{ grav_version }}.zip
 ```
 
 After downloading it, unzip the file.
 
 ```bash
-unzip grav-admin-v1.0.10.zip
+unzip grav-admin-v{{ grav_version }}.zip
 ```
 
 That’s it! Grav CMS is ready for your use on Cloudways PHP Hosting Platform. Head to your Application Staging URL and add /grav-admin at the end of the URL.
