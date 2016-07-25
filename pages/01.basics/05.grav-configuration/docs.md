@@ -216,6 +216,10 @@ You are also not limited to the `user/config/system.yaml` or the `user/config/si
 
 Paths to the configuration files will be used as a **namespace** for your configuration options.
 
+As an example if the new configuration file is named data.yaml and a yaml variable in this file is called count, the variable would be accessed in your twig template by using the following syntax:
+
+    {{config.data.count}}
+
 Alternatively, you can put all the options into one file and use YAML structures to specify the hierarchy for your configuration options. This namespacing is built from a combination of the **path + filename + option name**.
 
 For example: An option such as `author: Frank Smith` in file `plugins/myplugin.yaml` could be accessible via: `plugins.myplugin.author`. However, you could also have a `plugins.yaml` file and in that file have a option name called `myplugin: author: Frank Smith` and it would still be reachable by the same `plugins.myplugin.author` namespace.
