@@ -12,7 +12,7 @@ Basically Apache won't allow the `:` in the URL that works on other systems due 
 
 We have addressed this by providing a configurable option for the parameter separator that is defaulting to `:`
 
-Simple edit your `user/config/system.yaml` and add this at the top:
+Simply edit your `user/config/system.yaml` and add this at the top:
 
 ```
 param_sep: ';'
