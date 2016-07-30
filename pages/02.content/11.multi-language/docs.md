@@ -400,7 +400,17 @@ This will then store the active language in the session.
 
 #### Language Switcher
 
-You can download a simple **Language Switching** plugin via GPM:
+Note that you need to have php5-cli installed to run Grav commands.
+
+Centos:
+```
+yum install php5-cli
+```
+Ubuntu:
+```
+sudo apt-get install php5-cli
+```
+Then you can download a simple **Language Switching** plugin via GPM.
 
 ```
 $ bin/gpm install langswitcher
