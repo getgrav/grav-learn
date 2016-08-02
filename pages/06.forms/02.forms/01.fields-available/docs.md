@@ -330,6 +330,8 @@ With the `file` field type you can let users to upload files through the form. T
 | [outerclasses](#common-fields-attributes)      |
 | [validate.required](#common-fields-attributes) |
 
+By default, in Admin the `file` field will overwrite an uploaded file that has the same name of a newer one, contained in the same folder you want to upload it, unless you set `avoid_overwriting` to true in the field definition.
+
 ---
 
 ### The Hidden Field
