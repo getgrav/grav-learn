@@ -6,7 +6,7 @@ taxonomy:
 
 ### File Uploads
 
-You can add file upload functionality in Plugins and Themes blueprints.
+You can add file upload functionality in Pages, Config, Plugins and Themes blueprints.
 
 Example usage:
 
@@ -30,7 +30,7 @@ custom_file:
     - image/*
 ```
 
-For pages, you cannot use the `file` type, but you use the special field for pages called `pagemediaselect`. It allows users to choose a media from one of the page media already uploaded through FTP or using the page media manager.
+For pages, you can also use the `pagemediaselect` field. It allows users to choose a media from one of the page media already uploaded through FTP or using the page media manager.
 Example usage:
 
 ```
