@@ -400,7 +400,7 @@ This will then store the active language in the session.
 
 #### Language Switcher
 
-You can download a simple **Language Switching** plugin via GPM:
+You can download a simple **Language Switching** plugin via the Admin plugin, or through the GPM with:
 
 ```
 $ bin/gpm install langswitcher
