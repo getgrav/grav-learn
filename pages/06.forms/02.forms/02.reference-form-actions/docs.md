@@ -132,6 +132,16 @@ To also validate the captcha server-side, add the captcha process action.
             recatpcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
 ```
 
+### User IP Address
+
+Display the user's IP address on the output. Put it above email / save processes in the 'form.md' to ensure it is used by the output processe(s) 
+
+````
+process:
+    - ip:
+        label: User IP Address
+```
+
 ## Add your own custom processing to a form
 
 You can "hook" into a form processing and perform any kind of operation. Perform custom processing, add data for an online web application, even save to a database.
