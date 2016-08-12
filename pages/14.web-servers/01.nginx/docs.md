@@ -28,66 +28,92 @@ The `/var/www` directory and all contained files and folders should be owned by 
 
 ### Example nginx.conf
 
-The following is an example Nginx configuration file (`/etc/nginx/nginx.conf`) with explanations and links to help understand what the different directives achieve. It has some improvements over the default configuration.
+The following configuration is an improved version of the default `/etc/nginx/nginx.conf` file, mainly with improvements from [github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx). See their repository for explanations on these settings or the Nginx [core module](http://nginx.org/en/docs/ngx_core_module.html) and [http module](http://nginx.org/en/docs/http/ngx_http_core_module.html) documentation to look up specific directives.
 
 **nginx.conf**:
 
 ```nginx
-user www-data; # nginx user
-worker_processes 1; # increase this for high traffic sites, see [1], [2]
-pid /run/nginx.pid; # path to process id file
+user www-data;
+worker_processes auto;
+worker_rlimit_nofile 8192; # should be bigger than worker_connectinos
+pid /run/nginx.pid;
 
 events {
-    use epoll; # see [1], [2]
-    worker_connections 1024; # see [1]
-    multi_accept on; # http://nginx.org/en/docs/ngx_core_module.html#multi_accept
+    use epoll;
+    worker_connections 8000;
+    multi_accept on;
 }
 
 http {
-    # you can find documentation for http directives at
-    # http://nginx.org/en/docs/http/ngx_http_core_module.html
-    
-    # https://t37.net/nginx-optimization-understanding-sendfile-tcp_nodelay-and-tcp_nopush.html
     sendfile on;
     tcp_nopush on;
     tcp_nodelay on;
-    
-    keepalive_timeout 70; # enables keep-alive connections with specified timeout
-    types_hash_max_size 2048; # http://nginx.org/en/docs/http/ngx_http_core_module.html#types_hash_max_size
-    server_tokens off; # disable server version output in error pages
-    
+
+    keepalive_timeout 30; # longer values are better for each ssl client, but take up a worker connection longer
+    types_hash_max_size 2048;
+    server_tokens off;
+
     # maximum file upload size
-    # if you increase it, also update 'upload_max_filesize' and 'post_max_size' in /etc/php5/fpm/php.ini
-    client_max_body_size 1m;
-    # increase client body timeout if you have very long file uploads
-    # client_body_timeout 60s;
-    
+    # update 'upload_max_filesize' & 'post_max_size' in /etc/php5/fpm/php.ini accordingly
+    client_max_body_size 32m;
+    # client_body_timeout 60s; # increase for very long file uploads
+
     # set default index file (can be overwritten for each site individually)
     index index.html;
-    
+
     # load MIME types
-    include mime.types;
-    default_type application/octet-stream; # set default MIME type of responses
-    
+    include mime.types; # info: you should get this file from https://github.com/h5pb/server-configs-nginx
+    default_type application/octet-stream; # set default MIME type
+
     # logging
     access_log /var/log/nginx/access.log;
     error_log /var/log/nginx/error.log;
-    
-    # turn on gzip compression, see [1]
+
+    # turn on gzip compression
     gzip on;
     gzip_disable "msie6";
-    gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
-    
-    # security
-    add_header X-Content-Type-Options nosniff; # disable content type sniffing
-    
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_comp_level 5;
+    gzip_buffers 16 8k;
+    gzip_http_version 1.1;
+    gzip_min_length 256;
+    gzip_types
+        application/atom+xml
+        application/javascript
+        application/json
+        application/ld+json
+        application/manifest+json
+        application/rss+xml
+        application/vnd.geo+json
+        application/vnd.ms-fontobject
+        application/x-font-ttf
+        application/x-web-app-manifest+json
+        application/xhtml+xml
+        application/xml
+        font/opentype
+        image/bmp
+        image/svg+xml
+        image/x-icon
+        text/cache-manifest
+        text/css
+        text/plain
+        text/vcard
+        text/vnd.rim.location.xloc
+        text/vtt
+        text/x-component
+        text/x-cross-domain-policy;
+
+    # disable content type sniffing for more security
+    add_header X-Content-Type-Options nosniff;
+
+    # force the latest IE version
+    add_header "X-UA-Compatible" "IE=Edge";
+
     # include virtual host configs
     include sites-enabled/*;
 }
 ```
-
-> [1]: http://www.revsys.com/12days/nginx-tuning/  
-> [2]: https://www.linode.com/docs/websites/nginx/configure-nginx-for-optimized-performance
 
 ### Grav Site Configuration
 
@@ -124,7 +150,7 @@ fastcgi_param  HTTP_PROXY         "";
 
 If you want to use an existing SSL certificate to encrypt your website traffic, this section provides the necessary steps to modify your Nginx configuration for that.
 
-First, create a file `/etc/nginx/ssl.conf` with the following content and adjust the paths to your certificate and key file. Also check if all of these options work for your setup.
+First, create a file `/etc/nginx/ssl.conf` with the following content and adjust the paths to your certificate and key file. The last section is about OSCP stapling and requires you to provide a chain+root certificate. If you don't want this, you can comment or remove everything below the `OCSP Stapling` comment. If your website is SSL only (including subdomains), you can submit your domain for preloading in browsers at <https://hstspreload.appspot.com>. If that isn't the case, you can remove ` preload;` from the line that adds the "Strict-Transport-Security" header. Make sure to check if all of these options work for your setup.
 
 **ssl.conf**:
 
@@ -133,104 +159,67 @@ First, create a file `/etc/nginx/ssl.conf` with the following content and adjust
 ssl_certificate /etc/ssl/certs/domain.tld.crt;
 ssl_certificate_key /etc/ssl/private/domain.tld.key;
 
-##########
-# Originally adapted from https://gist.github.com/konklone/6532544
-# See some related discussion and detail there.
-##########
+ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
-# HTTP Strict Transport Security: tells browsers to require https:// without first checking
-# the http:// version for a redirect. Warning: it is difficult to change your mind.
-#
-# max-age: length of requirement in seconds (31536000 = 1 year)
-# includeSubdomains: force SSL for *ALL* subdomains (remove if this is not what you want)
-# preload: indicates you want browsers to ship with HSTS preloaded for your domain.
-#
-# Submit your domain for preloading in browsers at: https://hstspreload.appspot.com
-
-add_header Strict-Transport-Security 'max-age=31536000; includeSubDomains';
-
-
-# If you *can't* guarantee that all subdomains above the one you're securing will be TLS,
-# then comment out the above and uncomment the line below.
-
-# add_header Strict-Transport-Security 'max-age=31536000';
-
-
-# Prefer certain ciphersuites, to enforce Forward Secrecy and avoid known vulnerabilities.
-#
-# Forces forward secrecy in all browsers and clients that can use TLS,
-# but with a small exception (DES-CBC3-SHA) for IE8/XP users.
-#
-# Reference client: https://www.ssllabs.com/ssltest/analyze.html
-
+ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA;
 ssl_prefer_server_ciphers on;
-ssl_ciphers 'kEECDH+ECDSA+AES128 kEECDH+ECDSA+AES256 kEECDH+AES128 kEECDH+AES256 kEDH+AES128 kEDH+AES256 DES-CBC3-SHA +SHA !aNULL !eNULL !LOW !MD5 !EXP !DSS !PSK !SRP !kECDH !CAMELLIA !RC4 !SEED';
 
+ssl_session_cache shared:SSL:10m; # a 1mb cache can hold about 4000 sessions, so we can hold 40000 sessions
+ssl_session_timeout 24h;
 
-# Cut out the old, broken, insecure SSLv2 and SSLv3 entirely.
+# Use a higher keepalive timeout to reduce the need for repeated handshakes
+keepalive_timeout 300s; # up from 75 secs default
 
-ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
+# submit domain for preloading in browsers at: https://hstspreload.appspot.com
+add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload;";
 
-
-# Turn on session resumption, using a 10 min cache shared across nginx processes,
-# as recommended by http://nginx.org/en/docs/http/configuring_https_servers.html
-# (or also http://nginx.org/en/docs/http/ngx_http_ssl_module.html#example)
-
-ssl_session_cache shared:SSL:10m;
-ssl_session_timeout 10m;
-
-
-# Buffer size of 1400 bytes fits in one MTU.
-
-# ssl_buffer_size 1400;
-
-
-# SPDY header compression (0 for none, 9 for slow/heavy compression). Preferred is 6.
-#
-# BUT: header compression is flawed and vulnerable in SPDY versions 1 - 3.
-# Disable with 0, until using a version of nginx with SPDY 4.
-
-# spdy_headers_comp 0;
-
-
-# Now let's really get fancy, and pre-generate a 2048 bit random parameter
-# for DH elliptic curves. If not created and specified, default is only 1024 bits.
-#
-# Generated by OpenSSL with the following command:
-# openssl dhparam -outform pem -out dhparam2048.pem 2048
-
-ssl_dhparam /etc/nginx/dhparam2048.pem;
+# OCSP stapling
+# nginx will poll the CA for signed OCSP responses, and send them to clients so clients don't make their own OCSP calls.
+# see https://sslmate.com/blog/post/ocsp_stapling_in_apache_and_nginx on how to create the chain+root
+ssl_stapling on;
+ssl_stapling_verify on;
+ssl_trusted_certificate /etc/ssl/certs/domain.tld.chain+root.crt;
+resolver 8.8.8.8 8.8.4.4 216.146.35.35 216.146.36.36 valid=60s;
+resolver_timeout 2s;
 ```
 
-As you can see in the last line there is an option `ssl_dhparam` being set, we need to create a paramter file for that to work:
-
-```bash
-cd /etc/nginx/
-openssl dhparam -outform pem -out dhparam2048.pem 2048
-```
-
-Now change the content of your Grav-specific config `/etc/nginx/sites-available/grav-site` to redirect unencrypted HTTP requests to HTTPS, that means to a `server` block listening on port 443 and including your `ssl.conf` (replace "domain.tld" with your domain/IP):
+Now change the content of your Grav-specific config `/etc/nginx/sites-available/grav-site` to redirect unencrypted HTTP requests to HTTPS, that means to a `server` block listening on port 443 and including your `ssl.conf` (replace "domain.tld" with your domain/IP). You can also change this to redirect from the non-www to the www version of your domain.
 
 **grav-site**:
 
 ```nginx
+# redirect http to non-www https
 server {
+    listen [::]:80;
     listen 80;
-    server_name www.domain.tld domain.tld;
+    server_name domain.tld www.domain.tld;
 
-    # redirect to https
-    return 301 https://domain.tld$request_uri; # or www.domain.tld
+    return 301 https://domain.tld$request_uri;
 }
 
+# redirect www https to non-www https
 server {
+    listen [::]:443 ssl;
     listen 443 ssl;
-    server_name domain.tld; # or www.domain.tld (depending on redirect)
+    server_name www.domain.tld;
 
     # add ssl cert & options
-    include ssl.conf
+    include ssl.conf;
 
-    root /var/www/grav;
-    
+    return 301 https://domain.tld$request_uri;
+}
+
+# serve website
+server {
+    listen [::]:443 ssl;
+    listen 443 ssl;
+    server_name domain.tld;
+
+    # add ssl cert & options
+    include ssl.conf;
+
+    root /var/www/domain.tld;
+
     index index.html index.php;
     
     # ...
