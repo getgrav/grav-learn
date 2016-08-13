@@ -134,7 +134,9 @@ Open that file with an editor and replace "domain.tld" with your domain/IP (or "
 ln -s /etc/nginx/sites-available/grav-site /etc/nginx-sites-enabled/grav-site
 ```
 
-!! It is recommended to use the file `expires.conf` from [github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx) (in the directory `h5bp/location/`). It will set expire headers for different file types, so the browser can cache them. Save the file somewhere in your `/etc/nginx/` directory and include it in your site config, e.g. before the first location directive in `/etc/nginx/sites-available/grav-site`.
+<!--
+!! It is recommended to use the file `expires.conf` from [github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx) (in the directory `h5bp/location/`). It will set "Expires" headers for different file types, so the browser can cache them. Save the file somewhere in your `/etc/nginx/` directory and include it in your site config, e.g. before the first location directive in `/etc/nginx/sites-available/grav-site`.
+-->
 
 Finally let Nginx reload its configuration:
 
