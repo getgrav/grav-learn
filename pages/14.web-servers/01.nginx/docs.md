@@ -30,7 +30,7 @@ The `/var/www` directory and all contained files and folders should be owned by 
 
 The following configuration is an improved version of the default `/etc/nginx/nginx.conf` file, mainly with improvements from [github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx). See their repository for explanations on these settings or the Nginx [core module](http://nginx.org/en/docs/ngx_core_module.html) and [http module](http://nginx.org/en/docs/http/ngx_http_core_module.html) documentation to look up specific directives.
 
-!! It is recommended to use an updated MIME types definition file (`mime.types`) from [github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx).
+!! It is recommended to use an updated MIME types definition file (`mime.types`) from [github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx). This will make sure that the types are correctly set for gzip compression.
 
 **nginx.conf**:
 
@@ -107,10 +107,13 @@ http {
         text/x-cross-domain-policy;
 
     # disable content type sniffing for more security
-    add_header X-Content-Type-Options nosniff;
+    add_header "X-Content-Type-Options" "nosniff";
 
     # force the latest IE version
     add_header "X-UA-Compatible" "IE=Edge";
+    
+    # enable anti-cross-site scripting filter built into IE 8+
+    add_header "X-XSS-Protection" "1; mode=block";
 
     # include virtual host configs
     include sites-enabled/*;
