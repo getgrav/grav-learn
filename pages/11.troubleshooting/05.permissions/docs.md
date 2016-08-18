@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Depending on your hosting environment, permissions may or may not be an issue you need to concern yourself with.  The important thing to understand is that there is a potential for issue if the user you use to edit your files on the file-system is different from the user that PHP runs under (usually the webserver), or at the very least, the two users don't have **Read/Write** access to these files.
+Depending on your hosting environment, permissions may or may not be an issue you need to concern yourself with.  The important thing to understand is that there is a potential issue if the user you use to edit your files on the file-system is different from the user that PHP runs under (usually the webserver), or at the very least, the two users don't have **Read/Write** access to these files.
 
 Being a file-based CMS, Grav needs to write to the file-system in order to create cache and log files. There are three main scenarios:
 
