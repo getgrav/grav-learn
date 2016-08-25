@@ -648,7 +648,7 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 #### flip(flipVertical, flipHorizontal)
 
-**flips** the image in the given directions. Both params should be `0|1` and at least one must be `1`.
+**flips** the image in the given directions. Both params can be `0|1`.  Both `0` is equivalent to no flipping in either direction.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
