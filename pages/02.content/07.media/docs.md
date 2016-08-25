@@ -648,18 +648,18 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 #### flip(flipVertical, flipHorizontal)
 
-**flips** the image in the given directions. Both params are `boolean` and at least one must be `true`.
+**flips** the image in the given directions. Both params should be `0|1` and at least one must be `1`.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
 ```
-![Sample Image](sample-image.jpg?cropZoom=300,200&flip=true,true)
+![Sample Image](sample-image.jpg?cropZoom=300,200&flip=0,1)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
 ```
-{{ page.media['sample-image.jpg'].cropZoom(300,200).flip(true,true).html() }}
+{{ page.media['sample-image.jpg'].cropZoom(300,200).flip(0,1).html() }}
 ```
 {% endverbatim %}
 [/ui-tab]
@@ -667,7 +667,7 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 ##### Result:
 
-![Sample Image](sample-image.jpg?cropZoom=300,200&flip=true,true)
+![Sample Image](sample-image.jpg?cropZoom=300,200&flip=0,1)
 
 #### fixOrientation()
 
