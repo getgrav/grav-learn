@@ -19,7 +19,7 @@ Here you can find information on problems and issues raised on [Grav forum](http
 
 **Problem:** The GPM cannot be reached, and you get this error in the Admin panel
 
-**Solution:** 
+**Solution:**
 
 First, make sure PHP has cURL and OpenSSL installed. You can check this in the Admin panel, in Configuration -> Info. You should see a "OpenSSL" section with `OpenSSL support: enabled`. Same for cURL, a section with `cURL support: enabled`.
 
@@ -30,3 +30,9 @@ Then, [check your permissions](/troubleshooting/permissions).
 If at this point it's still not working, get in touch, or report back if you were pointed here via chat/forum.
 
 Also, check the CLI command is working, by opening a SSH connection to the server and running `bin/gpm index` and check if it's just inside Admin that you get this error, or in the command line too.
+
+## Not-so-common problems
+
+### "Invalid security token" popup in Admin
+
+If you are constantly getting an "Invalid security token" red popup in the Admin dashboard, try clearing your browser cookies, that should resolve the issue.
