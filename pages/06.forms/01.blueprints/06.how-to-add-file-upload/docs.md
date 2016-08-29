@@ -108,7 +108,7 @@ When the `avoid_overwriting` is enabled and a file with the same name of the upl
 limit: 10 # [1...X | 0 (unlimited)]
 ```
 
-When the [`multiple`](#multiple) setting is enabled, `limit` allows to constrain the number of allowed files for an individual field. If `multiple` is not enabled (which is not by default), `limit` automatically falls back to **1**.
+When the [`multiple`](#multiple) setting is enabled, `limit` allows to constrain the number of allowed files for an individual field. If `multiple` is not enabled (not enabled by default), `limit` automatically falls back to **1**.
 
 When `limit` is set to **0**, it means that there are no restrictions on the amount of allowed files that can be uploaded.
 
