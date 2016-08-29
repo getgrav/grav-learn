@@ -401,7 +401,9 @@ frontmatter:
 
 ### The File Field
 
-The `file` field type is used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration.
+The `file` field type can be used in pages, plugin and theme configurations (blueprints). Handles uploading a file to a location as well as removing it from the page headers or theme / plugin configuration.
+
+! More details can be found in the dedicated [How To: Add a File Upload](../how-to-add-file-upload) section.
 
 Example:
 
@@ -410,7 +412,6 @@ custom_logo_login_screen:
   type: file
   label: Custom Logo Login Screen
   destination: 'user/plugins/admin-pro/assets'
-  blueprint: 'plugins.admin-pro'
   accept:
     - image/*
 ```
@@ -420,7 +421,9 @@ custom_file:
   type: file
   label: A Label
   destination: 'user/themes/my-theme/assets'
-  blueprint: 'themes.mytheme'
+  multiple: true
+  limit: 5
+  filesize: 1
   accept:
     - image/*
 ```
@@ -429,8 +432,10 @@ custom_file:
 | Attribute     | Description                                                                                                |
 | :-----        | :-----                                                                                                     |
 | `destination` | The folder where the files will be stored, relative to the Grav root. E.g. `user/plugins/my-plugin/assets` |
-| `blueprint`   | Set it to the package identifier. For plugins: 'themes.mythemeslug' or 'plugins.mypluginnameslug'          |
-| `accept`      | Add a list of accepted page mime types. E.g. `["image/*"]`                                                 |
+| `multiple`    | Whether or not allow more than one file per field                                                          |
+| `limit`       | When `multiple` is enabled, allows to constrain the amount of files permitted to be uploaded               |
+| `filesize`    | The size in MB each file is allowed                                                                        |
+| `accept`      | Add a list of accepted page mime types and extensions. E.g. `["image/*", '.mp3']`                          |
 
 | Common Attributes Allowed                      |
 | :-----                                         |
