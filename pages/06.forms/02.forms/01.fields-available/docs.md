@@ -539,6 +539,11 @@ header.title:
   label: PLUGIN_ADMIN.TITLE
 ````
 
+| Attribute | Description                                       |
+| :-----    | :-----                                            |
+| `prepend` | prepend some text or HTML to the front of a field |
+| `append`  | append some text or HTML to the end of a a field  |
+
 | Common Attributes Allowed                      |
 | :-----                                         |
 | [autofocus](#common-fields-attributes)         |

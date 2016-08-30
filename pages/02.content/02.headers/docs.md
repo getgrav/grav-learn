@@ -217,7 +217,7 @@ There are situations when you want to use Twig templating functionality in your 
 twig_first: false
 ```
 
-If set to `true` Twig processing will occur before any Markdown processing. This can be particularly useful if your twig generates markdown that needs to be available in order to be processed by the Markdown compiler.  One thing to note, if have `cache_enable: false` **and** `twig_first: true` page caching is effectively disabled.
+If set to `true` Twig processing will occur before any Markdown processing. This can be particularly useful if your Twig generates markdown that needs to be available in order to be processed by the Markdown compiler.  One thing to note, if have `cache_enable: false` **and** `twig_first: true` page caching is effectively disabled.
 
 ### Markdown
 

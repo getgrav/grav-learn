@@ -303,7 +303,7 @@ Authorizes an authenticated user to see a resource. Accepts a single permission 
 
 ##### Dump
 
-Takes a valid twig variable and dumps it out into the [Grav debugger panel](../../advanced/debugging).  The debugger must be **enabled** to see the values in the messages tab.
+Takes a valid Twig variable and dumps it out into the [Grav debugger panel](../../advanced/debugging).  The debugger must be **enabled** to see the values in the messages tab.
 
 `dump(page.header)`
 

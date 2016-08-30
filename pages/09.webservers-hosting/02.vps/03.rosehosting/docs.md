@@ -25,7 +25,7 @@ Your order will be processed and confirmed, after which you will receive an e-ma
 
 ---
 
-[plugin:content-inject](/hosting/vps/ubuntu-16.04)
+[plugin:content-inject](/webservers-hosting/vps/ubuntu-16.04)
 
 
 

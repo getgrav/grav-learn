@@ -515,7 +515,7 @@ buttons:
         primary: true
 ```
 
-This will be used in the Theme twig to output the list in some nice way.
+This will be used in the Theme Twig to output the list in some nice way.
 
 Another example of this field definition is this list of Features, used by Antimatter's Features Modular child page. Every feature has an icon, a header and some text:
 

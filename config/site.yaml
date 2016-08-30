@@ -26,5 +26,6 @@ redirects:
   '/advanced/forms': '/forms/forms'
   '/advanced/contact-form': '/forms/example-form'
   '/advanced/grav-lifecycle': '/plugins/grav-lifecycle'
+  '/hosting/(.*)': '/webservers-hosting/$1'
 
 

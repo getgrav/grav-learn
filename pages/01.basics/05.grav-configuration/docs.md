@@ -56,7 +56,7 @@ pages:
   twig_first: false                         # Process Twig before markdown when processing both on a page
   events:
     page: true                              # Enable page level events
-    twig: true                              # Enable twig level events
+    twig: true                              # Enable Twig level events
   markdown:
     extra: false                            # Enable support for Markdown Extra support (GFM by default)
     auto_line_breaks: false                 # Enable automatic line breaks
@@ -92,7 +92,7 @@ cache:
   gzip: false                               # GZip compress the page output
 
 twig:
-  cache: true                               # Set to true to enable twig caching
+  cache: true                               # Set to true to enable Twig caching
   debug: true                               # Enable Twig debug
   auto_reload: true                         # Refresh cache on changes
   autoescape: false                         # Autoescape Twig vars
@@ -214,11 +214,29 @@ User configuration is completely optional. You can override as little or as much
 
 You are also not limited to the `user/config/system.yaml` or the `user/config/site.yaml` files as described above. You can create any arbitrary `.yaml` configuration file in the `user/config` folder you wish and it will get picked up by Grav automatically.
 
+As an example if the new configuration file is named `user/config/data.yaml` and a yaml variable in this file is called count:
+
+```
+count: 39
+```
+
+The variable would be accessed in your Twig template by using the following syntax:
+
+```
+{{ config.data.count }}
+```
+
+It would also be accessible via PHP from any plugin with the code:
+
+```
+$count_var = Grav::instance()['config']->get('data.count');
+```
+
+! You can also provide a custom blueprint to enable your custom file to be editable in the admin plugin. Check out the relevant [recipe in the Admin Cookbook section](/cookbook/admin-recipes#add-a-custom-yaml-file).
+
+## Config Variable Namespacing
+
 Paths to the configuration files will be used as a **namespace** for your configuration options.
-
-As an example if the new configuration file is named data.yaml and a yaml variable in this file is called count, the variable would be accessed in your twig template by using the following syntax:
-
-    {{config.data.count}}
 
 Alternatively, you can put all the options into one file and use YAML structures to specify the hierarchy for your configuration options. This namespacing is built from a combination of the **path + filename + option name**.
 

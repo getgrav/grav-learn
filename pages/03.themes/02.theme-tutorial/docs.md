@@ -20,7 +20,7 @@ For the sake of this tutorial, we will create a theme that utilizes the popular 
 
 Pure is a small, fast, and responsive CSS framework that contains the basics to get you developing your site without the overhead of larger frameworks such as [Bootstrap](http://getbootstrap.com/css/) or [Foundation](http://foundation.zurb.com/). It contains several modules that can be used independently, but all together the resulting package is only **4.0KB minified and gzipped**!
 
-You an read up on all the features Pure brings to the table on the [Pure.css project site](http://purecss.io/).
+You can read up on all the features Pure brings to the table on the [Pure.css project site](http://purecss.io/).
 
 ## Step 1 - Install DevTools Plugin
 
@@ -141,7 +141,7 @@ This items are required if you wish to release your theme via GPM.
 
 As you know from the [previous chapter](../theme-basics), each item of content in Grav has a particular filename, e.g. `default.md`, which instructs the Grav to look for a rendering Twig template called `default.html.twig`.  It is possible to put everything you need to display a page in this one file, and it would work fine. However, there is a better solution.
 
-Utilizing the Twig [Extends](http://twig.sensiolabs.org/doc/tags/extends.html) tag you can define a base layout with [blocks](http://twig.sensiolabs.org/doc/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.  So look at the `templates/default.html.twig` file an examine it's content:
+Utilizing the Twig [Extends](http://twig.sensiolabs.org/doc/tags/extends.html) tag you can define a base layout with [blocks](http://twig.sensiolabs.org/doc/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.  So look at the `templates/default.html.twig` file and examine its content:
 
 ```
 {% extends 'partials/base.html.twig' %}

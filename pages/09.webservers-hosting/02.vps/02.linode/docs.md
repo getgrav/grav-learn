@@ -34,7 +34,7 @@ You can click on the **Remote Access** tab in the Linode Manager to get relevant
 
 ---
 
-[plugin:content-inject](/hosting/vps/ubuntu-16.04)
+[plugin:content-inject](/webservers-hosting/vps/ubuntu-16.04)
 
 
 

@@ -56,7 +56,7 @@ A proper Grav plugin requires certain files in order to function properly, be li
 
 ## Grav Themes
 
-Because of the tight coupling with Grav pages and themes, a **Grav Theme** is an integral and very important part of a Grav site.  By this we mean that each Grav page references a template in the theme, so your theme needs to provide the appropriate **twig templates** that your pages are using.
+Because of the tight coupling with Grav pages and themes, a **Grav Theme** is an integral and very important part of a Grav site.  By this we mean that each Grav page references a template in the theme, so your theme needs to provide the appropriate **Twig templates** that your pages are using.
 
 The Twig templating engine is a very powerful system, and because there really are no restrictions by Grav itself, you are free to create any kind of design you wish.  This is one of the great things that sets Grav apart from a traditional CMS that has a loose coupling between content and design.
 

@@ -115,17 +115,17 @@ The Twig templating engine is now initialized at this point.
 <a name="onTwigExtensions"></a>
 #### onTwigExtensions
 
-The core twig extensions have been loaded, but if you need to add your own Twig extension, you can do so with this event hook.
+The core Twig extensions have been loaded, but if you need to add your own Twig extension, you can do so with this event hook.
 
 <a name="onTwigPageVariables"></a>
 #### onTwigPageVariables
 
-Where Twig processes a page directly, i.e. when you set `process: twig: true` in a page's YAML headers. This is where you should add any variables to Twig that need to be available to twig during this process.
+Where Twig processes a page directly, i.e. when you set `process: twig: true` in a page's YAML headers. This is where you should add any variables to Twig that need to be available to Twig during this process.
 
 <a name="onTwigSiteVariables"></a>
 #### onTwigSiteVariables
 
-Where Twig processes the full site template hierarchy.  This is where you should add any variables to Twig that need to be available to twig during this process.
+Where Twig processes the full site template hierarchy.  This is where you should add any variables to Twig that need to be available to Twig during this process.
 
 ## Collection Event Hooks
 
