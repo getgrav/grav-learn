@@ -403,3 +403,17 @@ This really provides a lot of flexibility and power.
 ## Collection Headers
 
 Collections have grown up! All [Collection Header information](../collections) is now broken out into [their own separate section](../collections).
+
+## Frontmatter.yaml
+
+An advanced feature that can come in handy for some power users is the ability to use common frontmatter values via a `frontmatter.yaml` file located in the page folder.  This is particular useful when working with multi-language sites where you may wish to share a portion of the frontmatter between all the language versions of a given page.
+
+To take advantage of this, simply create a `frontmatter.yaml` file alongside your page's `.md` file and add any valid frontmatter values.  For example:
+
+```
+metadata:
+    generator: 'Super Grav'
+    description: Give your page a powerup with Grav!
+```
+
+!!!! Utilizing frontmatter.yaml is a file-side feature and is **not supported** by the admin plugin.
