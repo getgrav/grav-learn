@@ -8,7 +8,7 @@ The **Forms** plugin gives you the ability to create virtually any type of front
 
 To get an understanding of how the **Forms** plugin works, let's start by going over how to create a simple form.
 
-!!!! With **Forms 2.0** release, it is required to pass the name of the form as a hidden field.  If you have overridden the `forms.html.twig` in your theme or plugin, you should manually add `{% include "forms/fields/formname/formname.html.twig" %}` in your form-rendering Twig file.
+!!!! With **Forms 2.0** release, it is now required to pass the **name of the form** as a hidden field.  If you are using the form-plugin-provided `forms.html.twig`, this is handled automatically, however, if you have overridden the default `forms.html.twig` in your theme or plugin, you should manually add `{% include "forms/fields/formname/formname.html.twig" %}` in your form-rendering Twig file.
 
 ## Create a simple single form
 
@@ -20,7 +20,7 @@ The contents of this page will be:
 
 ```yaml
 ---
-title: A page with a form
+title: A Page with an Example Form
 form:
     name: contact-form
     fields:
@@ -65,9 +65,11 @@ form:
 ---
 
 # My Form
+
+Regular **markdown** content goes here...
 ```
 
-!!! This is the content of the `form.md` file, when viewed via filesystem. To do this via Admin Plugin, open the page in Expert Mode, copy the part between the triple dashes `---`, and paste it the Frontmatter field.
+!!! This is the content of the `form.md` file, when viewed via file-system. To do this via Admin Plugin, open the page in **Expert Mode**, copy the part between the triple dashes `---`, and paste it the Frontmatter field.
 
 This is enough to show a form in the page, below the page's content. It is a simple form with a name, email field, two buttons: one to submit the form and one to reset the fields. For more information on the available fields that are provided by the Forms plugin, [checkout the next section](fields-available).
 
@@ -79,7 +81,7 @@ What happens when you press the `Submit` button?  It executes the `process` acti
 
 3. The `thankyou` subpage is shown, along with the passed message. The `thankyou` page must be a subpage of the page containing the form.
 
-!!! Make sure you configured the `Email from` and `Email to` email addresses in the **Email** plugin with your email address
+!!! Make sure you configured the **Email** plugin to ensure it has the correct configuration in order to send email successfully.
 
 ## Multiple Forms
 
