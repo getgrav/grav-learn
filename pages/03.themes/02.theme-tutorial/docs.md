@@ -20,7 +20,7 @@ For the sake of this tutorial, we will create a theme that utilizes the popular 
 
 Pure is a small, fast, and responsive CSS framework that contains the basics to get you developing your site without the overhead of larger frameworks such as [Bootstrap](http://getbootstrap.com/css/) or [Foundation](http://foundation.zurb.com/). It contains several modules that can be used independently, but all together the resulting package is only **4.0KB minified and gzipped**!
 
-You an read up on all the features Pure brings to the table on the [Pure.css project site](http://purecss.io/).
+You can read up on all the features Pure brings to the table on the [Pure.css project site](http://purecss.io/).
 
 ## Step 1 - Install DevTools Plugin
 
