@@ -1,7 +1,5 @@
 ---
 title: Web Servers & Hosting
-aliases:
-    - '/hosting'
 taxonomy:
     category: docs
 ---

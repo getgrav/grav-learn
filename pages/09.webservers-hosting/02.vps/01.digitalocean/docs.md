@@ -36,4 +36,4 @@ The **Access** tab in the Droplet Manager allows you to quickly log on to your i
 
 ---
 
-[plugin:content-inject](/hosting/vps/ubuntu-16.04)
+[plugin:content-inject](/webservers-hosting/vps/ubuntu-16.04)

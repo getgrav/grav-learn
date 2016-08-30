@@ -1,5 +1,5 @@
 ---
 menu: Web Servers
-redirect: '/hosting/local/nginx'
+redirect: '/webservers-hosting/local/nginx'
 class: subtitle
 ---

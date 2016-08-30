@@ -1,5 +1,5 @@
 ---
 menu: VPS Hosting
-redirect: '/hosting/vps/digitalocean'
+redirect: '/webservers-hosting/vps/digitalocean'
 class: subtitle
 ---
