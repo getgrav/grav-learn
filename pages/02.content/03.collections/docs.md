@@ -41,8 +41,8 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 
 ### Summary of collection options
 
-| String                                    | Result                                                    |
-| :----------                               | :----------                                               |
+|                   String                  |                           Result                          |
+|-------------------------------------------|-----------------------------------------------------------|
 | '@root'                                   | Get the root children                                     |
 | '@root.children'                          | Get the root children (alternative)                       |
 | '@root.descendants'                       | Get the root and recurse through ALL children             |
@@ -53,13 +53,16 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 | '@self.children'                          | Get the non-modular children                              |
 | '@self.descendants'                       | Recurse through all the non-modular children              |
 |                                           |                                                           |
-| '@page': '/fruit'                         | Get all the children of page `/fruit'                     |
+| '@page': '/fruit'                         | Get all the children of page `/fruit`                     |
 | '@page.children': '/fruit'                | Alternative to above                                      |
-| '@page.self': '/fruit'                    | Get a collection with only the page `/fruit'               |
-| '@page.descendants': '/fruit'             | Get and recurse through all the children of page '/fruit' |
+| '@page.self': '/fruit'                    | Get a collection with only the page `/fruit`              |
+| '@page.page': '/fruit'                    | Alternative to above                                      |
+| '@page.descendants': '/fruit'             | Get and recurse through all the children of page `/fruit` |
+| '@page.modular': '/fruit'                 | Get a collection of all modular subpages of `/fruit`      |
 |                                           |                                                           |
-| '@taxonomy.tag': photography              | taxonomy with tag='photography'                           |
-| '@taxonomy': {tag: birds, category: blog} | taxonomy with tag='birds' && category='blog'              |
+| '@taxonomy.tag': photography              | taxonomy with tag=`photography`                           |
+| '@taxonomy': {tag: birds, category: blog} | taxonomy with tag=`birds` && category=`blog`              |
+
 
 We will cover these more in detail. The `content.items` value tells Grav to gather up a collection of items and information passed to this defines how the collection is to be built.
 
@@ -139,14 +142,14 @@ content:
 
 ## Page Collections
 
-##### @page - Collection of children of a specific page
+##### @page or @page.children - Collection of children of a specific page
 
 This collection takes a slug route of a page as an argument and will return all the **published non-modular** children of that page
 
 ```ruby
 content:
     items:
-      '@page': /blog
+      '@page': '/blog'
 ```
 
 alternatively:
@@ -154,17 +157,17 @@ alternatively:
 ```ruby
 content:
     items:
-      '@page.children': /blog
+      '@page.children': '/blog'
 ```
 
-##### @page.self - Collection of just the specific page
+##### @page.self or @page.page - Collection of just the specific page
 
 This collection takes a slug route of a page as an argument and will return collection containing that page (if it is **published and non-modular**)
 
 ```ruby
 content:
     items:
-      '@page.self': /blog
+      '@page.self': '/blog'
 ```
 
 ##### @page.descendants - Collection of children + all descendants of a specific page
@@ -174,8 +177,19 @@ This collection takes a slug route of a page as an argument and will return all 
 ```ruby
 content:
     items:
-      '@page.descendants': /blog
+      '@page.descendants': '/blog'
 ```
+
+##### @page.modular - Collection of modular children of a specific page
+
+This collection takes a slug route of a page as an argument and will return all the **published modular** children of that page
+
+```ruby
+content:
+    items:
+      '@page.modular': '/blog'
+```
+
 
 ## Taxonomy Collections
 
