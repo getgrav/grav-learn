@@ -203,6 +203,8 @@ folder:
 
 ### The Array Field
 
+![Array](array_field_bp.gif)
+
 The `array` field type is used to create a simple list of key - values objects.
 
 Example:
@@ -239,6 +241,8 @@ metadata:
 
 ### The Columns / column Fields
 
+![Columns](columns_field_bp.gif)
+
 The `columns` and `column` field types are used to divide the contained form fields in columns
 
 Example:
@@ -270,6 +274,8 @@ columns:
 ---
 
 ### The Dateformat Field
+
+![DateFormat](dateformat_field_bp.gif)
 
 The `dateformat` field type is used to
 
@@ -318,6 +324,8 @@ pages.dateformat.short:
 
 ### The Datetime Field
 
+![DateTime](datetime_field.gif)
+
 The `datetime` field type is used to store and present a date and time field.
 
 Example:
@@ -351,6 +359,8 @@ header.date:
 ---
 
 ### The Editor Field
+
+![Editor Field](editor_field_bp.gif)
 
 The `editor` field type is used to present the Codemirror editor
 
@@ -400,6 +410,8 @@ frontmatter:
 ---------------------
 
 ### The File Field
+
+![File Field](file_field_bp.gif)
 
 The `file` field type can be used in pages, plugin and theme configurations (blueprints). Handles uploading a file to a location as well as removing it from the page headers or theme / plugin configuration.
 
@@ -468,6 +480,8 @@ content:
 ---
 
 ### The List Field
+
+![List Field](list_field_bp.gif)
 
 The `list` field type is used to create collections of fields. The field accepts a `fields` attribute that will host subfields, and there will be a "Add item" button to allow the user to add more items to the collection.
 
@@ -594,6 +608,8 @@ header.img_link:
 
 ### The Pages Field
 
+![Pages Field](pages_field_bp.gif)
+
 The `pages` field type shows a list of the site pages.
 
 Example
@@ -668,6 +684,8 @@ content:
 
 ### The Selectize Field
 
+![Selectize](selectize_field_bp.gif)
+
 The `selectize` field type is used to show a hybrid of a text box and a select box. Mostly useful for tagging and other element picking fields.
 
 Example:
@@ -714,6 +732,8 @@ taxonomies:
 
 ### The Tabs / Tab Fields
 
+![Tabs](tabs_field_bp.gif)
+
 The `tabs` and `tab` field types are used to divide the contained form fields in tabs
 
 Example:
@@ -749,6 +769,8 @@ tabs:
 ---
 
 ### The Taxonomy Field
+
+![Taxonomy](taxonomy_field_bp.gif)
 
 The `taxonomy` field type is a special select preconfigured to select one or more taxonomy values
 
@@ -788,6 +810,8 @@ header.taxonomy:
 ---
 
 ### The Toggle Field
+
+![Toggle Field](toggle_field_bp.gif)
 
 The `toggle` field type is a on/off kind of input, with configurable labels
 
