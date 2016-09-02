@@ -21,6 +21,7 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 | **[Datetime](#the-datetime-field)**               | a date and time selection field                                                                                                                                                                             |
 | **[Editor](#the-editor-field)**                   | show a markdown editor                                                                                                                                                                                      |
 | **[File](#the-file-field)**                       | in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
+| **[Filepicker](#the-filepicker-field)**                       | **Filepicker** allows to choose files from a location in the web server filesystem. |
 | **[Ignore](#the-ignore-field)**                   | used to remove unused fields when extending from another blueprint                                                                                                                                          |
 | **[List](#the-list-field)**                       | used to create collections of fields                                                                                                                                                                        |
 | **[PageMediaSelect](#the-pagemediaselect-field)** | shows a select with all the page media. Used in Pages blueprints to let the user choose a media file to be assigned to a field.                                                                             |
@@ -461,6 +462,53 @@ custom_file:
 | [toggleable](#common-fields-attributes)        |
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes)     |
+
+---
+
+### The Filepicker Field
+
+![Filepicker Field](filepicker_field.png)
+
+The `filepicker` field type can be used in pages, plugin and theme configurations (blueprints). Handles selecting a file from a location and saving it to the page headers or theme / plugin configuration.
+
+Example:
+
+```yaml
+picked_image:
+  type: filepicker
+  folder: 'theme@:/images/pages'
+  label: Select a file
+  preview_images: true
+  acccept:
+    - .png
+    - .jpg
+```
+
+```yaml
+header.a_file:
+  type: filepicker
+  folder: '@self'
+  preview_images: true
+  label: Select a file
+```
+
+| Attribute     | Description                                                                                                |
+| :-----        | :-----                                                                                                     |
+| `folder` | The folder where the files will be looked up, relative to the Grav root. Accepts any value in the [file field destination format](/forms/blueprints/how-to-add-file-upload#destination). |
+| `accept` | A list of accepted file extensions                                                          |
+| `preview_images` | If enabled, image files will have a little preview |
+
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [default](#common-fields-attributes)           |
+| [disabled](#common-fields-attributes)          |
+| [help](#common-fields-attributes)              |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [size](#common-fields-attributes)              |
+| [style](#common-fields-attributes)             |
+| [toggleable](#common-fields-attributes)        |
+| [validate.required](#common-fields-attributes) |
 
 ---
 
