@@ -30,7 +30,7 @@ $ apt autoremove
 Next you will want to install some essential packages:
 
 ```
-$ apt install vim zip unzip nginx git php7.0-fpm php7.0-cli php7.0-gd php7.0-curl php7.0-mbstring php7.0-zip php-apcu
+$ apt install vim zip unzip nginx git php7.0-fpm php7.0-cli php7.0-gd php7.0-curl php7.0-mbstring php7.0-xml php7.0-zip php-apcu
 ```
 
 This will install the complete VIM editor (rather than the mini version that ships with Ubuntu), Nginx web server, GIT commands, and **PHP 7.0**.
@@ -84,7 +84,17 @@ $ su - grav
 $ mkdir www;cd www;mkdir html;cd html
 ```
 
-Create a simple `index.html` with the contents of `<h1>Working!</h1>` and a file called `info.php` with the contents of `<?php phpinfo();`
+Create a simple `index.html` with the contents of:
+
+```
+ <h1>Working!</h1>
+```
+
+..and a file called `info.php` with the contents of:
+
+```
+<?php phpinfo();
+```
 
 Now we can exit out of this user and return to root in order to setup the Nginx server configuration:
 
