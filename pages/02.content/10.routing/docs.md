@@ -29,7 +29,7 @@ routes:
     - '/can-be-any-valid-slug'
 ```
 
-These can are processed and cached per-page, and are available along with what we call the **raw route** which is the route based on the **slugs** of the page hierarchy (which is how Grav works out a route by default).  So even if you provide custom page routes, the **raw route** is still always valid too.
+These are processed and cached per-page, and are available along with what we call the **raw route** which is the route based on the **slugs** of the page hierarchy (which is how Grav works out a route by default).  So even if you provide custom page routes, the **raw route** is still always valid too.
 
 ## Site Level Routes and Redirects
 
