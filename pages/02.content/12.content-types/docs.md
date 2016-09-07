@@ -19,7 +19,7 @@ Grav look for a template called `blog.xml.twig`.  You would need to ensure that 
 
 ### Example with JSON files
 
-A particular common way to access files is via a `.json` extension.  This is allows data to be requested via JSON files that are easily processed by JavaScript.
+A particular common way to access files is via a `.json` extension.  This allows data to be requested via JSON files that are easily processed by JavaScript.
 
 Say you wanted the **frontmatter** and **content** of a particular page in JSON format, and that page was defined in a file called `item.md`.  All you would need to do is to provide a twig template called `item.json.html`.  You could put this in your theme's `templates/` folder, or if you were using a plugin to load custom templates, you could add it there.
 
