@@ -23,7 +23,8 @@ default_locale:                             # Default locale (defaults to system
 param_sep: ':'                              # Parameter separator, use ';' for Apache on windows
 wrapped_site: false                         # For themes/plugins to know if Grav is wrapped by another platform
 reverse_proxy_setup: false                  # Running in a reverse proxy scenario with different webserver ports than proxy
-
+force_ssl: false                            # If enabled, Grav forces to be accessed via HTTPS (NOTE: Not an ideal solution)
+custom_base_url: ''                         # Set the base_url manually
 
 languages:
   supported: []                             # List of languages supported. eg: [en, fr, de]
@@ -80,7 +81,7 @@ pages:
   url_taxonomy_filters: true                # Enable auto-magic URL-based taxonomy filters for page collections
   frontmatter:
     process_twig: false                     # Should the frontmatter be processed to replace Twig variables?
-    ignore_fields: ['form']                 # Fields that might contain Twig variables and should not be processed
+    ignore_fields: ['form','forms']         # Fields that might contain Twig variables and should not be processed
 
 cache:
   enabled: true                             # Set to true to enable caching
@@ -142,10 +143,11 @@ session:
   name: grav-site                           # Name prefix of the session cookie. Use alphanumeric, dashes or underscores only. Do not use dots in the session name
   secure: false                             # Set session secure. If true, indicates that communication for this cookie must be over an encrypted transmission. Enable this only on sites that run exclusively on HTTPS
   httponly: true                            # Set session HTTP only. If true, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed.
+  path:
 
 gpm:
-  releases: testing                           # Set to either 'stable' or 'testing'
-  proxy_url:                                  # Configure a manual proxy URL for GPM (eg 127.0.0.1:3128)
+  releases: stable                           # Set to either 'stable' or 'testing'
+  proxy_url:                                 # Configure a manual proxy URL for GPM (eg 127.0.0.1:3128)
 ```
 
 !! You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
