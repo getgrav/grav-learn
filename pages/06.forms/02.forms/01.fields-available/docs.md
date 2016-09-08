@@ -110,6 +110,8 @@ The above code will validate the Captcha in the frontend and prevent form submis
 
 ### The Checkbox Field
 
+![Checkbox Field](checkbox_field.gif)
+
 The `checkbox` field type is used to add a single checkbox to your form.
 
 Example:
@@ -142,6 +144,8 @@ Example:
 ---
 
 ### The Checkboxes Field
+
+![Checkboxes Field](checkboxes_field.gif)
 
 The `checkboxes` field type is used to add a group of checkboxes to your form.
 
@@ -196,6 +200,8 @@ my_field:
 
 ### The Date Field
 
+![Date Field](date_field.gif)
+
 The `date` field type is used to add an HTML5 `date` input field.
 
 Example:
@@ -237,6 +243,8 @@ Example:
 
 ### The Display Field
 
+![Display Field](display_field.jpg)
+
 The `display` field type is used to show some text or instructions inside the form. Can accept markdown content
 
 Example:
@@ -267,6 +275,8 @@ test:
 ---
 
 ### The Email Field
+
+![Email Field](email_field.gif)
 
 The `email` field type is used to present a text input field that accepts an email, using the [email HTML5 input](http://html5doctor.com/html5-forms-input-types/#input-email).
 
@@ -391,6 +401,8 @@ Example:
 
 ### The Radio Field
 
+![Radio Field](radio_field.gif)
+
 The `radio` field type is used to present a set of radio fields
 
 Example:
@@ -425,6 +437,8 @@ Example:
 ---
 
 ### The Range Field
+
+![Range Field](range_field.gif)
 
 The `range` field is used to present a [range input field](http://html5doctor.com/html5-forms-input-types/#input-range).
 
@@ -461,6 +475,8 @@ header.choose_a_number_in_range:
 ---
 
 ### The Select Field
+
+![Select Field](select_field.gif)
 
 The `select` field type is used to present a select field.
 
@@ -529,6 +545,8 @@ test:
 
 ### The Text Field
 
+![Text Field](text_field.gif)
+
 The `text` field is used to present a text input field.
 
 Example:
@@ -567,6 +585,8 @@ header.title:
 ---
 
 ### The Textarea Field
+
+![Textarea Field](textarea_field.gif)
 
 The `textarea` field is used to present a textarea input field.
 

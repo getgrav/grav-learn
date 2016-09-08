@@ -48,7 +48,7 @@ The **Ordering** section gives you the ability to configuring page ordering of n
 
 Overrides are those options that give your page extra functionality, set its slug to something different than the default one based on the folder name, caching settings, navigation visibility, and make a page unreachable via a direct URL.
 
-You can also use this area to turn on and off various processes for the page, such as twig which enables you to inject twig into your page content and have it render.
+You can also use this area to turn on and off various processes for the page, such as Twig which enables you to inject Twig into your page content and have it render.
 
 | Options                | Description                                                                                                        |
 | :-----                 | :-----                                                                                                             |

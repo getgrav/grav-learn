@@ -56,7 +56,7 @@ pages:
   twig_first: false                         # Process Twig before markdown when processing both on a page
   events:
     page: true                              # Enable page level events
-    twig: true                              # Enable twig level events
+    twig: true                              # Enable Twig level events
   markdown:
     extra: false                            # Enable support for Markdown Extra support (GFM by default)
     auto_line_breaks: false                 # Enable automatic line breaks
@@ -92,7 +92,7 @@ cache:
   gzip: false                               # GZip compress the page output
 
 twig:
-  cache: true                               # Set to true to enable twig caching
+  cache: true                               # Set to true to enable Twig caching
   debug: true                               # Enable Twig debug
   auto_reload: true                         # Refresh cache on changes
   autoescape: false                         # Autoescape Twig vars
@@ -220,7 +220,7 @@ As an example if the new configuration file is named `user/config/data.yaml` and
 count: 39
 ```
 
-The variable would be accessed in your twig template by using the following syntax:
+The variable would be accessed in your Twig template by using the following syntax:
 
 ```
 {{ config.data.count }}

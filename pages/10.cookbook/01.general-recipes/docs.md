@@ -111,7 +111,7 @@ Now we need to display these images in reverse chronological order so the newest
 {% endblock %}
 ```
 
-For modular gallery to be displayed inside another page, remove the following code from the twig file in order to make it work:
+For modular gallery to be displayed inside another page, remove the following code from the Twig file in order to make it work:
 
 ```
 {% extends 'partials/base.html.twig' %}
@@ -182,7 +182,7 @@ You need a image slider without any overhead.
 
 ##### Solution:
 
-This recipe is for 4 images and a page called slider.md! Simply put the images where the .md file is. Next, create a new twig template and extend base.html.twig.
+This recipe is for 4 images and a page called slider.md! Simply put the images where the .md file is. Next, create a new Twig template and extend base.html.twig.
 
 
 ```
@@ -215,7 +215,7 @@ and
 {% endblock %}
 ```
 
-from the previous twig file.
+from the previous Twig file.
 
 Time for css stuff. Add this to your _custom.scss
 
@@ -251,7 +251,7 @@ That's all.
 
 ### Wrapping markdown into html
 
-On some pages you might want to wrap parts of the markdown content into some custom html code instead of creating a new twig template.
+On some pages you might want to wrap parts of the markdown content into some custom html code instead of creating a new Twig template.
 
 To achieve this you follow these steps:
 

@@ -6,6 +6,8 @@ taxonomy:
 
 Collections have grown considerably since the early betas of Grav. We started off with a very limited set of page-based collections, but with the help of our community we have increased these capabilities to make them even more powerful!  So much so that they now have their own section in the documentation.
 
+The most common way to make use of collections is to define a collection in the page.  This means the collection defined is available in the Twig of the page to do with as you wish.  Common examples of this include displaying a list of blog posts, or displaying modular sub-pages to render a complex page design.
+
 ## Example Collection Definition
 
 An example collection defined in the page's frontmatter:
@@ -63,6 +65,8 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 | '@taxonomy.tag': photography              | taxonomy with tag=`photography`                           |
 | '@taxonomy': {tag: birds, category: blog} | taxonomy with tag=`birds` && category=`blog`              |
 
+
+! This document outlines the use of `@page`, `@taxonomy.category` etc, but a more YAML-safe alternative format is `page@`, `taxonomy@.category`.  All the `@` commands can be written in either prefix or postfix format.
 
 We will cover these more in detail. The `content.items` value tells Grav to gather up a collection of items and information passed to this defines how the collection is to be built.
 
@@ -368,3 +372,36 @@ Also has several useful Collection-specific methods:
 * `Collection::ofType($type)` - Filters the current collection to include only pages where template = `$type`.
 * `Collection::ofOneOfTheseTypes($types)` - Filters the current collection to include only pages where template is in the array `$types`.
 * `Collection::ofOneOfTheseAccessLevels($levels)` - Filters the current collection to include only pages where page access is in the array of `$levels`
+
+## Programmatic Collections
+
+You can take full control of collections directly from PHP in Grav plugins, themes, or even from Twig.  This is a more hard-coded approach compared to defining them in your page frontmatter, but it also allows for more complex and flexible collections logic.
+
+### PHP Collections
+
+You can perform advanced collection logic with PHP, for example:
+
+```
+$collection = new Collection();
+$collection->setParams(['taxonomies' => ['tag' => ['dog', 'cat']]])->dateRange('01/01/2016', '12/31/2016')->published()->ofType('blog-item')->order('date', 'desc');
+
+$titles = [];
+
+foreach ($collection as $page) {
+    $titles[] = $page->title();
+}
+```
+
+You can also use the same `evaluate()` method that the frontmatter-based page collections make use of:
+
+```
+$page = Grav::instance()['page'];
+$collection = $page->evaluate(['@page.children' => '/blog', '@taxonomy.tag' => 'photography']);
+```
+
+You can also do similar directly in Twig:
+
+```
+{% set collection = page.evaluate([{'@page.children':'/blog', '@taxonomy.tag':'photography'}]) %}
+```
+

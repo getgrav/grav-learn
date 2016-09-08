@@ -21,6 +21,7 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 | **[Datetime](#the-datetime-field)**               | a date and time selection field                                                                                                                                                                             |
 | **[Editor](#the-editor-field)**                   | show a markdown editor                                                                                                                                                                                      |
 | **[File](#the-file-field)**                       | in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
+| **[Filepicker](#the-filepicker-field)**                       | **Filepicker** allows to choose files from a location in the web server filesystem. |
 | **[Ignore](#the-ignore-field)**                   | used to remove unused fields when extending from another blueprint                                                                                                                                          |
 | **[List](#the-list-field)**                       | used to create collections of fields                                                                                                                                                                        |
 | **[PageMediaSelect](#the-pagemediaselect-field)** | shows a select with all the page media. Used in Pages blueprints to let the user choose a media file to be assigned to a field.                                                                             |
@@ -203,6 +204,8 @@ folder:
 
 ### The Array Field
 
+![Array](array_field_bp.gif)
+
 The `array` field type is used to create a simple list of key - values objects.
 
 Example:
@@ -239,6 +242,8 @@ metadata:
 
 ### The Columns / column Fields
 
+![Columns](columns_field_bp.gif)
+
 The `columns` and `column` field types are used to divide the contained form fields in columns
 
 Example:
@@ -270,6 +275,8 @@ columns:
 ---
 
 ### The Dateformat Field
+
+![DateFormat](dateformat_field_bp.gif)
 
 The `dateformat` field type is used to
 
@@ -318,6 +325,8 @@ pages.dateformat.short:
 
 ### The Datetime Field
 
+![DateTime](datetime_field.gif)
+
 The `datetime` field type is used to store and present a date and time field.
 
 Example:
@@ -351,6 +360,8 @@ header.date:
 ---
 
 ### The Editor Field
+
+![Editor Field](editor_field_bp.gif)
 
 The `editor` field type is used to present the Codemirror editor
 
@@ -401,7 +412,11 @@ frontmatter:
 
 ### The File Field
 
-The `file` field type is used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration.
+![File Field](file_field_bp.gif)
+
+The `file` field type can be used in pages, plugin and theme configurations (blueprints). Handles uploading a file to a location as well as removing it from the page headers or theme / plugin configuration.
+
+! More details can be found in the dedicated [How To: Add a File Upload](../how-to-add-file-upload) section.
 
 Example:
 
@@ -410,7 +425,6 @@ custom_logo_login_screen:
   type: file
   label: Custom Logo Login Screen
   destination: 'user/plugins/admin-pro/assets'
-  blueprint: 'plugins.admin-pro'
   accept:
     - image/*
 ```
@@ -420,7 +434,9 @@ custom_file:
   type: file
   label: A Label
   destination: 'user/themes/my-theme/assets'
-  blueprint: 'themes.mytheme'
+  multiple: true
+  limit: 5
+  filesize: 1
   accept:
     - image/*
 ```
@@ -429,8 +445,10 @@ custom_file:
 | Attribute     | Description                                                                                                |
 | :-----        | :-----                                                                                                     |
 | `destination` | The folder where the files will be stored, relative to the Grav root. E.g. `user/plugins/my-plugin/assets` |
-| `blueprint`   | Set it to the package identifier. For plugins: 'themes.mythemeslug' or 'plugins.mypluginnameslug'          |
-| `accept`      | Add a list of accepted page mime types. E.g. `["image/*"]`                                                 |
+| `multiple`    | Whether or not allow more than one file per field                                                          |
+| `limit`       | When `multiple` is enabled, allows to constrain the amount of files permitted to be uploaded               |
+| `filesize`    | The size in MB each file is allowed                                                                        |
+| `accept`      | Add a list of accepted page mime types and extensions. E.g. `["image/*", '.mp3']`                          |
 
 | Common Attributes Allowed                      |
 | :-----                                         |
@@ -444,6 +462,53 @@ custom_file:
 | [toggleable](#common-fields-attributes)        |
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes)     |
+
+---
+
+### The Filepicker Field
+
+![Filepicker Field](filepicker_field.png)
+
+The `filepicker` field type can be used in pages, plugin and theme configurations (blueprints). Handles selecting a file from a location and saving it to the page headers or theme / plugin configuration.
+
+Example:
+
+```yaml
+picked_image:
+  type: filepicker
+  folder: 'theme@:/images/pages'
+  label: Select a file
+  preview_images: true
+  acccept:
+    - .png
+    - .jpg
+```
+
+```yaml
+header.a_file:
+  type: filepicker
+  folder: '@self'
+  preview_images: true
+  label: Select a file
+```
+
+| Attribute     | Description                                                                                                |
+| :-----        | :-----                                                                                                     |
+| `folder` | The folder where the files will be looked up, relative to the Grav root. Accepts any value in the [file field destination format](/forms/blueprints/how-to-add-file-upload#destination). |
+| `accept` | A list of accepted file extensions                                                          |
+| `preview_images` | If enabled, image files will have a little preview |
+
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [default](#common-fields-attributes)           |
+| [disabled](#common-fields-attributes)          |
+| [help](#common-fields-attributes)              |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [size](#common-fields-attributes)              |
+| [style](#common-fields-attributes)             |
+| [toggleable](#common-fields-attributes)        |
+| [validate.required](#common-fields-attributes) |
 
 ---
 
@@ -463,6 +528,8 @@ content:
 ---
 
 ### The List Field
+
+![List Field](list_field_bp.gif)
 
 The `list` field type is used to create collections of fields. The field accepts a `fields` attribute that will host subfields, and there will be a "Add item" button to allow the user to add more items to the collection.
 
@@ -510,7 +577,7 @@ buttons:
         primary: true
 ```
 
-This will be used in the Theme twig to output the list in some nice way.
+This will be used in the Theme Twig to output the list in some nice way.
 
 Another example of this field definition is this list of Features, used by Antimatter's Features Modular child page. Every feature has an icon, a header and some text:
 
@@ -589,6 +656,8 @@ header.img_link:
 
 ### The Pages Field
 
+![Pages Field](pages_field_bp.gif)
+
 The `pages` field type shows a list of the site pages.
 
 Example
@@ -663,6 +732,8 @@ content:
 
 ### The Selectize Field
 
+![Selectize](selectize_field_bp.gif)
+
 The `selectize` field type is used to show a hybrid of a text box and a select box. Mostly useful for tagging and other element picking fields.
 
 Example:
@@ -709,6 +780,8 @@ taxonomies:
 
 ### The Tabs / Tab Fields
 
+![Tabs](tabs_field_bp.gif)
+
 The `tabs` and `tab` field types are used to divide the contained form fields in tabs
 
 Example:
@@ -744,6 +817,8 @@ tabs:
 ---
 
 ### The Taxonomy Field
+
+![Taxonomy](taxonomy_field_bp.gif)
 
 The `taxonomy` field type is a special select preconfigured to select one or more taxonomy values
 
@@ -783,6 +858,8 @@ header.taxonomy:
 ---
 
 ### The Toggle Field
+
+![Toggle Field](toggle_field_bp.gif)
 
 The `toggle` field type is a on/off kind of input, with configurable labels
 
