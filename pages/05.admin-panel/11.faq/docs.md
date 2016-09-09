@@ -90,7 +90,7 @@ One way to help keep your admin panel secure is to hide its location. To do this
 ```
 http://yourwebsite.com/admin
 ```
-to something more ambiguous that is going to be harder for someone to guess.  To do this you need to locate `admin.yaml` which can be found in `user/plugins/admin` and **copy this** to `user/config/plugins/admin.yaml`.  
+to something more ambiguous that is going to be harder for someone to guess.  To do this you need to locate `admin.yaml` which can be found in `user/plugins/admin/` folder and **copy this** to `user/config/plugins/admin.yaml`.  
 
 Then change the line `route: '/admin'` to something more ambiguous, for example `route: '/myspecialplace'`, this way if you need to access the admin panel for your grav site you will enter
 ```
