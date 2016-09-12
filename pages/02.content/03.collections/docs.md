@@ -326,7 +326,7 @@ This sets up **2 collections** for this page, the first uses the default `conten
 ```
 {% set default_collection = page.collection %}
 
-{% set fruit_colleciton = page.collection('fruit') %}
+{% set fruit_collection = page.collection('fruit') %}
 ```
 
 ## Collection Object
