@@ -141,7 +141,7 @@ class RandomizerPlugin extends Plugin
 }
 ```
 
-We ned to add a few `use` statements because we are going to use these classes in our plugin, and it saves space and makes the code more readable if we don't have to put the full namespace for each class in-line.
+We need to add a few `use` statements because we are going to use these classes in our plugin, and it saves space and makes the code more readable if we don't have to put the full namespace for each class in-line.
 
 Modify the `use` statements to look like this:
 
