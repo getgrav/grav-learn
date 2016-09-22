@@ -197,7 +197,42 @@ Additionally you can pass parameters to the function call just by using array wh
 
 When you extend a blueprint or import a file, by default the new fields are added to the end of the list. Sometimes this is not what you want to do, you may want to add item as the first or after some existing field.
 
-For this every field can set `ordering@` property, which is either field name or integer (0 = first item).
+If you want to create a field, you can state its ordering using the `ordering@` property. This field can contain either a field name or an integer (0 = first item).
+
+Here is an example:
+
+``` yaml
+form:
+  fields:
+    route:
+      ordering@: 0
+      type: select
+      label: Parent
+      classes: fancy
+      default: /team
+      options:
+        '/': '- Root -'
+        '/home': 'Home'
+        '/team': 'Team'
+        '/team/ceo': '  Meet Our CEO'
+        ...
+```
+
+Doing this ensures that the route field will be the first field to appear in the form. This makes it easy to import and/or extend an existing field and place your additional fields where you would like them to go.
+
+Here is another example:
+
+``` yaml
+form:
+  fields:
+    author:
+      ordering@: title
+      type: text
+      label: Author
+      default: "John Doe"
+```
+
+In the example above, we used the name of another field to set the ordering. In this example, we have set it up so that the `author` field appears after the `title` field in the form.
 
 # Creating new form field type
 
