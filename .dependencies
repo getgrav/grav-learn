@@ -16,7 +16,7 @@ git:
         path: user/plugins/github
         branch: develop
     hightlight:
-        url: https://github.com/getgrav/grav-plugin-hightlight
+        url: https://github.com/getgrav/grav-plugin-highlight
         path: user/plugins/hightlight
         branch: develop
     markdown-notices:
