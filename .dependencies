@@ -15,9 +15,9 @@ git:
         url: https://github.com/getgrav/grav-plugin-github
         path: user/plugins/github
         branch: develop
-    hightlight:
+    highlight:
         url: https://github.com/getgrav/grav-plugin-hightlight
-        path: user/plugins/hightlight
+        path: user/plugins/highlight
         branch: develop
     markdown-notices:
         url: https://github.com/getgrav/grav-plugin-markdown-notices
