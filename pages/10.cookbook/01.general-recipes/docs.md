@@ -443,4 +443,4 @@ You can add assets in that block in Twig for example by calling
 
 or in PHP by calling
 
-`$this->grav['assets']->addJs($this->grav['base_url'] . '/user/plugins/yourplugin/js/somefile.js', {group: 'bottom'});`
+`$this->grav['assets']->addJs($this->grav['base_url'] . '/user/plugins/yourplugin/js/somefile.js', ['group' => 'bottom']);`
