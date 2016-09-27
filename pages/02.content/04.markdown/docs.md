@@ -589,7 +589,7 @@ Adding a colon on the right side of the dashes below any heading will right alig
 
 ### Headers
 
-It is not possible to generate a table without a header row. The best you can do is leave it blank. Otherwise the parser will not recognize the table. The minimum requirement is two blank rows. For readability, though, you should still include the dashed lines in the second row. Both of the following markups provide the same results.
+It is not possible to generate a table without a header row. The best you can do is leave it blank. Otherwise the parser will not recognize the table. The minimum requirement is two blank rows. For readability, though, you should still include the dashed lines in the second row. Both of the following markups produce the same results.
 
 ```markdown
 |  |  |
