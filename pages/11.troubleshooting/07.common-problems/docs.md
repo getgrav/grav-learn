@@ -27,6 +27,9 @@ If this is ok, make sure you're not behind a proxy. If so, [configure it](/basic
 
 Then, [check your permissions](/troubleshooting/permissions).
 
+If after all the above you are still getting issues connecting with GPM, we have noticed that on some servers (mostly local machines running Windows), there are issues verifying the SSL certificate of getgrav.org, even though it is [A Rating](https://www.ssllabs.com/ssltest/analyze.html?d=getgrav.org&hideResults=on).
+To work around this problem, we have added a new system config `system.gpm.verify_peer` that is enabled by default. Set it to false and try again.
+
 If at this point it's still not working, get in touch, or report back if you were pointed here via chat/forum.
 
 Also, check the CLI command is working, by opening a SSH connection to the server and running `bin/gpm index` and check if it's just inside Admin that you get this error, or in the command line too.
