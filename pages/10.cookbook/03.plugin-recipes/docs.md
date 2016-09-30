@@ -15,9 +15,9 @@ This page contains an assortment of problems and their respective solutions rela
    * [How do I inject HTML into the final output?](#how-do-i-inject-html-into-the-final-output)
    * [How do I inject assets like JavaScript and CSS files?](#how-do-i-inject-assets-like-javascript-and-css-files)
    * [How do I affect the response headers and response codes?](#how-do-i-affect-the-response-headers-and-response-codes)
-   * [How can I incorporate third-party libaries into my plugin?](#how-can-i-incorporate-third-party-libaries-into-my-plugin)
-   * [How can I extend Twig?](#how-can-i-extend-twig)
-   * [How can I interact with external APIs?](#how-can-i-interact-with-external-apis)
+   * [How do I incorporate third-party libaries into my plugin?](#how-do-i-incorporate-third-party-libaries-into-my-plugin)
+   * [How do I extend Twig?](#how-do-i-extend-twig)
+   * [How do I interact with external APIs?](#how-do-i-interact-with-external-apis)
  
  
 ### Output some PHP code result in a Twig template
@@ -328,7 +328,7 @@ You can use PHP's `header()` command to set response headers. The latest you can
 
   * The [Webmention](https://github.com/Perlkonig/grav-plugin-webmention) sets the `Location` header on a `201 CREATED` response.
 
-#### How can I incorporate third-party libaries into my plugin?
+#### How do I incorporate third-party libaries into my plugin?
 
 Usually you'd incorporate other complete libraries into a `vendor` subfolder and `require` its `autoload.php` where appropriate in your plugin. (If you're using Git, consider using [subtrees](https://help.github.com/articles/about-git-subtree-merges/).)
 
@@ -336,11 +336,11 @@ Usually you'd incorporate other complete libraries into a `vendor` subfolder and
 
   * [Table Importer](https://github.com/Perlkonig/grav-plugin-table-importer)
 
-#### How can I extend Twig?
+#### How do I extend Twig?
 
 First [read the Twig docs](http://twig.sensiolabs.org/doc/advanced.html) and develop your extension. Then look at the [TwigPCRE](https://github.com/kesslernetworks/grav-plugin-twigpcre) plugin to learn how to incorporate it into Grav.
 
-#### How can I interact with external APIs?
+#### How do I interact with external APIs?
 
 Grav provides the [Grav\Common\GPM\Response](https://learn.getgrav.org/api/Grav/Common/GPM/Response.html) object, but there's nothing stopping you from doing it directly if you so wish.
 
