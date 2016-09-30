@@ -330,7 +330,7 @@ You can use PHP's `header()` command to set response headers. The latest you can
 
 #### How can I incorporate third-party libaries into my plugin?
 
-Usually you'd incorporate other complete libraries into a `vendor` subfolder and `require` it's `autoload.php` where appropriate in your plugin. (If you're using Git, consider using [subtrees](https://help.github.com/articles/about-git-subtree-merges/).)
+Usually you'd incorporate other complete libraries into a `vendor` subfolder and `require` its `autoload.php` where appropriate in your plugin. (If you're using Git, consider using [subtrees](https://help.github.com/articles/about-git-subtree-merges/).)
 
   * [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core)
 
