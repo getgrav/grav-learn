@@ -7,8 +7,9 @@ taxonomy:
 This page contains an assortment of problems and their respective solutions related to Grav plugins.
 
 1. [Output some PHP code result in a Twig template](#output-some-php-code-result-in-a-twig-template)
-1. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
-2. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
+2. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
+3. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
+4. [Learning by Example](#learning-by-example)
  
  
 ### Output some PHP code result in a Twig template
@@ -258,5 +259,86 @@ Here is the default HTML for the text field plus a search button for a few other
   <button class="ui button">Search</button>
 </div>
 ```
+
+### Learning by Example
+
+With the abundance of plugins currently available, chances are that you will find your answers somewhere in their source code. The problem is knowing which ones to look at. This page attempts to list common plugin issues and then lists specific plugins that demonstrate how to tackle them.
+
+Before you proceed, be sure you've familiarized yourself with [the core documentation](https://learn.getgrav.org/plugins), especially the [Grav Lifecycle](https://learn.getgrav.org/plugins/grav-lifecycle)!
+
+#### How do I read from and write data to the file system?
+
+Grav might be flat file, but flat file &#8800; static! There are numerous ways read and write data to the file system.
+
+  * The preferred interface is via the built-in [RocketTheme\Toolbox\File](https://learn.getgrav.org/api/RocketTheme/Toolbox/File.html) interface.
+
+  * There's nothing stopping you from using SQLite either.
+
+  * The simplest example is probably the [Comments](https://github.com/getgrav/grav-plugin-comments) plugin.
+
+  * Others include
+
+    * [Table Importer](https://github.com/Perlkonig/grav-plugin-table-importer)
+
+    * [Thumb Ratings](https://github.com/iusvar/grav-plugin-thumb-ratings)
+
+    * [Webmention](https://github.com/Perlkonig/grav-plugin-webmention)
+
+#### How do I inject Markdown into a page?
+
+According to the [Grav Lifecycle](https://learn.getgrav.org/plugins/grav-lifecycle), the latest event hook where you can inject raw Markdown is `onPageContentRaw`. The earliest is probably `onPageInitialized`. You can just grab `$this->grav['page']->rawMarkdown()`, munge it, and then write it back out with `$this->grav['page']->setRawContent()`. The following plugins demonstrate this:
+
+  * [Page Inject](https://github.com/getgrav/grav-plugin-page-inject)
+
+  * [Table Importer](https://github.com/Perlkonig/grav-plugin-table-importer)
+
+#### How do I inject HTML into the final output?
+
+The latest you can inject HTML and still have your output cached is during the `onOutputGenerated` event. You can just grab and modify `$this->grav->output`.
+
+  * Many common tasks can be accomplished using the [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core) infrastructure.
+
+  * The [Pubmed](https://github.com/Perlkonig/grav-plugin-pubmed) and [Table Importer](https://github.com/Perlkonig/grav-plugin-table-importer) plugins take a more brute force approach.
+
+#### How do I inject assets like JavaScript and CSS files?
+
+This is done through the [Grav\Common\Assets](https://learn.getgrav.org/api/Grav/Common/Assets.html) interface. 
+
+  * [Google Analytics](https://github.com/escopecz/grav-ganalytics)
+
+  * [Bootstrapper](https://github.com/getgrav/grav-plugin-bootstrapper)
+
+  * [Gravstrap](https://github.com/giansi/gravstrap)
+
+  * [Tablesorter](https://github.com/Perlkonig/grav-plugin-tablesorter)
+
+#### How do I affect the response headers and response codes?
+
+You can use PHP's `header()` command to set response headers. The latest you can do this is during the `onOutputGenerated` event, after which output is actually sent to the client. The response code itself can only be set in the YAML header of the page in question (`http_response_code`). 
+
+  * The [Graveyard](https://github.com/Perlkonig/grav-plugin-graveyard) plugin replaces `404 NOT FOUND` with `410 GONE` responses via the YAML header.
+
+  * The [Webmention](https://github.com/Perlkonig/grav-plugin-webmention) sets the `Location` header on a `201 CREATED` response.
+
+#### How can I incorporate third-party libaries into my plugin?
+
+Usually you'd incorporate other complete libraries into a `vendor` subfolder and `require` it's `autoload.php` where appropriate in your plugin. (If you're using Git, consider using [subtrees](https://help.github.com/articles/about-git-subtree-merges/).)
+
+  * [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core)
+
+  * [Table Importer](https://github.com/Perlkonig/grav-plugin-table-importer)
+
+#### How can I extend Twig?
+
+First [read the Twig docs](http://twig.sensiolabs.org/doc/advanced.html) and develop your extension. Then look at the [TwigPCRE](https://github.com/kesslernetworks/grav-plugin-twigpcre) plugin to learn how to incorporate it into Grav.
+
+#### How can I interact with external APIs?
+
+Grav provides the [Grav\Common\GPM\Response](https://learn.getgrav.org/api/Grav/Common/GPM/Response.html) object, but there's nothing stopping you from doing it directly if you so wish.
+
+  * [ipLocate](https://github.com/Perlkonig/grav-plugin-iplocate)
+
+  * [Pubmed](https://github.com/Perlkonig/grav-plugin-pubmed)
+
 
 
