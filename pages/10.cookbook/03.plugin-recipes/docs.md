@@ -10,6 +10,14 @@ This page contains an assortment of problems and their respective solutions rela
 2. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
 3. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
 4. [Learning by Example](#learning-by-example)
+   a. [How do I read from and write data to the file system?](#how-do-i-read-from-and-write-data-to-the-file-system)
+   b. [How do I inject Markdown into a page?](#how-do-i-inject-markdown-into-a-page)
+   c. [How do I inject HTML into the final output?](#how-do-i-inject-html-into-the-final-output)
+   d. [How do I inject assets like JavaScript and CSS files?](#how-do-i-inject-assets-like-javascript-and-css-files)
+   e. [How do I affect the response headers and response codes?](#how-do-i-affect-the-response-headers-and-response-codes)
+   f. [How can I incorporate third-party libaries into my plugin?](#how-can-i-incorporate-third-party-libaries-into-my-plugin)
+   g. [How can I extend Twig?](#how-can-i-extend-twig)
+   h. [How can I interact with external APIs?](#how-can-i-interact-with-external-apis)
  
  
 ### Output some PHP code result in a Twig template
