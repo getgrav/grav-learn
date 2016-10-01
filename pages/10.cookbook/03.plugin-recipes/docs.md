@@ -306,7 +306,7 @@ The latest you can inject HTML and still have your output cached is during the `
 
   * Many common tasks can be accomplished using the [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core) infrastructure.
 
-  * The [Pubmed](https://github.com/Perlkonig/grav-plugin-pubmed) and [Table Importer](https://github.com/Perlkonig/grav-plugin-table-importer) plugins take a more brute force approach.
+  * The [Pubmed](https://github.com/Perlkonig/grav-plugin-pubmed) and [Tablesorter](https://github.com/Perlkonig/grav-plugin-tablesorter) plugins take a more brute force approach.
 
 #### How do I inject assets like JavaScript and CSS files?
 
