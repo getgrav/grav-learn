@@ -539,6 +539,7 @@ Example:
 header.buttons:
   name: buttons
   type: list
+  style: vertical
   label: Buttons
   fields:
     .text:
@@ -603,6 +604,7 @@ header.features:
 | Attribute  | Description                                              |
 | :-----     | :-----                                                   |
 | `fields`   | The subfields                                            |
+| `style`    | Can be set to `vertical` to conserve horizontal space    |
 | `btnLabel` | The "add new item" label text                            |
 | `sort`     | Boolean. If negative, disables the ability to sort items |
 
@@ -895,5 +897,3 @@ summary.enabled:
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes)     |
 | [disabled](#common-fields-attributes)          |
-
-
