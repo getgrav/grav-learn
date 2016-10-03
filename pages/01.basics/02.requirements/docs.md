@@ -82,9 +82,9 @@ For Grav to function properly your webserver needs to have the appropriate **fil
 
 By default, Grav will install with `644` and `755` permissions for files and folders respectively. Most hosting providers have configurations that ensure the webserver running PHP will allow you to create and modify files within your user account.  This means that Grav runs **out-of-the-box** on the vast majority of hosting providers.
 
-However, if you are running on a dedicated server, or even your local environment, you may need to adjust permissions to ensure you **user** and your **webserver** can modify files as needed.  There are a couple of approaches you can take.
+However, if you are running on a dedicated server, or even your local environment, you may need to adjust permissions to ensure your **user** and your **webserver** can modify files as needed.  There are a couple of approaches you can take.
 
-1. In a **local development environment**, you can usually configure your webserver to run under you user profile.  This way the web server will always allow you to create and modify files.
+1. In a **local development environment**, you can usually configure your webserver to run under your user profile.  This way the web server will always allow you to create and modify files.
 
 2. Change the **group permissions** on all files and folders so that the webserver's group has write access to files and folders while keeping the standard permissions.  This requires a few commands to make this work (note: adjust `www-data` to be the group your apache runs under [`www-data`, `apache`, `nobody`, etc.]):
 
