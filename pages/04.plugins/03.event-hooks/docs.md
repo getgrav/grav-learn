@@ -21,6 +21,7 @@ Most events within Grav fire in a specific order and it is important to understa
 1. [onTwigPageVariables](../event-hooks#onTwigPageVariables) _(each page not cached yet)_
 1. [onPageContentRaw](../event-hooks#onPageContentRaw) _(each page not cached yet)_
 1. [onPageProcessed](../event-hooks#onPageProcessed) _(each page not cached yet)_
+1. [onMarkdownInitialized](../event-hooks#onMarkdownInitialized)
 1. [onPageContentProcessed](../event-hooks#onPageContentProcessed) _(each page not cached yet)_
 1. [onFolderProcessed](../event-hooks#onFolderProcessed) _(for each folder found)_
 1. [onBuildPagesInitialized](../event-hooks#onBuildPagesInitialized) _(once when pages are reprocessed)_
@@ -34,7 +35,7 @@ Most events within Grav fire in a specific order and it is important to understa
 1. [onOutputRendered](../event-hooks#onOutputRendered)
 1. [onShutdown](../event-hooks#onShutdown)
 1. [onBeforeDownload](../event-hooks#onBeforeDownload)
-
+1. [onPageFallbackUrl](../event-hooks#onPageFallbackUrl)
 
 ## Core Grav Event Hooks
 
@@ -156,6 +157,11 @@ After a page has been found, header processed, but content **not** processed.  T
 
 After a page is parsed and processed.  This is fired for **every page** in the Grav system.  Performance is not a problem because this event will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
 
+<a name="onMarkdownInitialized"></a>
+#### onMarkdownInitialized
+
+Called when Markdown has been initialized. Allows to override the default Parsedown processing implementation. See [an usage example on the PR that introduced it](https://github.com/getgrav/grav/pull/747#issuecomment-206821370).
+
 <a name="onPageContentProcessed"></a>
 #### onPageContentProcessed
 
@@ -165,3 +171,8 @@ This event is fired after the page's `content()` method has processed the page c
 #### onFolderProcessed
 
 After a folder is parsed and processed.  This is fired for **every folder** in the Grav system.  Performance is not a problem because this event will not run on a cached page, only when the cache is cleared or a cache-clearing event occurs.
+
+<a name="onPageFallBackUrl"></a>
+#### onPageFallBackUrl
+
+If a route is not recognized as a page, Grav tries to access a page media asset. The event is fired as soon as the procedure begins, so plugins can hook and provide additional functionality.
