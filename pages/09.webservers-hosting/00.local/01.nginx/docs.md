@@ -37,7 +37,7 @@ The following configuration is an improved version of the default `/etc/nginx/ng
 ```nginx
 user www-data;
 worker_processes auto;
-worker_rlimit_nofile 8192; # should be bigger than worker_connectinos
+worker_rlimit_nofile 8192; # should be bigger than worker_connections
 pid /run/nginx.pid;
 
 events {
@@ -64,7 +64,7 @@ http {
     index index.html;
 
     # load MIME types
-    include mime.types; # get this file from https://github.com/h5pb/server-configs-nginx
+    include mime.types; # get this file from https://github.com/h5bp/server-configs-nginx
     default_type application/octet-stream; # set default MIME type
 
     # logging
