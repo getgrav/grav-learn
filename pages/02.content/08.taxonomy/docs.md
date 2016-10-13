@@ -90,11 +90,11 @@ You can also do sophisticated searches based on multiple taxonomies by using arr
 
 This will find all posts with `tag` set to `animal` **and** `cat` **and** `author` set to `jdoe`.  Basically, this will specifically find **Post 2**.
 
-If you need a collection which incluedes one term **or** the other, just add the `'or'` parameter after the array, example:
+If you need a collection which includes one term **or** the other, just add the `'or'` parameter after the array, example:
 ```bash
 {% for post in taxonomy.findTaxonomy({'tag':['dog','cat']},'or') %}
 ```
-This will find all posts with `tag` set to `dog` **or** `cat`. 
+This will find all posts with `tag` set to `dog` **or** `cat`.
 
 
 ## Taxonomy based Collections
