@@ -160,7 +160,7 @@ This will find the first form from the page with route `/forms/contact`
 
 You can also display a form from within your page content (for example `default.md`) directly without that page even having a form defined within it. Simple pass the name or route to the form.
 
-!!  **Twig processing** as well as **page cache** should be disabled to ensure the form is dynamically processed on the page and not statically cached and form handling can occur.
+!!  **Twig processing** should be enabled and **page cache** should be disabled to ensure the form is dynamically processed on the page and not statically cached and form handling can occur.
 
 ```
 ---
