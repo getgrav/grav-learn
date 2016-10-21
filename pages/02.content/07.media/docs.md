@@ -368,6 +368,8 @@ For example if you have an image that is `640` x `480` and you perform a `cropZo
 [/ui-tab]
 [/ui-tabs]
 
+!! Folks familiar with using `zoomCrop` for this purpose will find that it also works in Grav.
+
 ##### Result:
 
 ![Sample Image](sample-image.jpg?cropZoom=600,200)
