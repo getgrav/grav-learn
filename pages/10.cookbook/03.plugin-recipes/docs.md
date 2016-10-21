@@ -18,11 +18,11 @@ This page contains an assortment of problems and their respective solutions rela
    * [How do I incorporate third-party libaries into my plugin?](#how-do-i-incorporate-third-party-libaries-into-my-plugin)
    * [How do I extend Twig?](#how-do-i-extend-twig)
    * [How do I interact with external APIs?](#how-do-i-interact-with-external-apis)
- 
- 
+
+
 ### Output some PHP code result in a Twig template
 
-#### Problem:
+#### Goal:
 
 You want to process some custom PHP code, and make the result available in a page.
 
@@ -38,7 +38,7 @@ Create a new plugin folder in `user/plugins/example`, and add those files:
 
 In `twig/ExampleTwigExtension.php` you'll do your custom processing, and return it as a string in `exampleFunction()`.
 
-Then in your Twig template file (or in a page Markdown file if you enabled Twig processing in Pages), render the output using: `{{ example() }}`. 
+Then in your Twig template file (or in a page Markdown file if you enabled Twig processing in Pages), render the output using: `{{ example() }}`.
 
 The overview is over, let's see the actual code:
 
@@ -89,7 +89,7 @@ class ExampleTwigExtension extends \Twig_Extension
 ```
 
 `example.twig`:
- 
+
 ```
 enabled: true
 ```
@@ -97,15 +97,15 @@ enabled: true
 The plugin is now installed and enabled, and it should all just work.
 
 ### Filter taxonomies using the taxonomylist plugin
- 
-#### Problem:
- 
+
+#### Goal:
+
 You want to use the [taxonomy list Grav plugin](https://github.com/getgrav/grav-plugin-taxonomylist) to list the tags that are used in your blog posts, but instead of listing all of them, you only want to list the most used items in a given taxonomy (such as the top five tags, for example).
- 
+
 #### Solution:
- 
+
 This is an example where the flexibility of Grav plugins really come in handy. The first step is to make sure that you have the [taxonomy list Grav plugin](https://github.com/getgrav/grav-plugin-taxonomylist) installed within your Grav package. After this has been installed, make sure that you copy `/yoursite/user/plugins/taxonomylist/templates/partials/taxonomylist.html.twig` to `/yoursite/user/themes/yourtheme/templates/partials/taxonomylist.html.twig` as we will be making modifications to this file.
- 
+
 In order to make this work, we are going to introduce three new variables: `filter`, `filterstart` and `filterend` where
 
  * **filter** is a Boolean, which will be set to `true` if we want to be able to list only the top several tags (or whatever other taxonomy you want to use).
@@ -163,7 +163,7 @@ If, on the other hand, the `filter` variable is set to `false` or is not found, 
 
 ### Adding a search button to the SimpleSearch plugin
 
-#### Problem:
+#### Goal:
 
 You really like the [Grav SimpleSearch plugin](https://github.com/getgrav/grav-plugin-simplesearch), but you want to add a search button in addition to the text field. One reason to add this button is that it may not be readily apparent to the user that they need to hit their `Enter` key in order to initiate their search request.
 
@@ -220,7 +220,7 @@ jQuery(document).ready(function($){
             window.location.href = input.data('search-input') + '{{ config.system.param_sep }}' + input.val();
         }
     });
-    
+
     searchButton.on('click', function(event) {
         if (input.val().length > 3) {
             event.preventDefault();
@@ -280,7 +280,7 @@ Grav might be flat file, but flat file &#8800; static! There are numerous ways r
 
   * The preferred interface is via the built-in [RocketTheme\Toolbox\File](https://learn.getgrav.org/api/RocketTheme/Toolbox/File.html) interface.
 
-  * There's nothing stopping you from using SQLite either.
+  * There's nothing stopping you from using [SQLite](https://sqlite.org/) either.
 
   * The simplest example is probably the [Comments](https://github.com/getgrav/grav-plugin-comments) plugin.
 
@@ -302,7 +302,7 @@ According to the [Grav Lifecycle](https://learn.getgrav.org/plugins/grav-lifecyc
 
 #### How do I inject HTML into the final output?
 
-The latest you can inject HTML and still have your output cached is during the `onOutputGenerated` event. You can just grab and modify `$this->grav->output`.
+The latest you can inject HTML, and still have your output cached, is during the `onOutputGenerated` event. You can just grab and modify `$this->grav->output`.
 
   * Many common tasks can be accomplished using the [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core) infrastructure.
 
@@ -310,7 +310,7 @@ The latest you can inject HTML and still have your output cached is during the `
 
 #### How do I inject assets like JavaScript and CSS files?
 
-This is done through the [Grav\Common\Assets](https://learn.getgrav.org/api/Grav/Common/Assets.html) interface. 
+This is done through the [Grav\Common\Assets](https://learn.getgrav.org/api/Grav/Common/Assets.html) interface.
 
   * [Google Analytics](https://github.com/escopecz/grav-ganalytics)
 
@@ -322,7 +322,7 @@ This is done through the [Grav\Common\Assets](https://learn.getgrav.org/api/Grav
 
 #### How do I affect the response headers and response codes?
 
-You can use PHP's `header()` command to set response headers. The latest you can do this is during the `onOutputGenerated` event, after which output is actually sent to the client. The response code itself can only be set in the YAML header of the page in question (`http_response_code`). 
+You can use PHP's `header()` command to set response headers. The latest you can do this is during the `onOutputGenerated` event, after which output is actually sent to the client. The response code itself can only be set in the YAML header of the page in question (`http_response_code`).
 
   * The [Graveyard](https://github.com/Perlkonig/grav-plugin-graveyard) plugin replaces `404 NOT FOUND` with `410 GONE` responses via the YAML header.
 
