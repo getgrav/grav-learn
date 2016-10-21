@@ -102,7 +102,7 @@ Now we need to display these images in reverse chronological order so the newest
         </div>
         <div class="image-info">
             <h2>{{ image.meta.title }}</h2>
-            <p>{{ image.meta.description }}
+            <p>{{ image.meta.description }}</p>
         </div>
     </li>
     {% endfor %}
