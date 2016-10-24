@@ -15,6 +15,7 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 | Field                                             | Description                                                                                                                                                                                                 |
 | :-----                                            | :-----                                                                                                                                                                                                      |
 | **[Array](#the-array-field)**                     | used to create key-value arrays                                                                                                                                                                             |
+| **[Colorpicker](#the-colorpicker-field)**                     | show a color picker                                                                                                                                                                             |
 | **[Columns](#the-columns-column-fields)**         | used to break the form in multiple columns                                                                                                                                                                  |
 | **[Column](#the-columns-column-fields)**          | used to show a single column (used with the `Columns` field)                                                                                                                                                |
 | **[Dateformat](#the-dateformat-field)**           | a special select that renders the current date/time in the passed formats                                                                                                                                   |
@@ -235,6 +236,42 @@ metadata:
 | [name](#common-fields-attributes)              |
 | [style](#common-fields-attributes)             |
 | [toggleable](#common-fields-attributes)        |
+| [validate.required](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
+
+---
+
+### The Colorpicker Field
+
+![Colorpicker](colorpicker_field.png)
+
+The `colorpicker` field type is used to display a colorpicker field
+
+Example:
+
+```yaml
+color:
+   type: colorpicker
+   label: Choose a color
+```
+
+
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [autocomplete](#common-fields-attributes)     |
+| [autofocus](#common-fields-attributes)                |
+| [classes](#common-fields-attributes)                |
+| [default](#common-fields-attributes)           |
+| [disabled](#common-fields-attributes)                |
+| [help](#common-fields-attributes)              |
+| [id](#common-fields-attributes)                |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [placeholder](#common-fields-attributes)                |
+| [style](#common-fields-attributes)             |
+| [title](#common-fields-attributes)        |
+| [toggleable](#common-fields-attributes)        |
+| [validate.message](#common-fields-attributes) |
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes)     |
 
