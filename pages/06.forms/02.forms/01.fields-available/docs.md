@@ -75,7 +75,7 @@ Example:
   name: g-recaptcha-response
   label: Captcha
   type: captcha
-  recatpcha_site_key: j3jeoi3jeroi23jrio234jro32nrkj43njrn32rn3
+  recaptcha_site_key: j3jeoi3jeroi23jrio234jro32nrkj43njrn32rn3
   recaptcha_not_validated: 'Captcha not valid!'
   validate:
     required: true
@@ -83,7 +83,7 @@ Example:
 
 | Attribute                 | Description                                     |
 | :-----                    | :-----                                          |
-| `recatpcha_site_key`      | The Google Recaptcha Site Key                   |
+| `recaptcha_site_key`      | The Google Recaptcha Site Key                   |
 | `recaptcha_not_validated` | The message to show if the captcha is not valid |
 
 | Common Attributes Allowed                      |

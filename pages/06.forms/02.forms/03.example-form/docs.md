@@ -58,7 +58,7 @@ form:
         - name: g-recaptcha-response
           label: Captcha
           type: captcha
-          recatpcha_site_key: ENTER_YOUR_CAPTCHA_SITE_KEY
+          recaptcha_site_key: ENTER_YOUR_CAPTCHA_SITE_KEY
           recaptcha_not_validated: 'Captcha not valid!'
           validate:
             required: true
@@ -91,7 +91,7 @@ Some sample page content
 
 !!! Make sure you configured the "Email from" and "Email to" email addresses in the Email plugin with your email address
 
-Make sure you add your own `recatpcha_site_key` reCAPTCHA parameter ([see the reCAPTCHA docs](https://developers.google.com/recaptcha/docs/start)). If you don't need captcha at all, just remove it from the form fields, and remove the captcha process action too.
+Make sure you add your own `recaptcha_site_key` reCAPTCHA parameter ([see the reCAPTCHA docs](https://developers.google.com/recaptcha/docs/start)). If you don't need captcha at all, just remove it from the form fields, and remove the captcha process action too.
 
 Now inside the page folder create a subfolder named `thankyou/`, create a new file named `formdata.md`. Users submitting the form will be redirected on that page.
 
