@@ -119,7 +119,7 @@ This is a sample structure but some things are required:
 
 ### Required Items to Function
 
-This items are critical and your theme will not function reliably unless you include these in your theme.
+These items are critical and your theme will not function reliably unless you include these in your theme.
 
 * **`blueprints.yaml`** - The configuration file used by Grav to get information on your theme. It can also define a form that the admin can display when viewing the theme details.  This form will let you save settings for the theme. [This file is documented in the Forms section](/forms/blueprints).
 * **`my-theme.php`** - This file will be named according to your theme, but can be used to house any logic your theme needs.  You can use any [plugin event hook](/plugins/event-hooks) except `onPluginsInitialized()`, however there is a theme specific `onThemeInitialized()` hook specific for themes that you can use instead.
@@ -128,7 +128,7 @@ This items are critical and your theme will not function reliably unless you inc
 
 ### Required Items for Release
 
-This items are required if you wish to release your theme via GPM.
+These items are required if you wish to release your theme via GPM.
 
 * **`CHANGELOG.md`** - A file that follows the [Grav Changelog Format](/advanced/grav-development#changelog-format) to show changes in releases.
 * **`LICENSE`** - a license file, should probably be MIT unless you have a specific need for something else.
