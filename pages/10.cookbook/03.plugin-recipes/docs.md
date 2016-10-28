@@ -11,6 +11,7 @@ This page contains an assortment of problems and their respective solutions rela
 3. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
 4. [Learning by Example](#learning-by-example)
    * [How do I read from and write data to the file system?](#how-do-i-read-from-and-write-data-to-the-file-system)
+   * [How do I make data from a plugin available to Twig?](#how-do-i-make-data-from-a-plugin-available-to-twig)
    * [How do I inject Markdown into a page?](#how-do-i-inject-markdown-into-a-page)
    * [How do I inject HTML into the final output?](#how-do-i-inject-html-into-the-final-output)
    * [How do I inject assets like JavaScript and CSS files?](#how-do-i-inject-assets-like-javascript-and-css-files)
@@ -278,6 +279,8 @@ Before you proceed, be sure you've familiarized yourself with [the core document
 
 Grav might be flat file, but flat file &#8800; static! There are numerous ways read and write data to the file system.
 
+  * If you just need read access to YAML data, check out the [Import plugin](https://github.com/Deester4x4jr/grav-plugin-import).
+
   * The preferred interface is via the built-in [RocketTheme\Toolbox\File](https://learn.getgrav.org/api/RocketTheme/Toolbox/File.html) interface.
 
   * There's nothing stopping you from using [SQLite](https://sqlite.org/) either.
@@ -291,6 +294,21 @@ Grav might be flat file, but flat file &#8800; static! There are numerous ways r
     * [Thumb Ratings](https://github.com/iusvar/grav-plugin-thumb-ratings)
 
     * [Webmention](https://github.com/Perlkonig/grav-plugin-webmention)
+
+#### How do I make data from a plugin available to Twig?
+
+One way is via the `config.plugins.X` namespace. Simply do a `$this->config->set()` as seen in the following examples:
+
+  * [ipLocate](https://github.com/Perlkonig/grav-plugin-iplocate/blob/master/iplocate.php#L82)
+  * [Count Views](https://github.com/Perlkonig/grav-plugin-count-views/blob/master/count-views.php#L88)
+
+You can then access that in a Twig template via `{{ config.plugins.X.whatever.variable }}`.
+
+Alternatively, you can pass variables via `grav['twig']`:
+
+  * [Blogroll](https://github.com/Perlkonig/grav-plugin-blogroll/blob/master/blogroll.php#L43), which you can then access directly [in your template](https://github.com/Perlkonig/grav-plugin-blogroll/blob/master/templates/partials/blogroll.html.twig#L32).
+
+Finally, you can inject data directly into the page header, as seen in [the Import plugin](https://github.com/Deester4x4jr/grav-plugin-import).
 
 #### How do I inject Markdown into a page?
 
