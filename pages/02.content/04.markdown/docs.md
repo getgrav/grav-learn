@@ -520,6 +520,8 @@ grunt.initConfig({
 };
 ```
 
+!!! For syntax highlighting to work, the [Highlight plugin](https://github.com/getgrav/grav-plugin-highlight) needs to be installed and enabled. It in turn utilizes a jquery plugin, so jquery needs to be loaded in your theme too.
+
 <br>
 <br>
 <br>
