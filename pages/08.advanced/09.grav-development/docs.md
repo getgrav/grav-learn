@@ -215,3 +215,31 @@ As you can see, a number of default directories were created, and an initial `pa
 
 You should be able to point your browser to `http://localhost/grav` and see the test site you just setup. Now, any changes you make in your `~/www/grav` folder will show up ready to commit and push in your cloned repositories.
 
+## Abandoned Resource Protocol
+
+People move on, and user-generated content like plugins and themes may become abandoned. If you wish to take over the maintenance of an existing theme or plugin, you must follow this protocol:
+
+1. Submit a well-formed, tested pull request to the original repository.
+
+2. If the maintainer does not respond *at all* after 30 days, or if the maintainer states that they are abandoning the resource and are not willing to grant someone else write access, then proceed to the next step. 
+
+3. [Submit a new issue to Grav's GitHub repository](https://github.com/getgrav/grav/issues/new?title=%5Bchange-resource%5D%20Take%20over%20Plugin%2FTheme&body=I%20would%20like%20to%20take%20over%20an%20existing%20plugin%2Ftheme.%0AHere%20are%20the%20project%20details%3A%20%2A%2Auser%2Frepository%2A%2A) with the following details:
+
+  * Title: `[change-resource] Take over plugin/theme`
+
+  * Provide the name of the plugin and link to the original repository.
+
+  * Link to your pull request that went unanswered or link to the conversation in which the maintainer has abandoned the resource.
+
+4. The Grav maintainers will review the case and let you know if the takeover is approved. If approval is granted, proceed to the next step.
+
+5. Prepare your forked repository with a new release.
+
+6. Add a note to the README that this repository is the new master and link back to the old repository.
+
+7. Reply to the issue, giving the maintainers the new URL for the plugin.
+
+8. The maintainers will update GPM and new and updated installs will now come from your forked repository.
+
+
+
