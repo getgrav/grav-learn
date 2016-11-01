@@ -638,12 +638,13 @@ header.features:
 ```
 
 
-| Attribute  | Description                                              |
-| :-----     | :-----                                                   |
-| `fields`   | The subfields                                            |
-| `style`    | Can be set to `vertical` to conserve horizontal space    |
-| `btnLabel` | The "add new item" label text                            |
-| `sort`     | Boolean. If negative, disables the ability to sort items |
+| Attribute   | Description                                              |
+| :-----      | :-----                                                   |
+| `fields`    | The subfields                                            |
+| `collapsed` | If `true`, the list if opened collapsed. By default it's expanded |
+| `style`     | Can be set to `vertical` to conserve horizontal space    |
+| `btnLabel`  | The "add new item" label text                            |
+| `sort`      | Boolean. If negative, disables the ability to sort items |
 
 | Common Attributes Allowed                      |
 | :-----                                         |
