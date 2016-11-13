@@ -30,13 +30,13 @@ The **Save** and **Delete** buttons are pretty self-explanatory. They save and d
 
 Selecting the **Move** button activates a popup that gives you the ability to assign a new parent to the page. You have the same option in the **Advanced** tab.
 
-**Copy** creates a duplicate of your current page, appending a `-1` (or other numeric prefix if `-1` is already in use) to the end of the folder name. You can change both the folder name and title as you see fit.
+**Copy** creates a duplicate of your current page, appending a `-2` (or other numeric prefix if `-2` is already in use) to the end of the folder name. You can change both the folder name and title as you see fit.
 
 ### Title
 
 ![Grav Admin Page Editor](page_editor_2.png)
 
-The title of a page is typically set during that page's correction, however you can edit it after the fact here. Note that changing the page's title here will not have a direct impact on the folder name (which is used for navigation purposes) but it will change what people see on the front end.
+The title of a page is typically set during that page's creation, however you can edit it after the fact here. Note that changing the page's title here will not have a direct impact on the folder name (which is used for navigation purposes) but it will change what people see on the front end.
 
 ### Page Editor Content
 
@@ -59,7 +59,7 @@ Here is a breakdown of the tools found in the content editor:
 | <i class="fa fa-fw fa-picture-o"></i>     | Adds media to your content.                       |
 | <i class="fa fa-fw fa-quote-right"></i>   | Adds quote tags to your content.                  |
 | <i class="fa fa-fw fa-list-ul"></i>       | Creates an unordered list.                        |
-| <i class="fa fa-fw fa-list-ol"></i>       | Creats an ordered list.                           |
+| <i class="fa fa-fw fa-list-ol"></i>       | Creates an ordered list.                           |
 | <i class="fa fa-fw fa-code"></i>          | Activates the edit view.                          |
 | <i class="fa fa-fw fa-eye"></i>           | Activates the content preview.                    |
 | <i class="fa fa-fw fa-expand"></i>        | Toggles to a full-page edit or preview view.      |
@@ -68,7 +68,7 @@ Here is a breakdown of the tools found in the content editor:
 
 ![Grav Admin Page Editor](page_editor_4.png)
 
-The **Page Media** section at the bottom of the **Content** tab is all about media files for your page. These files exist in the same folder as the page's markdown file. Uploading new media files is as simple as **dragging-and-dropping** a file, or **/tapping** in the white area of the section. This will bring up a file selector that enables you to pick files for upload.
+The **Page Media** section at the bottom of the **Content** tab is all about media files for your page. These files exist in the same folder as the page's markdown file. Uploading new media files is as simple as **dragging-and-dropping** a file, or **tapping** in the white area of the section. This will bring up a file selector that enables you to pick files for upload.
 
 Already have media files you'd like to insert into your page? Just move your mouse cursor over the image thumbnail and **drag-and-drop** the image into the editor.
 
