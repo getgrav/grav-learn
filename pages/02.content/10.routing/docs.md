@@ -6,12 +6,12 @@ taxonomy:
 
 As we already described in the opening [Page -> Folders section](../content-pages#folders), **routing** in Grav is primarily controlled by the folder structure you use when you build your site content.
 
-There are certain scenarios where you need more flexibilty and Grav comes packed with a variety of tools and configuration options to make your life simpler in this regard.
+There are certain scenarios where you need more flexibility and Grav comes packed with a variety of tools and configuration options to make your life simpler in this regard.
 
-Imagine if you moved your site from some other CMS platform to Grav, you have several choices on how to setup your new site:
+Imagine if you moved your site from some other CMS platform to Grav, you have several choices on how to set up your new site:
 
 1. Try to replicate the URLs of your old site by building the folder structure to match.
-2. Build your new site the way you want, and then have your web server 'rewrite' old URLs to redirect clients to the new location.
+2. Build your new site the way you want, and then have your web server 'rewrite' old URLs to redirect clients to the new locations.
 3. Build your new site the way you want, and configure Grav to redirect clients from the old URLs to the new locations.
 
 There are many other use cases where you may wish to have the Grav site respond to different URLs than the folder structure dictates, and Grav has the following capabilities to help you realize your objectives.
@@ -37,7 +37,7 @@ Grav has a powerful regex-based mechanism for handling **route aliases** and **r
 
 These are handled via the [Site Configuration](../../basics/grav-configuration#site-configuration). Grav comes with a sample `system/config/site.yaml` but you can override or add any of your own settings by editing the `user/config/site.yaml` file.
 
-!! all redirect rules apply on the slug-path beginning after the language part (if you use multi-language pages)
+!! All redirect rules apply on the slug-path beginning after the language part (if you use multi-language pages)
 
 
 ### Route Aliases
@@ -95,7 +95,7 @@ This route would not match anything that doesn't start with `complex/category` o
 
 The other corollary option to **route aliases** is provided by **redirects**. These are similar, but rather than keeping the URL and simply serving the content from the aliased route, Grav actually redirects the browser to the mapped page.
 
-There are three system-level configuration options that effect Redirects:
+There are three system-level configuration options that affect Redirects:
 
 ```
 pages:
@@ -119,7 +119,7 @@ redirects:
     /jungle: '/blog/the-urban-jungle'
 ```
 
-You can also explicity pass the redirect code between square brackets `[]` as part of the URL:
+You can also explicitly pass the redirect code between square brackets `[]` as part of the URL:
 
 ```
 redirects:
