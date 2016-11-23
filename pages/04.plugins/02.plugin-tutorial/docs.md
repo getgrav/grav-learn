@@ -155,7 +155,7 @@ use Grav\Common\Taxonomy;
 The two key parts of this class structure are:
 
 1. Plugins need to have `namespace Grav\Plugin` at the top of of the PHP file.
-2. Plugins should be named in **titlecase** based on the name of the plugin with the string `Plugin` appended to the end, and should extend `Plugin`, hence the classn name `RandomizerPlugin`.
+2. Plugins should be named in **titlecase** based on the name of the plugin with the string `Plugin` appended to the end, and should extend `Plugin`, hence the class name `RandomizerPlugin`.
 
 ## Step 5 - Subscribed events
 
