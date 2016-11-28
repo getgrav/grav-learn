@@ -296,12 +296,12 @@ This will produce the HTML:
 
 ```
 <meta name="generator" content="Grav" />
-<meta name="description" content="Your page &quot;description&quot; goes here" />
-<meta name="testkey" content="testvalue" />
+<meta name="description" content="Your page description goes here" />
 <meta http-equiv="refresh" content="30" />
 <meta name="keywords" content="HTML, CSS, XML, JavaScript" />
 <meta name="author" content="John Smith" />
 <meta name="robots" content="noindex, nofollow" />
+<meta name="my_key" content="my_value" />
 ```
 
 All HTML5 metatags are supported.
