@@ -152,7 +152,6 @@ process:
 ### Reset the form after submit
 
 By default the form is not cleared after the submit. So if you don't have a `display` action and the user is sent back to the form page, it's still filled with the data entered. If you want to avoid this, add a `reset` action:
-Display the user's IP address on the output. Put it above email / save processes in the 'form.md' to ensure it is used by the output processe(s)
 
 ````
 reset: true
