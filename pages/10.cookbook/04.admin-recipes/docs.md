@@ -13,7 +13,7 @@ This page contains an assortment of problems and their respective solutions rela
 
 #### Problem:
 
-You want to provide a site-wide group of user-editable company fields akin to `system.yaml` or `site.yaml` but in it's own dedicated file.
+You want to provide a site-wide group of user-editable company fields akin to `system.yaml` or `site.yaml`, but in its own dedicated file.
 
 #### Solution:
 
