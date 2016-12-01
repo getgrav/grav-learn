@@ -68,7 +68,7 @@ pages:
       '<': 'lt'
   types: [txt,xml,html,htm,json,rss,atom]   # list of valid page types
   append_url_extension: ''                  # Append page's extension in Page urls (e.g. '.html' results in /path/page.html)
-  expires: 604800                           # Page expires time in seconds (604800 seconds = 7 days)
+  expires: 604800                           # Page expires time in seconds (604800 seconds = 7 days) ('no cache' is also possible)
   last_modified: false                      # Set the last modified date header based on file modifcation timestamp
   etag: false                               # Set the etag header tag
   vary_accept_encoding: false               # Add `Vary: Accept-Encoding` header
