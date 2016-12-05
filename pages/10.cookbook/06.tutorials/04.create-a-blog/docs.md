@@ -44,8 +44,6 @@ The structure explained above will create blog posts with `/blog/` in the URL. T
 
 In this case, in system.yaml (System configuration in Admin) set `home.hide_in_urls` option (Hide Home in URLs in Admin) to true.
 
-(Warning: this is not yet in Grav stable, and will be released in the next Grav update)
-
 ## The inner workings
 
 You might want to know how this works. The Blog template, the content of the `blog.html.twig` file provided in the theme `templates/` folder, simply iterates over its child pages.
