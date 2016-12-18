@@ -14,6 +14,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Add a recent post widget to your sidebar](#add-a-recent-post-widget-to-your-sidebar)
 1. [Create a private area](#create-a-private-area)
 1. [Add JavaScript to the footer](#add-javascript-to-the-footer)
+1. [Override the default logs folder location](#override-the-default-logs-folder-location)
 
 ### Change the PHP CLI version
 
@@ -444,3 +445,30 @@ You can add assets in that block in Twig for example by calling
 or in PHP by calling
 
 `$this->grav['assets']->addJs($this->grav['base_url'] . '/user/plugins/yourplugin/js/somefile.js', ['group' => 'bottom']);`
+
+### Override the default logs folder location
+
+The default location for the logs output of Grav is simply called `logs/`.  Unfortunately there are instances where that `logs/` folder is already used or is off-limits.  Grav's flexible stream system allows the ability to customize the locations of these folders.
+
+First, you need to create your new folder.  In this example, we'll create a new folder in the root of your Grav install called `grav-logs/`.  Then create a new root-level file called `setup.php` and paste the following code:
+
+```
+<?php
+use Grav\Common\Utils;
+
+
+return [
+    'streams' => [
+        'schemes' => [
+            'log' => [
+               'type' => 'ReadOnlyStream',
+               'prefixes' => [
+                   '' => ["grav-logs"],
+               ]
+            ]
+        ]
+    ]
+];
+```
+
+This basically overrides the `log` stream with the `grav-logs/` folder rather than the default `logs/` folder as defined in `system/src/Grav/Common/Config/Setup.php`.
