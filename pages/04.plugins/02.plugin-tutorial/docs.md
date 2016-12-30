@@ -247,7 +247,7 @@ This method is a bit more complicated, so we'll go over what's going on:
 
 ## Step 8 - Cleanup
 
-The example plugin that was created with the **DevTools** plugin, used an event called `onPageConentRaw()`. This event is not used in our new plugin, so we can safely remove the entire function.
+The example plugin that was created with the **DevTools** plugin, used an event called `onPageContentRaw()`. This event is not used in our new plugin, so we can safely remove the entire function.
 
 ## Step 9 - Final plugin class
 
