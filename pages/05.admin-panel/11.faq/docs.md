@@ -82,6 +82,8 @@ Here are the currently supported access levels explained:
 - `admin.maintenance`: allows a user to update Grav from the admin side, check for updates and clear the cache
 - `admin.plugins`: allows a user to access the plugins functionality, edit the plugins settings, disable plugins or add new ones
 - `admin.themes`: allows a user to access the themes functionality, edit theme settings, change themes and add new ones
+- `admin.statistics`: allows a user to see the site statistics
+- `admin.cache`: allows a user to clear the cache
 
 
 ### Custom Admin URL
