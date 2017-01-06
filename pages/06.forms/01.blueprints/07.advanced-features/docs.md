@@ -50,7 +50,7 @@ You can also extend the blueprint itself, if there are multiple versions of the 
 extends@: parent@
 ```
 
-There is no limit on how many blueprints you an extend. Fields defined in the first blueprint will be replaced by any later blueprints in the list.
+There is no limit on how many blueprints you can extend. Fields defined in the first blueprint will be replaced by any later blueprints in the list.
 
 ``` yaml
 extends@:
