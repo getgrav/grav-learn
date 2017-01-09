@@ -19,6 +19,7 @@ It is **strongly advised** to unzip Grav and move the **entire folder** into pla
 ### AllowOverride All
 
 In order for the Grav-provided `.htaccess` to be able to set the rewrite rules required for routing to work properly, Apache needs to first read the file.  when your `<Directory>` or `<VirtualHost>` directive is setup with `AllowOverride None`, the `.htaccess` file is completely ignored.  The simplest solution is to change this to `AllowOverride All`
+where RewriteRule is used, **FollowSymLinks** or **SymLinksIfOwnerMatch** needs to be set in Options directive. Simply add on the same line '+FollowSymlinks' after 'Options'
 
 More details on `AllowOverride` and all the possible configuration options can be found in the [Apache Documentation](http://httpd.apache.org/docs/2.4/mod/core.html#allowoverride).
 
