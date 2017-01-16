@@ -66,7 +66,7 @@ Other values are interpreted as negative.
 
 The `captcha` field type is used to add a Google Recaptcha element to your form. Unlike other elements, it can be used once in the form.
 
-Also, the `name` attribute of the catpcha field must be `g-recaptcha-response`. The reason is that Google reCAPTCHA stores the Captcha confirmation code in a field named `g-recaptcha-response`.
+Also, the `name` attribute of the captcha field must be `g-recaptcha-response`. The reason is that Google reCAPTCHA stores the Captcha confirmation code in a field named `g-recaptcha-response`.
 
 Example:
 
@@ -101,7 +101,7 @@ The above code will validate the Captcha in the frontend and prevent form submis
 ```
     process:
         - captcha:
-            recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
+            recatpcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
 ```
 
 [See the Contact Form example](/forms/forms/example-form) to see it in action.
@@ -109,6 +109,8 @@ The above code will validate the Captcha in the frontend and prevent form submis
 ---
 
 ### The Checkbox Field
+
+![Checkbox Field](checkbox_field.gif)
 
 The `checkbox` field type is used to add a single checkbox to your form.
 
@@ -142,6 +144,8 @@ Example:
 ---
 
 ### The Checkboxes Field
+
+![Checkboxes Field](checkboxes_field.gif)
 
 The `checkboxes` field type is used to add a group of checkboxes to your form.
 
@@ -177,7 +181,7 @@ my_field:
 
 
 | Common Attributes Allowed                 |
-:----- |  
+:----- |
 | [autofocus](#common-fields-attributes)           |
 | [classes](#common-fields-attributes)             |
 | [disabled](#common-fields-attributes)            |
@@ -195,6 +199,8 @@ my_field:
 ---
 
 ### The Date Field
+
+![Date Field](date_field.gif)
 
 The `date` field type is used to add an HTML5 `date` input field.
 
@@ -237,6 +243,8 @@ Example:
 
 ### The Display Field
 
+![Display Field](display_field.jpg)
+
 The `display` field type is used to show some text or instructions inside the form. Can accept markdown content
 
 Example:
@@ -267,6 +275,8 @@ test:
 ---
 
 ### The Email Field
+
+![Email Field](email_field.gif)
 
 The `email` field type is used to present a text input field that accepts an email, using the [email HTML5 input](http://html5doctor.com/html5-forms-input-types/#input-email).
 
@@ -320,7 +330,7 @@ With the `file` field type you can let users to upload files through the form. T
 | `destination` | Can be either **@self**, **@page:/route** or **local/rel/path/**. <<br>Set to **@self**, the files will be uploaded where the form has been declared (current .md). <br>Using **@page:/route** will upload to the specified route of a page, if exists (e.g., **@page:/blog/a-blog-post**). <br>Set to **'local/rel/path'**: Can be any path relative to the Grav instance. For instance, `user/data/files`. If the path doesn't exist, it will get created so make sure it is writable. |
 | `accept`      | Takes an array of MIME types that are allowed. For instance to allow only gifs and mp4 files: `accept: ['image/gif', 'video/mp4']`                                                                                                                                                                                                                                                                                                                                                       |
 
-!!! The File field in the admin is a bit different, allowing also to delete a file uploaded to a form, because the use-case in admin is to upload and then associate a file to a field. In Admin, it works with Plugins and Themes blueprints. For Page Blueprints instead use the "pagemediaselect" field, which allows the user to choose a file uploaded to the page media.
+!!! The File field in the admin is a bit different, allowing also to delete a file uploaded to a form, because the use-case in admin is to upload and then associate a file to a field.
 
 | Common Attributes Allowed                      |
 | :-----                                         |
@@ -329,6 +339,8 @@ With the `file` field type you can let users to upload files through the form. T
 | [name](#common-fields-attributes)              |
 | [outerclasses](#common-fields-attributes)      |
 | [validate.required](#common-fields-attributes) |
+
+By default, in Admin the `file` field will overwrite an uploaded file that has the same name of a newer one, contained in the same folder you want to upload it, unless you set `avoid_overwriting` to true in the field definition.
 
 ---
 
@@ -389,6 +401,8 @@ Example:
 
 ### The Radio Field
 
+![Radio Field](radio_field.gif)
+
 The `radio` field type is used to present a set of radio fields
 
 Example:
@@ -424,6 +438,8 @@ Example:
 
 ### The Range Field
 
+![Range Field](range_field.gif)
+
 The `range` field is used to present a [range input field](http://html5doctor.com/html5-forms-input-types/#input-range).
 
 Example:
@@ -431,6 +447,9 @@ Example:
 header.choose_a_number_in_range:
   type: range
   label: Choose a number
+  validate:
+    min: 1
+    max: 10
 ````
 
 | Common Attributes Allowed                      |
@@ -456,6 +475,8 @@ header.choose_a_number_in_range:
 ---
 
 ### The Select Field
+
+![Select Field](select_field.gif)
 
 The `select` field type is used to present a select field.
 
@@ -524,6 +545,8 @@ test:
 
 ### The Text Field
 
+![Text Field](text_field.gif)
+
 The `text` field is used to present a text input field.
 
 Example:
@@ -533,6 +556,11 @@ header.title:
   autofocus: true
   label: PLUGIN_ADMIN.TITLE
 ````
+
+| Attribute | Description                                       |
+| :-----    | :-----                                            |
+| `prepend` | prepend some text or HTML to the front of a field |
+| `append`  | append some text or HTML to the end of a a field  |
 
 | Common Attributes Allowed                      |
 | :-----                                         |
@@ -557,6 +585,8 @@ header.title:
 ---
 
 ### The Textarea Field
+
+![Textarea Field](textarea_field.gif)
 
 The `textarea` field is used to present a textarea input field.
 

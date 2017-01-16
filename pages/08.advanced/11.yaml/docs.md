@@ -73,7 +73,7 @@ If you wish to nest your sequences even deeper, you just need to add more levels
   - Goldfish
 ~~~
 
-Sequences can be added to other data structure types, such as mappings or scalers.
+Sequences can be added to other data structure types, such as mappings or scalars.
 
 ## Mappings
 

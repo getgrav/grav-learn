@@ -6,7 +6,7 @@ taxonomy:
 
 Twig is a quick, optimized template engine for PHP. It is designed from the ground up to make creating templates easier on both the developer and the designer.
 
-Its easy-to-follow syntax and straightforward processes make it a natural fit for anyone familiar with Smarty, Django, or Jinja,  Twig will likely be a very easy transition for you.
+Its easy-to-follow syntax and straightforward processes make it a natural fit for anyone familiar with Smarty, Django, Jinja, Liquid, or Stencil then Twig will likely be a very easy transition for you.
 
 We use it for our Grav templates in part because of its flexibility and inherent security. The fact that it is also one of the fastest template engines for PHP out there made choosing it for use in Grav a no brainer.
 
@@ -141,5 +141,5 @@ Functions can generate content. They are typically followed by arguments, which 
 * [Official Twig Documentation](http://twig.sensiolabs.org/documentation)
 * [Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html)
 * [Twig for Developers](http://twig.sensiolabs.org/doc/api.html)
-* [6 Minute Video Introduction to TWig](http://www.dev-metal.com/6min-video-introduction-twig-php-templating-engine/)
+* [6 Minute Video Introduction to Twig](http://www.dev-metal.com/6min-video-introduction-twig-php-templating-engine/)
 * [Introduction to Twig](http://www.slideshare.net/markstory/introduction-to-twig)

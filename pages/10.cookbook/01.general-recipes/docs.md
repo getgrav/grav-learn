@@ -14,6 +14,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Add a recent post widget to your sidebar](#add-a-recent-post-widget-to-your-sidebar)
 1. [Create a private area](#create-a-private-area)
 1. [Add JavaScript to the footer](#add-javascript-to-the-footer)
+1. [Override the default logs folder location](#override-the-default-logs-folder-location)
 
 ### Change the PHP CLI version
 
@@ -102,12 +103,27 @@ Now we need to display these images in reverse chronological order so the newest
         </div>
         <div class="image-info">
             <h2>{{ image.meta.title }}</h2>
-            <p>{{ image.meta.description }}
+            <p>{{ image.meta.description }}</p>
         </div>
     </li>
     {% endfor %}
     </ul>
 
+{% endblock %}
+```
+
+For modular gallery to be displayed inside another page, remove the following code from the Twig file in order to make it work:
+
+```
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {{ page.content }}
+```
+
+and
+
+```
 {% endblock %}
 ```
 
@@ -167,7 +183,8 @@ You need a image slider without any overhead.
 
 ##### Solution:
 
-This recipe is for 4 images! Simply put the images where the .md file is. Next, create a new twig template and extend base.html.twig.
+This recipe is for 4 images and a page called slider.md! Simply put the images where the .md file is. Next, create a new Twig template and extend base.html.twig.
+
 
 ```
 {% extends 'partials/base.html.twig' %}
@@ -185,6 +202,21 @@ This recipe is for 4 images! Simply put the images where the .md file is. Next, 
     {{ page.content }}
 {% endblock %}
 ```
+
+For modular slider, please remove the
+```
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+```
+
+and
+
+```
+{% endblock %}
+```
+
+from the previous Twig file.
 
 Time for css stuff. Add this to your _custom.scss
 
@@ -220,7 +252,7 @@ That's all.
 
 ### Wrapping markdown into html
 
-On some pages you might want to wrap parts of the markdown content into some custom html code instead of creating a new twig template.
+On some pages you might want to wrap parts of the markdown content into some custom html code instead of creating a new Twig template.
 
 To achieve this you follow these steps:
 
@@ -412,4 +444,31 @@ You can add assets in that block in Twig for example by calling
 
 or in PHP by calling
 
-`$this->grav['assets']->addJs($this->grav['base_url'] . '/user/plugins/yourplugin/js/somefile.js', {group: 'bottom'});`
+`$this->grav['assets']->addJs($this->grav['base_url'] . '/user/plugins/yourplugin/js/somefile.js', ['group' => 'bottom']);`
+
+### Override the default logs folder location
+
+The default location for the logs output of Grav is simply called `logs/`.  Unfortunately there are instances where that `logs/` folder is already used or is off-limits.  Grav's flexible stream system allows the ability to customize the locations of these folders.
+
+First, you need to create your new folder.  In this example, we'll create a new folder in the root of your Grav install called `grav-logs/`.  Then create a new root-level file called `setup.php` and paste the following code:
+
+```
+<?php
+use Grav\Common\Utils;
+
+
+return [
+    'streams' => [
+        'schemes' => [
+            'log' => [
+               'type' => 'ReadOnlyStream',
+               'prefixes' => [
+                   '' => ["grav-logs"],
+               ]
+            ]
+        ]
+    ]
+];
+```
+
+This basically overrides the `log` stream with the `grav-logs/` folder rather than the default `logs/` folder as defined in `system/src/Grav/Common/Config/Setup.php`.

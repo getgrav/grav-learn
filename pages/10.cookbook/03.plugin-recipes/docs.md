@@ -6,19 +6,107 @@ taxonomy:
 
 This page contains an assortment of problems and their respective solutions related to Grav plugins.
 
-1. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
-2. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
- 
-### Filter taxonomies using the taxonomylist plugin
- 
-#### Problem:
- 
-You want to use the [taxonomy list Grav plugin](https://github.com/getgrav/grav-plugin-taxonomylist) to list the tags that are used in your blog posts, but instead of listing all of them, you only want to list the most used items in a given taxonomy (such as the top five tags, for example).
- 
+1. [Output some PHP code result in a Twig template](#output-some-php-code-result-in-a-twig-template)
+2. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
+3. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
+4. [Learning by Example](#learning-by-example)
+   * [How do I read from and write data to the file system?](#how-do-i-read-from-and-write-data-to-the-file-system)
+   * [How do I make data from a plugin available to Twig?](#how-do-i-make-data-from-a-plugin-available-to-twig)
+   * [How do I inject Markdown into a page?](#how-do-i-inject-markdown-into-a-page)
+   * [How do I inject HTML into the final output?](#how-do-i-inject-html-into-the-final-output)
+   * [How do I inject assets like JavaScript and CSS files?](#how-do-i-inject-assets-like-javascript-and-css-files)
+   * [How do I affect the response headers and response codes?](#how-do-i-affect-the-response-headers-and-response-codes)
+   * [How do I incorporate third-party libaries into my plugin?](#how-do-i-incorporate-third-party-libaries-into-my-plugin)
+   * [How do I extend Twig?](#how-do-i-extend-twig)
+   * [How do I interact with external APIs?](#how-do-i-interact-with-external-apis)
+
+
+### Output some PHP code result in a Twig template
+
+#### Goal:
+
+You want to process some custom PHP code, and make the result available in a page.
+
 #### Solution:
- 
+
+You create a new plugin that creates a Twig extension, and makes some PHP content available in your Twig templates.
+
+Create a new plugin folder in `user/plugins/example`, and add those files:
+
+`user/plugins/example/example.php`
+`user/plugins/example/example.yaml`
+`user/plugins/example/twig/ExampleTwigExtension.php`
+
+In `twig/ExampleTwigExtension.php` you'll do your custom processing, and return it as a string in `exampleFunction()`.
+
+Then in your Twig template file (or in a page Markdown file if you enabled Twig processing in Pages), render the output using: `{{ example() }}`.
+
+The overview is over, let's see the actual code:
+
+`example.php`:
+
+```php
+<?php
+namespace Grav\Plugin;
+use \Grav\Common\Plugin;
+class ExamplePlugin extends Plugin
+{
+    public static function getSubscribedEvents()
+    {
+        return [
+            'onTwigExtensions' => ['onTwigExtensions', 0]
+        ];
+    }
+    public function onTwigExtensions()
+    {
+        require_once(__DIR__ . '/twig/ExampleTwigExtension.php');
+        $this->grav['twig']->twig->addExtension(new ExampleTwigExtension());
+    }
+}
+```
+
+`ExampleTwigExtension.php`:
+
+```
+<?php
+namespace Grav\Plugin;
+class ExampleTwigExtension extends \Twig_Extension
+{
+    public function getName()
+    {
+        return 'ExampleTwigExtension';
+    }
+    public function getFunctions()
+    {
+        return [
+            new \Twig_SimpleFunction('example', [$this, 'exampleFunction'])
+        ];
+    }
+    public function exampleFunction()
+    {
+        return 'something';
+    }
+}
+```
+
+`example.twig`:
+
+```
+enabled: true
+```
+
+The plugin is now installed and enabled, and it should all just work.
+
+### Filter taxonomies using the taxonomylist plugin
+
+#### Goal:
+
+You want to use the [taxonomy list Grav plugin](https://github.com/getgrav/grav-plugin-taxonomylist) to list the tags that are used in your blog posts, but instead of listing all of them, you only want to list the most used items in a given taxonomy (such as the top five tags, for example).
+
+#### Solution:
+
 This is an example where the flexibility of Grav plugins really come in handy. The first step is to make sure that you have the [taxonomy list Grav plugin](https://github.com/getgrav/grav-plugin-taxonomylist) installed within your Grav package. After this has been installed, make sure that you copy `/yoursite/user/plugins/taxonomylist/templates/partials/taxonomylist.html.twig` to `/yoursite/user/themes/yourtheme/templates/partials/taxonomylist.html.twig` as we will be making modifications to this file.
- 
+
 In order to make this work, we are going to introduce three new variables: `filter`, `filterstart` and `filterend` where
 
  * **filter** is a Boolean, which will be set to `true` if we want to be able to list only the top several tags (or whatever other taxonomy you want to use).
@@ -76,7 +164,7 @@ If, on the other hand, the `filter` variable is set to `false` or is not found, 
 
 ### Adding a search button to the SimpleSearch plugin
 
-#### Problem:
+#### Goal:
 
 You really like the [Grav SimpleSearch plugin](https://github.com/getgrav/grav-plugin-simplesearch), but you want to add a search button in addition to the text field. One reason to add this button is that it may not be readily apparent to the user that they need to hit their `Enter` key in order to initiate their search request.
 
@@ -133,7 +221,7 @@ jQuery(document).ready(function($){
             window.location.href = input.data('search-input') + '{{ config.system.param_sep }}' + input.val();
         }
     });
-    
+
     searchButton.on('click', function(event) {
         if (input.val().length > 3) {
             event.preventDefault();
@@ -180,5 +268,103 @@ Here is the default HTML for the text field plus a search button for a few other
   <button class="ui button">Search</button>
 </div>
 ```
+
+### Learning by Example
+
+With the abundance of plugins currently available, chances are that you will find your answers somewhere in their source code. The problem is knowing which ones to look at. This page attempts to list common plugin issues and then lists specific plugins that demonstrate how to tackle them.
+
+Before you proceed, be sure you've familiarized yourself with [the core documentation](https://learn.getgrav.org/plugins), especially the [Grav Lifecycle](https://learn.getgrav.org/plugins/grav-lifecycle)!
+
+#### How do I read from and write data to the file system?
+
+Grav might be flat file, but flat file &#8800; static! There are numerous ways read and write data to the file system.
+
+  * If you just need read access to YAML data, check out the [Import plugin](https://github.com/Deester4x4jr/grav-plugin-import).
+
+  * The preferred interface is via the built-in [RocketTheme\Toolbox\File](https://learn.getgrav.org/api/RocketTheme/Toolbox/File.html) interface.
+
+  * There's nothing stopping you from using [SQLite](https://sqlite.org/) either.
+
+  * The simplest example is probably the [Comments](https://github.com/getgrav/grav-plugin-comments) plugin.
+
+  * Others include
+
+    * [Table Importer](https://github.com/Perlkonig/grav-plugin-table-importer)
+
+    * [Thumb Ratings](https://github.com/iusvar/grav-plugin-thumb-ratings)
+
+    * [Webmention](https://github.com/Perlkonig/grav-plugin-webmention)
+
+#### How do I make data from a plugin available to Twig?
+
+One way is via the `config.plugins.X` namespace. Simply do a `$this->config->set()` as seen in the following examples:
+
+  * [ipLocate](https://github.com/Perlkonig/grav-plugin-iplocate/blob/master/iplocate.php#L82)
+  * [Count Views](https://github.com/Perlkonig/grav-plugin-count-views/blob/master/count-views.php#L88)
+
+You can then access that in a Twig template via `{{ config.plugins.X.whatever.variable }}`.
+
+Alternatively, you can pass variables via `grav['twig']`:
+
+  * [Blogroll](https://github.com/Perlkonig/grav-plugin-blogroll/blob/master/blogroll.php#L43), which you can then access directly [in your template](https://github.com/Perlkonig/grav-plugin-blogroll/blob/master/templates/partials/blogroll.html.twig#L32).
+
+Finally, you can inject data directly into the page header, as seen in [the Import plugin](https://github.com/Deester4x4jr/grav-plugin-import).
+
+#### How do I inject Markdown into a page?
+
+According to the [Grav Lifecycle](https://learn.getgrav.org/plugins/grav-lifecycle), the latest event hook where you can inject raw Markdown is `onPageContentRaw`. The earliest is probably `onPageInitialized`. You can just grab `$this->grav['page']->rawMarkdown()`, munge it, and then write it back out with `$this->grav['page']->setRawContent()`. The following plugins demonstrate this:
+
+  * [Page Inject](https://github.com/getgrav/grav-plugin-page-inject)
+
+  * [Table Importer](https://github.com/Perlkonig/grav-plugin-table-importer)
+
+#### How do I inject HTML into the final output?
+
+The latest you can inject HTML, and still have your output cached, is during the `onOutputGenerated` event. You can just grab and modify `$this->grav->output`.
+
+  * Many common tasks can be accomplished using the [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core) infrastructure.
+
+  * The [Pubmed](https://github.com/Perlkonig/grav-plugin-pubmed) and [Tablesorter](https://github.com/Perlkonig/grav-plugin-tablesorter) plugins take a more brute force approach.
+
+#### How do I inject assets like JavaScript and CSS files?
+
+This is done through the [Grav\Common\Assets](https://learn.getgrav.org/api/Grav/Common/Assets.html) interface.
+
+  * [Google Analytics](https://github.com/escopecz/grav-ganalytics)
+
+  * [Bootstrapper](https://github.com/getgrav/grav-plugin-bootstrapper)
+
+  * [Gravstrap](https://github.com/giansi/gravstrap)
+
+  * [Tablesorter](https://github.com/Perlkonig/grav-plugin-tablesorter)
+
+#### How do I affect the response headers and response codes?
+
+You can use PHP's `header()` command to set response headers. The latest you can do this is during the `onOutputGenerated` event, after which output is actually sent to the client. The response code itself can only be set in the YAML header of the page in question (`http_response_code`).
+
+  * The [Graveyard](https://github.com/Perlkonig/grav-plugin-graveyard) plugin replaces `404 NOT FOUND` with `410 GONE` responses via the YAML header.
+
+  * The [Webmention](https://github.com/Perlkonig/grav-plugin-webmention) sets the `Location` header on a `201 CREATED` response.
+
+#### How do I incorporate third-party libaries into my plugin?
+
+Usually you'd incorporate other complete libraries into a `vendor` subfolder and `require` its `autoload.php` where appropriate in your plugin. (If you're using Git, consider using [subtrees](https://help.github.com/articles/about-git-subtree-merges/).)
+
+  * [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core)
+
+  * [Table Importer](https://github.com/Perlkonig/grav-plugin-table-importer)
+
+#### How do I extend Twig?
+
+First [read the Twig docs](http://twig.sensiolabs.org/doc/advanced.html) and develop your extension. Then look at the [TwigPCRE](https://github.com/kesslernetworks/grav-plugin-twigpcre) plugin to learn how to incorporate it into Grav.
+
+#### How do I interact with external APIs?
+
+Grav provides the [Grav\Common\GPM\Response](https://learn.getgrav.org/api/Grav/Common/GPM/Response.html) object, but there's nothing stopping you from doing it directly if you so wish.
+
+  * [ipLocate](https://github.com/Perlkonig/grav-plugin-iplocate)
+
+  * [Pubmed](https://github.com/Perlkonig/grav-plugin-pubmed)
+
 
 

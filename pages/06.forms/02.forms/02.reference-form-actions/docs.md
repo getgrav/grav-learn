@@ -52,7 +52,7 @@ Redirects the user to another page. The action is immediate, so if you use this,
 
 ### Message
 
-Sets a message to be shown in the next page. Works if you set a `display` action too, which redirects the user to another page.
+Sets a message to be shown in the next page. Works if you set a `display` action too, which redirects the user to another page. Note, you can use Twig in the message if you like.
 
 ```
 process:
@@ -111,6 +111,8 @@ You could use any page type you want, as a destination page. Just create your ow
 
 Saves the form data to a file. The file is saved to the `user/data` folder, in a subfolder named as the `form.name` parameter. For example:
 
+!! The `fileprefix` and `body` can contain Twig markup.
+
 ```yaml
 process:
     - save:
@@ -118,9 +120,12 @@ process:
         dateformat: Ymd-His-u
         extension: txt
         body: "{% include 'forms/data.txt.twig' %}"
+        operation: create
 ```
 
 The body is taken from the theme's `templates/forms/data.html.twig` file, provided by Antimatter and updated themes.
+
+! the `operation` can be either `create` (default) to create a new file per-form-submission or `add` to append to a single file.
 
 ### Captcha
 
@@ -130,6 +135,26 @@ To also validate the captcha server-side, add the captcha process action.
     process:
         - captcha:
             recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
+```
+
+!! The `recaptcha_secret` is optional, and will use the Form plugin's configuration values if you have provided them there.
+
+### User IP Address
+
+Display the user's IP address on the output. Put it above email / save processes in the 'form.md' to ensure it is used by the output processe(s)
+
+````
+process:
+    - ip:
+        label: User IP Address
+```
+
+### Reset the form after submit
+
+By default the form is not cleared after the submit. So if you don't have a `display` action and the user is sent back to the form page, it's still filled with the data entered. If you want to avoid this, add a `reset` action:
+
+````
+reset: true
 ```
 
 ## Add your own custom processing to a form

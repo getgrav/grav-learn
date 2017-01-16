@@ -12,16 +12,16 @@ This FAQ is intended to provide useful tutorials, tips, and tricks to help you g
 
 Manual installation is not the recommended method of installation, however, it is still possible to install the admin plugin manually. Basically, you need to download each of the following plugins individually:
 
-* [admin](https://github.com/getgrav/grav-plugin-admin/archive/develop.zip)
-* [login](https://github.com/getgrav/grav-plugin-login/archive/develop.zip)
-* [form](https://github.com/getgrav/grav-plugin-form/archive/develop.zip)
-* [email](https://github.com/getgrav/grav-plugin-email/archive/develop.zip)
+* [admin](https://github.com/getgrav/grav-plugin-admin/archive/master.zip)
+* [login](https://github.com/getgrav/grav-plugin-login/archive/master.zip)
+* [form](https://github.com/getgrav/grav-plugin-form/archive/master.zip)
+* [email](https://github.com/getgrav/grav-plugin-email/archive/master.zip)
 
 Extract each archive file into your `user/plugins` folder, then ensure the folders are renamed to just `admin/`, `login/`, `form/`, and `email/`.  Then proceed with the **Usage instructions below**.
 
 ### Adding and Managing Users
 
-When you first install the Grav Admin plugin, you will be prompted to create an admin user when you point your browser at your site. This is a simple web form that ensure at least one admin user has been created.
+When you first install the Grav Admin plugin, you will be prompted to create an admin user when you point your browser at your site. This is a simple web form that ensures at least one admin user has been created.
 
 ![New User](../introduction/new-user.png)
 
@@ -82,6 +82,8 @@ Here are the currently supported access levels explained:
 - `admin.maintenance`: allows a user to update Grav from the admin side, check for updates and clear the cache
 - `admin.plugins`: allows a user to access the plugins functionality, edit the plugins settings, disable plugins or add new ones
 - `admin.themes`: allows a user to access the themes functionality, edit theme settings, change themes and add new ones
+- `admin.statistics`: allows a user to see the site statistics
+- `admin.cache`: allows a user to clear the cache
 
 
 ### Custom Admin URL
@@ -90,7 +92,9 @@ One way to help keep your admin panel secure is to hide its location. To do this
 ```
 http://yourwebsite.com/admin
 ```
-to something more ambiguous that is going to be harder for someone to guess.  To do this you need to locate `admin.yaml` which can be found in `user\plugins\admin\` and change or add the line `route: '/admin'` to something more ambiguous, for example `route: '/myspecialplace'`, this way if you need to access the admin panel for your grav site you will enter
+to something more ambiguous that is going to be harder for someone to guess.  To do this you need to locate `admin.yaml` which can be found in `user/plugins/admin/` folder and **copy this** to `user/config/plugins/admin.yaml`.  
+
+Then change the line `route: '/admin'` to something more ambiguous, for example `route: '/myspecialplace'`, this way if you need to access the admin panel for your grav site you will enter
 ```
 http://yourwebsite.com/myspecialplace
 ```

@@ -56,6 +56,18 @@ Converts a string into a more "human readable" format
 
 `'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i> **{{ 'something_text_to_read'|humanize }}**
 
+##### Hyphenize
+
+Converts a string into a hyphenated version.
+
+`'Something Text to Read'|hyphenize` <i class="fa fa-long-arrow-right"></i> **{{ 'Something Text to Read'|hyphenize }}**
+
+##### JSON Decode
+
+You can decode JSON by simply applying this filter:
+
+`{"first_name": "Guido", "last_name":"Rossum"}|json_decode`
+
 ##### Ksort
 
 Sort an array map by each key
@@ -114,6 +126,12 @@ Adds an ordinal to the integer (such as 1st, 2nd, 3rd, 4th)
 
 `'10'|ordinalize` <i class="fa fa-long-arrow-right"></i> **{{ '10'|ordinalize }}**
 
+##### Pad
+
+Pads a string to a certain lenth with another character. This is a wrapper for the PHP [str_pad()](http://php.net/manual/en/function.str-pad.php) function.
+
+`'foobar'|pad(10, '-')` <i class="fa fa-long-arrow-right"></i> **{{ 'foobar'|pad(10, '-') }}**
+
 ##### Pluralize
 
 Converts a string to the English plural version
@@ -135,6 +153,12 @@ Randomizes the list provided.  If a value is provided as a parameter, it will sk
 {% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
 {% for ritem in ritems %}{{ ritem }}, {% endfor %}
 </strong>
+
+##### Regex Replace
+
+A helpful wrapper for the PHP [preg_replace()](http://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
+
+`'The quick brown fox jumps over the lazy dog.'|regex_replace(['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])` <i class="fa fa-long-arrow-right"></i> **{{ 'The quick brown fox jumps over the lazy dog.'|regex_replace(['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) }}**
 
 ##### Right Trim
 
@@ -161,6 +185,8 @@ Usage example with a mailto link:
   Email me
 </a>
 ```
+
+You might not notice a difference at first, but examining the page source (not using the Browser Developer Tools, the actual page source) will reveal the underlying characters encoding.
 
 ##### SortByKey
 
@@ -261,6 +287,14 @@ Cast a value to array
 
 `array(value)`
 
+##### ArrayKeyValue
+
+Get an item from an associative array. If no array passed, generates a one item associate array:
+
+`arrayKeyValue('key', 'value')` returns: `{key: value}`
+
+`arrayKeyValue('foo', 'baz', {something: else, foo: bar})` returns: `{something: else, foo: baz}`
+
 ##### Authorize
 
 Authorizes an authenticated user to see a resource. Accepts a single permission string or an array of permission strings.
@@ -269,7 +303,7 @@ Authorizes an authenticated user to see a resource. Accepts a single permission 
 
 ##### Dump
 
-Takes a valid twig variable and dumps it out into the [Grav debugger panel](../../advanced/debugging).  The debugger must be **enabled** to see the values in the messages tab.
+Takes a valid Twig variable and dumps it out into the [Grav debugger panel](../../advanced/debugging).  The debugger must be **enabled** to see the values in the messages tab.
 
 `dump(page.header)`
 
@@ -283,12 +317,31 @@ The evaluate function can be used to evaluate a string as Twig:
 
 `evaluate('grav.language.getLanguage')`
 
+##### Get Cookie
+
+Retrieve the value of a cookie with this function:
+
+`get_cookie('your_cookie_key')`
 
 ##### Gist
 
 Takes a Github Gist ID and creates appropriate Gist embed code
 
 `gist('bc448ff158df4bc56217')` <i class="fa fa-long-arrow-right"></i> {{ gist('bc448ff158df4bc56217')}}
+
+##### JSON Decode
+
+You can decode JSON by simply applying this filter:
+
+`json_decode({"first_name": "Guido", "last_name":"Rossum"})`
+
+
+##### Nonce Field
+
+Generate a Grav security nonce field for a form with a required `action`:
+
+`nonce_field('action')` <i class="fa fa-long-arrow-right"></i> **{{ nonce_field('action')|e }}**
+
 
 ##### Random String Generation
 

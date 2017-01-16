@@ -15,12 +15,14 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 | Field                                             | Description                                                                                                                                                                                                 |
 | :-----                                            | :-----                                                                                                                                                                                                      |
 | **[Array](#the-array-field)**                     | used to create key-value arrays                                                                                                                                                                             |
+| **[Colorpicker](#the-colorpicker-field)**                     | show a color picker                                                                                                                                                                             |
 | **[Columns](#the-columns-column-fields)**         | used to break the form in multiple columns                                                                                                                                                                  |
 | **[Column](#the-columns-column-fields)**          | used to show a single column (used with the `Columns` field)                                                                                                                                                |
 | **[Dateformat](#the-dateformat-field)**           | a special select that renders the current date/time in the passed formats                                                                                                                                   |
 | **[Datetime](#the-datetime-field)**               | a date and time selection field                                                                                                                                                                             |
-| **[Editor](#the-editor-field)**                   | simply shows a text value, with no input field                                                                                                                                                              |
+| **[Editor](#the-editor-field)**                   | show a markdown editor                                                                                                                                                                                      |
 | **[File](#the-file-field)**                       | in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
+| **[Filepicker](#the-filepicker-field)**                       | **Filepicker** allows to choose files from a location in the web server filesystem. |
 | **[Ignore](#the-ignore-field)**                   | used to remove unused fields when extending from another blueprint                                                                                                                                          |
 | **[List](#the-list-field)**                       | used to create collections of fields                                                                                                                                                                        |
 | **[PageMediaSelect](#the-pagemediaselect-field)** | shows a select with all the page media. Used in Pages blueprints to let the user choose a media file to be assigned to a field.                                                                             |
@@ -53,7 +55,7 @@ This list provides a common ground so there's no need to repeat the description 
 | `placeholder`       | sets the field placeholder value                                                                                                                                                                               |
 | `readonly`          | sets the field readonly state                                                                                                                                                                                  |
 | `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template yo see, when used in the frontend |
-| `style`             | sets the field style. if set to `vertical`,                                                                                                                                                                    |
+| `style`             | sets the field style. If set to `vertical`, the field is able to appear full width. This is an easy way to clean up the form.                                                                                  |
 | `title`             | sets the field title value                                                                                                                                                                                     |
 | `validate.required` | if set to a positive value, sets the field as required.                                                                                                                                                        |
 | `validate.pattern`  | sets a validation pattern                                                                                                                                                                                      |
@@ -203,6 +205,8 @@ folder:
 
 ### The Array Field
 
+![Array](array_field_bp.gif)
+
 The `array` field type is used to create a simple list of key - values objects.
 
 Example:
@@ -237,7 +241,45 @@ metadata:
 
 ---
 
+### The Colorpicker Field
+
+![Colorpicker](colorpicker_field.png)
+
+The `colorpicker` field type is used to display a colorpicker field
+
+Example:
+
+```yaml
+color:
+   type: colorpicker
+   label: Choose a color
+```
+
+
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [autocomplete](#common-fields-attributes)     |
+| [autofocus](#common-fields-attributes)                |
+| [classes](#common-fields-attributes)                |
+| [default](#common-fields-attributes)           |
+| [disabled](#common-fields-attributes)                |
+| [help](#common-fields-attributes)              |
+| [id](#common-fields-attributes)                |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [placeholder](#common-fields-attributes)                |
+| [style](#common-fields-attributes)             |
+| [title](#common-fields-attributes)        |
+| [toggleable](#common-fields-attributes)        |
+| [validate.message](#common-fields-attributes) |
+| [validate.required](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
+
+---
+
 ### The Columns / column Fields
+
+![Columns](columns_field_bp.gif)
 
 The `columns` and `column` field types are used to divide the contained form fields in columns
 
@@ -270,6 +312,8 @@ columns:
 ---
 
 ### The Dateformat Field
+
+![DateFormat](dateformat_field_bp.gif)
 
 The `dateformat` field type is used to
 
@@ -318,6 +362,8 @@ pages.dateformat.short:
 
 ### The Datetime Field
 
+![DateTime](datetime_field.gif)
+
 The `datetime` field type is used to store and present a date and time field.
 
 Example:
@@ -352,6 +398,8 @@ header.date:
 
 ### The Editor Field
 
+![Editor Field](editor_field_bp.gif)
+
 The `editor` field type is used to present the Codemirror editor
 
 Example:
@@ -378,7 +426,7 @@ frontmatter:
 | :-----       | :-----                                                                                   |
 | `codemirror` | A set of values to be set on the codemirror editor. By default uses mode: gfm (markdown) |
 | `resizer`    | If positive, enables the resizer. Otherwise the editor is fixed                          |
-  
+
 | Common Attributes Allowed                      |
 | :-----                                         |
 | [default](#common-fields-attributes)           |
@@ -401,7 +449,11 @@ frontmatter:
 
 ### The File Field
 
-The `file` field type is used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration.
+![File Field](file_field_bp.gif)
+
+The `file` field type can be used in pages, plugin and theme configurations (blueprints). Handles uploading a file to a location as well as removing it from the page headers or theme / plugin configuration.
+
+! More details can be found in the dedicated [How To: Add a File Upload](../how-to-add-file-upload) section.
 
 Example:
 
@@ -410,7 +462,6 @@ custom_logo_login_screen:
   type: file
   label: Custom Logo Login Screen
   destination: 'user/plugins/admin-pro/assets'
-  blueprint: 'plugins.admin-pro'
   accept:
     - image/*
 ```
@@ -420,7 +471,9 @@ custom_file:
   type: file
   label: A Label
   destination: 'user/themes/my-theme/assets'
-  blueprint: 'themes.mytheme'
+  multiple: true
+  limit: 5
+  filesize: 1
   accept:
     - image/*
 ```
@@ -429,8 +482,10 @@ custom_file:
 | Attribute     | Description                                                                                                |
 | :-----        | :-----                                                                                                     |
 | `destination` | The folder where the files will be stored, relative to the Grav root. E.g. `user/plugins/my-plugin/assets` |
-| `blueprint`   | Set it to the package identifier. For plugins: 'themes.mythemeslug' or 'plugins.mypluginnameslug'          |
-| `accept`      | Add a list of accepted page mime types. E.g. `["image/*"]`                                                 |
+| `multiple`    | Whether or not allow more than one file per field                                                          |
+| `limit`       | When `multiple` is enabled, allows to constrain the amount of files permitted to be uploaded               |
+| `filesize`    | The size in MB each file is allowed                                                                        |
+| `accept`      | Add a list of accepted page mime types and extensions. E.g. `["image/*", '.mp3']`                          |
 
 | Common Attributes Allowed                      |
 | :-----                                         |
@@ -444,6 +499,53 @@ custom_file:
 | [toggleable](#common-fields-attributes)        |
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes)     |
+
+---
+
+### The Filepicker Field
+
+![Filepicker Field](filepicker_field.png)
+
+The `filepicker` field type can be used in pages, plugin and theme configurations (blueprints). Handles selecting a file from a location and saving it to the page headers or theme / plugin configuration.
+
+Example:
+
+```yaml
+picked_image:
+  type: filepicker
+  folder: 'theme@:/images/pages'
+  label: Select a file
+  preview_images: true
+  acccept:
+    - .png
+    - .jpg
+```
+
+```yaml
+header.a_file:
+  type: filepicker
+  folder: '@self'
+  preview_images: true
+  label: Select a file
+```
+
+| Attribute     | Description                                                                                                |
+| :-----        | :-----                                                                                                     |
+| `folder` | The folder where the files will be looked up, relative to the Grav root. Accepts any value in the [file field destination format](/forms/blueprints/how-to-add-file-upload#destination). |
+| `accept` | A list of accepted file extensions                                                          |
+| `preview_images` | If enabled, image files will have a little preview |
+
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [default](#common-fields-attributes)           |
+| [disabled](#common-fields-attributes)          |
+| [help](#common-fields-attributes)              |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [size](#common-fields-attributes)              |
+| [style](#common-fields-attributes)             |
+| [toggleable](#common-fields-attributes)        |
+| [validate.required](#common-fields-attributes) |
 
 ---
 
@@ -464,6 +566,8 @@ content:
 
 ### The List Field
 
+![List Field](list_field_bp.gif)
+
 The `list` field type is used to create collections of fields. The field accepts a `fields` attribute that will host subfields, and there will be a "Add item" button to allow the user to add more items to the collection.
 
 Example:
@@ -472,6 +576,7 @@ Example:
 header.buttons:
   name: buttons
   type: list
+  style: vertical
   label: Buttons
   fields:
     .text:
@@ -510,7 +615,7 @@ buttons:
         primary: true
 ```
 
-This will be used in the Theme twig to output the list in some nice way.
+This will be used in the Theme Twig to output the list in some nice way.
 
 Another example of this field definition is this list of Features, used by Antimatter's Features Modular child page. Every feature has an icon, a header and some text:
 
@@ -533,11 +638,13 @@ header.features:
 ```
 
 
-| Attribute  | Description                                              |
-| :-----     | :-----                                                   |
-| `fields`   | The subfields                                            |
-| `btnLabel` | The "add new item" label text                            |
-| `sort`     | Boolean. If negative, disables the ability to sort items |
+| Attribute   | Description                                              |
+| :-----      | :-----                                                   |
+| `fields`    | The subfields                                            |
+| `collapsed` | If `true`, the list if opened collapsed. By default it's expanded |
+| `style`     | Can be set to `vertical` to conserve horizontal space    |
+| `btnLabel`  | The "add new item" label text                            |
+| `sort`      | Boolean. If negative, disables the ability to sort items |
 
 | Common Attributes Allowed                      |
 | :-----                                         |
@@ -588,6 +695,8 @@ header.img_link:
 ---
 
 ### The Pages Field
+
+![Pages Field](pages_field_bp.gif)
 
 The `pages` field type shows a list of the site pages.
 
@@ -663,6 +772,8 @@ content:
 
 ### The Selectize Field
 
+![Selectize](selectize_field_bp.gif)
+
 The `selectize` field type is used to show a hybrid of a text box and a select box. Mostly useful for tagging and other element picking fields.
 
 Example:
@@ -709,6 +820,8 @@ taxonomies:
 
 ### The Tabs / Tab Fields
 
+![Tabs](tabs_field_bp.gif)
+
 The `tabs` and `tab` field types are used to divide the contained form fields in tabs
 
 Example:
@@ -744,6 +857,8 @@ tabs:
 ---
 
 ### The Taxonomy Field
+
+![Taxonomy](taxonomy_field_bp.gif)
 
 The `taxonomy` field type is a special select preconfigured to select one or more taxonomy values
 
@@ -784,6 +899,8 @@ header.taxonomy:
 
 ### The Toggle Field
 
+![Toggle Field](toggle_field_bp.gif)
+
 The `toggle` field type is a on/off kind of input, with configurable labels
 
 Example:
@@ -818,5 +935,3 @@ summary.enabled:
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes)     |
 | [disabled](#common-fields-attributes)          |
-
-

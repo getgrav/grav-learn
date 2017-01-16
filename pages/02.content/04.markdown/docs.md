@@ -122,6 +122,27 @@ renders to this HTML:
 <p>Lorem ipsum dolor sit amet, graecis denique ei vel, at duo primis mandamus. Et legere ocurreret pri, animal tacimates complectitur ad cum. Cu eum inermis inimicus efficiendi. Labore officiis his ex, soluta officiis concludaturque ei qui, vide sensibus vim ad.</p>
 ```
 
+A **line break** can be done with 2 spaces followed by 1 return.
+
+
+<br>
+<br>
+<br>
+
+
+## Inline HTML
+
+If you need a certain HTML tag (with a class) you can simply use HTML:
+
+```
+Paragraph in Markdown.
+
+<div class="class">
+</div>
+
+Paragraph in Markdown.
+```
+
 
 <br>
 <br>
@@ -499,6 +520,8 @@ grunt.initConfig({
 };
 ```
 
+!!! For syntax highlighting to work, the [Highlight plugin](https://github.com/getgrav/grav-plugin-highlight) needs to be installed and enabled. It in turn utilizes a jquery plugin, so jquery needs to be loaded in your theme too.
+
 <br>
 <br>
 <br>
@@ -529,22 +552,26 @@ And this HTML:
 
 ```html
 <table>
-  <tr>
-    <th>Option</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>data</td>
-    <td>path to data files to supply the data that will be passed into templates.</td>
-  </tr>
-  <tr>
-    <td>engine</td>
-    <td>engine to be used for processing templates. Handlebars is the default.</td>
-  </tr>
-  <tr>
-    <td>ext</td>
-    <td>extension to be used for dest files.</td>
-  </tr>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td>path to data files to supply the data that will be passed into templates.</td>
+    </tr>
+    <tr>
+      <td>engine</td>
+      <td>engine to be used for processing templates. Handlebars is the default.</td>
+    </tr>
+    <tr>
+      <td>ext</td>
+      <td>extension to be used for dest files.</td>
+    </tr>
+  </tbody>
 </table>
 ```
 

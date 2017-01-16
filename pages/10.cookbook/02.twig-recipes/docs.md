@@ -7,7 +7,7 @@ taxonomy:
 This page contains an assortment of problems and their respective solutions related to Twig templating.
 
 1. [List the last 5 recent blog posts](#list-the-last-5-recent-blog-posts)
-1. [List the blog bosts for the year](#list-the-blog-posts-for-the-year)
+1. [List the blog posts for the year](#list-the-blog-posts-for-the-year)
 1. [Displaying a translated month](#displaying-a-translated-month)
 1. [Displaying page content without summary](#displaying-page-content-without-summary)
 1. [Hiding the email to spam bots](#hiding-the-email-to-spam-bots)

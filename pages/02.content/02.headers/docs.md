@@ -1,10 +1,12 @@
 ---
-title: Headers
+title: Headers / Frontmatter
 taxonomy:
     category: docs
 ---
 
-The headers at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers.
+The headers (alternatively known as frontmatter) at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers. 
+
+! Headers are also known as **Page Frontmatter** and are commonly referred to as such so as not to be confused with HTTP Headers.
 
 ## Standard Page Headers
 
@@ -217,7 +219,7 @@ There are situations when you want to use Twig templating functionality in your 
 twig_first: false
 ```
 
-If set to `true` Twig processing will occur before any Markdown processing. This can be particularly useful if your twig generates markdown that needs to be available in order to be processed by the Markdown compiler.  One thing to note, if have `cache_enable: false` **and** `twig_first: true` page caching is effectively disabled.
+If set to `true` Twig processing will occur before any Markdown processing. This can be particularly useful if your Twig generates markdown that needs to be available in order to be processed by the Markdown compiler.  One thing to note, if have `cache_enable: false` **and** `twig_first: true` page caching is effectively disabled.
 
 ### Markdown
 
@@ -294,12 +296,12 @@ This will produce the HTML:
 
 ```
 <meta name="generator" content="Grav" />
-<meta name="description" content="Your page &quot;description&quot; goes here" />
-<meta name="testkey" content="testvalue" />
+<meta name="description" content="Your page description goes here" />
 <meta http-equiv="refresh" content="30" />
 <meta name="keywords" content="HTML, CSS, XML, JavaScript" />
 <meta name="author" content="John Smith" />
 <meta name="robots" content="noindex, nofollow" />
+<meta name="my_key" content="my_value" />
 ```
 
 All HTML5 metatags are supported.
@@ -403,3 +405,17 @@ This really provides a lot of flexibility and power.
 ## Collection Headers
 
 Collections have grown up! All [Collection Header information](../collections) is now broken out into [their own separate section](../collections).
+
+## Frontmatter.yaml
+
+An advanced feature that can come in handy for some power users is the ability to use common frontmatter values via a `frontmatter.yaml` file located in the page folder.  This is particular useful when working with multi-language sites where you may wish to share a portion of the frontmatter between all the language versions of a given page.
+
+To take advantage of this, simply create a `frontmatter.yaml` file alongside your page's `.md` file and add any valid frontmatter values.  For example:
+
+```
+metadata:
+    generator: 'Super Grav'
+    description: Give your page a powerup with Grav!
+```
+
+!!!! Utilizing frontmatter.yaml is a file-side feature and is **not supported** by the admin plugin.

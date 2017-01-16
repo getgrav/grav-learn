@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Depending on your hosting environment, permissions may or may not be an issue you need to concern yourself with.  The important thing to understand is that there is a potential for issue if the user you use to edit your files on the file-system is different from the user that PHP runs under (usually the webserver), or at the very least, the two users don't have **Read/Write** access to these files.
+Depending on your hosting environment, permissions may or may not be an issue you need to concern yourself with.  The important thing to understand is that there is a potential issue if the user you use to edit your files on the file-system is different from the user that PHP runs under (usually the webserver), or at the very least, the two users don't have **Read/Write** access to these files.
 
 Being a file-based CMS, Grav needs to write to the file-system in order to create cache and log files. There are three main scenarios:
 
@@ -20,8 +20,7 @@ Being a file-based CMS, Grav needs to write to the file-system in order to creat
 A simple **permissions-fixing** shell script can be used to do this:
 
     #!/bin/sh
-    chown joeblow:staff .
-    chown -R joeblow:staff *
+    chown -R joeblow:staff .
     find . -type f | xargs chmod 664
     find ./bin -type f | xargs chmod 775
     find . -type d | xargs chmod 775
@@ -30,9 +29,8 @@ A simple **permissions-fixing** shell script can be used to do this:
 
 You can use this file and edit as needed for the appropriate user and group that works for your setup.  What this script basically does, is:
 
-1. Changes the user and group of the current directory to `joeblow` and `staff`
-2. Changes all files and subfolder to `joeblow` and `staff` ownership
-3. Finds all the files from the current directory down and sets the permissions to `664` so they are `RW` for User & Group and `R` for Others.
-4. Finds all the folders from the current directory down and sets the permissions to `775` so they are `RWX` for User & Group and `RX` for Others.
-5. Sets the **ownership** of all directories to ensure that User and Group changes are maintained
-6. Sets the **umask** so that all new files are created with the correct `664` and `775` permissions.
+1. Changes the current directory, all files and subfolder to `joeblow` and `staff` ownership
+2. Finds all the files from the current directory down and sets the permissions to `664` so they are `RW` for User & Group and `R` for Others.
+3. Finds all the folders from the current directory down and sets the permissions to `775` so they are `RWX` for User & Group and `RX` for Others.
+4. Sets the **ownership** of all directories to ensure that User and Group changes are maintained
+5. Sets the **umask** so that all new files are created with the correct `664` and `775` permissions.

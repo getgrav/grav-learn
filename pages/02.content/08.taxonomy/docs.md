@@ -90,6 +90,13 @@ You can also do sophisticated searches based on multiple taxonomies by using arr
 
 This will find all posts with `tag` set to `animal` **and** `cat` **and** `author` set to `jdoe`.  Basically, this will specifically find **Post 2**.
 
+If you need a collection which includes one term **or** the other, just add the `'or'` parameter after the array, example:
+```bash
+{% for post in taxonomy.findTaxonomy({'tag':['dog','cat']},'or') %}
+```
+This will find all posts with `tag` set to `dog` **or** `cat`.
+
+
 ## Taxonomy based Collections
 
 We covered this in an earlier chapter, but it is important to remember that you can also use taxonomies in the [page headers](../headers) to filter a collection of pages associated with a parent page.  If you need a refresher on this subject, please refer back to that [chapter on taxonomy collection headers](../collections).

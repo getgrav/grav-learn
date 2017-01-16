@@ -134,7 +134,7 @@ languages:
 
 #### Default Language Prefix
 
-By default, the default language code is prefixed in all URLs.  For example if you have support for English and French (`en` and `fr`), and the default is English.  A page route might look like `/en/my-page` in English and `/fr/ma-page` in French. However it's often preferrable to have the default language without the prefix, so you can just set this option to `true` and the English page would appear as `/my-page`.
+By default, the default language code is prefixed in all URLs.  For example if you have support for English and French (`en` and `fr`), and the default is English.  A page route might look like `/en/my-page` in English and `/fr/ma-page` in French. However it's often preferrable to have the default language without the prefix, so you can just set this option to `false` and the English page would appear as `/my-page`.
 
 ```
 languages:
@@ -192,7 +192,7 @@ This way Grav knows how to route your to the homepage if the active language is 
 
 #### Language-Based Twig Templates
 
-By default, Grav uses the markdown filename to determine the Twig template to use to render.  This works with multi-language the same way.  For example, `default.fr.md` would look for a twig file called `default.html.twig` in the appropriate Twig template paths of the current theme and any plugins that register Twig template paths.  With multi-language, Grav also adds the current active language to the path structure.  What this means is that if you need to have a language-specific Twig file, you can just put those into a root level language folder.  For example if your current theme is using a template located at `templates/default.html.twig` you can create an `templates/fr/` folder, and put your French-specific Twig file in there: `templates/fr/default.html.twig`.
+By default, Grav uses the markdown filename to determine the Twig template to use to render.  This works with multi-language the same way.  For example, `default.fr.md` would look for a Twig file called `default.html.twig` in the appropriate Twig template paths of the current theme and any plugins that register Twig template paths.  With multi-language, Grav also adds the current active language to the path structure.  What this means is that if you need to have a language-specific Twig file, you can just put those into a root level language folder.  For example if your current theme is using a template located at `templates/default.html.twig` you can create an `templates/fr/` folder, and put your French-specific Twig file in there: `templates/fr/default.html.twig`.
 
 Another option which requires manual setup is to override the `template:` setting in the page headers. For example:
 
@@ -256,7 +256,7 @@ SIMPLE_TEXT: There are %d monkeys in the %s
 And then you can populate those variables with the Twig:
 
 ```
-{{ "SIMPLE_TEXT"|t(12, "London Zoo" }}      // There are 12 monkeys in the London Zoo
+{{ "SIMPLE_TEXT"|t(12, "London Zoo") }}      // There are 12 monkeys in the London Zoo
 ```
 
 #### PHP Translations
@@ -400,7 +400,7 @@ This will then store the active language in the session.
 
 #### Language Switcher
 
-You can download a simple **Language Switching** plugin via GPM:
+You can download a simple **Language Switching** plugin via the Admin plugin, or through the GPM with:
 
 ```
 $ bin/gpm install langswitcher

@@ -49,7 +49,7 @@ The `block` twig tag just defines a region that can be replaced or appended to i
 
 The `{% do %}` tag is actually [one built in to Twig](http://twig.sensiolabs.org/doc/tags/do.html) itself, and it lets you manipulate variables without generating any output.
 
-The `addCss()` method adds CSS assets to the Asset Manager. If you specify a second numeric parameter, that sets the priority of the stylesheet. In this case we want `nucleus.css` to be first as it has the highest priority value.  You will notice the use of a **PHP stream wrapper** `theme://` to provide an easy way for Grav to determine the current theme's relative path.
+The `addCss()` method adds CSS assets to the Asset Manager. If you specify a second numeric parameter, that sets the priority of the stylesheet. In this case we want `grids-min.css` to be first as it has the highest priority value.  You will notice the use of a **PHP stream wrapper** `theme://` to provide an easy way for Grav to determine the current theme's relative path.
 
 The `assets.css()` call renders the CSS assets out as HTML tags.
 
@@ -116,7 +116,7 @@ Where appropriate, you can pass in an array of asset options. Those options are
 
 * **priority** = Integer value (default value is `10`)
 * **pipeline** = `false` if this asset should **not** be included in pipeline (default is `true`)
-* **loading** = supports empty, `async` and `defer`
+* **loading** = supports empty, `async`, `defer` or `async defer`
 * **group** = string to specify a unique group name for asset (default is `head`)
 
 for example:

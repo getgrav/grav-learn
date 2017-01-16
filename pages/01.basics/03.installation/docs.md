@@ -97,7 +97,7 @@ If any issues are discovered during the initial page load (or after a cache-flus
 
 Please consult the [Troubleshooting](../../troubleshooting) section for help regarding specific issues.
 
-! If you have issues with file permissions, please check the [Permissions Troubleshooting documentation](/troubleshooting/permissions).  Also you could look at the [Hosting Guides documentation](/hosting) that have specific instructions for various hosting environments
+! If you have issues with file permissions, please check the [Permissions Troubleshooting documentation](/troubleshooting/permissions).  Also you could look at the [Hosting Guides documentation](/webservers-hosting) that have specific instructions for various hosting environments
 
 ## Grav Updates
 

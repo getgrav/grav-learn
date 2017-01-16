@@ -23,7 +23,8 @@ default_locale:                             # Default locale (defaults to system
 param_sep: ':'                              # Parameter separator, use ';' for Apache on windows
 wrapped_site: false                         # For themes/plugins to know if Grav is wrapped by another platform
 reverse_proxy_setup: false                  # Running in a reverse proxy scenario with different webserver ports than proxy
-proxy_url:                                  # Configure a manual proxy URL for GPM (eg 127.0.0.1:3128)
+force_ssl: false                            # If enabled, Grav forces to be accessed via HTTPS (NOTE: Not an ideal solution)
+custom_base_url: ''                         # Set the base_url manually
 
 languages:
   supported: []                             # List of languages supported. eg: [en, fr, de]
@@ -56,7 +57,7 @@ pages:
   twig_first: false                         # Process Twig before markdown when processing both on a page
   events:
     page: true                              # Enable page level events
-    twig: true                              # Enable twig level events
+    twig: true                              # Enable Twig level events
   markdown:
     extra: false                            # Enable support for Markdown Extra support (GFM by default)
     auto_line_breaks: false                 # Enable automatic line breaks
@@ -67,7 +68,7 @@ pages:
       '<': 'lt'
   types: [txt,xml,html,htm,json,rss,atom]   # list of valid page types
   append_url_extension: ''                  # Append page's extension in Page urls (e.g. '.html' results in /path/page.html)
-  expires: 604800                           # Page expires time in seconds (604800 seconds = 7 days)
+  expires: 604800                           # Page expires time in seconds (604800 seconds = 7 days) ('no cache' is also possible)
   last_modified: false                      # Set the last modified date header based on file modifcation timestamp
   etag: false                               # Set the etag header tag
   vary_accept_encoding: false               # Add `Vary: Accept-Encoding` header
@@ -78,6 +79,9 @@ pages:
   ignore_folders: [.git, .idea]             # Folders to ignore in Pages
   ignore_hidden: true                       # Ignore all Hidden files and folders
   url_taxonomy_filters: true                # Enable auto-magic URL-based taxonomy filters for page collections
+  frontmatter:
+    process_twig: false                     # Should the frontmatter be processed to replace Twig variables?
+    ignore_fields: ['form','forms']         # Fields that might contain Twig variables and should not be processed
 
 cache:
   enabled: true                             # Set to true to enable caching
@@ -89,8 +93,8 @@ cache:
   gzip: false                               # GZip compress the page output
 
 twig:
-  cache: true                               # Set to true to enable twig caching
-  debug: false                              # Enable Twig debug
+  cache: true                               # Set to true to enable Twig caching
+  debug: true                               # Enable Twig debug
   auto_reload: true                         # Refresh cache on changes
   autoescape: false                         # Autoescape Twig vars
   undefined_functions: true                 # Allow undefined functions
@@ -99,10 +103,14 @@ twig:
 
 assets:                                     # Configuration for Assets Manager (JS, CSS)
   css_pipeline: false                       # The CSS pipeline is the unification of multiple CSS resources into one file
+  css_pipeline_include_externals: true      # Include external URLs in the pipeline by default
+  css_pipeline_before_excludes: true        # Render the pipeline before any excluded files
   css_minify: true                          # Minify the CSS during pipelining
   css_minify_windows: false                 # Minify Override for Windows platforms. False by default due to ThreadStackSize
   css_rewrite: true                         # Rewrite any CSS relative URLs during pipelining
   js_pipeline: false                        # The JS pipeline is the unification of multiple JS resources into one file
+  js_pipeline_include_externals: true       # Include external URLs in the pipeline by default
+  js_pipeline_before_excludes: true         # Render the pipeline before any excluded files
   js_minify: true                           # Minify the JS during pipelining
   enable_asset_timestamp: false             # Enable asset timestamps
   collections:
@@ -135,6 +143,11 @@ session:
   name: grav-site                           # Name prefix of the session cookie. Use alphanumeric, dashes or underscores only. Do not use dots in the session name
   secure: false                             # Set session secure. If true, indicates that communication for this cookie must be over an encrypted transmission. Enable this only on sites that run exclusively on HTTPS
   httponly: true                            # Set session HTTP only. If true, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed.
+  path:
+
+gpm:
+  releases: stable                           # Set to either 'stable' or 'testing'
+  proxy_url:                                 # Configure a manual proxy URL for GPM (eg 127.0.0.1:3128)
 ```
 
 !! You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
@@ -164,12 +177,12 @@ summary:
   delimiter: ===                            # The summary delimiter
 
 redirects:
-#  /redirect-test: /                         # Redirect test goes to home page
-#  /old/(.*): /new/$1                        # Would redirect /old/my-page to /new/my-page
+#  '/redirect-test': '/'                         # Redirect test goes to home page
+#  '/old/(.*)': '/new/$1'                        # Would redirect /old/my-page to /new/my-page
 
 routes:
-#  /something/else: '/blog/sample-3'         # Alias for /blog/sample-3
-#  /new/(.*): '/blog/$1'                     # Regex any /new/my-page URL to /blog/my-page Route
+#  '/something/else': '/blog/sample-3'         # Alias for /blog/sample-3
+#  '/new/(.*)': '/blog/$1'                     # Regex any /new/my-page URL to /blog/my-page Route
 
 blog:
   route: '/blog'                            # Custom value added (accessible via system.blog.route)
@@ -202,6 +215,28 @@ Let's break down the elements of this sample file:
 User configuration is completely optional. You can override as little or as much of the default settings as you need. This applies to both the system, site, and any plugin configurations in your site.
 
 You are also not limited to the `user/config/system.yaml` or the `user/config/site.yaml` files as described above. You can create any arbitrary `.yaml` configuration file in the `user/config` folder you wish and it will get picked up by Grav automatically.
+
+As an example if the new configuration file is named `user/config/data.yaml` and a yaml variable in this file is called count:
+
+```
+count: 39
+```
+
+The variable would be accessed in your Twig template by using the following syntax:
+
+```
+{{ config.data.count }}
+```
+
+It would also be accessible via PHP from any plugin with the code:
+
+```
+$count_var = Grav::instance()['config']->get('data.count');
+```
+
+! You can also provide a custom blueprint to enable your custom file to be editable in the admin plugin. Check out the relevant [recipe in the Admin Cookbook section](/cookbook/admin-recipes#add-a-custom-yaml-file).
+
+## Config Variable Namespacing
 
 Paths to the configuration files will be used as a **namespace** for your configuration options.
 
