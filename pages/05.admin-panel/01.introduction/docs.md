@@ -2,13 +2,12 @@
 title: Introduction
 taxonomy:
     category: docs
+twig_first: true
 process:
     twig: true
 ---
 
 The **Grav Administration Panel** plugin for [Grav](http://github.com/getgrav/grav) is a web GUI (graphical user interface) that provides a convenient way to configure Grav and easily create and modify pages.  This will remain a totally optional plugin, and is not in any way required or needed to use Grav effectively.  In fact, the admin provides an intentionally limited view to ensure it remains easy to use and not overwhelming.  Power users will still prefer to work with the configuration files directly.
-
->>>> This plugin is currently in development as is to be considered a **beta release**.  As such, use this in a production environment **at your own risk!**.
 
 ![](admin-dashboard.png)
 
@@ -37,7 +36,7 @@ The **Grav Administration Panel** plugin for [Grav](http://github.com/getgrav/gr
 
 ### Support
 
-We have tested internally, but we hope to use this public beta phase to identify, isolate, and fix issues related to the plugin to ensure it is as solid and reliable as possible.
+The Adminstration Panel is quite an ambitious plugin with lots of functionality that will give you a lot of power and flexibility when building out your Grav sites. So if you have any questions, problems, suggestions or find one of those rare bugs in it, please use one of the following ways to get support from us.
 
 For **live chatting**, please use the dedicated [Gitter Chat Room for the admin plugin](https://gitter.im/getgrav/grav-plugin-admin) for discussions directly related to the admin plugin.
 
@@ -57,41 +56,17 @@ The admin plugin actually requires the help of 3 other plugins, so to get the ad
 $ bin/gpm install admin
 ```
 
+You can also [install the plugin manually](../faq#manual-installation-of-admin) if you are unable to use GPM on your system.
+
 ### Creating a User
 
-With Grav {{ grav_version }}, you can now create a user account with the CLI:
+With the latest version of the Grav admin, you will be prompted to create an admin user account when you point your browser to your site.  You must complete this step to ensure straight away to ensure a valid admin user is under your control.
 
-```
-$ bin/grav newuser
-```
+![](new-user.png)
 
-Simply follow along with the prompts to create the user account.
+Simply fill out the form and click the `Create User` button.
 
-Alternatively, you can create a `user/accounts/admin.yaml` file manually. This filename is actually the **username** that you will use to login. The contents will contain the other information for the user.
-
-```
-password: 'password'
-email: 'youremail@mail.com'
-fullname: 'Johnny Appleseed'
-title: 'Site Administrator'
-access:
-  admin:
-    login: true
-    super: true
-```
-
-Of course you should edit your `email`, `password`, `fullname`, and `title` to suit your needs.
-
-### Manual Installation
-
-Manual installation is not the recommended method of installation, however, it is still possible to install the admin plugin manually. Basically, you need to download each of the following plugins individually:
-
-* [admin](https://github.com/getgrav/grav-plugin-admin/archive/develop.zip)
-* [login](https://github.com/getgrav/grav-plugin-login/archive/develop.zip)
-* [form](https://github.com/getgrav/grav-plugin-form/archive/develop.zip)
-* [email](https://github.com/getgrav/grav-plugin-email/archive/develop.zip)
-
-Extract each archive file into your `user/plugins` folder, then ensure the folders are renamed to just `admin/`, `login/`, `form/`, and `email/`.  Then proceed with the **Usage instructions below**.
+The user information is stored in the `user/accounts/` folder of your Grav installation.  You can edit the values manually or via the Admin plugin itself.  You can also create new users manually or via a the `bin/plugin login newuser` CLI command.  More information is contained in the [Grav Admin FAQ](../faq#adding-and-managing-users).
 
 ### Usage
 

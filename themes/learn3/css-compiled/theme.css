@@ -156,6 +156,8 @@ textarea, input[type="email"], input[type="number"], input[type="password"], inp
     color: #ccc; }
     #sidebar a:hover {
       color: #e6e6e6; }
+    #sidebar a.subtitle {
+      color: rgba(204, 204, 204, 0.6); }
   #sidebar hr {
     border-bottom: 1px solid #2a232f; }
   #sidebar a.padding {
@@ -390,55 +392,47 @@ blockquote {
     color: #666;
     font-size: 1.2rem; }
 
-blockquote {
+div.notices {
+  margin: 2rem 0;
   position: relative; }
-
-blockquote blockquote {
-  position: static; }
-
-blockquote > blockquote > blockquote {
-  margin: 0; }
-  blockquote > blockquote > blockquote p {
+  div.notices p {
     padding: 15px;
     display: block;
     font-size: 1rem;
     margin-top: 0rem;
     margin-bottom: 0rem;
     color: #666; }
-    blockquote > blockquote > blockquote p:first-child:before {
+    div.notices p:first-child:before {
       position: absolute;
       top: 2px;
       color: #fff;
       font-family: FontAwesome;
       content: '';
       left: 10px; }
-    blockquote > blockquote > blockquote p:first-child:after {
+    div.notices p:first-child:after {
       position: absolute;
       top: 2px;
       color: #fff;
-      left: 2rem;
-      content: 'Info'; }
-  blockquote > blockquote > blockquote > p {
-    margin-left: -71px;
+      left: 2rem; }
+  div.notices.info p {
     border-top: 30px solid #F0B37E;
     background: #FFF2DB; }
-  blockquote > blockquote > blockquote > blockquote > p {
-    margin-left: -94px;
+    div.notices.info p:first-child:after {
+      content: 'Info'; }
+  div.notices.warning p {
     border-top: 30px solid rgba(217, 83, 79, 0.8);
     background: #FAE2E2; }
-    blockquote > blockquote > blockquote > blockquote > p:first-child:after {
+    div.notices.warning p:first-child:after {
       content: 'Warning'; }
-  blockquote > blockquote > blockquote > blockquote > blockquote > p {
-    margin-left: -118px;
+  div.notices.note p {
     border-top: 30px solid #6AB0DE;
     background: #E7F2FA; }
-    blockquote > blockquote > blockquote > blockquote > blockquote > p:first-child:after {
+    div.notices.note p:first-child:after {
       content: 'Note'; }
-  blockquote > blockquote > blockquote > blockquote > blockquote > blockquote > p {
-    margin-left: -142px;
+  div.notices.tip p {
     border-top: 30px solid rgba(92, 184, 92, 0.8);
     background: #E6F9E6; }
-    blockquote > blockquote > blockquote > blockquote > blockquote > blockquote > p:first-child:after {
+    div.notices.tip p:first-child:after {
       content: 'Tip'; }
 
 code,
@@ -446,7 +440,7 @@ kbd,
 pre,
 samp {
   font-family: "Consolas", menlo, monospace;
-  font-size: 16px; }
+  font-size: 92%; }
 
 code {
   border-radius: 2px;
@@ -457,7 +451,6 @@ code {
   padding: 0px 2px; }
 
 code + .copy-to-clipboard {
-  border: 1px solid #fbf0cb;
   margin-left: -1px;
   border-left: 0 !important;
   font-size: inherit !important;
@@ -468,8 +461,8 @@ code + .copy-to-clipboard {
 pre {
   padding: 1rem;
   margin: 2rem 0;
-  background: #f6f6f6;
-  border: 1px solid #ddd;
+  background: #1d1f21;
+  border: 0;
   border-radius: 2px;
   line-height: 1.15; }
   pre code {
@@ -478,7 +471,8 @@ pre {
     white-space: inherit;
     border: 0;
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    font-size: 15px; }
 
 hr {
   border-bottom: 4px solid #F0F2F4; }
@@ -495,6 +489,24 @@ hr {
   color: #ccc; }
 #body a.anchor-link:hover {
   color: #00BDF3; }
+
+#body-inner .tabs-wrapper.ui-theme-badges {
+  background: #1d1f21; }
+  #body-inner .tabs-wrapper.ui-theme-badges .tabs-nav li {
+    font-size: 0.9rem;
+    text-transform: uppercase; }
+    #body-inner .tabs-wrapper.ui-theme-badges .tabs-nav li a {
+      background: #35393c; }
+    #body-inner .tabs-wrapper.ui-theme-badges .tabs-nav li.current a {
+      background: #4d5257; }
+#body-inner pre {
+  white-space: pre-wrap; }
+
+.tabs-wrapper pre {
+  margin: 1rem 0;
+  border: 0;
+  padding: 0;
+  background: inherit; }
 
 .scrollbar-inner > .scroll-element .scroll-element_track {
   background-color: rgba(255, 255, 255, 0.3); }
@@ -967,15 +979,24 @@ td {
     position: absolute;
     right: 4px;
     top: 4px;
-    background-color: #eee;
-    border-color: #ddd;
+    background-color: #4d5257;
+    color: #ccc;
     border-radius: 2px; }
     pre .copy-to-clipboard:hover {
-      background-color: #d9d9d9; }
+      background-color: #656c72;
+      color: #fff; }
 
 .parent-element {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d; }
+
+.hljs::selection,
+.hljs span::selection {
+  background: #8b949e !important; }
+
+.hljs::-moz-selection,
+.hljs span::-moz-selection {
+  background: #8b949e !important; }
 
 /*# sourceMappingURL=theme.css.map */

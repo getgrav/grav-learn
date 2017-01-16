@@ -50,7 +50,7 @@ filters:
 
 This allows us to have multiple filters if we wish, but for now, we just want all content with the taxonomy `category: blog` to be eligible for the random selection.
 
->>>> The Grav default install has taxonomy defined for `category` and `tag` by default.  This configuration can be modified in your `user/config/site.yaml` file.
+!!!! The Grav default install has taxonomy defined for `category` and `tag` by default.  This configuration can be modified in your `user/config/site.yaml` file.
 
 Of course, as with all other configurations in Grav, it is advised not to touch this default configuration for day-to-day control. Rather, you should create an override in a file called `/user/config/plugins/random.yaml` to house any custom settings.  This plugin-provided `random.yaml` is really intended to set some sensible defaults for your plugin.
 
@@ -215,7 +215,7 @@ If you followed along, you should have a fully functional **Random** plugin enab
 
 ### Merging Plugin and Page Configuration
 
-One popular technique that is used in a variety of plugins is the concept of merging the plugin configuration (either default or overridden user config) with page-level configuration.  This means you can set **site-wide** configuration, and then have a specific configuration for a given page as needed.  This is provides a lot of power and flexibility for your plugin.
+One popular technique that is used in a variety of plugins is the concept of merging the plugin configuration (either default or overridden user config) with page-level configuration.  This means you can set **site-wide** configuration, and then have a specific configuration for a given page as needed.  This provides a lot of power and flexibility for your plugin.
 
 In recent versions of Grav, a helper method was added to perform this functionality automatically rather than you having to code that logic yourself.  The **SmartyPants** plugin provides a good example of this functionality in action:
 
@@ -233,3 +233,7 @@ public function onPageContentProcessed(Event $event)
     }
 }
 ```
+
+### Implementing CLI to your Plugin
+
+Plugins have also the capability of integrating with the `bin/plugin` command line to execute tasks. You can follow the [advanced tutorial](/advanced/grav-cli-plugin) if you desire to implement such functionality.

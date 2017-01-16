@@ -10,3 +10,21 @@ taxonomies: [category,tag]
 summary:
   size: 300
 
+redirects:
+  '/hosting/rochen': '/hosting/shared/rochen'
+  '/hosting/wirenine': '/hosting/shared/wirenine'
+  '/hosting/crucial': '/hosting/shared/crucial'
+  '/hosting/arvixe': '/hosting/shared/arvixe'
+  '/hosting/siteground': '/hosting/shared/siteground'
+  '/hosting/dreamhost': '/hosting/shared/dreamhost'
+  '/advanced/route-aliases': '/content/routing'
+  '/advanced/grav-cli': '/cli-console/grav-cli'
+  '/advanced/grav-cli-plugin': '/cli-console/grav-cli-plugin'
+  '/advanced/grav-gpm': '/cli-console/grav-cli-gpm'
+  '/advanced/command-line': '/cli-console/command-line-intro'
+  '/advanced/blueprints': '/forms/blueprints'
+  '/advanced/forms': '/forms/forms'
+  '/advanced/contact-form': '/forms/example-form'
+  '/advanced/grav-lifecycle': '/plugins/grav-lifecycle'
+
+

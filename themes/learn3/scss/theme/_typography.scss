@@ -40,24 +40,16 @@ blockquote {
 }
 
 // NOTES!!!!
-blockquote {
+div.notices {
+    margin: 2rem 0;
     position: relative;
-}
 
-blockquote blockquote {
-    position: static;
-}
-
-blockquote > blockquote > blockquote {
-
-	margin: 0;
-
-	p {
-		padding: 15px;
-		display: block;
-		font-size: 1rem;
-		margin-top: 0rem;
-		margin-bottom: 0rem;
+    p {
+        padding: 15px;
+        display: block;
+        font-size: 1rem;
+        margin-top: 0rem;
+        margin-bottom: 0rem;
         color: #666;
 
         &:first-child {
@@ -74,47 +66,41 @@ blockquote > blockquote > blockquote {
                 top: 2px;
                 color: $white;
                 left: 2rem;
-                content: 'Info';
             }
         }
-	}
+    }
 
-	> p {
-		// Yellow
-		margin-left: -71px;
-		border-top: 30px solid #F0B37E;
-		background: #FFF2DB;
-	}
+    &.info p {
+        border-top: 30px solid #F0B37E;
+        background: #FFF2DB;
+        &:first-child:after {
+            content: 'Info';
+        }
+    }
 
-	> blockquote > p {
-		// Red
-		margin-left: -94px;
-		border-top: 30px solid rgba(#D9534F, 0.8);
-		background: #FAE2E2;
+    &.warning p {
+        border-top: 30px solid rgba(#D9534F, 0.8);
+        background: #FAE2E2;
         &:first-child:after {
             content: 'Warning';
         }
-	}
+    }
 
-	> blockquote > blockquote > p {
-		// Blue
-		margin-left: -118px;
-		border-top: 30px solid #6AB0DE;
-		background: #E7F2FA;
+    &.note p {
+        border-top: 30px solid #6AB0DE;
+        background: #E7F2FA;
         &:first-child:after {
             content: 'Note';
         }
-	}
+    }
 
-	> blockquote > blockquote > blockquote > p {
-		// Green
-		margin-left: -142px;
-		border-top: 30px solid rgba(#5CB85C, 0.8);
-		background: #E6F9E6;
+    &.tip p {
+        border-top: 30px solid rgba(#5CB85C, 0.8);
+        background: #E6F9E6;
         &:first-child:after {
             content: 'Tip';
         }
-	}
+    }
 
 }
 
@@ -124,7 +110,7 @@ kbd,
 pre,
 samp {
 	font-family: $font-family-mono;
-    font-size: 16px;
+    font-size: 92%;
 }
 
 code {
@@ -137,7 +123,6 @@ code {
 }
 
 code + .copy-to-clipboard {
-    border: 1px solid #fbf0cb;
     margin-left: -1px;
     border-left: 0 !important;
     font-size: inherit !important;
@@ -150,7 +135,7 @@ pre {
 	padding: 1rem;
 	margin: 2rem 0;
 	background: $pre-bg;
-	border: 1px solid $core-border-color;
+	border: 0;
 	border-radius: 2px;
 	line-height: 1.15;
 
@@ -161,6 +146,7 @@ pre {
         border: 0;
         padding: 0;
         margin: 0;
+        font-size: 15px;
 	}
 }
 
@@ -183,6 +169,40 @@ hr {
 #body {
     a.anchor-link { color: #ccc; }
     a.anchor-link:hover { color: $core-accent; }
+}
+
+
+
+
+
+// Code Styling
+#body-inner {
+    .tabs-wrapper.ui-theme-badges {
+        background: $pre-bg;
+
+        .tabs-nav li {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+
+            a {
+                background: lighten($pre-bg, 10%);
+            }
+
+            &.current a {
+                background: lighten($pre-bg, 20%);
+            }
+        }
+    }
+    pre {
+        white-space: pre-wrap;
+    }
+}
+
+.tabs-wrapper pre {
+    margin: 1rem 0;
+    border: 0;
+    padding: 0;
+    background: inherit;
 }
 
 // Scrollbar

@@ -6,7 +6,7 @@ taxonomy:
 
 When you are designing a theme, Grav gives you access to all sorts of objects and variables from your twig templates.  The Twig templating framework provides powerful ways to read and manipulate these objects and variables.  This is [fully explained in their own documentation](http://twig.sensiolabs.org/doc/templates.html) as well as [summarized succinctly in our own documentation](../twig-primer).
 
->>>> In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provide those after the method name.  `page.content` is equivalent to `page.content()`
+!!!! In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provide those after the method name.  `page.content` is equivalent to `page.content()`
 
 ## Core Objects
 
@@ -36,7 +36,7 @@ The `{{ theme_dir }}` variable returns the file directory folder of the current 
 
 The `{{ theme_url }}` returns the relative URL to the current theme.
 
->>> When linking to assets like images or JavaScript and CSS files, it's recommended to use the `url()` function in combination with the `theme://` stream as described on the [Twig Filters & Functions](/themes/twig-filters-functions#url) page. For JavaScript and CSS, the [Asset Manager](/themes/asset-manager) is even easier to use but in some cases like dynamic or conditional loading of assets, it will not work.
+!! When linking to assets like images or JavaScript and CSS files, it's recommended to use the `url()` function in combination with the `theme://` stream as described on the [Twig Filters & Functions](/themes/twig-filters-functions#url) page. For JavaScript and CSS, the [Asset Manager](/themes/asset-manager) is even easier to use but in some cases like dynamic or conditional loading of assets, it will not work.
 
 ### config object
 
@@ -50,23 +50,17 @@ You can access any Grav configuration setting via the config object as set in th
 
 An alias to the `config.site` object. This represents the configuration as set in the `site.yaml` file.
 
-### stylesheets object
-
-An array to store CSS stylesheet assets in.  This can be looped over and used to add CSS stylesheets to the template.
-
-### scripts object
-
-An array to store JavaScript assets in.  This can the be looped over and used to add JavaScript to the template.
-
 ### page object
 
 Because Grav is built using the structure defined in the `pages/` folder, each page is represented by a **page object**.
 
 The **page object** is probably _the_ most important object you will work with as it contains all the information about the current page you are currently on.
 
+!! The whole list of the Page object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Page/Page.html). Here's a list of the methods you'll find most useful.
+
 ##### summary([size])
 
-This returns a truncated or shortened version of your content.  You can provide an optional `size` parameter to specify the number of words.  Alternatively, if no size is provided, the value can be obtained via the site-wide variable `summary.size` from your `site.yaml` configuration.
+This returns a truncated or shortened version of your content.  You can provide an optional `size` parameter to specify the maximum length of the summary, in characters.  Alternatively, if no size is provided, the value can be obtained via the site-wide variable `summary.size` from your `site.yaml` configuration.
 
 ```
 {{ page.summary }}
@@ -107,9 +101,18 @@ The author of this page is: {{ page.header.author }}
 
 This returns an array containing all the media associated with a page. These include **images**, **videos**, and other **files**.  You can access media methods as described in the [media documentation](../../content/media) for content. Because it is an array, Twig filters and functions can be used.
 
+Get a specific file or image:
 ```
-{% set first_image = page.media|first %}
 {% set my_pdf = page.media['myfile.pdf'] %}
+```
+
+Get the first image:
+```
+{% set first_image = page.media.images|first %}
+```
+
+Loop over all images and output the HTML tag to display it:
+```
 {% for image in page.media.images %}
    {{ image.html }}
 {% endfor %}
@@ -202,7 +205,7 @@ This returns a page object as specified by a route URL.
 
 ##### collection()
 
-This returns the collection of pages for this context as determined by the [collection page headers](../../content/headers).
+This returns the collection of pages for this context as determined by the [collection page headers](../../content/collections).
 
 ```
 {% for child in page.collection %}
@@ -225,6 +228,8 @@ This returns the next page from the array of siblings based on the current posit
 ##### prevSibling()
 
 This returns the previous page from the array of siblings based on the current position.
+
+!! nextSibling() and prevSibling() order pages in a stack-like structure. It works best in a blog situation, where the first blog post has nextSibling null and prevSibling is the previous blog post. If this ordering direction confuses you, we suggest to use page.adjacentSibling(-1) to point to the next page instead of page.nextSibling() to reduce the confusion the terminology might make. You can also define a constant in the theme and use that for better readability, like page.adjacentSibling(NEXT_PAGE)
 
 ##### children()
 
@@ -294,6 +299,10 @@ This returns a timestamp of when the page was last modified.
 
 This returns the date timestamp for the page.  Typically this is set in the headers to represent the date of a page or post.  If no value is defined explicitly, the file modified timestamp is used.
 
+##### template()
+
+This returns the name of the page template without the `.md` extension. For example `default`
+
 ##### filePath()
 
 This returns the full file path of the page. For example `/Users/yourname/sites/grav/user/pages/01.home/default.md`
@@ -316,12 +325,13 @@ This returns an array of the taxonomy associated with a page.  These can be iter
 
 ```
 {% for tag in page.taxonomy.tag %}
-	<a href="search/tag:{{ tag }}">{{ tag }}</a>
+    <a href="search/tag:{{ tag }}">{{ tag }}</a>
 {% endfor %}
 ```
 
-
 ### pages object
+
+!! The whole list of the Pages object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Page/Pages.html). Here's a list of the methods you'll find most useful.
 
 The **pages object** represents a nested tree of every **page object** that Grav knows about.  This is particularly useful for creating a **sitemap**, **navigation** or if you wish to find a particular **page**.
 
@@ -329,22 +339,20 @@ The **pages object** represents a nested tree of every **page object** that Grav
 
 This returns the immediate child pages as an array of **page objects**. As the pages object represents the entire tree, you can fully recurse over every page in the Grav pages/ folder.
 
-
-
 Get the top-level pages for a simple menu:
 ```
 <ul class="navigation">
     {% for page in pages.children %}
-	    {% if page.visible %}
-	    	<li><a href="{{ page.url }}">{{ page.menu }}</a></li>
-	    {% endif %}
+        {% if page.visible %}
+            <li><a href="{{ page.url }}">{{ page.menu }}</a></li>
+        {% endif %}
     {% endfor %}
 </ul>
 ```
 
-
-
 ### uri object
+
+!! The whole list of the Uri object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Uri.html). Here's a list of the methods you'll find most useful.
 
 The Uri object has several methods to access parts of the current URI. For the full URL `http://mysite.com/grav/section/category/page.json/param1:foo/param2:bar/?query1=baz&query2=qux`:
 
@@ -414,6 +422,8 @@ The global Taxonomy object that contains all the taxonomy information for the si
 
 ### browser object
 
+!! The whole list of the Browser object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Browser.html). Here's a list of the methods you'll find most useful.
+
 Grav has built-in support for programmatically determining the platform, browser, and version of the user.
 
 ```
@@ -442,7 +452,6 @@ could be used:
 ```
 The author of this page is: {{ page.header.author }}
 ```
-
 
 ## Adding Custom Objects
 

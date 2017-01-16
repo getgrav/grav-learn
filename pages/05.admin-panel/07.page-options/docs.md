@@ -14,9 +14,9 @@ It's essentially a one-stop-shop for managing a specific page.
 
 In this page, we will go over the features and functionality found in the **Options** tab of the **Page Editor**.
 
->>> Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` access level.
+!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` access level.
 
->>>>> You might notice the check boxes to the left of some of the options in this area of the admin. These boxes indicate that you would like to override the default values for this page. Leaving them unchecked reverts to blank or default states.
+! You might notice the check boxes to the left of some of the options in this area of the admin. These boxes indicate that you would like to override the default values for this page. Leaving them unchecked reverts to blank or default states.
 
 ### Publishing
 
@@ -43,7 +43,6 @@ The Taxonomies area is where you can configure your page's organizational proper
 | Category | This field enables you to set one or more categories for the page. It is useful in content sorting and filtering.                                                       |
 | Tag      | Tags are a great way to provide some back-end insight into what your page is about. It's useful for content-driven sites as a mechanism for organization and filtering. |
 | Month    |                                                                                                                                                                         |
-|          |                                                                                                                                                                         |
 
 ### Sitemap
 

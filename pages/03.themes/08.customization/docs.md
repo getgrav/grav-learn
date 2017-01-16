@@ -29,7 +29,7 @@ This may sound a little daunting at first, but you can use as much or as little 
 
 To make use of SCSS you need to use a SCSS compiler. Lucky these are [easily installed](http://sass-lang.com/install) on any platform and come in a variety of forms including a command-line tool, and many GUI applications. Frankly, the command line is all you need.
 
-The Antimatter theme has an `scss/` folder that contains a variety of `.scss` files. These should be compiled into the `css-compiled/` folder. Once installed, you can simply type:
+The Antimatter theme has an `scss/` folder that contains a variety of `.scss` files. These should be compiled into the `css-compiled/` folder. Once installed, open your terminal application, navigate to the install folder `my-grav-install/my-theme/` and you can simply type:
 
 ```
 scss --watch scss:css-compiled
@@ -93,6 +93,18 @@ To achieve this you need to follow these steps:
    ```
    pages:
      theme: mytheme
+   ```
+
+5. Create a new theme Class file that can be used to add advanced event-driven functionality. Create a `user/themes/mytheme/mytheme.php` file:
+   ```
+   <?php
+     namespace Grav\Theme;
+
+     class Mytheme extends Antimatter
+     {
+         // Some new methods, properties etc.
+     }
+   ?>  
    ```
 
 You have now created a new theme called **mytheme** and set up the streams so that it will first look in the **mytheme** theme first, then try **antimatter**.  So in essence, Antimatter is the base-theme for this new theme.

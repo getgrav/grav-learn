@@ -12,7 +12,7 @@ The **Dashboard** serves as a hub of information for the **Grav Administration P
 
 It's a starting point for your administrative experience.
 
->>> The Dashboard content will change depending on the user permissions. For example, giving `access.admin.super` unlocks everything. If that access level is not granted, `access.admin.maintenance` allows cache clearing and updates. `access.admin.pages` allows access to pages. `access.admin.statistics` allows display of the site visitors stats.
+!! The Dashboard content will change depending on the user permissions. For example, giving `access.admin.super` unlocks everything. If that access level is not granted, `access.admin.maintenance` allows cache clearing and updates. `access.admin.pages` allows access to pages. `access.admin.statistics` allows display of the site visitors stats.
 
 
 ### Cache and Updates Checking
@@ -25,7 +25,7 @@ For example, if you only want to clear the **image cache** without disrupting an
 
 The second button initiates an update check for your site. This includes any supported plugins, themes, and Grav itself. If new updates are discovered, you receive a notification on the Dashboard. This isn't the only method Grav has for checking for new updates.
 
->>> Update checks are also triggered whenever a new page in the admin is loaded, and cached for one day. If you clear all of Grav's cache and load a new page in the admin, an update check will automatically take place.
+!! Update checks are also triggered whenever a new page in the admin is loaded, and cached for one day. If you clear all of Grav's cache and load a new page in the admin, an update check will automatically take place.
 
 ### Maintenance and Statistics
 
@@ -43,7 +43,7 @@ You can update Grav's core by selecting the **Update Grav Now** button in its no
 
 There is also a graph indicating how long the site has gone without being backed up. Selecting the <i class="fa fa-database"></i> **Backup** button will generate a zip file you can download and store as a backup for your site's data.
 
->>> Backups are also stored in the `backups/` folder of your Grav install.  You can grab them via FTP or web manager tools provided by your hosting company.
+!! Backups are also stored in the `backups/` folder of your Grav install.  You can grab them via FTP or web manager tools provided by your hosting company.
 
 The **Statistics** section displays simple, at-a-glance traffic data breaking down the number of visitors the front end of the site has received in the past day, week, and month (30 days). Statistics for the past week are displayed in a bar graph separated by days of the week.
 

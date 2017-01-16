@@ -48,7 +48,7 @@ date: 01/01/2014 3:14pm
 
 The `date` variable allows you to specifically set a date associated with this page.  This is often used to indicate when a post was created and can be used for display or sort-order purposes.  If not set, this defaults to the last **modified time** of the page.
 
->>>>> Dates in the `m/d/y` or `d-m-y` formats are disambiguated by looking at the separator between the various components: if the separator is a slash (`/`), then the **American** `m/d/y` is assumed; whereas if the separator is a dash (`-`) or a dot (`.`), then the **European** `d-m-y` format is assumed.
+! Dates in the `m/d/y` or `d-m-y` formats are disambiguated by looking at the separator between the various components: if the separator is a slash (`/`), then the **American** `m/d/y` is assumed; whereas if the separator is a dash (`-`) or a dot (`.`), then the **European** `d-m-y` format is assumed.
 
 ### Published
 
@@ -82,29 +82,43 @@ visible: false
 
 By default, a page is **visible** in the **navigation** if the surrounding folder has a numerical prefix, i.e. `/01.home` is visible, while `/error` is **not visible**. This behavior can be overwritten by setting the `visible` variable in the header. Valid values are `true` or `false`.
 
+### SSL
+
+```ruby
+ssl: true
+```
+
+As of Grav **1.0.9** you can now enable a specific page to be forced with SSL **on** or **off**.  This **only works** with the `absolute_urls: true` option set in the `system.yaml` configuration.  This is because to be able to switch back and forth between SSL and non-SSL pages, you must be using full URLs with the protocol and host included.
+
 ### Redirect
 
 ```ruby
-redirect: /some/custom/route
+redirect: '/some/custom/route'
 ```
 
 or
 
 ```ruby
-redirect: http://someexternalsite.com
+redirect: 'http://someexternalsite.com'
 ```
 
-As of Grav **0.9.41** can now redirect to another internal or external page right from a page header.  Of course this means this page will not be displayed, but the page can still be in a collection, menu, etc because it will exist as a page within Grav.
+As of Grav **0.9.41** you can now redirect to another internal or external page right from a page header.  Of course this means this page will not be displayed, but the page can still be in a collection, menu, etc because it will exist as a page within Grav.
+
+As of Grav **1.0.0** you can also append a redirect code to a URL by using square brackets:
+
+```ruby
+redirect: '/some/custom/route[303]'
+```
 
 ### Routes
 
 ```
 routes:
-  default: /my/example/page
-  canonical: /canonical/url/alias
+  default: '/my/example/page'
+  canonical: '/canonical/url/alias'
   aliases:
-    - /some/other/route
-    - /can-be-any-valid-slug
+    - '/some/other/route'
+    - '/can-be-any-valid-slug'
 ```
 
 With Grav **0.9.30** you can now provide a **default route** that overrides the standard route structure as defined by the folder structure.
@@ -256,7 +270,7 @@ Enable or disable on a page level whether or not to display an ETag header varia
 last_modified: true
 ```
 
-Enable or disable on a page level whether or not to display an Last Modified header variable with modified date. False by default unless overridden in your `system.yaml`.
+Enable or disable on a page level whether or not to display a Last Modified header variable with modified date. False by default unless overridden in your `system.yaml`.
 
 
 ## Meta Page Headers
@@ -267,10 +281,25 @@ Meta headers allow you to set the [standard set of HTML **<meta> tags**](http://
 
 ```ruby
 metadata:
-    description: Your page description goes here
-    keywords: HTML, CSS, XML, JavaScript
-    author: John Smith
-    robots: noindex, nofollow
+    refresh: 30
+    generator: 'Grav'
+    description: 'Your page description goes here'
+    keywords: 'HTML, CSS, XML, JavaScript'
+    author: 'John Smith'
+    robots: 'noindex, nofollow'
+    my_key: 'my_value'
+```
+
+This will produce the HTML:
+
+```
+<meta name="generator" content="Grav" />
+<meta name="description" content="Your page &quot;description&quot; goes here" />
+<meta name="testkey" content="testvalue" />
+<meta http-equiv="refresh" content="30" />
+<meta name="keywords" content="HTML, CSS, XML, JavaScript" />
+<meta name="author" content="John Smith" />
+<meta name="robots" content="noindex, nofollow" />
 ```
 
 All HTML5 metatags are supported.
@@ -279,11 +308,19 @@ All HTML5 metatags are supported.
 
 ```ruby
 metadata:
-    og:
-        title: The Rock
-        type: video.movie
-        url: http://www.imdb.com/title/tt0117500/
-        image: http://ia.media-imdb.com/images/rock.jpg
+    'og:title': The Rock
+    'og:type': video.movie
+    'og:url': http://www.imdb.com/title/tt0117500/
+    'og:image': http://ia.media-imdb.com/images/rock.jpg
+```
+
+This will produce the HTML:
+
+```
+<meta name="og:title" property="og:title" content="The Rock" />
+<meta name="og:type" property="og:type" content="video.movie" />
+<meta name="og:url" property="og:url" content="http://www.imdb.com/title/tt0117500/" />
+<meta name="og:image" property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
 ```
 
 For a full outline of all OpenGraph metatags that can be used, please consult the [official documentation](http://ogp.me/).
@@ -292,8 +329,13 @@ For a full outline of all OpenGraph metatags that can be used, please consult th
 
 ```ruby
 metadata:
-    fb:
-        app_id: your_facebook_app_id
+    'fb:app_id': your_facebook_app_id
+```
+
+This will produce the HTML:
+
+```
+<meta name="fb:app_id" property="fb:app_id" content="your_facebook_app_id" />
 ```
 
 Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific tags and these are support automatically by Grav.
@@ -309,137 +351,17 @@ metadata:
     'twitter:image' : https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg
 ```
 
+This will produce the HTML:
+
+```
+<meta name="twitter:card" property="twitter:card" content="summary" />
+<meta name="twitter:site" property="twitter:site" content="@flickr" />
+<meta name="twitter:title" property="twitter:title" content="Your Page Title" />
+<meta name="twitter:description" property="twitter:description" content="Your page description can contain summary information" />
+<meta name="twitter:image" property="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" />
+```
+
 For a full outline of all Twitter metatags that can be used, please consult the [official documentation](https://dev.twitter.com/cards/overview).
-
-## Collection Headers
-
-To tell Grav that a specific page should be a listing page and contain child-pages, there are a number of variables that can be used:
-
-### Collection of Children
-
-You configure how the collection of pages is defined.  This mechanism is very flexible but the default configuration for pages that exist below the parent, listing page, would look like this:
-
-```ruby
-content:
-    items: @self.children
-```
-
-The `content.items` value tells Grav to gather up a collection of items and specifically `@self.children` indicates that the collection should consist of the **published child pages** below this page in the folder structure.
-
-### Collection of Modular Children
-
-```ruby
-content:
-    items: @self.modular
-```
-
-The `@self.modular` configuration option tells Grav that the page should consist of all the **published modular pages** that exist as children of this particular page.
-
-### Collection of Page's Children
-
-```ruby
-content:
-    items:
-      @page: /blog
-```
-
-the `@page` configuration will find all **non-modular** and **published** pages for a particular page. You must provide a valid page route to this option.
-
-### Collection by Taxonomy
-
-```ruby
-content:
-   items:
-      @taxonomy.tag: foo
-```
-
-Using the `@taxonomy` option, you can utilize Grav's powerful taxonomy functionality.  This is where the `taxonomy` variable in the [Site Configuration](../../basics/grav-configuration#site-configuration) file comes into play. There **must** be a definition for the taxonomy defined in that configuration file for Grav to interpret a page reference to it as valid.
-
-By setting `@taxonomy.tag: foo`, Grav will find all the **published pages** in the `/user/pages` folder that have themselves set `tag: foo` in their taxonomy variable.
-
-```ruby
-content:
-    items:
-       @taxonomy.tag: [foo, bar]
-```
-
-The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. Publsihed pages that have **both** `foo` **and** `bar` tags will be collected.  The [Taxonomy](../taxonomy) chapter will cover this concept in more detail.
-
->>> If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `@taxonomy: {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the hierarchy, each with listed values placed within `[]` brackets. Pages must meet **all** these requirements to be found.
-
-If you have multiple variables in a single parent to set, you can do this using the inline method, but for simplicity, we recommend using the standard method. Here is an example.
-
-```ruby
-content:
-  items:
-    @taxonomy:
-      category: [blog, featured]
-      tag: [foo, bar]
-```
-
-Each level in the hierarchy adds two whitespaces before the variable. YAML will allow you to use as many spaces as you want here, but two is standard practice. In the above example, both the `category` and `tag` variables are set under `@taxonomy`.
-
-### Multiple Collections
-
-With Grav **0.9.41** you can not provide multiple collection definition and the resulting collection will be the sum of all the pages found from each of the collection definitions.  for example:
-
-```ruby
-content:
-  items:
-    @self.children
-    @taxonomy:
-      category: [blog, featured]
-```
-
-### Ordering Options
-
-```ruby
-content:
-	order:
-		by: date
-		dir: desc
-		custom:
-			- _showcase
-            - _highlights
-            - _callout
-            - _features
-	limit: 5
-	pagination: true
-```
-
-Ordering of sub-pages follows the same rules as ordering of folders, the available options are:
-
-| Ordering     | Details                                                                                                                                            |
-| :----------  | :----------                                                                                                                                        |
-| **default**  | The order based on the file system, i.e. `01.home` before `02.advark`                                                                              |
-| **title**    | The order is based on the title as defined in each page                                                                                            |
-| **basename** | The order is based on the alphabetic folder name after it has been processed by the `basename()` PHP function                                      |
-| **date**     | The order based on the date as defined in each page                                                                                                |
-| **modified** | The order based on the modified timestamp of the page                                                                                              |
-| **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                  |
-| **header.x** | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015` |
-| **manual**   | The order based on the `order_manual` variable                                                                                                     |
-| **random**   | The order is randomized                                                                                                                            |
-
-The `content.items.dir` variable controls which direction the ordering should be in. Valid values are either `desc` or `asc`.
-
-In this configuration, you can see that `content.order.custom` is defining a **custom manual ordering** to ensure the page is constructed with the **showcase** first, **highlights** section second etc. Please note that if a page is not specified in the custom ordering list, then Grav falls back on the `content.order.by` for the unspecified pages.
-
-`content.limit` is pretty self explanatory, and the `content.pagination` is a simple boolean flag to be used by plugins etc to know if **pagination** should be initialized for this collection.
-
-### Date Range
-
-New as of **Grav 0.9.13** is the ability to filter by a date range:
-
-```
-content:
-    items: @self.children
-    dateRange:
-        start: 1/1/2014
-        end: 1/1/2015
-```
-
-You can use any string date format supported by [strtotime()](http://php.net/manual/en/function.strtotime.php) such as `-6 weeks` or `last Monday` as well as more traditional dates such as `01/23/2014` or `23 January 2014`. The dateRange will filter out any pages that have a date outside the provided dateRange.  Both **start** and **end** dates are optional, but at least one should be provided.
 
 ## Custom Page Headers
 
@@ -451,7 +373,7 @@ sitemap:
     priority: 1.03
 ```
 
-The significance of these headers is that Grav does not use them by default, they are only read by the **sitemap plugin** to determine how often this particular page is modified and what its priority should be.
+The significance of these headers is that Grav does not use them by default. They are only read by the **sitemap plugin** to determine how often this particular page is modified and what its priority should be.
 
 Any page header such as this should be documented, and generally there will be some default value that will be used if the page does not provide it.
 
@@ -477,3 +399,7 @@ You could then access them from Twig:
 ```
 
 This really provides a lot of flexibility and power.
+
+## Collection Headers
+
+Collections have grown up! All [Collection Header information](../collections) is now broken out into [their own separate section](../collections).

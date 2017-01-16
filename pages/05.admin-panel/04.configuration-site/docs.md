@@ -10,7 +10,7 @@ process:
 
 The **Configuration** page gives you access to your site's **System** and **Site** configuration settings. Additionally, you can view a breakdown of your server's properties in a number of areas including PHP, SQL, server environment, and other various components that determine how your site operates.
 
->>> The Configuration requires an `access.admin.super` or `access.admin.configuration` access level.
+!! The Configuration requires an `access.admin.super` or `access.admin.configuration` access level.
 
 The **Site** tab enables you to customize the settings found in the `/user/config/site.yaml` file. This tab gives you access to options and fields that determine site-related variables, such as the name, default author, and metadata used in your site.
 

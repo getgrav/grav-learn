@@ -72,7 +72,7 @@ JavaScript assets are very similar:
 
 The add method does its best attempt to match an asset based on file extension.  It is a convenience method, it's better to call one of the direct methods for CSS or JS.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets. The pipeline attribute controls whether or not this asset should be included in the combination/minify pipeline.
 
->>> The options array is the preferred approach for passing multiple options. However as in the previous examples, you can use a shortcut and pass in an integer for the **second attribute** in the method if all you wish to set is the **priority**
+!! The options array is the preferred approach for passing multiple options. However as in the previous examples, you can use a shortcut and pass in an integer for the **second attribute** in the method if all you wish to set is the **priority**
 
 #### addCss(asset, [options])
 
@@ -108,12 +108,13 @@ Where appropriate, you can pass in an array of asset options. Those options are
 
 #### For CSS
 
-* **priority** = Integer value (default value is `100`)
+* **priority** = Integer value (default value is `10`)
 * **pipeline** = `false` if this asset should **not** be included in pipeline (default is `true`)
+* **media** = a media query such as `only screen and (min-width: 640px)`
 
 #### For JS
 
-* **priority** = Integer value (default value is `100`)
+* **priority** = Integer value (default value is `10`)
 * **pipeline** = `false` if this asset should **not** be included in pipeline (default is `true`)
 * **loading** = supports empty, `async` and `defer`
 * **group** = string to specify a unique group name for asset (default is `head`)
@@ -165,7 +166,7 @@ An example of this action can be found in the [**bootstrapper** plugin](https://
 
 ## Grouped Assets
 
-A new feature was added in Grav **0.9.43** that lets you pass an optional `group` as part of an options array when adding assets.  This is most useful for JavaScript where you may need to have some JS files or Inline JS referenced in the header, and some at the bottom of the page.  Prior to this Grav release, this was not possible using the Asset manager, but it is now.
+A new feature was added in Grav **0.9.43** that lets you pass an optional `group` as part of an options array when adding assets.  This is useful for CSS, but especially for  JavaScript where you may need to have some JS files or Inline JS referenced in the header, and some at the bottom of the page.  Prior to this Grav release, this was not possible using the Asset manager, but it is now.
 
 To take advantage of this capability you must specify the group when adding the asset, and should use the options syntax:
 
@@ -179,7 +180,20 @@ Then for these assets in the bottom group to render, you must add the following 
 {{ assets.js('bottom') }}
 ```
 
-If no group is defined for an asset, then `head` is the default group.  If no group is set for rendering, the `head` group will be rendered. This ensures thew new functionality is 100% backwards compatible with existing themes.
+If no group is defined for an asset, then `head` is the default group.  If no group is set for rendering, the `head` group will be rendered. This ensures the new functionality is 100% backwards compatible with existing themes.
+
+The same goes for CSS files:
+
+```
+{% do assets.addCss('theme://css/ie8.css', {'group':'ie'}) %}
+```
+
+and to render:
+
+
+```
+{{ assets.css('ie') }}
+```
 
 ## Static Assets
 
@@ -193,4 +207,18 @@ The `url()` method takes an optional second parameter of `true` or `false` to en
 
 ```
 url("theme://some/extra.css", true)
+```
+
+## Change attribute of the rendered CSS/JS assets
+
+CSS is by default added using the `rel="stylesheet"` attribute, and `type="text/css"` , while JS has `type="text/javascript"`.
+
+To change the defaults, or to add new attributes, you need to create a new group of assets, and tell Grav to render it with that attribute.
+
+Example of editing the `rel` attribute on a group of assets:
+
+```
+{% do assets.addCSS('theme://whatever.css', {'group':'my-alternate-group'}) %}
+...
+{{ assets.css('my-alternate-group', {'rel': 'alternate'}) }}
 ```

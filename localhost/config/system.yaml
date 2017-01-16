@@ -1,5 +1,5 @@
 cache:
-  enabled: true
+  enabled: false
   check:
     method: file
 
@@ -12,4 +12,4 @@ twig:
   debug: true
 
 debugger:
-  enabled: false
+  enabled: true

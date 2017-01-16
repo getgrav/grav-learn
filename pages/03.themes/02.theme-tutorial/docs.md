@@ -24,33 +24,33 @@ As outlined in the [Theme Basics](../theme-basics) chapter, there are some key e
 
 1. Follow the [Installation instruction](../../basics/installation) and ensure you have Grav properly installed.
 
-2. Create a folder called `bootstrap` within the `user/themes` folder of your Grav site to provide the basis of our new theme.
+2. Create a folder called `mytheme` within the `user/themes` folder of your Grav site to provide the basis of our new theme.
 
-3. In your new `user/themes/bootstrap` folder you just created, create these folders:
+3. In your new `user/themes/mytheme` folder you just created, create these folders:
 
-	```
-	css/
-	fonts/
-	images/
-	js/
-	templates/
-	```
+    ```
+    css/
+    fonts/
+    images/
+    js/
+    templates/
+    ```
 
-4. Next, create a Theme file called `bootstrap.php` in your `user/themes/bootstrap` folder with the following content:
+4. Next, create a Theme file called `mytheme.php` in your `user/themes/mytheme` folder with the following content:
 
-	```
-	<?php
-	namespace Grav\Theme;
+    ```
+    <?php
+    namespace Grav\Theme;
 
-	use Grav\Common\Theme;
+    use Grav\Common\Theme;
 
-	class Bootstrap extends Theme
-	{
+    class Mytheme extends Theme
+    {
 
-	}
-	```
+    }
+    ```
 
-5. Then, create a Theme configuration file called `bootstrap.yaml` in your `/user/themes/bootstrap` folder with the following content:
+5. Then, create a Theme configuration file called `mytheme.yaml` in your `/user/themes/mytheme` folder with the following content:
 
    ```
    enabled: true
@@ -60,16 +60,18 @@ As outlined in the [Theme Basics](../theme-basics) chapter, there are some key e
 
 ## Step 2 - Add Bootstrap
 
+!!! Grav has a handy Plugin called "Bootstrapper" which automatically loads the Bootstrap CSS and JS for us. For demonstration purposes, however, we'll manually load Bootstrap in our theme, so this explanation can be used to load other frameworks too.
+
 Of course, to create a Bootstrap theme, we must actually include Bootstrap in our theme.
 
-In this tutorial, we will use the latest version available (at the time of writing latest version is **v3.2.0**) so you will need to [download the Bootstrap distribution package](http://getbootstrap.com/getting-started/#download). This package includes the essential bits needed to use the framework.
+In this tutorial, we will use the latest version available (at the time of writing latest version is **v3.3.6**) so you will need to [download the Bootstrap distribution package](http://getbootstrap.com/getting-started/#download). This package includes the essential bits needed to use the framework.
 
->>>> Be sure to download the regular version labeled "Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included."
+!!!! Be sure to download the regular version labeled "Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included."
 
 Next **unzip** the package you downloaded into a temporary location. You should see **3 folders**: `css`, `fonts`, and `js`.  Copy the contents of each of these folders into the similarly-named folders you just created in your theme.
 
 ```
-bootstrap
+mytheme
 ├── css
 │   ├── bootstrap-theme.css
 │   ├── bootstrap-theme.css.map
@@ -87,8 +89,8 @@ bootstrap
 │   ├── bootstrap.js
 │   └── bootstrap.min.js
 ├── templates
-├── boostrap.yaml
-└── bootstrap.php
+├── mytheme.yaml
+└── mytheme.php
 ```
 
 ## Step 3 - Base Template
@@ -97,13 +99,13 @@ As you know from the [previous chapter](../theme-basics), each item of content i
 
 Utilizing the Twig [Extends](http://twig.sensiolabs.org/doc/tags/extends.html) tag you can define a base layout with [blocks](http://twig.sensiolabs.org/doc/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.
 
->>> As a general rule, we use the `templates/partials` folder to contain Twig templates that represent either little chunks of HTML, or are shared.
+!! As a general rule, we use the `templates/partials` folder to contain Twig templates that represent either little chunks of HTML, or are shared.
 
 So we will now create a simple Bootstrap friendly base template:
 
-1. Create a folder in your `user/themes/bootstrap/templates` folder called `partials`. We will use this folder to store our base template.
+1. Create a folder in your `user/themes/mytheme/templates` folder called `partials`. We will use this folder to store our base template.
 
-2. In this new `user/themes/bootstrap/templates/partials` folder, create a file called `base.html.twig` with the following content:
+2. In this new `user/themes/mytheme/templates/partials` folder, create a file called `base.html.twig` with the following content:
 
 ```
 <!DOCTYPE html>
@@ -126,13 +128,13 @@ So we will now create a simple Bootstrap friendly base template:
         <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
 
         {% block stylesheets %}
-        	{# Bootstrap core CSS #}
-        	{% do assets.add('theme://css/bootstrap.min.css',101) %}
+            {# Bootstrap core CSS #}
+            {% do assets.add('theme://css/bootstrap.min.css',101) %}
 
-		{# Custom styles for this theme #}
-        	{% do assets.add('theme://css/bootstrap-custom.css',100) %}
+        {# Custom styles for this theme #}
+            {% do assets.add('theme://css/bootstrap-custom.css',100) %}
 
-        	{{ assets.css() }}
+            {{ assets.css() }}
         {% endblock %}
 
         {% block javascripts %}
@@ -140,7 +142,7 @@ So we will now create a simple Bootstrap friendly base template:
             {% do assets.add('theme://js/bootstrap.min.js') %}
 
             {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
-            	{% do assets.add('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') %}
+                {% do assets.add('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') %}
                 {% do assets.add('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') %}
             {% endif %}
 
@@ -161,7 +163,7 @@ So we will now create a simple Bootstrap friendly base template:
 
         <div class="footer">
             <div class="container">
-                <p class="text-muted">Bootstrap Theme for <a href="http://getgrav.org">Grav</a></p>
+                <p class="text-muted">Mytheme Theme for <a href="http://getgrav.org">Grav</a></p>
             </div>
         </div>
     </body>
@@ -195,7 +197,7 @@ Please read over the code in the `base.html.twig` file to try to understand what
 
 If you read the code, you will remember seeing a reference just after the `<body>` tag that looked like: `{% include 'partials/header.html.twig' %}`.  This tells the Twig rendering engine to include another template file at this point.  We need to now create this file to provide our **header** and **navigation**.
 
-In your `user/themes/bootstrap/templates/partials` folder, create a file called `header.html.twig` with the following content:
+In your `user/themes/mytheme/templates/partials` folder, create a file called `header.html.twig` with the following content:
 
 ```html
 <nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation">
@@ -229,13 +231,13 @@ Most of this is standard **Bootstrap** output for creating a navbar, but the int
 
 As we explained in **Step 3**, we need to create a `default.html.twig` file that actually makes use of the newly created `partials/base.html.twig` and in turn, `partials/header.html.twig`.
 
-In your `user/themes/bootstrap/templates/` folder, create a file called `default.html.twig` with the following content:
+In your `user/themes/mytheme/templates/` folder, create a file called `default.html.twig` with the following content:
 
 ```
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-	{{ page.content }}
+    {{ page.content }}
 {% endblock %}
 ```
 
@@ -249,120 +251,120 @@ This is a very simple file because all of the hard-work has already been done by
 
 You might have noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via Asset Manager: `do assets.add('theme://css/bootstrap-custom.css',100)`.  This file will house any custom CSS we need to fill in the gaps not provided by the Bootstrap CSS.
 
-1. In your `user/themes/bootstrap/css` folder, create a file called `bootstrap-custom.css` with the following content:
+1. In your `user/themes/mytheme/css` folder, create a file called `bootstrap-custom.css` with the following content:
 
-		/* Constrain the width */
-		.container {
-		  width: auto;
-		  max-width: 960px;
-		  padding: 0 15px;
-		}
+        /* Constrain the width */
+        .container {
+          width: auto;
+          max-width: 960px;
+          padding: 0 15px;
+        }
 
-		/* Center the footer text */
-		.container .text-muted {
-		  margin: 20px 0;
-		  text-align: center;
-		}
+        /* Center the footer text */
+        .container .text-muted {
+          margin: 20px 0;
+          text-align: center;
+        }
 
-		/* Sticky footer styles
-		-------------------------------------------------- */
-		html {
-		  position: relative;
-		  min-height: 100%;
-		}
+        /* Sticky footer styles
+        -------------------------------------------------- */
+        html {
+          position: relative;
+          min-height: 100%;
+        }
 
-		body {
-		  /* Margin bottom by footer height */
-		  margin-bottom: 60px;
-		}
+        body {
+          /* Margin bottom by footer height */
+          margin-bottom: 60px;
+        }
 
-		.footer {
-		  position: absolute;
-		  bottom: 0;
-		  width: 100%;
-		  /* Set the fixed height of the footer here */
-		  height: 60px;
-		  background-color: #f5f5f5;
-		}
+        .footer {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          /* Set the fixed height of the footer here */
+          height: 60px;
+          background-color: #f5f5f5;
+        }
 
-		/* Typography */
+        /* Typography */
 
-		/* Tables */
-		table {
-			width: 100%;
-			border: 1px solid #f0f0f0;
-			margin: 30px 0;
-		}
+        /* Tables */
+        table {
+            width: 100%;
+            border: 1px solid #f0f0f0;
+            margin: 30px 0;
+        }
 
-		th {
-			font-weight: bold;
-			background: #f9f9f9;
-			padding: 5px;
-		}
+        th {
+            font-weight: bold;
+            background: #f9f9f9;
+            padding: 5px;
+        }
 
-		td {
-			padding: 5px;
-			border: 1px solid #f0f0f0;
-		}
+        td {
+            padding: 5px;
+            border: 1px solid #f0f0f0;
+        }
 
-		/* Notice Styles */
-		blockquote {
-			padding: 0 0 0 20px !important;
-			font-size: 16px;
-			color: #666;
-		}
-		blockquote > blockquote > blockquote {
-			margin: 0;
-		}
+        /* Notice Styles */
+        blockquote {
+            padding: 0 0 0 20px !important;
+            font-size: 16px;
+            color: #666;
+        }
+        blockquote > blockquote > blockquote {
+            margin: 0;
+        }
 
-		blockquote > blockquote > blockquote p {
-			padding: 15px;
-			display: block;
-			margin-top: 0rem;
-			margin-bottom: 0rem;
-			border: 1px solid #f0f0f0;
-		}
+        blockquote > blockquote > blockquote p {
+            padding: 15px;
+            display: block;
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+            border: 1px solid #f0f0f0;
+        }
 
-		blockquote > blockquote > blockquote > p {
-			/* Yellow */
-			margin-left: -75px;
-			color: #8a6d3b;
-			background-color: #fcf8e3;
-			border-color: #faebcc;
-		}
+        blockquote > blockquote > blockquote > p {
+            /* Yellow */
+            margin-left: -75px;
+            color: #8a6d3b;
+            background-color: #fcf8e3;
+            border-color: #faebcc;
+        }
 
-		blockquote > blockquote > blockquote > blockquote > p {
-			/* Red */
-			margin-left: -100px;
-			color: #a94442;
-			background-color: #f2dede;
-			border-color: #ebccd1;
-		}
+        blockquote > blockquote > blockquote > blockquote > p {
+            /* Red */
+            margin-left: -100px;
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
 
-		blockquote > blockquote > blockquote > blockquote > blockquote > p {
-			/* Blue */
-			margin-left: -125px;
-			color: #31708f;
-			background-color: #d9edf7;
-			border-color: #bce8f1;
-		}
+        blockquote > blockquote > blockquote > blockquote > blockquote > p {
+            /* Blue */
+            margin-left: -125px;
+            color: #31708f;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+        }
 
-		blockquote > blockquote > blockquote > blockquote > blockquote > blockquote > p {
-			/* Green */
-			margin-left: -150px;
-			color: #3c763d;
-			background-color: #dff0d8;
-			border-color: #d6e9c6;
-		}
+        blockquote > blockquote > blockquote > blockquote > blockquote > blockquote > p {
+            /* Green */
+            margin-left: -150px;
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
 
 2. Most of this file contains Markdown-friendly **table** and **notice** style CSS that require CSS classes in normal bootstrap to utilize.
 
 ### Step 8 - Testing
 
-Your finished **bootstrap theme** folder should now look something like this:
+Your finished **mytheme theme** folder should now look something like this:
 
 ```bash
-bootstrap
+mytheme
 ├── css
 │   ├── bootstrap-custom.css
 │   ├── bootstrap-theme.css
@@ -385,11 +387,11 @@ bootstrap
 │   │   ├── base.html.twig
 │   │   └── header.html.twig
 │   └── default.html.twig
-├── boostrap.yaml
-└── bootstrap.php
+├── mytheme.yaml
+└── mytheme.php
 ```
 
-The next step is to change your default theme to your new `bootstrap` theme and test it!
+The next step is to change your default theme to your new `mytheme` theme and test it!
 
 Open your `user/config/system.yaml` file and edit the line that currently says:
 
@@ -402,7 +404,7 @@ and change it to:
 
 ```
 pages:
-  theme: bootstrap
+  theme: mytheme
 ```
 
 Then, open your browser, and point it to your Grav site.  You should see something like this:
@@ -412,5 +414,5 @@ Then, open your browser, and point it to your Grav site.  You should see somethi
 At this point you have created your first theme!  There are a couple of minor things missing:
 
 1. Create a **favicon** in `images/favicon.png`.
-2. Create a thumbnail of the new theme in `/images/thumbnail.jpg`.
+2. Create a thumbnail called `thumbnail.jpg` and place in the root of your theme.
 3. Add missing **templates** for other pages other than `default.html.twig`, e.g. `blog.html.twig` that you might need.

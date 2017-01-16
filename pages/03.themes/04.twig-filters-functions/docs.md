@@ -54,7 +54,7 @@ Filters field name by changing dot notation into array notation
 
 Converts a string into a more "human readable" format
 
-`'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i>
+`'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i> **{{ 'something_text_to_read'|humanize }}**
 
 ##### Ksort
 
@@ -74,7 +74,7 @@ Sort an array map by each key
 
 ##### Left Trim
 
-`'/strip/leading/slash/'|ltrim('/')`
+`'/strip/leading/slash/'|ltrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/leading/slash/'|ltrim('/') }}
 
 Removes trailing spaces at the beginning of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.ltrim.php](http://php.net/manual/en/function.ltrim.php))
 
@@ -89,6 +89,12 @@ Take an arbitrary string containing markdown and convert it to HTML using the ma
 Creates an md5 hash for the string
 
 `'anything'|md5` <i class="fa fa-long-arrow-right"></i> **{{ 'anything'|md5 }}**
+
+##### Modulus
+
+Performs the same functionality as the Modulus `%` symbol in PHP. It operates on a number by passing in a numeric divider and an optional array of items to select from.
+
+`7|modulus(3, [red, blue, green])`
 
 ##### Monthize
 
@@ -132,7 +138,7 @@ Randomizes the list provided.  If a value is provided as a parameter, it will sk
 
 ##### Right Trim
 
-`'/strip/trailing/slash/'|ltrim('/')`
+`'/strip/trailing/slash/'|rtrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/trailing/slash/'|rtrim('/') }}
 
 Removes trailing spaces at the end of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.rtrim.php](http://php.net/manual/en/function.rtrim.php))
 
@@ -147,6 +153,14 @@ Converts a string to the English singular version
 The safe email filter converts an email address into ASCII characters to make it harder for email spam bots to recognize and capture.
 
 `"someone@domain.com"|safe_email` <i class="fa fa-long-arrow-right"></i> {{ "someone@domain.com"|safe_email }}
+
+Usage example with a mailto link:
+
+```
+<a href="mailto:{{'your.email@server.com'|safe_email}}">
+  Email me
+</a>
+```
 
 ##### SortByKey
 
@@ -174,7 +188,7 @@ Takes a needle and a haystack and determines if the haystack starts with the nee
 
 Translate a string into the current language
 
-`{{'MY_LANGUAGE_KEY_STRING'|t}}` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
+`'MY_LANGUAGE_KEY_STRING'|t` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
 
 This assumes you have these language strings translated in your site and have enabled multi-language support.  Please refer to the [multi-language documentation](../../content/multi-language) for more detailed information.
 
@@ -182,7 +196,7 @@ This assumes you have these language strings translated in your site and have en
 
 Translate a string into the current language set in the admin interface user preferences
 
-`{{'MY_LANGUAGE_KEY_STRING'|tu}}` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
+`'MY_LANGUAGE_KEY_STRING'|tu` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
 
 This uses the language field set in the user yaml.
 
@@ -202,7 +216,7 @@ You can left-trim and right-trim a string with the following two filters:
 
 ##### Truncate a String
 
-You can easily generated a shortened, truncated, version of a string by using this filter.  It takes a number of characters as the only required field, but has some other options:
+You can easily generate a shortened, truncated, version of a string by using this filter.  It takes a number of characters as the only required field, but has some other options:
 
 `'one sentence. two sentences'|truncate(5)` <i class="fa fa-long-arrow-right"></i> {{ 'one sentence. two sentences'|truncate(5) }}
 
@@ -220,7 +234,7 @@ You can also truncate HTML text, but should first use the `striptags` filter to 
 
 **|safe_truncate**
 
-Truncate text by number of characters in a "word-safe" manor.
+Truncate text by number of characters in a "word-safe" manner.
 
 **|truncate_html**
 
@@ -228,7 +242,7 @@ Truncate HTML by number of characters. not "word-safe"!
 
 **|safe_truncate_html**
 
-Truncate HTML by number of characters in a "word-safe" manor.
+Truncate HTML by number of characters in a "word-safe" manner.
 
 ##### Underscoreize
 
@@ -249,7 +263,7 @@ Cast a value to array
 
 ##### Authorize
 
-Authorizes an authenticated user to see a resource. Accepts an a single permission string or an array of permission strings.
+Authorizes an authenticated user to see a resource. Accepts a single permission string or an array of permission strings.
 
 `authorize(['admin.statistics', 'admin.super'])`
 
@@ -263,6 +277,13 @@ Takes a valid twig variable and dumps it out into the [Grav debugger panel](../.
 
 Same as `dump()`
 
+##### Evaluate
+
+The evaluate function can be used to evaluate a string as Twig:
+
+`evaluate('grav.language.getLanguage')`
+
+
 ##### Gist
 
 Takes a Github Gist ID and creates appropriate Gist embed code
@@ -273,7 +294,7 @@ Takes a Github Gist ID and creates appropriate Gist embed code
 
 Will generate a random string of the required number of characters.  Particularly useful in creating a unique id or key.
 
-`generate_random_string(10)` <i class="fa fa-long-arrow-right"></i> **{{ random_string(10) }}**
+`random_string(10)` <i class="fa fa-long-arrow-right"></i> **{{ random_string(10) }}**
 
 ##### Repeat
 
@@ -283,7 +304,7 @@ Will repeat whatever is passed in a certain amount of times.
 
 ##### String
 
-Generates a random string. Pass count to set the characters lenght.
+Generates a random string. Pass count to set the characters length.
 
 `ta(23)`
 

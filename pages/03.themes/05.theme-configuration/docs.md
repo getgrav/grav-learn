@@ -35,3 +35,60 @@ This should render out as:
 <h1 style="color:red">Grav is awesome!</h1>
 
 The sky is the limit regarding the configuration of your themes.  You can use them for whatever you like! :)
+
+## Accessing Theme Info
+
+As of Grav 1.1, you can easily access theme configuration and blueprint-related information.  To access information via Twig from the `blueprints.yaml` such as theme name you can simply use:
+
+```
+{{ grav.theme.name }}
+```
+
+For a given example `blueprints.yaml` configuration of:
+
+```
+name: Antimatter
+version: 1.7.0
+description: "Antimatter is the default theme included with **Grav**"
+icon: empire
+author:
+  name: Team Grav
+  email: devs@getgrav.org
+  url: http://getgrav.org
+homepage: https://github.com/getgrav/grav-theme-antimatter
+demo: http://demo.getgrav.org/blog-skeleton
+keywords: antimatter, theme, core, modern, fast, responsive, html5, css3
+bugs: https://github.com/getgrav/grav-theme-antimatter/issues
+license: MIT
+```
+
+You can reach any of these items via `grav.theme` by using the standard **dot-sytnax**:
+
+```
+Author Email: {{ grav.theme.author.email }}
+Theme License: {{ grav.theme.license }}
+```
+
+You can also reach these same values from a Grav plugin with PHP syntax:
+
+```
+$theme_author_email = $this->grav['theme']['author']['email'];
+$theme_license = $this->grav['theme']['license'];
+```
+
+## Accessing Theme Configuration
+
+As well as the blueprint information, you can also easily access the current theme configuration with:
+
+```
+Theme Color Option: {{ grav.theme.config.color_option }}
+```
+
+And of course, the same thing in PHP is:
+
+```
+$color_option = $this->grav['theme']['config']['color_option'];
+```
+
+Simple!
+
