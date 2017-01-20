@@ -14,143 +14,179 @@ However, **you should never change this file**, rather any configuration changes
 
 !!!! Generally speaking you should **NEVER** change anything in the `system/` folder.  All things the user does (creating content, installing plugins, editing configuration, etc.) should be done in the `user/` folder.  This way it allows simpler upgrading and also keeps your changes all in one location for backing up, synchronizing, etc.
 
-Here's the default `system/config/system.yaml` file:
+Here are the variables found in the default `system/config/system.yaml` file:
 
-```ruby
-absolute_urls: false                        # Absolute or relative URLs for `base_url`
-timezone: ''                                # Valid values: http://php.net/manual/en/timezones.php
-default_locale:                             # Default locale (defaults to system)
-param_sep: ':'                              # Parameter separator, use ';' for Apache on windows
-wrapped_site: false                         # For themes/plugins to know if Grav is wrapped by another platform
-reverse_proxy_setup: false                  # Running in a reverse proxy scenario with different webserver ports than proxy
-force_ssl: false                            # If enabled, Grav forces to be accessed via HTTPS (NOTE: Not an ideal solution)
-custom_base_url: ''                         # Set the base_url manually
+### Basic Options
 
-languages:
-  supported: []                             # List of languages supported. eg: [en, fr, de]
-  include_default_lang: true                # Include the default lang prefix in all URLs
-  translations: true                        # Enable translations by default
-  translations_fallback: true               # Fallback through supported translations if active lang doesn't exist
-  session_store_active: false               # Store active language in session
-  http_accept_language: false               # Attempt to set the language based on http_accept_language header in the browser
-  override_locale: false                    # Override the default or system locale with language specific one
+These configuration options do not appear within their own child sections. They're general options that affect the way the site operates, its timezone, and base URL.
 
-home:
-  alias: '/home'                            # Default path for home, ie /
-  hide_in_urls: false                       # Hide the home route in URLs
+* **absolute_urls**: Absolute or relative URLs for `base_url`.
+* **timezone**: Valid values can be found [here](http://php.net/manual/en/timezones.php).
+* **default_locale**: Default locale (defaults to system)
+* **param_sep**: Parameter separator, use `;` for Apache on windows. Otherwise, this is typically `:`.
+* **wrapped_site**: For themes/plugins to know if Grav is wrapped by another platform. Can be `true` or `false`.
+* **reverse_proxy_setup**: Running in a reverse proxy scenario with different webserver ports than proxy. Can be `true` or `false`.
+* **force_ssl**: If enabled, Grav forces to be accessed via HTTPS (NOTE: Not an ideal solution). Can be `true` or `false`.
+* **custom_base_url**: Manually set the base_url here.
 
-pages:
-  theme: antimatter                         # Default theme (defaults to "antimatter" theme)
-  order:
-    by: default                             # Order pages by "default", "alpha" or "date"
-    dir: asc                                # Default ordering direction, "asc" or "desc"
-  list:
-    count: 20                               # Default item count per page
-  dateformat:
-    default:                                # The default date format Grav expects in the `date: ` field
-    short: 'jS M Y'                         # Short date format
-    long: 'F jS \a\t g:ia'                  # Long date format
-  publish_dates: true                       # automatically publish/unpublish based on dates
-  process:
-    markdown: true                          # Process Markdown
-    twig: false                             # Process Twig
-  twig_first: false                         # Process Twig before markdown when processing both on a page
-  events:
-    page: true                              # Enable page level events
-    twig: true                              # Enable Twig level events
-  markdown:
-    extra: false                            # Enable support for Markdown Extra support (GFM by default)
-    auto_line_breaks: false                 # Enable automatic line breaks
-    auto_url_links: false                   # Enable automatic HTML links
-    escape_markup: false                    # Escape markup tags into entities
-    special_chars:                          # List of special characters to automatically convert to entities
-      '>': 'gt'
-      '<': 'lt'
-  types: [txt,xml,html,htm,json,rss,atom]   # list of valid page types
-  append_url_extension: ''                  # Append page's extension in Page urls (e.g. '.html' results in /path/page.html)
-  expires: 604800                           # Page expires time in seconds (604800 seconds = 7 days) ('no cache' is also possible)
-  last_modified: false                      # Set the last modified date header based on file modifcation timestamp
-  etag: false                               # Set the etag header tag
-  vary_accept_encoding: false               # Add `Vary: Accept-Encoding` header
-  redirect_default_route: false             # Automatically redirect to a page's default route
-  redirect_default_code: 301                # Default code to use for redirects
-  redirect_trailing_slash: true             # Handle automatically or 301 redirect a trailing / URL
-  ignore_files: [.DS_Store]                 # Files to ignore in Pages
-  ignore_folders: [.git, .idea]             # Folders to ignore in Pages
-  ignore_hidden: true                       # Ignore all Hidden files and folders
-  url_taxonomy_filters: true                # Enable auto-magic URL-based taxonomy filters for page collections
-  frontmatter:
-    process_twig: false                     # Should the frontmatter be processed to replace Twig variables?
-    ignore_fields: ['form','forms']         # Fields that might contain Twig variables and should not be processed
+### languages
 
-cache:
-  enabled: true                             # Set to true to enable caching
-  check:
-    method: file                            # Method to check for updates in pages: file|folder|none
-  driver: auto                              # One of: auto|file|apc|xcache|memcache|wincache
-  prefix: 'g'                               # Cache prefix string (prevents cache conflicts)
-  lifetime: 604800                          # Lifetime of cached data in seconds (0 = infinite)
-  gzip: false                               # GZip compress the page output
+The **Languages** area of the file establishes the site's language settings. This includes which language(s) are supported, designation of the default language in the URLs, and translations. Here is the breakdown for the **Languages** area of the system configuration file:
 
-twig:
-  cache: true                               # Set to true to enable Twig caching
-  debug: true                               # Enable Twig debug
-  auto_reload: true                         # Refresh cache on changes
-  autoescape: false                         # Autoescape Twig vars
-  undefined_functions: true                 # Allow undefined functions
-  undefined_filters: true                   # Allow undefined filters
-  umask_fix: false                          # By default Twig creates cached files as 755, fix switches this to 775
+* **supported**: List of languages supported. eg: `[en, fr, de]`
+* **include_default_lang**: Include the default lang prefix in all URLs. Can be `true` or `false`.
+* **translations**: Enable translations by default. Can be `true` or `false`.
+* **translations_fallback**: Fallback through supported translations if active lang doesn't exist. Can be `true` or `false`.
+* **session_store_active**: Store active language in session. Can be `true` or `false`.
+* **http_accept_language**: Attempt to set the language based on http_accept_language header in the browser. Can be `true` or `false`.
+* **override_locale**: Override the default or system locale with language specific one. Can be `true` or `false`.
 
-assets:                                     # Configuration for Assets Manager (JS, CSS)
-  css_pipeline: false                       # The CSS pipeline is the unification of multiple CSS resources into one file
-  css_pipeline_include_externals: true      # Include external URLs in the pipeline by default
-  css_pipeline_before_excludes: true        # Render the pipeline before any excluded files
-  css_minify: true                          # Minify the CSS during pipelining
-  css_minify_windows: false                 # Minify Override for Windows platforms. False by default due to ThreadStackSize
-  css_rewrite: true                         # Rewrite any CSS relative URLs during pipelining
-  js_pipeline: false                        # The JS pipeline is the unification of multiple JS resources into one file
-  js_pipeline_include_externals: true       # Include external URLs in the pipeline by default
-  js_pipeline_before_excludes: true         # Render the pipeline before any excluded files
-  js_minify: true                           # Minify the JS during pipelining
-  enable_asset_timestamp: false             # Enable asset timestamps
-  collections:
-    jquery: system://assets/jquery/jquery-2.x.min.js
+### home
 
-errors:
-  display: false                            # Display full backtrace-style error page
-  log: true                                 # Log errors to /logs folder
+The **Home** section is where you set the default path for the site's home page. You can also choose to hide the home route in URLs.
 
-debugger:
-  enabled: false                            # Enable Grav debugger and following settings
-  shutdown:
-    close_connection: true                  # Close the connection before calling onShutdown(). false for debugging
+* **alias**: Default path for home, ie: `/home` or `/`.
+* **hide_in_urls**: Hide the home route in URLs. Can be `true` or `false`.
 
-images:
-  default_image_quality: 85                 # Default image quality to use when resampling images (85%)
-  cache_all: false                          # Cache all image by default
-  cache_perms: '0755'                       # MUST BE IN QUOTES!! Default cache folder perms. Usually '0755' or '0775'
-  debug: false                              # Show an overlay over images indicating the pixel depth of the image when working with retina for example
+### pages
 
-media:
-  enable_media_timestamp: false             # Enable media timetsamps
-  upload_limit: 0                           # Set maximum upload size in bytes (0 is unlimited)
-  unsupported_inline_types: []              # Array of supported media types to try to display inline
-  allowed_fallback_types: []                # Array of allowed media types of files found if accessed via Page route
+The **Pages** section of the `system/config/system.yaml` file is where you set a lot of the main theme-related settings. For example, this is where you set the theme used to render the site, page ordering, twig and markdown processing defaults, and more. This is where most of the decisions that affect the way your pages are rendered are made.
 
-session:
-  enabled: true                             # Enable Session support
-  timeout: 1800                             # Timeout in seconds
-  name: grav-site                           # Name prefix of the session cookie. Use alphanumeric, dashes or underscores only. Do not use dots in the session name
-  secure: false                             # Set session secure. If true, indicates that communication for this cookie must be over an encrypted transmission. Enable this only on sites that run exclusively on HTTPS
-  httponly: true                            # Set session HTTP only. If true, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed.
-  path:
+* **theme**: This is where you set the default theme. This defaults to `antimatter`.
+* **order**:
+    - **by**: Order pages by `default`, `alpha` or `date`.
+    - **dir**: Default ordering direction, `asc` or `desc`.
+* **list**:
+    - **count**: Default item count per page.
+* **dateformat**:
+    - **default**: The default date format Grav expects in the `date: ` field.
+    - **short**: Short date format. Example: `'jS M Y'`
+    - **long**: Long date format. Example: `'F jS \a\t g:ia'`
+* **publish_dates**: Automatically publish/unpublish based on dates. Can be set `true` or `false`.
+* **process**:
+    - **markdown**: Enable or disable the processing of markdown on the front end. Can be set `true` or `false`.
+    - **twig**: Enable or disable the processing of twig on the front end. Can be set `true` or `false`.
+* **twig_first**: Process Twig before markdown when processing both on a page. Can be set `true` or `false`.
+* **events**:
+    - **page**: Enable page-level events. Can be set `true` or `false`.
+    - **twig**: Enable Twig-level events. Can be set `true` or `false`.
+* **markdown**:
+    - **extra**: Enable support for Markdown Extra support (GitHub-flavored Markdown (GFM) by default). Can be set `true` or `false`.
+    - **auto_line_breaks**: Enable automatic line breaks. Can be set `true` or `false`.
+    - **auto_url_links**: Enable automatic HTML links. Can be set `true` or `false`.
+    - **escape_markup**: Escape markup tags into entities. Can be set `true` or `false`.
+    - **special_chars**: List of special characters to automatically convert to entities. Each character consumes a line below this variable. Example: `'>': 'gt'`.
+* **types**: List of valid page types. For example: `[txt,xml,html,htm,json,rss,atom]`
+* **append_url_extension**: Append page's extension in Page URLs (e.g. `.html` results in **/path/page.html**).
+* **expires**: Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible).
+* **last_modified**: Set the last modified date header based on file modification timestamp. Can be set `true` or `false`.
+* **etag**: Set the etag header tag. Can be set to `true` or `false`.
+* **vary_accept_encoding**: Add `Vary: Accept-Encoding` header. Can be set to `true` or `false`.
+* **redirect_default_route**: Automatically redirect to a page's default route. Can be set to `true` or `false`.
+* **redirect_default_code**: Default code to use for redirects. For example: `301`.
+* **redirect_trailing_slash**: Handle automatically or 301 redirect a trailing / URL.
+* **ignore_files**: Files to ignore in Pages. Example: `[.DS_Store] `.
+* **ignore_folders**: Folders to ignore in Pages. Example: `[.git, .idea]`
+* **ignore_hidden**: Ignore all Hidden files and folders. Can be set to `true` or `false`.
+* **url_taxonomy_filters**: Enable auto-magic URL-based taxonomy filters for page collections. Can be set to `true` or `false`.
+* **frontmatter**:
+    - **process_twig**: Should the frontmatter be processed to replace Twig variables? Can be set to `true` or `false`.
+    - **ignore_fields**: Fields that might contain Twig variables and should not be processed. Example: `['form','forms']`
 
-gpm:
-  releases: stable                           # Set to either 'stable' or 'testing'
-  proxy_url:                                 # Configure a manual proxy URL for GPM (eg 127.0.0.1:3128)
-```
+### cache
+
+The **Cache** section is where you can configure the site's caching settings. You can enable, disable, choose the method, and more.
+
+* **enabled**: Set to true to enable caching. Can be set to `true` or `false`.
+* **check**:
+    - **method**: Method to check for updates in pages. Options: `file`, `folder`, and `none`.
+* **driver**: Select a cache driver. Options are: `auto`, `file`, `apc`, `xcache`, `memcache`, and `wincache`.
+* **prefix**: Cache prefix string (prevents cache conflicts). Example: `g`.
+* **lifetime**: Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days.
+* **gzip**: GZip compress the page output. Can be set to `true` or `false`.
+
+### twig
+
+The **Twig** section gives you a quick set of tools with which to configure Twig on your site for debugging, caching, and optimization.
+
+* **cache**: Set to true to enable Twig caching. Can be set to `true` or `false`.
+* **debug**: Enable Twig debug. Can be set to `true` or `false`.
+* **auto_reload**: Refresh cache on changes. Can be set to `true` or `false`.
+* **autoescape**: Autoescape Twig vars. Can be set to `true` or `false`.
+* **undefined_functions**: Allow undefined functions. Can be set to `true` or `false`.
+* **undefined_filters**: Allow undefined filters. Can be set to `true` or `false`.
+* **umask_fix**: By default Twig creates cached files as 755, fix switches this to 775. Can be set to `true` or `false`.
+
+### assets
+
+The **Assets** section enables you to configure options related to the Assets Manager (JS, CSS).
+
+* **css_pipeline**: The CSS pipeline is the unification of multiple CSS resources into one file. Can be set to `true` or `false`.
+* **css_pipeline_include_externals**: Include external URLs in the pipeline by default. Can be set to `true` or `false`.
+* **css_pipeline_before_excludes**: Render the pipeline before any excluded files. Can be set to `true` or `false`.
+* **css_minify**: Minify the CSS during pipelining. Can be set to `true` or `false`.
+* **css_minify_windows**: Minify Override for Windows platforms. False by default due to ThreadStackSize. Can be set to `true` or `false`.
+* **css_rewrite**: Rewrite any CSS relative URLs during pipelining. Can be set to `true` or `false`.
+* **js_pipeline**: The JS pipeline is the unification of multiple JS resources into one file. Can be set to `true` or `false`.
+* **js_pipeline_include_externals**: Include external URLs in the pipeline by default. Can be set to `true` or `false`.
+* **js_pipeline_before_excludes**: Render the pipeline before any excluded files. Can be set to `true` or `false`.
+* **js_minify**: Minify the JS during pipelining. Can be set to `true` or `false`.
+* **enable_asset_timestamp**: Enable asset timestamps. Can be set to `true` or `false`.
+* **collections**: This contains collections, designated as sub-items. For example: `jquery: system://assets/jquery/jquery-2.x.min.js`
+
+### errors
+
+The **Errors** section determines how Grav handles error display and logging.
+
+* **display**: Determines how errors are displayed. Enter either `1` for full backtrace, `0` for Simple Error, or `-1` for System Error.
+* **log**: Log errors to `/logs` folder. Can be set to `true` or `false`.
+
+### debugger
+
+This section gives you the ability to activate Grav's debugger. A useful tool during development.
+
+* **enabled**: Enable Grav debugger and following settings. Can be set to `true` or `false`.
+* **shutdown**:
+    - **close_connection**: Close the connection before calling `onShutdown()`. `false` for debugging.
+
+### images
+
+This section gives you the ability to set the default image quality images are resambled to, as well as to control image caching and debugging features.
+
+* **default_image_quality**: Default image quality to use when resampling images. For example: `85` = 85%.
+* **cache_all**: Cache all image by default. Can be set to `true` or `false`.
+* **cache_perms**: MUST BE IN QUOTES!! Default cache folder perms. Usually `'0755'` or `'0775'`
+* **debug**: Show an overlay over images indicating the pixel depth of the image when working with retina, for example. Can be set to `true` or `false`.
+
+### media
+
+The **Media** section handles the configuration options for settings related to the handling of media files. This includes timestamp display, upload size, and more.
+
+* **enable_media_timestamp**: Enable media timetsamps.
+* **upload_limit**: Set maximum upload size in bytes (`0` is unlimited).
+* **unsupported_inline_types**: Array of supported media types to try to display inline. These file types are placed within `[]` brackets.
+* **allowed_fallback_types**: Array of allowed media types of files found if accessed via Page route. These file types are placed within `[]` brackets.
+
+### session
+
+These options determine session properties for your site.
+
+* **enabled**: Enable Session support. Can be set to `true` or `false`.
+* **timeout**: Timeout in seconds. For example: `1800`.
+* **name**: Name prefix of the session cookie. Use alphanumeric, dashes or underscores only. Do not use dots in the session name. For example: `grav-site`.
+* **secure**: Set session secure. If `true`, indicates that communication for this cookie must be over an encrypted transmission. Enable this only on sites that run exclusively on HTTPS. Can be set to `true` or `false`.
+* **httponly**: Set session HTTP only. If true, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed. Can be set to `true` or `false`.
+* **path**:
+
+### gpm
+
+The **GPM** section offers the user options that control how Grav's GPM sources and makes ready updates for your site. You can choose between stable and testing releases, as well as set up a proxy URL.
+
+* **releases**: Set to either `stable` or `testing` to determine if you want to update to the latest stable or testing build.
+* **proxy_url**: Configure a manual proxy URL for GPM. For example: `127.0.0.1:3128`.
 
 !! You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
+
 
 ## Site Configuration
 
