@@ -18,6 +18,17 @@ Here are the variables found in the default `system/config/system.yaml` file:
 
 ### Basic Options
 
+```yaml
+absolute_urls: false
+timezone: ''
+default_locale:
+param_sep: ':'
+wrapped_site: false
+reverse_proxy_setup: false
+force_ssl: false
+custom_base_url: ''
+```
+
 These configuration options do not appear within their own child sections. They're general options that affect the way the site operates, its timezone, and base URL.
 
 * **absolute_urls**: Absolute or relative URLs for `base_url`.
@@ -31,6 +42,17 @@ These configuration options do not appear within their own child sections. They'
 
 ### languages
 
+```yaml
+languages:
+  supported: []
+  include_default_lang: true
+  translations: true
+  translations_fallback: true
+  session_store_active: false
+  http_accept_language: false
+  override_locale: false
+```
+
 The **Languages** area of the file establishes the site's language settings. This includes which language(s) are supported, designation of the default language in the URLs, and translations. Here is the breakdown for the **Languages** area of the system configuration file:
 
 * **supported**: List of languages supported. eg: `[en, fr, de]`
@@ -43,12 +65,65 @@ The **Languages** area of the file establishes the site's language settings. Thi
 
 ### home
 
+```yaml
+home:
+  alias: '/home'
+  hide_in_urls: false
+```
+
 The **Home** section is where you set the default path for the site's home page. You can also choose to hide the home route in URLs.
 
 * **alias**: Default path for home, ie: `/home` or `/`.
 * **hide_in_urls**: Hide the home route in URLs. Can be `true` or `false`.
 
 ### pages
+
+```yaml
+pages:
+  theme: antimatter
+    order:
+    by: default
+    dir: asc
+  list:
+    count: 20
+  dateformat:
+    default:
+    short: 'jS M Y'
+    long: 'F jS \a\t g:ia'
+  publish_dates: true
+  process:
+    markdown: true
+    twig: false
+  twig_first: false
+  never_cache_twig: false
+  events:
+    page: true
+    twig: true
+  markdown:
+    extra: false
+    auto_line_breaks: false
+    auto_url_links: false
+    escape_markup: false
+    special_chars:
+      '>': 'gt'
+      '<': 'lt'
+  types: [txt,xml,html,htm,json,rss,atom]
+  append_url_extension: ''
+  expires: 604800
+  last_modified: false
+  etag: false
+  vary_accept_encoding: false
+  redirect_default_route: false
+  redirect_default_code: 301
+  redirect_trailing_slash: true
+  ignore_files: [.DS_Store]
+  ignore_folders: [.git, .idea]
+  ignore_hidden: true
+  url_taxonomy_filters: true
+  frontmatter:
+    process_twig: false
+    ignore_fields: ['form','forms']
+```
 
 The **Pages** section of the `system/config/system.yaml` file is where you set a lot of the main theme-related settings. For example, this is where you set the theme used to render the site, page ordering, twig and markdown processing defaults, and more. This is where most of the decisions that affect the way your pages are rendered are made.
 
@@ -95,6 +170,20 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 
 ### cache
 
+```yaml
+cache:
+  enabled: true
+  check:
+    method: file
+  driver: auto
+  prefix: 'g'
+  lifetime: 604800
+  gzip: false
+  allow_webserver_gzip: false
+  redis:
+    socket: false
+```
+
 The **Cache** section is where you can configure the site's caching settings. You can enable, disable, choose the method, and more.
 
 * **enabled**: Set to true to enable caching. Can be set to `true` or `false`.
@@ -107,6 +196,17 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 
 ### twig
 
+```yaml
+twig:
+  cache: true
+  debug: true
+  auto_reload: true
+  autoescape: false
+  undefined_functions: true
+  undefined_filters: true
+  umask_fix: false
+```
+
 The **Twig** section gives you a quick set of tools with which to configure Twig on your site for debugging, caching, and optimization.
 
 * **cache**: Set to true to enable Twig caching. Can be set to `true` or `false`.
@@ -118,6 +218,23 @@ The **Twig** section gives you a quick set of tools with which to configure Twig
 * **umask_fix**: By default Twig creates cached files as 755, fix switches this to 775. Can be set to `true` or `false`.
 
 ### assets
+
+```yaml
+assets:
+  css_pipeline: false
+  css_pipeline_include_externals: true
+  css_pipeline_before_excludes: true
+  css_minify: true
+  css_minify_windows: false
+  css_rewrite: true
+  js_pipeline: false
+  js_pipeline_include_externals: true
+  js_pipeline_before_excludes: true
+  js_minify: true
+  enable_asset_timestamp: false
+  collections:
+    jquery: system://assets/jquery/jquery-2.x.min.js
+```
 
 The **Assets** section enables you to configure options related to the Assets Manager (JS, CSS).
 
@@ -136,12 +253,25 @@ The **Assets** section enables you to configure options related to the Assets Ma
 
 ### errors
 
+```yaml
+errors:
+  display: 0
+  log: true
+```
+
 The **Errors** section determines how Grav handles error display and logging.
 
 * **display**: Determines how errors are displayed. Enter either `1` for full backtrace, `0` for Simple Error, or `-1` for System Error.
 * **log**: Log errors to `/logs` folder. Can be set to `true` or `false`.
 
 ### debugger
+
+```yaml
+debugger:
+  enabled: false
+  shutdown:
+    close_connection: true
+```
 
 This section gives you the ability to activate Grav's debugger. A useful tool during development.
 
@@ -150,6 +280,15 @@ This section gives you the ability to activate Grav's debugger. A useful tool du
     - **close_connection**: Close the connection before calling `onShutdown()`. `false` for debugging.
 
 ### images
+
+```yaml
+images:
+  default_image_quality: 85
+  cache_all: false
+  cache_perms: '0755'
+  debug: false
+  auto_fix_orientation: false
+```
 
 This section gives you the ability to set the default image quality images are resambled to, as well as to control image caching and debugging features.
 
@@ -160,6 +299,14 @@ This section gives you the ability to set the default image quality images are r
 
 ### media
 
+```yaml
+media:
+  enable_media_timestamp: false
+  upload_limit: 0
+  unsupported_inline_types: []
+  allowed_fallback_types: []
+```
+
 The **Media** section handles the configuration options for settings related to the handling of media files. This includes timestamp display, upload size, and more.
 
 * **enable_media_timestamp**: Enable media timetsamps.
@@ -168,6 +315,17 @@ The **Media** section handles the configuration options for settings related to 
 * **allowed_fallback_types**: Array of allowed media types of files found if accessed via Page route. These file types are placed within `[]` brackets.
 
 ### session
+
+```yaml
+session:
+  enabled: true
+  timeout: 1800
+  name: grav-site
+  secure: false
+  httponly: true
+  split: true
+  path:
+```
 
 These options determine session properties for your site.
 
@@ -179,6 +337,14 @@ These options determine session properties for your site.
 * **path**:
 
 ### gpm
+
+```yaml
+gpm:
+  releases: stable
+  proxy_url:
+  method: 'auto'
+  verify_peer: true
+```
 
 The **GPM** section offers the user options that control how Grav's GPM sources and makes ready updates for your site. You can choose between stable and testing releases, as well as set up a proxy URL.
 
