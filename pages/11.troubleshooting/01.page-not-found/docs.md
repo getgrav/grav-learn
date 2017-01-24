@@ -44,6 +44,8 @@ There is a short explanation of this in the `.htaccess` file itself:
 
 Simply remove the `#` before the `RewriteBase /` directive to uncomment it, and adjust the path to match your server environment.
 
+We've included additional information to help you locate and troubleshoot your `.htaccess` file in our [htaccess guide](../htaccess).
+
 ### Missing Rewrite Modules
 
 Some webserver packages (I'm looking at your EasyPHP and WAMP!) do not come with the Apache **rewrite** module enabled by default. They usually can be enabled from the configuration settings for Apache, or you can do so manually via the `httpd.conf` by uncommenting this line (or something similar) so they are loaded by Apache:
