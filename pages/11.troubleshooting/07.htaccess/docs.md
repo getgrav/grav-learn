@@ -8,7 +8,7 @@ Grav comes complete with its own `.htaccess` file. This file enables Grav to ope
 
 Apache is one of the most popular server solutions available today. It's free, and widely available just about everywhere. Unfortunately, Apache isn't perfect, and sometimes the `.htaccess` file can give you a headache. Don't worry, it's almost always fixable.
 
-## How to Access .htaccess in Windows and macOS
+## How to Edit .htaccess in Windows and macOS
 
 The .htaccess file is a hidden file, meaning that by default, users of macOS and Windows will be unable to see this file in the file manager (Finder) unless they enable hidden files to be viewed.
 
