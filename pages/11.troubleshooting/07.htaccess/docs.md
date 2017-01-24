@@ -1,5 +1,5 @@
 ---
-title: HTACCESS
+title: htaccess
 taxonomy:
     category: docs
 ---
