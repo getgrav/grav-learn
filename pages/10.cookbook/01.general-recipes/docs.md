@@ -267,10 +267,10 @@ pages:
 in your wrapper tag make sure to add the parameter `markdown="1"` to activate processing of markdown content:
 
 ```
-<div class="myWrapper" markdown="1" >
-    # my markdown content
+<div class="myWrapper" markdown="1">
+# my markdown content
 
-    this content is wrapped into a div with class "myWrapper"
+this content is wrapped into a div with class "myWrapper"
 </div>
 ```
 
