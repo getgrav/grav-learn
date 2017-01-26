@@ -35,7 +35,7 @@ Most events within Grav fire in a specific order and it is important to understa
 1. [onOutputRendered](../event-hooks#onOutputRendered)
 1. [onShutdown](../event-hooks#onShutdown)
 1. [onBeforeDownload](../event-hooks#onBeforeDownload)
-1. [onPageFallbackUrl](../event-hooks#onPageFallbackUrl)
+1. [onPageFallBackUrl](../event-hooks#onPageFallBackUrl)
 
 ## Core Grav Event Hooks
 
