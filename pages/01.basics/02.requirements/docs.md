@@ -16,6 +16,8 @@ Grav is built with plain text files for your content. There is no database neede
 
 ## Web Servers
 
+Grav is so simple and versatile, that you don't even need a web server to run it. You can actually run it directly off the built-in `router.php` PHP tool as long as you're running PHP 5.5.9 or later. This is a useful way to check a Grav install and perform some brief development, but is **not** recommended for a live site or even for advanced development tasks. We've outlined how in our [Installation guide](../installation#running-grav-with-the-built-in-php-webserver-using-routerphp).
+
 Even though technically you do not need a standalone Web server, it is better to run one, even for local development. Luckily there are many options depending on your platform:
 
 ### Mac

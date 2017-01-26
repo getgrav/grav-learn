@@ -81,7 +81,7 @@ If your web root is, for example, `~/public_html` then you could extract it into
 
 #### Running Grav with the Built-in PHP Webserver Using `router.php`
 
-You can run grav using a simple command from Terminal / Command Prompt using the built-in PHP server available to any system with PHP 5.5+ installed. All you need to do is navigate to the root of your Grav install using the Terminal or Command Prompt and enter `php -S localhost:8000 system/router.php`. You can replace the port number (in our example it's `8000` with any port you prefer.
+You can run Grav using a simple command from Terminal / Command Prompt using the built-in PHP server available to any system with PHP 5.5+ installed. All you need to do is navigate to the root of your Grav install using the Terminal or Command Prompt and enter `php -S localhost:8000 system/router.php`. You can replace the port number (in our example it's `8000` with any port you prefer.
 
 Entering this command will present you with output similar to the following:
 
@@ -92,7 +92,9 @@ Document root is /Users/example/sites/grav/
 Press Ctrl-C to quit.
 ```
 
-Your terminal will also give you real-time updates of any activity on this ad hoc-style server. You can copy the URL given in the `Listening on` line and paste that into your browser of choice to access your site, including the administrator. This is a useful tool for quick development, and should not be used in place of a dedicated webserver such as Apache.
+Your terminal will also give you real-time updates of any activity on this ad hoc-style server. You can copy the URL given in the `Listening on` line and paste that into your browser of choice to access your site, including the administrator.
+
+!!!! This is a useful tool for quick development, and should **not** be used in place of a dedicated web server such as Apache.
 
 
 ## Successful Installation
