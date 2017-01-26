@@ -835,8 +835,11 @@ To start using responsive images, all you need to do is add higher density image
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
+{% set code_sample %}
+![Retina Image](retina.jpg?sizes=80vw)
+{% endset %}
 ```
-{{ page.media['retina.jpg'].sizes('80vw').html()|e }}
+{{ code_sample|e }}
 ```
 [/ui-tab]
 [/ui-tabs]
@@ -858,27 +861,29 @@ If you want to customize the sizes of the automatically created files, you can u
 [ui-tabs]
 [ui-tab title="Markdown"]
 ```
-![](retina.jpg?derivatives=320,1440,100&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
-
+![](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
 ```
-{{ page.media['retina.jpg'].derivatives(320, 1440, 100).sizes('(max-width:26em) 100vw, 50vw').html() }}
+{{ page.media['retina.jpg'].derivatives(320,1600,300).sizes('(max-width:26em) 100vw, 50vw').html() }}
 ```
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
+{% set code_sample %}
+![](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+{% endset %}
 ```
-{{ page.media['retina.jpg'].derivatives(320, 1440, 100).sizes('(max-width:26em) 100vw, 50vw').html()|e }}
+{{ code_sample|e }}
 ```
 [/ui-tab]
 [/ui-tabs]
 
 ##### Result:
 
-![](retina.jpg?derivatives=320,1440,100&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+![](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 
 !!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
 
