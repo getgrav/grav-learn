@@ -74,8 +74,6 @@ and remove the leading semicolon.
 * `yaml` PECL Yaml provides native yaml processing and can dramatically increase performance
 * `xdebug` useful for debugging in development environment
 
-
-
 ### Permissions
 
 For Grav to function properly your webserver needs to have the appropriate **file permissions** in order to write logs, caches, etc.  When using either the [CLI](/advanced/grav-cli) or [GPM](/advanced/grav-gpm), the user running PHP from the command line, also needs to have the appropriate permissions to modify files.

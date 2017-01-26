@@ -79,6 +79,22 @@ If your web root is, for example, `~/public_html` then you could extract it into
 
 !!! Every web server must be configured. Grav ships with .htaccess by default, for Apache, and comes with some [default server configuration files](https://github.com/getgrav/grav/tree/master/webserver-configs), for `nginx`, `caddy server`, `iis` and `lighttpd`. Use them accordingly when needed.
 
+#### Running Grav with the Built-in PHP Webserver Using `router.php`
+
+You can run grav using a simple command from Terminal / Command Prompt using the built-in PHP server available to any system with PHP 5.5+ installed. All you need to do is navigate to the root of your Grav install using the Terminal or Command Prompt and enter `php -S localhost:8000 system/router.php`. You can replace the port number (in our example it's `8000` with any port you prefer.
+
+Entering this command will present you with output similar to the following:
+
+```text
+PHP 5.6.29 Development Server started at Thu Jan 26 16:42:13 2017
+Listening on http://localhost:8000
+Document root is /Users/ryanpierson/Documents/sites/grav/gravtest
+Press Ctrl-C to quit.
+```
+
+Your terminal will also give you real-time updates of any activity on this ad hoc-style server. You can copy the URL given in the `Listening on` line and paste that into your browser of choice to access your site, including the administrator. This is a useful tool for quick development, and should not be used in place of a dedicated webserver such as Apache.
+
+
 ## Successful Installation
 
 The first time it loads, Grav pre-compiles some files. If you now refresh your browser, you will get a faster, cached version.
@@ -124,3 +140,4 @@ The process to manually update Grav is:
 4. Clear the Grav cache with `bin/grav clear-cache` to ensure any cache or compiled files are recreated cleanly.
 
 !!!! It's important not to copy the **core** Grav zip file over your current site as it could overrwrite your `user/` folder and resulting in a loss of your data.
+
