@@ -88,7 +88,7 @@ Entering this command will present you with output similar to the following:
 ```text
 PHP 5.6.29 Development Server started at Thu Jan 26 16:42:13 2017
 Listening on http://localhost:8000
-Document root is /Users/ryanpierson/Documents/sites/grav/gravtest
+Document root is /Users/example/sites/grav/
 Press Ctrl-C to quit.
 ```
 
