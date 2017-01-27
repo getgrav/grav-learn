@@ -143,6 +143,22 @@ By default, all pages are **routable**.  This means that they can be reached by 
 
 Grav automatically looks for a page with the route `/error` if another page cannot be found.  With this being an actual page within Grav, you would have complete control over what this page looks like.  You probably do not want people accessing this page directly in their browser, however, so this page commonly has its `routable` variable set to false. Valid values are `true` or `false`.
 
+### Login Redirect Here
+
+```ruby
+login_redirect_here: false
+```
+
+The `login_redirect_here` header enables you to determine whether or not someone is kept on that page after logging in through the [Grav Login Plugin](https://github.com/getgrav/grav-plugin-login). Setting this header to `false` will forward someone to the prior page after a successful login. A `true` setting here will enable the person to stay on the current page after a successful login.
+
+You can override this default behavior by forcing a standard location by specifying an explicit option in your Login configuration YAML:
+
+```ruby
+redirect_after_login: '/profile'
+```
+
+This will always take you to the `/profile` route after a successful login.
+
 ### Summary
 
 ```ruby
