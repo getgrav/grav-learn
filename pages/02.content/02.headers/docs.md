@@ -149,7 +149,9 @@ Grav automatically looks for a page with the route `/error` if another page cann
 login_redirect_here: false
 ```
 
-The `login_redirect_here` header enables you to determine whether or not someone is kept on that page after logging in through the [Grav Login Plugin](https://github.com/getgrav/grav-plugin-login). Setting this header to `false` will forward someone to the prior page after a successful login. A `true` setting here will enable the person to stay on the current page after a successful login.
+The `login_redirect_here` header enables you to determine whether or not someone is kept on that page after logging in through the [Grav Login Plugin](https://github.com/getgrav/grav-plugin-login). Setting this header to `false` will forward someone to the prior page after a successful login.
+
+A `true` setting here will enable the person to stay on the current page after a successful login. This is also the default setting, which applies if there is no `login_redirect_here` header in the frontmatter.
 
 You can override this default behavior by forcing a standard location by specifying an explicit option in your Login configuration YAML:
 
