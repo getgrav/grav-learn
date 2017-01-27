@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-The headers (alternatively known as frontmatter) at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers. 
+The headers (alternatively known as frontmatter) at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers.
 
 ! Headers are also known as **Page Frontmatter** and are commonly referred to as such so as not to be confused with HTTP Headers.
 
@@ -176,6 +176,18 @@ As explained in [the previous chapter](../content-pages), the template from the 
 So a file called `default.md`, will use the `default` template in the active theme.  You can, of course, override this behavior by simply setting the `template` variable in the header and choosing a different template.
 
 In the example above, the page will use the `custom` template from the theme.  This variable exists because you may need to change the template of a page programmatically from a plugin.
+
+### Template Format
+
+```ruby
+template_format: xml
+```
+
+Traditionally, if you want a page to output a specific format (ie: xml, json, etc.) you needed to append the format to the url. For example, entering `http://example.com/sitemap.xml` would tell the browser to render the content using the `xml` formatting. This is all well and good, but we love doing things simply in Grav.
+
+Using the `template_format` header, we can tell the browser how to render the page without any need for designations in the URL. By entering `template_format: xml` in our `sitemap` page, we can make `http://example.com/sitemap` work for us without having to append `.xml` to the end of it.
+
+We [used this method](https://github.com/getgrav/grav-plugin-sitemap/commit/00c23738bdbfe9683627bf0f99bda12eab9505d5#diff-190081f40350c0272970d9171f3437a2) with the [Grav Sitemap Plugin](https://github.com/getgrav/grav-plugin-sitemap).
 
 ### Taxonomy
 
