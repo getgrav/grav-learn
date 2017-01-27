@@ -85,8 +85,9 @@ You can run Grav using a simple command from Terminal / Command Prompt using the
 
 Entering this command will present you with output similar to the following:
 
-```text
-PHP 5.6.29 Development Server started at Thu Jan 26 16:42:13 2017
+```bash
+$ php -S localhost:8000 system/router.php
+PHP 7.0.14 Development Server started at Thu Jan 26 17:19:50 2017
 Listening on http://localhost:8000
 Document root is /Users/example/sites/grav/
 Press Ctrl-C to quit.
