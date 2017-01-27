@@ -183,9 +183,9 @@ In the example above, the page will use the `custom` template from the theme.  T
 template_format: xml
 ```
 
-Traditionally, if you want a page to output a specific format (ie: xml, json, etc.) you needed to append the format to the url. For example, entering `http://example.com/sitemap.xml` would tell the browser to render the content using the `xml` formatting. This is all well and good, but we love doing things simply in Grav.
+Traditionally, if you want a page to output a specific format (ie: xml, json, etc.) you needed to append the format to the url. For example, entering `http://example.com/sitemap.xml` would tell the browser to render the content using the `xml` twig template ending in `.xml.twig`. This is all well and good, because we love doing things simply in Grav.
 
-Using the `template_format` header, we can tell the browser how to render the page without any need for designations in the URL. By entering `template_format: xml` in our `sitemap` page, we can make `http://example.com/sitemap` work for us without having to append `.xml` to the end of it.
+Using the `template_format` page header, we can tell the browser how to render the page without any need for extensions in the URL. By entering `template_format: xml` in our `sitemap` page, we can make `http://example.com/sitemap` work for us without having to append `.xml` to the end of it.
 
 We [used this method](https://github.com/getgrav/grav-plugin-sitemap/commit/00c23738bdbfe9683627bf0f99bda12eab9505d5#diff-190081f40350c0272970d9171f3437a2) with the [Grav Sitemap Plugin](https://github.com/getgrav/grav-plugin-sitemap).
 
