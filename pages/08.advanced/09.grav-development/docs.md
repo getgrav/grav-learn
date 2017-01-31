@@ -115,6 +115,8 @@ The GetGrav.org site uses a custom ChangeLog format that is written in standard 
 
 Each section `#new, #improved, #bugfix` are optional, just include the sections you need.
 
+! Dates can use either the **American** `m/d/y` [date format](/content/headers#date), or the **European** `d-m-y` format. Also make sure there is an empty newline between the headers (version and date) and lists (new, improved, bugfix).
+
 ## GitHub Setup
 
 As is the way of things these days, GitHub is going to be your best friend when it comes to developing for Grav.  We have created some tools to make this as easy as possible, but there are some development patterns that you should follow to make the process simpler.
