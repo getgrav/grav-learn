@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Here you can find information on problems and issues raised on [Grav forum](http://getgrav.org/forum) and in the [Gitter Chat room](https://gitter.im/getgrav/grav) that occur frequently enough that we thought we would save time and list the problem and the relevant solution in one easy to find location.
+Here you can find information on problems and issues raised on [Grav forum](http://getgrav.org/forum) and in the [Slack Chat room](https://chat.getgrav.org) that occur frequently enough that we thought we would save time and list the problem and the relevant solution in one easy to find location.
 
 1. [Call to a member function set() on null](#call-to-a-member-function-set-on-null)
 2. [Cannot connect to the GPM](#cannot-connect-to-the-gpm)
