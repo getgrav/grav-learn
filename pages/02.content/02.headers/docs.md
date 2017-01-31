@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-The headers (alternatively known as frontmatter) at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers. 
+The headers (alternatively known as frontmatter) at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers.
 
 ! Headers are also known as **Page Frontmatter** and are commonly referred to as such so as not to be confused with HTTP Headers.
 
@@ -143,6 +143,24 @@ By default, all pages are **routable**.  This means that they can be reached by 
 
 Grav automatically looks for a page with the route `/error` if another page cannot be found.  With this being an actual page within Grav, you would have complete control over what this page looks like.  You probably do not want people accessing this page directly in their browser, however, so this page commonly has its `routable` variable set to false. Valid values are `true` or `false`.
 
+### Login Redirect Here
+
+```ruby
+login_redirect_here: false
+```
+
+The `login_redirect_here` header enables you to determine whether or not someone is kept on that page after logging in through the [Grav Login Plugin](https://github.com/getgrav/grav-plugin-login). Setting this header to `false` will forward someone to the prior page after a successful login.
+
+A `true` setting here will enable the person to stay on the current page after a successful login. This is also the default setting, which applies if there is no `login_redirect_here` header in the frontmatter.
+
+You can override this default behavior by forcing a standard location by specifying an explicit option in your Login configuration YAML:
+
+```ruby
+redirect_after_login: '/profile'
+```
+
+This will always take you to the `/profile` route after a successful login.
+
 ### Summary
 
 ```ruby
@@ -176,6 +194,18 @@ As explained in [the previous chapter](../content-pages), the template from the 
 So a file called `default.md`, will use the `default` template in the active theme.  You can, of course, override this behavior by simply setting the `template` variable in the header and choosing a different template.
 
 In the example above, the page will use the `custom` template from the theme.  This variable exists because you may need to change the template of a page programmatically from a plugin.
+
+### Template Format
+
+```ruby
+template_format: xml
+```
+
+Traditionally, if you want a page to output a specific format (ie: xml, json, etc.) you needed to append the format to the url. For example, entering `http://example.com/sitemap.xml` would tell the browser to render the content using the `xml` twig template ending in `.xml.twig`. This is all well and good, because we love doing things simply in Grav.
+
+Using the `template_format` page header, we can tell the browser how to render the page without any need for extensions in the URL. By entering `template_format: xml` in our `sitemap` page, we can make `http://example.com/sitemap` work for us without having to append `.xml` to the end of it.
+
+We [used this method](https://github.com/getgrav/grav-plugin-sitemap/commit/00c23738bdbfe9683627bf0f99bda12eab9505d5#diff-190081f40350c0272970d9171f3437a2) with the [Grav Sitemap Plugin](https://github.com/getgrav/grav-plugin-sitemap).
 
 ### Taxonomy
 
