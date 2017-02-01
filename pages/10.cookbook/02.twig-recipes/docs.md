@@ -67,11 +67,23 @@ Simply find the `/blog` page, obtain it's children, filter by appropriate `dateR
 
 ##### Problem:
 
-This has come up a few times and also is used in the [Multilang Skeleton](https://github.com/getgrav/grav-skeleton-multilang-site) where a user wants to display the current month translated in a particular language.  For this to work, it's assumed you have your [multi-language site setup and configured](../../content/multi-language) as outlined in the documentation.
+In some page templates, the Twig `date` filter is used, and it does not handle locales / multilanguage. So even if your page is in a language different than english, it could show the month in english, if the template chooses to show the month name.
 
 ##### Solution:
 
-Let's also assume you have some language translations setup in your `user/languages/` folder called `en.yaml` that contains the entry:
+There are two solutions to this problem. 
+
+###### First approach
+
+The first involves the use of the Twig intl extension.
+
+Install https://github.com/Perlkonig/grav-plugin-twig-extensions. Make sure you have the PHP intl extension installed.
+
+In your twig template, instead of for example (like in the Antimatter theme) `{{ page.date|date("M") }}` to `{{ page.date|localizeddate('long', 'none', 'it', 'Europe/Rome', 'MMM') }}` (add your language and timezone here)
+
+###### Second approach
+
+Let's assume you have some language translations setup in your `user/languages/` folder called `en.yaml` that contains the entry:
 ```
 MONTHS_OF_THE_YEAR: [January, February, March, April, May, June, July, August, September, October, November, December]
 ```
@@ -93,13 +105,13 @@ Then you have your Twig:
 This makes use of the Grav custom Twig filter `|ta` that stands for **Translate Array**.  In the English version, the output might be something like:
 
 ```
-An Example Post                  July 2015
+An Example Post  July 2015
 ```
 
 And the French:
 
 ```
-Un exemple d’article             Juillet 2015
+Un exemple d’article Juillet 2015
 ```
 
 ### Displaying page content without summary
