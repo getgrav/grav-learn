@@ -166,7 +166,7 @@ public function onGetPageTemplates($event)
 {
   $types = $event->types;
   $locator = Grav::instance()['locator'];
-  $types->scanBlueprints($locator->findResources('plugin://' . $this->name . '/blueprints'));
-  $types->scanTemplates($locator->findResources('plugin://' . $this->name . '/templates'));
+  $types->scanBlueprints($locator->findResource('plugin://' . $this->name . '/blueprints'));
+  $types->scanTemplates($locator->findResource('plugin://' . $this->name . '/templates'));
 }
 ```
