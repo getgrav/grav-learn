@@ -69,7 +69,7 @@ form:
 Regular **markdown** content goes here...
 ```
 
-!!! This is the content of the `form.md` file, when viewed via file-system. To do this via Admin Plugin, open the page in **Expert Mode**, copy the part between the triple dashes `---`, and paste it the Frontmatter field.
+!!! This is the content of the `form.md` file, when viewed via file-system. To do this via Admin Plugin, open the page in **Expert Mode**, copy the part between the triple dashes `---`, and paste it in the Frontmatter field.
 
 This is enough to show a form in the page, below the page's content. It is a simple form with a name, email field, two buttons: one to submit the form and one to reset the fields. For more information on the available fields that are provided by the Form plugin, [checkout the next section](fields-available).
 
@@ -121,7 +121,7 @@ forms:
 
 ## Displaying Forms from Twig
 
-The easiest way to include a form is to simply include a Twig file in the template that renders the page where the from is defined.  For example:
+The easiest way to include a form is to simply include a Twig file in the template that renders the page where the form is defined.  For example:
 
 ```
 {% include "forms/form.html.twig" %}
@@ -135,7 +135,7 @@ There is however a more powerful method of displaying forms that can take advant
 {% include "forms/form.html.twig" with { form: forms('contact-form') } %}
 ```
 
-Using this method, you can choose a specific name of a form to display.  You can even provide the name of a from defined in other pages.  As long as all your form names are unique throughout your site, Grav will find and render the correct form!
+Using this method, you can choose a specific name of a form to display.  You can even provide the name of a form defined in other pages.  As long as all your form names are unique throughout your site, Grav will find and render the correct form!
 
 You can even display multiple forms in one page:
 
