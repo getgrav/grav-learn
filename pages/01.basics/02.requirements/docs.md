@@ -90,7 +90,8 @@ However, if you are running on a dedicated server, or even your local environmen
 
 ```
 chgrp -R www-data .
-find . -type f | xargs chmod 664
+find . -type f -not -executable | xargs chmod 664
+find . -type f -executable | xargs chmod 774
 find . -type d | xargs chmod 775
 find . -type d | xargs chmod +s
 umask 0002
