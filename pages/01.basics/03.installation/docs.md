@@ -26,7 +26,7 @@ Zend Engine v2.4.0, Copyright (c) 1998-2013 Zend Technologies
 
 The easiest way to install Grav is to download the ZIP package and extract it:
 
-1. Download the latest-and-greatest **Grav Base** package from the [Downloads](http://getgrav.org/downloads)
+1. Download the latest-and-greatest **[Grav](https://getgrav.org/download/core/grav/latest)** or **[Grav + Admin](https://getgrav.org/download/core/grav-admin/latest)** package.
 2. Extract the ZIP file in the [webroot](https://www.wordnik.com/words/webroot) of your web server, e.g. `~/webroot/grav`
 
 !!!! If you downloaded the ZIP file and then plan to move it to your webroot, please move the **ENTIRE FOLDER** because it contains several hidden files (such as .htaccess) that will not be selected by default. The omission of these hidden files can cause problems when running Grav.
@@ -125,22 +125,7 @@ Please consult the [Troubleshooting](../../troubleshooting) section for help reg
 The preferred method for updating Grav (from v0.9.3 onwards) is to use the **Grav Package Manager (GPM)**. All you need to do  is to navigate to the root of your Grav site and type:
 
 ```
-bin/gpm selfupgrade
+bin/gpm selfupgrade -f
 ```
 
 Full information can be found in the [Grav GPM Documentation](../../advanced/grav-gpm).  We also have GPM integrated in our [Admin Panel](../../admin-panel) plugin which will check, prompt, and automatically install any updates.
-
-### Manual Updates
-
-The process to manually update Grav is:
-
-1. Backup your site using `bin/grav backup` (more information in [Grav CLI Documentation](../../advanced/grav-cli) or alternatively zipping up the whole Grav site, or specifically the `user/` folder.
-
-2. Download the Update Package from our [Downloads section](http://getgrav.org/downloads). It is important to download the **update** package and **not the core** package.
-
-3. Extract the update package over the top of your existing Grav installation and it will copy over any updates in the `core system folder`.
-
-4. Clear the Grav cache with `bin/grav clear-cache` to ensure any cache or compiled files are recreated cleanly.
-
-!!!! It's important not to copy the **core** Grav zip file over your current site as it could overrwrite your `user/` folder and resulting in a loss of your data.
-

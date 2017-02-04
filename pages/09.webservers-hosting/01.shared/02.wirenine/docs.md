@@ -104,7 +104,7 @@ We will extract Grav into a `/grav` subfolder, but you could unzip directly into
 
 ```
 $ cd ~/public_html
-[~/public_html]$ wget https://github.com/getgrav/grav/releases/download/{{ grav_version }}/grav-v{{ grav_version }}.zip
+[~/public_html]$ wget https://getgrav.org/download/core/grav/latest
 [~/public_html]$ unzip grav-v{{ grav_version }}.zip
  ```
 

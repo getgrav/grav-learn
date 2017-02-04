@@ -175,7 +175,7 @@ This is the easy part!  First we need to jump back over to the Grav user, so eit
 
 ```
 $ cd ~/www
-$ wget https://github.com/getgrav/grav/releases/download/{{ grav_version }}/grav-v{{ grav_version }}.zip
+$ wget https://getgrav.org/download/core/grav/latest
 $ unzip grav-v{{ grav_version }}.zip
 $ rm -Rf html
 $ mv grav html

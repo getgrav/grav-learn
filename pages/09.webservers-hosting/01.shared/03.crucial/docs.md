@@ -125,7 +125,7 @@ We will extract Grav into a `/grav` subfolder, but you could unzip directly into
 
 ```
 $ cd ~/www
-[~/www]$ wget --no-check-certificate https://github.com/getgrav/grav/releases/download/{{ grav_version }}/grav-v{{ grav_version }}.zip
+[~/www]$ wget --no-check-certificate https://getgrav.org/download/core/grav/latest
 [~/www]$ unzip grav-v{{ grav_version }}.zip
  ```
 
