@@ -181,7 +181,7 @@ $ rm -Rf html
 $ mv grav html
 ```
 
-Now That's done you can confirm Grav is installed by poiting your browser to `http://{{ page.header.localname }}` and you should be greeted with the **Grav is Running!** page.
+Now That's done you can confirm Grav is installed by pointing your browser to `http://{{ page.header.localname }}` and you should be greeted with the **Grav is Running!** page.
 
 Because you have followed these instructions diligently, you will also be able to use the [Grav CLI](../../advanced/grav-cli) and [Grav GPM](../../advanced/grav-gpm) commands such as:
 
