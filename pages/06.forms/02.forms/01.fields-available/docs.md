@@ -12,7 +12,7 @@ The Forms plugin provides the following fields, which you can use to build your 
 | :-----                                  | :-----                                                      |
 | **[Captcha](#the-captcha-field)**       | A captcha antispam field, using reCAPTCHA                   |
 | **[Checkbox](#the-checkbox-field)**     | A simple checkbox                                           |
-| **[Checkboxes](#the-checkboxes-field)** | A serie of checkboxes                                       |
+| **[Checkboxes](#the-checkboxes-field)** | A series of checkboxes                                       |
 | **[Date](#the-date-field)**             | A date selection field                                      |
 | **[Display](#the-display-field)**       | A text or instructions field (not an input field)           |
 | **[Email](#the-email-field)**           | An email field, with validation                             |
@@ -47,7 +47,7 @@ This list provides a common ground so there's no need to repeat the description 
 | `outerclasses`      | Classes added to the div that includes the label and the field                                                                                                                                                 |
 | `placeholder`       | sets the field placeholder value                                                                                                                                                                               |
 | `readonly`          | sets the field readonly state                                                                                                                                                                                  |
-| `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template yo see, when used in the frontend |
+| `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template you see, when used in the frontend |
 | `style`             | sets the field style                                                                                                                                                                                           |
 | `title`             | sets the field title value                                                                                                                                                                                     |
 | `type`              | sets the field type                                                                                                                                                                                            |
@@ -57,14 +57,14 @@ This list provides a common ground so there's no need to repeat the description 
 
 ### Positive values
 
-You can set positive values in multiple ways: `'on'`, `'true'`, `1`.
+You can set positive values in multiple ways: `'on'`, `true`, `1`.
 Other values are interpreted as negative.
 
 ---
 
 ### The Captcha Field
 
-The `captcha` field type is used to add a Google Recaptcha element to your form. Unlike other elements, it can be used once in the form.
+The `captcha` field type is used to add a Google reCAPTCHA element to your form. Unlike other elements, it can be used once in the form.
 
 Also, the `name` attribute of the captcha field must be `g-recaptcha-response`. The reason is that Google reCAPTCHA stores the Captcha confirmation code in a field named `g-recaptcha-response`.
 
@@ -83,7 +83,7 @@ Example:
 
 | Attribute                 | Description                                     |
 | :-----                    | :-----                                          |
-| `recaptcha_site_key`      | The Google Recaptcha Site Key                   |
+| `recaptcha_site_key`      | The Google reCAPTCHA Site Key                   |
 | `recaptcha_not_validated` | The message to show if the captcha is not valid |
 
 | Common Attributes Allowed                      |
@@ -117,8 +117,7 @@ The `checkbox` field type is used to add a single checkbox to your form.
 Example:
 
 ```yaml
--
-  name: agree_to_terms
+agree_to_terms:
   type: checkbox
   label: "Agree to the terms and conditions"
   validate:
@@ -129,6 +128,7 @@ Example:
 | :-----                                         |
 | [autofocus](#common-fields-attributes)         |
 | [classes](#common-fields-attributes)           |
+| [default](#common-fields-attributes)           |
 | [disabled](#common-fields-attributes)          |
 | [id](#common-fields-attributes)                |
 | [label](#common-fields-attributes)             |
@@ -156,7 +156,9 @@ pages.process:
     type: checkboxes
     label: PLUGIN_ADMIN.PROCESS
     help: PLUGIN_ADMIN.PROCESS_HELP
-    default: [markdown: true, twig: true]
+    default:
+        markdown: true
+        twig: true
     options:
         markdown: Markdown
         twig: Twig
@@ -167,7 +169,9 @@ pages.process:
 my_field:
     type: checkboxes
     label: A couple of checkboxes
-    default: [option1: true, option2: true]
+    default:
+        option1: true
+        option2: true
     options:
         option1: Option 1
         option2: Option 2
@@ -176,7 +180,7 @@ my_field:
 
 | Attribute | Description                                                                                                                                    |
 | :-----    | :-----                                                                                                                                         |
-| `use`     | When set to 'keys', the checkbox will store the value of the element key when the form is submitted. Otherwise, it will use the element value. |
+| `use`     | When set to `keys`, the checkbox will store the value of the element key when the form is submitted. Otherwise, it will use the element value. |
 | `options` | An array of key-value options that will be allowed.                                                                                            |
 
 
@@ -184,6 +188,7 @@ my_field:
 :----- |
 | [autofocus](#common-fields-attributes)           |
 | [classes](#common-fields-attributes)             |
+| [default](#common-fields-attributes)             |
 | [disabled](#common-fields-attributes)            |
 | [help](#common-fields-attributes)                |
 | [id](#common-fields-attributes)                  |
@@ -316,18 +321,18 @@ With the `file` field type you can let users to upload files through the form. T
 
 ``` yaml
 # Default settings
-- my_files:
-      type: file
-      multiple: false
-      destination: '@self'
-      accept:
-        - image/*
+my_files:
+  type: file
+  multiple: false
+  destination: '@self'
+  accept:
+    - image/*
 ```
 
 | Attribute     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | :-----        | :-----                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `multiple`    | Can be `true` or `false`, when set to **true**, multiple files can be selected at the same time                                                                                                                                                                                                                                                                                                                                                                                          |
-| `destination` | Can be either **@self**, **@page:/route** or **local/rel/path/**. <<br>Set to **@self**, the files will be uploaded where the form has been declared (current .md). <br>Using **@page:/route** will upload to the specified route of a page, if exists (e.g., **@page:/blog/a-blog-post**). <br>Set to **'local/rel/path'**: Can be any path relative to the Grav instance. For instance, `user/data/files`. If the path doesn't exist, it will get created so make sure it is writable. |
+| `destination` | Can be either **@self**, **@page:/route** or **local/rel/path/**. <br>Set to **@self**, the files will be uploaded where the form has been declared (current .md). <br>Using **@page:/route** will upload to the specified route of a page, if exists (e.g., **@page:/blog/a-blog-post**). <br>Set to **'local/rel/path'**: Can be any path relative to the Grav instance. For instance, `user/data/files`. If the path doesn't exist, it will get created so make sure it is writable. |
 | `accept`      | Takes an array of MIME types that are allowed. For instance to allow only gifs and mp4 files: `accept: ['image/gif', 'video/mp4']`                                                                                                                                                                                                                                                                                                                                                       |
 
 !!! The File field in the admin is a bit different, allowing also to delete a file uploaded to a form, because the use-case in admin is to upload and then associate a file to a field.
@@ -340,7 +345,7 @@ With the `file` field type you can let users to upload files through the form. T
 | [outerclasses](#common-fields-attributes)      |
 | [validate.required](#common-fields-attributes) |
 
-By default, in Admin the `file` field will overwrite an uploaded file that has the same name of a newer one, contained in the same folder you want to upload it, unless you set `avoid_overwriting` to true in the field definition.
+By default, in Admin the `file` field will overwrite an uploaded file that has the same name of a newer one, contained in the same folder you want to upload it, unless you set `avoid_overwriting` to `true` in the field definition.
 
 ---
 
@@ -371,10 +376,9 @@ The `password` field type is used to present a password text input field.
 
 Example:
 ```yaml
--
+password:
   type: password
   label: Password
-  name: password
 ````
 
 | Common Attributes Allowed                      |
@@ -407,11 +411,10 @@ The `radio` field type is used to present a set of radio fields
 
 Example:
 ```yaml
--
+my_choice:
   type: radio
   label: Choice
-  name: my_choice
-  default: [markdown: true, twig: true]
+  default: markdown
   options:
       markdown: Markdown
       twig: Twig
