@@ -158,7 +158,7 @@ $ ln -s ../sites-available/grav
 $ rm default
 ```
 
-Now all we have to do is restart Nginx and the php5-fpm process and test to ensure we have configured Nginx and the PHP connection pool correctly:
+Now all we have to do is restart Nginx and the php7-fpm process and test to ensure we have configured Nginx and the PHP connection pool correctly:
 
 ```
 $ service nginx restart
