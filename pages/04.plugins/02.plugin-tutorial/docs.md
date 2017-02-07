@@ -69,11 +69,11 @@ SUCCESS plugin Randomizer -> Created Successfully
 Path: /www/user/plugins/randomizer
 ```
 
-The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not be automatically have the logic to perform the function we wish.  We will have to modify it to suite our needs.
+The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not automatically have the logic to perform the function we wish.  We will have to modify it to suite our needs.
 
 ## Step 2 - Plugin basics
 
-Now we've created a new plugin that can be modified and developed, let's break it down and have a look at what makes up a plugin.  If you look in the `user/plugins/randomizer` folder you will see:
+Now we've created a new plugin that can be modified and developed. Let's break it down and have a look at what makes up a plugin.  If you look in the `user/plugins/randomizer` folder you will see:
 
 ```
 .
@@ -89,7 +89,7 @@ This is a sample structure but some things are required:
 
 ### Required items to function
 
-This items are critical and your plugin will not function reliably unless you include these in your plugin.
+These items are critical and your plugin will not function reliably unless you include these in your plugin.
 
 * **`blueprints.yaml`** - The configuration file used by Grav to get information on your plugin. It can also define a form that the admin can display when viewing the plugin details.  This form will let you save settings for the plugin. [This file is documented in the Forms section](/forms/blueprints).
 * **`randomizer.php`** - This file will be named according to your plugin, but can be used to house any logic your plugin needs.  You can use any [plugin event hook](/plugins/event-hooks) to perform logic at pretty much any point in [Grav's lifecycle](/plugins/grav-lifecycle).
@@ -141,7 +141,7 @@ class RandomizerPlugin extends Plugin
 }
 ```
 
-We need to add a few `use` statements because we are going to use these classes in our plugin, and it saves space and makes the code more readable if we don't have to put the full namespace for each class in-line.
+We need to add a few `use` statements because we are going to use these classes in our plugin, and it saves space and makes the code more readable if we don't have to put the full namespace for each class inline.
 
 Modify the `use` statements to look like this:
 
@@ -154,7 +154,7 @@ use Grav\Common\Taxonomy;
 
 The two key parts of this class structure are:
 
-1. Plugins need to have `namespace Grav\Plugin` at the top of of the PHP file.
+1. Plugins need to have `namespace Grav\Plugin` at the top of the PHP file.
 2. Plugins should be named in **titlecase** based on the name of the plugin with the string `Plugin` appended to the end, and should extend `Plugin`, hence the class name `RandomizerPlugin`.
 
 ## Step 5 - Subscribed events
@@ -327,7 +327,7 @@ class RandomizerPlugin extends Plugin
 }
 ```
 
-If you followed along, you should have a fully functional **Randomizer** plugin enabled for your site.  Just point your browser to the `http://yoursite.com/random`, and you should see a random page.  You can also download the original **Random**  plugin directly from the [Plugins Download](http://getgrav.org/downloads/plugins) section of the [getgrav.org](http://getgrav.org/downloads/plugins) site.
+If you followed along, you should have a fully functional **Randomizer** plugin enabled for your site.  Just point your browser to the `http://yoursite.com/random`, and you should see a random page.  You can also download the original **Random**  plugin directly from the [Plugins Download](https://getgrav.org/downloads/plugins) section of the [getgrav.org](https://getgrav.org/downloads/plugins) site.
 
 ## Merging Plugin and Page Configuration
 
