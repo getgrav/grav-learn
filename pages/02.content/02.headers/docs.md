@@ -229,6 +229,18 @@ By default, Grav will cache the contents of the page file to ensure things run a
 
 An example of this is when you are using dynamic Twig variables in your content. The `cache_enable` variable allows this behavior to be overridden.  We will cover Twig Content variables in a later chapter. Valid values are `true` or `false`.
 
+### Never Cache Twig
+
+```ruby
+never_cache_twig: true
+```
+
+Enabling this will allow you to add a processing logic that can change dynamically on each page load, rather than caching the results and storing it for each page load. This can be enabled/disabled site-wide in the **system.yaml**, or on a specific page. Can be set `true` or `false`.
+
+This is a subtle change, but one that is especially useful in modular pages as it keeps you from having to constantly disable caching when you're working with it. The page is still cached, but not the Twig. The Twig is processed after the cached content is retrieved. For modular forms, it now works with just this setting rather than having to disable the modular page cache.
+
+!! This is not compatible with `twig_first: true` currently because all processing is happening in the one Twig call.
+
 ### Process
 
 ```ruby

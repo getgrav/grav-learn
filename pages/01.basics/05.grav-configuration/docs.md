@@ -142,6 +142,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
     - **markdown**: Enable or disable the processing of markdown on the front end. Can be set `true` or `false`.
     - **twig**: Enable or disable the processing of twig on the front end. Can be set `true` or `false`.
 * **twig_first**: Process Twig before markdown when processing both on a page. Can be set `true` or `false`.
+* **never_cache_twig**: Enabling this will allow you to add a processing logic that can change dynamically on each page load, rather than caching the results and storing it for each page load. This can be enabled/disabled site-wide in the **system.yaml**, or on a specific page. Can be set `true` or `false`.
 * **events**:
     - **page**: Enable page-level events. Can be set `true` or `false`.
     - **twig**: Enable Twig-level events. Can be set `true` or `false`.
