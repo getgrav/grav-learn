@@ -12,12 +12,13 @@ The Forms plugin provides the following fields, which you can use to build your 
 | :-----                                  | :-----                                                      |
 | **[Captcha](#the-captcha-field)**       | A captcha antispam field, using reCAPTCHA                   |
 | **[Checkbox](#the-checkbox-field)**     | A simple checkbox                                           |
-| **[Checkboxes](#the-checkboxes-field)** | A series of checkboxes                                       |
+| **[Checkboxes](#the-checkboxes-field)** | A series of checkboxes                                      |
 | **[Date](#the-date-field)**             | A date selection field                                      |
 | **[Display](#the-display-field)**       | A text or instructions field (not an input field)           |
 | **[Email](#the-email-field)**           | An email field, with validation                             |
 | **[File](#the-file-field)**             | A file field for uploading                                  |
 | **[Hidden](#the-hidden-field)**         | An hidden field                                             |
+| **[Honeypot](#the-honeypot-field)**     | A hidden field which returns an error when filled           |
 | **[Password](#the-password-field)**     | A password field                                            |
 | **[Radio](#the-radio-field)**           | A radio input type                                          |
 | **[Range](#the-range-field)**           | A range input type                                          |
@@ -367,6 +368,24 @@ header.some_field:
 | Common Attributes Allowed            |
 | :-----                               |
 | [default](#common-fields-attributes) |
+
+---
+
+### The Honeypot Field
+
+The `honeypot` field type creates a hidden field that, when filled out, will return with an error. This is a useful way to prevent bots from filling out and submitting a form.
+
+Example:
+
+```yaml
+fields:
+    - name: honeypot
+      type: honeypot
+```
+
+This is a simple text field which does not appear on the front end. Bots, which detect fields in the code and fill them out automatically, will likely fill the field out. The error prevents that form from being properly submitted. The error comes back next to the form element, rather than on the top in a message block.
+
+A honeypot field is a popular alternative to captcha fields.
 
 ---
 

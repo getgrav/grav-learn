@@ -549,6 +549,24 @@ header.a_file:
 
 ---
 
+### The Honeypot Field
+
+The `honeypot` field type creates a hidden field that, when filled out, will return with an error. This is a useful way to prevent bots from filling out and submitting a form.
+
+Example:
+
+```yaml
+fields:
+    - name: honeypot
+      type: honeypot
+```
+
+This is a simple text field which does not appear on the front end. Bots, which detect fields in the code and fill them out automatically, will likely fill the field out. The error prevents that form from being properly submitted. The error comes back next to the form element, rather than on the top in a message block.
+
+A honeypot field is a popular alternative to captcha fields.
+
+---
+
 ### The Ignore Field
 
 The `ignore` field type can be used to remove unused fields when extending from another blueprint
