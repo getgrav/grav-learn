@@ -659,7 +659,7 @@ header.features:
 | Attribute   | Description                                              |
 | :-----      | :-----                                                   |
 | `fields`    | The subfields                                            |
-| `collapsed` | If `true`, the list if opened collapsed. By default it's expanded |
+| `collapsed` | If `true`, the list is opened collapsed. By default it's expanded |
 | `style`     | Can be set to `vertical` to conserve horizontal space    |
 | `btnLabel`  | The "add new item" label text                            |
 | `sort`      | Boolean. If negative, disables the ability to sort items |
