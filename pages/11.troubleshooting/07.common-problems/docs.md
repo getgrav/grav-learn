@@ -34,8 +34,13 @@ If at this point it's still not working, get in touch, or report back if you wer
 
 Also, check the CLI command is working, by opening a SSH connection to the server and running `bin/gpm index` and check if it's just inside Admin that you get this error, or in the command line too.
 
-## Not-so-common problems
+### "Invalid security token" 
 
-### "Invalid security token" popup in Admin
+**Problem:** You get this error in the Admin panel
 
-If you are constantly getting an "Invalid security token" red popup in the Admin dashboard, try clearing your browser cookies, that should resolve the issue.
+**Solution:**
+
+There are a few possible causes of the problem, all linked to the Session.
+First, try clearing your browser cookies, that's the easiest way and clears a possible cause of the problem.
+
+Second, check that PHP has the correct tmp path set up. This can be set in PHP directly, or by setting Grav's `system.yaml` `session.path` setting (it can be also set via Admin, in the System Configuration).
