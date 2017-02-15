@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-!!!! **BETA REQUIRED** - These advanced features are only available in **Grav 1.1.0-beta.1+**.  They will not work in Grav 1.0.x
+!!!! These advanced features are only available in **Grav 1.1.x**.  They will not work in Grav 1.0.x
 
 There are some advanced features in the blueprints which allow you to extend them and to have dynamic fields.
 
