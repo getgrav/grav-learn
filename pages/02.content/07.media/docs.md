@@ -854,7 +854,42 @@ To start using responsive images, all you need to do is add higher density image
 
 Grav also has support for media queries inside the `sizes` attribute, allowing you to use different widths depending on the device's screen size. In contrast to the first method, you don't have to create multiple images; they will get created automatically. The fallback image is the current image, so a browser without support for `srcset`, will display the original image.
 
-If you want to customize the sizes of the automatically created files, you can use the `derivatives()` method (as shown below). The first parameter is the width of the smallest of the generated images. The second is the maximum width of the generated images. The third, and only optional parameter, dictates the intervals with which to generate the photos (default is 200). For example, if you set the first parameter to be `320` and the third to be `100`, Grav will generate an image for 320, 420, 520, 620…
+!! For the moment it does not work inside markdown, only in your ```twig``` files.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['retina.jpg'].sizes('(max-width:26em) 100vw, 50vw').html() }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+{% set code_sample %}
+![](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+{% endset %}
+```
+{{ code_sample|e }}
+```
+[/ui-tab]
+[/ui-tabs]
+
+##### Result:
+
+![](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+
+!!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
+
+##### Sizes with media queries using derivatives
+
+If you want to customize the sizes of the automatically created files, you can use the `derivatives()` method (as shown below). The first parameter is the width of the smallest of the generated images. The second is the maximum width of the generated images. The third, and only optional parameter, dictates the intervals with which to generate the photos (default is 200). For example, if you set the first parameter to be `320` and the third to be `100`, Grav will generate an image for 320, 420, 520, 620, and so on until it reaches its set maximum.
+
+In our example, we set the maximum to `1600`. This will result in increments of 300 being met from `320` to `1520` as `1620` would be above the threshold.
 
 !! For the moment it does not work inside markdown, only in your ```twig``` files.
 
