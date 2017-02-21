@@ -81,7 +81,7 @@ The template file for the `text.md` file is located in `/templates/modular` fold
 <div class="modular-row callout">
     {% set image = page.media.images|first %}
     {% if image %}
-        {{ image.cropResize(400,400).html('','align-'~page.header.image_align) }}
+        {{ image.cropResize(400,400).html('','','align-'~page.header.image_align) }}
     {% endif %}
 {{ content }}
 </div>
