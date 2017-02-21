@@ -189,11 +189,12 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 
 * **enabled**: Set to true to enable caching. Can be set to `true` or `false`.
 * **check**:
-    - **method**: Method to check for updates in pages. Options: `file`, `folder`, and `none`.
+    - **method**: Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching)
 * **driver**: Select a cache driver. Options are: `auto`, `file`, `apc`, `xcache`, `memcache`, and `wincache`.
 * **prefix**: Cache prefix string (prevents cache conflicts). Example: `g`.
 * **lifetime**: Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days.
 * **gzip**: GZip compress the page output. Can be set to `true` or `false`.
+* **allow_webserver_gzip**: This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete.
 
 ### twig
 
