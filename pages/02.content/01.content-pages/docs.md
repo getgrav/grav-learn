@@ -167,3 +167,19 @@ This allows you to perform a wide variety of functionality from any page on your
 {% endverbatim %}
 
 In the next section we will continue and dig into the specifics of a page in detail.
+
+### ContentMeta
+
+Referencing pages and content is straightforward, but what about the content that doesn't get rendered on the front end along with the rest of the page?
+
+When Grav reads page content, it stores this content in cache. That way, the next time the page is rendered it doesn't have to read all the content from the `.md` file. Generally, this content is all rendered to the front end. However, there are instances where having some additional data stored alongside the page in the cache is useful.
+
+This is where `contentMeta()` comes in. We use ContentMeta in our [Shortcode](https://github.com/getgrav/grav-plugin-shortcode-core) plugin to [retrieve sections from other pages](https://github.com/getgrav/grav-plugin-shortcode-core#sections-from-other-pages) using shortcodes. For example:
+
+{% verbatim %}
+```
+<div id="author">{{ page.find('/my/custom/page').contentMeta.shortcodeMeta.shortcode.section.author }}</div>
+```
+{% endverbatim %}
+
+We used this in Shortcode Core to store CSS and JS assets that the shortcode on the page requires, however this feature can be used to store just about any data structure you need.
