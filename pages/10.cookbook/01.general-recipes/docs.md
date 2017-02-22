@@ -21,7 +21,7 @@ This page contains an assortment of problems and their respective solutions rela
 Sometimes on the terminal the PHP version is different than the PHP version used by the web server.
 
 You can check the PHP version running in the CLI by running the command `php -v`.
-If the PHP version is less than 5.5.9, Grav won't run as it requires at least PHP 5.4.
+If the PHP version is less than 5.5.9, Grav won't run as it requires at least PHP 5.5.9.
 
 How to fix?
 
@@ -63,7 +63,7 @@ A common web design requirement is to have a gallery of some kind rendered on a 
 
 ##### Solution:
 
-The simplest way to provide a solution for this problem is to make use of Grav's [media functionality](../../content/media) which allows a page to be aware of the images available in it's folder.
+The simplest way to provide a solution for this problem is to make use of Grav's [media functionality](../../content/media) which allows a page to be aware of the images available in its folder.
 
 Let's assume you have a page you've called `gallery.md` and also you have a variety of images in the same directory. The filenames themselves are not important as we will just iterate over each of the images.  Because we want to have extra data associated with each image, we will include a `meta.yaml` file for each image.  For example we have a few images:
 
@@ -179,11 +179,11 @@ You can see how the content is being **split** by the `<hr />` tag and converted
 
 ##### Problem:
 
-You need a image slider without any overhead.
+You need an image slider without any overhead.
 
 ##### Solution:
 
-This recipe is for 4 images and a page called slider.md! Simply put the images where the .md file is. Next, create a new Twig template and extend base.html.twig.
+This recipe is for 4 images and a page called `slider.md`! Simply put the images where the .md file is. Next, create a new Twig template and extend `base.html.twig`.
 
 
 ```
@@ -384,7 +384,7 @@ access:
     site.onlybob: true
 ```
 
-Next, add the `site.onlybob` permission to Bob, in its bob.yaml user file under the `user/accounts` folder:
+Next, add the `site.onlybob` permission to Bob, in its `bob.yaml` user file under the `user/accounts` folder:
 
 ```yaml
 access:
