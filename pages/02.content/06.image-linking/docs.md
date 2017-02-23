@@ -14,7 +14,7 @@ Using this directory structure as an example, we will take a look at the differe
 
 The use of the `/images` folder serves as an example of how you can maintain a simple centralized image directory to store files that are frequently used by multiple pages. This simplifies the linking process in these cases.
 
-!!!! If you decide to use a centralized image directory, be advised that this directory should exist within the `/pages` folder as this folder is intended for front-facing content.
+!!!! If you decide to use a centralized image directory, be advised that this directory should exist within the `/pages` folder as this folder is intended for front end content.
 
 To get us started, here is a quick look at some of the common components of a Grav markdown-based image tag.
 

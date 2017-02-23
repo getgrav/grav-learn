@@ -32,7 +32,7 @@ The simplest approach to setting this up is to create **child pages** below the 
 
 There is also some configuration settings to **control the order** of the listing as well as a **limit on the number of items**, and whether or not **pagination** should be enabled.
 
-!! A sample **Blog Skeleton** using a **Listing Page** can be found in the [Grav Downloads](http://getgrav.org/downloads).
+!! A sample **Blog Skeleton** using a **Listing Page** can be found in the [Grav Downloads](https://getgrav.org/downloads/skeletons).
 
 #### Modular Page
 
@@ -40,7 +40,7 @@ There is also some configuration settings to **control the order** of the listin
 
 A modular page is a special type of listing page because it actually builds a **single page** from its **child pages**. This allows for the ability to build very complex **one-page layouts** from smaller modular content pages. This is accomplished by constructing the **modular page** from multiple **modular folders** found in the page's primary folder.
 
-!! A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](http://getgrav.org/downloads).
+!! A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](https://getgrav.org/downloads/skeletons).
 
 Each of these page types follow the same basic structure, so before we can get into the nitty-gritty of each type, we must explain how pages in Grav are constructed.
 
@@ -88,7 +88,7 @@ You can specifically define a manual order by providing a list of options to the
 
 ## Page File
 
-Within the page folder, we can create the actual page file.  The filename should end with `.md` to indicate that it is a Markdown formatted file.  Technically, it is markdown with YAML front matter, which sounds impressive but really is not a big deal at all. We will cover the details of the file structure soon.
+Within the page folder, we can create the actual page file.  The filename should end with `.md` to indicate that it is a Markdown formatted file.  Technically, it is markdown with YAML frontmatter, which sounds impressive but really is not a big deal at all. We will cover the details of the file structure soon.
 
 The important thing to understand is the name of the file directly references the name of the theme's template file that will be used to render.  The standard name for the main template file is **default**, so the file would be named `default.md`.
 
@@ -113,7 +113,7 @@ An example page file could look like this:
     sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque
     velit orci, laoreet at adipiscing eu, interdum quis nibh. Nunc a accumsan purus.
 
-The settings between the pair of `---` markers is known as the YAML front matter, and it is comprised of basic YAML settings for the page.
+The settings between the pair of `---` markers is known as the YAML frontmatter, and it is comprised of basic YAML settings for the page.
 
 In this example, we are explicitly setting the title, as well setting the taxonomy to **blog** so we can filter it later.  The content after the second `---` is the actual content that will be compiled and rendered as HTML on your site.  This is written in [Markdown](../markdown), which will be covered in detail in a future chapter.  Just know that the `#`, `**`, and `_` markers translate to a **heading1**, **bold**, and **italics**, respectively.
 
