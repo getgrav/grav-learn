@@ -8,6 +8,7 @@ Here you can find information on problems and issues raised on [Grav forum](http
 
 1. [Call to a member function set() on null](#call-to-a-member-function-set-on-null)
 2. [Cannot connect to the GPM](#cannot-connect-to-the-gpm)
+2. [Invalid Security Token](#invalid-security-token)
 
 ### Call to a member function set() on null
 
