@@ -42,6 +42,7 @@ Also, check the CLI command is working, by opening a SSH connection to the serve
 **Solution:**
 
 There are a few possible causes of the problem, all linked to the Session.
-First, try clearing your browser cookies, that's the easiest way and clears a possible cause of the problem.
 
-Second, check that PHP has the correct tmp path set up. This can be set in PHP directly, or by setting Grav's `system.yaml` `session.path` setting (it can be also set via Admin, in the System Configuration).
+- Try clearing your browser cookies, that's the easiest way and clears a possible cause of the problem.
+- Check that PHP has the correct tmp path set up. This can be set in PHP directly, or by setting Grav's `system.yaml` `session.path` setting (it can be also set via Admin, in the System Configuration) [Reported issue](https://github.com/getgrav/grav-plugin-admin/issues/958)
+- Make sure your web server config is right and includes the query string [Reported issue](https://github.com/getgrav/grav-plugin-admin/issues/893)
