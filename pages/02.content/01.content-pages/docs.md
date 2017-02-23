@@ -168,7 +168,7 @@ This allows you to perform a wide variety of functionality from any page on your
 
 In the next section we will continue and dig into the specifics of a page in detail.
 
-### ContentMeta
+### contentMeta
 
 Referencing pages and content is straightforward, but what about the content that doesn't get rendered on the front end along with the rest of the page?
 
