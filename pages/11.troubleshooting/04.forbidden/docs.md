@@ -19,3 +19,7 @@ param_sep: ';'
 ```
 
 This will configure Grav to use a semicolon, rather than a colon for parameters such as `http://yoursite.com/blog/tag:something` will now be: `http://yoursite.com/blog/tag;something`.
+
+## 403 issue in Admin
+
+If you have `mod_security` installed, we had reports of rule 350147 (http://wiki.atomicorp.com/wiki/index.php/WAF_350147) triggering a false positive. Whitelist that rule, or ask your hosting provider support to do it.
