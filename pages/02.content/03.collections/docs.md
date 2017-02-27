@@ -8,7 +8,7 @@ Collections have grown considerably since the early betas of Grav. We started of
 
 ## Basics of Grav Collections
 
-In Grav, the most common type of collection is a list of pages that can be defined either in the page's frontmatter or in the twig itself. The most common is to define a collection in the frontmatter. With a collection defined, it is available in the Twig of the page to do with as you wish. By using page collection methods or looping through each page object and using the page methods or properties you can do powerful things. Common examples of this include displaying a list of blog posts, or displaying modular sub-pages to render a complex page design.
+In Grav, the most common type of collection is a list of pages that can be defined either in the page's frontmatter or in the twig itself. The most common is to define a collection in the frontmatter. With a collection defined, it is available in the Twig of the page to do with as you wish. By using page collection methods or looping through each [page object](https://learn.getgrav.org/themes/theme-vars#page-object) and using the page methods or properties you can do powerful things. Common examples of this include displaying a list of blog posts, or displaying modular sub-pages to render a complex page design.
 
 ## Collection Object
 
@@ -47,7 +47,7 @@ When this collection is defined in the header, Grav creates a collection **page.
 {% endfor %}
 ```
 
-This simply loops over the pages in the collection displaying the title and summary.
+This simply loops over the [pages](https://learn.getgrav.org/themes/theme-vars#page-object) in the collection displaying the title and summary.
 
 ## Collection Headers
 
@@ -270,15 +270,17 @@ Ordering of sub-pages follows the same rules as ordering of folders, the availab
 
 | Ordering     | Details                                                                                                                                            |
 | :----------  | :----------                                                                                                                                        |
-| **default**  | The order based on the file system, i.e. `01.home` before `02.advark`                                                                              |
-| **title**    | The order is based on the title as defined in each page                                                                                            |
-| **basename** | The order is based on the alphabetic folder name after it has been processed by the `basename()` PHP function                                      |
-| **date**     | The order based on the date as defined in each page                                                                                                |
-| **modified** | The order based on the modified timestamp of the page                                                                                              |
-| **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                  |
-| **header.x** | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015`    |
-| **manual**   | The order based on the `order_manual` variable                                                                                                     |
-| **random**   | The order is randomized                                                                                                                            |
+| **default**    | The order based on the file system, i.e. `01.home` before `02.advark`                                                                              |
+| **title**      | The order is based on the title as defined in each page                                                                                            |
+| **basename**   | The order is based on the alphabetic folder name after it has been processed by the `basename()` PHP function                                      |
+| **date**       | The order based on the date as defined in each page                                                                                                |
+| **modified**   | The order based on the modified timestamp of the page                                                                                              |
+| **folder**     | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                  |
+| **header.x**   | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015`    |
+| **manual**     | The order based on the `order_manual` variable                                                                                                     |
+| **random**     | The order is randomized                                                                                                                            |
+| **custom**     | The order is based on the `content.order.custom` variable                                                                                                                             |
+| **sort_flags** | Allow to override sorting flags for page header-based or default ordering. If the `intl` PHP extension is loaded, only [these flags](https://secure.php.net/manual/en/collator.asort.php) are available. Otherwise, you can use the PHP [standard sorting flags](https://secure.php.net/manual/en/array.constants.php). |
 
 The `content.order.dir` variable controls which direction the ordering should be in. Valid values are either `desc` or `asc`.
 
