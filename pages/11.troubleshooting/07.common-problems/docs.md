@@ -8,7 +8,8 @@ Here you can find information on problems and issues raised on [Grav forum](http
 
 1. [Call to a member function set() on null](#call-to-a-member-function-set-on-null)
 2. [Cannot connect to the GPM](#cannot-connect-to-the-gpm)
-2. [Invalid Security Token](#invalid-security-token)
+3. [Invalid Security Token](#invalid-security-token)
+2. [Admin Interface won't scroll](#admin-interface-wont-scroll)
 
 ### Call to a member function set() on null
 
@@ -46,3 +47,22 @@ There are a few possible causes of the problem, all linked to the Session.
 - Try clearing your browser cookies, that's the easiest way and clears a possible cause of the problem.
 - Check that PHP has the correct tmp path set up. This can be set in PHP directly, or by setting Grav's `system.yaml` `session.path` setting (it can be also set via Admin, in the System Configuration) [Reported issue](https://github.com/getgrav/grav-plugin-admin/issues/958)
 - Make sure your web server config is right and includes the query string [Reported issue](https://github.com/getgrav/grav-plugin-admin/issues/893)
+
+### Admin Interface won't scroll
+
+**Problem:** When accessing the Admin-plugin's interface, the page will not scroll
+
+**Solution:** There are several reported causes of this, but the most common solutions are the following.
+
+- Hard-reload the page by clearing your browser's cache and then refreshing.
+- Make sure you are using the newest version of Grav, and switch to the default language - English. If this solves the scrolling issue, please report the faulty language [as an issue](https://github.com/getgrav/grav-plugin-admin/issues/).
+- If you are using CloudFlare for HTTPS or as a CDN, their JS-optimization - which is enabled by default - can block scripts from rendering. To disable this, log in to CloudFlare and select the relevant domain, then do one of the following:
+    1. To disable this optimization entirely, navigate to "Speed" and scroll down to "Rocket Loader".
+        - Set this to "Off" and CloudFlare will not block the script, but you will also not benefit from their optimization.
+    2. To only disable the optimization for Grav's Admin interface, navigate to "Page Rules" and click the "Create Page Rule"-button.
+        - For "If the URL matches" field, fill in your domain name, followed by `/admin`, for example: `example.com/admin`.
+        - Click "Add a Setting", and in the dropdown find "Rocket Loader". When selected, change the value in "Select Value" to **off**.
+        - Leave the "Order"-field as is, by default it is set to **First**.
+        - Finally, click the "Save and Deploy"-button
+
+If none of the above work, please check your browser's console for any reported JavaScript errors; In Chrome or Firefox either press F12 or Ctrl+Shift+I, then click the "Console"-tab. Report the errors [as an issue](https://github.com/getgrav/grav-plugin-admin/issues/).
