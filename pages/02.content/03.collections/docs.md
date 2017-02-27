@@ -6,7 +6,17 @@ taxonomy:
 
 Collections have grown considerably since the early betas of Grav. We started off with a very limited set of page-based collections, but with the help of our community we have increased these capabilities to make them even more powerful!  So much so that they now have their own section in the documentation.
 
-The most common way to make use of collections is to define a collection in the page.  This means the collection defined is available in the Twig of the page to do with as you wish.  Common examples of this include displaying a list of blog posts, or displaying modular sub-pages to render a complex page design.
+## Basics of Grav Collections
+
+In Grav, the most common type of collection is a list of pages that can be defined either in the page's frontmatter or in the twig itself. The most common is to define a collection in the frontmatter. With a collection defined, it is available in the Twig of the page to do with as you wish. By using page collection methods or looping through each page object and using the page methods or properties you can do powerful things. Common examples of this include displaying a list of blog posts, or displaying modular sub-pages to render a complex page design.
+
+## Collection Object
+
+When you define a collection in the page header, you are dynamically creating a [Grav Collection](https://github.com/getgrav/grav/blob/develop/system/src/Grav/Common/Page/Collection.php) that is available in the page's Twig.  This Collection object is **iterable** and can be treated like an **array** which allows you to do things such as:
+
+```
+{{ dump(page.collection[page.path]) }}
+```
 
 ## Example Collection Definition
 
@@ -22,11 +32,13 @@ content:
     pagination: true
 ```
 
+The `content.items` value in the page's frontmatter tells Grav to gather up a collection of items and information passed to this defines how the collection is to be built.
+
 This definition creates a collection for the page that consists of the all **child pages** sorted by **date** in **descending** order with **pagination** showing **10 items** per-page.
 
 ## Accessing Collections in Twig
 
-When this collection is defined in the header, you can access the collection with:
+When this collection is defined in the header, Grav creates a collection **page.collection** that you can access in a twig template with:
 
 ```
 {% for p in page.collection %}
@@ -68,7 +80,7 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 
 ! This document outlines the use of `@page`, `@taxonomy.category` etc, but a more YAML-safe alternative format is `page@`, `taxonomy@.category`.  All the `@` commands can be written in either prefix or postfix format.
 
-We will cover these more in detail. The `content.items` value tells Grav to gather up a collection of items and information passed to this defines how the collection is to be built.
+We will cover these more in detail. 
 
 ## Root Collections
 
@@ -329,13 +341,7 @@ This sets up **2 collections** for this page, the first uses the default `conten
 {% set fruit_collection = page.collection('fruit') %}
 ```
 
-## Collection Object
-
-When you define a collection in the page header, you are dynamically creating a [Grav Collection](https://github.com/getgrav/grav/blob/develop/system/src/Grav/Common/Page/Collection.php).  This Collection object is **iterable** and can be treated like an **array** which allows you to do things such as:
-
-```
-{{ dump(collection[page.path]) }}
-```
+## Collection Object Methods
 
 Standard methods Iterable methods include:
 
@@ -372,6 +378,29 @@ Also has several useful Collection-specific methods:
 * `Collection::ofType($type)` - Filters the current collection to include only pages where template = `$type`.
 * `Collection::ofOneOfTheseTypes($types)` - Filters the current collection to include only pages where template is in the array `$types`.
 * `Collection::ofOneOfTheseAccessLevels($levels)` - Filters the current collection to include only pages where page access is in the array of `$levels`
+
+Here is an example taken from the **Learn2** theme's **docs.html.twig** that defines a collection based on taxonomy (and optionally tags if they exist) and uses the `Collection::isFirst` and `Collection::isLast` methods to conditionally add page navigation:
+
+```ruby
+{% set tags = page.taxonomy.tag %}
+{% if tags %}
+    {% set progress = page.collection({'items':{'@taxonomy':{'category': 'docs', 'tag': tags}},'order': {'by': 'default', 'dir': 'asc'}}) %}
+{% else %}
+    {% set progress = page.collection({'items':{'@taxonomy':{'category': 'docs'}},'order': {'by': 'default', 'dir': 'asc'}}) %}
+{% endif %}
+
+{% block navigation %}
+        <div id="navigation">
+        {% if not progress.isFirst(page.path) %}
+            <a class="nav nav-prev" href="{{ progress.nextSibling(page.path).url }}"> <i class="fa fa-chevron-left"></i></a>
+        {% endif %}
+
+        {% if not progress.isLast(page.path) %}
+            <a class="nav nav-next" href="{{ progress.prevSibling(page.path).url }}"><i class="fa fa-chevron-right"></i></a>
+        {% endif %}
+        </div>
+{% endblock %}
+```
 
 ## Programmatic Collections
 
