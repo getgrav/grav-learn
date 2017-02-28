@@ -15,6 +15,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Create a private area](#create-a-private-area)
 1. [Add JavaScript to the footer](#add-javascript-to-the-footer)
 1. [Override the default logs folder location](#override-the-default-logs-folder-location)
+1. [Split vertical menu system](#split-vertical-menu-system)
 
 ### Change the PHP CLI version
 
@@ -472,3 +473,96 @@ return [
 ```
 
 This basically overrides the `log` stream with the `grav-logs/` folder rather than the default `logs/` folder as defined in `system/src/Grav/Common/Config/Setup.php`.
+
+### Split vertical menu system
+
+To create a vertical, collapsible, hierarchical menu of pages you need a Twig-loop, a bit of CSS, and a bit of JavaScript. The final result will, when using the Antimatter-theme, look like this:
+
+![Vertical Menu](vertical_menu.png)
+
+Let's start with Twig:
+
+```
+<ol class="tree">
+    {% for page in pages.children.visible %}
+        {% if page.children.visible is empty %}
+            <li class="item">
+            <a href="{{ page.url }}">{{ page.title }}</a>
+        {% else %}
+            <li class="parent">
+            <a href="javascript:void(0);">{{ page.title }}</a>
+            <ol>
+                {% for child in page.children.visible %}
+                    {% if child.children.visible is empty %}
+                        <li class="item">
+                        <a href="{{ child.url }}">{{ child.title }}</a>
+                    {% else %}
+                        <li class="parent">
+                        <a href="javascript:void(0);">{{ child.title }}</a>
+                        <ol>
+                            {% for subchild in child.children.visible %}
+                                <li><a href="{{ subchild.url }}">{{ subchild.title }}</a></li>
+                            {% endfor %}
+                        </ol>
+                    {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+        </li>
+    {% endfor %}
+</ol>
+```
+
+This creates an ordered list which iterates over all visible pages within Grav, going three levels deep to create a structure for each level. The list wrapped around the entire structure has the class *tree*, and each list-item has the class *parent* if it contains children or *item* if it does not.
+
+Clicking on a parent opens the list, whilst regular items link to the page itself. You could add this to virtually any Twig-template in a Grav theme, provided that Grav can access the visible pages.
+
+To add some style, we add some CSS:
+
+```
+<style>
+ol.tree li {
+    position: relative;
+}
+ol.tree li ol {
+    display: none;
+}
+ol.tree li.open > ol {
+    display: block;
+}
+ol.tree li.parent:after {
+    content: '[+]';
+}
+ol.tree li.parent.open:after {
+    content: '';
+}
+</style>
+```
+
+This should generally be placed before the Twig-structure, or ideally be streamed into the [Asset Manager](/themes/asset-manager) in your theme. The effect is to add **[+]** after each parent-item, indicating that it can be opened, which disappears when opened.
+
+Finally, let's add a bit of JavaScript to [handle toggling](http://stackoverflow.com/a/36297446/603387) the *open*-class:
+
+```
+<script type="text/javascript">
+var tree = document.querySelectorAll('ol.tree a:not(:last-child)');
+for(var i = 0; i < tree.length; i++){
+    tree[i].addEventListener('click', function(e) {
+        var parent = e.target.parentElement;
+        var classList = parent.classList;
+        if(classList.contains("open")) {
+            classList.remove('open');
+            var opensubs = parent.querySelectorAll(':scope .open');
+            for(var i = 0; i < opensubs.length; i++){
+                opensubs[i].classList.remove('open');
+            }
+        } else {
+            classList.add('open');
+        }
+    });
+}
+</script>
+```
+
+This should always be placed **after** the Twig-structure, also ideally in the [Asset Manager](/themes/asset-manager).
