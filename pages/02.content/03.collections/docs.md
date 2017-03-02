@@ -428,11 +428,15 @@ You can also use the same `evaluate()` method that the frontmatter-based page co
 ```
 $page = Grav::instance()['page'];
 $collection = $page->evaluate(['@page.children' => '/blog', '@taxonomy.tag' => 'photography']);
+$ordered_collection = $collection->order('date', 'desc');
 ```
 
-You can also do similar directly in Twig:
+You can also do similar directly in **Twig Templates**:
 
 ```
 {% set collection = page.evaluate([{'@page.children':'/blog', '@taxonomy.tag':'photography'}]) %}
+{% set ordered_collection = collection.order('date','desc') %}
 ```
+
+
 
