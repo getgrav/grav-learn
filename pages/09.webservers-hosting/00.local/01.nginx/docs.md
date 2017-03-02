@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-*Nginx* is a HTTP server software with focus on core web server and proxy features. It is very common because of its ressource efficiency and responsiveness under load. Nginx spawns worker processes, each of which can handle thousands of connections. Each of the connections handled by the worker are placed within an event loop where they exist with other connections. Within the loop, events are processed asynchronously, allowing work to be handled in a non-blocking manner. When the connection closes, it is removed from the loop. This style of connection processing allows Nginx to scale incredibly far with limited resources.
+*Nginx* is a HTTP server software with focus on core web server and proxy features. It is very common because of its resource efficiency and responsiveness under load. Nginx spawns worker processes, each of which can handle thousands of connections. Each of the connections handled by the worker get placed within an event loop where they exist with other connections. Within the loop, events get processed asynchronously, allowing work to be handled in a non-blocking manner. When the connection closes, it gets removed from the loop. This style of connection processing allows Nginx to scale incredibly far with limited resources.
 
 <!-- source: https://www.digitalocean.com/community/tutorials/apache-vs-nginx-practical-considerations -->
 
