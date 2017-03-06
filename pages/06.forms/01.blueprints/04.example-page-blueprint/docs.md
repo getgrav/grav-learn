@@ -165,7 +165,7 @@ public static function getSubscribedEvents()
 public function onGetPageTemplates($event)
 {
   $types = $event->types;
-  $locator = Grav::instance()['locator'];
+  $locator = $this->grav['locator'];
   $types->scanBlueprints($locator->findResource('plugin://' . $this->name . '/blueprints'));
   $types->scanTemplates($locator->findResource('plugin://' . $this->name . '/templates'));
 }
