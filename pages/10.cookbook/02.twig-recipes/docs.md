@@ -170,7 +170,7 @@ FRUITS: [Banana, Cherry, Lemon, Lime, Strawberry, Raspberry]
 And in `fr.yaml`:
 
 ```
-FRUITS: [Banana, Cerise, Citron, Citron Vert, Fraise, Framboise]
+FRUITS: [Banane, Cerise, Citron, Citron Vert, Fraise, Framboise]
 ```
 
 Then you have your Twig:
