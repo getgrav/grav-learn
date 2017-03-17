@@ -35,6 +35,29 @@ $ apt install vim zip unzip nginx git php7.0-fpm php7.0-cli php7.0-gd php7.0-cur
 
 This will install the complete VIM editor (rather than the mini version that ships with Ubuntu), Nginx web server, GIT commands, and **PHP 7.0**.
 
+### Configure PHP7 FPM
+Once php-fpm is installed, there is a slight configuration change that needs to take place for a more secure setup. 
+
+```
+$ vi /etc/php/7.0/fpm/php.ini
+```
+
+Search for `cgi.fix_pathinfo`. This will be commented out by default and set to '1'. 
+
+This is an extremely insecure setting because it tells PHP to attempt to execute the closest file it can find if the requested PHP file cannot be found. This basically would allow users to craft PHP requests in a way that would allow them to execute scripts that they shouldn't be allowed to execute.
+
+Uncomment this line and change '1' to '0' so it looks like this
+
+```
+$ cgi.fix_pathinfo=0
+```
+
+Save and close the file, and then restart the service. 
+
+```
+$ systemctl restart php7.0-fpm
+```
+
 ### Configure Nginx Connection Pool
 
 Nginx has already been installed, but you should configure is so that it uses a user-specific PHP connection pool.  This will ensure you are secure and avoid any potential file permissions when working on the files as your user account, and via the web server.
@@ -156,6 +179,13 @@ This is the stock `nginx.conf` file that comes with Grav with 2 changes. 1) the 
 $ cd ../sites-enabled
 $ ln -s ../sites-available/grav
 $ rm default
+```
+
+You can test the configuration with the command `nginx -t`. It should return the following.
+
+```
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 
 Now all we have to do is restart Nginx and the php7-fpm process and test to ensure we have configured Nginx and the PHP connection pool correctly:
