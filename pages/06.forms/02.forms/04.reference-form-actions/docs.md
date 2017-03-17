@@ -50,6 +50,11 @@ In this case we get the field "email" from the form, and use it for the "from" a
 
 Redirects the user to another page. The action is immediate, so if you use this, you probably need to put it at the bottom of the actions list.
 
+```
+process:
+    - redirect: '/forms/landing-page'
+```
+
 ### Message
 
 Sets a message to be shown in the next page. Works if you set a `display` action too, which redirects the user to another page. Note, you can use Twig in the message if you like.
