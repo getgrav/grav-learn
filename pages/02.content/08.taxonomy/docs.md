@@ -79,7 +79,7 @@ In your theme, you can easily display a list of pages that are written by `ksmit
 {% for post in taxonomy.findTaxonomy({'author':'ksmith'}) %}
     <li>{{ post.title }}</li>
 {% endfor %}
-<ul>
+</ul>
 ```
 
 You can also do sophisticated searches based on multiple taxonomies by using arrays/hashes, for example:
