@@ -78,7 +78,7 @@ and remove the leading semicolon.
 
 ### Permissions
 
-For Grav to function properly your webserver needs to have the appropriate **file permissions** in order to write logs, caches, etc.  When using either the [CLI](/advanced/grav-cli) or [GPM](/advanced/grav-gpm), the user running PHP from the command line, also needs to have the appropriate permissions to modify files.
+For Grav to function properly, your webserver needs to have the appropriate **file permissions** in order to write logs, caches, etc.  When using either the [CLI](/advanced/grav-cli) or [GPM](/advanced/grav-gpm), the user running PHP from the command line also needs to have the appropriate permissions to modify files.
 
 By default, Grav will install with `644` and `755` permissions for files and folders respectively. Most hosting providers have configurations that ensure the webserver running PHP will allow you to create and modify files within your user account.  This means that Grav runs **out-of-the-box** on the vast majority of hosting providers.
 
