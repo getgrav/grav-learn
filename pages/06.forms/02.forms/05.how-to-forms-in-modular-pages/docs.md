@@ -31,6 +31,8 @@ Now add the form header to the main modular page, `modular.md`
 
 The modular.md page should contain the whole form definition, with fields etc, as if it was a “full-page” form.md file header. With its own page path as the `form.action` field.
 
+!!!In Form v2.0, you can now define the form directly in the modular sub-page just like any other form. However, if not found, the form plugin will look in the 'current page', i.e. the top-level modular page for a form, so it's fully backwards compatible with the 1.0 way of doing things.!!!
+
 For example:
 
 ```
