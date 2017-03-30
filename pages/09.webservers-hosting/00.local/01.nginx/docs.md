@@ -131,7 +131,7 @@ cp /var/www/grav/webserver-configs/nginx.conf /etc/nginx/sites-available/grav-si
 Open that file with an editor and replace "domain.tld" with your domain/IP (or "localhost" if you want to just run it locally), replace the "root" line with "root /var/www/grav/;" and then create a symbolic link of your site-config in `sites-enabled`:
 
 ```bash
-ln -s /etc/nginx/sites-available/grav-site /etc/nginx-sites-enabled/grav-site
+ln -s /etc/nginx/sites-available/grav-site /etc/nginx/sites-enabled/grav-site
 ```
 
 <!--
