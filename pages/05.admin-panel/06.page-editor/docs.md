@@ -6,7 +6,7 @@ process:
     twig: true
 ---
 
-![Grav Admin Page Editor](page_editor.png)
+![Grav Admin Page Editor](page_editor.png?classes=shadow)
 
 The **Page Editor** in the admin is a powerful text editor and page manager that enables you to create your page's content (including media files), its publishing and taxonomy options, settings, overrides, and theme-specific options.
 
@@ -22,7 +22,7 @@ In this page, we will go over the features and functionality found in the **Cont
 
 ### Controls
 
-![Grav Admin Page Editor](page_editor_1.png)
+![Grav Admin Page Editor](page_editor_1.png?classes=shadow)
 
 Along the top of the page, you will find the administrative controls that enable you to save, delete, copy, and move your page. Additionally, you can hit the **Back** button to get back to the main **Pages** area of the admin.
 
@@ -34,13 +34,13 @@ Selecting the **Move** button activates a popup that gives you the ability to as
 
 ### Title
 
-![Grav Admin Page Editor](page_editor_2.png)
+![Grav Admin Page Editor](page_editor_2.png?classes=shadow)
 
 The title of a page is typically set during that page's creation, however you can edit it after the fact here. Note that changing the page's title here will not have a direct impact on the folder name (which is used for navigation purposes) but it will change what people see on the front end.
 
 ### Page Editor Content
 
-![Grav Admin Page Editor](page_editor_3.png)
+![Grav Admin Page Editor](page_editor_3.png?classes=shadow)
 
 This is the heart of the Page Editor. It is where your page's content body is written and edited. It features many powerful tools typically only found in premium browser-based text editors.
 
@@ -66,7 +66,7 @@ Here is a breakdown of the tools found in the content editor:
 
 ### Page Media
 
-![Grav Admin Page Editor](page_editor_4.png)
+![Grav Admin Page Editor](page_editor_4.png?classes=shadow)
 
 The **Page Media** section at the bottom of the **Content** tab is all about media files for your page. These files exist in the same folder as the page's markdown file. Uploading new media files is as simple as **dragging-and-dropping** a file, or **tapping** in the white area of the section. This will bring up a file selector that enables you to pick files for upload.
 

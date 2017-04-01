@@ -62,7 +62,7 @@ bugs: https://github.com/getgrav/grav-theme-antimatter/issues
 license: MIT
 ```
 
-You can reach any of these items via `grav.theme` by using the standard **dot-sytnax**:
+You can reach any of these items via `grav.theme` by using the standard **dot-syntax**:
 
 ```
 Author Email: {{ grav.theme.author.email }}
