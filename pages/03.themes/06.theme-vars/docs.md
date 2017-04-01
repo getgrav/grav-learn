@@ -28,6 +28,14 @@ The `{{ base_url_relative }}` returns the base URL to the Grav site, without the
 
 The `{{ base_url_absolute }}` returns the base URL to the Grav site, including the host information.
 
+### home_url variable
+
+The `{{ home_url }}` is particularly useful to use to link back to the homepage of your site. It is similar to `base_url` but takes into account the situation when the this is empty.
+
+### html_lang variable
+
+This will return the current active language if provided, else use the `site.default_lang` configured option, else fall back to `en`.
+
 ### theme_dir variable
 
 The `{{ theme_dir }}` variable returns the file directory folder of the current theme.
@@ -49,6 +57,14 @@ You can access any Grav configuration setting via the config object as set in th
 ### site object
 
 An alias to the `config.site` object. This represents the configuration as set in the `site.yaml` file.
+
+### system object
+
+An alias to the `config.system` object.  This represents the configuration in the main `system.yaml` file.
+
+### theme object
+
+An alias to the `config.theme` object.  This represents the configuration for the current active theme.
 
 ### page object
 
@@ -171,6 +187,14 @@ or
 {{ page.url(true) }} {# could return http://mysite.com/my-section/my-category/my-blog-post #}
 ```
 
+##### permalink()
+
+This returns the URL with host information. Particularly useful when needing a quick link that can be accessed from anywhere.
+
+##### canonical()
+
+This returns the URL that is the 'preferred' version or link to a particular page.  This value will default to the regular URL unless the page has overridden the `canonical:` page header option.
+
 ##### route()
 
 This returns the internal routing for a page.  This is primarily used for internal routing and dispatching of pages.
@@ -278,6 +302,8 @@ Reorders the children based on an **orderBy** (`default`, `title`, `date` and `f
 ##### parent()
 
 This returns the parent page object for this page. This is very useful when you need to navigate back up the nested tree structure of pages.
+
+
 
 ##### isPage()
 
