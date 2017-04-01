@@ -350,6 +350,12 @@ Get the top-level pages for a simple menu:
 </ul>
 ```
 
+### media object
+
+There is a new object that allows you to access [media](../../content/media) that is outside of Page objects via PHP streams from Twig. This works in a similar manner to [image linking in content](../../content/image-linking#php-streams) by using streams to access images, and media processing to manipulate theme.
+
+`media['user://media/bird.png'].resize(50, 50).rotate(90).html()`
+
 ### uri object
 
 !! The whole list of the Uri object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Uri.html). Here's a list of the methods you'll find most useful.
