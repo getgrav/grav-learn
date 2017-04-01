@@ -102,11 +102,17 @@ Creates an md5 hash for the string
 
 `'anything'|md5` <i class="fa fa-long-arrow-right"></i> **{{ 'anything'|md5 }}**
 
+##### Media
+
+There is a new object that allows you to access [Media](../../content/media) that is outside of Page objects via PHP streams from Twig. This works in a similar manner to [image linking in content](../../content/image-linking#php-streams) by using streams to access images, and media processing to manipulate theme.
+
+`media['user://media/bird.png'].resize(50, 50).rotate(90).html()`
+
 ##### Modulus
 
 Performs the same functionality as the Modulus `%` symbol in PHP. It operates on a number by passing in a numeric divider and an optional array of items to select from.
 
-`7|modulus(3, [red, blue, green])`
+`7|modulus(3, ['red', 'blue', 'green'])` <i class="fa fa-long-arrow-right"></i> **{{ 7|modulus(3, ['red', 'blue', 'green']) }}**
 
 ##### Monthize
 

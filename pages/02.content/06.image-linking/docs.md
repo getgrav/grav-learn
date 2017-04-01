@@ -104,6 +104,26 @@ In an absolute link, the link opens with a `/`. Here is an example of an absolut
 
 !!! A powerful technique is to create a `user/pages/images/` folder in your Grav site and put your images here.  Then you can easily reference them with an absolute URL from any Grav page: `/images/test_image_4.jpg` and still be able to perform [media actions](../media) on them.
 
+### PHP Streams
+
+New in Grav 1.2 is the ability to reference and link images via PHP streams.  There are several built-in PHP streams available which are useful including:
+
+* `user://` - user folder. e.g. `user/`
+* `images://` - images folder. e.g. `user/images/`
+* `theme://` - current theme.  e.g. `user/themes/antimatter/`
+
+These allow you to easily access images that are traditionally outside of the Pages hierarchy (`user/pages/`).
+
+```markdown
+![Stream Image](user://media/images/my-image.jpg)
+```
+
+or:
+
+```markdown
+![Stream Image](theme://images/my-image.jpg)
+```
+
 ### Remote
 
 Remote image links enable you to directly display pretty much any media file via its URL. This doesn't have to include your own site's content, but it can. Here is an example of how you would display to a remote image file.
@@ -120,6 +140,12 @@ One of the main benefits of using images associated with pages is that it enable
 
 ```markdown
 ![Styling Example](../test-post-3/test_image_3.jpg?cropResize=400,200)
+```
+
+or taking advantage of streams to access an image in your current theme:
+
+```markdown
+![Stream Image](theme://images/default-avatar.jpg?cropZoom=200,200&brightness=-75)
 ```
 
 You will find more information about actions and other [media file functionality in the next chapter](../media).
