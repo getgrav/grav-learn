@@ -56,6 +56,19 @@ body {
 
 The downside to this approach is that this file is overwritten during any *theme upgrade*, so you should ensure you create a backup of any custom work you do.  This issue is resolved by using theme inheritance as described below.
 
+## Wellington SCSS
+
+[Wellington](https://github.com/wellington/wellington) is a native wrapper for [libsass](http://libsass.org/) available for both Linux and MacOS. It provides a much faster solution for compiling SCSS than the default Ruby-based scss compiler.  By faster we mean about **20X faster!**. It's super easy to install (via brew):
+
+```
+brew install wellington
+```
+
+To take advantage of it to compile and `scss` folder into a `css-compiled` folder as in the example above you can [use this gist](https://gist.github.com/rhukster/bcfe030e419028422d5e7cdc9b8f75a8).
+
+!! Wellington is what we have been using for all _Team Grav_ themes and it's been working great!
+
+
 ## Theme Inheritance
 
 This is the preferred approach to modifying or customizing a theme, but it does require a little bit more setup.
