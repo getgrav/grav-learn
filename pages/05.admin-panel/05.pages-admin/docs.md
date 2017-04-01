@@ -6,7 +6,7 @@ process:
     twig: true
 ---
 
-![Grav Admin Pages](pages.png)
+![Grav Admin Pages](pages.png?classes=shadow)
 
 The **Pages** page gives you quick editorial access to your site's content. This is where you can access a page's editor, delete pages, create new pages, and find out if a page is visible at a glance.
 
@@ -16,7 +16,7 @@ If you frequently create or modify content on your site, this area of the admin 
 
 ### Adding New Pages
 
-![Grav Admin Pages](add.png)
+![Grav Admin Pages](add.png?classes=shadow)
 
 Three buttons line the top of the **Pages** administrative panel. The **Back** button sends you back to the **Dashboard**, while the **Add Page** and **Add Modular** buttons initiate the creation of new pages for your site.
 
@@ -24,7 +24,7 @@ Below, we break down the options available when you select these buttons.
 
 #### Add Page
 
-![Grav Admin Pages](add_2.png)
+![Grav Admin Pages](add_2.png?classes=shadow)
 
 The **Add Page** button creates a non-modular page for your site. Once selected, a popup will appear enabling you to enter a **Title** and **Folder Name**, assign a **Parent Page** and **Display Template**, as well as to set whether the page should be visible or hidden.
 
@@ -42,7 +42,7 @@ Once you have filled out this information, selecting **Continue** will take you 
 
 #### Add Modular Page
 
-![Grav Admin Pages](add_3.png)
+![Grav Admin Pages](add_3.png?classes=shadow)
 
 The second button along the top of the **Pages** area of the admin allows to to add a modular subpage to your site. Modular pages are different from regular pages because they are actually a collection of pages, arranged and displayed as one page. This button specifically gives you the ability to create subpages and assign them to a parent modular page.
 
@@ -59,7 +59,7 @@ Once you have filled out this information, selecting **Continue** will take you 
 
 ### Pages List
 
-![Grav Admin Pages](pages_2.png)
+![Grav Admin Pages](pages_2.png?classes=shadow)
 
 The pages list that appears in this area gives you quick access to all of your current pages, as well as an at-a-glance method for seeing whether or not the pages are visible.
 

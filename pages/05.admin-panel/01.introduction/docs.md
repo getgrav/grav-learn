@@ -9,7 +9,7 @@ process:
 
 The **Grav Administration Panel** plugin for [Grav](http://github.com/getgrav/grav) is a web GUI (graphical user interface) that provides a convenient way to configure Grav and easily create and modify pages.  This will remain a totally optional plugin, and is not in any way required or needed to use Grav effectively.  In fact, the admin interface provides an intentionally limited view to ensure it remains easy to use and not overwhelming.  Power users will still prefer to work with the configuration files directly.
 
-![](admin-dashboard.png)
+![](admin-dashboard.png?classes=shadow)
 
 ### Features
 
@@ -63,7 +63,7 @@ You can also [install the plugin manually](../faq#manual-installation-of-admin) 
 
 With the latest version of the Grav admin, you will be prompted to create an admin user account when you point your browser to your site.  You must complete this step to ensure straight away to ensure a valid admin user is under your control.
 
-![](new-user.png)
+![](new-user.png?classes=shadow)
 
 Simply fill out the form and click the `Create User` button.
 
