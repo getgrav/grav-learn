@@ -809,6 +809,23 @@ As you can see: Grav provides some powerful image manipulation functionality tha
 
 ![Sample Image](sample-image.jpg?negate&lightbox&cropZoom=200,200)
 
+#### Resetting multiple calls to the same image
+
+When you access the same image multiple times in a single page, actions you have provided to the image are not reset by default.  So if you resize an image, and output the HTML, then later in the same page, simply output the image URL, you will also get the URL to the resized image. You were probably expecting the URL to the original image.
+
+To combat this, you can reset the actions on the images by passing `false` to the `url()` method:
+
+{% verbatim %}
+```
+{% for item in page.header.gallery %}
+    {% set image = page.media[item.src].cropZoom(800, 600).quality(70) %}
+    <a href="{{ image.url(false) }}">
+      <img src="{{ image.url }}" alt="{{ item.alt }}" title="{{ item.title }}" />
+    </a>
+{% endfor %}
+```
+{% endverbatim %}
+
 ### Responsive images
 
 #### Higher density displays
