@@ -407,6 +407,14 @@ This will produce the HTML:
 
 For a full outline of all Twitter metatags that can be used, please consult the [official documentation](https://dev.twitter.com/cards/overview).
 
+## Debugger
+
+When you enable the debugger via the `system.yaml` configuration file, the debugger will display on every page.  There are cases where this may not be desirable or may cause conflicts with the output.  Such an example is when you are requesting a page that is intended to return rendered HTML to an Ajax call.  This should not have the debugger injected into the resulting data.  To disable the debugger on this page you can use the `debugger` page header:
+
+```ruby
+debugger: false
+```
+
 ## Custom Page Headers
 
 Of course, you can create your own custom page headers using any valid YAML syntax.  These would be page-specific and be available for any plugin, or theme to make use of. A good example of this would be to set some variable specific to a sitemap plugin, such as:
