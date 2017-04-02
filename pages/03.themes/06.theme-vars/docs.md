@@ -464,6 +464,17 @@ Grav has built-in support for programmatically determining the platform, browser
 {{ browser.version}}    # 41
 ```
 
+### user object
+
+You can access the current logged in user object indirectly via the Grav object.  This allows you to access such data as `username`, `fullname`, `title`, and `email`:
+
+```ruby
+{{ grav.user.username }}  # admin
+{{ grav.user.fullname }}  # Billy Bloggs
+{{ grav.user.title }}     # Administrator
+{{ grav.user.email }}     # billy@bloggs.com
+```
+
 ## Adding Custom Variables
 
 You can easily add custom variables in a variety of ways.  If the variable is a site-wide variable, you can put the variable in your `user/config/site.yaml` file and then access it via:
