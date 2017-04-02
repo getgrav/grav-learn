@@ -14,6 +14,36 @@ When we talk about the **Grav Core**, we are effectively talking about things in
 
 Grav is intentionally focused on working with pages in an efficient manner.  Manipulation of pages and extensive functionality are often best served by creating a plugin.  We strongly encourage our community to contribute bug fixes, and even propose development of appropriate functionality within the core of Grav.
 
+## Running Tests
+
+First install the development dependencies by running composer install from the Grav root.
+
+```
+composer install
+```
+
+Then you can run the tests:
+
+```
+composer test
+```
+
+This will run the full suite of existing tests which should always be executed successfully on any site.
+
+You can also run a single unit test file, e.g.
+
+```
+composer test tests/unit/Grav/Common/Markdown/ParsedownTest::testAttributeLinks
+```
+
+An alternative method to calling these tests is:
+
+```
+./vendor/bin/codecept run
+./vendor/bin/codecept run tests/unit/Grav/Common/Markdown/ParsedownTest::testAttributeLinks
+```
+
+
 ## Grav Plugins
 
 Most development effort will probably take the form of a **Grav Plugin**.  Because Grav has plenty of [Event Hooks](../../plugins/event-hooks), it's very easy to provide enhanced and specific functionality via the creation of a plugin.  We have already developed many plugins that work in a variety of ways using many different events to show off the power of this functionality.
@@ -223,7 +253,7 @@ People move on, and user-generated content like plugins and themes may become ab
 
 1. Submit a well-formed, tested pull request to the original repository.
 
-2. If the maintainer does not respond *at all* after 30 days, or if the maintainer states that they are abandoning the resource and are not willing to grant someone else write access, then proceed to the next step. 
+2. If the maintainer does not respond *at all* after 30 days, or if the maintainer states that they are abandoning the resource and are not willing to grant someone else write access, then proceed to the next step.
 
 3. [Submit a new issue to Grav's GitHub repository](https://github.com/getgrav/grav/issues/new?title=%5Bchange-resource%5D%20Take%20over%20Plugin%2FTheme&body=I%20would%20like%20to%20take%20over%20an%20existing%20plugin%2Ftheme.%0AHere%20are%20the%20project%20details%3A%20%2A%2Auser%2Frepository%2A%2A) with the following details:
 
