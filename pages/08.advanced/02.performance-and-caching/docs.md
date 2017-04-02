@@ -77,7 +77,7 @@ If automatic re-caching of changed pages is not critical to you (or if your site
 
 #### Memcache Specific Options
 
-There are some extra configuration options that are required if you are connecting to a **memcached** server via the `memcache` driver option.  These options should go under the `cache:` group in your `user/config/system.yaml`:
+There are some extra configuration options that are required if you are connecting to a **memcache** server via the `memcache` driver option.  These options should go under the `cache:` group in your `user/config/system.yaml`:
 
 ```
 cache:
@@ -86,6 +86,19 @@ cache:
     server: localhost
     port: 11211
 ```
+
+#### Memcached Specific Options
+
+Similar to memcache, memcached has some extra configuration options that are required if you are connecting to a **memcached** server via the `memcached` driver option.  These options should go under the `cache:` group in your `user/config/system.yaml`:
+
+```
+cache:
+  ...
+  memcached:
+    server: localhost
+    port: 11211
+```
+
 
 #### Redis Specific Options
 
@@ -97,6 +110,15 @@ cache:
   redis:
     server: localhost
     port: 6379
+```
+
+Alternatively you can use a socket connection:
+
+```
+cache:
+  ...
+  redis:
+    socket: '/tmp/redis.sock'
 ```
 
 !!!! Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
