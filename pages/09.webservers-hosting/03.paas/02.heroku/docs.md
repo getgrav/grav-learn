@@ -88,3 +88,14 @@ Then run
 `git push heroku master`
 
 and the site should be good to go!
+
+Due to the ephemeral nature of Heroku's filesystem, all needed plugins or themes must be added to `composer.json` just like above and kept there so they are installed every time the site is pushed to Heroku. For example, if you need the `admin` plugin and a theme, add them in composer like in
+
+```
+"scripts": {
+        "compile": [
+          "bin/grav install",
+          "bin/gpm install admin -y",
+          "bin/gpm install awesome-theme-name-here -y"
+        ],
+```
