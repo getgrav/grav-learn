@@ -70,23 +70,21 @@ Now commit to the repository with
 
 `git add . ; git commit -am 'Added Grav'`
 
-Then run
-
-`git push heroku master`
-
-and install plugin and theme dependencies with
-
-`heroku run bin/grav install`
-
-and the site should be good to go!
-
-As an alternative to the last step, edit `composer.json` and add post deploy commands to the `scripts` section as in
+Then edit `composer.json` and add post deploy command to the `scripts` section as in
 
 ```
 "scripts": {
         "compile": [
-          "bin/grav clear-cache",
-          "bin/grav install",
-          "bin/gpm update"  
+          "bin/grav install"
         ],
 ```
+
+and commit that to the repository with 
+
+`git add . ; git commit -am 'Add post deploy bin/grav install'`
+
+Then run
+
+`git push heroku master`
+
+and the site should be good to go!
