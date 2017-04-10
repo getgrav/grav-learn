@@ -74,4 +74,19 @@ Then run
 
 `git push heroku master`
 
+and install plugin and theme dependencies with
+
+`heroku run bin/grav install`
+
 and the site should be good to go!
+
+As an alternative to the last step, edit `composer.json` and add post deploy commands to the `scripts` section as in
+
+```
+"scripts": {
+        "compile": [
+          "bin/grav clear-cache",
+          "bin/grav install",
+          "bin/gpm update"  
+        ],
+```
