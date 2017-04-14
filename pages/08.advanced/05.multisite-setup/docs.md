@@ -171,7 +171,7 @@ return [
 
 #### Streams
 
-In Grav streams are objects, mapping a set of physical directories of the system to a logical device. They are classified via their `type` attribute. For readonly streams that's the `ReadOnlyStream` type and for read-writeable streams that's the `Stream` type. You can register any custom stream type and pointing to it as long as it is an instance of the [StreamInterface](https://github.com/rockettheme/blob/develop/toolbox/StreamWrapper/src/StreamInterface.php) interface class.
+In Grav streams are objects, mapping a set of physical directories of the system to a logical device. They are classified via their `type` attribute. For readonly streams that's the `ReadOnlyStream` type and for read-writeable streams that's the `Stream` type. You can register any custom stream type and pointing to it as long as it is an instance of the [StreamInterface](https://github.com/rockettheme/toolbox/blob/develop/StreamWrapper/src/StreamInterface.php) interface class.
 
 Mapping physical directories to a logical device can be done in two ways, either by setting up `paths` or `prefixes`. The former can be understood as a 1-to-1 mapping, whereas the latter (as the name suggests) allows you to combine several physical paths into one logical stream. Let's say you want to register a stream with the name "image". You can then with the stream `images://` list with
 
