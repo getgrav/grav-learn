@@ -25,3 +25,10 @@ The `error` plugin is used to handle HTTP errors, like **404 Page Not Found**.
 The `problems` plugin is useful for new Grav installations because it detects any issues with your **hosting setup**, **missing folders**, or **permissions** that could cause problems with Grav.  Only the `error` plugin is really essential for proper operation.
 
 Every plugin in the `user/plugins` folder should have a unique name, and that name should closely define the function of the plugin.  Please do not use spaces, underscores, or capital letters in the plugin name.
+
+## Accessing Plugin Configuration Values via Twig
+
+To access plugin configuration settings via Twig (i.e. within a Theme), the general format is:
+```
+config.plugins.pluginname.pluginproperty
+```
