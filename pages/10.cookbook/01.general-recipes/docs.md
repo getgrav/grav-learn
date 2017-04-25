@@ -285,7 +285,7 @@ You want to create a recent post widget on the sidebar
 
 #### Solution:
 
-The final code in your Twig template (or create a seperate temple, store it in `partials` and extend `partials/base.html.twig`) is shown below:
+It's always possible to create a partial template extending `partials/base.html.twig` (see other solutions on this page), but here you're going to create a full template instead. The final code for your Twig template is shown below: 
 
 ```
 <div class="sidebar-content recent-posts">
