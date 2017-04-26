@@ -35,9 +35,9 @@ You can use this file and edit as needed for the appropriate user and group that
 4. Sets the **ownership** of all directories to ensure that User and Group changes are maintained
 5. Sets the **umask** so that all new files are created with the correct `664` and `775` permissions.
 
-### Cache folder permissions
+### Image Cache folder permissions
 
-If files in the cache folder are written with the wrong permissions, try setting in your `user/config/system.yaml` file,
+If image files in the cache folder are written with the wrong permissions, try setting in your `user/config/system.yaml` file,
 
 ```
 images:
@@ -56,6 +56,10 @@ umask(0002);
 into it.
 
 If you already have a `setup.php` file, just add this line to the top. This file is commonly used for multisite setup, but being called in every Grav call, you can also use it for other uses.
+
+### Co-hosting with a WordPress site
+
+In general, Grav can be installed in a root level folder of an existing WordPress site and the two CMS will co-exist nicely.  (Remember to set Base Rewrite in the Grav folder's htaccess.)  If you are encountering permissions errors with cache files when accessing the Admin and/or viewing Grav pages, check to see if WP-Engine is installed for this WordPress site.  If it is, you will need to contact their support to create an exception for the Grav folder from their aggressive distributed cache service.
 
 ### SELinux-specific advice
 
