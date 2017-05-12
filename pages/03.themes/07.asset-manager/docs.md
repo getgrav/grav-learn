@@ -36,7 +36,6 @@ In general, you add CSS assets one by one using `assets.add*()` calls, then rend
 JS assets are handled likewise.
 
 The Asset Manager also supports
-
 * adding assets to named groups in order to render such groups at different places and/or with different sets of options,
 * configuring named asset collections, which can be added in one `assets.add*()` call.
 
@@ -173,7 +172,7 @@ If pipelining is turned **off** in the configuration, the group's assets are ren
 
 If pipelining is turned **on** in the configuration, assets not excluded from pipelining are combined in the order in which assets were added, then processed according to the pipeline configuration. The combined pipeline result is then rendered before or after non-pipelined assets depending on the setting of `css_pipeline_before_excludes`.
 
-Each asset is rendered either as a stylesheet link or inline, depending on the asset's `loading` option and whether `{'loading': 'inline'}` is used for this group's rendering. Note that only way to inline a CSS pipeline is to use inline loading as an option of the `css()` method.
+Each asset is rendered either as a stylesheet link or inline, depending on the asset's `loading` option and whether `{'loading': 'inline'}` is used for this group's rendering. Note that the only way to inline a CSS pipeline is to use inline loading as an option of the `css()` method.
 
 CSS added by addInlineCss() is always rendered last.
 
@@ -191,7 +190,7 @@ If pipelining is turned **off** in the configuration, the group's assets are ren
 
 If pipelining is turned **on** in the configuration, assets not excluded from pipelining are combined in the order in which assets were added, then processed according to the pipeline configuration. The combined pipeline result is then rendered before or after non-pipelined assets depending on the setting of `js_pipeline_before_excludes`.
 
-Each asset is rendered either as a script link or inline, depending on the asset's `loading` option and whether `{'loading': 'inline'}` is used for this group's rendering. Note that only way to inline a JS pipeline is to use inline loading as an option of the `js()` method.
+Each asset is rendered either as a script link or inline, depending on the asset's `loading` option and whether `{'loading': 'inline'}` is used for this group's rendering. Note that the only way to inline a JS pipeline is to use inline loading as an option of the `js()` method.
 
 JavaScript added by addInlineJs() is always rendered last.
 
