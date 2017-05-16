@@ -4,8 +4,22 @@ taxonomy:
     category: docs
 ---
 
-Depending on your hosting environment, permissions may or may not be an issue you need to concern yourself with.  The important thing to understand is that there is a potential issue if the user you use to edit your files on the file-system is different from the user that PHP runs under (usually the webserver), or at the very least, the two users don't have **Read/Write** access to these files.
+Depending on your hosting environment, permissions may or may not be an issue you need to concern yourself with. The important thing to understand is that there is a potential issue if the user you use to edit your files on the file-system is different from the user that PHP runs under (usually the webserver), or at the very least, the two users don't have **Read/Write** access to these files.
 
+First, find out which user Apache or Nginx runs with by running the following command
+For Apache:
+
+    ps aux | grep -v root | grep apache | cut -d\  -f1 | sort | uniq
+
+For Nginx:
+
+    ps aux | grep -v root | grep n-ginx | cut -d\  -f1 | sort | uniq
+
+And find out which user owns the file in your grav directory by running 
+    
+    ls -l
+
+  
 Being a file-based CMS, Grav needs to write to the file-system in order to create cache and log files. There are three main scenarios:
 
 1. ##### PHP/Webserver runs with the same user that edits the files.  (Preferred)
