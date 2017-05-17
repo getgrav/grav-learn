@@ -154,3 +154,13 @@ add_modals:
     blueprint: admin/pages/new_post
     show_in: bar
 ```
+
+Configuration keys/values available for `add_modals`:
+
+- **label** - Text to be shown in the button
+- **show_in** (default: bar) (values: bar|dropdown) - Determines whether to show the button in the **bar** or **dropdown**
+- **blueprint** - Form blueprint to pass to modal template
+- **template** - Template to use for modal (default: partials/blueprints-new.html.twig)
+- **with** - Extra data for template
+- **link_classes** - This will be added to the link's (button in bar) class attribute
+- **modal_classes** - This will be added to the modal's class attribute
