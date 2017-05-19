@@ -438,5 +438,20 @@ You can also do similar directly in **Twig Templates**:
 {% set ordered_collection = collection.order('date','desc') %}
 ```
 
+#### Advanced Collections
 
+By default when you call `page.collection()` in the Twig of a page that has a collection defined in the header, Grav looks for a collection called `content`.  This allows the ability to define [multiple collections](#multiple-collections), but you can even take this a step further.
+
+If you need to programatically generate a collection, you can do so by calling `page.collection()` and passing in an array in the same format as the page header collection definition.  For example:
+
+```
+{% set options = { items: {'@page.children': '/my/pages'}, 'limit': 5, 'order': {'by': 'date', 'dir': 'desc'}, 'pagination': true } %}
+{% set my_collection = page.collection(options) %}
+
+<ul>
+{% for p in my_collection %}
+<li>{{ p.title }}</li>
+{% endfor %}
+</ul>
+```
 
