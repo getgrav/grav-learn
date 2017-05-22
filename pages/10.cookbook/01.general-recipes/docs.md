@@ -16,6 +16,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Add JavaScript to the footer](#add-javascript-to-the-footer)
 1. [Override the default logs folder location](#override-the-default-logs-folder-location)
 1. [Split vertical menu system](#split-vertical-menu-system)
+1. [Dynamically style one or more pages](#dynamically-style-one-or-more-pages)
 
 ### Change the PHP CLI version
 
@@ -566,3 +567,22 @@ for(var i = 0; i < tree.length; i++){
 ```
 
 This should always be placed **after** the Twig-structure, also ideally in the [Asset Manager](/themes/asset-manager).
+
+### Dynamically style one or more pages
+You can dynamically style different pages/posts in your Grav site (independent of template file assignment) by customizing a Theme's Twig file to apply a CSS class passed as a variable in a page's FrontMatter.
+
+For example, in a theme's `blog_item.html.twig` file you could add a class to the display of page content, such as:
+
+```
+<div class="{{ page.header.cssclass }}">
+...
+</div>
+```
+
+Then, for each page you wish to have a unique style, you would add the following FrontMatter (assuming you have defined a CSS class for `featurepost`):
+
+```
+cssclass: featurepost
+```
+
+This recipe courtesy of @OleVik
