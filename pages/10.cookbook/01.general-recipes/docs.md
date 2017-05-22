@@ -569,22 +569,25 @@ for(var i = 0; i < tree.length; i++){
 This should always be placed **after** the Twig-structure, also ideally in the [Asset Manager](/themes/asset-manager).
 
 ### Dynamically style one or more pages
-You can style different posts/pages in your Grav site by two methods:
-1.  If you are using the AntiMatter theme, you can use the existing `body_classes` header property to set your custom CSS class for that page
-2.  If you are using a theme not based on AntiMatter, you can customize a Theme's Twig file to apply a CSS class passed as a variable in a page's header property
+You can dynamically style different pages/posts in your Grav site (independent of template file assignment) by customizing a Theme's Twig file to apply a CSS class passed as a variable in a page's FrontMatter.
 
-For example, in your theme's `base.html.twig` file or a more specific template such as `page.html.twig` file you could add a class to the display of page content, such as:
+You can style different posts/pages in your Grav site by two methods:
+
+1. If you are using the AntiMatter theme, you can use the existing body_classes header property to set your custom CSS class for that page
+2. If you are using a theme not based on AntiMatter, you can customize a Theme's Twig file to apply a CSS class passed as a variable in a page's header property
+
+For example, in your theme's base.html.twig file or a more specific template such as page.html.twig file you could add a class to the display of page content, such as:
 
 ```
-<div class="{{ page.header.cssclass }}">
+<div class="{{ page.header.body_classes }}">
 ...
 </div>
 ```
 
-Then, for each page you wish to have a unique style, you would add the following header property (assuming you have defined a CSS class for `featurepost`):
+Then, for each page you wish to have a unique style, you would add the following header property (assuming you have defined a CSS class for featurepost):
 
 ```
-cssclass: featurepost
+body_classes: featurepost
 ```
 
-This recipe was originally described by @OleVik
+Note: This is how the Antimatter theme applies page-specific classes, and so its a good standard to follow.
