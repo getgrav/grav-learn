@@ -573,10 +573,10 @@ You can dynamically style different pages/posts in your Grav site (independent o
 
 You can style different posts/pages in your Grav site by two methods:
 
-1. If you are using the AntiMatter theme, you can use the existing body_classes header property to set your custom CSS class for that page
-2. If you are using a theme not based on AntiMatter, you can customize a Theme's Twig file to apply a CSS class passed as a variable in a page's header property
+1. If you are using the Antimatter theme, you can use the existing `body_classes` header property to set your custom CSS class for that page
+2. If you are using a theme not based on Antimatter (or not implementing `body_classes` as it does), you can customize a Theme's Twig file to apply a CSS class passed as a variable in a page's header property
 
-For example, in your theme's base.html.twig file or a more specific template such as page.html.twig file you could add a class to the display of page content, such as:
+For example, in your theme's `base.html.twig` file or a more specific template such as `page.html.twig` file you could add a class to the display of page content, such as:
 
 ```
 <div class="{{ page.header.body_classes }}">
@@ -584,7 +584,7 @@ For example, in your theme's base.html.twig file or a more specific template suc
 </div>
 ```
 
-Then, for each page you wish to have a unique style, you would add the following header property (assuming you have defined a CSS class for featurepost):
+Then, for each page you wish to have a unique style, you would add the following header property (assuming you have defined a CSS class for `featurepost`):
 
 ```
 body_classes: featurepost
