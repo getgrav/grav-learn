@@ -74,9 +74,10 @@ Then edit `composer.json` and add post deploy command to the `scripts` section a
 
 ```
 "scripts": {
-        "compile": [
-          "bin/grav install"
-        ],
+  "compile": [
+    "bin/grav install"
+  ]
+}
 ```
 
 and commit that to the repository with 
@@ -93,9 +94,10 @@ Due to the ephemeral nature of Heroku's filesystem, all needed plugins or themes
 
 ```
 "scripts": {
-        "compile": [
-          "bin/grav install",
-          "bin/gpm install admin -y",
-          "bin/gpm install awesome-theme-name-here -y"
-        ],
+  "compile": [
+    "bin/grav install",
+    "bin/gpm install admin -y",
+    "bin/gpm install awesome-theme-name-here -y"
+  ]
+}
 ```
