@@ -1,5 +1,6 @@
 enabled: true
 built_in_css: false
+search_content: raw
 route: /search
 template: simplesearch_results
 filters:
