@@ -16,6 +16,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Add JavaScript to the footer](#add-javascript-to-the-footer)
 1. [Override the default logs folder location](#override-the-default-logs-folder-location)
 1. [Split vertical menu system](#split-vertical-menu-system)
+1. [Dynamically style one or more pages](#dynamically-style-one-or-more-pages)
 
 ### Change the PHP CLI version
 
@@ -285,7 +286,7 @@ You want to create a recent post widget on the sidebar
 
 #### Solution:
 
-The final code in your Twig template (or create a seperate temple, store it in `partials` and extend `partials/base.html.twig`) is shown below:
+It's always possible to create a partial template extending `partials/base.html.twig` (see other solutions on this page), but here you're going to create a full template instead. The final code for your Twig template is shown below: 
 
 ```
 <div class="sidebar-content recent-posts">
@@ -566,3 +567,27 @@ for(var i = 0; i < tree.length; i++){
 ```
 
 This should always be placed **after** the Twig-structure, also ideally in the [Asset Manager](/themes/asset-manager).
+
+### Dynamically style one or more pages
+You can dynamically style different pages/posts in your Grav site (independent of template file assignment) by customizing a Theme's Twig file to apply a CSS class passed as a variable in a page's FrontMatter.
+
+You can style different posts/pages in your Grav site by two methods:
+
+1. If you are using the Antimatter theme, you can use the existing `body_classes` header property to set your custom CSS class for that page
+2. If you are using a theme not based on Antimatter (or not implementing `body_classes` as it does), you can customize a Theme's Twig file to apply a CSS class passed as a variable in a page's header property
+
+For example, in your theme's `base.html.twig` file or a more specific template such as `page.html.twig` file you could add a class to the display of page content, such as:
+
+```
+<div class="{{ page.header.body_classes }}">
+...
+</div>
+```
+
+Then, for each page you wish to have a unique style, you would add the following header property (assuming you have defined a CSS class for `featurepost`):
+
+```
+body_classes: featurepost
+```
+
+Note: This is how the Antimatter theme applies page-specific classes, and so its a good standard to follow.

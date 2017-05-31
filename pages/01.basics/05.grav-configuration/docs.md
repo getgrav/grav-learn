@@ -346,12 +346,15 @@ gpm:
   proxy_url:
   method: 'auto'
   verify_peer: true
+  official_gpm_only: true
 ```
 
 The **GPM** section offers the user options that control how Grav's GPM sources and makes ready updates for your site. You can choose between stable and testing releases, as well as set up a proxy URL.
 
 * **releases**: Set to either `stable` or `testing` to determine if you want to update to the latest stable or testing build.
 * **proxy_url**: Configure a manual proxy URL for GPM. For example: `127.0.0.1:3128`.
+* **verify_peer**: On some systems (Windows mostly) GPM is unable to connect because the SSL certificate cannot be verified. Disabling this setting might help.
+* **official_gpm_only**: By default GPM direct-install will only allow URLs via the official GPM proxy to ensure security, disable this to allow other sources.
 
 !! You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
 

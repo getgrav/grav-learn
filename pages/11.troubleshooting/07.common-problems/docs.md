@@ -6,16 +6,10 @@ taxonomy:
 
 Here you can find information on problems and issues raised on [Grav forum](http://getgrav.org/forum) and in the [Slack Chat room](https://chat.getgrav.org) that occur frequently enough that we thought we would save time and list the problem and the relevant solution in one easy to find location.
 
-1. [Call to a member function set() on null](#call-to-a-member-function-set-on-null)
-2. [Cannot connect to the GPM](#cannot-connect-to-the-gpm)
-3. [Invalid Security Token](#invalid-security-token)
-2. [Admin Interface won't scroll](#admin-interface-wont-scroll)
-
-### Call to a member function set() on null
-
-**Problem:** We removed some code to optimize GPM in Grav 1.0.0-rc.6, however this code was causing invalid plugins to be skipped.  However, certain people had extra folders that were not valid plugins in their `user/plugins/` folder.  This tripped up GPM causing the error message: `Call to a member function set() on null` to be returned for all GPM methods and also in the details of some of the Ajax calls made by the admin plugin.
-
-**Solution:** The easiest fix is simply to remove those extraneous folders.  The full solution that automatically skips these invalid plugins will be available in 1.0.0-rc.7.
+1. [Cannot connect to the GPM](#cannot-connect-to-the-gpm)
+2. [Invalid Security Token](#invalid-security-token)
+3. [Admin Interface won't scroll](#admin-interface-wont-scroll)
+4. [Fetch failed](#fetch-failed)
 
 ### Cannot connect to the GPM
 
@@ -36,7 +30,7 @@ If at this point it's still not working, get in touch, or report back if you wer
 
 Also, check the CLI command is working, by opening a SSH connection to the server and running `bin/gpm index` and check if it's just inside Admin that you get this error, or in the command line too.
 
-### "Invalid security token" 
+### "Invalid security token"
 
 **Problem:** You get this error in the Admin panel
 
@@ -66,3 +60,15 @@ There are a few possible causes of the problem, all linked to the Session.
         - Finally, click the "Save and Deploy"-button
 
 If none of the above work, please check your browser's console for any reported JavaScript errors; In Chrome or Firefox either press F12 or Ctrl+Shift+I, then click the "Console"-tab. Report the errors [as an issue](https://github.com/getgrav/grav-plugin-admin/issues/).
+
+### Fetch failed
+
+Inside Admin sometimes a "Fetch Failed" red popup might appear. If it happens once in a while, do not worry as it might simply mean a connection issue.
+
+But if it shows up every time, an issue some users run into is `mod_security` blocking Grav's network requests.
+
+This can be solved by finding and disabling the rules that are raised, which depending on the configuration of mod_security, might be different from case to case.
+
+If you are running your own server, a guide on how to do this can be found in [http://www.inmotionhosting.com/support/website/modsecurity/find-and-disable-specific-modsecurity-rules](http://www.inmotionhosting.com/support/website/modsecurity/find-and-disable-specific-modsecurity-rules), otherwise just contact your hosting provider and illustrate the problem.
+
+Related issue: [admin#951](https://github.com/getgrav/grav-plugin-admin/issues/951)

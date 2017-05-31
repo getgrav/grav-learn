@@ -89,7 +89,7 @@ class ExampleTwigExtension extends \Twig_Extension
 }
 ```
 
-`example.twig`:
+`example.yaml`:
 
 ```
 enabled: true

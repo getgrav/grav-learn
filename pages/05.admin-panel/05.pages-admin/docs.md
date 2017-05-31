@@ -32,13 +32,13 @@ The **Add Page** button creates a non-modular page for your site. Once selected,
 | :-----           | :-----                                                                                                                                                                                                                                                                                  |
 | Page Title       | This is where you enter the title of the page you are creating.                                                                                                                                                                                                                         |
 | Folder Name      | You can set a custom folder name for the page, or keep the automatically-generated one based on the title.                                                                                                                                                                              |
-| Parent Page      | This sets the parent page for the new page. Can be a child of another page (such as home or blog) or set to the root of your site.                                                                                                                                                      |
+| Parent Page      | This sets the parent page for the new page. Can be a child of another page (such as home or blog) or set to the root of your site. By setting the value of the `child_type` option in the frontmatter of a parent page a default `Display Template` will be automatically selected.                                                                                                                                                    |
 | Display Template | You can choose which theme-provided template you wish to have applied to the page.                                                                                                                                                                                                      |
 | Visible          | Sets whether or not you want the page to be visible in navigation. Can be set to **Auto** to have this be determined for you. In the auto setting, if there is another sibling page that uses a numeric prefix, it uses one and is therefore visible. Otherwise, it doesn't display it. |
 
 Once you have filled out this information, selecting **Continue** will take you to the new page's editor. We will cover the Page Editor in more detail in [a following guide](../page-editor).
 
-!! Whether a page is visible or not in these settings only has an affect on navigation. A page's ability to be visited by a browser is determined by the page's [publishing settings](http://localhost/learn-grav/content/headers#published).
+!! Whether a page is visible or not in these settings only has an affect on navigation. A page's ability to be visited by a browser is determined by the page's [publishing settings](../../content/headers#published).
 
 #### Add Modular Page
 

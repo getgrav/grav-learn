@@ -55,6 +55,12 @@ process:
     - redirect: '/forms/landing-page'
 ```
 
+You may also set some or all of the `redirect` field from a form input or hidden form field. You can get its content and use it in this way:
+
+`redirect: "/path to/location/{{ form.value.hiddenfield }}"`
+
+In this case we get the field "hiddenfield" from the form, and use it for the last portion of the redirect location. This can be useful when creating forms that, for example, redirect to a download upon completion.
+
 ### Message
 
 Sets a message to be shown in the next page. Works if you set a `display` action too, which redirects the user to another page. Note, you can use Twig in the message if you like.

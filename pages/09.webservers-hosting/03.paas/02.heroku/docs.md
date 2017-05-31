@@ -70,8 +70,34 @@ Now commit to the repository with
 
 `git add . ; git commit -am 'Added Grav'`
 
+Then edit `composer.json` and add post deploy command to the `scripts` section as in
+
+```
+"scripts": {
+  "compile": [
+    "bin/grav install"
+  ]
+}
+```
+
+and commit that to the repository with 
+
+`git add . ; git commit -am 'Add post deploy bin/grav install'`
+
 Then run
 
 `git push heroku master`
 
 and the site should be good to go!
+
+Due to the ephemeral nature of Heroku's filesystem, all needed plugins or themes must be added to `composer.json` just like above and kept there so they are installed every time the site is pushed to Heroku. For example, if you need the `admin` plugin and a theme, add them in composer like in
+
+```
+"scripts": {
+  "compile": [
+    "bin/grav install",
+    "bin/gpm install admin -y",
+    "bin/gpm install awesome-theme-name-here -y"
+  ]
+}
+```

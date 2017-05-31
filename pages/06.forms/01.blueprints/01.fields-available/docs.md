@@ -516,7 +516,7 @@ picked_image:
   folder: 'theme@:/images/pages'
   label: Select a file
   preview_images: true
-  acccept:
+  accept:
     - .png
     - .jpg
 ```

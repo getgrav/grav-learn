@@ -136,7 +136,7 @@ You can link to pretty much any direct URL, including secured HTTPS links.
 
 ### Media Actions on Images
 
-One of the main benefits of using images associated with pages is that it enables you to take advantage of [Grav's powerful media actions](../media). For example, here is a line you would use to load an image from `/pages/01.blog/test-post-3/test_image_3.jpg` from `/pages/01.blog/test-post-1/test_image_1.jpg`
+One of the main benefits of using images associated with pages is that it enables you to take advantage of [Grav's powerful media actions](../media). For example, here is a line you would use to load an image from another page:
 
 ```markdown
 ![Styling Example](../test-post-3/test_image_3.jpg?cropResize=400,200)
