@@ -9,7 +9,8 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Output some PHP code result in a Twig template](#output-some-php-code-result-in-a-twig-template)
 2. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
 3. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
-4. [Learning by Example](#learning-by-example)
+4. [Iterating through pages and media](#iterating-through-pages-and-media)
+5. [Learning by Example](#learning-by-example)
    * [How do I read from and write data to the file system?](#how-do-i-read-from-and-write-data-to-the-file-system)
    * [How do I make data from a plugin available to Twig?](#how-do-i-make-data-from-a-plugin-available-to-twig)
    * [How do I inject Markdown into a page?](#how-do-i-inject-markdown-into-a-page)
@@ -267,6 +268,66 @@ Here is the default HTML for the text field plus a search button for a few other
   <input type="text" placeholder="Search...">
   <button class="ui button">Search</button>
 </div>
+```
+
+### Iterating through pages and media
+
+#### Goal:
+
+You want to access all pages and each page's associated media through PHP and/or Twig, so that they can be looped over or otherwise manipulated by the plugin.
+
+#### Solution:
+
+Use Grav's collection-capabilities to construct a recursive index of all pages, and when indexing also gather up media-files for each page. The [DirectoryListing](https://github.com/OleVik/grav-plugin-directorylisting/blob/v2.0.0-rc.2/Utilities.php#L64-L105)-plugin does exactly this, and builds a HTML-list using the produced tree-structure. To do this, we'll create a recursive function - or method as may be the case within a plugin's class - that goes through each page and stores it in an array. The method is recursive, because it calls itself again for each page it finds that has children.
+
+First things first, though, the method takes three parameters: The first is the `$route` to the page, which tells Grav where to find it; the second is the `$mode`, which tells the method whether to iterate over the page itself or its children; the third is the `$depth`, which keeps track of what level the page is on. The method initially instantiates the Page-object, then deals with depth and mode, and constructs the collection. By default we order the pages by Date, Descending, but you could make this configurable. Then we construct an array, `$paths`, to hold each page. Since routes are unique in Grav, they are used as keys in this array to identify each page.
+
+Now we iterate over the pages, adding depth, title, and route (also kept as a value for ease-of-access). Within the foreach-loop we also try to retrieve child-pages, and add them if found. Also, we find all media associated with the page, and add them. Because the method is recursive, it will continue looking for pages and child-pages until no more can be found.
+
+The returned data is a tree-structure, or multidimensional-array in PHP's parlance, containing all pages and their media. This can be passed into Twig, or used within the plugin itself. Note that with very large folder-structures PHP might time out or fail because of recursion-limits, eg. folders 100 or more levels deep.
+
+```php
+/**
+ * Creates page-structure recursively
+ * @param string $route Route to page
+ * @param integer $depth Reserved placeholder for recursion depth
+ * @return array Page-structure with children and media
+ */
+public function buildTree($route, $mode = false, $depth = 0)
+{
+    $page = Grav::instance()['page'];
+    $depth++;
+    $mode = '@page.self';
+    if ($depth > 1) {
+        $mode = '@page.children';
+    }
+    $pages = $page->evaluate([$mode => $route]);
+    $pages = $pages->published()->order('date', 'desc');
+    $paths = array();
+    foreach ($pages as $page) {
+        $route = $page->rawRoute();
+        $path = $page->path();
+        $title = $page->title();
+        $paths[$route]['depth'] = $depth;
+        $paths[$route]['title'] = $title;
+        $paths[$route]['route'] = $route;
+        if (!empty($paths[$route])) {
+            $children = $this->buildTree($route, $mode, $depth);
+            if (!empty($children)) {
+                $paths[$route]['children'] = $children;
+            }
+        }
+        $media = new Media($path);
+        foreach ($media->all() as $filename => $file) {
+            $paths[$route]['media'][$filename] = $file->items()['type'];
+        }
+    }
+    if (!empty($paths)) {
+        return $paths;
+    } else {
+        return null;
+    }
+}
 ```
 
 ### Learning by Example
