@@ -115,7 +115,7 @@ The author of this page is: {{ page.header.author }}
 
 ##### media()
 
-This returns an array containing all the media associated with a page. These include **images**, **videos**, and other **files**.  You can access media methods as described in the [media documentation](../../content/media) for content. Because it is an array, Twig filters and functions can be used.
+This returns an array containing all the media associated with a page. These include **images**, **videos**, and other **files**.  You can access media methods as described in the [media documentation](../../content/media) for content. Because it is an array, Twig filters and functions can be used. Note: .svg are treated as files, not images, because they can not be manipulated using twig image filters.
 
 Get a specific file or image:
 ```
