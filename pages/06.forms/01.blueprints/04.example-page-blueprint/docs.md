@@ -10,7 +10,7 @@ taxonomy:
 
 If you want to use the default page form, and just add a couple of select boxes for example, you can extend from the default page.
 
-This will use the default page form, and append a text field to the **Advanced** tab:
+This will use the default page form, and append a text field to the **Advanced** tab, under the **Overrides** section:
 
 ```yaml
 title: Gallery
