@@ -357,9 +357,10 @@ Will repeat whatever is passed in a certain amount of times.
 
 ##### String
 
-Generates a random string. Pass count to set the characters length.
+Returns a string from a value. If the value is array, return it json encoded
 
-`ta(23)`
+`string(23)` => `"23"`
+`string(['test' => 'x'])` => `{"test":"x"}`
 
 ##### Translate
 
