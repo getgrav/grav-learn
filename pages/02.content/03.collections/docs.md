@@ -24,7 +24,7 @@ An example collection defined in the page's frontmatter:
 
 ```
 content:
-    items: @self.children
+    items: '@self.children'
     order:
         by: date
         dir: desc
@@ -323,7 +323,7 @@ When you create a collection with `content: items:` in your YAML, you are defini
 
 ```
 content:
-    items: @self.children
+    items: '@self.children'
     order:
         by: date
         dir: desc
