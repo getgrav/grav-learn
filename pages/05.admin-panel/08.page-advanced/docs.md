@@ -29,7 +29,7 @@ The **Settings** area focuses on various critical options for your page. This is
 | Folder Numeric Prefix | Numeric prefix that provides manual ordering and implies visibility.                                                             |
 | Folder Name           | Sets the name of the folder the page is contained in.                                                                            |
 | Parent                | Sets the parent of the current page. This can be - Root- for top-level pages, or specific pages to have them appear as subpages. |
-| Display Template      | Sets the template (provided by the theme) to be applied to the page. This has a direct affect on how the page looks.             |
+| Display Template      | Sets the template (provided by the theme) to be applied to the page. This has a direct effect on how the page looks.             |
 | Body Classes          | Classes entered in this field are applied to the body of the page.                                                               |
 
 ### Ordering
