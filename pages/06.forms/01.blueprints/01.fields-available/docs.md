@@ -42,29 +42,29 @@ This list provides a common ground so there's no need to repeat the description 
 
 | Attribute           | Description                                                                                                                                                                                                    |
 | :-----              | :-----                                                                                                                                                                                                         |
-| `autocomplete`      | Accepts `on` or `off`                                                                                                                                                                                          |
+| `autocomplete`      | accepts `on` or `off`                                                                                                                                                                                          |
 | `autofocus`         | if enabled, autofocus on that field                                                                                                                                                                            |
 | `classes`           | accepts a string with one of more CSS classes to add                                                                                                                                                           |
 | `default`           | sets the field default value                                                                                                                                                                                   |
 | `disabled`          | sets the field disabled state                                                                                                                                                                                  |
 | `help`              | Adds a tooltip to the field                                                                                                                                                                                    |
-| `id`                | sets the field id. Also sets the `for` attribute on the label                                                                                                                                                  |
+| `id`                | sets the field id as well as the `for` attribute on the label                                                                                                                                                  |
 | `label`             | sets the field label                                                                                                                                                                                           |
 | `name`              | sets the field name                                                                                                                                                                                            |
 | `novalidate`        | sets the field novalidate state                                                                                                                                                                                |
 | `placeholder`       | sets the field placeholder value                                                                                                                                                                               |
 | `readonly`          | sets the field readonly state                                                                                                                                                                                  |
-| `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template yo see, when used in the frontend |
+| `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template you see, when used in the frontend |
 | `style`             | sets the field style. If set to `vertical`, the field is able to appear full width. This is an easy way to clean up the form.                                                                                  |
 | `title`             | sets the field title value                                                                                                                                                                                     |
-| `validate.required` | if set to a positive value, sets the field as required.                                                                                                                                                        |
+| `validate.required` | if set to a positive value, sets the field as required                                                                                                                                                        |
 | `validate.pattern`  | sets a validation pattern                                                                                                                                                                                      |
 | `validate.message`  | sets the message shown if the validation fails                                                                                                                                                                 |
 | `validate.type`     | sets the field type used during validation                                                                                                                                                                     |
 
 ### Know more about fields
 
-You can read how the fields are built from the source: [Fields added by the Form Plugin](https://github.com/getgrav/grav-plugin-form/tree/master/templates/forms) and [Fields only available in Admin](https://github.com/getgrav/grav-plugin-admin/tree/master/themes/grav/templates/forms)
+You can read how the fields are built from the source: [Fields added by the Form Plugin](https://github.com/getgrav/grav-plugin-form/tree/master/templates/forms) and [Fields only available in Admin](https://github.com/getgrav/grav-plugin-admin/tree/master/themes/grav/templates/forms).
 
 ### Validation
 
@@ -482,7 +482,7 @@ custom_file:
 | Attribute     | Description                                                                                                |
 | :-----        | :-----                                                                                                     |
 | `destination` | The folder where the files will be stored, relative to the Grav root. E.g. `user/plugins/my-plugin/assets` |
-| `multiple`    | Whether or not allow more than one file per field                                                          |
+| `multiple`    | Whether or not to allow more than one file per field                                                          |
 | `limit`       | When `multiple` is enabled, allows to constrain the amount of files permitted to be uploaded               |
 | `filesize`    | The size in MB each file is allowed                                                                        |
 | `accept`      | Add a list of accepted page mime types and extensions. E.g. `["image/*", '.mp3']`                          |
@@ -586,7 +586,7 @@ content:
 
 ![List Field](list_field_bp.gif)
 
-The `list` field type is used to create collections of fields. The field accepts a `fields` attribute that will host subfields, and there will be a "Add item" button to allow the user to add more items to the collection.
+The `list` field type is used to create collections of fields. The field accepts a `fields` attribute that will host subfields, and there will be an "Add item" button to allow the user to add more items to the collection.
 
 Example:
 
@@ -619,7 +619,7 @@ This example will generate this Admin interface:
 
 ![](field_list_1.png)
 
-When saving the page, we'll some the following YAML added to the page frontmatter:
+When saving the page, we'll see the following YAML added to the page frontmatter:
 
 ```
 buttons:
@@ -840,7 +840,7 @@ taxonomies:
 
 ![Tabs](tabs_field_bp.gif)
 
-The `tabs` and `tab` field types are used to divide the contained form fields in tabs
+The `tabs` and `tab` field types are used to divide the contained form fields in tabs.
 
 Example:
 
@@ -878,7 +878,7 @@ tabs:
 
 ![Taxonomy](taxonomy_field_bp.gif)
 
-The `taxonomy` field type is a special select preconfigured to select one or more taxonomy values
+The `taxonomy` field type is a special select preconfigured to select one or more taxonomy values.
 
 Example:
 
@@ -919,7 +919,7 @@ header.taxonomy:
 
 ![Toggle Field](toggle_field_bp.gif)
 
-The `toggle` field type is a on/off kind of input, with configurable labels
+The `toggle` field type is an on/off kind of input, with configurable labels.
 
 Example:
 
