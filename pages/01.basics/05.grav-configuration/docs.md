@@ -292,7 +292,7 @@ images:
   auto_fix_orientation: false
 ```
 
-This section gives you the ability to set the default image quality images are resambled to, as well as to control image caching and debugging features.
+This section gives you the ability to set the default image quality images are resampled to, as well as to control image caching and debugging features.
 
 * **default_image_quality**: Default image quality to use when resampling images. For example: `85` = 85%.
 * **cache_all**: Cache all image by default. Can be set to `true` or `false`.
