@@ -102,7 +102,7 @@ Add an entire directory of CSS assets in one go. The order will be alphabetical.
 
 #### addInlineCss(css, [options])
 
-Let's you add a string of CSS inside an inline style tag. Useful for initialization or anything dynamic.  To inline a regular asset file's content, see the `{'loading': 'inline'}` option of the `addCss()` and `css()` methods.
+Lets you add a string of CSS inside an inline style tag. Useful for initialization or anything dynamic.  To inline a regular asset file's content, see the `{'loading': 'inline'}` option of the `addCss()` and `css()` methods.
 
 #### addJs(asset, [options])
 
@@ -110,7 +110,7 @@ This method will add assets to the list of JavaScript assets.  The priority defa
 
 #### addInlineJs(javascript, [options])
 
-Let's you add a string of JavaScript inside an inline script tag. Useful for initialization or anything dynamic.  To inline a regular asset file's content, see the `{'loading': 'inline'}` option of the `addJs()` and `js()` methods.
+Lets you add a string of JavaScript inside an inline script tag. Useful for initialization or anything dynamic.  To inline a regular asset file's content, see the `{'loading': 'inline'}` option of the `addJs()` and `js()` methods.
 
 #### addDirJs(directory)
 
