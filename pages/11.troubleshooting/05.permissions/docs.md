@@ -13,7 +13,7 @@ For Apache:
 
 For Nginx:
 
-    ps aux | grep -v root | grep n-ginx | cut -d\  -f1 | sort | uniq
+    ps aux | grep -v root | grep nginx | cut -d\  -f1 | sort | uniq
 
 And find out which user owns the file in your grav directory by running 
     
