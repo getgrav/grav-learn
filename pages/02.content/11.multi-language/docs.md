@@ -326,7 +326,7 @@ This uses an **inverted language order** so the default language is now `fr` so 
 
 #### Language Alias Routes
 
-Because each page can have it's own custom route, it would be hard to switch between different language versions of the same page.  However, there is a new **Page.rawRoute()** method on the Page object that will get the same raw route for any of the various language translations of a single page.  All you would need to do is to put the lang code in front to get the proper route to a specific language version of a page.
+Because each page can have its own custom route, it would be hard to switch between different language versions of the same page.  However, there is a new **Page.rawRoute()** method on the Page object that will get the same raw route for any of the various language translations of a single page.  All you would need to do is to put the lang code in front to get the proper route to a specific language version of a page.
 
 For example, say you are on a page in English with a custom route of:
 
