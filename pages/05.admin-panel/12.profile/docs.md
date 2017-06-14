@@ -55,5 +55,5 @@ Here is a quick breakdown of the permissions options and what they enable someon
 | admin.statistics           | Gives the user the ability to access the **Statistics** area of the **Dashboard**.                               |
 | admin.plugins              | Gives the user access to the **Plugins** area of the admin.                                                      |
 | admin.themes               | Gives the user access to the **Themes** area of the admin.                                                       |
-| admin.users                | Enables the user to access and edit other user's profile information. This does not include permissions.         |
+| admin.users                | Enables the user to access and edit other users' profile information. This does not include permissions.         |
 | site.login                 | Enables the user to log in to the front end.                                                                     |
