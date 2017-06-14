@@ -29,7 +29,7 @@ This section is where you set the basic properties of content handling for your 
 | Home Page               | Select the page you wish to have appear as the home page for your site.    |
 | Default Theme           | Sets the primary default theme used in your site.                          |
 | Process                 | Control how pages are processed. Can be set per-page rather than globally. |
-| Timezone                | Override the default timezone the server.                                  |
+| Timezone                | Override the server's default timezone.                                    |
 | Short Date Format       | Set the short date format that can be used by themes.                      |
 | Long Date Format        | Set the long date format that can be used by themes.                       |
 | Default Ordering        | Pages in a list will render using this order unless it is overridden.      |
@@ -47,7 +47,7 @@ Multilanguage features are set in this section.
 
 | Option                         | Description                                                               |
 | :-----                         | :-----                                                                    |
-| Supported                      | Comma separated list of 2 letter language codes (for example 'en,fr,de'). |
+| Supported                      | Comma separated list of 2-letter language codes (for example 'en,fr,de'). |
 | Translations Enabled           | Support translations in Grav, plugins and extensions.                     |
 | Translations Fallback          | Fallback through supported translations if active language doesn't exist. |
 | Active Language in Section     | Store the active language in the session.                                 |
@@ -91,7 +91,7 @@ Grav's integrated caching feature helps make it one of the fastest flat-file CMS
 | Caching            | Global ON/OFF switch to enable/disable Grav caching.                                        |
 | Cache Check Method | Sets the cache check method. The options are **File**, **Folder**, and **None**.            |
 | Cache Driver       | Choose which cache driver Grav should use. 'Auto Detect' attempts to find the best for you. |
-| Cache Prefix       | An identifier for part of the Grav key.  Don't change unless you know what your doing.      |
+| Cache Prefix       | An identifier for part of the Grav key.  Don't change unless you know what you're doing.    |
 | Lifetime           | Sets the cache lifetime in seconds. 0 = infinite.                                           |
 | Gzip Compression   | Enable GZip compression of the Grav page for increased performance.                         |
 
@@ -158,7 +158,7 @@ This section determines how Grav handles media content. Image quality, file uplo
 | :-----                     | :-----                                                                                                    |
 | Default Image Quality      | Default image quality to use when resampling or caching images (85%).                                     |
 | Cache All Images           | Run all images through Grav's cache system even if they have no media manipulations.                      |
-| Image Debug Watermark      | Show an overlay over images indicating the pixel depth of the image when working with retina for example. |
+| Image Debug Watermark      | Show an overlay over images indicating the pixel depth of the image when working with Retina for example. |
 | File Upload Limit          | Set maximum upload size in bytes (0 is unlimited).                                                        |
 | Enable Timestamps on Media | Appends a timestamp based on last modified date to each media item.                                       |
 
