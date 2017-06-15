@@ -601,9 +601,9 @@ You probably have downloaded the theme, and it's composed by several HTML files.
 
 First, [use the Grav Devtools plugin](/themes/theme-tutorial) to create a blank theme, and set Grav to use it in the System settings.
 
-Create a `templates/home.html.twig` Twig template inside the theme’s templates folder. This will represent a template specific for the home page. Usually the home is a pretty unique page on the site, so it probably deserves a dedicated Twig.
+Create a `templates/home.html.twig` Twig template inside the theme’s templates folder. This will represent a template specific for the home page. Usually the home is a pretty unique page on the site, so it probably deserves a dedicated Twig file.
 
-Copy the whole home page code there, from `<html>` to `</html>`.
+Copy the HTML code from the template's home page, starting at <html> and ending at </html> to your new `home.html.twig` file.
 
 Now, move all the HTML theme assets (images, CSS, JS) into your theme folder. You can keep the existing theme folder structure, or change it.
 
@@ -636,16 +636,19 @@ Example:
     {{ assets.js() }}
 ```
 
-The page show now show up perfectly fine. Make sure the pages and twig cache is disabled in the System settings.
+The page changes should now be shown in your Browser. If not, make sure that the pages and twig caches are disabled in the Grav system configuration settings.
 
 This is just the start. Now you might need to add more pages, and come up with better ways to present the content of your pages using the header frontmatter, and custom Twig that processes usual building blocks need: the home page testimonials, reviews, the product features and so on.
 
 #### Adding another page
 
-To add another page, the process is similar. For example you want to create the blog page. Repeat the process to add a `templates/blog.html.twig` file, paste the HTML source, and create a `pages/02.blog/blog.md` page. 
+To add another page, the process is similar. For example, let's say you want to next create the blog page. 
+Repeat the process to add a `templates/blog.html.twig` file, paste the HTML source, and create a `pages/02.blog/blog.md` page. 
 
 Now, while images links inside the pages still need to be migrated to Grav's assets syntax (or simply change the path), you dodn't want to repeat the same work you did above for CSS and JS assets. This should be reused across the site.
 
-So, identify the common parts of the pages (header and footer), and move them to the `templates/partials/base.html.twig` file.
+#### Shared Elements
+
+Identify the common parts of the pages (header and footer), and move them to the `templates/partials/base.html.twig` file.
 
 Each page template then needs to extend `partials/base.html.twig` (https://github.com/getgrav/grav-theme-antimatter/blob/develop/templates/default.html.twig#L1) and just add their unique content. 
