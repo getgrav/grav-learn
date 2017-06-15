@@ -21,6 +21,7 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 | **[Dateformat](#the-dateformat-field)**           | a special select that renders the current date/time in the passed formats                                                                                                                                   |
 | **[Datetime](#the-datetime-field)**               | a date and time selection field                                                                                                                                                                             |
 | **[Editor](#the-editor-field)**                   | show a markdown editor                                                                                                                                                                                      |
+| **[Fieldset](#the-fieldset-field)**               | group a set of fields inside a collapsible accordion                                                                                                                                                        |
 | **[File](#the-file-field)**                       | in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
 | **[Filepicker](#the-filepicker-field)**                       | **Filepicker** allows to choose files from a location in the web server filesystem. |
 | **[Ignore](#the-ignore-field)**                   | used to remove unused fields when extending from another blueprint                                                                                                                                          |
@@ -445,7 +446,56 @@ frontmatter:
 | [readonly](#common-fields-attributes)          |
 
 
----------------------
+---
+
+### The Fieldset Field
+
+![Fieldset Field](fieldset-gif.gif)
+The `fieldset` groups a set of fields inside a collapsible box.
+                    
+
+Example:
+
+```yaml
+fieldset.options:
+  type: fieldset
+  title: Your title
+  help: Help text
+  info: Info text
+  text: Text inside fieldset and before other fields
+  icon: comments
+  collapsed: true     # Initial state of fieldset (see collapsible option)
+  collapsible: true    # Whether one can expand the fieldset or not 
+  fields:
+    .an_example_text:
+      type: text
+      label: texte
+    .an_example_textarea:
+      type: textarea
+      label: textarea
+```
+
+
+
+| Attribute     | Description                                                                                                |
+| :-----        | :-----                                                                                                     |
+| `icon`        | An icon for the box                                                                                        |         
+| `collapsed`   | If `true`, the list is opened collapsed. By default it's expanded                                          |
+| `collapsible` | Whether one can expand the fieldset or not                                                                 |
+
+
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [disabled](#common-fields-attributes)          |
+| [help](#common-fields-attributes)              |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [size](#common-fields-attributes)              |
+| [style](#common-fields-attributes)             |
+| [toggleable](#common-fields-attributes)        |
+
+
+---
 
 ### The File Field
 
