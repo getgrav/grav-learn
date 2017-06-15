@@ -86,10 +86,20 @@ However, if you are running on a dedicated server, or even your local environmen
 
 1. In a **local development environment**, you can usually configure your webserver to run under your user profile.  This way the web server will always allow you to create and modify files.
 
-2. Change the **group permissions** on all files and folders so that the webserver's group has write access to files and folders while keeping the standard permissions.  This requires a few commands to make this work (note: adjust `www-data` to be the group your apache runs under [`www-data`, `apache`, `nobody`, etc.]):
+2. Change the **group permissions** on all files and folders so that the webserver's group has write access to files and folders while keeping the standard permissions.  This requires a few commands to make this work.
+
+First, find out which user Apache runs with by running the following command:
+```
+ps aux | grep -v root | grep apache | cut -d\  -f1 | sort | uniq 
+```
+Now, find out which group this user belongs to by running this command (note: adjust USERNAME with the apache username you found in the previous command)
+```
+groups USERNAME
+```
+(note: adjust `GROUP` to be the group your apache runs under, found in the previous command. [`www-data`, `apache`, `nobody`, etc.]):
 
 ```
-chgrp -R www-data .
+chgrp -R GROUP .
 find . -type f | xargs chmod 664
 find . -type d | xargs chmod 775
 find . -type d | xargs chmod +s
