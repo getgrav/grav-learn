@@ -12,7 +12,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Displaying page content without summary](#displaying-page-content-without-summary)
 1. [Hiding the email to spam bots](#hiding-the-email-to-spam-bots)
 1. [Picking a random item from a translated array](#picking-a-random-item-from-a-translated-array)
-1. [Displaying an image uploaded in a file field](displaying-an-image-uploaded-in-a-file-field)
+1. [Displaying an image uploaded in a file field](#displaying-an-image-uploaded-in-a-file-field)
 
 ### List the last 5 recent blog posts
 
