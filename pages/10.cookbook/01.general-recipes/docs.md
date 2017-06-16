@@ -17,7 +17,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Override the default logs folder location](#override-the-default-logs-folder-location)
 1. [Split vertical menu system](#split-vertical-menu-system)
 1. [Dynamically style one or more pages](#dynamically-style-one-or-more-pages)
-1. [Migrate an HTML theme to Grav](#)
+1. [Migrate an HTML theme to Grav](#migrate-an-html-theme-to-grav)
 
 ### Change the PHP CLI version
 
