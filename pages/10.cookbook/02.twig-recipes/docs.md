@@ -191,14 +191,15 @@ You added a `file` field in your custom blueprint, and you want to display an im
 
 ##### Solution
 
-As the `file` field allows for multiple images to be uploaded, it generate two nested objects in your frontmatter, the first object is the list of the uploaded images, the nested object within is a group of property/value for the given image. 
+As the `file` field allows for multiple images to be uploaded, it generate two nested objects in your frontmatter, the first object is the list of the uploaded images, the nested object within is a group of property/value for the given image.
+
 _Note that in the case where you would want your user to only select a single image, it could be easier to use the `filepicker` field, that store a single object with the selected images properties._
 
 If you have a single image, you can display it in your template by using:
 
 ```
 {{ page.media[header.yourfilefield|first.name] }}
-``
+```
 
 If you allowed your user to upload multiple images, your twig could look like this:
 
