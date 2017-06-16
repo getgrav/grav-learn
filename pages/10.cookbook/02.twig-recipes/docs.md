@@ -12,6 +12,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Displaying page content without summary](#displaying-page-content-without-summary)
 1. [Hiding the email to spam bots](#hiding-the-email-to-spam-bots)
 1. [Picking a random item from a translated array](#picking-a-random-item-from-a-translated-array)
+1. [Displaying an image uploaded in a file field](displaying-an-image-uploaded-in-a-file-field)
 
 ### List the last 5 recent blog posts
 
@@ -180,4 +181,29 @@ Then you have your Twig:
 {% set curlang  = langobj.getLanguage() %}
 {% set fruits   = langobj.getTranslation(curlang,'FRUITS',true) %}
 <span data-ticker="{{ fruits|join(',') }}">{{ random(fruits) }}</span>
+```
+
+### Displaying an image uploaded in a file field
+
+##### Problem
+
+You added a `file` field in your custom blueprint, and you want to display an image added in this field.
+
+##### Solution
+
+As the `file` field allows for multiple images to be uploaded, it generate two nested objects in your frontmatter, the first object is the list of the uploaded images, the nested object within is a group of property/value for the given image. 
+_Note that in the case where you would want your user to only select a single image, it could be easier to use the `filepicker` field, that store a single object with the selected images properties._
+
+If you have a single image, you can display it in your template by using:
+
+```
+{{ page.media[header.yourfilefield|first.name] }}
+``
+
+If you allowed your user to upload multiple images, your twig could look like this:
+
+```
+{% for imagesuploaded in page.header.yourfilefield %}
+{{ page.media[imagesuploaded.name] }}
+{% endfor %}
 ```
