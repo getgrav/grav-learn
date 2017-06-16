@@ -603,7 +603,7 @@ First, [use the Grav Devtools plugin](/themes/theme-tutorial) to create a blank 
 
 Create a `templates/home.html.twig` Twig template inside the theme’s templates folder. This will represent a template specific for the home page. Usually the home is a unique page on the site, so it probably deserves a dedicated Twig file.
 
-Copy the HTML code from the template's home page, starting at <html> and ending at </html> to your new `home.html.twig` file.
+Copy the HTML code from the template's home page, starting at `<html>` and ending at `</html>` to your new `home.html.twig` file.
 
 Now, move all the HTML theme assets (images, CSS, JS) into your theme folder. You can keep the existing theme folder structure, or change it.
 
