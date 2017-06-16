@@ -363,7 +363,7 @@ It all works thanks to the Login Plugin.
 
 If you don’t have it already, install it through the Admin Panel or using the GPM command line utility.
 
-Next, open a page in Admin, switch to expert mode and in the Frontmatter section add
+Next, open a page in Admin, switch to expert mode and in the FrontMatter section add
 
 ```yaml
 access:
@@ -597,11 +597,11 @@ Note: This is how the Antimatter theme applies page-specific classes, and so its
 
 Migrating an HTML theme to Grav is a common task. Here is a hands-on step-by-step process that can be used to achieve this goal.
 
-You probably have downloaded the theme, and it's composed by several HTML files. Let's start with simply making Grav load the home page. No custom content, just replicate the HTML theme, but within a Grav structure.
+You probably have downloaded the theme, and it's composed of several HTML files. Let's start with simply making Grav load the home page. No custom content, just replicate the HTML theme, but within a Grav structure.
 
 First, [use the Grav Devtools plugin](/themes/theme-tutorial) to create a blank theme, and set Grav to use it in the System settings.
 
-Create a `templates/home.html.twig` Twig template inside the theme’s templates folder. This will represent a template specific for the home page. Usually the home is a pretty unique page on the site, so it probably deserves a dedicated Twig file.
+Create a `templates/home.html.twig` Twig template inside the theme’s templates folder. This will represent a template specific for the home page. Usually the home is a unique page on the site, so it probably deserves a dedicated Twig file.
 
 Copy the HTML code from the template's home page, starting at <html> and ending at </html> to your new `home.html.twig` file.
 
@@ -609,7 +609,7 @@ Now, move all the HTML theme assets (images, CSS, JS) into your theme folder. Yo
 
 Create a `pages/01.home/home.md` empty file. Now point your browser to yoursite.com/home: it should show up the content, but the CSS, JS and images will not be loaded, probably because the theme has them hardcoded as `/img/*` or `/css/*` links. 
 
-#### Adding the correct assets links
+#### Adding the correct asset links
 
 In Grav the links are broken because they point to the home route, so instead of pointing to `/user/themes/mytheme/img`, they point to `/img` in the Grav root. Since it's best to keep all theme-related assets inside the theme, we need to point Grav to the correct location.
 
@@ -631,21 +631,21 @@ Example:
 ```
     {% block javascripts %}
         {% do assets.addJs('theme://js/custom.js') %}
-        {% do assets.addJs('jquery',101) %}
+        {% do assets.addJs('jquery', 101) %}
     {% endblock %}
     {{ assets.js() }}
 ```
 
-The page changes should now be shown in your Browser. If not, make sure that the pages and twig caches are disabled in the Grav system configuration settings.
+The page changes should now be shown in your Browser. If not, make sure that the pages cache and the twig cache are disabled in the Grav system configuration settings.
 
-This is just the start. Now you might need to add more pages, and come up with better ways to present the content of your pages using the header frontmatter, and custom Twig that processes usual building blocks need: the home page testimonials, reviews, the product features and so on.
+This is just the start. Now you might need to add more pages, and come up with better ways to present the content of your pages using the header FrontMatter, and custom Twig that processes usual building blocks need: the home page testimonials, reviews, the product features and so on.
 
 #### Adding another page
 
 To add another page, the process is similar. For example, let's say you want to next create the blog page. 
 Repeat the process to add a `templates/blog.html.twig` file, paste the HTML source, and create a `pages/02.blog/blog.md` page. 
 
-Now, while images links inside the pages still need to be migrated to Grav's assets syntax (or simply change the path), you dodn't want to repeat the same work you did above for CSS and JS assets. This should be reused across the site.
+Now, while images links inside the pages still need to be migrated to Grav's assets syntax (or simply change the path), you don't want to repeat the same work you did above for CSS and JS assets. This should be reused across the site.
 
 #### Shared Elements
 
