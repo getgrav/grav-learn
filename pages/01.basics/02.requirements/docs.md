@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Grav has intentionally been designed with few requirements.  You can easily run Grav on your local computer, as well as 99% of all Web hosting providers. If you have a pen handy, jot down the following Grav system requirements:
+Grav has intentionally been designed with few requirements. You can easily run Grav on your local computer, as well as 99% of all Web hosting providers. If you have a pen handy, jot down the following Grav system requirements:
 
 1. Webserver (Apache, Nginx, LiteSpeed, Lightly, IIS, etc.)
 2. PHP 5.5.9 or higher
@@ -12,13 +12,13 @@ Grav has intentionally been designed with few requirements.  You can easily run 
 
 Grav is built with plain text files for your content. There is no database needed.
 
-!! A PHP user cache such as APC, APCU, XCache, Memcache, Redis is highly recommended for optimal performance.  Not to worry though, these are usually already part of your hosting package!
+!! A PHP user cache such as APC, APCu, XCache, Memcached, Redis is highly recommended for optimal performance. Not to worry though, these are usually already part of your hosting package!
 
 ## Web Servers
 
 Grav is so simple and versatile, that you don't even need a web server to run it. You can actually run it directly off the built-in `router.php` PHP tool as long as you're running PHP 5.5.9 or later. This is a useful way to check a Grav install and perform some brief development, but is **not** recommended for a live site or even for advanced development tasks. We've outlined how in our [Installation guide](../installation#running-grav-with-the-built-in-php-webserver-using-routerphp).
 
-Even though technically you do not need a standalone Web server, it is better to run one, even for local development. Luckily there are many options depending on your platform:
+Even though technically you do not need a standalone web server, it is better to run one, even for local development. Luckily there are many options depending on your platform:
 
 ### Mac
 
@@ -34,7 +34,7 @@ Even though technically you do not need a standalone Web server, it is better to
 
 ### Linux
 
-* Many distributions of Linux already come with Apache and PHP built-in, if it's not built-in, then usually the distribution provides a package manager where you can install Apache and PHP without much hassle.  More advanced configurations should be investigated with the help of a good search engine.
+* Many distributions of Linux already come with Apache and PHP built-in. If they're not, the distribution usually provides a package manager through which you can install them without much hassle. More advanced configurations should be investigated with the help of a good search engine.
 
 ### Apache Requirements
 
@@ -48,11 +48,11 @@ You should also ensure you have `AllowOverride All` set in the `<Directory>` and
 ### IIS Requirements
 
 Although IIS is considered a webserver ready to 'run-out-of-box' there are some changes that need to be made.
-To get **Grav** to run on an IIS server you need to install **URL Rewrite.** This can be accomplished using **Microsoft Web Platform Installer** from within IIS. You can also install URL Rewrite by going to [iis.net](http://www.iis.net/downloads/microsoft/url-rewrite).
+To get **Grav** to run on an IIS server you need to install **URL Rewrite**. This can be accomplished using **Microsoft Web Platform Installer** from within IIS. You can also install URL Rewrite by going to [iis.net](http://www.iis.net/downloads/microsoft/url-rewrite).
 
 ### PHP Requirements
 
-Most hosting providers and even local LAMP setups have PHP pre-configured with everything you need for Grav to run out of the box.  However, some windows setups, and even Linux distributions local or on VPS (I'm looking at you Debian!) ship with a very minimal PHP compile. Therefore, you may need to install or enable these PHP modules:
+Most hosting providers and even local LAMP setups have PHP pre-configured with everything you need for Grav to run out of the box. However, some windows setups, and even Linux distributions local or on VPS (I'm looking at you Debian!) ship with a very minimal PHP compile. Therefore, you may need to install or enable these PHP modules:
 
 * `gd` (a graphics library used to manipulate images)
 * `curl` (client for URL handling used by GPM)
@@ -91,12 +91,13 @@ However, if you are running on a dedicated server, or even your local environmen
 ```
 chgrp -R www-data .
 find . -type f | xargs chmod 664
+find ./bin -type f | xargs chmod 775
 find . -type d | xargs chmod 775
 find . -type d | xargs chmod +s
 umask 0002
 ```
 
-
+If you need to invoke superuser permissions, you would run `find … | sudo xargs chmod …` instead.
 
 ## Recommended Tools
 
