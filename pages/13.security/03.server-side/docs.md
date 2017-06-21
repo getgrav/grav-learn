@@ -25,12 +25,11 @@ Some general recommendations:
 
 ## Webserver configuration
 
-Common webserver, or HTTP server, software includes Nginx and Apache, as well as more modern alternatives such as LiteSpeed or CaddyServer. The aforementioned [webserver configurations]((https://github.com/getgrav/grav/tree/develop/webserver-configs) include necessary defaults for Grav, but you can further secure the webserver through its configuration. Some relevant resources:
+Common webserver, or HTTP server, software includes Nginx and Apache, as well as more modern alternatives such as LiteSpeed or CaddyServer. The aforementioned [webserver configurations](https://github.com/getgrav/grav/tree/develop/webserver-configs) include necessary defaults for Grav, but you can further secure the webserver through its configuration. Some relevant resources:
 
 - [How To Secure Nginx](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-on-ubuntu-14-04) on DigitalOcean, and [Nginx WebServer Best Security Practices](https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html) on nixCraft.
 - [Apache Web Server Hardening & Security Guide](https://geekflare.com/apache-web-server-hardening-security/) on Geek Flare, and [Apache Web Server Security and Hardening Tips](https://www.tecmint.com/apache-security-tips/) on Tecmint.
 - [Ways of improving security in Litespeed](https://bobcares.com/blog/ways-of-improving-security-in-litespeed/) on Bobcares.
-
 
 ## Server configuration
 
