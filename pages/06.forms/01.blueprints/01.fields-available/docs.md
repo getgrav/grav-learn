@@ -458,7 +458,7 @@ The `fieldset` groups a set of fields inside a collapsible box.
 Example:
 
 ```yaml
-fieldset.options:
+header.fieldset:
   type: fieldset
   title: Your title
   help: Help text
@@ -468,14 +468,13 @@ fieldset.options:
   collapsed: true     # Initial state of fieldset (see collapsible option)
   collapsible: true    # Whether one can expand the fieldset or not 
   fields:
-    .an_example_text:
+    header.fieldset.an_example_text:
       type: text
-      label: texte
-    .an_example_textarea:
+      label: text
+    header.fieldset.an_example_textarea:
       type: textarea
       label: textarea
 ```
-
 
 
 | Attribute     | Description                                                                                                |
