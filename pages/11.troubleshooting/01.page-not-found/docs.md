@@ -10,6 +10,9 @@ There are a couple of reasons you might receive a **Not Found** error, and they 
 
 !! The examples below are for the Apache Web Server which is the most common server software used.
 
+### IIS use of .htaccess file
+After adding URL Rewrite to the IIS server using the Web Platform Installer, restart the IIS server. Go to the management interface, IIS, double click on URL Rewrite, under Inbound Rules, click on Import Rules, under Rules to Import, browse to the Configuration file, choosing the .htaccess file in the root, and then click on Import. Restart the IIS server. Access Grav now.
+
 ### Missing .htaccess File
 
 The first thing to check is if you have the provided `.htaccess` file at the root of your Grav installation. Because this is a **hidden** file, you won't normally see this in your explorer or finder windows.  If you have extracted Grav then **selected** and **moved** or **copied** the files, you may well have left this very important file behind.
