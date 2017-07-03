@@ -101,6 +101,8 @@ The use of the `array` field type will let you add arbitrary email and phone fie
 
 ### Add a custom page creation modal
 
+!!!! Available since Grav Admin 1.5.0-rc.1, currently in pre-release
+
 #### Problem:
 
 You want to provide an easy way to create a new blog post or gallery image page. We will go with the blog post for this example. Assume you want to make a blog and easily create a blog post in the correct folder by clicking a button.
