@@ -35,7 +35,6 @@ form:
         - name: name
           label: Name
           placeholder: Enter your name
-          autofocus: on
           autocomplete: on
           type: text
           validate:
