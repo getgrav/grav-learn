@@ -1,5 +1,6 @@
 ---
-title: PROJECT_FULL: LEVEL, TARGET, ID
+title: "Report Template"
+published: true
 date: 17-06-2017
 ---
 
@@ -7,12 +8,12 @@ Short details including ID, Project's Full Name, Date, Risk-level. Eg:
 
 - ID: CORE-2017-001
 - Project: Grav Core
-- Date: 2017-06-17
+- Date: 17-06-2017
 - Risk-level: Less Critical
 
 Summary. Eg. "REST-API is publicly exposed without authentication required."
 
-Title is "PROJECT_FULL: LEVEL, TARGET, ID", eg. `Grav Core: Less Critical, Access Bypass, CORE-2017-001`, where ID is "ID: PROJECT_SHORT, YEAR-INT(3)", eg. `CORE-2017-001`.
+Title is "PROJECT_FULL: LEVEL, TARGET, ID", eg. `Grav Core: Less Critical, Access Bypass, CORE-2017-001`, where ID is "ID: PROJECT_SHORT-YEAR-INT(3)", eg. `CORE-2017-001`. ID should be incremented following previous report within the project, year. Date should be in [Grav-parsable format](https://learn.getgrav.org/content/headers#date).
 
 ### Description
 
@@ -25,8 +26,6 @@ Specific versions of Grav Core affected, including backward SemVer-ranges such a
 ### Solution
 
 How the vulnerability was fixed in code, with specific file-at-tag references, and what specific version afterwards has solved it, such as `1.2.2`. Eg. "Fixed in [Grav/Common/Page/Page](https://github.com/getgrav/grav/blob/1.1.4/system/src/Grav/Common/Page/Page.php#L94-L97), lines 94-97 at v1.1.4."
-
-
 
 ### Attribution
 

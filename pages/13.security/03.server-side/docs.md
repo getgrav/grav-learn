@@ -14,7 +14,7 @@ For Grav, you should always use an up-to-date directory-specific configuration r
 
 Before meddling with PHP's configuration, be aware that most shared hosts that you rent hosting-space from will likely already have set up sensible, secure defaults. Also, in most cases they do not allow you to edit this yourself. Before disabling or changing any configuration, you should familiarize yourself with Grav's [requirements, including PHP-extensions](https://github.com/getgrav/grav/blob/develop/composer.json) and how changes will affect them.
 
-Generally, PHP's configuration is changed through `php.ini`. You can find the location of this file from the command-line with the `php --ini`-command, or if you do not have access to direct commands, create a file named `phpinfo.php` in your webservers public root folder that contains `<?php phpinfo(); ?>` and open it with your browser. The path will be listed under "Loaded Configuration File". Once located, delete the file.
+Generally, PHP's configuration is changed through `php.ini`. You can find the location of this file from the command-line with the `php --ini`-command, or if you do not have access to direct commands, create a file named `phpinfo.php` in your webservers public root folder that contains `<?php phpinfo(); ?>` and open it with your browser. The path will be listed under "Loaded Configuration File". Once located, delete the `phpinfo.php`-file.
 
 Some general recommendations:
 
