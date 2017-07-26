@@ -39,7 +39,6 @@ A simple **permissions-fixing** shell script can be used to do this:
     find ./bin -type f | xargs chmod 775
     find . -type d | xargs chmod 775
     find . -type d | xargs chmod +s
-    umask 0002
 
 You can use this file and edit as needed for the appropriate user and group that works for your setup.  What this script basically does, is:
 
@@ -47,7 +46,6 @@ You can use this file and edit as needed for the appropriate user and group that
 2. Finds all the files from the current directory down and sets the permissions to `664` so they are `RW` for User & Group and `R` for Others.
 3. Finds all the folders from the current directory down and sets the permissions to `775` so they are `RWX` for User & Group and `RX` for Others.
 4. Sets the **ownership** of all directories to ensure that User and Group changes are maintained
-5. Sets the **umask** so that all new files are created with the correct `664` and `775` permissions.
 
 ### Cache folder permissions
 
