@@ -423,7 +423,7 @@ You can take full control of collections directly from PHP in Grav plugins, them
 You can perform advanced collection logic with PHP, for example:
 
 ```
-$collection = new Collection();
+$collection = new Collection($pages);
 $collection->setParams(['taxonomies' => ['tag' => ['dog', 'cat']]])->dateRange('01/01/2016', '12/31/2016')->published()->ofType('blog-item')->order('date', 'desc');
 
 $titles = [];
