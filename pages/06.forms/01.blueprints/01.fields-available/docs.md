@@ -426,7 +426,7 @@ frontmatter:
 
 | Attribute    | Description                                                                              |
 | :-----       | :-----                                                                                   |
-| `codemirror` | A set of values to be set on the codemirror editor. By default uses mode: gfm (markdown) |
+| `codemirror` | A set of values to be set on the [codemirror editor](https://codemirror.net/doc/manual.html#config). By default uses mode: gfm (markdown) |
 | `resizer`    | If positive, enables the resizer. Otherwise the editor is fixed                          |
 
 | Common Attributes Allowed                      |
