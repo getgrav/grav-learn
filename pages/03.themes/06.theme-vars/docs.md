@@ -98,7 +98,7 @@ This returns the entire HTML content of your page.
 {{ page.content }}
 ```
 
-##### headers()
+##### header()
 
 This returns the page headers as defined in the YAML front-matter of the page.  For example a page with the following headers:
 
