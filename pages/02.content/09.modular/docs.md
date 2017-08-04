@@ -87,7 +87,7 @@ image_align: right
 No longer are you a _slave to your CMS_. Grav **empowers** you to create anything from a [simple one-page site](#), a [beautiful blog](#), a powerful and feature-rich [product site](#), or pretty much anything you can dream up!
 ```
 
-As you can see, the header of the page contains basic information you might find on a regular page. It has its own title that can be referenced, and [custom page options](/headers#custom-page-headers), such as the alignment of the image can be set here, just as it would on any other page.
+As you can see, the header of the page contains basic information you might find on a regular page. It has its own title that can be referenced, and [custom page options](/content/headers#custom-page-headers), such as the alignment of the image can be set here, just as it would on any other page.
 
 The template file for the `text.md` file should be located in the `/templates/modular`-folder of your theme, and should be named `text.html.twig`. This file, like any Twig-template file for any other page, defines the settings, as well as any styling-differences between it and the base page.
 
