@@ -10,7 +10,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
 1. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
 1. [Iterating through pages and media](#iterating-through-pages-and-media)
-1. [Simple plugin that you can use to add custom Twig templates](#simple-plugin-that-you-can-use-to-add-custom-twig-templates)
+1. [Custom Twig templates plugin](#custom-twig-templates-plugin)
 1. [Learning by Example](#learning-by-example)
    * [How do I read from and write data to the file system?](#how-do-i-read-from-and-write-data-to-the-file-system)
    * [How do I make data from a plugin available to Twig?](#how-do-i-make-data-from-a-plugin-available-to-twig)
@@ -331,7 +331,7 @@ public function buildTree($route, $mode = false, $depth = 0)
 }
 ```
 
-### Simple plugin that you can use to add custom Twig templates
+### Custom Twig templates plugin
 
 #### Goal:
 
