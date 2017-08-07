@@ -7,10 +7,11 @@ taxonomy:
 This page contains an assortment of problems and their respective solutions related to Grav plugins.
 
 1. [Output some PHP code result in a Twig template](#output-some-php-code-result-in-a-twig-template)
-2. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
-3. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
-4. [Iterating through pages and media](#iterating-through-pages-and-media)
-5. [Learning by Example](#learning-by-example)
+1. [Filter taxonomies using the taxonomylist plugin](#filter-taxonomies-using-the-taxonomylist-plugin)
+1. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
+1. [Iterating through pages and media](#iterating-through-pages-and-media)
+1. [Simple plugin that you can use to add custom Twig templates](#simple-plugin-that-you-can-use-to-add-custom-twig-templates)
+1. [Learning by Example](#learning-by-example)
    * [How do I read from and write data to the file system?](#how-do-i-read-from-and-write-data-to-the-file-system)
    * [How do I make data from a plugin available to Twig?](#how-do-i-make-data-from-a-plugin-available-to-twig)
    * [How do I inject Markdown into a page?](#how-do-i-inject-markdown-into-a-page)
@@ -328,6 +329,74 @@ public function buildTree($route, $mode = false, $depth = 0)
         return null;
     }
 }
+```
+
+### Simple plugin that you can use to add custom Twig templates
+
+#### Goal:
+
+Rather than using theme inheritance, it's possible to create a very simple plugin that allows you to use a custom location to provide customized Twig templates. 
+
+#### Solution:
+
+The only thing you need in this plugin is an event to provide a location for your templates.  The simplest way to create the plugin is to use the `devtools` plugin.  So install that with:
+
+```
+$ bin/gpm install devtools
+```
+
+After that's installed, create a new plugin with the command:
+
+```
+$ bin/gpm plugin devtools newplugin
+```
+
+Fill in the details for the name, author, etc.  Say we call it `Custom Templates`, and the plugin will be created in `/user/plugins/custom-templates`.  All you need to do now is edit the `custom-templates.php` file and put this code:
+
+```
+<?php
+namespace Grav\Plugin;
+
+use \Grav\Common\Plugin;
+
+class CustomTemplatesPlugin extends Plugin
+{
+    /**
+     * Subscribe to required events
+     * 
+     * @return array
+     */
+    public static function getSubscribedEvents()
+    {
+        return [
+            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0]
+        ];
+    }
+
+    /**
+     * Add current directory to twig lookup paths.
+     */
+    public function onTwigTemplatePaths()
+    {
+        $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
+    }
+}
+```
+
+This plugin simple subscribes to the `onTwigTemplatePaths()` event, and then in that event method, it adds the `user/plugins/custom-templates/templates` folder to this of paths that Twig will check.
+
+This allows you to drop in a Twig template called `foo.html.twig` and then any page called `foo.md` will be able to use this template.
+
+! NOTE: This will add the plugin's custom template path to the **end** of the Twig template path array. This means the theme (which is always first), will have precedence over the plugin's templates of the same name.  To resolve this, simply put the plugin's template path in the front of the array by modifying the event method:
+
+```
+    /**
+     * Add current directory to twig lookup paths.
+     */
+    public function onTwigTemplatePaths()
+    {
+        array_unshift($this->grav['twig']->twig_paths, __DIR__ . '/templates');
+    }
 ```
 
 ### Learning by Example
