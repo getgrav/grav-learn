@@ -147,6 +147,10 @@ Put them in `user/blueprints/pages/`. This is a good place to put them when you 
 
 Put them in `user/themes/YOURTHEME/blueprints/`. This is best when you also intend to distribute your theme: the theme will provide the page blueprints and it will be easier to use.
 
+#### In the Data folder
+
+If you are using a Gantry5 based theme, the best location is `user/data/gantry5/themes/YOURTHEME/blueprints/`, otherwise your files may be lost during theme update.
+
 #### In a Plugin
 
 Put them in `user/plugins/YOURPLUGIN/blueprints/`. This is the place where to put them if you define and add custom pages in the plugin.
