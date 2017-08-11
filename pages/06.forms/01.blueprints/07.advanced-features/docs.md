@@ -234,7 +234,7 @@ form:
 
 In the example above, we used the name of another field to set the ordering. In this example, we have set it up so that the `author` field appears after the `title` field in the form.
 
-!! When ordering fields in a page blueprint, you still need to reference the field names prefiexed with `header.`, eg: `header.title` for the ordering to work.
+!! When ordering fields in a page blueprint, you still need to reference the field names prefixed with `header.`, eg: `header.title` for the ordering to work.
 
 # Creating new form field type
 
