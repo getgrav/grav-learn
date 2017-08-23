@@ -985,6 +985,12 @@ td {
       background-color: #656c72;
       color: #fff; }
 
+.adv-search {
+  margin: 5px 0 0 0;
+  font-size: 90%;
+  text-align: left;
+  text-indent: 5px; }
+
 .parent-element {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
