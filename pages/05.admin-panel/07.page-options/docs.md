@@ -29,8 +29,8 @@ This section is all about controlling the way your content is published. You can
 | Published        | By default, a page is published unless you explicitly set published: false or via a `publish_date` being in the future, or `unpublish_date` in the past. |
 | Date             | The date variable allows you to specifically set a date associated with this page.                                                                       |
 | Published Date   | This serves as the official publishing date for the page. It can provide a date to automatically trigger publication.                                    |
-| Unpublished Date | This is the date/time you would like to mark for the page to to automatically trigger un-publication.                                                    |
-| Metadata         | Default metadata values that will be displayed on every page unless overridden by the page                                                               |
+| Unpublished Date | This is the date/time you would like to mark for the page to automatically trigger un-publication.                                                    |
+| Metadata         | Default metadata values that will be displayed on every page unless overridden by the page.                                                               |
 
 ### Taxonomies
 

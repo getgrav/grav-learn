@@ -6,23 +6,31 @@ process:
     twig: true
 ---
 
-The concept of **modular pages** is a little tricky to get your head around at first, but when it _clicks_, you will want to use them for everything!  A **modular page** is really a collection of pages stacked on top of each other to create a unified single-page experience for visitors.  This enables you to create complex page structures by using a **LEGO building-brick** approach to your page design by letting you build a complex page from smaller simpler pages.
+The concept of **Modular Pages** is a little tricky to get your head around at first, but when you do you'll see how convenient they are to use. A **Modular Page** is a collection of pages stacked on top of each other to create a unified, single page. This let's you create a complex page-structure by using the **LEGO building-brick**-approach, and who doesn't love LEGO?!
 
-Using our **One-Page Skeleton** as an example, we will explain how modular pages work in greater detail.
+## What are Modular Pages and what are they not?
 
-## Folder Structure
+In Grav, [Pages]((/content/content-pages)) are a broad concept that captures almost any type of combination of elements that you can imagine going into a website. Importantly, Modular Pages are a subset of this concept but not the same as a regular Page. A regular Page is fairly standalone, in the sense that Grav will render and display it without depending on other content such as other pages or child-pages. A Modular page, however, does not have child-pages. This is illustrated by imagining a simple page-structure:
 
-The **modular page** itself is assembled from pages that exist in sub-folders found under the page's primary folder. In the case of our **One-Page Skeleton**, this page is located in the `01.home` folder. Within this folder is a single `modular.md` file which tells Grav which subpages to pull to assemble the modular page, and which order to display them in. The naming of this file is important because in turn, it instructs Grav to use the `modular.html.twig` file from the current theme to render the page.
+A regular Page found at _domain.com/books_ has some details about what books is for sale. Several child-pages exist for this Page, such as _domain.com/books/gullivers-travels_ and _domain.com/books/the-hobbit_. Their folders are named the same as the address that Grav renders: `/pages/books`, `/pages/books/gullivers-travels`, and `/pages/books/the-hobbit`. This structure would not work in a Modular Page.
 
-These subpages are in folders with names that begin with an underscore (`_`). By using an underscore, you are letting Grav know that these are modular pages, and not stand-alone pages. For example, subpage folders can be named `_features` or `_showcase`. These pages are **not routable** (can not be pointed to directly in a browser) and are **not visible** (do not show up in a menu).
+A Modular Page does not have child-pages in the same sense, rather, it has **Modules** that make up the parts of the page. So, rather than various books located beneath the top-level page, the modular page displays its modules on **the same page**. Gulliver's Travels and The Hobbit both appear in _domain.com/books_, with the paths `/pages/books/_gullivers-travels` and `/pages/books/_the-hobbit`. Thus, Modular Pages are not directly compatible with regular Pages and have their own structure.
 
-In the case of our **One-Page Skeleton**, we have created the folder structure pictured below.
+## Example Folder Structure
+
+Using our **One-Page Skeleton** as an example, we will explain how Modular Pages work in greater detail.
+
+The **Modular Page** itself is assembled from pages that exist in subfolders found under the page's primary folder. In the case of our One-Page Skeleton, this page is located in the `01.home` folder. Within this folder is a single `modular.md` file which tells Grav which subpages to pull in to assemble the Modular Page, and which order to display them in. The name of this file is important because it instructs Grav to use the `modular.html.twig`-template from the current theme to render the page.
+
+These subpages are in folders with names that begin with an underscore (`_`). By using an underscore, you are telling Grav that these are **Modules**, not standalone pages. For example, subpage-folders can be named `_features` or `_showcase`. These pages are **not routable** - they cannot be pointed to directly in a browser, and they are **not visible** - they do not show up in a menu.
+
+In the case of our One-Page Skeleton, we have created the folder structure pictured below.
 
 {{ media['modular-explainer-2.jpg'].html('Listing Page','border') }}
 
-Each subfolder contains a markdown file which acts as a unique page.
+Each subfolder contains a Markdown-file which acts as a page.
 
-The data within these modular folders (including markdown files, images, etc.) is then pulled and displayed on the modular page. This is accomplished by creating a primary page, defining a [page collection](/content/collections) in the primary page's YAML frontmatter, then iterating over this collection in a Twig template to generate the combined HTML page. A theme should already have a `modular.html.twig` template that will do this and is used when you create a modular page type. Here's a typical example from a `modular.html.twig`:
+The data within these Module-folders - including Markdown-files, images, etc. - is then pulled and displayed on the Modular page. This is accomplished by creating a primary page, defining a [Page Collection](/content/collections) in the primary page's YAML FrontMatter, then iterating over this Collection in a Twig-template to generate the combined HTML page. A theme should already have a `modular.html.twig` template that will do this and is used when you create a Modular Page type. Here's a simple example from a `modular.html.twig`:
 
 ```twig
 {% for module in page.collection() %}
@@ -34,10 +42,9 @@ Here is an example of the resulting modular page, highlighting the different mod
 
 {{ media['modular-explainer-1.jpg'].html('Listing Page','border') }}
 
-Setting Up the Primary Page
------
+## Setting Up the Primary Page
 
-As you can see, each section pulls content from a different modular folder. Determining which modular folders are used, and in what order, happens in the primary markdown file in the parent folder of the modular page. Here is the content of the `modular.md` file in the `01.home` folder.
+As you can see, each section pulls content from a different Module-folder. Determining which Module-folders are used, and in what order, happens in the primary Markdown-file in the parent folder of the Module. Here is the content of the `modular.md` file in the `01.home` folder.
 
 ```yaml
 ---
@@ -59,15 +66,15 @@ content:
 ---
 ```
 
-As you can see, there is no direct content in this file. Everything is handled in the **YAML Front Matter** in the header. The page's **Title**, **Menu** assignment, and other settings you would find in a typical page are found here. The [Content](../../content/headers#ordering-options) instructs Grav to create the content based on a collection of modular pages, and even provides a custom **manual** ordering for them to render in.
+As you can see, there is no actual content in this file. Everything is handled in the YAML FrontMatter in the header. The page's **Title**, **Menu** assignment, and other settings you would find in a typical page are found here. The [Content](/content/headers#ordering-options) instructs Grav to create the content based on a Collection of modular pages, and even provides a custom manual order for them to render.
 
-## Modular Pages
+## Modules
 
 {{ media['modular-explainer-3.jpg'].html('Listing Page','border') }}
 
-This markdown file for each modular page, can have its own template, settings, etc. For all intents and purposes, it has most of the features and personality of a regular page. It just isn't rendered as one on the frontend. We recommend page-wide settings, such as **taxonomy**, be placed on the main markdown file that controls the whole page.
+The Markdown-file for each Module can have its own template, settings, etc. For all intents and purposes, it has most of the features and settings of a regular page, it just isn't rendered as one. We recommend page-wide settings, such as **taxonomy**, be placed in the main Markdown-file that controls the whole page.
 
-The modular pages themselves are handled just like regular pages. Here is an example using the `text.md` file in the `_callout` page which appears in the middle of the modular page.
+The Modular Pages themselves are handled just like regular Pages. Here is an example using the `text.md` file in the `_callout` page which appears in the middle of the Modular page.
 
 ```markdown
 ---
@@ -80,9 +87,9 @@ image_align: right
 No longer are you a _slave to your CMS_. Grav **empowers** you to create anything from a [simple one-page site](#), a [beautiful blog](#), a powerful and feature-rich [product site](#), or pretty much anything you can dream up!
 ```
 
-As you can see, the header of the page contains basic information you might find on a regular page. It has its own title that can be referenced on the frontend. Additionally, [custom page options](../headers#custom-page-headers), such as the alignment of the image can be set here, just as it would on any other page.
+As you can see, the header of the page contains basic information you might find on a regular page. It has its own title that can be referenced, and [custom page options](/content/headers#custom-page-headers), such as the alignment of the image can be set here, just as it would on any other page.
 
-The template file for the `text.md` file is located in `/templates/modular` folder of your theme, and would be expected to be called `text.html.twig`. This file, like any Twig template file for any other page, sets the unique settings as well as any styling differences between it and the base page.
+The template file for the `text.md` file should be located in the `/templates/modular`-folder of your theme, and should be named `text.html.twig`. This file, like any Twig-template file for any other page, defines the settings, as well as any styling-differences between it and the base page.
 
 ```twig
 {% verbatim %}
@@ -96,4 +103,4 @@ The template file for the `text.md` file is located in `/templates/modular` fold
 {% endverbatim %}
 ```
 
-Generally, modular pages are very simple. You just have to get used to the idea that each section in your page is sourced from a different page, and displayed all at once to the user. Feel free to experiment and discover just how much you can accomplish with a modular page in Grav.
+Generally, Modular Pages are very simple. You just have to get used to the idea that each section in your page is defined in a Module that has its own folder below the actual page. They are displayed all at once to your visitors, but organized slightly differently than regular pages. Feel free to experiment and discover just how much you can accomplish with a Modular Page in Grav.

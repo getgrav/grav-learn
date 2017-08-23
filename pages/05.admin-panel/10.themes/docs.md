@@ -32,7 +32,7 @@ Along the top of the **Themes** area of the admin, you will find the <i class="f
 
 ![Grav Admin Themes](themes_3.png?classes=shadow)
 
-Doing so will take you to the themes **Information** panel which contains more detailed information about the theme, as well as any options set in the theme's *blueprints* file. Once you are satisfied with any settings changes, simply select the <i class="fa fa-check"></i> **Save** button to save your changes.
+Doing so will take you to the new theme's **Information** panel which contains more detailed information about the theme, as well as any options set in its *blueprints* file. Once you are satisfied with any settings changes, simply select the <i class="fa fa-check"></i> **Save** button to save your changes.
 
 You can also delete the theme from your site by selecting the red <i class="fa fa-fw fa-warning"></i> **Remove Theme** button in the bottom-right area of the panel.
 
@@ -44,4 +44,4 @@ The **Installed Themes** section displays your currently-installed themes. Selec
 
 The currently-active theme is indicated by the <i class="fa fa-star"></i> **Active Theme** icon.
 
-At the top of each thumbnail you will see the name and current version number of each theme. The purple <i class="fa fa-check-circle"></i> check icon indicates that a theme was created by the Grav theme. Themes without that icon are created and maintained by third-party developers.
+At the top of each thumbnail you will see the name and current version number of each theme. The purple <i class="fa fa-check-circle"></i> check icon indicates that a theme was created by the Grav team. Themes without that icon are created and maintained by third-party developers.

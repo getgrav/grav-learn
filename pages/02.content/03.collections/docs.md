@@ -24,7 +24,7 @@ An example collection defined in the page's frontmatter:
 
 ```
 content:
-    items: @self.children
+    items: '@self.children'
     order:
         by: date
         dir: desc
@@ -323,7 +323,7 @@ When you create a collection with `content: items:` in your YAML, you are defini
 
 ```
 content:
-    items: @self.children
+    items: '@self.children'
     order:
         by: date
         dir: desc
@@ -404,6 +404,16 @@ Here is an example taken from the **Learn2** theme's **docs.html.twig** that def
 {% endblock %}
 ```
 
+`nextSibling()` is up the list and `prevSibling()` is down the list, this is how it works:
+```
+Assuming you have the pages:
+    Project A
+    Project B
+    Project C
+You are on Project A, the previous page is Project B.
+If you are on Project B, the previous page is Project C and next is Project A
+```
+
 ## Programmatic Collections
 
 You can take full control of collections directly from PHP in Grav plugins, themes, or even from Twig.  This is a more hard-coded approach compared to defining them in your page frontmatter, but it also allows for more complex and flexible collections logic.
@@ -413,7 +423,7 @@ You can take full control of collections directly from PHP in Grav plugins, them
 You can perform advanced collection logic with PHP, for example:
 
 ```
-$collection = new Collection();
+$collection = new Collection($pages);
 $collection->setParams(['taxonomies' => ['tag' => ['dog', 'cat']]])->dateRange('01/01/2016', '12/31/2016')->published()->ofType('blog-item')->order('date', 'desc');
 
 $titles = [];

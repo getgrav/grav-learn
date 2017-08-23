@@ -38,13 +38,13 @@ The **Add Page** button creates a non-modular page for your site. Once selected,
 
 Once you have filled out this information, selecting **Continue** will take you to the new page's editor. We will cover the Page Editor in more detail in [a following guide](../page-editor).
 
-!! Whether a page is visible or not in these settings only has an affect on navigation. A page's ability to be visited by a browser is determined by the page's [publishing settings](../../content/headers#published).
+!! Whether a page is visible or not in these settings only has an effect on navigation. A page's ability to be visited by a browser is determined by the page's [publishing settings](../../content/headers#published).
 
 #### Add Modular Page
 
 ![Grav Admin Pages](add_3.png?classes=shadow)
 
-The second button along the top of the **Pages** area of the admin allows to to add a modular subpage to your site. Modular pages are different from regular pages because they are actually a collection of pages, arranged and displayed as one page. This button specifically gives you the ability to create subpages and assign them to a parent modular page.
+The second button along the top of the **Pages** area of the admin allows you to add a modular subpage to your site. Modular pages are different from regular pages because they are actually a collection of pages, arranged and displayed as one page. This button specifically lets you create subpages and assign them to a parent modular page.
 
 Here is a breakdown of the fields and options that appear in the **Add Modular Page** button's popup.
 
@@ -63,7 +63,7 @@ Once you have filled out this information, selecting **Continue** will take you 
 
 The pages list that appears in this area gives you quick access to all of your current pages, as well as an at-a-glance method for seeing whether or not the pages are visible.
 
-Selecting the title of any page will take you directly to that page's editor. The big **X** icon to the right of each page enables you delete the page.
+Selecting the title of any page will take you directly to that page's editor. The big **X** icon to the right of each page lets you delete the page.
 
 If you hover over the icon directly to the left of a page, it will tell you its current status. For example, it may say **Page • Routable • Visible** if a page is routable (visible via the URL) and visible (appears in navigation menus).
 

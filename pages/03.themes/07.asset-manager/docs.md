@@ -15,13 +15,13 @@ The Grav Asset Manager has a simple set of configuration options.  The default v
 ```
 assets:                                # Configuration for Assets Manager (JS, CSS)
   css_pipeline: false                  # If true, enables the CSS pipeline, combining multiple CSS resources into one
-  css_pipeline_include_externals: true # Excludes external CSS resources from the pipeline
+  css_pipeline_include_externals: true # Include external CSS resources from the pipeline
   css_pipeline_before_excludes: true   # Renders pipelined CSS resources before non-pipelined CSS resources
   css_minify: true                     # Minify the CSS during pipelining
   css_minify_windows: true             # If false, blocks minifying on Windows servers
   css_rewrite: true                    # Rewrite any CSS relative URLs during pipelining
   js_pipeline: false                   # If true, enables the JS pipeline, combining multiple JS resources into one
-  js_pipeline_include_externals: true  # Excludes external JS resources from the pipeline
+  js_pipeline_include_externals: true  # Include external JS resources from the pipeline
   js_pipeline_before_excludes: true    # Renders pipelined JS resources before non-pipelined JS resources
   js_minify: true                      # Minify the JS during pipelining
   enable_asset_timestamp: false        # If true, adds a URL query parameter to each asset link for cache invalidation
@@ -102,7 +102,7 @@ Add an entire directory of CSS assets in one go. The order will be alphabetical.
 
 #### addInlineCss(css, [options])
 
-Let's you add a string of CSS inside an inline style tag. Useful for initialization or anything dynamic.  To inline a regular asset file's content, see the `{'loading': 'inline'}` option of the `addCss()` and `css()` methods.
+Lets you add a string of CSS inside an inline style tag. Useful for initialization or anything dynamic.  To inline a regular asset file's content, see the `{'loading': 'inline'}` option of the `addCss()` and `css()` methods.
 
 #### addJs(asset, [options])
 
@@ -110,7 +110,7 @@ This method will add assets to the list of JavaScript assets.  The priority defa
 
 #### addInlineJs(javascript, [options])
 
-Let's you add a string of JavaScript inside an inline script tag. Useful for initialization or anything dynamic.  To inline a regular asset file's content, see the `{'loading': 'inline'}` option of the `addJs()` and `js()` methods.
+Lets you add a string of JavaScript inside an inline script tag. Useful for initialization or anything dynamic.  To inline a regular asset file's content, see the `{'loading': 'inline'}` option of the `addJs()` and `js()` methods.
 
 #### addDirJs(directory)
 

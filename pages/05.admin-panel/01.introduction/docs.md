@@ -61,13 +61,13 @@ You can also [install the plugin manually](../faq#manual-installation-of-admin) 
 
 ### Creating a User
 
-With the latest version of the Grav admin, you will be prompted to create an admin user account when you point your browser to your site.  You must complete this step to ensure straight away to ensure a valid admin user is under your control.
+With the latest version of the Grav admin, you will be prompted to create an admin user account when you point your browser to your site.  You must complete this step to ensure straight away a valid admin user is under your control.
 
 ![](new-user.png?classes=shadow)
 
 Simply fill out the form and click the `Create User` button.
 
-The user information is stored in the `user/accounts/` folder of your Grav installation.  You can edit the values manually or via the Admin plugin itself.  You can also create new users manually or via a the `bin/plugin login newuser` CLI command.  More information is contained in the [Grav Admin FAQ](../faq#adding-and-managing-users).
+The user information is stored in the `user/accounts/` folder of your Grav installation.  You can edit the values manually or via the Admin plugin itself.  You can also create new users manually or via the `bin/plugin login newuser` CLI command.  More information is contained in the [Grav Admin FAQ](../faq#adding-and-managing-users).
 
 ### Usage
 
@@ -79,6 +79,6 @@ By default, you can access the admin by pointing your browser to `http://yoursit
 
 If you have been following the [blog](http://getgrav.org/blog), [Twitter](https://twitter.com/getgrav), [Slack chat](https://chat.getgrav.org), etc., you probably already know now that our intention is to provide two versions of this plugin.
 
-The **standard free version**, is very powerful, and has more functionality than most commercial flat-file CMS systems.
+The **standard free version** is very powerful and has more functionality than most commercial flat-file CMS systems.
 
 We also intend to release in the near future a more feature-rich **pro version** that will include enhanced functionality, as well as some additional nice-to-have capabilities. This pro version will be a **paid** plugin the price of which is not yet 100% finalized.

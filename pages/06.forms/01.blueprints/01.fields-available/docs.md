@@ -21,6 +21,7 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 | **[Dateformat](#the-dateformat-field)**           | a special select that renders the current date/time in the passed formats                                                                                                                                   |
 | **[Datetime](#the-datetime-field)**               | a date and time selection field                                                                                                                                                                             |
 | **[Editor](#the-editor-field)**                   | show a markdown editor                                                                                                                                                                                      |
+| **[Fieldset](#the-fieldset-field)**               | group a set of fields inside a collapsible accordion                                                                                                                                                        |
 | **[File](#the-file-field)**                       | in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
 | **[Filepicker](#the-filepicker-field)**                       | **Filepicker** allows to choose files from a location in the web server filesystem. |
 | **[Ignore](#the-ignore-field)**                   | used to remove unused fields when extending from another blueprint                                                                                                                                          |
@@ -42,29 +43,30 @@ This list provides a common ground so there's no need to repeat the description 
 
 | Attribute           | Description                                                                                                                                                                                                    |
 | :-----              | :-----                                                                                                                                                                                                         |
-| `autocomplete`      | Accepts `on` or `off`                                                                                                                                                                                          |
+| `autocomplete`      | accepts `on` or `off`                                                                                                                                                                                          |
 | `autofocus`         | if enabled, autofocus on that field                                                                                                                                                                            |
 | `classes`           | accepts a string with one of more CSS classes to add                                                                                                                                                           |
 | `default`           | sets the field default value                                                                                                                                                                                   |
 | `disabled`          | sets the field disabled state                                                                                                                                                                                  |
 | `help`              | Adds a tooltip to the field                                                                                                                                                                                    |
-| `id`                | sets the field id. Also sets the `for` attribute on the label                                                                                                                                                  |
+| `id`                | sets the field id as well as the `for` attribute on the label                                                                                                                                                  |
 | `label`             | sets the field label                                                                                                                                                                                           |
 | `name`              | sets the field name                                                                                                                                                                                            |
 | `novalidate`        | sets the field novalidate state                                                                                                                                                                                |
 | `placeholder`       | sets the field placeholder value                                                                                                                                                                               |
 | `readonly`          | sets the field readonly state                                                                                                                                                                                  |
-| `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template yo see, when used in the frontend |
+| `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template you see, when used in the frontend |
 | `style`             | sets the field style. If set to `vertical`, the field is able to appear full width. This is an easy way to clean up the form.                                                                                  |
 | `title`             | sets the field title value                                                                                                                                                                                     |
-| `validate.required` | if set to a positive value, sets the field as required.                                                                                                                                                        |
+| `toggleable`        | add a checkbox that will toggle the enabled/disabled attribute of the field                                                                                                                                    |
+| `validate.required` | if set to a positive value, sets the field as required                                                                                                                                                        |
 | `validate.pattern`  | sets a validation pattern                                                                                                                                                                                      |
 | `validate.message`  | sets the message shown if the validation fails                                                                                                                                                                 |
 | `validate.type`     | sets the field type used during validation                                                                                                                                                                     |
 
 ### Know more about fields
 
-You can read how the fields are built from the source: [Fields added by the Form Plugin](https://github.com/getgrav/grav-plugin-form/tree/master/templates/forms) and [Fields only available in Admin](https://github.com/getgrav/grav-plugin-admin/tree/master/themes/grav/templates/forms)
+You can read how the fields are built from the source: [Fields added by the Form Plugin](https://github.com/getgrav/grav-plugin-form/tree/master/templates/forms) and [Fields only available in Admin](https://github.com/getgrav/grav-plugin-admin/tree/master/themes/grav/templates/forms).
 
 ### Validation
 
@@ -424,7 +426,7 @@ frontmatter:
 
 | Attribute    | Description                                                                              |
 | :-----       | :-----                                                                                   |
-| `codemirror` | A set of values to be set on the codemirror editor. By default uses mode: gfm (markdown) |
+| `codemirror` | A set of values to be set on the [codemirror editor](https://codemirror.net/doc/manual.html#config). By default uses mode: gfm (markdown) |
 | `resizer`    | If positive, enables the resizer. Otherwise the editor is fixed                          |
 
 | Common Attributes Allowed                      |
@@ -445,7 +447,55 @@ frontmatter:
 | [readonly](#common-fields-attributes)          |
 
 
----------------------
+---
+
+### The Fieldset Field
+
+![Fieldset Field](fieldset-gif.gif)
+The `fieldset` groups a set of fields inside a collapsible box.
+                    
+
+Example:
+
+```yaml
+header.fieldset:
+  type: fieldset
+  title: Your title
+  help: Help text
+  info: Info text
+  text: Text inside fieldset and before other fields
+  icon: comments
+  collapsed: true     # Initial state of fieldset (see collapsible option)
+  collapsible: true    # Whether one can expand the fieldset or not 
+  fields:
+    header.fieldset.an_example_text:
+      type: text
+      label: text
+    header.fieldset.an_example_textarea:
+      type: textarea
+      label: textarea
+```
+
+
+| Attribute     | Description                                                                                                |
+| :-----        | :-----                                                                                                     |
+| `icon`        | An icon for the box                                                                                        |         
+| `collapsed`   | If `true`, the list is opened collapsed. By default it's expanded                                          |
+| `collapsible` | Whether one can expand the fieldset or not                                                                 |
+
+
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [disabled](#common-fields-attributes)          |
+| [help](#common-fields-attributes)              |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [size](#common-fields-attributes)              |
+| [style](#common-fields-attributes)             |
+| [toggleable](#common-fields-attributes)        |
+
+
+---
 
 ### The File Field
 
@@ -453,7 +503,7 @@ frontmatter:
 
 The `file` field type can be used in pages, plugin and theme configurations (blueprints). Handles uploading a file to a location as well as removing it from the page headers or theme / plugin configuration.
 
-! More details can be found in the dedicated [How To: Add a File Upload](../how-to-add-file-upload) section.
+! More details can be found in the dedicated [How To: Add a File Upload](../how-to-add-file-upload) section. Also note that displaying an image uploaded in a file field is not done the same way than with a filepicker field. More details about how to access images uploaded in a file field can be found on this [cookbook entry](https://learn.getgrav.org/cookbook/twig-recipes#displaying-an-image-uploaded-in-a-file-field).
 
 Example:
 
@@ -482,7 +532,7 @@ custom_file:
 | Attribute     | Description                                                                                                |
 | :-----        | :-----                                                                                                     |
 | `destination` | The folder where the files will be stored, relative to the Grav root. E.g. `user/plugins/my-plugin/assets` |
-| `multiple`    | Whether or not allow more than one file per field                                                          |
+| `multiple`    | Whether or not to allow more than one file per field                                                          |
 | `limit`       | When `multiple` is enabled, allows to constrain the amount of files permitted to be uploaded               |
 | `filesize`    | The size in MB each file is allowed                                                                        |
 | `accept`      | Add a list of accepted page mime types and extensions. E.g. `["image/*", '.mp3']`                          |
@@ -586,7 +636,7 @@ content:
 
 ![List Field](list_field_bp.gif)
 
-The `list` field type is used to create collections of fields. The field accepts a `fields` attribute that will host subfields, and there will be a "Add item" button to allow the user to add more items to the collection.
+The `list` field type is used to create collections of fields. The field accepts a `fields` attribute that will host subfields, and there will be an "Add item" button to allow the user to add more items to the collection.
 
 Example:
 
@@ -619,7 +669,7 @@ This example will generate this Admin interface:
 
 ![](field_list_1.png)
 
-When saving the page, we'll some the following YAML added to the page frontmatter:
+When saving the page, we'll see the following YAML added to the page frontmatter:
 
 ```
 buttons:
@@ -840,7 +890,7 @@ taxonomies:
 
 ![Tabs](tabs_field_bp.gif)
 
-The `tabs` and `tab` field types are used to divide the contained form fields in tabs
+The `tabs` and `tab` field types are used to divide the contained form fields in tabs.
 
 Example:
 
@@ -878,7 +928,7 @@ tabs:
 
 ![Taxonomy](taxonomy_field_bp.gif)
 
-The `taxonomy` field type is a special select preconfigured to select one or more taxonomy values
+The `taxonomy` field type is a special select preconfigured to select one or more taxonomy values.
 
 Example:
 
@@ -919,7 +969,7 @@ header.taxonomy:
 
 ![Toggle Field](toggle_field_bp.gif)
 
-The `toggle` field type is a on/off kind of input, with configurable labels
+The `toggle` field type is an on/off kind of input, with configurable labels.
 
 Example:
 

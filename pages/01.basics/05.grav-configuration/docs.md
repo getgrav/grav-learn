@@ -190,7 +190,7 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 * **enabled**: Set to true to enable caching. Can be set to `true` or `false`.
 * **check**:
     - **method**: Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching)
-* **driver**: Select a cache driver. Options are: `auto`, `file`, `apc`, `xcache`, `memcache`, and `wincache`.
+* **driver**: Select a cache driver. Options are: `auto`, `file`, `apc`, `xcache`, `redis`, `memcache`, and `wincache`.
 * **prefix**: Cache prefix string (prevents cache conflicts). Example: `g`.
 * **lifetime**: Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days.
 * **gzip**: GZip compress the page output. Can be set to `true` or `false`.
@@ -292,7 +292,7 @@ images:
   auto_fix_orientation: false
 ```
 
-This section gives you the ability to set the default image quality images are resambled to, as well as to control image caching and debugging features.
+This section gives you the ability to set the default image quality images are resampled to, as well as to control image caching and debugging features.
 
 * **default_image_quality**: Default image quality to use when resampling images. For example: `85` = 85%.
 * **cache_all**: Cache all image by default. Can be set to `true` or `false`.

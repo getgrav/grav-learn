@@ -128,7 +128,7 @@ Adds an ordinal to the integer (such as 1st, 2nd, 3rd, 4th)
 
 ##### Pad
 
-Pads a string to a certain lenth with another character. This is a wrapper for the PHP [str_pad()](http://php.net/manual/en/function.str-pad.php) function.
+Pads a string to a certain length with another character. This is a wrapper for the PHP [str_pad()](http://php.net/manual/en/function.str-pad.php) function.
 
 `'foobar'|pad(10, '-')` <i class="fa fa-long-arrow-right"></i> **{{ 'foobar'|pad(10, '-') }}**
 
@@ -357,9 +357,10 @@ Will repeat whatever is passed in a certain amount of times.
 
 ##### String
 
-Generates a random string. Pass count to set the characters length.
+Returns a string from a value. If the value is array, return it json encoded
 
-`ta(23)`
+`string(23)` => `"23"`
+`string(['test' => 'x'])` => `{"test":"x"}`
 
 ##### Translate
 

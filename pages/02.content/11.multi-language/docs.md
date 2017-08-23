@@ -76,7 +76,7 @@ By default in Grav, each page is represented by a markdown file, for example `de
 
 If this file is not found, it will try the next language and look for `default.fr.md`.  If that file is not found, it will fall-back to the Grav default and look for `default.md` to provide information for the page.
 
-If we had the most basic of Grav sites, with a single `01.home/default.md` file, we could start by renaming `default.md` to `default.en.md`, and it's contents might look like this:
+If we had the most basic of Grav sites, with a single `01.home/default.md` file, we could start by renaming `default.md` to `default.en.md`, and its contents might look like this:
 
 ```
 ---
@@ -326,7 +326,7 @@ This uses an **inverted language order** so the default language is now `fr` so 
 
 #### Language Alias Routes
 
-Because each page can have it's own custom route, it would be hard to switch between different language versions of the same page.  However, there is a new **Page.rawRoute()** method on the Page object that will get the same raw route for any of the various language translations of a single page.  All you would need to do is to put the lang code in front to get the proper route to a specific language version of a page.
+Because each page can have its own custom route, it would be hard to switch between different language versions of the same page.  However, there is a new **Page.rawRoute()** method on the Page object that will get the same raw route for any of the various language translations of a single page.  All you would need to do is to put the lang code in front to get the proper route to a specific language version of a page.
 
 For example, say you are on a page in English with a custom route of:
 
