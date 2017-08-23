@@ -13,6 +13,8 @@ h2, h3, h4, h5, h6 {
     color: #5e5e5e;
     font-weight: 400;
     letter-spacing: -1px;
+    line-height: 1.25;
+    margin: $leading-margin 0;
 }
 
 h1 {
@@ -21,6 +23,12 @@ h1 {
     text-transform: uppercase;
     color: #222;
     font-weight: 200;
+    line-height: 1.25;
+    margin-bottom: 1.7rem;
+}
+
+p {
+    margin: $leading-margin / 2 0;
 }
 
 
@@ -131,8 +139,8 @@ code + .copy-to-clipboard {
 }
 
 pre {
-	padding: 1rem;
-	margin: 2rem 0;
+	padding: $leading-margin / 2;
+	margin: $leading-margin 0;
 	background: $pre-bg;
 	border: 0;
 	border-radius: 2px;
@@ -166,7 +174,11 @@ hr {
 
 // Anchor links
 #body {
-    a.anchor-link { color: #ccc; }
+    a.anchor-link {
+        color: #ccc;
+        display: inline-block;
+        width: 0;
+    }
     a.anchor-link:hover { color: $core-accent; }
 }
 
