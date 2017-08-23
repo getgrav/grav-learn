@@ -128,7 +128,7 @@ Grav gets shipped with a configuration file for your site in the `webserver-conf
 cp /var/www/grav/webserver-configs/nginx.conf /etc/nginx/sites-available/grav-site
 ```
 
-Open that file with an editor and replace "domain.tld" with your domain/IP (or "localhost" if you want to just run it locally), replace the "root" line with "root /var/www/grav/;" and then create a symbolic link of your site-config in `sites-enabled`:
+Open that file with an editor and replace "example.com" with your domain/IP (or "localhost" if you want to just run it locally), replace the "root" line with "root /var/www/grav/;" and then create a symbolic link of your site-config in `sites-enabled`:
 
 ```bash
 ln -s /etc/nginx/sites-available/grav-site /etc/nginx/sites-enabled/grav-site
@@ -165,8 +165,8 @@ First, create a file `/etc/nginx/ssl.conf` with the following content and adjust
 
 ```nginx
 # set the paths to your cert and key files here
-ssl_certificate /etc/ssl/certs/domain.tld.crt;
-ssl_certificate_key /etc/ssl/private/domain.tld.key;
+ssl_certificate /etc/ssl/certs/example.com.crt;
+ssl_certificate_key /etc/ssl/private/example.com.key;
 
 ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
@@ -187,12 +187,12 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; prelo
 # see https://sslmate.com/blog/post/ocsp_stapling_in_apache_and_nginx on how to create the chain+root
 ssl_stapling on;
 ssl_stapling_verify on;
-ssl_trusted_certificate /etc/ssl/certs/domain.tld.chain+root.crt;
-resolver 8.8.8.8 8.8.4.4 216.146.35.35 216.146.36.36 valid=60s;
+ssl_trusted_certificate /etc/ssl/certs/example.com.chain+root.crt;
+resolver 198.51.100.1 198.51.100.2 203.0.113.66 203.0.113.67 valid=60s;
 resolver_timeout 2s;
 ```
 
-Now change the content of your Grav-specific config `/etc/nginx/sites-available/grav-site` to redirect unencrypted HTTP requests to HTTPS, that means to a `server` block listening on port 443 and including your `ssl.conf` (replace "domain.tld" with your domain/IP). You can also change this to redirect from the non-www to the www version of your domain.
+Now change the content of your Grav-specific config `/etc/nginx/sites-available/grav-site` to redirect unencrypted HTTP requests to HTTPS, that means to a `server` block listening on port 443 and including your `ssl.conf` (replace "example.com" with your domain/IP). You can also change this to redirect from the non-www to the www version of your domain.
 
 **grav-site**:
 
@@ -201,33 +201,33 @@ Now change the content of your Grav-specific config `/etc/nginx/sites-available/
 server {
     listen [::]:80;
     listen 80;
-    server_name domain.tld www.domain.tld;
+    server_name example.com www.example.com;
 
-    return 301 https://domain.tld$request_uri;
+    return 301 https://example.com$request_uri;
 }
 
 # redirect www https to non-www https
 server {
     listen [::]:443 ssl;
     listen 443 ssl;
-    server_name www.domain.tld;
+    server_name www.example.com;
 
     # add ssl cert & options
     include ssl.conf;
 
-    return 301 https://domain.tld$request_uri;
+    return 301 https://example.com$request_uri;
 }
 
 # serve website
 server {
     listen [::]:443 ssl;
     listen 443 ssl;
-    server_name domain.tld;
+    server_name example.com;
 
     # add ssl cert & options
     include ssl.conf;
 
-    root /var/www/domain.tld;
+    root /var/www/example.com;
 
     index index.html index.php;
     
