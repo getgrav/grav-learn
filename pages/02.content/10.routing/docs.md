@@ -100,7 +100,7 @@ There are three system-level configuration options that affect Redirects:
 ```
 pages:
   redirect_default_route: false
-  redirect_default_code: 301
+  redirect_default_code: 302
   redirect_trailing_slash: true
 ```
 
