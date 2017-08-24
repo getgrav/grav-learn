@@ -121,6 +121,15 @@ cache:
     socket: '/tmp/redis.sock'
 ```
 
+If your redis server has a password or secret set you can also set that in this configuraiton:
+
+```
+cache:
+  ...
+  redis:
+    password: your-secret
+```
+
 !!!! Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
 
 <!-- -->
