@@ -121,7 +121,7 @@ cache:
     socket: '/tmp/redis.sock'
 ```
 
-If your redis server has a password or secret set you can also set that in this configuraiton:
+If your redis server has a password or secret set you can also set that in this configuration:
 
 ```
 cache:
