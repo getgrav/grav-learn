@@ -428,14 +428,14 @@ Add following to your .htaccess file and adopt the language slugs and domain nam
 # http://www.workingwith.me.uk/articles/scripting/mod_rewrite
 
 # handle top level e.g. http://grav-site.com/de
-RewriteRule ^en/?$ "http://grav-site.com" [R=301,L]
-RewriteRule ^de/?$ "http://grav-site.de" [R=301,L]
+RewriteRule ^en/?$ "http://grav-site.com" [R=302,L]
+RewriteRule ^de/?$ "http://grav-site.de" [R=302,L]
 
 # handle sub pages, exclude admin path
 RewriteCond %{REQUEST_URI} !(admin) [NC]
-RewriteRule ^en/(.*)$ "http://grav-site.com/$1" [R=301,L]
+RewriteRule ^en/(.*)$ "http://grav-site.com/$1" [R=302,L]
 RewriteCond %{REQUEST_URI} !(admin) [NC]
-RewriteRule ^de/(.*)$ "http://grav-site.de/$1" [R=301,L]
+RewriteRule ^de/(.*)$ "http://grav-site.de/$1" [R=302,L]
 ```
 
 if you know how to simplify the rewrite rules, please edit this page through the Github link in the upper left corner

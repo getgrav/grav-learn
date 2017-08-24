@@ -114,7 +114,7 @@ pages:
   etag: false
   vary_accept_encoding: false
   redirect_default_route: false
-  redirect_default_code: 301
+  redirect_default_code: 302
   redirect_trailing_slash: true
   ignore_files: [.DS_Store]
   ignore_folders: [.git, .idea]
@@ -159,8 +159,8 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 * **etag**: Set the etag header tag. Can be set to `true` or `false`.
 * **vary_accept_encoding**: Add `Vary: Accept-Encoding` header. Can be set to `true` or `false`.
 * **redirect_default_route**: Automatically redirect to a page's default route. Can be set to `true` or `false`.
-* **redirect_default_code**: Default code to use for redirects. For example: `301`.
-* **redirect_trailing_slash**: Handle automatically or 301 redirect a trailing / URL.
+* **redirect_default_code**: Default code to use for redirects. For example: `302`.
+* **redirect_trailing_slash**: Handle automatically or 302 redirect a trailing / URL.
 * **ignore_files**: Files to ignore in Pages. Example: `[.DS_Store] `.
 * **ignore_folders**: Folders to ignore in Pages. Example: `[.git, .idea]`
 * **ignore_hidden**: Ignore all Hidden files and folders. Can be set to `true` or `false`.

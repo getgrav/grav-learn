@@ -203,7 +203,7 @@ server {
     listen 80;
     server_name example.com www.example.com;
 
-    return 301 https://example.com$request_uri;
+    return 302 https://example.com$request_uri;
 }
 
 # redirect www https to non-www https
@@ -215,7 +215,7 @@ server {
     # add ssl cert & options
     include ssl.conf;
 
-    return 301 https://example.com$request_uri;
+    return 302 https://example.com$request_uri;
 }
 
 # serve website
