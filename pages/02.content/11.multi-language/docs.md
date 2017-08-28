@@ -256,7 +256,28 @@ SIMPLE_TEXT: There are %d monkeys in the %s
 And then you can populate those variables with the Twig:
 
 ```
-{{ "SIMPLE_TEXT"|t(12, "London Zoo") }}      // There are 12 monkeys in the London Zoo
+{{ "SIMPLE_TEXT"|t(12, "London Zoo") }} 
+```
+
+resulting in the translation:
+
+```
+There are 12 monkeys in the London Zoo
+```
+
+#### Complex Translations
+
+Sometimes it's required to perform complex translations with replacement in specific languages.  You can utilize the full power of the Language objects `translate()` method with teh `tl` filter/function.  For example:
+
+```
+{{ ["SIMPLE_TEXT", 12, 'London Zoo']|tl(['fr']) }}
+```
+
+Will translate the `SIMPLE_TEXT` string and replace the placeholders with `12` and `London Zoo` respectively.  Also there's an array passed with language translations to try in first-find-first-used order.  This will output the result in french:
+
+
+```
+Il y a 12 singes dans le Zoo de Londres
 ```
 
 #### PHP Translations
