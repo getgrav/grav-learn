@@ -37,7 +37,7 @@ We've broken down these options, and what they do, below.
 | Sidebar Size                    | Choose between **Automatic** and **Small** as your default sidebar size.                                                                    |
 | Edit Mode                       | Choose your default content editor. By default, the options are **Normal** and **Expert**.                                                  |
 | Use Google Fonts                | Use Google custom fonts.  Disable this to use Helvetica. Useful when using Cyrillic and other languages with unsupported characters.        |
-| Show HitGub Link                | **Enable** or **Disable** display of the "Found an issue? Please report it on GitHub." message.                                             |
+| Show GitHub Link                | **Enable** or **Disable** display of the "Found an issue? Please report it on GitHub." message.                                             |
 | Automatically Check for Updates | Choose to automatically check for updates to the **Admin Panel** plugin.                                                                    |
 | Session Timeout                 | Set the session timeout (in seconds) here.                                                                                                  |
 | Warn on Page Delete             | **Enable** or **Disable** a warning that asks you to confirm an action that results in a page's deletion.                                   |
