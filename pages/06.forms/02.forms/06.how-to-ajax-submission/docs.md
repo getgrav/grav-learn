@@ -20,6 +20,7 @@ title: Ajax Test-Form
 form:
     name: ajax-test-form
     template: form-messages
+    refresh_prevention: true
 
     fields:
         name:
