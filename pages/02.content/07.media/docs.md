@@ -625,6 +625,29 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sepia)
 
+#### gaussianBlur(factor)
+
+**blurs** the image by an Factor, that defines how often the blur filter is applied to the image. Default is 1 time.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![Sample Image](sample-image.jpg?gaussianBlur=3)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].gaussianBlur(3).html() }}
+```
+{% endverbatim %}
+[/ui-tab]
+[/ui-tabs]
+
+##### Result: 
+
+![Sample Image](sample-image.jpg?gaussianBlur=3)
+
 #### rotate(angle)
 
 **rotates** the image by `angle` degrees counterclockwise, negative values rotate clockwise.
