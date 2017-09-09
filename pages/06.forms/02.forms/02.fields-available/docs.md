@@ -13,6 +13,7 @@ The Forms plugin provides the following fields, which you can use to build your 
 | **[Captcha](#the-captcha-field)**       | A captcha antispam field, using reCAPTCHA                   |
 | **[Checkbox](#the-checkbox-field)**     | A simple checkbox                                           |
 | **[Checkboxes](#the-checkboxes-field)** | A series of checkboxes                                      |
+| **[Conditional](#the-conditional-field)** | A conditional field that will display or hide fields based on a condition                                        |
 | **[Date](#the-date-field)**             | A date selection field                                      |
 | **[Display](#the-display-field)**       | A text or instructions field (not an input field)           |
 | **[Email](#the-email-field)**           | An email field, with validation                             |
@@ -201,6 +202,39 @@ my_field:
 | [validate.required](#common-fields-attributes)   |
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
+
+
+---
+### The Conditional Field
+
+
+The `conditional` field type is used to conditionally display some other fields base on a condition.
+
+Examples:
+
+```yaml
+header.field_condition:
+  type: conditional
+  condition: "config.plugins.yourplugin.enabled ? 'true' : 'false'"
+  fields: # The field(s) below will be displayed only if the plugin named yourplugin is enabled
+    header.mytextfield:
+    type: text
+    label: A text field
+```
+
+
+| Attribute | Description                                                                                                                                    |
+| :-----    | :-----                                                                                                                                         |
+| `condition`     | The condition evaluated by twig. Any variable accessible by twig can be evaluated |
+
+
+
+| Common Attributes Allowed                 |
+:----- |
+| [disabled](#common-fields-attributes)            |
+| [id](#common-fields-attributes)                  |
+| [label](#common-fields-attributes)               |
+| [name](#common-fields-attributes)                |
 
 ---
 
