@@ -49,6 +49,15 @@ When this collection is defined in the header, Grav creates a collection **page.
 
 This simply loops over the [pages](https://learn.getgrav.org/themes/theme-vars#page-object) in the collection displaying the title and summary.
 
+You can also include an order parameter to change the default ordering of pages:
+
+```
+{% for p in page.collection.order('folder','asc') %}
+<h2>{{ p.title }}</h2>
+{{ p.summary }}
+{% endfor %}
+```
+
 ## Collection Headers
 
 To tell Grav that a specific page should be a listing page and contain child-pages, there are a number of variables that can be used:
