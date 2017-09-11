@@ -6,7 +6,7 @@ process:
     twig: true
 ---
 
-![Grav Admin Profile](grav_profile.jpeg?classes=shadow)
+![Grav Admin Profile](auth3.gif?classes=shadow)
 
 Available with Grav 1.3.3 and Admin Panel 1.6.0, you can now activate 2-factor authentication on your Grav site.
 
