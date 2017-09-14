@@ -212,6 +212,20 @@ The `conditional` field type is used to conditionally display some other fields 
 
 Examples:
 
+If your conditional already returns a `true` or `false` then you can simply use this simplified format:
+
+```yaml
+header.field_condition:
+  type: conditional
+  condition: config.plugins.yourplugin.enabled
+  fields: # The field(s) below will be displayed only if the plugin named yourplugin is enabled
+    header.mytextfield:
+    type: text
+    label: A text field
+```
+
+However, if you require more complex conditions, you can perform some logic that returns `'true'` or `'false'` as strings, and the field will understand that too.
+
 ```yaml
 header.field_condition:
   type: conditional
@@ -221,7 +235,6 @@ header.field_condition:
     type: text
     label: A text field
 ```
-
 
 | Attribute | Description                                                                                                                                    |
 | :-----    | :-----                                                                                                                                         |
