@@ -185,4 +185,35 @@ In **Form v2.0**, you can now define the form directly in the modular sub-page j
 
 You can also configure your Modular sub-page's Twig template to use a form from another page, like the examples above.
 
-! When using a form defined in a modular sub-page you should always configure your form with a **redirect:** action, as this modular sub-page is not a suitable page to load on form submission because it is **not routable**, and therefore not reachable by a browser.
+! When using a form defined in a modular sub-page you should set the **action:** to the parent modular page and configure your form with a **redirect:** or **display:** action, as this modular sub-page is not a suitable page to load on form submission because it is **not routable**, and therefore not reachable by a browser.  
+
+Here's an example that exists at `form/modular/_form/form.md`:
+
+```
+---
+title: Modular Form
+
+form:
+  action: '/form/modular'
+  inline_errors: true
+  fields:
+    person.name:
+      type: text
+      label: Name
+      validate:
+        required: true
+        
+  buttons:
+    submit:
+      type: submit
+      value: Submit
+      
+  process:
+    message: "Thank you from your submission <b>{{ form.value('person.name') }}</b>!"
+    reset: true
+    display: '/form/modular'  
+---
+
+## Modular Form
+```
+
