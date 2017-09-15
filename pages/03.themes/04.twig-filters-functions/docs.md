@@ -18,6 +18,39 @@ Take a relative path and convert it to an absolute URL format including hostname
 
 `'<img src="/some/path/to/image.jpg" />'|absolute_url` <i class="fa fa-long-arrow-right"></i> `{{ '<img src="/some/path/to/image.jpg" />'|absolute_url }}`
 
+
+##### Array Unique
+
+Wrapper for PHP `array_unique()` that removes duplicates from an array.
+
+`['foo', 'bar', 'foo', 'baz']|array_unique` <i class="fa fa-long-arrow-right"></i> **{{ print_r(['foo', 'bar', 'foo', 'baz']|array_unique) }}**
+
+##### Base32 Encode
+
+Performs a base32 encoding on variable
+`'some variable here'|base32_encode` <i class="fa fa-long-arrow-right"></i> **{{ 'some variable here'|base32_encode }}**
+
+##### Base32 Decode
+
+Performs a base32 decoding on variable
+`'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGK'|base32_decode` <i class="fa fa-long-arrow-right"></i> **{{ 'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGK'|base32_decode }}**
+
+##### Base64 Encode
+
+Performs a base64 encoding on variable
+`'some variable here'|base64_encode` <i class="fa fa-long-arrow-right"></i> **{{ 'some variable here'|base64_encode }}**
+
+##### Base64 Decode
+
+Performs a base64 decoding on variable
+`'c29tZSB2YXJpYWJsZSBoZXJl'|base64_decode` <i class="fa fa-long-arrow-right"></i> **{{ 'c29tZSB2YXJpYWJsZSBoZXJl'|base64_decode }}**
+
+##### Basename
+
+Return the basename of a path.
+
+`'/etc/sudoers.d'|basename` <i class="fa fa-long-arrow-right"></i> **{{ '/etc/sudoers.d'|basename }}**
+
 ##### Camelize
 
 Converts a string into "CamelCase" format
@@ -37,6 +70,13 @@ Sometimes you want to check if some variable is defined, and if it's not, provid
 `set header_image_width  = page.header.header_image_width|defined(900)`
 
 This will set the variable `header_image_width` to the value `900` if it's not defined in the page header.
+
+##### Dirname
+
+Return the dirname of a path.
+
+`'/etc/sudoers.d'|dirname` <i class="fa fa-long-arrow-right"></i> **{{ '/etc/sudoers.d'|dirname }}**
+
 
 ##### Ends-With
 
@@ -226,6 +266,18 @@ Translate a string into the current language set in the admin interface user pre
 
 This uses the language field set in the user yaml.
 
+##### Translate Array
+
+Translates an array with a language use the `|ta` filter. See the [multi-language documentation](../../content/multi-language) for a detailed example.
+
+`'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1)` <i class="fa fa-long-arrow-right"></i> **{{ now|date('F') }}**
+
+##### Translate language
+
+Translates a string in a specific language. For more details check out the [multi-language documentation](../../content/multi-language#complex-translations).
+
+`'SIMPLE_TEXT'|tl(['fr'])`
+
 ##### Titleize
 
 Converts a string to "Title Case" format
@@ -289,11 +341,56 @@ Cast a value to array
 
 ##### ArrayKeyValue
 
-Get an item from an associative array. If no array passed, generates a one item associate array:
+The `array_key_value` function allows you to add a key/value pair to an associate array
 
-`arrayKeyValue('key', 'value')` returns: `{key: value}`
+```twig
+{% verbatim %}
+{% set my_array = {fruit: 'apple'} %}
+{% set my_array = array_key_value('meat','steak', my_array) %}
+{{ print_r(my_array)}}
+{% endverbatim %}
+```
 
-`arrayKeyValue('foo', 'baz', {something: else, foo: bar})` returns: `{something: else, foo: baz}`
+{% set my_array = {fruit: 'apple'} %}
+{% set my_array = array_key_value('meat','steak', my_array) %}
+outputs: ** {{ print_r(my_array) }} **
+
+##### ArrayKeyExists
+
+Wrapper for PHP's `array_key_exists` function that returns whether or not a key exists in an associative array.
+
+```twig
+{% verbatim %}
+{% set my_array = {fruit: 'apple', meat: 'steak'} %}
+{{ array_key_exists('meat', my_array) }}
+{% endverbatim %}
+```
+
+{% set my_array = {fruit: 'apple', meat: 'steak'} %}
+outputs: **{{ array_key_exists('meat', my_array) }}**
+
+##### ArrayIntersect
+
+The `array_intersect` function provides the intersection of two arrays or Grav collections.
+
+```twig
+{% verbatim %}
+{% set array_1 = {fruit: 'apple', meat: 'steak'} %}
+{% set array_2 = {fish: 'tuna', meat: 'steak'} %}
+{{ print_r(array_intersect(array_1, array_2)) }}
+{% endverbatim %}
+```
+
+{% set array_1 = {fruit: 'apple', meat: 'steak'} %}
+{% set array_2 = {fish: 'tuna', meat: 'steak'} %}
+
+outputs: **{{ print_r(array_intersect(array_1, array_2)) }}**
+
+##### ArrayUnique
+
+Wrapper for PHP `array_unique()` that removes duplicates from an array.
+
+`array_unique(['foo', 'bar', 'foo', 'baz'])` <i class="fa fa-long-arrow-right"></i> **{{ print_r(array_unique(['foo', 'bar', 'foo', 'baz'])) }}**
 
 ##### Authorize
 
@@ -317,6 +414,30 @@ The evaluate function can be used to evaluate a string as Twig:
 
 `evaluate('grav.language.getLanguage')`
 
+##### Evaluate Twig
+
+Similar to evaluate, but will evaluate and process with Twig
+
+{% verbatim %}
+`evaluate_twig({foo: 'bar'}, 'This is a twig variable: {{ foo }}')`)  <i class="fa fa-long-arrow-right"></i> **This is a twig variable: bar**
+{% endverbatim %}
+
+##### EXIF
+
+Output a the EXIF data on an image base on it's filepath.  This requires that `media.auto_metadata_exif:` is enabled in `system.yaml`
+
+```
+{% verbatim %}
+{% set image = page.find('/content/media').media['sample-image.jpg'] %}
+{% set data = exif(image.filepath, true) %}
+{{ print_r(data)}}
+{% endverbatim %}
+```
+
+
+{% set data = exif(image.filepath, false) %}
+Outputs **{{ dump(data)}}**
+
 ##### Get Cookie
 
 Retrieve the value of a cookie with this function:
@@ -329,12 +450,22 @@ Takes a Github Gist ID and creates appropriate Gist embed code
 
 `gist('bc448ff158df4bc56217')` <i class="fa fa-long-arrow-right"></i> {{ gist('bc448ff158df4bc56217')}}
 
+##### Is Ajax Request
+
+the `isajaxrequest()` function can be used to check if `HTTP_X_REQUESTED_WITH` header option is set:
+
+
 ##### JSON Decode
 
 You can decode JSON by simply applying this filter:
 
 `json_decode({"first_name": "Guido", "last_name":"Rossum"})`
 
+##### Media Directory
+
+Returns a media object for an arbitrary directory.
+
+`media_directory('theme://images')`
 
 ##### Nonce Field
 
@@ -342,12 +473,38 @@ Generate a Grav security nonce field for a form with a required `action`:
 
 `nonce_field('action')` <i class="fa fa-long-arrow-right"></i> **{{ nonce_field('action')|e }}**
 
+##### Pathinfo
+
+Parses a path into an array.
+
+```
+{% verbatim %}
+{% set parts = pathinfo('/www/htdocs/inc/lib.inc.php') %}
+{{ print_r(parts) }}
+{% endverbatim %}
+```
+
+{% set parts = pathinfo('/www/htdocs/inc/lib.inc.php') %}
+
+outputs: **{{ print_r(parts) }}**
 
 ##### Random String Generation
 
 Will generate a random string of the required number of characters.  Particularly useful in creating a unique id or key.
 
 `random_string(10)` <i class="fa fa-long-arrow-right"></i> **{{ random_string(10) }}**
+
+##### Range
+
+Generates an array containging a range of elements, optionally stepped
+
+`range(25, 300, 50)` <i class="fa fa-long-arrow-right"></i> **{{ print_r(range(25, 300, 50)) }}**
+
+##### Redirect Me
+
+Redirects to a URL of your choosing
+
+`redirect_me('http://google.com', 304)`
 
 ##### Repeat
 
@@ -377,3 +534,17 @@ Function related to the `|ta` filter.
 Will create a URL and convert any PHP URL streams into a valid HTML resources. A default value can be passed in in case the URL cannot be resolved.
 
 `url('theme://images/logo.png')|default('http://www.placehold.it/150x100/f4f4f4')` <i class="fa fa-long-arrow-right"></i> **{{ url('theme://images/logo.png')|default('http://www.placehold.it/150x100/f4f4f4') }}**
+
+##### VarDump
+
+The `vardump()` function outputs the current variable to the screen (rather than in the debugger as with `dump()`)
+
+```
+{% verbatim %}
+{% set my_array = {foo: 'bar', baz: 'qux'} %}
+{{ vardump(my_array)}}
+{% endverbatim %}
+```
+
+{% set my_array = {foo: 'bar', baz: 'qux'} %}
+{{ vardump(my_array)}}
