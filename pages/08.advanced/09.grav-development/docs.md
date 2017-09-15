@@ -108,6 +108,8 @@ A proper Grav theme requires certain files in order to function properly, be lis
 
 With the release of Grav 0.9.18, you are now able to provide demo content as part of a plugin or theme package. This means that anything found in a folder called `_demo/` will be copied over to the `user/` folder as part of the installation procedure.  This means you can provide **pages**, or **configuration** or anything else that sits in the `user/` folder.  The user is prompted to do this, and it's purely optional.
 
+_Please note that demo content is not copied when your plugin or theme is installed via the `Admin` plugin._
+
 ## Theme/Plugin Release Process
 
 When you have created your new theme or plugin and would like to see it added to the [Grav Repository](http://getgrav.org/downloads) there are a few standard things that you need to ensure:
@@ -272,6 +274,3 @@ People move on, and user-generated content like plugins and themes may become ab
 7. Reply to the issue, giving the maintainers the new URL for the plugin.
 
 8. The maintainers will update GPM and new and updated installs will now come from your forked repository.
-
-
-

@@ -237,6 +237,10 @@ This returns the collection of pages for this context as determined by the [coll
 {% endfor %}
 ```
 
+##### currentPosition()
+
+This returns the index of the current page in relation to its siblings.
+
 ##### isFirst()
 
 This returns `true` or `false` based on whether this page is the first of its siblings.
