@@ -12,11 +12,11 @@ Grav has intentionally been designed with few requirements. You can easily run G
 
 Grav is built with plain text files for your content. There is no database needed.
 
-!! A PHP user cache such as APC, APCu, XCache, Memcached, Redis is highly recommended for optimal performance. Not to worry though, these are usually already part of your hosting package!
+!! A PHP user cache such as APC, APCu, XCache, Memcached, or Redis is highly recommended for optimal performance. Not to worry though, these are usually already part of your hosting package!
 
 ## Web Servers
 
-Grav is so simple and versatile, that you don't even need a web server to run it. You can actually run it directly off the built-in `router.php` PHP tool as long as you're running PHP 5.5.9 or later. This is a useful way to check a Grav install and perform some brief development, but is **not** recommended for a live site or even for advanced development tasks. We've outlined how in our [Installation guide](../installation#running-grav-with-the-built-in-php-webserver-using-routerphp).
+Grav is so simple and versatile, that you don't even need a web server to run it. You can actually run it directly off the built-in `router.php` PHP tool as long as you're running PHP 5.5.9 or later. This is a useful way to check a Grav install and perform some brief development, but it is **not** recommended for a live site or even for advanced development tasks. We've outlined how in our [Installation guide](../installation#running-grav-with-the-built-in-php-webserver-using-routerphp).
 
 Even though technically you do not need a standalone web server, it is better to run one, even for local development. Luckily there are many options depending on your platform:
 
@@ -27,8 +27,8 @@ Even though technically you do not need a standalone web server, it is better to
 
 ### Windows
 
-* [XAMPP](https://www.apachefriends.org/index.html) provides Apache, PHP, and MySQL in one simple package
-* [EasyPHP](http://www.easyphp.org/) provides a personal Web hosting package as well as a more powerful developer version
+* [XAMPP](https://www.apachefriends.org/index.html) provides Apache, PHP, and MySQL in one simple package.
+* [EasyPHP](http://www.easyphp.org/) provides a personal Web hosting package as well as a more powerful developer version.
 * [MAMP for Windows](http://mamp.info) is a long-time Mac favorite, but now available for Windows.
 * [IIS with PHP](http://php.iis.net/) is a fast way to run PHP on Windows.
 
@@ -38,21 +38,21 @@ Even though technically you do not need a standalone web server, it is better to
 
 ### Apache Requirements
 
-Even though most distributions of Apache come with everything needed, for the sake of completeness, here is a list required Apache modules:
+Even though most distributions of Apache come with everything needed, for the sake of completeness, here is a list of required Apache modules:
 
 * `mod_rewrite`
 * `mod_ssl` (if you wish to run Grav under SSL)
 
-You should also ensure you have `AllowOverride All` set in the `<Directory>` and/or `<VirtualHost>` blocks so that the `.htaccess` file processes correctly and rewrite rules take effect.
+You should also ensure you have `AllowOverride All` set in the `<Directory>` and/or `<VirtualHost>` blocks so that the `.htaccess` file processes correctly, and rewrite rules take effect.
 
 ### IIS Requirements
 
-Although IIS is considered a webserver ready to 'run-out-of-box' there are some changes that need to be made.
+Although IIS is considered a webserver ready to run 'out-of-the-box' there are some changes that need to be made.
 To get **Grav** to run on an IIS server you need to install **URL Rewrite**. This can be accomplished using **Microsoft Web Platform Installer** from within IIS. You can also install URL Rewrite by going to [iis.net](http://www.iis.net/downloads/microsoft/url-rewrite).
 
 ### PHP Requirements
 
-Most hosting providers and even local LAMP setups have PHP pre-configured with everything you need for Grav to run out of the box. However, some windows setups, and even Linux distributions local or on VPS (I'm looking at you Debian!) ship with a very minimal PHP compile. Therefore, you may need to install or enable these PHP modules:
+Most hosting providers and even local LAMP setups have PHP pre-configured with everything you need for Grav to run 'out-of-the-box'. However, some Windows setups, and even Linux distributions local or on VPS (I'm looking at you Debian!) - ship with a very minimal PHP compile. Therefore, you may need to install or enable these PHP modules:
 
 * `gd` (a graphics library used to manipulate images)
 * `curl` (client for URL handling used by GPM)
@@ -74,13 +74,13 @@ and remove the leading semicolon.
 * `opcache` for increased PHP performance
 * `xcache` alternative to *apcu*, not as fast, but still pretty good
 * `yaml` PECL Yaml provides native yaml processing and can dramatically increase performance
-* `xdebug` useful for debugging in development environment
+* `xdebug` useful for debugging in a development environment
 
 ### Permissions
 
 For Grav to function properly, your webserver needs to have the appropriate **file permissions** in order to write logs, caches, etc.  When using either the [CLI](/advanced/grav-cli) or [GPM](/advanced/grav-gpm), the user running PHP from the command line also needs to have the appropriate permissions to modify files.
 
-By default, Grav will install with `644` and `755` permissions for files and folders respectively. Most hosting providers have configurations that ensure the webserver running PHP will allow you to create and modify files within your user account.  This means that Grav runs **out-of-the-box** on the vast majority of hosting providers.
+By default, Grav will install with `644` and `755` permissions for files and folders, respectively. Most hosting providers have configurations that ensure that a webserver running PHP will allow you to create and modify files within your user account.  This means that Grav runs **out-of-the-box** on the vast majority of hosting providers.
 
 However, if you are running on a dedicated server, or even your local environment, you may need to adjust permissions to ensure your **user** and your **webserver** can modify files as needed.  There are a couple of approaches you can take.
 
