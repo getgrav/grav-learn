@@ -57,6 +57,12 @@ Converts a string into "CamelCase" format
 
 `'send_email'|camelize` <i class="fa fa-long-arrow-right"></i> **{{ 'send_email'|camelize }}**
 
+##### Chunk Split
+
+Splits a string into smaller chunks of a certain sizeOf
+
+`'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGKA'|chunk_split(6, '-')` <i class="fa fa-long-arrow-right"></i> **{{ 'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGKA'|chunk_split(6, '-') }}**
+
 ##### Contains
 
 Determine if a particular string contains another string
@@ -463,9 +469,9 @@ You can decode JSON by simply applying this filter:
 
 ##### Media Directory
 
-Returns a media object for an arbitrary directory.
+Returns a media object for an arbitrary directory.  Once obtained you can manipulate images in a similar fashion to pages.
 
-`media_directory('theme://images')`
+`media_directory('theme://images')['some-image.jpg'].cropResize(200,200).html`
 
 ##### Nonce Field
 
