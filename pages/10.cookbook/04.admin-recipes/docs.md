@@ -177,7 +177,7 @@ You want to add a select field with a large list of values. In this example, we 
 
 You can create a static function and call the array from within your blueprint. You can code this function either in your theme's php file, or in a custom plugin.
 
-In this example, we will add the function to the Antimatter theme, we will thus edit the `antimatter.php` file which is in the `user/themes/antimatter` folder. 
+In this example, we will add the function to the Antimatter theme, we will thus edit the `antimatter.php` file which is in the `user/themes/antimatter` folder.
 
 ```php
 <?php
@@ -221,6 +221,10 @@ class Antimatter extends Theme
     }
 }
 ```
+
+
+
+! This is a trimmed-down list for easy viewing but you can copy/paste the full country list from [<i class="fa fa-github"></i>umpirsky/count-list](https://github.com/umpirsky/country-list/blob/master/data/en_US/country.php)
 
 Then, we call the function from a blueprint or a frontend form definition like this:
 ```
