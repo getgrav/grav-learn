@@ -8,7 +8,7 @@ This page contains an assortment of problems and their respective solutions rela
 
 1. [Add a custom YAML file](#add-a-custom-yaml-file)
 2. [Add a custom page creation modal](#add-a-custom-page-creation-modal)
-
+3. [Add a custom select field](#add-a-custom-select-field)
 
 ### Add a custom YAML file
 
@@ -166,3 +166,68 @@ Configuration keys/values available for `add_modals`:
 - `with` - data which is passed to the template
 - `link_classes` - classes to add to the link element
 - `modal_classes` - classes to add to the modal element
+
+### Add a custom select field
+
+#### Problem:
+
+You want to add a select field with a large list of values. In this example, we will assume you want to display a list of countries.
+
+#### Solution:
+
+You can create a static function and call the array from within your blueprint. You can code this function either in your theme's php file, or in a custom plugin.
+
+In this example, we will add the function to the Antimatter theme, we will thus edit the `antimatter.php` file which is in the `user/themes/antimatter` folder. 
+
+```php
+<?php
+namespace Grav\Theme;
+
+use Grav\Common\Theme;
+
+class Antimatter extends Theme
+{
+    public static function countryCodes()
+    {
+        return array (
+            'AF' => 'Afghanistan',
+            'AX' => 'Åland Islands',
+            'AL' => 'Albania',
+            'DZ' => 'Algeria',
+            'AS' => 'American Samoa',
+            'AD' => 'Andorra',
+            'AO' => 'Angola',
+            'AI' => 'Anguilla',
+            'AQ' => 'Antarctica',
+            'AG' => 'Antigua & Barbuda',
+            'AR' => 'Argentina',
+            'AM' => 'Armenia',
+            'AW' => 'Aruba',
+            'AC' => 'Ascension Island',
+            'AU' => 'Australia',
+            'AT' => 'Austria',
+            'AZ' => 'Azerbaijan',
+            'BS' => 'Bahamas',
+            'BH' => 'Bahrain',
+            'BD' => 'Bangladesh',
+            'BB' => 'Barbados',
+            'BY' => 'Belarus',
+            'BE' => 'Belgium',
+            'BZ' => 'Belize',
+            'BJ' => 'Benin',
+            'BM' => 'Bermuda',
+            'BT' => 'Bhutan',
+        );
+    }
+}
+```
+
+Then, we call the function from a blueprint or a frontend form definition like this:
+```
+country:
+  type: select
+  label: Country
+  data-options@: '\Grav\Theme\Antimatter::countryCodes'
+```
+
+Here is how it will look in the admin
