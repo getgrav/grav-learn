@@ -1,10 +1,12 @@
 ---
-title: Headers
+title: Headers / Frontmatter
 taxonomy:
     category: docs
 ---
 
-The headers at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers.
+The headers (alternatively known as frontmatter) at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers.
+
+! Headers are also known as **Page Frontmatter** and are commonly referred to as such so as not to be confused with HTTP Headers.
 
 ## Standard Page Headers
 
@@ -141,6 +143,24 @@ By default, all pages are **routable**.  This means that they can be reached by 
 
 Grav automatically looks for a page with the route `/error` if another page cannot be found.  With this being an actual page within Grav, you would have complete control over what this page looks like.  You probably do not want people accessing this page directly in their browser, however, so this page commonly has its `routable` variable set to false. Valid values are `true` or `false`.
 
+### Login Redirect Here
+
+```ruby
+login_redirect_here: false
+```
+
+The `login_redirect_here` header enables you to determine whether or not someone is kept on that page after logging in through the [Grav Login Plugin](https://github.com/getgrav/grav-plugin-login). Setting this header to `false` will forward someone to the prior page after a successful login.
+
+A `true` setting here will enable the person to stay on the current page after a successful login. This is also the default setting, which applies if there is no `login_redirect_here` header in the frontmatter.
+
+You can override this default behavior by forcing a standard location by specifying an explicit option in your Login configuration YAML:
+
+```ruby
+redirect_after_login: '/profile'
+```
+
+This will always take you to the `/profile` route after a successful login.
+
 ### Summary
 
 ```ruby
@@ -175,6 +195,18 @@ So a file called `default.md`, will use the `default` template in the active the
 
 In the example above, the page will use the `custom` template from the theme.  This variable exists because you may need to change the template of a page programmatically from a plugin.
 
+### Template Format
+
+```ruby
+template_format: xml
+```
+
+Traditionally, if you want a page to output a specific format (ie: xml, json, etc.) you needed to append the format to the url. For example, entering `http://example.com/sitemap.xml` would tell the browser to render the content using the `xml` twig template ending in `.xml.twig`. This is all well and good, because we love doing things simply in Grav.
+
+Using the `template_format` page header, we can tell the browser how to render the page without any need for extensions in the URL. By entering `template_format: xml` in our `sitemap` page, we can make `http://example.com/sitemap` work for us without having to append `.xml` to the end of it.
+
+We [used this method](https://github.com/getgrav/grav-plugin-sitemap/commit/00c23738bdbfe9683627bf0f99bda12eab9505d5#diff-190081f40350c0272970d9171f3437a2) with the [Grav Sitemap Plugin](https://github.com/getgrav/grav-plugin-sitemap).
+
 ### Taxonomy
 
 ```ruby
@@ -197,6 +229,18 @@ By default, Grav will cache the contents of the page file to ensure things run a
 
 An example of this is when you are using dynamic Twig variables in your content. The `cache_enable` variable allows this behavior to be overridden.  We will cover Twig Content variables in a later chapter. Valid values are `true` or `false`.
 
+### Never Cache Twig
+
+```ruby
+never_cache_twig: true
+```
+
+Enabling this will allow you to add a processing logic that can change dynamically on each page load, rather than caching the results and storing it for each page load. This can be enabled/disabled site-wide in the **system.yaml**, or on a specific page. Can be set `true` or `false`.
+
+This is a subtle change, but one that is especially useful in modular pages as it keeps you from having to constantly disable caching when you're working with it. The page is still cached, but not the Twig. The Twig is processed after the cached content is retrieved. For modular forms, it now works with just this setting rather than having to disable the modular page cache.
+
+!! This is not compatible with `twig_first: true` currently because all processing is happening in the one Twig call.
+
 ### Process
 
 ```ruby
@@ -217,7 +261,7 @@ There are situations when you want to use Twig templating functionality in your 
 twig_first: false
 ```
 
-If set to `true` Twig processing will occur before any Markdown processing. This can be particularly useful if your twig generates markdown that needs to be available in order to be processed by the Markdown compiler.  One thing to note, if have `cache_enable: false` **and** `twig_first: true` page caching is effectively disabled.
+If set to `true` Twig processing will occur before any Markdown processing. This can be particularly useful if your Twig generates markdown that needs to be available in order to be processed by the Markdown compiler.  One thing to note, if have `cache_enable: false` **and** `twig_first: true` page caching is effectively disabled.
 
 ### Markdown
 
@@ -294,12 +338,12 @@ This will produce the HTML:
 
 ```
 <meta name="generator" content="Grav" />
-<meta name="description" content="Your page &quot;description&quot; goes here" />
-<meta name="testkey" content="testvalue" />
+<meta name="description" content="Your page description goes here" />
 <meta http-equiv="refresh" content="30" />
 <meta name="keywords" content="HTML, CSS, XML, JavaScript" />
 <meta name="author" content="John Smith" />
 <meta name="robots" content="noindex, nofollow" />
+<meta name="my_key" content="my_value" />
 ```
 
 All HTML5 metatags are supported.
@@ -363,6 +407,14 @@ This will produce the HTML:
 
 For a full outline of all Twitter metatags that can be used, please consult the [official documentation](https://dev.twitter.com/cards/overview).
 
+## Debugger
+
+When you enable the debugger via the `system.yaml` configuration file, the debugger will display on every page.  There are cases where this may not be desirable or may cause conflicts with the output.  Such an example is when you are requesting a page that is intended to return rendered HTML to an Ajax call.  This should not have the debugger injected into the resulting data.  To disable the debugger on this page you can use the `debugger` page header:
+
+```ruby
+debugger: false
+```
+
 ## Custom Page Headers
 
 Of course, you can create your own custom page headers using any valid YAML syntax.  These would be page-specific and be available for any plugin, or theme to make use of. A good example of this would be to set some variable specific to a sitemap plugin, such as:
@@ -403,3 +455,17 @@ This really provides a lot of flexibility and power.
 ## Collection Headers
 
 Collections have grown up! All [Collection Header information](../collections) is now broken out into [their own separate section](../collections).
+
+## Frontmatter.yaml
+
+An advanced feature that can come in handy for some power users is the ability to use common frontmatter values via a `frontmatter.yaml` file located in the page folder.  This is particular useful when working with multi-language sites where you may wish to share a portion of the frontmatter between all the language versions of a given page.
+
+To take advantage of this, simply create a `frontmatter.yaml` file alongside your page's `.md` file and add any valid frontmatter values.  For example:
+
+```
+metadata:
+    generator: 'Super Grav'
+    description: Give your page a powerup with Grav!
+```
+
+!!!! Utilizing frontmatter.yaml is a file-side feature and is **not supported** by the admin plugin.

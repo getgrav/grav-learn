@@ -6,65 +6,65 @@ process:
     twig: true
 ---
 
-In Grav-speak, **pages** are the fundamental building blocks of your site.  They are how you write content and provide navigation in the Grav system.
+In Grav-speak, **Pages** are the fundamental building-blocks of your site. They are how you write content and provide navigation in the Grav system.
 
 Combining content and navigation ensures that the system is intuitive to use for even the most inexperienced of content authors. However, this system, in conjunction with powerful taxonomy capabilities, is still powerful enough to handle complex content requirements.
 
-Grav natively supports **3 types of pages** that allow you to create a rich selection of web content. Those types are:
+Grav natively supports **3 types of Pages** that allow you to create a rich selection of web content. Those types are:
 
 ![Grav Page Types](page-types.png)
 
-#### Standard Page
+#### Regular Page
 
 ![Standard Page](content-standard.jpg?classes=shadow)
 
-A standard page is generally a single page such as a **blog post**, **contact form**, **error page** etc. This is the most common type of page that you will create. By default a page is considered a standard page unless you tell Grav otherwise.
+A regular Page is generally a single page such as a **blog post**, **contact form**, **error page** etc. This is the most common type of page that you will create. By default a Page is considered a regular page unless you tell Grav otherwise.
 
-When you download and install the **Base Grav** package, you are greeted by a standard page.  We covered creating a simple standard page in the [Basic Tutorial](../../basics/basic-tutorial).
+When you download and install the **Core Grav** package, you are greeted by a standard page. We covered creating a simple regular Page in the [Basic Tutorial](/basics/basic-tutorial).
 
 #### Listing Page
 
 ![Listing Page](content-listing.jpg?classes=shadow)
 
-This is really an extension of a standard page. This is a standard page that has a reference to a collection of pages.
+This is really an extension of a regular Page. This is a page that has a reference to a collection of pages.
 
-The simplest approach to setting this up is to create **child pages** below the listing page. A good example of this would be a **blog listing page**, where you would have a page that displays a summary list of blog posts that exist as child pages.
+The simplest approach to setting this up is to create **child-pages** below the Listing Page. An example of this would be a **blog listing page**, where you would display a summary list of blog posts that exist as child-pages.
 
 There is also some configuration settings to **control the order** of the listing as well as a **limit on the number of items**, and whether or not **pagination** should be enabled.
 
-!! A sample **Blog Skeleton** using a **Listing Page** can be found in the [Grav Downloads](http://getgrav.org/downloads).
+!! A sample **Blog Skeleton** using a **Listing Page** can be found in the [Grav Downloads](https://getgrav.org/downloads/skeletons).
 
 #### Modular Page
 
 ![Modular Page](content-modular.jpg?classes=shadow)
 
-A modular page is a special type of listing page because it actually builds a **single page** from its **child pages**. This allows for the ability to build very complex **one-page layouts** from smaller modular content pages. This is accomplished by constructing the **modular page** from multiple **modular folders** found in the page's primary folder.
+A Modular Page is a special type of listing page because it actually builds a **single page** from its **child-pages**. This allows for the ability to build very complex **one-page layouts** from Modules. This is accomplished by constructing the **Modular Page** from multiple **Module-folders** found in the page's primary folder.
 
-!! A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](http://getgrav.org/downloads).
+!! A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](https://getgrav.org/downloads/skeletons).
 
 Each of these page types follow the same basic structure, so before we can get into the nitty-gritty of each type, we must explain how pages in Grav are constructed.
 
-!! A modular page, because it is intended to be part of another page, is inherently not a page you can reach directly via a URL.  Because of this, all modular pages are by default set as **non-routable**.
+!! A Module, because it is intended to be part of another page, is inherently not a page you can reach directly via a URL. Because of this, all modular pages are by default set as **non-routable**.
 
 ## Folders
 
-All content pages are located in the `/user/pages` folder. Each **page** should be placed in its own folder.
+All content pages are located in the `/user/pages` folder. Each **Page** should be placed in its own folder.
 
-!! Folder names should also be valid **slugs**. Slugs are entirely lowercase, with accented characters replaced by letters from the English alphabet and whitespace characters replaced by a dash or an underscore, in order to avoid being encoded.
+!! Folder names should also be valid **slugs**. Slugs are entirely lowercase, with accented characters replaced by letters from the Latin alphabet and whitespace characters replaced by a dash or an underscore, in order to avoid being encoded.
 
-Grav understands that any integer value followed by a period will be solely for the purpose of ordering, and is removed internally in the system.  For example, if you have a folder named `01.home`, Grav will treat this folder as `home`, but will ensure that with default ordering, it comes before `02.blog`.
+Grav understands that any integer value followed by a period will be solely for the purpose of ordering, and is removed internally in the system. For example, if you have a folder named `01.home`, Grav will treat this folder as `home`, but will ensure that with default ordering, it comes before `02.blog`.
 
 ![Grav Folder Example](page-folders.png)
 
-Your site must have an entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://yoursite.com` in your browser,  by default, Grav expects an alias `home/`, but you can override the home location by changing the `home.alias` option in the [Grav configuration file](../../basics/grav-configuration).
+Your site must have an entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://yoursite.com` in your browser, by default Grav expects an alias `home/`, but you can override the home-location by changing the `home.alias` option in the [Grav configuration file](/basics/grav-configuration).
 
-**Modular folders** are identified by an underscore (`_`) before the folder name.  This is a special folder type that is intended to be used only with **modular content**.  These are **not routable** and **not visible** in the navigation. An example of a modular folder would be a folder such as `user/pages/01.home/_header`. Home is actually configured as a **modular page** and would be constructed from the `_header`, `_features`, and `_body` modular pages.
+**Module-folders** are identified by an underscore (`_`) before the folder name. This is a special folder type that is intended to be used only with **modular content**.  These are **not routable** and **not visible** in the navigation. An example of a Module-folder would be a folder such as `user/pages/01.home/_header`. Home is actually configured as a **modular page** and would be constructed from the `_header`, `_features`, and `_body` Modules.
 
-The textual name of each folder defaults to the _slug_ that the system uses as part of the URL.  For example if you have a folder such as `/user/pages/02.blog`, the slug for this page would default to `blog`, and the full URL would be `http://yoursite.com/blog`. A blog item page, located in `/user/pages/02.blog/blog-item-5` would be accessible via `http://yoursite.com/blog/blog-item-5`.
+The textual name of each folder defaults to the _slug_ that the system uses as part of the URL. For example if you have a folder such as `/user/pages/02.blog`, the slug for this page would default to `blog`, and the full URL would be `http://yoursite.com/blog`. A blog item page, located in `/user/pages/02.blog/blog-item-5` would be accessible via `http://yoursite.com/blog/blog-item-5`.
 
-If no number is provided as a prefix of the folder name, the page is considered to be **invisible**, and will not show up in the navigation. An example of this would be the `error` page in the above folder structure.
+If no number is provided as a prefix of the folder name, the page is considered to be **invisible**, and will not show up in the navigation. An example of this would be the `error` page in the above folder-structure.
 
-!! This can actually be overridden in the page itself by setting the [visible parameter](../headers#visible) in the headers.
+!! This can actually be overridden in the page itself by setting the [visible parameter](/headers#visible) in the headers.
 
 ## Ordering
 
@@ -82,50 +82,52 @@ When dealing with collections, there are several options available to control ho
 | **manual**   | The order based on the `order_manual` variable                                                                                                       |
 | **random**   | The order is randomized                                                                                                                              |
 
-You can specifically define a manual order by providing a list of options to the `content.order.custom` configuration setting. This will work in conjunction with the `content.order.by` because it first tries to manually order the pages, but any pages not specified in the manual order, will be fall-through and be ordered by the ordering setting provided.
+You can specifically define a manual order by providing a list of options to the `content.order.custom` configuration setting. This will work in conjunction with the `content.order.by` because it first tries to manually order the pages, but any pages not specified in the manual order, will fall through and be ordered by the ordering provided.
 
-!! You can override the **default behavior** for folder ordering and the direction in which the ordering occurs by setting the `pages.order.dir` and the `pages.order.by` options in the [Grav system configuration file](../../basics/grav-configuration).
+!! You can override the **default behavior** for folder ordering and the direction in which the ordering occurs by setting the `pages.order.dir` and the `pages.order.by` options in the [Grav system configuration file](/basics/grav-configuration).
 
 ## Page File
 
-Within the page folder, we can create the actual page file.  The filename should end with `.md` to indicate that it is a Markdown formatted file.  Technically, it is markdown with YAML front matter, which sounds impressive but really is not a big deal at all. We will cover the details of the file structure soon.
+Within the page-folder, we create the actual page-file. The filename should end with `.md` to indicate that it is a Markdown-formatted file. Technically, it is Markdown with YAML FrontMatter, which sounds impressive but really is not a big deal at all. We will cover the details of the file-structure soon.
 
-The important thing to understand is the name of the file directly references the name of the theme's template file that will be used to render.  The standard name for the main template file is **default**, so the file would be named `default.md`.
+The important thing to understand is the name of the file directly references the name of the theme's template file that will be used to render. The standard name for the main template file is **default**, so the file would be named `default.md`.
 
-You can of course name your file whatever you like, for example: `document.md`, which would cause Grav to look for a template file in the theme that matches, such as the **document** template.
+You can of course name your file whatever you like, for example: `document.md`, which would make Grav look for a template-file in the theme that matches, such as the **document.html.twig** Twig-template.
 
-!! This behavior can be overridden in the page by setting the [template parameter](../headers#template) in the headers.
+!! This behavior can be overridden in the page by setting the [template parameter](/headers#template) in the headers.
 
 An example page file could look like this:
 
-    ---
-    title: Page Title
-    taxonomy:
-        category: blog
-    ---
-    # Page Title
+```
+---
+title: Page Title
+taxonomy:
+    category: blog
+---
+# Page Title
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor eu
-    felis sed ornare. Sed a mauris venenatis, pulvinar velit vel, dictum enim. Phasellus
-    ac rutrum velit. **Nunc lorem** purus, hendrerit sit amet augue aliquet, iaculis
-    ultricies nisl. Suspendisse tincidunt euismod risus, _quis feugiat_ arcu tincidunt
-    eget. Nulla eros mi, commodo vel ipsum vel, aliquet congue odio. Class aptent taciti
-    sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque
-    velit orci, laoreet at adipiscing eu, interdum quis nibh. Nunc a accumsan purus.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor eu
+felis sed ornare. Sed a mauris venenatis, pulvinar velit vel, dictum enim. Phasellus
+ac rutrum velit. **Nunc lorem** purus, hendrerit sit amet augue aliquet, iaculis
+ultricies nisl. Suspendisse tincidunt euismod risus, _quis feugiat_ arcu tincidunt
+eget. Nulla eros mi, commodo vel ipsum vel, aliquet congue odio. Class aptent taciti
+sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque
+velit orci, laoreet at adipiscing eu, interdum quis nibh. Nunc a accumsan purus.
+```
 
-The settings between the pair of `---` markers is known as the YAML front matter, and it is comprised of basic YAML settings for the page.
+The settings between the pair of `---` markers is known as the YAML FrontMatter, and it is comprised of basic YAML settings for the page.
 
-In this example, we are explicitly setting the title, as well setting the taxonomy to **blog** so we can filter it later.  The content after the second `---` is the actual content that will be compiled and rendered as HTML on your site.  This is written in [Markdown](../markdown), which will be covered in detail in a future chapter.  Just know that the `#`, `**`, and `_` markers translate to a **heading1**, **bold**, and **italics**, respectively.
+In this example, we are explicitly setting the title, as well the taxonomy to **blog** so we can filter it later.  The content after the second `---` is the actual content that will be compiled and rendered as HTML on your site.  This is written in [Markdown](/content/markdown), which will be covered in detail in a future chapter. Just know that the `#`, `**`, and `_` markers translate to **heading 1**, **bold**, and **italics**, respectively.
 
-!! Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
+!! Ensure you save your `.md` files as `UTF-8`-encoded files. This will ensure they work with language-specific special characters.
 
 ### Summary Size and Separator
 
-There is a setting in the `site.yaml` file that lets you define a default size (in characters) of the summary that can be used via `page.summary()` to display a summary or synopsis of the page.  This is particularly useful for blogs where you want to have a listing that contains just summary information, and not the full page content.
+There is a setting in the `site.yaml` file that lets you define a default size (in characters) of the summary that can be used via `page.summary()` to display a summary or synopsis of the page. This is particularly useful for blogs where you want to have a listing that contains just summary information, and not the full page content.
 
-By default this value is `300` characters.  You can override this in your own `user/config/site.yaml` file, but an even more useful approach is to use the manual **summary separator** also known as the **summary delimiter**: `===`.
+By default this value is `300` characters. You can override this in your own `user/config/site.yaml` file, but an even more useful approach is to use the manual **summary separator** also known as the **summary delimiter**: `===`.
 
-You just need to ensure you put this in your content with blank lines **above** and **below**.  For example:
+You just need to ensure you put this in your content with blank lines **above** and **below**. For example:
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -151,9 +153,9 @@ This will use the text above the separator when referenced by `page.summary()` a
 
 ### Finding other Pages
 
-Grav has a useful feature that allows you to find another page and perform actions on that page. This can be accomplished with the `find()` method that simply takes the **route** and returns a new page object.
+Grav has a useful feature that allows you to find another page and perform actions on that page. This can be accomplished with the `find()`-method that simply takes the **route** and returns a new Page-object.
 
-This allows you to perform a wide variety of functionality from any page on your Grav site.  For example, you may want to provide a list of all current projects on a particular project detail page:
+This allows you to perform a wide variety of functionality from any page on your Grav site. For example, you may want to provide a list of all current projects on a particular project detail page:
 
 {% verbatim %}
 ```
@@ -166,4 +168,20 @@ This allows you to perform a wide variety of functionality from any page on your
 ```
 {% endverbatim %}
 
-In the next section we will continue and dig into the specifics of a page in detail.
+In the next section we will continue to dig into the specifics of a Page in detail.
+
+### contentMeta
+
+Referencing pages and content is straightforward, but what about the content that doesn't get rendered on the front-end along with the rest of the page?
+
+When Grav reads page content, it stores this content in cache. That way, the next time the page is rendered it doesn't have to read all the content from the `.md` file. Generally, this content is all rendered to the front-end. However, there are instances where having some additional data stored alongside the page in the cache is useful.
+
+This is where `contentMeta()` comes in. We use ContentMeta in our [Shortcode](https://github.com/getgrav/grav-plugin-shortcode-core)-plugin to [retrieve sections from other pages](https://github.com/getgrav/grav-plugin-shortcode-core#sections-from-other-pages) using shortcodes. For example:
+
+{% verbatim %}
+```
+<div id="author">{{ page.find('/my/custom/page').contentMeta.shortcodeMeta.shortcode.section.author }}</div>
+```
+{% endverbatim %}
+
+We used this in Shortcode Core to store CSS and JS assets that the shortcode on the page requires, however this feature can be used to store just about any data structure you need.

@@ -15,9 +15,9 @@ git:
         url: https://github.com/getgrav/grav-plugin-github
         path: user/plugins/github
         branch: develop
-    hightlight:
-        url: https://github.com/getgrav/grav-plugin-hightlight
-        path: user/plugins/hightlight
+    highlight:
+        url: https://github.com/getgrav/grav-plugin-highlight
+        path: user/plugins/highlight
         branch: develop
     markdown-notices:
         url: https://github.com/getgrav/grav-plugin-markdown-notices
@@ -27,9 +27,9 @@ git:
         url: https://github.com/getgrav/grav-plugin-page-inject
         path: user/plugins/page-inject
         branch: develop
-    simplesearch:
-        url: https://github.com/getgrav/grav-plugin-simplesearch
-        path: user/plugins/simplesearch
+    tntsearch:
+        url: https://github.com/trilbymedia/grav-plugin-tntsearch
+        path: user/plugins/tntsearch
         branch: develop
     shortcode-core:
         url: https://github.com/getgrav/grav-plugin-shortcode-core
@@ -76,9 +76,9 @@ links:
         src: grav-plugin-page-inject
         path: user/plugins/page-inject
         scm: github
-    simplesearch:
-        src: grav-plugin-simplesearch
-        path: user/plugins/simplesearch
+    tntsearch:
+        src: grav-plugin-tntsearch
+        path: user/plugins/tntsearch
         scm: github
     shortcode-core:
         src: grav-plugin-shortcode-core

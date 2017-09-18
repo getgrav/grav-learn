@@ -1,7 +1,7 @@
 ---
 title: Debugging & Logging
 process:
-	twig: true
+    twig: true
 taxonomy:
     category: docs
 ---
@@ -14,7 +14,7 @@ Grav comes with a great tool to make this effort easier called via a **Debug Bar
 
 ```
 debugger:
-  enabled: false                       # Enable Grav debugger and following settings
+  enabled: true                        # Enable Grav debugger and following settings
   shutdown:
     close_connection: true             # Close the connection before calling onShutdown(). false for debugging
 ```
@@ -53,7 +53,12 @@ $grav['debugger']->addMessage($this)
 
 ### Dump command for Twig
 
-You can also display Twig variables from your Twig templates.  This is done in a similar fashion, but the results are displayed in the **Messages** panel of the Debug Bar.
+You can also display Twig variables from your Twig templates.  This is done in a similar fashion, but the results are displayed in the **Messages** panel of the Debug Bar. This feature is **disabled** by default, but can be turned on either globally or for your [development environment](../environment-config) only via the `system.yaml` configuration file:
+
+```
+twig:
+  debug: true                        # Enable Twig debugger
+````
 
 For example, you can easily dump a Twig variable or object:
 

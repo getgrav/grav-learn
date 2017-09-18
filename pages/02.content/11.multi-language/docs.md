@@ -6,6 +6,7 @@ taxonomy:
 
 Multi-Language support was added to Grav in version **0.9.30** as a result of a great [community discussion](https://github.com/getgrav/grav/issues/170) on the subject. Multi-language support in Grav consists of several key parts:
 
+1. [Single language different than English](#single-language-different-than-english)
 1. [Multiple concurrent languages](#multi-language-basics) for a given Grav site
 1. [Language fall-back](#language-configuration) based on language order
 1. Language code (`en`) or Locale-based codes (`en-GB`)
@@ -27,6 +28,24 @@ Multi-Language support was added to Grav in version **0.9.30** as a result of a 
 
 
 We will now break these down and provide examples on how you can setup your Grav site with multiple languages.
+
+### Single language different than English
+
+If you just use one language, enable translations and add your language code in the `user/config/system.yaml` file:
+
+```
+languages:
+  translations: true
+  supported:
+    - fr
+```
+
+or in the System configuration in the Admin:
+
+![Admin Translations Settings](translations-settings.png)
+
+This will make sure Grav uses the correct language strings in the frontend.
+Also, if the theme supports it, it will add your language code to the HTML tag.
 
 ### Multi-Language Basics
 
@@ -57,7 +76,7 @@ By default in Grav, each page is represented by a markdown file, for example `de
 
 If this file is not found, it will try the next language and look for `default.fr.md`.  If that file is not found, it will fall-back to the Grav default and look for `default.md` to provide information for the page.
 
-If we had the most basic of Grav sites, with a single `01.home/default.md` file, we could start by renaming `default.md` to `default.en.md`, and it's contents might look like this:
+If we had the most basic of Grav sites, with a single `01.home/default.md` file, we could start by renaming `default.md` to `default.en.md`, and its contents might look like this:
 
 ```
 ---
@@ -115,7 +134,7 @@ languages:
 
 #### Default Language Prefix
 
-By default, the default language code is prefixed in all URLs.  For example if you have support for English and French (`en` and `fr`), and the default is English.  A page route might look like `/en/my-page` in English and `/fr/ma-page` in French. However it's often preferrable to have the default language without the prefix, so you can just set this option to `true` and the English page would appear as `/my-page`.
+By default, the default language code is prefixed in all URLs.  For example if you have support for English and French (`en` and `fr`), and the default is English.  A page route might look like `/en/my-page` in English and `/fr/ma-page` in French. However it's often preferrable to have the default language without the prefix, so you can just set this option to `false` and the English page would appear as `/my-page`.
 
 ```
 languages:
@@ -173,7 +192,7 @@ This way Grav knows how to route your to the homepage if the active language is 
 
 #### Language-Based Twig Templates
 
-By default, Grav uses the markdown filename to determine the Twig template to use to render.  This works with multi-language the same way.  For example, `default.fr.md` would look for a twig file called `default.html.twig` in the appropriate Twig template paths of the current theme and any plugins that register Twig template paths.  With multi-language, Grav also adds the current active language to the path structure.  What this means is that if you need to have a language-specific Twig file, you can just put those into a root level language folder.  For example if your current theme is using a template located at `templates/default.html.twig` you can create an `templates/fr/` folder, and put your French-specific Twig file in there: `templates/fr/default.html.twig`.
+By default, Grav uses the markdown filename to determine the Twig template to use to render.  This works with multi-language the same way.  For example, `default.fr.md` would look for a Twig file called `default.html.twig` in the appropriate Twig template paths of the current theme and any plugins that register Twig template paths.  With multi-language, Grav also adds the current active language to the path structure.  What this means is that if you need to have a language-specific Twig file, you can just put those into a root level language folder.  For example if your current theme is using a template located at `templates/default.html.twig` you can create an `templates/fr/` folder, and put your French-specific Twig file in there: `templates/fr/default.html.twig`.
 
 Another option which requires manual setup is to override the `template:` setting in the page headers. For example:
 
@@ -237,7 +256,28 @@ SIMPLE_TEXT: There are %d monkeys in the %s
 And then you can populate those variables with the Twig:
 
 ```
-{{ "SIMPLE_TEXT"|t(12, "London Zoo" }}      // There are 12 monkeys in the London Zoo
+{{ "SIMPLE_TEXT"|t(12, "London Zoo") }} 
+```
+
+resulting in the translation:
+
+```
+There are 12 monkeys in the London Zoo
+```
+
+#### Complex Translations
+
+Sometimes it's required to perform complex translations with replacement in specific languages.  You can utilize the full power of the Language objects `translate()` method with teh `tl` filter/function.  For example:
+
+```
+{{ ["SIMPLE_TEXT", 12, 'London Zoo']|tl(['fr']) }}
+```
+
+Will translate the `SIMPLE_TEXT` string and replace the placeholders with `12` and `London Zoo` respectively.  Also there's an array passed with language translations to try in first-find-first-used order.  This will output the result in french:
+
+
+```
+Il y a 12 singes dans le Zoo de Londres
 ```
 
 #### PHP Translations
@@ -307,7 +347,7 @@ This uses an **inverted language order** so the default language is now `fr` so 
 
 #### Language Alias Routes
 
-Because each page can have it's own custom route, it would be hard to switch between different language versions of the same page.  However, there is a new **Page.rawRoute()** method on the Page object that will get the same raw route for any of the various language translations of a single page.  All you would need to do is to put the lang code in front to get the proper route to a specific language version of a page.
+Because each page can have its own custom route, it would be hard to switch between different language versions of the same page.  However, there is a new **Page.rawRoute()** method on the Page object that will get the same raw route for any of the various language translations of a single page.  All you would need to do is to put the lang code in front to get the proper route to a specific language version of a page.
 
 For example, say you are on a page in English with a custom route of:
 
@@ -381,7 +421,7 @@ This will then store the active language in the session.
 
 #### Language Switcher
 
-You can download a simple **Language Switching** plugin via GPM:
+You can download a simple **Language Switching** plugin via the Admin plugin, or through the GPM with:
 
 ```
 $ bin/gpm install langswitcher
@@ -409,14 +449,14 @@ Add following to your .htaccess file and adopt the language slugs and domain nam
 # http://www.workingwith.me.uk/articles/scripting/mod_rewrite
 
 # handle top level e.g. http://grav-site.com/de
-RewriteRule ^en/?$ "http://grav-site.com" [R=301,L]
-RewriteRule ^de/?$ "http://grav-site.de" [R=301,L]
+RewriteRule ^en/?$ "http://grav-site.com" [R=302,L]
+RewriteRule ^de/?$ "http://grav-site.de" [R=302,L]
 
 # handle sub pages, exclude admin path
 RewriteCond %{REQUEST_URI} !(admin) [NC]
-RewriteRule ^en/(.*)$ "http://grav-site.com/$1" [R=301,L]
+RewriteRule ^en/(.*)$ "http://grav-site.com/$1" [R=302,L]
 RewriteCond %{REQUEST_URI} !(admin) [NC]
-RewriteRule ^de/(.*)$ "http://grav-site.de/$1" [R=301,L]
+RewriteRule ^de/(.*)$ "http://grav-site.de/$1" [R=302,L]
 ```
 
 if you know how to simplify the rewrite rules, please edit this page through the Github link in the upper left corner

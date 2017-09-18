@@ -4,13 +4,13 @@ taxonomy:
     category: docs
 ---
 
-When you are designing a theme, Grav gives you access to all sorts of objects and variables from your twig templates.  The Twig templating framework provides powerful ways to read and manipulate these objects and variables.  This is [fully explained in their own documentation](http://twig.sensiolabs.org/doc/templates.html) as well as [summarized succinctly in our own documentation](../twig-primer).
+When you are designing a theme, Grav gives you access to all sorts of objects and variables from your Twig templates.  The Twig templating framework provides powerful ways to read and manipulate these objects and variables.  This is [fully explained in their own documentation](http://twig.sensiolabs.org/doc/templates.html) as well as [summarized succinctly in our own documentation](../twig-primer).
 
 !!!! In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provide those after the method name.  `page.content` is equivalent to `page.content()`
 
 ## Core Objects
 
-There are several **core objects** that are available to a twig template, and each object has a set of **variables** and **functions**.
+There are several **core objects** that are available to a Twig template, and each object has a set of **variables** and **functions**.
 
 ### base_dir variable
 
@@ -27,6 +27,14 @@ The `{{ base_url_relative }}` returns the base URL to the Grav site, without the
 ### base_url_absolute variable
 
 The `{{ base_url_absolute }}` returns the base URL to the Grav site, including the host information.
+
+### home_url variable
+
+The `{{ home_url }}` is particularly useful to use to link back to the homepage of your site. It is similar to `base_url` but takes into account the situation when the this is empty.
+
+### html_lang variable
+
+This will return the current active language if provided, else use the `site.default_lang` configured option, else fall back to `en`.
 
 ### theme_dir variable
 
@@ -49,6 +57,14 @@ You can access any Grav configuration setting via the config object as set in th
 ### site object
 
 An alias to the `config.site` object. This represents the configuration as set in the `site.yaml` file.
+
+### system object
+
+An alias to the `config.system` object.  This represents the configuration in the main `system.yaml` file.
+
+### theme object
+
+An alias to the `config.theme` object.  This represents the configuration for the current active theme.
 
 ### page object
 
@@ -82,7 +98,7 @@ This returns the entire HTML content of your page.
 {{ page.content }}
 ```
 
-##### headers()
+##### header()
 
 This returns the page headers as defined in the YAML front-matter of the page.  For example a page with the following headers:
 
@@ -99,7 +115,7 @@ The author of this page is: {{ page.header.author }}
 
 ##### media()
 
-This returns an array containing all the media associated with a page. These include **images**, **videos**, and other **files**.  You can access media methods as described in the [media documentation](../../content/media) for content. Because it is an array, Twig filters and functions can be used.
+This returns an array containing all the media associated with a page. These include **images**, **videos**, and other **files**.  You can access media methods as described in the [media documentation](../../content/media) for content. Because it is an array, Twig filters and functions can be used. Note: .svg are treated as files, not images, because they can not be manipulated using twig image filters.
 
 Get a specific file or image:
 ```
@@ -171,6 +187,14 @@ or
 {{ page.url(true) }} {# could return http://mysite.com/my-section/my-category/my-blog-post #}
 ```
 
+##### permalink()
+
+This returns the URL with host information. Particularly useful when needing a quick link that can be accessed from anywhere.
+
+##### canonical()
+
+This returns the URL that is the 'preferred' version or link to a particular page.  This value will default to the regular URL unless the page has overridden the `canonical:` page header option.
+
 ##### route()
 
 This returns the internal routing for a page.  This is primarily used for internal routing and dispatching of pages.
@@ -212,6 +236,10 @@ This returns the collection of pages for this context as determined by the [coll
     {% include 'partials/blog_item.html.twig' with {'page':child, 'truncate':true} %}
 {% endfor %}
 ```
+
+##### currentPosition()
+
+This returns the index of the current page in relation to its siblings.
 
 ##### isFirst()
 
@@ -278,6 +306,8 @@ Reorders the children based on an **orderBy** (`default`, `title`, `date` and `f
 ##### parent()
 
 This returns the parent page object for this page. This is very useful when you need to navigate back up the nested tree structure of pages.
+
+
 
 ##### isPage()
 
@@ -349,6 +379,12 @@ Get the top-level pages for a simple menu:
     {% endfor %}
 </ul>
 ```
+
+### media object
+
+There is a new object that allows you to access [media](../../content/media) that is outside of Page objects via PHP streams from Twig. This works in a similar manner to [image linking in content](../../content/image-linking#php-streams) by using streams to access images, and media processing to manipulate theme.
+
+`media['user://media/bird.png'].resize(50, 50).rotate(90).html()`
 
 ### uri object
 
@@ -430,6 +466,17 @@ Grav has built-in support for programmatically determining the platform, browser
 {{ browser.platform}}   # macintosh
 {{ browser.browser}}    # chrome
 {{ browser.version}}    # 41
+```
+
+### user object
+
+You can access the current logged in user object indirectly via the Grav object.  This allows you to access such data as `username`, `fullname`, `title`, and `email`:
+
+```ruby
+{{ grav.user.username }}  # admin
+{{ grav.user.fullname }}  # Billy Bloggs
+{{ grav.user.title }}     # Administrator
+{{ grav.user.email }}     # billy@bloggs.com
 ```
 
 ## Adding Custom Variables

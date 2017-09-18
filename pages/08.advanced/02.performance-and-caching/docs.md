@@ -52,24 +52,32 @@ There are actually **5 types** of caching happening in Grav.  They are:
 
 The YAML configuration caching is not configurable, and will always compile and cache the configuration into the `/cache` folder. Image caching is also always on, and stores its processed images in the `/images` folder.
 
+### Grav Core Caching
+
 Core Grav caching has the following configuration options as configured in your `user/config/system.yaml` file:
 
 ```
 cache:
   enabled: true                        # Set to true to enable caching
   check:
-    method: file                       # Method to check for updates in pages: file|folder|none
+    method: file                       # Method to check for updates in pages: file|folder|hash|none
   driver: auto                         # One of: auto|file|apc|xcache|memcache|wincache
   prefix: 'g'                          # Cache prefix string (prevents cache conflicts)
 ```
 
 As you can see, the options are documented in the configuration file itself.  During development sometimes it is useful to disable caching to ensure you always have the latest page edits.
 
-`folder` cache check is going to be slightly faster than `file` but will not work reliably in all environments.  You will need to check if Grav picks up modifications to pages on your server when using the `folder` option.  If automatic re-caching of changed pages it not critical to you, then setting this value to `none` will speed a production environment up even more. You will just need to manually [clear the cache](../grav-cli#clearing-grav-cache) after changes are made.
+By default, Grav uses the `file` check method for its caching.  What this means is that every time you request a Grav URL, Grav uses a highly optimized routing to run through all the **files** in the `user/pages`  folder to determine if anything has changed.
+
+`folder` cache check is going to be slightly faster than `file` but will not work reliably in all environments.  You will need to check if Grav picks up modifications to pages on your server when using the `folder` option.
+
+`hash` checking uses a fast hash algorithm on all of the files in each page folder.  This maybe faster than file checking in some situations and does take into account every file in the folder.
+
+If automatic re-caching of changed pages is not critical to you (or if your site is rather large), then setting this value to `none` will speed up a production environment even more. You will just need to manually [clear the cache](../grav-cli#clearing-grav-cache) after changes are made.
 
 #### Memcache Specific Options
 
-There are some extra configuration options that are required if you are connecting to a **memcached** server via the `memcache` driver option.  These options should go under the `cache:` group in your `user/config/system.yaml`:
+There are some extra configuration options that are required if you are connecting to a **memcache** server via the `memcache` driver option.  These options should go under the `cache:` group in your `user/config/system.yaml`:
 
 ```
 cache:
@@ -78,6 +86,19 @@ cache:
     server: localhost
     port: 11211
 ```
+
+#### Memcached Specific Options
+
+Similar to memcache, memcached has some extra configuration options that are required if you are connecting to a **memcached** server via the `memcached` driver option.  These options should go under the `cache:` group in your `user/config/system.yaml`:
+
+```
+cache:
+  ...
+  memcached:
+    server: localhost
+    port: 11211
+```
+
 
 #### Redis Specific Options
 
@@ -89,6 +110,24 @@ cache:
   redis:
     server: localhost
     port: 6379
+```
+
+Alternatively you can use a socket connection:
+
+```
+cache:
+  ...
+  redis:
+    socket: '/tmp/redis.sock'
+```
+
+If your redis server has a password or secret set you can also set that in this configuration:
+
+```
+cache:
+  ...
+  redis:
+    password: your-secret
 ```
 
 !!!! Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.

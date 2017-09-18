@@ -40,11 +40,9 @@ Create a subfolder for each post you want to add, and add in each folder an `ite
 
 ## URLs
 
-The structure explained above will create blog posts with `/blog/` in the URL. This might not want what you need for example if a blog is all you have on your site, and the blog posts listing is the home page.
+The structure explained above will create blog posts with `/blog/` in the URL. This might not be what you need. For example: If a blog is all you have on your site, and the blog posts listing is the home page. In these cases, you would just want your root domain to access this content rather than referring visitors to a child directory.
 
 In this case, in system.yaml (System configuration in Admin) set `home.hide_in_urls` option (Hide Home in URLs in Admin) to true.
-
-(Warning: this is not yet in Grav stable, and will be released in the next Grav update)
 
 ## The inner workings
 

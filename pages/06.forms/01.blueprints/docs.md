@@ -72,7 +72,7 @@ Each of those files will use a different page file. You can also change the file
 
 The template used by a page not only determines the "look and feel" in the frontend, but also determines how the Admin Plugin will render it, allowing you to add options, select boxes, custom inputs, toggles.
 
-How do to it? In your theme, add a `blueprints/` folder and add a YAML file with the name of the page template you added. For example if you add a `blog` page template. add a `blueprints/blog.yaml` file. You can find an [example of this directory in the **Antimatter** theme](https://github.com/getgrav/grav-theme-antimatter/tree/develop/blueprints).
+How to do it: in your theme, add a `blueprints/` folder and add a YAML file with the name of the page template you added. For example if you add a `blog` page template. add a `blueprints/blog.yaml` file. You can find an [example of this directory in the **Antimatter** theme](https://github.com/getgrav/grav-theme-antimatter/tree/develop/blueprints).
 
 ## Components of a Blueprint
 

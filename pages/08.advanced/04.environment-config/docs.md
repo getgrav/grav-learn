@@ -25,6 +25,6 @@ assets:
   js_pipeline: true
 ```
 
-If your production server was reachable via `http://www.mysite.com` then you could also provide configuration specific for that production site with a file located at `user/www.mysite.com/config.system.yaml`.
+If your production server was reachable via `http://www.mysite.com` then you could also provide configuration specific for that production site with a file located at `user/www.mysite.com/config/system.yaml`.
 
 Of course, you are not limited to changes to `system.yaml`, you can actually provide overrides for **any** Grav setting in the `site.yaml` or even in any [plugin configuration](../../plugins/plugin-basics)!

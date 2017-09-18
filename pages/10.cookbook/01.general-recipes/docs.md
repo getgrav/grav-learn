@@ -14,13 +14,17 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Add a recent post widget to your sidebar](#add-a-recent-post-widget-to-your-sidebar)
 1. [Create a private area](#create-a-private-area)
 1. [Add JavaScript to the footer](#add-javascript-to-the-footer)
+1. [Override the default logs folder location](#override-the-default-logs-folder-location)
+1. [Split vertical menu system](#split-vertical-menu-system)
+1. [Dynamically style one or more pages](#dynamically-style-one-or-more-pages)
+1. [Migrate an HTML theme to Grav](#migrate-an-html-theme-to-grav)
 
 ### Change the PHP CLI version
 
 Sometimes on the terminal the PHP version is different than the PHP version used by the web server.
 
 You can check the PHP version running in the CLI by running the command `php -v`.
-If the PHP version is less than 5.5.9, Grav won't run as it requires at least PHP 5.4.
+If the PHP version is less than 5.5.9, Grav won't run as it requires at least PHP 5.5.9.
 
 How to fix?
 
@@ -62,7 +66,7 @@ A common web design requirement is to have a gallery of some kind rendered on a 
 
 ##### Solution:
 
-The simplest way to provide a solution for this problem is to make use of Grav's [media functionality](../../content/media) which allows a page to be aware of the images available in it's folder.
+The simplest way to provide a solution for this problem is to make use of Grav's [media functionality](../../content/media) which allows a page to be aware of the images available in its folder.
 
 Let's assume you have a page you've called `gallery.md` and also you have a variety of images in the same directory. The filenames themselves are not important as we will just iterate over each of the images.  Because we want to have extra data associated with each image, we will include a `meta.yaml` file for each image.  For example we have a few images:
 
@@ -102,12 +106,27 @@ Now we need to display these images in reverse chronological order so the newest
         </div>
         <div class="image-info">
             <h2>{{ image.meta.title }}</h2>
-            <p>{{ image.meta.description }}
+            <p>{{ image.meta.description }}</p>
         </div>
     </li>
     {% endfor %}
     </ul>
 
+{% endblock %}
+```
+
+For modular gallery to be displayed inside another page, remove the following code from the Twig file in order to make it work:
+
+```
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {{ page.content }}
+```
+
+and
+
+```
 {% endblock %}
 ```
 
@@ -163,11 +182,12 @@ You can see how the content is being **split** by the `<hr />` tag and converted
 
 ##### Problem:
 
-You need a image slider without any overhead.
+You need an image slider without any overhead.
 
 ##### Solution:
 
-This recipe is for 4 images! Simply put the images where the .md file is. Next, create a new twig template and extend base.html.twig.
+This recipe is for 4 images and a page called `slider.md`! Simply put the images where the .md file is. Next, create a new Twig template and extend `base.html.twig`.
+
 
 ```
 {% extends 'partials/base.html.twig' %}
@@ -185,6 +205,21 @@ This recipe is for 4 images! Simply put the images where the .md file is. Next, 
     {{ page.content }}
 {% endblock %}
 ```
+
+For modular slider, please remove the
+```
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+```
+
+and
+
+```
+{% endblock %}
+```
+
+from the previous Twig file.
 
 Time for css stuff. Add this to your _custom.scss
 
@@ -220,7 +255,7 @@ That's all.
 
 ### Wrapping markdown into html
 
-On some pages you might want to wrap parts of the markdown content into some custom html code instead of creating a new twig template.
+On some pages you might want to wrap parts of the markdown content into some custom html code instead of creating a new Twig template.
 
 To achieve this you follow these steps:
 
@@ -235,10 +270,10 @@ pages:
 in your wrapper tag make sure to add the parameter `markdown="1"` to activate processing of markdown content:
 
 ```
-<div class="myWrapper" markdown="1" >
-    # my markdown content
+<div class="myWrapper" markdown="1">
+# my markdown content
 
-    this content is wrapped into a div with class "myWrapper"
+this content is wrapped into a div with class "myWrapper"
 </div>
 ```
 
@@ -252,7 +287,7 @@ You want to create a recent post widget on the sidebar
 
 #### Solution:
 
-The final code in your Twig template (or create a seperate temple, store it in `partials` and extend `partials/base.html.twig`) is shown below:
+It's always possible to create a partial template extending `partials/base.html.twig` (see other solutions on this page), but here you're going to create a full template instead. The final code for your Twig template is shown below: 
 
 ```
 <div class="sidebar-content recent-posts">
@@ -328,7 +363,7 @@ It all works thanks to the Login Plugin.
 
 If you don’t have it already, install it through the Admin Panel or using the GPM command line utility.
 
-Next, open a page in Admin, switch to expert mode and in the Frontmatter section add
+Next, open a page in Admin, switch to expert mode and in the FrontMatter section add
 
 ```yaml
 access:
@@ -352,7 +387,7 @@ access:
     site.onlybob: true
 ```
 
-Next, add the `site.onlybob` permission to Bob, in its bob.yaml user file under the `user/accounts` folder:
+Next, add the `site.onlybob` permission to Bob, in its `bob.yaml` user file under the `user/accounts` folder:
 
 ```yaml
 access:
@@ -412,4 +447,208 @@ You can add assets in that block in Twig for example by calling
 
 or in PHP by calling
 
-`$this->grav['assets']->addJs($this->grav['base_url'] . '/user/plugins/yourplugin/js/somefile.js', {group: 'bottom'});`
+`$this->grav['assets']->addJs($this->grav['base_url'] . '/user/plugins/yourplugin/js/somefile.js', ['group' => 'bottom']);`
+
+### Override the default logs folder location
+
+The default location for the logs output of Grav is simply called `logs/`.  Unfortunately there are instances where that `logs/` folder is already used or is off-limits.  Grav's flexible stream system allows the ability to customize the locations of these folders.
+
+First, you need to create your new folder.  In this example, we'll create a new folder in the root of your Grav install called `grav-logs/`.  Then create a new root-level file called `setup.php` and paste the following code:
+
+```
+<?php
+use Grav\Common\Utils;
+
+
+return [
+    'streams' => [
+        'schemes' => [
+            'log' => [
+               'type' => 'ReadOnlyStream',
+               'prefixes' => [
+                   '' => ["grav-logs"],
+               ]
+            ]
+        ]
+    ]
+];
+```
+
+This basically overrides the `log` stream with the `grav-logs/` folder rather than the default `logs/` folder as defined in `system/src/Grav/Common/Config/Setup.php`.
+
+### Split vertical menu system
+
+To create a vertical, collapsible, hierarchical menu of pages you need a Twig-loop, a bit of CSS, and a bit of JavaScript. The final result will, when using the Antimatter-theme, look like this:
+
+![Vertical Menu](vertical_menu.png)
+
+Let's start with Twig:
+
+```
+<ol class="tree">
+    {% for page in pages.children.visible %}
+        {% if page.children.visible is empty %}
+            <li class="item">
+            <a href="{{ page.url }}">{{ page.title }}</a>
+        {% else %}
+            <li class="parent">
+            <a href="javascript:void(0);">{{ page.title }}</a>
+            <ol>
+                {% for child in page.children.visible %}
+                    {% if child.children.visible is empty %}
+                        <li class="item">
+                        <a href="{{ child.url }}">{{ child.title }}</a>
+                    {% else %}
+                        <li class="parent">
+                        <a href="javascript:void(0);">{{ child.title }}</a>
+                        <ol>
+                            {% for subchild in child.children.visible %}
+                                <li><a href="{{ subchild.url }}">{{ subchild.title }}</a></li>
+                            {% endfor %}
+                        </ol>
+                    {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+        </li>
+    {% endfor %}
+</ol>
+```
+
+This creates an ordered list which iterates over all visible pages within Grav, going three levels deep to create a structure for each level. The list wrapped around the entire structure has the class *tree*, and each list-item has the class *parent* if it contains children or *item* if it does not.
+
+Clicking on a parent opens the list, whilst regular items link to the page itself. You could add this to virtually any Twig-template in a Grav theme, provided that Grav can access the visible pages.
+
+To add some style, we add some CSS:
+
+```
+<style>
+ol.tree li {
+    position: relative;
+}
+ol.tree li ol {
+    display: none;
+}
+ol.tree li.open > ol {
+    display: block;
+}
+ol.tree li.parent:after {
+    content: '[+]';
+}
+ol.tree li.parent.open:after {
+    content: '';
+}
+</style>
+```
+
+This should generally be placed before the Twig-structure, or ideally be streamed into the [Asset Manager](/themes/asset-manager) in your theme. The effect is to add **[+]** after each parent-item, indicating that it can be opened, which disappears when opened.
+
+Finally, let's add a bit of JavaScript to [handle toggling](http://stackoverflow.com/a/36297446/603387) the *open*-class:
+
+```
+<script type="text/javascript">
+var tree = document.querySelectorAll('ol.tree a:not(:last-child)');
+for(var i = 0; i < tree.length; i++){
+    tree[i].addEventListener('click', function(e) {
+        var parent = e.target.parentElement;
+        var classList = parent.classList;
+        if(classList.contains("open")) {
+            classList.remove('open');
+            var opensubs = parent.querySelectorAll(':scope .open');
+            for(var i = 0; i < opensubs.length; i++){
+                opensubs[i].classList.remove('open');
+            }
+        } else {
+            classList.add('open');
+        }
+    });
+}
+</script>
+```
+
+This should always be placed **after** the Twig-structure, also ideally in the [Asset Manager](/themes/asset-manager).
+
+### Dynamically style one or more pages
+You can dynamically style different pages/posts in your Grav site (independent of template file assignment) by customizing a Theme's Twig file to apply a CSS class passed as a variable in a page's FrontMatter.
+
+You can style different posts/pages in your Grav site by two methods:
+
+1. If you are using the Antimatter theme, you can use the existing `body_classes` header property to set your custom CSS class for that page
+2. If you are using a theme not based on Antimatter (or not implementing `body_classes` as it does), you can customize a Theme's Twig file to apply a CSS class passed as a variable in a page's header property
+
+For example, in your theme's `base.html.twig` file or a more specific template such as `page.html.twig` file you could add a class to the display of page content, such as:
+
+```
+<div class="{{ page.header.body_classes }}">
+...
+</div>
+```
+
+Then, for each page you wish to have a unique style, you would add the following header property (assuming you have defined a CSS class for `featurepost`):
+
+```
+body_classes: featurepost
+```
+
+Note: This is how the Antimatter theme applies page-specific classes, and so its a good standard to follow.
+
+### Migrate an HTML theme to Grav
+
+Migrating an HTML theme to Grav is a common task. Here is a hands-on step-by-step process that can be used to achieve this goal.
+
+You probably have downloaded the theme, and it's composed of several HTML files. Let's start with simply making Grav load the home page. No custom content, just replicate the HTML theme, but within a Grav structure.
+
+First, [use the Grav Devtools plugin](/themes/theme-tutorial) to create a blank theme, and set Grav to use it in the System settings.
+
+Create a `templates/home.html.twig` Twig template inside the theme’s templates folder. This will represent a template specific for the home page. Usually the home is a unique page on the site, so it probably deserves a dedicated Twig file.
+
+Copy the HTML code from the template's home page, starting at `<html>` and ending at `</html>` to your new `home.html.twig` file.
+
+Now, move all the HTML theme assets (images, CSS, JS) into your theme folder. You can keep the existing theme folder structure, or change it.
+
+Create a `pages/01.home/home.md` empty file. Now point your browser to yoursite.com/home: it should show up the content, but the CSS, JS and images will not be loaded, probably because the theme has them hardcoded as `/img/*` or `/css/*` links. 
+
+#### Adding the correct asset links
+
+In Grav the links are broken because they point to the home route, so instead of pointing to `/user/themes/mytheme/img`, they point to `/img` in the Grav root. Since it's best to keep all theme-related assets inside the theme, we need to point Grav to the correct location.
+
+Search within the page for assets and change the images references from `img/*.*` to `<img src="{{ url('theme://img/*.*', true) }}" />`.
+
+Stylesheets require a bit more thought as there’s an asset pipeline we’ll want to enable at some point, so we move them to a stylesheets block within the `<head>` tag.
+
+Example:
+```
+    {% block stylesheets %}
+        {% do assets.addCss('theme://css/styles.min.css', 100) %}
+    {% endblock %}
+    {{ assets.css() }}
+```
+
+The same applies to JavaScript files, with the additional requirement that some JS is loaded in the footer.
+
+Example:
+```
+    {% block javascripts %}
+        {% do assets.addJs('theme://js/custom.js') %}
+        {% do assets.addJs('jquery', 101) %}
+    {% endblock %}
+    {{ assets.js() }}
+```
+
+The page changes should now be shown in your Browser. If not, make sure that the pages cache and the twig cache are disabled in the Grav system configuration settings.
+
+This is just the start. Now you might need to add more pages, and come up with better ways to present the content of your pages using the header FrontMatter, and custom Twig that processes usual building blocks need: the home page testimonials, reviews, the product features and so on.
+
+#### Adding another page
+
+To add another page, the process is similar. For example, let's say you want to next create the blog page. 
+Repeat the process to add a `templates/blog.html.twig` file, paste the HTML source, and create a `pages/02.blog/blog.md` page. 
+
+Now, while images links inside the pages still need to be migrated to Grav's assets syntax (or simply change the path), you don't want to repeat the same work you did above for CSS and JS assets. This should be reused across the site.
+
+#### Shared Elements
+
+Identify the common parts of the pages (header and footer), and move them to the `templates/partials/base.html.twig` file.
+
+Each page template then needs to extend `partials/base.html.twig` (https://github.com/getgrav/grav-theme-antimatter/blob/develop/templates/default.html.twig#L1) and just add their unique content. 

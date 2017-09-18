@@ -16,14 +16,14 @@ Grav uses a **smart-caching** system that automatically creates in-cache copies 
 
 The following media file types are supported natively by Grav. Additional support for media files and streaming embeds may be added via plugins.
 
-| Media Type         | File Type                    |
-| :----------------- | :--------------------------  |
-| Image              | jpg, jpeg, png               |
-| Audio              | mp3, wav, wma, ogg, m4a      |
-| Animated image     | gif                          |
-| Vectorized image   | svg                          |
-| Video              | mp4, mov, m4v, swf           |
-| Data / Information | txt, doc, html, pdf, zip, gz |
+| Media Type         | File Type                                                                                                                                                             |
+| :-----             | :-----                                                                                                                                                                |
+| Image              | jpg, jpeg, png                                                                                                                                                        |
+| Audio              | mp3, wav, wma, ogg, m4a, aiff, aif                                                                                                                                    |
+| Animated image     | gif                                                                                                                                                                   |
+| Vectorized image   | svg                                                                                                                                                                   |
+| Video              | mp4, mov, m4v, swf, flv, webm, ogv                                                                                                                                    |
+| Data / Information | txt, doc, docx, html, htm, pdf, zip, gz, 7z, tar, css, js, json, xml, xls, xlt, xlm, xlsm, xld, xla, xlc, xlw, xll, ppt, pps, rtf, bmp, tiff, mpeg, mpg, mpe, avi, wmv |
 
 A full list of supported mimetypes can be found in the `system/config/media.yaml` file.  If there is a mimetype that is not currently supported, you can simply create your own `user/config/media.yaml` and add it in there.  Just ensure you follow the same format as the original `system` file.  The simplest approach is to copy the whole original file and make your edits.
 
@@ -49,8 +49,8 @@ Alternatively you can put them in your theme, as that is easily accessible via C
 
 Grav provides a few different display modes for every kind of media object.
 
-|    Mode   |                                   Explanation                                   |
-| :-------- | :------------------------------------------------------------------------------ |
+| Mode      | Explanation                                                                     |
+| :-----    | :-----                                                                          |
 | source    | Visual representation of the media itself, i.e. the actual image, video or file |
 | text      | Textual representation of the media                                             |
 | thumbnail | The thumbnail image for this media object                                       |
@@ -76,13 +76,13 @@ The display modes above can also be used in combination with links and lightboxe
 
 When you use Grav's media functionality to render a lightbox, all Grav does is output an **anchor** tag that has some attributes for the lightbox plugin to read. If you are interested in using a lightbox library that is not in our plugin repository or you want to create your own plugin, you can use the table below as a reference.
 
-|  Attribute  |                                                 Explanation                                                  |
-| :---------- | :----------------------------------------------------------------------------------------------------------- |
+| Attribute   | Explanation                                                                                                  |
+| :-----      | :-----                                                                                                       |
 | rel         | A simple indicator that this is not a regular link, but a lightbox link. The value will always be `lightbox` |
 | href        | A URL to the media object itself                                                                             |
 | data-width  | The width the user requested this lightbox to be                                                             |
 | data-height | The height the user requested this lightbox to be                                                            |
-| data-srcset | In case of image media, this contains the `srcset` string. ([more info](../media#responsive-images))                 |
+| data-srcset | In case of image media, this contains the `srcset` string. ([more info](../media#responsive-images))         |
 
 ## Actions
 
@@ -135,7 +135,7 @@ The `html` action will output a valid HTML tag for the media based on the curren
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```
-{{ page.media['sample-image.jpg'].html('My title', 'some ALT text', 'myclass')|e }}
+{{ page.media['sample-image.jpg'].html('My title', 'Some ALT text', 'myclass')|e }}
 ```
 [/ui-tab]
 [/ui-tabs]
@@ -367,6 +367,8 @@ For example if you have an image that is `640` x `480` and you perform a `cropZo
 {% endverbatim %}
 [/ui-tab]
 [/ui-tabs]
+
+!! Folks familiar with using `zoomCrop` for this purpose will find that it also works in Grav.
 
 ##### Result:
 
@@ -623,6 +625,29 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sepia)
 
+#### gaussianBlur(factor)
+
+**blurs** the image by an Factor, that defines how often the blur filter is applied to the image. Default is 1 time.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![Sample Image](sample-image.jpg?gaussianBlur=3)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['sample-image.jpg'].gaussianBlur(3).html() }}
+```
+{% endverbatim %}
+[/ui-tab]
+[/ui-tabs]
+
+##### Result: 
+
+![Sample Image](sample-image.jpg?gaussianBlur=3)
+
 #### rotate(angle)
 
 **rotates** the image by `angle` degrees counterclockwise, negative values rotate clockwise.
@@ -648,18 +673,18 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 #### flip(flipVertical, flipHorizontal)
 
-**flips** the image in the given directions. Both params are `boolean` and at least one must be `true`.
+**flips** the image in the given directions. Both params can be `0|1`.  Both `0` is equivalent to no flipping in either direction.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
 ```
-![Sample Image](sample-image.jpg?cropZoom=300,200&flip=true,true)
+![Sample Image](sample-image.jpg?cropZoom=300,200&flip=0,1)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
 ```
-{{ page.media['sample-image.jpg'].cropZoom(300,200).flip(true,true).html() }}
+{{ page.media['sample-image.jpg'].cropZoom(300,200).flip(0,1).html() }}
 ```
 {% endverbatim %}
 [/ui-tab]
@@ -667,7 +692,7 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 ##### Result:
 
-![Sample Image](sample-image.jpg?cropZoom=300,200&flip=true,true)
+![Sample Image](sample-image.jpg?cropZoom=300,200&flip=0,1)
 
 #### fixOrientation()
 
@@ -807,6 +832,23 @@ As you can see: Grav provides some powerful image manipulation functionality tha
 
 ![Sample Image](sample-image.jpg?negate&lightbox&cropZoom=200,200)
 
+#### Resetting multiple calls to the same image
+
+When you access the same image multiple times in a single page, actions you have provided to the image are not reset by default.  So if you resize an image, and output the HTML, then later in the same page, simply output the image URL, you will also get the URL to the resized image. You were probably expecting the URL to the original image.
+
+To combat this, you can reset the actions on the images by passing `false` to the `url()` method:
+
+{% verbatim %}
+```
+{% for item in page.header.gallery %}
+    {% set image = page.media[item.src].cropZoom(800, 600).quality(70) %}
+    <a href="{{ image.url(false) }}">
+      <img src="{{ image.url }}" alt="{{ item.alt }}" title="{{ item.title }}" />
+    </a>
+{% endfor %}
+```
+{% endverbatim %}
+
 ### Responsive images
 
 #### Higher density displays
@@ -815,7 +857,7 @@ Grav has built-in support for responsive images for higher density displays (e.g
 
 !! Grav sets the `sizes` argument mentioned in the posts above to full viewport width by default. Use the `sizes` action showcased below to choose yourself.
 
-To start using responsive images, all you need to to is add higher density images to your pages by adding a suffix to the file name. If you only provide higher density images, Grav will automatically generate lower quality versions for you. Naming works as follows: `[image-name]@[density-ratio]x.[image-extension]`, so for example adding `sample-image@3x.jpg` to your page will result in Grav creating a `2x` and a `1x` (regular size) version by default.
+To start using responsive images, all you need to do is add higher density images to your pages by adding a suffix to the file name. If you only provide higher density images, Grav will automatically generate lower quality versions for you. Naming works as follows: `[image-name]@[density-ratio]x.[image-extension]`, so for example adding `sample-image@3x.jpg` to your page will result in Grav creating a `2x` and a `1x` (regular size) version by default.
 
 ! These files generated by Grav will be stored in the `images/` cache folder, not your page folder.
 
@@ -833,8 +875,11 @@ To start using responsive images, all you need to to is add higher density image
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
+{% set code_sample %}
+![Retina Image](retina.jpg?sizes=80vw)
+{% endset %}
 ```
-{{ page.media['retina.jpg'].sizes('80vw').html()|e }}
+{{ code_sample|e }}
 ```
 [/ui-tab]
 [/ui-tabs]
@@ -843,40 +888,77 @@ To start using responsive images, all you need to to is add higher density image
 
 ![Retina Image](retina.jpg?sizes=80vw)
 
-!!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
+!!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the third tab so you can see what's happening behind the screens.
 
 ##### Sizes with media queries
 
 Grav also has support for media queries inside the `sizes` attribute, allowing you to use different widths depending on the device's screen size. In contrast to the first method, you don't have to create multiple images; they will get created automatically. The fallback image is the current image, so a browser without support for `srcset`, will display the original image.
-
-If you want to customize the sizes of the automatically created files, you can use the `derivatives()` method (as shown below). The first parameter is the width of the smallest of the generated images. The second is the maximum width of the generated images. The third, and only optional parameter, dictates the intervals with which to generate the photos (default is 200). For example, if you set the first parameter to be `320` and the third to be `100`, Grav will generate an image for 320, 420, 520, 620…
 
 !! For the moment it does not work inside markdown, only in your ```twig``` files.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
 ```
-![](retina.jpg?derivatives=320,1440,100&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
-
+![](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
 ```
-{{ page.media['retina.jpg'].derivatives(320, 1440, 100).sizes('(max-width:26em) 100vw, 50vw').html() }}
+{{ page.media['retina.jpg'].sizes('(max-width:26em) 100vw, 50vw').html() }}
 ```
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
+{% set code_sample %}
+![](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+{% endset %}
 ```
-{{ page.media['retina.jpg'].derivatives(320, 1440, 100).sizes('(max-width:26em) 100vw, 50vw').html()|e }}
+{{ code_sample|e }}
 ```
 [/ui-tab]
 [/ui-tabs]
 
 ##### Result:
 
-![](retina.jpg?derivatives=320,1440,100&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+![](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+
+!!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
+
+##### Sizes with media queries using derivatives
+
+If you want to customize the sizes of the automatically created files, you can use the `derivatives()` method (as shown below). The first parameter is the width of the smallest of the generated images. The second is the maximum width of the generated images. The third, and only optional parameter, dictates the intervals with which to generate the photos (default is 200). For example, if you set the first parameter to be `320` and the third to be `100`, Grav will generate an image for 320, 420, 520, 620, and so on until it reaches its set maximum.
+
+In our example, we set the maximum to `1600`. This will result in increments of 300 being met from `320` to `1520` as `1620` would be above the threshold.
+
+!! For the moment it does not work inside markdown, only in your ```twig``` files.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['retina.jpg'].derivatives(320,1600,300).sizes('(max-width:26em) 100vw, 50vw').html() }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+{% set code_sample %}
+![](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+{% endset %}
+```
+{{ code_sample|e }}
+```
+[/ui-tab]
+[/ui-tabs]
+
+##### Result:
+
+![](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 
 !!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
 

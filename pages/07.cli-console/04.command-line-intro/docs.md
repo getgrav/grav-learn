@@ -42,6 +42,14 @@ Windows sits apart from the pack for a number of reasons. Many of the commands i
 * [MakeUseOf's Beginner's Guide to the Windows Command Line](http://www.makeuseof.com/tag/a-beginners-guide-to-the-windows-command-line/) - A well-written introduction to the command line for Windows.
 * [DOSPrompt.info](http://dosprompt.info/) - An entire site devoted to familiarizing users with the Command Prompt.
 
+!! All of Grav's CLI commands rely on PHP, but this is not immediately available in Windows. You can find out whether it is installed by opening a console and typing `php -v` to check. If `'php' is not recognized as an internal or external command ...` returns, it is not.
+
+If you want to add PHP to your Windows system, you need to find your "Environment Variables", either by searching for it in the Start-Menu or going to Control Panel -> Advanced System Settings -> Click the "Environment Variables"-button.
+
+Under "System Variables", find "Path" and click edit. Copy the "variable value" into notepad, and add a semicolon at the end - to separate variables. Then find the path to your installation of PHP ([from scratch](http://windows.php.net/) or using a current installation that came with your development environment), and add it to the end of this long list of variables. You want the folder-path, not including `php.exe`.
+
+When that is done, open a new console (or restart your current one) so the new path is applied. Then try `php -v` again, you should get an output like: `PHP 7.0.7 (cli) ...`. When you run Grav's commands, you will need to prepend `php` to them, for instance `php grav/gpm index`.
+
 ## Grav-specific Commands
 
 One of the coolest things about Grav is that you have a host of powerful commands at your disposal to do everything from install additional plugins and themes to adding users to the Admin. In this section, we will list many of the most commonly used commands.

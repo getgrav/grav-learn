@@ -6,7 +6,7 @@ process:
     twig: true
 ---
 
-![Grav Admin Page Editor](page_options.png)
+![Grav Admin Page Editor](page_options.png?classes=shadow)
 
 The **Page Editor** in the admin is a powerful text editor and page manager that enables you to create your page's content (including media files), its publishing and taxonomy options, settings, overrides, and theme-specific options.
 
@@ -20,7 +20,7 @@ In this page, we will go over the features and functionality found in the **Opti
 
 ### Publishing
 
-![Grav Admin Page Editor](page_options_publishing.png)
+![Grav Admin Page Editor](page_options_publishing.png?classes=shadow)
 
 This section is all about controlling the way your content is published. You can publish (or unpublish) content, set published dates as well as dates and times to unpublish, and to create metadata values specific to the page.
 
@@ -29,12 +29,12 @@ This section is all about controlling the way your content is published. You can
 | Published        | By default, a page is published unless you explicitly set published: false or via a `publish_date` being in the future, or `unpublish_date` in the past. |
 | Date             | The date variable allows you to specifically set a date associated with this page.                                                                       |
 | Published Date   | This serves as the official publishing date for the page. It can provide a date to automatically trigger publication.                                    |
-| Unpublished Date | This is the date/time you would like to mark for the page to to automatically trigger un-publication.                                                    |
-| Metadata         | Default metadata values that will be displayed on every page unless overridden by the page                                                               |
+| Unpublished Date | This is the date/time you would like to mark for the page to automatically trigger un-publication.                                                    |
+| Metadata         | Default metadata values that will be displayed on every page unless overridden by the page.                                                               |
 
 ### Taxonomies
 
-![Grav Admin Page Editor](page_options_taxonomies.png)
+![Grav Admin Page Editor](page_options_taxonomies.png?classes=shadow)
 
 The Taxonomies area is where you can configure your page's organizational properties. What categorie(s) the page will appear in, its tags, and more can be configured here.
 
@@ -43,11 +43,10 @@ The Taxonomies area is where you can configure your page's organizational proper
 | Category | This field enables you to set one or more categories for the page. It is useful in content sorting and filtering.                                                       |
 | Tag      | Tags are a great way to provide some back-end insight into what your page is about. It's useful for content-driven sites as a mechanism for organization and filtering. |
 | Month    |                                                                                                                                                                         |
-|          |                                                                                                                                                                         |
 
 ### Sitemap
 
-![Grav Admin Page Editor](page_options_sitemap.png)
+![Grav Admin Page Editor](page_options_sitemap.png?classes=shadow)
 
 Having a good, clean sitemap is important for several reasons. Among them being user navigation and search engine optimization (SEO). Having a sitemap in place makes your site inherently more friendly to search engines, which can have a direct impact on ranking.
 

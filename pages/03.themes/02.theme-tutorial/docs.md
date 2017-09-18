@@ -12,224 +12,136 @@ Grav comes with a clean and modern theme called **Antimatter** which uses a simp
 
 Nucleus is a lightweight CSS framework that contains the essential CSS resets and styling for layout and HTML markup without any over-bearing design.  Antimatter has some custom styling on top of the Nucleus framework to give it a unique look and feel.
 
-## Bootstrap
+However, it's often better to start from something even simpler.
 
-For the sake of this tutorial, we will create a theme that utilizes the popular [Bootstrap framework](http://getbootstrap.com/).
+## Pure.css
 
-Bootstrap is a full-featured HTML, CSS, and JS framework that contains a wide variety of components and styling to help create sites quickly. Over the past several years, Bootstrap has become a very popular framework. It is often used as a base for other designs because it already has essential styling for pretty much anything you can think of.
+For the sake of this tutorial, we will create a theme that utilizes the popular [Pure.css framework](http://purecss.io/)  developed by Yahoo!
 
-## Step 1 - Base Theme Setup
+Pure is a small, fast, and responsive CSS framework that contains the basics to get you developing your site without the overhead of larger frameworks such as [Bootstrap](http://getbootstrap.com/css/) or [Foundation](http://foundation.zurb.com/). It contains several modules that can be used independently, but all together the resulting package is only **4.0KB minified and gzipped**!
 
-As outlined in the [Theme Basics](../theme-basics) chapter, there are some key elements to a Grav theme, so we must create them for our new theme:
+You can read up on all the features Pure brings to the table on the [Pure.css project site](http://purecss.io/).
 
-1. Follow the [Installation instruction](../../basics/installation) and ensure you have Grav properly installed.
+## Step 1 - Install DevTools Plugin
 
-2. Create a folder called `bootstrap` within the `user/themes` folder of your Grav site to provide the basis of our new theme.
+!! Previous versions of this tutorial required creating a base theme by default.  This whole process can be skipped thanks to our new **DevTools Plugin**
 
-3. In your new `user/themes/bootstrap` folder you just created, create these folders:
+The first step in creating a new theme is to **install the DevTools Plugin**.  This can be done in two ways.
 
-    ```
-    css/
-    fonts/
-    images/
-    js/
-    templates/
-    ```
+#### Install via CLI GPM
 
-4. Next, create a Theme file called `bootstrap.php` in your `user/themes/bootstrap` folder with the following content:
-
-    ```
-    <?php
-    namespace Grav\Theme;
-
-    use Grav\Common\Theme;
-
-    class Bootstrap extends Theme
-    {
-
-    }
-    ```
-
-5. Then, create a Theme configuration file called `bootstrap.yaml` in your `/user/themes/bootstrap` folder with the following content:
-
-   ```
-   enabled: true
-   ```
-
-6. We will add a thumbnail later, and for now we will skip the `blueprints` folder and definition as we have no configuration options.  The `scss.sh` file is used for compiling SASS, and we'll just use regular CSS for this tutorial, so we do not need that either.
-
-## Step 2 - Add Bootstrap
-
-Of course, to create a Bootstrap theme, we must actually include Bootstrap in our theme.
-
-In this tutorial, we will use the latest version available (at the time of writing latest version is **v3.2.0**) so you will need to [download the Bootstrap distribution package](http://getbootstrap.com/getting-started/#download). This package includes the essential bits needed to use the framework.
-
-!!!! Be sure to download the regular version labeled "Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included."
-
-Next **unzip** the package you downloaded into a temporary location. You should see **3 folders**: `css`, `fonts`, and `js`.  Copy the contents of each of these folders into the similarly-named folders you just created in your theme.
+* Navigate in the command line to the root of your Grav installation
 
 ```
-bootstrap
+$ bin/gpm install devtools
+```
+
+#### Install via Admin Plugin
+
+* After logging in, simply navigate to the **Plugins** section from the sidebar.
+* Click the <i class="fa fa-plus"></i> **Add** button in the top right.
+* Find **DevTools** in the list and click the <i class="fa fa-plus"></i> **Install** button.
+
+## Step 2 - Create Base Theme
+
+For this next step you really do need to be in the [command line](/cli-console/command-line-intro) as the DevTools provide a couple of CLI commands to make the process of creating a new theme much easier!
+
+From the root of your Grav installation enter the following command:
+
+```
+$ bin/plugin devtools new-theme
+```
+
+This process will ask you a few questions that are required to create the new theme:
+
+! We're going to use **pure-blank** to create a new theme, but you can create a simple **inheritence** style template that inherits from another base theme
+
+```
+$ bin/plugin devtools new-theme
+Enter Theme Name: MyTheme
+Enter Theme Description: My New Theme
+Enter Developer Name: Acme Corp
+Enter Developer Email: contact@acme.co
+Please choose a template type
+  [0] pure-blank
+  [1] inheritence
+ > 0
+
+SUCCESS theme mytheme -> Created Successfully
+
+Path: /www/user/themes/my-theme
+```
+
+The DevTools command tells you where this new template was created. This created template is fully functional but also very simple.  You will want to modify this to suite your needs.
+
+In order to see your new theme in action, you will need to change the default theme from `antimatter` to `my-theme`, so edit your `user/config/system.yaml` and change it:
+
+```
+...
+pages:
+    theme: my-theme
+...
+```
+
+Reload your site in your browser and you should see the theme has now changed.
+
+## Step 3 - Theme Basics
+
+Now we've created a new basic theme that can be modified and developed, let's break it down and have a look at what makes up a theme.  If you look in the `user/themes/my-theme` folder you will see:
+
+```
+.
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── blueprints.yaml
 ├── css
-│   ├── bootstrap-theme.css
-│   ├── bootstrap-theme.css.map
-│   ├── bootstrap-theme.min.css
-│   ├── bootstrap.css
-│   ├── bootstrap.css.map
-│   └── bootstrap.min.css
+│   └── custom.css
 ├── fonts
-│   ├── glyphicons-halflings-regular.eot
-│   ├── glyphicons-halflings-regular.svg
-│   ├── glyphicons-halflings-regular.ttf
-│   └── glyphicons-halflings-regular.woff
 ├── images
+│   └── logo.png
 ├── js
-│   ├── bootstrap.js
-│   └── bootstrap.min.js
+├── my-theme.php
+├── my-theme.yaml
+├── screenshot.jpg
 ├── templates
-├── bootstrap.yaml
-└── bootstrap.php
+│   ├── default.html.twig
+│   ├── error.html.twig
+│   └── partials
+│       ├── base.html.twig
+│       ├── header.html.twig
+│       ├── metadata.html.twig
+│       └── navigation.html.twig
+└── thumbnail.jpg
 ```
 
-## Step 3 - Base Template
+This is a sample structure but some things are required:
 
-As you know from the [previous chapter](../theme-basics), each item of content in Grav has a particular filename, e.g. `default.md`, which instructs the Grav to look for a rendering template called `default.html.twig`.  It is possible to put everything you need to display a page in this one file, and it would work fine. However, there is a better solution.
+### Required Items to Function
 
-Utilizing the Twig [Extends](http://twig.sensiolabs.org/doc/tags/extends.html) tag you can define a base layout with [blocks](http://twig.sensiolabs.org/doc/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.
+These items are critical and your theme will not function reliably unless you include these in your theme.
 
-!! As a general rule, we use the `templates/partials` folder to contain Twig templates that represent either little chunks of HTML, or are shared.
+* **`blueprints.yaml`** - The configuration file used by Grav to get information on your theme. It can also define a form that the admin can display when viewing the theme details.  This form will let you save settings for the theme. [This file is documented in the Forms section](/forms/blueprints).
+* **`my-theme.php`** - This file will be named according to your theme, but can be used to house any logic your theme needs.  You can use any [plugin event hook](/plugins/event-hooks) except `onPluginsInitialized()`, however there is a theme specific `onThemeInitialized()` hook specific for themes that you can use instead.
+* **`my-theme.yaml`** - This is the configuration used by the plugin to set options the theme might use.
+* **`templates/`** - This is a folder that contains the Twig templates to render your pages.
 
-So we will now create a simple Bootstrap friendly base template:
+### Required Items for Release
 
-1. Create a folder in your `user/themes/bootstrap/templates` folder called `partials`. We will use this folder to store our base template.
+These items are required if you wish to release your theme via GPM.
 
-2. In this new `user/themes/bootstrap/templates/partials` folder, create a file called `base.html.twig` with the following content:
+* **`CHANGELOG.md`** - A file that follows the [Grav Changelog Format](/advanced/grav-development#changelog-format) to show changes in releases.
+* **`LICENSE`** - a license file, should probably be MIT unless you have a specific need for something else.
+* **`README.md`** - A 'Readme' that should contain any documentation for the theme.  How to install it, configure it, and use it.
+* **`screenshot.jpg`** - 1009px x 1009px screenshot of the theme.
+* **`thumbnail.jpg`** - 300px x 300px screenshot of the theme.
 
-```
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        {% block head %}
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% if header.description %}
-        <meta name="description" content="{{ header.description }}">
-        {% else %}
-        <meta name="description" content="{{ site.description }}">
-        {% endif %}
-        {% if header.robots %}
-        <meta name="robots" content="{{ header.robots }}">
-        {% endif %}
-        <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png">
 
-        <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
+## Step 4 - Base Template
 
-        {% block stylesheets %}
-            {# Bootstrap core CSS #}
-            {% do assets.add('theme://css/bootstrap.min.css',101) %}
+As you know from the [previous chapter](../theme-basics), each item of content in Grav has a particular filename, e.g. `default.md`, which instructs Grav to look for a rendering Twig template called `default.html.twig`.  It is possible to put everything you need to display a page in this one file, and it would work fine. However, there is a better solution.
 
-        {# Custom styles for this theme #}
-            {% do assets.add('theme://css/bootstrap-custom.css',100) %}
-
-            {{ assets.css() }}
-        {% endblock %}
-
-        {% block javascripts %}
-            {% do assets.add('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', 101) %}
-            {% do assets.add('theme://js/bootstrap.min.js') %}
-
-            {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
-                {% do assets.add('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') %}
-                {% do assets.add('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') %}
-            {% endif %}
-
-            {{ assets.js() }}
-        {% endblock %}
-
-        {% endblock head %}
-    </head>
-
-      <body>
-
-        {# include the header + navigation #}
-        {% include 'partials/header.html.twig' %}
-
-        <div class="container">
-            {% block content %}{% endblock %}
-        </div>
-
-        <div class="footer">
-            <div class="container">
-                <p class="text-muted">Bootstrap Theme for <a href="http://getgrav.org">Grav</a></p>
-            </div>
-        </div>
-    </body>
-    {% block bottom %}{% endblock %}
-</html>
-```
-
-## Step 4 - Breaking it Down
-
-Please read over the code in the `base.html.twig` file to try to understand what is going on.  There are several key things to note:
-
-1. The `{% block head %}{% endblock head %}` syntax defines an area in the base Twig template. Note that the use of `head` in the `{% endblock head %}` tag is not required, but is used here for readability.
-
-2. An `if` statement is used to test if there is a meta **description** set in the page headers, if not, the template should render using the default `site.description` as defined in the `user/config/site.yaml` file.
-
-3. The `theme_url` variable can be used to output the path to the current theme.
-
-4. To make use of the **Asset Manager** we use the syntax: `{% do assets.add('theme://css/bootstrap.min.css',101) %}` where `theme://` is automatically converted to the current theme path, and the `101` represents an order where higher comes first, and no provided value defaults to `10`. If we need to add an asset that does not have a regular extension (i.e. `.../script.js?v=1.0.12` refering a CDN link for example), we need to address the asset type explicitly using `{% do assets.addCss('http://fonts.googleapis.com/css?family=Open+Sans') %}` or `assets.addJs` respectively.
-
-5. The `{{ assets.css() }}` call is what triggers the template to render all the CSS link tags. Likewise, the `{{ assets.js() }}` will render all the JavaScript tags.
-
-6. The use of `{# ... #}` is a Twig way of writing a comment without any output in the HTML as opposed to an HTML comment: `<!-- ... ->` that **does** output to HTML but is ignored by the browser.
-
-7. The `{% include 'partials/header.html.twig' %}` tag causes another Twig template to be included.  This way we are able to break out the header into its own template file.
-
-8. The use of `{% block content %}{% endblock %}` provides a placeholder that allows us to provide content from a template that extends this one.
-
-9. Similar to the content block, the `{% block bottom %}{% endblock %}` is intended as a placeholder for templates to add custom JavaScript initialization or analytic codes.
-
-## Step 5 - Header Template
-
-If you read the code, you will remember seeing a reference just after the `<body>` tag that looked like: `{% include 'partials/header.html.twig' %}`.  This tells the Twig rendering engine to include another template file at this point.  We need to now create this file to provide our **header** and **navigation**.
-
-In your `user/themes/bootstrap/templates/partials` folder, create a file called `header.html.twig` with the following content:
-
-```html
-<nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Grav</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                {% for page in pages.children %}
-                {% if page.visible %}
-                {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
-                <li class="{{ current_page }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-</nav>
-```
-
-Most of this is standard **Bootstrap** output for creating a navbar, but the interesting part is the **for loop** that loops through the **top-level pages** and displays a menu item for each of them. This means that as you add more pages to your top-level `user/pages` folder, they will automatically be added to the menu.
-
-### Step 6 - Default Template
-
-As we explained in **Step 3**, we need to create a `default.html.twig` file that actually makes use of the newly created `partials/base.html.twig` and in turn, `partials/header.html.twig`.
-
-In your `user/themes/bootstrap/templates/` folder, create a file called `default.html.twig` with the following content:
+Utilizing the Twig [Extends](http://twig.sensiolabs.org/doc/tags/extends.html) tag you can define a base layout with [blocks](http://twig.sensiolabs.org/doc/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.  So look at the `templates/default.html.twig` file and examine its content:
 
 ```
 {% extends 'partials/base.html.twig' %}
@@ -239,178 +151,321 @@ In your `user/themes/bootstrap/templates/` folder, create a file called `default
 {% endblock %}
 ```
 
-This is a very simple file because all of the hard-work has already been done by the `partials/base.html.twig` file.  All this file does is:
+There are really two things going on here.
 
-1. Extends the `partials/base.html.twig`
+First, the template extends a template located in `partials/base.html.twig`.
 
-2. Tells the base template to use `{{ page.content }}` for the **content** block.
+! You don't need to include `templates/` within Twig templates as Twig is already looking in `templates/` as the root level for any template.
 
-### Step 7 - Theme CSS
+Second, the block `content` is overridden from the base template, and the page's content is output in its place.
 
-You might have noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via Asset Manager: `do assets.add('theme://css/bootstrap-custom.css',100)`.  This file will house any custom CSS we need to fill in the gaps not provided by the Bootstrap CSS.
+!! For consistency, it's a good idea to use the `templates/partials` folder to contain Twig templates that represent either little chunks of HTML, or are shared. We also use `templates/modular` for modular templates, and `templates/forms` for any forms.  You can create any sub-folders you like if you prefer to organize your templates differently.
 
-1. In your `user/themes/bootstrap/css` folder, create a file called `bootstrap-custom.css` with the following content:
-
-        /* Constrain the width */
-        .container {
-          width: auto;
-          max-width: 960px;
-          padding: 0 15px;
-        }
-
-        /* Center the footer text */
-        .container .text-muted {
-          margin: 20px 0;
-          text-align: center;
-        }
-
-        /* Sticky footer styles
-        -------------------------------------------------- */
-        html {
-          position: relative;
-          min-height: 100%;
-        }
-
-        body {
-          /* Margin bottom by footer height */
-          margin-bottom: 60px;
-        }
-
-        .footer {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          /* Set the fixed height of the footer here */
-          height: 60px;
-          background-color: #f5f5f5;
-        }
-
-        /* Typography */
-
-        /* Tables */
-        table {
-            width: 100%;
-            border: 1px solid #f0f0f0;
-            margin: 30px 0;
-        }
-
-        th {
-            font-weight: bold;
-            background: #f9f9f9;
-            padding: 5px;
-        }
-
-        td {
-            padding: 5px;
-            border: 1px solid #f0f0f0;
-        }
-
-        /* Notice Styles */
-        blockquote {
-            padding: 0 0 0 20px !important;
-            font-size: 16px;
-            color: #666;
-        }
-        blockquote > blockquote > blockquote {
-            margin: 0;
-        }
-
-        blockquote > blockquote > blockquote p {
-            padding: 15px;
-            display: block;
-            margin-top: 0rem;
-            margin-bottom: 0rem;
-            border: 1px solid #f0f0f0;
-        }
-
-        blockquote > blockquote > blockquote > p {
-            /* Yellow */
-            margin-left: -75px;
-            color: #8a6d3b;
-            background-color: #fcf8e3;
-            border-color: #faebcc;
-        }
-
-        blockquote > blockquote > blockquote > blockquote > p {
-            /* Red */
-            margin-left: -100px;
-            color: #a94442;
-            background-color: #f2dede;
-            border-color: #ebccd1;
-        }
-
-        blockquote > blockquote > blockquote > blockquote > blockquote > p {
-            /* Blue */
-            margin-left: -125px;
-            color: #31708f;
-            background-color: #d9edf7;
-            border-color: #bce8f1;
-        }
-
-        blockquote > blockquote > blockquote > blockquote > blockquote > blockquote > p {
-            /* Green */
-            margin-left: -150px;
-            color: #3c763d;
-            background-color: #dff0d8;
-            border-color: #d6e9c6;
-        }
-
-2. Most of this file contains Markdown-friendly **table** and **notice** style CSS that require CSS classes in normal bootstrap to utilize.
-
-### Step 8 - Testing
-
-Your finished **bootstrap theme** folder should now look something like this:
-
-```bash
-bootstrap
-├── css
-│   ├── bootstrap-custom.css
-│   ├── bootstrap-theme.css
-│   ├── bootstrap-theme.css.map
-│   ├── bootstrap-theme.min.css
-│   ├── bootstrap.css
-│   ├── bootstrap.css.map
-│   └── bootstrap.min.css
-├── fonts
-│   ├── glyphicons-halflings-regular.eot
-│   ├── glyphicons-halflings-regular.svg
-│   ├── glyphicons-halflings-regular.ttf
-│   └── glyphicons-halflings-regular.woff
-├── images
-├── js
-│   ├── bootstrap.js
-│   └── bootstrap.min.js
-├── templates
-│   ├── partials
-│   │   ├── base.html.twig
-│   │   └── header.html.twig
-│   └── default.html.twig
-├── bootstrap.yaml
-└── bootstrap.php
-```
-
-The next step is to change your default theme to your new `bootstrap` theme and test it!
-
-Open your `user/config/system.yaml` file and edit the line that currently says:
+If you look at the `templates/partials/base.html.twig` you will see the meat of the HTML layout:
 
 ```
-pages:
-  theme: antimatter
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metadata.html.twig' %}
+
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+    {% block stylesheets %}
+        {% do assets.addCss('http://yui.yahooapis.com/pure/0.6.0/pure-min.css', 100) %}
+        {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', 99) %}
+        {% do assets.addCss('theme://css/custom.css', 98) %}
+    {% endblock %}
+    {{ assets.css() }}
+
+    {% block javascripts %}
+        {% do assets.addJs('jquery', 100) %}
+    {% endblock %}
+    {{ assets.js() }}
+
+{% endblock head%}
+</head>
+<body id="top" class="{{ page.header.body_classes }}">
+
+{% block header %}
+    <div class="header">
+        <div class="wrapper padding">
+            <a class="logo left" href="{{ base_url == '' ? '/' : base_url }}">
+                <i class="fa fa-rebel"></i>
+                {{ config.site.title }}
+            </a>
+            {% block header_navigation %}
+            <nav class="main-nav">
+                {% include 'partials/navigation.html.twig' %}
+            </nav>
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <section id="body">
+        <div class="wrapper padding">
+        {% block content %}{% endblock %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}
+    <div class="footer text-center">
+        <div class="wrapper padding">
+            <p><a href="http://getgrav.org">Grav</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://www.rockettheme.com">RocketTheme</a>.</p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block bottom %}
+    {{ assets.js('bottom') }}
+{% endblock %}
+
+</body>
 ```
 
-and change it to:
+## Step 5 - Breaking it Down
+
+Please read over the code in the `base.html.twig` file to try to understand what is going on.  There are several key things to note:
+
+1. A `theme_config` variable is set with the theme configuration.  Because Twig doesn't work well with dashes retrieve variables with dashes (e.g. `config.themes.my-theme`), we use the `attribute()` Twig function to dynamically retrieve the `my-theme` data from `config.themes`.
+
+1. The `<html lang=...` item is set based on Grav's active language if enabled, else it uses the `default_lang` as set in the `theme_config`.
+
+1. The `{% block head %}{% endblock head %}` syntax defines an area in the base Twig template. Note that the use of `head` in the `{% endblock head %}` tag is not required, but is used here for readability. In this block we put things that are typically located in the HTML `<head>` tag.
+
+1. The `<title>` tag is dynamically set based on the page's `title` variable as set in the page header.  The `header.title` is a shortcut method but is equivalent to `page.header.title`.
+
+1. After a couple of standard meta tags are set, there is a reference to include `partials/metadata.html.twig`.  This file contains a loop that loops over the page's metadata.  This is actually a merge of metadata from `site.yaml` and any page-specific overrides.
+
+1. The `<link rel="icon"...` entry is set by pointing to a theme-specific image.  In this case it's located in theme directory under `images/logo.png`.  The syntax for this is `{{ url('theme://images/logo.png') }}`.
+
+1. The `<link rel="canonical"...` entry sets a canonical URL for the page that is always set to the full URL of the page via `{{ page.url(true, true) }}`.
+
+1. Now we define a block called `stylesheets`, and in here we use the [Asset Manager](/themes/asset-manager) to add several assets.  The first one loads the Pure.css framework.  The second one loads [FontAwesome](http://fontawesome.io/) to provide useful icons.  The last entry points to a `custom.css` file in the theme's `css/` folder.  In here are a few useful styles to get you started, but you can add more here.  Also you can add other CSS file entries as needed.
+
+1. The `{{ assets.css() }}` call is what triggers the template to render all the CSS link tags.
+
+1. The `javascripts` block, like the `stylesheets` block is a good place to put your JavaScript files.  In this example, we only add the 'jquery' library which is already bundled with Grav, so you don't need to provide a path to it.
+
+1. The `{{ assets.js() }}` will render all the JavaScript tags.
+
+1. The `<body>` tag has a class attribute that will output anything you set in the `body_classes` variable of the page's frontmatter.
+
+1. The `header` block has a few things that output the HTML header of the page.  One important thing to note is the logo is hyperlinked to the `base_url` with the logic: `{{ base_url == '' ? '/' : base_url }}`.  This is to ensure that if there is no subdirectory, the link is just `/`.
+
+1. The title of the site is output as the logo in this example theme with `{{ config.site.title }}` but you could just replace this with a `<img>` tag to a logo if you wanted.
+
+1. The `<nav>` tag actually contains a link to `partials/navigation.html.twig` that contains the logic to loop over any **visible** pages and display them as a menu.  By default it supports dropdown menus for nested pages, but this can be turned off via the theme's configuration.  Have a look in this navigation file to get an idea of how the menu is generated.
+
+1. The use of `{% block content %}{% endblock %}` provides a placeholder that allows us to provide content from a template that extends this one. Remember we overrode this in `default.html.twig` to output the page's content.
+
+1. The `footer` block contains a simple footer, you can easily modify this for your needs.
+
+1. Similar to the content block, the `{% block bottom %}{% endblock %}` is intended as a placeholder for templates to add custom JavaScript initialization or analytic codes. In this example, we output any JavaScript that was added to the `bottom` Asset Group.  Read more about this in the [Asset Manager](/themes/asset-manager) documentation.
+
+
+### Step 6 - Theme CSS
+
+You might have noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via Asset Manager: `do assets.add('theme://css/custom.css', 98)`.  This file will house any custom CSS we need to fill in the gaps not provided by the Pure.css framework.  As Pure is a very minimal framework, it provides the essentials but almost no styling.
+
+1. In your `user/themes/my-theme/css` folder, view the `custom.css`:
 
 ```
-pages:
-  theme: bootstrap
+/* Core Stuff */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #606d6e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #454B4D;
+}
+
+a {
+    color: #1F8CD6;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #175E91;
+}
+
+pre {
+    background: #F0F0F0;
+    margin: 1rem 0;
+    border-radius: 2px;
+}
+
+blockquote {
+    border-left: 10px solid #eee;
+    margin: 0;
+    padding: 0 2rem;
+}
+
+/* Utility Classes */
+.wrapper {
+    margin: 0 3rem;
+}
+
+.padding {
+    padding: 3rem 1rem;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+/* Content Styling */
+.header .padding {
+    padding: 1rem 0;
+}
+
+.header {
+    background-color: #1F8DD6;
+    color: #eee;
+}
+
+.header a {
+    color: #fff;
+}
+
+.header .logo {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+}
+
+.footer {
+    background-color: #eee;
+}
+
+/* Menu Settings */
+.main-nav ul {
+    text-align: center;
+    letter-spacing: -1em;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li {
+    display: inline-block;
+    letter-spacing: normal;
+}
+
+.main-nav ul li a {
+    position: relative;
+    display: block;
+    line-height: 45px;
+    color: #fff;
+    padding: 0 20px;
+    white-space: nowrap;
+}
+
+.main-nav > ul > li > a {
+    border-radius: 2px;
+}
+
+/*Active dropdown nav item */
+.main-nav ul li:hover > a {
+    background-color: #175E91;
+}
+
+/* Selected Dropdown nav item */
+.main-nav ul li.selected > a {
+    background-color: #fff;
+    color: #175E91;
+}
+
+/* Dropdown CSS */
+.main-nav ul li {position: relative;}
+
+.main-nav ul li ul {
+    position: absolute;
+    background-color: #1F8DD6;
+    min-width: 100%;
+    text-align: left;
+    z-index: 999;
+
+    display: none;
+}
+.main-nav ul li ul li {
+    display: block;
+}
+
+/* Dropdown CSS */
+.main-nav ul li ul ul {
+    left: 100%;
+    top: 0;
+}
+
+/* Active on Hover */
+.main-nav li:hover > ul {
+    display: block;
+}
+
+/* Child Indicator */
+.main-nav .has-children > a {
+    padding-right: 30px;
+}
+.main-nav .has-children > a:after {
+    font-family: FontAwesome;
+    content: '\f107';
+    position: absolute;
+    display: inline-block;
+    right: 8px;
+    top: 0;
+}
+
+.main-nav .has-children .has-children > a:after {
+    content: '\f105';
+}
+
 ```
 
-Then, open your browser, and point it to your Grav site.  You should see something like this:
+This is pretty standard CSS stuff and sets some basic margins, fonts, colors, and utility classes. There is some basic content styling and some more extensive styling required to render the drop-down menu.  Feel free to modify this file as you need, or even add new CSS files (just ensure you add a reference in the `head` block by following the example for `custom.css`).
 
-![](bootstrap-theme.png?lightbox&resize=600,400)
+### Step 7 - Testing
 
-At this point you have created your first theme!  There are a couple of minor things missing:
+To see your theme in action, open your browser, and point it to your Grav site.  You should see something like this:
 
-1. Create a **favicon** in `images/favicon.png`.
-2. Create a thumbnail called `thumbnail.jpg` and place in the root of your theme.
-3. Add missing **templates** for other pages other than `default.html.twig`, e.g. `blog.html.twig` that you might need.
+![](pure-theme.png?lightbox&resize=800,600)
+
+Congratulations, you have created your first theme!

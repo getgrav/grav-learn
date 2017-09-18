@@ -29,7 +29,7 @@ This may sound a little daunting at first, but you can use as much or as little 
 
 To make use of SCSS you need to use a SCSS compiler. Lucky these are [easily installed](http://sass-lang.com/install) on any platform and come in a variety of forms including a command-line tool, and many GUI applications. Frankly, the command line is all you need.
 
-The Antimatter theme has an `scss/` folder that contains a variety of `.scss` files. These should be compiled into the `css-compiled/` folder. Once installed, you can simply type:
+The Antimatter theme has an `scss/` folder that contains a variety of `.scss` files. These should be compiled into the `css-compiled/` folder. Once installed, open your terminal application, navigate to the install folder `my-grav-install/my-theme/` and you can simply type:
 
 ```
 scss --watch scss:css-compiled
@@ -55,6 +55,19 @@ body {
 ```
 
 The downside to this approach is that this file is overwritten during any *theme upgrade*, so you should ensure you create a backup of any custom work you do.  This issue is resolved by using theme inheritance as described below.
+
+## Wellington SCSS
+
+[Wellington](https://github.com/wellington/wellington) is a native wrapper for [libsass](http://libsass.org/) available for both Linux and MacOS. It provides a much faster solution for compiling SCSS than the default Ruby-based scss compiler.  By faster we mean about **20X faster!**. It's super easy to install (via brew):
+
+```
+brew install wellington
+```
+
+To take advantage of it to compile and `scss` folder into a `css-compiled` folder as in the example above you can [use this gist](https://gist.github.com/rhukster/bcfe030e419028422d5e7cdc9b8f75a8).
+
+!! Wellington is what we have been using for all _Team Grav_ themes and it's been working great!
+
 
 ## Theme Inheritance
 
@@ -87,7 +100,7 @@ To achieve this you need to follow these steps:
      email: devs@getgrav.org
      url: http://getgrav.org
    ```
-   You can provide more details including form definitions to control functionality of your form.  Fore more details on this you should examine the Antimatter theme's blueprint.yaml file
+   You can provide more details including form definitions to control functionality of your form.  For more details on this you should examine the Antimatter theme's blueprint.yaml file
 
 4. Change your default theme to use your new **mytheme** by editing the `pages: theme:` option in your `user/config/system.yaml` configuration file:
    ```
@@ -98,13 +111,13 @@ To achieve this you need to follow these steps:
 5. Create a new theme Class file that can be used to add advanced event-driven functionality. Create a `user/themes/mytheme/mytheme.php` file:
    ```
    <?php
-     namespace Grav\Theme;
+   namespace Grav\Theme;
 
-     class Mytheme extends Antimatter
-     {
-         // Some new methods, properties etc.
-     }
-   ?>  
+   class Mytheme extends Antimatter
+   {
+       // Some new methods, properties etc.
+   }
+   ?>
    ```
 
 You have now created a new theme called **mytheme** and set up the streams so that it will first look in the **mytheme** theme first, then try **antimatter**.  So in essence, Antimatter is the base-theme for this new theme.

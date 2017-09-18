@@ -79,7 +79,7 @@ In your theme, you can easily display a list of pages that are written by `ksmit
 {% for post in taxonomy.findTaxonomy({'author':'ksmith'}) %}
     <li>{{ post.title }}</li>
 {% endfor %}
-<ul>
+</ul>
 ```
 
 You can also do sophisticated searches based on multiple taxonomies by using arrays/hashes, for example:
@@ -89,6 +89,13 @@ You can also do sophisticated searches based on multiple taxonomies by using arr
 ```
 
 This will find all posts with `tag` set to `animal` **and** `cat` **and** `author` set to `jdoe`.  Basically, this will specifically find **Post 2**.
+
+If you need a collection which includes one term **or** the other, just add the `'or'` parameter after the array, example:
+```bash
+{% for post in taxonomy.findTaxonomy({'tag':['dog','cat']},'or') %}
+```
+This will find all posts with `tag` set to `dog` **or** `cat`.
+
 
 ## Taxonomy based Collections
 

@@ -14,7 +14,7 @@ Using this directory structure as an example, we will take a look at the differe
 
 The use of the `/images` folder serves as an example of how you can maintain a simple centralized image directory to store files that are frequently used by multiple pages. This simplifies the linking process in these cases.
 
-!!!! If you decide to use a centralized image directory, be advised that this directory should exist within the `/pages` folder as this folder is intended for front-facing content.
+!!!! If you decide to use a centralized image directory, be advised that this directory should exist within the `/pages` folder as this folder is intended for front end content.
 
 To get us started, here is a quick look at some of the common components of a Grav markdown-based image tag.
 
@@ -22,12 +22,12 @@ To get us started, here is a quick look at some of the common components of a Gr
 ![Alt Text](../path/image.ext)
 ```
 
-| String |                                                                           Description                                                                            |
-| :----- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `!`    | When placed at the beginning of a traditional markdown link tag, it indicates this is an image tag.                        |
-| `[]`   | The square bracket is used to wrap the **optional** alt-text for the image. |
-| `()`   | The parenthesis is used to surround the reference to the image itself. This is placed directly after the square bracket.                                                           |
-| `../`  | When used in the link, it indicates a move up a directory.                                                                                                       |
+| String | Description                                                                                                              |
+| :----- | :-----                                                                                                                   |
+| `!`    | When placed at the beginning of a traditional markdown link tag, it indicates this is an image tag.                      |
+| `[]`   | The square bracket is used to wrap the **optional** alt-text for the image.                                              |
+| `()`   | The parenthesis is used to surround the reference to the image itself. This is placed directly after the square bracket. |
+| `../`  | When used in the link, it indicates a move up a directory.                                                               |
 
 !!! You can combine a regular page link and an image link like to wrap an image in a link: `[![Alt text](/path/to/img.jpg)](http://example.net/)`
 
@@ -104,6 +104,26 @@ In an absolute link, the link opens with a `/`. Here is an example of an absolut
 
 !!! A powerful technique is to create a `user/pages/images/` folder in your Grav site and put your images here.  Then you can easily reference them with an absolute URL from any Grav page: `/images/test_image_4.jpg` and still be able to perform [media actions](../media) on them.
 
+### PHP Streams
+
+New in Grav 1.2 is the ability to reference and link images via PHP streams.  There are several built-in PHP streams available which are useful including:
+
+* `user://` - user folder. e.g. `user/`
+* `image://` - images folder. e.g. `user/images/`
+* `theme://` - current theme.  e.g. `user/themes/antimatter/`
+
+These allow you to easily access images that are traditionally outside of the Pages hierarchy (`user/pages/`).
+
+```markdown
+![Stream Image](user://media/images/my-image.jpg)
+```
+
+or:
+
+```markdown
+![Stream Image](theme://images/my-image.jpg)
+```
+
 ### Remote
 
 Remote image links enable you to directly display pretty much any media file via its URL. This doesn't have to include your own site's content, but it can. Here is an example of how you would display to a remote image file.
@@ -116,10 +136,16 @@ You can link to pretty much any direct URL, including secured HTTPS links.
 
 ### Media Actions on Images
 
-One of the main benefits of using images associated with pages is that it enables you to take advantage of [Grav's powerful media actions](../media). For example, here is a line you would use to load an image from `/pages/01.blog/test-post-3/test_image_3.jpg` from `/pages/01.blog/test-post-1/test_image_1.jpg`
+One of the main benefits of using images associated with pages is that it enables you to take advantage of [Grav's powerful media actions](../media). For example, here is a line you would use to load an image from another page:
 
 ```markdown
 ![Styling Example](../test-post-3/test_image_3.jpg?cropResize=400,200)
+```
+
+or taking advantage of streams to access an image in your current theme:
+
+```markdown
+![Stream Image](theme://images/default-avatar.jpg?cropZoom=200,200&brightness=-75)
 ```
 
 You will find more information about actions and other [media file functionality in the next chapter](../media).

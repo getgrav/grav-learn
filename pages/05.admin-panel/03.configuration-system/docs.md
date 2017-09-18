@@ -6,7 +6,7 @@ process:
     twig: true
 ---
 
-![Grav Admin Configuration](configuration.png)
+![Grav Admin Configuration](configuration.png?classes=shadow)
 
 The **Configuration** page gives you access to your site's **System** and **Site** configuration settings. Additionally, you can view a breakdown of your server's properties in a number of areas including PHP, server environment, and other various components that determine how your site operates.
 
@@ -20,7 +20,7 @@ Below is a breakdown of the different configuration sections that appear in the 
 
 ### Content
 
-![Grav Admin Configuration](configuration_system_content.png)
+![Grav Admin Configuration](configuration_system_content.png?classes=shadow)
 
 This section is where you set the basic properties of content handling for your site. The home page, default theme, and various other content display options are set here.
 
@@ -29,7 +29,7 @@ This section is where you set the basic properties of content handling for your 
 | Home Page               | Select the page you wish to have appear as the home page for your site.    |
 | Default Theme           | Sets the primary default theme used in your site.                          |
 | Process                 | Control how pages are processed. Can be set per-page rather than globally. |
-| Timezone                | Override the default timezone the server.                                  |
+| Timezone                | Override the server's default timezone.                                    |
 | Short Date Format       | Set the short date format that can be used by themes.                      |
 | Long Date Format        | Set the long date format that can be used by themes.                       |
 | Default Ordering        | Pages in a list will render using this order unless it is overridden.      |
@@ -41,13 +41,13 @@ This section is where you set the basic properties of content handling for your 
 
 ### Languages
 
-![Grav Admin Configuration](configuration_system_languages.png)
+![Grav Admin Configuration](configuration_system_languages.png?classes=shadow)
 
 Multilanguage features are set in this section.
 
 | Option                         | Description                                                               |
 | :-----                         | :-----                                                                    |
-| Supported                      | Comma separated list of 2 letter language codes (for example 'en,fr,de'). |
+| Supported                      | Comma separated list of 2-letter language codes (for example 'en,fr,de'). |
 | Translations Enabled           | Support translations in Grav, plugins and extensions.                     |
 | Translations Fallback          | Fallback through supported translations if active language doesn't exist. |
 | Active Language in Section     | Store the active language in the session.                                 |
@@ -56,7 +56,7 @@ Multilanguage features are set in this section.
 
 ### HTTP Headers
 
-![Grav Admin Configuration](configuration_system_http.png)
+![Grav Admin Configuration](configuration_system_http.png?classes=shadow)
 
 HTTP header options can be set in this section. This is useful for browser-based caching and optimization.
 
@@ -69,7 +69,7 @@ HTTP header options can be set in this section. This is useful for browser-based
 
 ### Markdown
 
-![Grav Admin Configuration](configuration_system_markdown.png)
+![Grav Admin Configuration](configuration_system_markdown.png?classes=shadow)
 
 Markdown makes up the bulk of Grav's page content. This section gives you options to enable Markdown Extra, as well as to set how Grav handles Markdown.
 
@@ -82,7 +82,7 @@ Markdown makes up the bulk of Grav's page content. This section gives you option
 
 ### Caching
 
-![Grav Admin Configuration](configuration_system_caching.png)
+![Grav Admin Configuration](configuration_system_caching.png?classes=shadow)
 
 Grav's integrated caching feature helps make it one of the fastest flat-file CMS options out there. You can configure your site's primary caching functions in this section.
 
@@ -91,13 +91,13 @@ Grav's integrated caching feature helps make it one of the fastest flat-file CMS
 | Caching            | Global ON/OFF switch to enable/disable Grav caching.                                        |
 | Cache Check Method | Sets the cache check method. The options are **File**, **Folder**, and **None**.            |
 | Cache Driver       | Choose which cache driver Grav should use. 'Auto Detect' attempts to find the best for you. |
-| Cache Prefix       | An identifier for part of the Grav key.  Don't change unless you know what your doing.      |
+| Cache Prefix       | An identifier for part of the Grav key.  Don't change unless you know what you're doing.    |
 | Lifetime           | Sets the cache lifetime in seconds. 0 = infinite.                                           |
 | Gzip Compression   | Enable GZip compression of the Grav page for increased performance.                         |
 
 ### Twig Templating
 
-![Grav Admin Configuration](configuration_system_twig.png)
+![Grav Admin Configuration](configuration_system_twig.png?classes=shadow)
 
 This section focuses on Grav's Twig templating feature. You can set Twig caching, debug, and change detection settings here.
 
@@ -110,7 +110,7 @@ This section focuses on Grav's Twig templating feature. You can set Twig caching
 
 ### Assets
 
-![Grav Admin Configuration](configuration_system_assets.png)
+![Grav Admin Configuration](configuration_system_assets.png?classes=shadow)
 
 This section deals with assets handling, including CSS and JavaScript assets.
 
@@ -127,7 +127,7 @@ This section deals with assets handling, including CSS and JavaScript assets.
 
 ### Error Handler
 
-![Grav Admin Configuration](configuration_system_error.png)
+![Grav Admin Configuration](configuration_system_error.png?classes=shadow)
 
 You can set how Grav handles error reporting and display here. This is a useful tool to have during site development.
 
@@ -138,7 +138,7 @@ You can set how Grav handles error reporting and display here. This is a useful 
 
 ### Debugger
 
-![Grav Admin Configuration](configuration_system_debugger.png)
+![Grav Admin Configuration](configuration_system_debugger.png?classes=shadow)
 
 Like error handling, Grav's integrated debugging tools give you the ability to locate and troubleshoot issues. This is especially useful during development.
 
@@ -150,7 +150,7 @@ Like error handling, Grav's integrated debugging tools give you the ability to l
 
 ### Media
 
-![Grav Admin Configuration](configuration_system_media.png)
+![Grav Admin Configuration](configuration_system_media.png?classes=shadow)
 
 This section determines how Grav handles media content. Image quality, file upload size limits, and other media handling options are configured here.
 
@@ -158,13 +158,13 @@ This section determines how Grav handles media content. Image quality, file uplo
 | :-----                     | :-----                                                                                                    |
 | Default Image Quality      | Default image quality to use when resampling or caching images (85%).                                     |
 | Cache All Images           | Run all images through Grav's cache system even if they have no media manipulations.                      |
-| Image Debug Watermark      | Show an overlay over images indicating the pixel depth of the image when working with retina for example. |
+| Image Debug Watermark      | Show an overlay over images indicating the pixel depth of the image when working with Retina for example. |
 | File Upload Limit          | Set maximum upload size in bytes (0 is unlimited).                                                        |
 | Enable Timestamps on Media | Appends a timestamp based on last modified date to each media item.                                       |
 
 ### Session
 
-![Grav Admin Configuration](configuration_system_session.png)
+![Grav Admin Configuration](configuration_system_session.png?classes=shadow)
 
 This section gives you the ability to enable session support, set timeout limits, and the name of the session cookie used to handle this information.
 
@@ -176,7 +176,7 @@ This section gives you the ability to enable session support, set timeout limits
 
 ### Advanced
 
-![Grav Admin Configuration](configuration_system_advanced.png)
+![Grav Admin Configuration](configuration_system_advanced.png?classes=shadow)
 
 This section contains advanced system options.
 

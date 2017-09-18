@@ -18,7 +18,9 @@ The most important thing you will need to run a Grav multisite network is good w
 
 ### Setup and installation
 
-Before you begin, you’ll want to be sure your web server is capable of running multiple websites i.e., you have access to your Grav root directory. This is essential since serving multiple websites from the same installation is based on a `setup.php` file located in your Grav root.
+Before you begin, you’ll want to be sure your web server is capable of running multiple websites i.e., you have access to your Grav root directory.
+
+This is essential since serving multiple websites from the same installation is based on a `setup.php` file located in your Grav root.
 
 #### Quickstart (for Beginners)
 
@@ -45,6 +47,8 @@ Either way, decide which setup suits you best.
 ##### Snippets
 
 For subsites accessible via sub-domains copy the `setup_subdomain.php` file, otherwise for subsites accessible via sub-directories the `setup_subdirectory.php` file into your `setup.php`.
+
+!!! The `setup.php` file must be put in the Grav root folder, the same folder where you can find `index.php`, `README.md` and the other Grav files.
 
 **setup_subdomain.php**:
 ```php
@@ -167,7 +171,7 @@ return [
 
 #### Streams
 
-In Grav streams are objects, mapping a set of physical directories of the system to a logical device. They are classified via their `type` attribute. For readonly streams that's the `ReadOnlyStream` type and for read-writeable streams that's the `Stream` type. You can register any custom stream type and pointing to it as long as it is an instance of the [StreamInterface](https://github.com/rockettheme/blob/develop/toolbox/StreamWrapper/src/StreamInterface.php) interface class.
+In Grav streams are objects, mapping a set of physical directories of the system to a logical device. They are classified via their `type` attribute. For readonly streams that's the `ReadOnlyStream` type and for read-writeable streams that's the `Stream` type. You can register any custom stream type and pointing to it as long as it is an instance of the [StreamInterface](https://github.com/rockettheme/toolbox/blob/develop/StreamWrapper/src/StreamInterface.php) interface class.
 
 Mapping physical directories to a logical device can be done in two ways, either by setting up `paths` or `prefixes`. The former can be understood as a 1-to-1 mapping, whereas the latter (as the name suggests) allows you to combine several physical paths into one logical stream. Let's say you want to register a stream with the name "image". You can then with the stream `images://` list with
 
