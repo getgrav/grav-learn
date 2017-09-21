@@ -1,3 +1,7 @@
+---
+title: Grav System API
+---
+
 ## Table of contents
 
 - [\Grav\Common\Assets](#class-gravcommonassets)
