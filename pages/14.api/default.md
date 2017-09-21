@@ -1,5 +1,7 @@
 ---
 title: Grav System API
+taxonomy:
+    category: docs
 ---
 
 ## Table of contents
