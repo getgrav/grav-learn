@@ -7,7 +7,7 @@ process:
     twig: true
 ---
 
-The **Grav Administration Panel** plugin for [Grav](http://github.com/getgrav/grav) is a web GUI (graphical user interface) that provides a convenient way to configure Grav and easily create and modify pages.  This will remain a totally optional plugin, and is not in any way required or needed to use Grav effectively.  In fact, the admin interface provides an intentionally limited view to ensure it remains easy to use and not overwhelming.  Power users will still prefer to work with the configuration files directly.
+The **Administration Panel** plugin for [Grav](http://github.com/getgrav/grav) is a web GUI (graphical user interface) that provides a convenient way to configure Grav and easily create and modify pages.  This will remain a totally optional plugin, and is not in any way required or needed to use Grav effectively.  In fact, the admin interface provides an intentionally limited view to ensure it remains easy to use and not overwhelming.  Power users will still prefer to work with the configuration files directly.
 
 ![](admin-dashboard.png?classes=shadow)
 
@@ -61,13 +61,13 @@ You can also [install the plugin manually](../faq#manual-installation-of-admin) 
 
 ### Creating a User
 
-With the latest version of the Grav admin, you will be prompted to create an admin user account when you point your browser to your site.  You must complete this step to ensure straight away a valid admin user is under your control.
+With the latest version of the Admin, you will be prompted to create an admin user account when you point your browser to your site.  You must complete this step to ensure straight away a valid admin user is under your control.
 
 ![](new-user.png?classes=shadow)
 
 Simply fill out the form and click the `Create User` button.
 
-The user information is stored in the `user/accounts/` folder of your Grav installation.  You can edit the values manually or via the Admin plugin itself.  You can also create new users manually or via the `bin/plugin login newuser` CLI command.  More information is contained in the [Grav Admin FAQ](../faq#adding-and-managing-users).
+The user information is stored in the `user/accounts/` folder of your Grav installation.  You can edit the values manually or via the Admin plugin itself.  You can also create new users manually or via the `bin/plugin login newuser` CLI command.  More information is contained in the [Admin FAQ](../faq#adding-and-managing-users).
 
 ### Usage
 
