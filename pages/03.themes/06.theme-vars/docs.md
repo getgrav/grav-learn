@@ -72,7 +72,7 @@ Because Grav is built using the structure defined in the `pages/` folder, each p
 
 The **page object** is probably _the_ most important object you will work with as it contains all the information about the current page you are currently on.
 
-!! The whole list of the Page object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Page/Page.html). Here's a list of the methods you'll find most useful.
+!! The whole list of the Page object methods is available on the [API site](https://learn.getgrav.org/api#class-gravcommonpagepage). Here's a list of the methods you'll find most useful.
 
 ##### summary([size])
 
