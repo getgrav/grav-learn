@@ -41,7 +41,7 @@ Most scalars are unquoted, but if you are typing a string that uses punctuation 
 integer: 25
 string: "25"
 float: 25.0
-boolean: Yes
+boolean: true
 ~~~
 
 ## Sequences
