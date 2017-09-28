@@ -2,11 +2,14 @@
 title: Configuration (Site)
 taxonomy:
     category: docs
+routes:
+    aliases:
+      - '/admin-panel/configuration-site'
 process:
     twig: true
 ---
 
-![Grav Admin Configuration](configuration_site.png?classes=shadow)
+![Admin Configuration](configuration_site.png?classes=shadow)
 
 The **Configuration** page gives you access to your site's **System** and **Site** configuration settings. Additionally, you can view a breakdown of your server's properties in a number of areas including PHP, SQL, server environment, and other various components that determine how your site operates.
 
@@ -18,7 +21,7 @@ Below is a breakdown of the different configuration sections that appear in the 
 
 ### Defaults
 
-![Grav Admin Configuration](configuration_system_defaults.png?classes=shadow)
+![Admin Configuration](configuration_system_defaults.png?classes=shadow)
 
 This section is where you set the basic properties of content handling for your site. The home page, default theme, and various other content display options are set here.
 
@@ -32,7 +35,7 @@ This section is where you set the basic properties of content handling for your 
 
 ### Page Summary
 
-![Grav Admin Configuration](configuration_system_page.png?classes=shadow)
+![Admin Configuration](configuration_system_page.png?classes=shadow)
 
 Page summaries are a great way to give a small preview of a page's content. You can use a delimiter in the page to set a "cut off" point between the summary content, and the full body content of the page. These settings give you the ability to
 
@@ -46,7 +49,7 @@ Page summaries are a great way to give a small preview of a page's content. You 
 
 ### Metadata
 
-![Grav Admin Configuration](configuration_system_metadata.png?classes=shadow)
+![Admin Configuration](configuration_system_metadata.png?classes=shadow)
 
 Metadata is an important part of a page's behind-the-scenes makeup. It can improve SEO, how your links appear in various search engines and social feeds, and more. You can set various metadata properties here.
 
@@ -56,7 +59,7 @@ Metadata is an important part of a page's behind-the-scenes makeup. It can impro
 
 ### Redirects and Routes
 
-![Grav Admin Configuration](configuration_system_redirects.png?classes=shadow)
+![Admin Configuration](configuration_system_redirects.png?classes=shadow)
 
 Redirects and routing have never been easier. Just set it all up in this section, and you're good to go.
 

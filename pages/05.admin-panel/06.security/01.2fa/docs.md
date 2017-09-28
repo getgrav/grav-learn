@@ -2,15 +2,18 @@
 title: 2-Factor Authentication
 taxonomy:
     category: docs
+routes:
+    aliases:
+      - '/admin-panel/2fa'
 process:
     twig: true
 ---
 
-![Grav Admin Profile](auth3.gif?classes=shadow)
+![Admin Profile](auth3.gif?classes=shadow)
 
 Available with Grav 1.3.3 and Admin Panel 1.6.0, you can now activate 2-factor authentication on your Grav site.
 
-2-factor authentication (2FA) is an excellent security measure that uses a rolling-clock style authentication method that generates six-digit codes you can use in addition to your username and password to access the Grav Admin.
+2-factor authentication (2FA) is an excellent security measure that uses a rolling-clock style authentication method that generates six-digit codes you can use in addition to your username and password to access the Admin.
 
 To take advantage of this feature, you'll want to download a 2FA-supporting app such as [Authy](https://authy.com/) or [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en). This app will act as a virtual key ring for authentication codes.
 
@@ -18,7 +21,7 @@ To take advantage of this feature, you'll want to download a 2FA-supporting app 
 
 ![](2fa_1.jpeg?classes=shadow)
 
-Setting 2-factor authentication up in Grav is easy. All you need to do is navigate to **Plugins > Admin Panel > Basics** in the Grav Admin.
+Setting 2-factor authentication up in Grav is easy. All you need to do is navigate to **Plugins > Admin Panel > Basics** in the Admin.
 
 Here, you will find 2-Factor Authentication. You can choose to turn this feature on by selecting **Yes**. This will enable users to set up 2-factor authentication on their accounts.
 

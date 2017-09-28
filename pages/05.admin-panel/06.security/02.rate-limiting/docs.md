@@ -2,6 +2,9 @@
 title: Flood Protection
 taxonomy:
     category: docs
+routes:
+    aliases:
+      - '/admin-panel/rate-limiting'
 ---
 
 ![](login.gif?classes=shadow)
@@ -12,7 +15,7 @@ Grav's flood protection (also known as rate limiting) feature makes these kinds 
 
 ## What You'll Need
 
-This feature is managed through the [**Login** plugin](https://github.com/getgrav/grav-plugin-login). You'll want to have **Login version 2.4** or above, in addition to **Grav 1.3.3** or above and **Grav Admin Panel 1.6.0** or above.
+This feature is managed through the [**Login** plugin](https://github.com/getgrav/grav-plugin-login). You'll want to have **Login version 2.4** or above, in addition to **Grav 1.3.3** or above and **Admin Panel 1.6.0** or above.
 
 ## How to Set it Up
 

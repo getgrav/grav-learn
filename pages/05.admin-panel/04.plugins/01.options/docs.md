@@ -1,18 +1,21 @@
 ---
-title: Plugin Options
+title: Options
 taxonomy:
     category: docs
+routes:
+    aliases:
+      - '/admin-panel/plugin-options'
 process:
     twig: true
 ---
 
-![Grav Admin Options](grav_options1.jpg)
+![Admin Options](grav_options1.jpg)
 
-The Admin Panel plugin has a set of options of its own accessible in the **Plugins** area of the admin. To reach them, simply navigate to **Plugins > Admin Panel** and select the title link for the plugin called **Admin Panel**. This will open a page filled with useful options to help you customize your experience with the Grav Admin.
+The Admin Panel plugin has a set of options of its own accessible in the **Plugins** area of the admin. To reach them, simply navigate to **Plugins > Admin Panel** and select the title link for the plugin called **Admin Panel**. This will open a page filled with useful options to help you customize your experience with the Admin.
 
 ### Plugin Information
 
-![Grav Admin Options](grav_options2.jpeg)
+![Admin Options](grav_options2.jpeg)
 
 The top of the Admin Panel options page gives you some information about the Admin Panel plugin. This includes the plugin author, homepage, and license, in addition to other links and information to help you find additional information and report any bugs.
 
@@ -20,9 +23,9 @@ This is a pretty standard feature in any plugin's options page.
 
 ### Basics
 
-![Grav Admin Options](grav_options3.jpeg)
+![Admin Options](grav_options3.jpeg)
 
-The **Basics** section of this page gives you a set of options to help you define your experience within the Grav Admin. This includes being able to change the text that appears at the top of the sidebar, create a custom path to the administrator, and more.
+The **Basics** section of this page gives you a set of options to help you define your experience within the Admin. This includes being able to change the text that appears at the top of the sidebar, create a custom path to the administrator, and more.
 
 We've broken down these options, and what they do, below.
 
@@ -44,7 +47,7 @@ We've broken down these options, and what they do, below.
 
 ### Dashboard
 
-![Grav Admin Options](grav_options4.jpeg)
+![Admin Options](grav_options4.jpeg)
 
 This section of the page lets you customize the items that appear in the main dashboard of the admin. Not a fan of the News Feed and want to get rid of it? Want to streamline your dashboard down to one or two sections you love? This is where you can do that.
 
@@ -58,7 +61,7 @@ This section of the page lets you customize the items that appear in the main da
 
 ### Notifications
 
-![Grav Admin Options](grav_options5.jpeg)
+![Admin Options](grav_options5.jpeg)
 
 You can enable or disable specific types of notifications from this section. You can turn off feed update notifications, as well as notifications for plugins and/or themes.
 
@@ -71,7 +74,7 @@ You can enable or disable specific types of notifications from this section. You
 
 ### Popularity
 
-![Grav Admin Options](grav_options6.jpeg)
+![Admin Options](grav_options6.jpeg)
 
 One of the Admin's great features is its ability to track and display traffic information from the Admin's dashboard. This section of the Admin plugin's options gives you the ability to enable or disable traffic tracking, and configure how that data is displayed.
 
