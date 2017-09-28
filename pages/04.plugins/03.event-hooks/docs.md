@@ -99,6 +99,54 @@ A new and very powerful event that lets you perform actions after Grav has finis
 
 This new event passes in an event object that contains a `file`.  This event can be used to perform logging, or grant/deny access to download said file.
 
+#### onGetPageTemplates
+
+This event enables plugins to provide their own templates in addition to the ones gathered from the theme's directory structure and core. This is especially useful if you wish the plugin to provide its own template.
+
+**Example**
+
+```twig
+/**
+ * Add page template types.
+ */
+public function onGetPageTemplates(Event $event)
+{
+    /** @var Types $types */
+    $types = $event->types;
+    $types->register('downloads');
+}
+```
+
+This allows a plugin to register a template (that it might provide) so that it shows up in the dropdown list of page template types (like when editing a page). In the example above, a template type of `downloads` is added as there is a `downloads.html.twig` file in the `downloads` directory.
+
+![](ongetpagetemplates.png)
+
+#### onGetPageBlueprints
+
+This event, like `onGetPageTemplates` enables the plugin to provide its own resources in addition to core and theme-specific ones. In this case, it's blueprints.
+
+**Example**
+
+```twig
+$scanBlueprintsAndTemplates = function () use ($grav) {
+    // Scan blueprints
+    $event = new Event();
+    $event->types = self::$types;
+    $grav->fireEvent('onGetPageBlueprints', $event);
+
+    self::$types->scanBlueprints('theme://blueprints/');
+
+    // Scan templates
+    $event = new Event();
+    $event->types = self::$types;
+    $grav->fireEvent('onGetPageTemplates', $event);
+
+    self::$types->scanTemplates('theme://templates/');
+};
+```
+
+In this example, we are using both the `onGetPageTemplates` and `onGetPageBlueprints` hooks to make these plugin-provided resources (templates and blueprints) available to Grav for inheritance and other uses.
+
 ## Twig Event Hooks
 
 Twig has its own set of event hooks.
