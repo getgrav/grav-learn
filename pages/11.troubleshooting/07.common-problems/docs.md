@@ -7,7 +7,6 @@ taxonomy:
 Here you can find information on problems and issues raised on [Grav forum](http://getgrav.org/forum) and in the [Slack Chat room](https://chat.getgrav.org) that occur frequently enough that we thought we would save time and list the problem and the relevant solution in one easy to find location.
 
 1. [Cannot connect to the GPM](#cannot-connect-to-the-gpm)
-2. [Invalid Security Token](#invalid-security-token)
 3. [Admin Interface won't scroll](#admin-interface-wont-scroll)
 4. [Fetch failed](#fetch-failed)
 
@@ -29,18 +28,6 @@ To work around this problem, we have added a new system config `system.gpm.verif
 If at this point it's still not working, get in touch, or report back if you were pointed here via chat/forum.
 
 Also, check the CLI command is working, by opening a SSH connection to the server and running `bin/gpm index` and check if it's just inside Admin that you get this error, or in the command line too.
-
-### "Invalid security token"
-
-**Problem:** You get this error in the Admin panel
-
-**Solution:**
-
-There are a few possible causes of the problem, all linked to the Session.
-
-- Try clearing your browser cookies, that's the easiest way and clears a possible cause of the problem.
-- Check that PHP has the correct tmp path set up. This can be set in PHP directly, or by setting Grav's `system.yaml` `session.path` setting (it can be also set via Admin, in the System Configuration) [Reported issue](https://github.com/getgrav/grav-plugin-admin/issues/958)
-- Make sure your web server config is right and includes the query string [Reported issue](https://github.com/getgrav/grav-plugin-admin/issues/893)
 
 ### Admin Interface won't scroll
 
