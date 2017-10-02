@@ -13,6 +13,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Hiding the email to spam bots](#hiding-the-email-to-spam-bots)
 1. [Picking a random item from a translated array](#picking-a-random-item-from-a-translated-array)
 1. [Displaying an image uploaded in a file field](#displaying-an-image-uploaded-in-a-file-field)
+1. [Displaying an image picked in a mediapicker field](#displaying-an-image-picked-in-a-mediapicker-field)
 
 ### List the last 5 recent blog posts
 
@@ -207,4 +208,37 @@ If you allowed your user to upload multiple images, your twig could look like th
 {% for imagesuploaded in page.header.yourfilefield %}
 {{ page.media[imagesuploaded.name] }}
 {% endfor %}
+```
+
+### Displaying an image picked in a mediapicker field
+
+##### Problem
+
+You added a `mediapicker` field in your custom blueprint, and you want to display the image selected.
+
+##### Solution
+
+A `mediapicker` field can be added to your blueprint like below:
+
+```
+header.myimage:
+  type: mediapicker
+  folder: 'self@'
+  label: Select a file
+  preview_images: true
+```    
+
+The `mediapicker` field store the path to the image as a string such as `/home/background.jpg`
+In order to access this image with the page media functionality, you have to split this string and get:
+ - the path to the page where this image is stored
+ - the name of the image.
+
+You can do this via twig by using the snippet below:
+
+```
+{% set image_parts = pathinfo(header.myimage) %}
+{% set image_basename = image_parts.basename %}
+{% set image_page = image_parts.dirname == '.' ? page : page.find(image_parts.dirname) %}
+
+{{ image_page.media[image_basename].html() }}
 ```
