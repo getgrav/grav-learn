@@ -713,6 +713,7 @@ header.features:
 | `style`     | Can be set to `vertical` to conserve horizontal space    |
 | `btnLabel`  | The "add new item" label text                            |
 | `sort`      | Boolean. If negative, disables the ability to sort items |
+| `controls`      | Decides where the "Add Item" button will be placed. Can be set to `[top|bottom|both]` defaults to `bottom`.  |
 
 | Common Attributes Allowed                      |
 | :-----                                         |
