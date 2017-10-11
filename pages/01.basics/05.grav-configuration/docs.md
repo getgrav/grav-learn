@@ -304,7 +304,6 @@ This section gives you the ability to set the default image quality images are r
 ```yaml
 media:
   enable_media_timestamp: false
-  upload_limit: 0
   unsupported_inline_types: []
   allowed_fallback_types: []
 ```
@@ -312,7 +311,6 @@ media:
 The **Media** section handles the configuration options for settings related to the handling of media files. This includes timestamp display, upload size, and more.
 
 * **enable_media_timestamp**: Enable media timetsamps.
-* **upload_limit**: Set maximum upload size in bytes (`0` is unlimited).
 * **unsupported_inline_types**: Array of supported media types to try to display inline. These file types are placed within `[]` brackets.
 * **allowed_fallback_types**: Array of allowed media types of files found if accessed via Page route. These file types are placed within `[]` brackets.
 
