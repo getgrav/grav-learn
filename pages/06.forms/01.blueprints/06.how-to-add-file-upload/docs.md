@@ -35,7 +35,6 @@ custom_file:
   random_name: false
   avoid_overwriting: false
   limit: 10
-  filesize: 5
   accept:
     - image/*
 ```
@@ -113,14 +112,6 @@ When the [`multiple`](#multiple) setting is enabled, `limit` allows to constrain
 When `limit` is set to **0**, it means that there are no restrictions on the amount of allowed files that can be uploaded.
 
 !! It is good practise to always ensure you have a set limit of allowed files that can be uploaded. This way you have more control over your server resources utilizasions.
-
-#### `filesize`
-
-``` yaml
-filesize: 5 # in MB, [1...X | 0 (unlimited: constraint to `system.media.upload_limit` setting)]
-```
-
-This setting allows to constrain the maximum size, in MB, for each individual file. When set to **0**, it is considered unlimited, however it is constraint to your Grav `system.media.upload_limit` as well as your PHP settings.
 
 #### `accept`
 
