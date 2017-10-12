@@ -36,13 +36,13 @@ $ apt install vim zip unzip nginx git php7.0-fpm php7.0-cli php7.0-gd php7.0-cur
 This will install the complete VIM editor (rather than the mini version that ships with Ubuntu), Nginx web server, GIT commands, and **PHP 7.0**.
 
 ### Configure PHP7 FPM
-Once php-fpm is installed, there is a slight configuration change that needs to take place for a more secure setup. 
+Once php-fpm is installed, there is a slight configuration change that needs to take place for a more secure setup.
 
 ```
 $ vi /etc/php/7.0/fpm/php.ini
 ```
 
-Search for `cgi.fix_pathinfo`. This will be commented out by default and set to '1'. 
+Search for `cgi.fix_pathinfo`. This will be commented out by default and set to '1'.
 
 This is an extremely insecure setting because it tells PHP to attempt to execute the closest file it can find if the requested PHP file cannot be found. This basically would allow users to craft PHP requests in a way that would allow them to execute scripts that they shouldn't be allowed to execute.
 
@@ -52,7 +52,7 @@ Uncomment this line and change '1' to '0' so it looks like this
 $ cgi.fix_pathinfo=0
 ```
 
-Save and close the file, and then restart the service. 
+Save and close the file, and then restart the service.
 
 ```
 $ systemctl restart php7.0-fpm
@@ -143,7 +143,7 @@ server {
     # for subfolders, simply adjust the rewrite:
     # to use `/subfolder/index.php`
     location / {
-        try_files $uri $uri/ /index.php?_url=$uri;
+        try_files $uri $uri/ /index.php?$query_string;
     }
     ## End - Index
 
