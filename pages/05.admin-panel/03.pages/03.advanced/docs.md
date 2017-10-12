@@ -1,12 +1,15 @@
 ---
-title: Page Editor (Advanced)
+title: Editor (Advanced)
 taxonomy:
     category: docs
+routes:
+    aliases:
+      - '/admin-panel/page-options'
 process:
     twig: true
 ---
 
-![Grav Admin Page Editor](page_advanced.png?classes=shadow)
+![Admin Page Editor](page_advanced.png?classes=shadow)
 
 The **Page Editor** in the admin is a powerful text editor and page manager that enables you to create your page's content (including media files), its publishing and taxonomy options, settings, overrides, and theme-specific options.
 
@@ -20,7 +23,7 @@ In this page, we will go over the features and functionality found in the **Adva
 
 ### Settings
 
-![Grav Admin Page Editor](page_advanced_settings.png?classes=shadow)
+![Admin Page Editor](page_advanced_settings.png?classes=shadow)
 
 The **Settings** area focuses on various critical options for your page. This is where you would go to change the name of the folder the page is stored in, its parent, and the template used when displaying the page.
 
@@ -34,7 +37,7 @@ The **Settings** area focuses on various critical options for your page. This is
 
 ### Ordering
 
-![Grav Admin Page Editor](page_advanced_ordering.png?classes=shadow)
+![Admin Page Editor](page_advanced_ordering.png?classes=shadow)
 
 The **Ordering** section gives you the ability to configuring page ordering of non-numbered folders.
 
@@ -44,7 +47,7 @@ The **Ordering** section gives you the ability to configuring page ordering of n
 
 ### Overrides
 
-![Grav Admin Page Editor](page_advanced_overrides.png?classes=shadow)
+![Admin Page Editor](page_advanced_overrides.png?classes=shadow)
 
 Overrides are those options that give your page extra functionality, set its slug to something different than the default one based on the folder name, caching settings, navigation visibility, and make a page unreachable via a direct URL.
 

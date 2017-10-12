@@ -1,12 +1,15 @@
 ---
-title: Page Editor (Options)
+title: Editor (Options)
 taxonomy:
     category: docs
+routes:
+    aliases:
+      - '/admin-panel/page-options'
 process:
     twig: true
 ---
 
-![Grav Admin Page Editor](page_options.png?classes=shadow)
+![Admin Page Editor](page_options.png?classes=shadow)
 
 The **Page Editor** in the admin is a powerful text editor and page manager that enables you to create your page's content (including media files), its publishing and taxonomy options, settings, overrides, and theme-specific options.
 
@@ -20,7 +23,7 @@ In this page, we will go over the features and functionality found in the **Opti
 
 ### Publishing
 
-![Grav Admin Page Editor](page_options_publishing.png?classes=shadow)
+![Admin Page Editor](page_options_publishing.png?classes=shadow)
 
 This section is all about controlling the way your content is published. You can publish (or unpublish) content, set published dates as well as dates and times to unpublish, and to create metadata values specific to the page.
 
@@ -34,7 +37,7 @@ This section is all about controlling the way your content is published. You can
 
 ### Taxonomies
 
-![Grav Admin Page Editor](page_options_taxonomies.png?classes=shadow)
+![Admin Page Editor](page_options_taxonomies.png?classes=shadow)
 
 The Taxonomies area is where you can configure your page's organizational properties. What categorie(s) the page will appear in, its tags, and more can be configured here.
 
@@ -46,7 +49,7 @@ The Taxonomies area is where you can configure your page's organizational proper
 
 ### Sitemap
 
-![Grav Admin Page Editor](page_options_sitemap.png?classes=shadow)
+![Admin Page Editor](page_options_sitemap.png?classes=shadow)
 
 Having a good, clean sitemap is important for several reasons. Among them being user navigation and search engine optimization (SEO). Having a sitemap in place makes your site inherently more friendly to search engines, which can have a direct impact on ranking.
 
