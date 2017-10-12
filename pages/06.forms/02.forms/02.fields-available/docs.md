@@ -320,10 +320,12 @@ test:
 | Common Attributes Allowed                 |
 | :-----                                    |
 | [help](#common-fields-attributes)         |
+| [id](#common-fields-attributes)        |
 | [label](#common-fields-attributes)        |
 | [name](#common-fields-attributes)         |
 | [outerclasses](#common-fields-attributes) |
 | [size](#common-fields-attributes)         |
+| [style](#common-fields-attributes)        |
 
 ---
 
