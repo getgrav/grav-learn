@@ -18,6 +18,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Split vertical menu system](#split-vertical-menu-system)
 1. [Dynamically style one or more pages](#dynamically-style-one-or-more-pages)
 1. [Migrate an HTML theme to Grav](#migrate-an-html-theme-to-grav)
+1. [Add an asset to a specific page](#add-an-asset-to-a-specific-page)
 
 ### Change the PHP CLI version
 
@@ -652,3 +653,29 @@ Now, while images links inside the pages still need to be migrated to Grav's ass
 Identify the common parts of the pages (header and footer), and move them to the `templates/partials/base.html.twig` file.
 
 Each page template then needs to extend `partials/base.html.twig` (https://github.com/getgrav/grav-theme-antimatter/blob/develop/templates/default.html.twig#L1) and just add their unique content. 
+
+### Add an asset to a specific page
+
+#### Problem
+
+You need to add an asset to a specific template on your theme.
+
+#### Solution
+
+Most of the time, your assets will be added inside a twig block in you base template like below. 
+
+```
+	    {% block javascripts %}
+        {% do assets.addJs('theme://js/jquery.js', 91) %}
+        {% endblock %}
+        {{ assets.js() }}
+```
+In order to add your asset, you have to extend this block in your template and call `{{ parent() }}` which will get the assets already added in your base template.
+Let's say you want to add a "gallery.js" file on your "Portfolio Gallery" page. 
+Edit your template and add your asset with the `{{ parent() }}`.
+```
+{% block javascripts %}
+     {% do assets.addJs('theme://js/gallery.js', 100) %}
+     {{ parent() }}
+{% endblock %}
+```
