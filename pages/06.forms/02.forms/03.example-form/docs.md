@@ -102,4 +102,6 @@ That's it!
 
 When users submit the form, the plugin will send an email to you (as set in the `from` setting of the Grav Email Plugin), and will save the entered data in the data/ folder.
 
+! For full details on setting up and configuring email, please read the [Email plugin documentation](https://github.com/getgrav/grav-plugin-email/blob/develop/README.md)
+
 You can activate the **Grav Data Manager** plugin to see that data in the **Admin Plugin**.
