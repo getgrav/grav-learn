@@ -182,6 +182,18 @@ which will result in HTML similar to:
 <a href="/your/pages/some-page" target="_blank" class="button">Combinations of Attributes</a>
 ```
 
+##### Attribute Combinations with Anchors
+
+```markdown
+[Element Anchor](../some-page?target=_blank&classes=button#element-id)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="/your/pages/some-page#element-id" target="_blank" class="button">Element Anchor</a>
+```
+
 ##### Pass-through of Non-Supported Attributes
 
 ```markdown
