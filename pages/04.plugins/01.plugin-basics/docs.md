@@ -35,5 +35,5 @@ config.plugins.pluginname.pluginproperty
 
 If plugin name contains dashes you should refer to its properties using :
 ```
-config.plugins.['plugin-name'].pluginproperty
+config.plugins['plugin-name'].pluginproperty
 ```
