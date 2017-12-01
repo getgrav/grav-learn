@@ -665,14 +665,16 @@ You need to add an asset to a specific template on your theme.
 Most of the time, your assets will be added inside a twig block in you base template like below. 
 
 ```
-	    {% block javascripts %}
-        {% do assets.addJs('theme://js/jquery.js', 91) %}
-        {% endblock %}
-        {{ assets.js() }}
+{% block javascripts %}
+{% do assets.addJs('theme://js/jquery.js', 91) %}
+{% endblock %}
+{{ assets.js() }}
 ```
+
 In order to add your asset, you have to extend this block in your template and call `{{ parent() }}` which will get the assets already added in your base template.
 Let's say you want to add a "gallery.js" file on your "Portfolio Gallery" page. 
 Edit your template and add your asset with the `{{ parent() }}`.
+
 ```
 {% block javascripts %}
      {% do assets.addJs('theme://js/gallery.js', 100) %}
