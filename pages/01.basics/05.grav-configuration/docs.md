@@ -81,7 +81,7 @@ The **Home** section is where you set the default path for the site's home page.
 ```yaml
 pages:
   theme: antimatter
-    order:
+  order:
     by: default
     dir: asc
   list:
