@@ -54,6 +54,12 @@ Every time you want to start a new project with Grav, you need to start with a c
 
 This will create a new Grav instance and download all the dependencies required.
 
+### Copying a Project
+
+Grav has a nifty utility called `sandbox`, which can quickly create a [symlinked](/cli-console/command-line-intro#symbolic-links) copy of the Grav-installation. Simply put, running `bin/grav sandbox -s DESTINATION` - where "DESTINATION" is the path to the folder where you want the copied installation - recreates the Grav-installation in another folder.
+
+For example, running `bin/grav sandbox -s ../copy` from your current Grav-folder creates a sibling-folder named "copy", where the following folders are virtual copies: /bin, /system, /vendor, /webserver-configs, as well as standard files that typically reside in Grav's root-folder. All content in /user will be carbon copies, not virtual, so you can easily get started with customizing the new installation without having created overhead from core files.
+
 ## Installing Grav Dependencies
 
 To install the dependencies Grav relies on (**error** plugin, **problems** plugin, **antimatter** theme), launch a **terminal** or **console** and navigate to the grav folder where you want to install the dependencies and run the CLI command.
