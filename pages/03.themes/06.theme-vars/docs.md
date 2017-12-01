@@ -361,7 +361,7 @@ This returns an array of the taxonomy associated with a page.  These can be iter
 
 ### pages object
 
-!! The whole list of the Pages object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Page/Pages.html). Here's a list of the methods you'll find most useful.
+!! The whole list of the Pages object methods is available on the [API site](https://learn.getgrav.org/api#class-gravcommonpagepages). Here's a list of the methods you'll find most useful.
 
 The **pages object** represents a nested tree of every **page object** that Grav knows about.  This is particularly useful for creating a **sitemap**, **navigation** or if you wish to find a particular **page**.
 
@@ -388,7 +388,7 @@ There is a new object that allows you to access [media](../../content/media) tha
 
 ### uri object
 
-!! The whole list of the Uri object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Uri.html). Here's a list of the methods you'll find most useful.
+!! The whole list of the Uri object methods is available on the [API site](https://learn.getgrav.org/api#class-gravcommonuri). Here's a list of the methods you'll find most useful.
 
 The Uri object has several methods to access parts of the current URI. For the full URL `http://mysite.com/grav/section/category/page.json/param1:foo/param2:bar/?query1=baz&query2=qux`:
 
@@ -458,7 +458,7 @@ The global Taxonomy object that contains all the taxonomy information for the si
 
 ### browser object
 
-!! The whole list of the Browser object methods is available on the [API site](http://learn.getgrav.org/api/Grav/Common/Browser.html). Here's a list of the methods you'll find most useful.
+!! The whole list of the Browser object methods is available on the [API site](https://learn.getgrav.org/api#class-grav-common-browser). Here's a list of the methods you'll find most useful.
 
 Grav has built-in support for programmatically determining the platform, browser, and version of the user.
 

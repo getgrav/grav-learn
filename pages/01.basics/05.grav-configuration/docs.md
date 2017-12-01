@@ -81,7 +81,7 @@ The **Home** section is where you set the default path for the site's home page.
 ```yaml
 pages:
   theme: antimatter
-    order:
+  order:
     by: default
     dir: asc
   list:
@@ -304,7 +304,6 @@ This section gives you the ability to set the default image quality images are r
 ```yaml
 media:
   enable_media_timestamp: false
-  upload_limit: 0
   unsupported_inline_types: []
   allowed_fallback_types: []
 ```
@@ -312,7 +311,6 @@ media:
 The **Media** section handles the configuration options for settings related to the handling of media files. This includes timestamp display, upload size, and more.
 
 * **enable_media_timestamp**: Enable media timetsamps.
-* **upload_limit**: Set maximum upload size in bytes (`0` is unlimited).
 * **unsupported_inline_types**: Array of supported media types to try to display inline. These file types are placed within `[]` brackets.
 * **allowed_fallback_types**: Array of allowed media types of files found if accessed via Page route. These file types are placed within `[]` brackets.
 
@@ -458,9 +456,18 @@ Some example configuration files could be structured:
 | **user/config/system.yaml**           | Global system configuration file                  |
 | **user/config/site.yaml**             | A site-specific configuration file                |
 | **user/config/plugins/myplugin.yaml** | Individual configuration file for myplugin plugin |
+| **user/config/themes/mytheme.yaml**   | Individual configuration file for mytheme theme   |
 
 !! Having a namespaced configuration file will override or mask all options having the same path in the default configuration files
 
-Most plugins will come with their own YAML configuration file. We recommend copying this file to the **user/config/plugins/** directory rather than editing configuration options directly to the file located in the plugin's directory. Doing this will ensure that an update to the plugin will not overwrite your settings, and keep all of your configurable options in one, convenient place.
+### Plugins Configuration
+
+Most **plugins will come with their own YAML configuration file. We recommend copying this file to the **user/config/plugins/** directory rather than editing configuration options directly to the file located in the plugin's directory. Doing this will ensure that an update to the plugin will not overwrite your settings, and keep all of your configurable options in one, convenient place.
+
+If you have a plugin called `user/plugins/myplugin` that has a configuration file called `user/plugins/myplugin/myplugin.yaml` then you would copy this file to `user/config/plugins/myplugin.yaml` and edit the file there.
 
 The YAML file that exists within the plugin's primary directory will act as a fallback. Any settings listed there and not in the User folder's copy will be picked up and used by Grav.
+
+### Themes Configuration
+
+The same rules for themes apply as they did for plugins.  So if you have a theme called `user/themes/mytheme` that has a configuration file called `user/themes/mytheme/mytheme.yaml` then you would copy this file to `user/config/themes/mytheme.yaml` and edit the file there.

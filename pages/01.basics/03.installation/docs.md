@@ -60,6 +60,7 @@ Another method is to clone Grav from the GitHub repository, and then run a simpl
 
 2. Install **vendor dependencies** via [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
    ```
+   $ cd ~/webroot/grav
    $ composer install --no-dev -o
    ```
 

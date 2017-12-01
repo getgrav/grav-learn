@@ -8,7 +8,7 @@ Although we have done our best to cover as much as possible here in the document
 
 ## Forum
 
-We have a new [real-time forum solution](http://getgrav.org/forum) utilizing the **Muut** platform to provide a simple way to get your Grav questions answered quickly.
+We have a new [real-time forum solution](https://discourse.getgrav.org/) utilizing the **Discourse** platform to provide a simple way to get your Grav questions answered quickly.
 
 ## Twitter
 

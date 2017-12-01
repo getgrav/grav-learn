@@ -713,7 +713,10 @@ header.features:
 | `style`     | Can be set to `vertical` to conserve horizontal space    |
 | `btnLabel`  | The "add new item" label text                            |
 | `sort`      | Boolean. If negative, disables the ability to sort items |
-| `controls`      | Decides where the "Add Item" button will be placed. Can be set to `[top|bottom|both]` defaults to `bottom`.  |
+| `controls`  | Decides where the "Add Item" button will be placed. Can be set to `[top|bottom|both]` defaults to `bottom`.  |
+| `min`       | Minimum number of items allowed in the list.             |
+| `max`       | Maximum number of items allowed in the list. 'Add item' button won't function past this number |
+
 
 | Common Attributes Allowed                      |
 | :-----                                         |

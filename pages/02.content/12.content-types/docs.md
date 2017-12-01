@@ -36,7 +36,7 @@ When a user requests the url: `/blog/new-macbook-pros-soon.json` this new Twig f
 
 ```
 {
-   "header":{
+   "frontmatter":{
       "title":"New Macbook Pros Arriving Soon",
       "date": "14:23 08/01/2016",
       "taxonomy":{

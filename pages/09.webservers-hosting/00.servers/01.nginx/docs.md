@@ -1,5 +1,8 @@
 ---
 title: Nginx
+routes:
+    aliases:
+        - '/webservers-hosting/local/nginx'
 taxonomy:
     category: docs
 ---
@@ -111,7 +114,7 @@ http {
 
     # force the latest IE version
     add_header "X-UA-Compatible" "IE=Edge";
-    
+
     # enable anti-cross-site scripting filter built into IE 8+
     add_header "X-XSS-Protection" "1; mode=block";
 
@@ -146,7 +149,7 @@ nginx -s reload
 
 ### Fix against httpoxy vulnerability
 
-> httpoxy is a set of vulnerabilities that affect application code running in CGI, or CGI-like environments.  
+> httpoxy is a set of vulnerabilities that affect application code running in CGI, or CGI-like environments.
 > (Source: [httpoxy.org](https://httpoxy.org))
 
 In order to secure your site against this vulnerability you should block the `Proxy` header. This can be done by adding a FastCGI parameter to your config. Simply open the file `/etc/nginx/fastcgi.conf` and add this line at the end:
@@ -230,7 +233,7 @@ server {
     root /var/www/example.com;
 
     index index.html index.php;
-    
+
     # ...
     # the rest of this server block (location directives) is identical to the one from the shipped config
 }
