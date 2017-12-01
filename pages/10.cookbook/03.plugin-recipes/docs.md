@@ -411,7 +411,7 @@ Grav might be flat file, but flat file &#8800; static! There are numerous ways r
 
   * If you just need read access to YAML data, check out the [Import plugin](https://github.com/Deester4x4jr/grav-plugin-import).
 
-  * The preferred interface is via the built-in [RocketTheme\Toolbox\File](https://learn.getgrav.org/api/RocketTheme/Toolbox/File.html) interface.
+  * The preferred interface is via the built-in [RocketTheme\Toolbox\File](https://learn.getgrav.org/api#class-RocketThemeToolboxFile) interface.
 
   * There's nothing stopping you from using [SQLite](https://sqlite.org/) either.
 
@@ -458,7 +458,7 @@ The latest you can inject HTML, and still have your output cached, is during the
 
 #### How do I inject assets like JavaScript and CSS files?
 
-This is done through the [Grav\Common\Assets](https://learn.getgrav.org/api/Grav/Common/Assets.html) interface.
+This is done through the [Grav\Common\Assets](https://learn.getgrav.org/api#class-gravcommonassets) interface.
 
   * [Google Analytics](https://github.com/escopecz/grav-ganalytics)
 
@@ -490,7 +490,7 @@ First [read the Twig docs](http://twig.sensiolabs.org/doc/advanced.html) and dev
 
 #### How do I interact with external APIs?
 
-Grav provides the [Grav\Common\GPM\Response](https://learn.getgrav.org/api/Grav/Common/GPM/Response.html) object, but there's nothing stopping you from doing it directly if you so wish.
+Grav provides the [Grav\Common\GPM\Response](https://learn.getgrav.org/api#class-grav-common-gpm-response) object, but there's nothing stopping you from doing it directly if you so wish.
 
   * [ipLocate](https://github.com/Perlkonig/grav-plugin-iplocate)
 
