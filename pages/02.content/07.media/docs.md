@@ -793,6 +793,159 @@ Audio media will display an HTML5 audio link:
 
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3)
 
+#### controls(value)
+
+Allows explicitly setting or removing the HTML5 default controls. Passing `0` hides browser's controls for playback, volume, etc..
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![Hal 9000: I'm Sorry Dave](hal9000.mp3?controls=0)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['hal9000.mp3'].controls(0) }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```
+{{ page.media['hal9000.mp3'].controls(0) }}
+```
+[/ui-tab]
+[/ui-tabs]
+
+#### preload(value)
+
+Allows setting of `preload` property, which defaults to `auto`. Permitted params are `auto`, `metadata`, and `none`.
+
+!! <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#attr-preload">If not set, its default value is browser-defined (i.e. each browser may have its own default value). The spec advises it to be set to <code>metadata</code>.</q>
+
+!! The `preload` attribute is ignored if `autoplay` is present.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![Hal 9000: I'm Sorry Dave](hal9000.mp3?preload=metadata)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['hal9000.mp3'].preload('metadata') }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```
+{{ page.media['hal9000.mp3'].preload('metadata') }}
+```
+[/ui-tab]
+[/ui-tabs]
+
+#### autoplay(value)
+
+Allows setting whether audio will `autoplay` upon page load. Defaults to `false` by omission if not set.
+
+!! If `autoplay` and `preload` are both present on a given `audio` element, `preload` will be ignored.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![Hal 9000: I'm Sorry Dave](hal9000.mp3?autoplay=1)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['hal9000.mp3'].autoplay(1) }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```
+{{ page.media['hal9000.mp3'].autoplay(1) }}
+```
+[/ui-tab]
+[/ui-tabs]
+
+
+#### controlsList(value1-[value2]-[value3])
+
+Allows setting of `controlsList` property, which takes one or more of three possible values: `nodownload`, `nofullscreen`, and `noremoteplayback`.
+
+!! If setting more than one parameter in markdown, separate each with a dash (`-`). These will be replaced by spaces in the output HTML. 
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![Hal 9000: I'm Sorry Dave](hal9000.mp3?controlsList=nodownload-nofullscreen-noremoteplayback)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['hal9000.mp3'].controlsList('nodownload nofullscreen noremoteplayback') }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```
+{{ page.media['hal9000.mp3'].controlsList('nodownload nofullscreen noremoteplayback') }}
+```
+[/ui-tab]
+[/ui-tabs]
+
+#### muted(value)
+
+Allows setting whether audio is `muted` on load. Defaults to `false` by omission if not set.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![Hal 9000: I'm Sorry Dave](hal9000.mp3?muted=1)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['hal9000.mp3'].muted(1) }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```
+{{ page.media['hal9000.mp3'].muted(1) }}
+```
+[/ui-tab]
+[/ui-tabs]
+
+#### loop(value)
+
+Allows setting whether audio will `loop` upon playing through completion. Defaults to `false` by omission if not set.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```
+![Hal 9000: I'm Sorry Dave](hal9000.mp3?loop=1)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```
+{{ page.media['hal9000.mp3'].loop(1) }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```
+{{ page.media['hal9000.mp3'].loop(1) }}
+```
+[/ui-tab]
+[/ui-tabs]
+
 ## File Actions
 
 Grav does not provide any custom actions on files at this point in time and there are no plans to add any. Should you think of something, please contact us.
