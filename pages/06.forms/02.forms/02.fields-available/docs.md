@@ -24,6 +24,7 @@ The Forms plugin provides the following fields, which you can use to build your 
 | **[Radio](#the-radio-field)**           | A radio input type                                          |
 | **[Range](#the-range-field)**           | A range input type                                          |
 | **[Select](#the-select-field)**         | A select field                                              |
+| **[Select OptGroup](#the-select-optgroup-field)**         | A grouping of options used within a select field                                              |
 | **[Spacer](#the-spacer-field)**         | Used to add a title, text or an horizontal line to the form |
 | **[Text](#the-text-field)**             | A simple text field                                         |
 | **[Textarea](#the-textarea-field)**     | A textarea                                                  |
@@ -565,6 +566,51 @@ pages.order.by:
         folder: PLUGIN_ADMIN.DEFAULT_ORDERING_FOLDER
         title: PLUGIN_ADMIN.DEFAULT_ORDERING_TITLE
         date: PLUGIN_ADMIN.DEFAULT_ORDERING_DATE
+````
+
+| Attribute  | Description                                         |
+| :-----     | :-----                                              |
+| `options`  | An array of key-value options that will be allowed. |
+| `multiple` | Allow the form to accept multiple values.           |
+
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [autofocus](#common-fields-attributes)         |
+| [classes](#common-fields-attributes)           |
+| [default](#common-fields-attributes)           |
+| [disabled](#common-fields-attributes)          |
+| [help](#common-fields-attributes)              |
+| [id](#common-fields-attributes)                |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [novalidate](#common-fields-attributes)        |
+| [outerclasses](#common-fields-attributes)      |
+| [size](#common-fields-attributes)              |
+| [style](#common-fields-attributes)             |
+| [validate.required](#common-fields-attributes) |
+| [validate.pattern](#common-fields-attributes)  |
+| [validate.message](#common-fields-attributes)  |
+
+---
+
+### The Select Optgroup Field
+
+![Select Optgroup Field](select_optgroup_field.gif)
+
+The `select_optgroup` field type is used to present a select field with groupings.
+
+Example:
+```yaml
+header.newField:
+    type: select_optgroup
+    label: Test Optgroup Select Field
+    options:
+      - OptGroup1:
+        - Option1
+        - Option2
+      - OptGroup2:
+        - Option3
+        - Option4
 ````
 
 | Attribute  | Description                                         |
