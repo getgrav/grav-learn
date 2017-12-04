@@ -69,6 +69,14 @@ Simply fill out the form and click the `Create User` button.
 
 The user information is stored in the `user/accounts/` folder of your Grav installation.  You can edit the values manually or via the Admin plugin itself.  You can also create new users manually or via the `bin/plugin login newuser` CLI command.  More information is contained in the [Admin FAQ](../faq#adding-and-managing-users).
 
+### Username and Password Complexity
+
+Regex patterns for usernames and passwords are defined in `system/config/system.yaml`.
+
+The default pattern for users (`system.username_regex`) is only lowercase characters, digits, dashes, and underscores. Usernames must be between 3 - 16 characters in length.
+
+The default pattern for passwords (`system.pwd_regex`) is a minimum of eight (8) characters, with at least one number, one uppercase, and one lowercase letter.
+
 ### Usage
 
 By default, you can access the admin by pointing your browser to `http://yoursite.com/admin`. You can simply log in with the `username` and `password` set in the YAML file you configured earlier.
