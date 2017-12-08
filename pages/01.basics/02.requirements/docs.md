@@ -24,6 +24,7 @@ Even though technically you do not need a standalone web server, it is better to
 
 * OS X 10.9 Mavericks already ships with the Apache Web server and PHP 5.5, so job done!
 * [MAMP/MAMP Pro](http://mamp.info) comes with Apache, MySQL and of course PHP.  It is a great way to get more control over which version of PHP you are running, setting up virtual hosts, plus other useful features such as automatically handling dynamic DNS.
+* [AMPPS](http://www.ampps.com/downloads) is a software stack from Softaculous enabling Apache, PHP, Perl, Python,.. . This includes everything you need (and more) for GRAV development.
 
 ### Windows
 
@@ -31,6 +32,7 @@ Even though technically you do not need a standalone web server, it is better to
 * [EasyPHP](http://www.easyphp.org/) provides a personal Web hosting package as well as a more powerful developer version.
 * [MAMP for Windows](http://mamp.info) is a long-time Mac favorite, but now available for Windows.
 * [IIS with PHP](http://php.iis.net/) is a fast way to run PHP on Windows.
+* [AMPPS](http://www.ampps.com/downloads) is a software stack from Softaculous enabling Apache, PHP, Perl, Python,.. . This includes everything you need (and more) for GRAV development.
 
 ### Linux
 
