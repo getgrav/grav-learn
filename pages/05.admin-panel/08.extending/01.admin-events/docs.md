@@ -16,7 +16,7 @@ The Admin plugin has multiple event hooks that can be used during the [Grav Life
 * [onAdminAfterSaveAs](../admin-events#onAdminAfterSaveAs)
 * [onAdminAfterDelete](../admin-events#onAdminAfterDelete)
 * [onAdminAfterAddMedia](../admin-events#onAdminAfterAddMedia)
-* [onAdminAfterDelMedia](../admin-events#onAdminDelAddMedia)
+* [onAdminAfterDelMedia](../admin-events#onAdminAfterDelMedia)
 
 
 ## Enabling an Admin Event Hook
