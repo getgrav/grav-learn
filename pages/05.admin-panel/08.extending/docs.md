@@ -1,6 +1,6 @@
 ---
 title: Extending
-media_order: 'myPageType.jpg,myPageType-customField.jpg'
+media_order: 'myPage.jpg,myPage-customField.jpg'
 taxonomy:
     category:
         - docs
@@ -154,7 +154,7 @@ In order for the Admin plugin to provide a new `mypage` page option, create a fo
 The example blueprint `mypage.yaml` below extends the default page template, and then adds header.newTextField under the content tab.:
 
 ```
-title: My Page Type
+title: My Page Blueprint
 '@extends':
     type: default
     context: blueprints://pages
