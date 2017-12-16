@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Themes in Grav are quite simple, and very flexible because they are built with the powerful [Twig Templating engine](http://twig.sensiolabs.org/). We typically use [Sass CSS Extension](http://sass-lang.com) to generate our CSS files, but there is nothing stopping you from using [Less](http://lesscss.org/), or even regular CSS. It simply comes down to your own personal preferences.
+Themes in Grav are quite simple, and very flexible because they are built with the powerful [Twig Templating engine](https://twig.sensiolabs.org/). We typically use [Sass CSS Extension](http://sass-lang.com) to generate our CSS files, but there is nothing stopping you from using [Less](http://lesscss.org/), or even regular CSS. It simply comes down to your own personal preferences.
 
 ## Content Pages & Twig Templates
 
@@ -28,15 +28,15 @@ Each theme should have a definition file called `blueprints.yaml` which has some
 
 ```ruby
 name: Antimatter
-version: 1.6.0
+version: 1.6.7
 description: "Antimatter is the default theme included with **Grav**"
 icon: empire
 author:
   name: Team Grav
   email: devs@getgrav.org
-  url: http://getgrav.org
+  url: https://getgrav.org
 homepage: https://github.com/getgrav/grav-theme-antimatter
-demo: http://demo.getgrav.org/blog-skeleton
+demo: https://demo.getgrav.org/blog-skeleton
 keywords: antimatter, theme, core, modern, fast, responsive, html5, css3
 bugs: https://github.com/getgrav/grav-theme-antimatter/issues
 license: MIT
@@ -116,7 +116,7 @@ You can then use the provided **plugins methods** which are covered in the [next
 
 There are **no set rules** regarding the structure of a Grav theme except that there must be appropriate Twig templates provided in the `templates/` folder for each of the page types you use in your content.
 
-!! Because of this tight coupling between page content and Twig templates in a theme, it often makes sense to develop themes in conjunction with the content they are intended to be used with.  A good way to create _general_ themes is to support the template types used by the Skeleton packages that are available on our [downloads page](http://getgrav.org/downloads). For example, support: **default**, **blog**, **error**, **item**, and **modular**.
+!! Because of this tight coupling between page content and Twig templates in a theme, it often makes sense to develop themes in conjunction with the content they are intended to be used with.  A good way to create _general_ themes is to support the template types used by the Skeleton packages that are available on our [downloads page](https://getgrav.org/downloads). For example, support: **default**, **blog**, **error**, **item**, and **modular**.
 
 Generally speaking, the root of the `templates/` folder should be used to house the primary templates that are supported, then create a sub-folder called `partials/` to contain parts, or smaller template _chunks_.
 
