@@ -49,8 +49,8 @@ You should also ensure you have `AllowOverride All` set in the `<Directory>` and
 
 ### IIS Requirements
 
-Although IIS is considered a webserver ready to run 'out-of-the-box' there are some changes that need to be made.
-To get **Grav** to run on an IIS server you need to install **URL Rewrite**. This can be accomplished using **Microsoft Web Platform Installer** from within IIS. You can also install URL Rewrite by going to [iis.net](http://www.iis.net/downloads/microsoft/url-rewrite).
+Although IIS is considered a webserver ready to run 'out-of-the-box', there are some changes that need to be made.
+To get **Grav** running on an IIS server you need to install **URL Rewrite**. This can be accomplished using **Microsoft Web Platform Installer** from within IIS. You can also install URL Rewrite by going to [iis.net](https://www.iis.net/downloads/microsoft/url-rewrite).
 
 ### PHP Requirements
 
@@ -80,7 +80,7 @@ and remove the leading semicolon.
 
 ### Permissions
 
-For Grav to function properly, your webserver needs to have the appropriate **file permissions** in order to write logs, caches, etc.  When using either the [CLI](/advanced/grav-cli) or [GPM](/advanced/grav-gpm), the user running PHP from the command line also needs to have the appropriate permissions to modify files.
+For Grav to function properly, your webserver needs to have the appropriate **file permissions** in order to write logs, caches, etc.  When using either the [CLI](/advanced/grav-cli) (Command Line Interface) or [GPM](/advanced/grav-gpm) (Grav Package Manager), the user running PHP from the command line also needs to have the appropriate permissions to modify files.
 
 By default, Grav will install with `644` and `755` permissions for files and folders, respectively. Most hosting providers have configurations that ensure that a webserver running PHP will allow you to create and modify files within your user account.  This means that Grav runs **out-of-the-box** on the vast majority of hosting providers.
 
