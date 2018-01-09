@@ -10,7 +10,7 @@ Although Twig already provides an extensive list of [filters, functions, and tag
 
 ### Grav Twig Filters
 
-Twig filters are applied to Twig variables by using the `|` character then the filter name.  Parameters can be passed in just like Twig functions using parenthesis.
+Twig filters are applied to Twig variables by using the `|` character followed by the filter name.  Parameters can be passed in just like Twig functions using parenthesis.
 
 ##### Absolute URL
 
@@ -502,7 +502,7 @@ Will generate a random string of the required number of characters.  Particularl
 
 ##### Range
 
-Generates an array containging a range of elements, optionally stepped
+Generates an array containing a range of elements, optionally stepped
 
 `range(25, 300, 50)` <i class="fa fa-long-arrow-right"></i> **{{ print_r(range(25, 300, 50)) }}**
 
