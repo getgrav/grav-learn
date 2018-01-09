@@ -347,7 +347,7 @@ gpm:
   official_gpm_only: true
 ```
 
-The **GPM** section offers the user options that control how Grav's GPM sources and makes ready updates for your site. You can choose between stable and testing releases, as well as set up a proxy URL.
+The **GPM** section offers the user options that control how Grav's GPM sources and makes ready updates available for your site. You can choose between stable and testing releases, as well as set up a proxy URL.
 
 * **releases**: Set to either `stable` or `testing` to determine if you want to update to the latest stable or testing build.
 * **proxy_url**: Configure a manual proxy URL for GPM. For example: `127.0.0.1:3128`.
