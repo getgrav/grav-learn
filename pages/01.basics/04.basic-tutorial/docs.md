@@ -6,7 +6,7 @@ taxonomy:
 
 Assuming you successfully [installed Grav](../installation) with the instructions listed in the previous chapter, we can continue on and play around with Grav a little to get you more comfortable.
 
-Because Grav does not require a database, it is actually pretty easy to work without having to worry about causing issues between your Grav installation and another big data source. If something goes awry, you can generally recover very easily.
+Because Grav does not require a database, it is actually pretty easy to work with, without having to worry about causing issues between your Grav installation and any other big data source. If something goes awry, you can generally recover very easily.
 
 ## Content Basics
 
@@ -101,7 +101,7 @@ Creating a new page is a simple affair in **Grav**.  Just follow these simple st
     ```
 
 3. Save this file in the `user/pages/02.mypage/` folder as `default.md`. This will tell **Grav** to render the page using the **default** template.
-4. That is it! Reload your browser to see your new page in the menu.
+4. That's it! Reload your browser to see your new page in the menu.
 
 The page will automatically show up in the Menu after the **"Home"** menu item. If you wish to change the name that shows up in the Menu, simply add: `menu: My Page` between the dashes in the page content.
 
