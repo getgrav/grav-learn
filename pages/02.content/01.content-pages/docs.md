@@ -64,7 +64,7 @@ The textual name of each folder defaults to the _slug_ that the system uses as p
 
 If no number is provided as a prefix of the folder name, the page is considered to be **invisible**, and will not show up in the navigation. An example of this would be the `error` page in the above folder-structure.
 
-!! This can actually be overridden in the page itself by setting the [visible parameter](/headers#visible) in the headers.
+!! This can actually be overridden in the page itself by setting the [visible parameter](/content/headers#visible) in the headers.
 
 ## Ordering
 
