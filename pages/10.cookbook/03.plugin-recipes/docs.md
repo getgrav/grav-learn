@@ -348,7 +348,7 @@ $ bin/gpm install devtools
 After that's installed, create a new plugin with the command:
 
 ```
-$ bin/gpm plugin devtools newplugin
+$ bin/plugin devtools newplugin
 ```
 
 Fill in the details for the name, author, etc.  Say we call it `Custom Templates`, and the plugin will be created in `/user/plugins/custom-templates`.  All you need to do now is edit the `custom-templates.php` file and put this code:
