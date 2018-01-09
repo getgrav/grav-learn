@@ -6,19 +6,23 @@ taxonomy:
 
 ### File Uploads
 
-You can add file upload functionality in Pages, Config, Plugins and Themes blueprints. File uploads are always Ajax based and allow Drag & Drop from the desktop or picking them as regular file fields. Everytime a file is added to the field, it's automatically uploaded to a temporary folder, and will only be stored when the Save (or Submit) action takes place.
+You can add file upload functionality in Pages, Config, Plugins and Themes blueprints. File uploads are always Ajax based and allow Drag & Drop from the desktop or picking them as regular file fields. Everytime a file is added to the field, it's automatically uploaded to a temporary folder, and will only be stored when the Save (or Submit) action takes place. 
 
 Example of usage:
 
 ```
 custom_file:
+  name: myfile
   type: file
   label: A Label
   destination: 'user/plugins/my-plugin/assets'
   multiple: true
+  autofocus: false
   accept:
     - image/*
 ```
+
+! In order to add a file upload, you must have a bottom javascript render command in your base Twig template.  `{{ assets.js('bottom') }}`
 
 ## Options
 
