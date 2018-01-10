@@ -145,9 +145,11 @@ form:
       type: blueprint
 ```
 
-This form mimics the default `Add Page` modal's form. For the **folder** as you can see we have a special value: `@slugify-title`. This means that the **folder** will default to the slugified version of the **title** form input. **route** is `/posts` so it will put it into the `/posts` folder. **name** is `post` so it will use the `post` page blueprint.
+This form mimics the default `Add Page` modal's form. For the **folder** as you can see we have a special value: `@slugify-title`. This means that the **folder** will default to the slugified version of the **title** form input. **route** is `/posts` so it will put it into the `/posts` folder. 
 
-Second step is to edit the configuration of the admin panel: `user/config/plugins/admin.yaml`. Add this snippet at the end of the configuration file:
+**name** is `post` so it will use the `post` page blueprint.
+
+Second step is to edit the configuration of the admin panel: `user/plugins/admin/admin.yaml`. Add this snippet at the end of the configuration file:
 
 ```yaml
 add_modals:
