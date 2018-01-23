@@ -142,3 +142,4 @@ Functions can generate content. They are typically followed by arguments, which 
 * [Twig for Developers](http://twig.sensiolabs.org/doc/api.html)
 * [6 Minute Video Introduction to Twig](http://www.dev-metal.com/6min-video-introduction-twig-php-templating-engine/)
 * [Introduction to Twig](http://www.slideshare.net/markstory/introduction-to-twig)
+* [Twig: The Basics (free intro to paid course)](https://knpuniversity.com/screencast/twig/basics)
