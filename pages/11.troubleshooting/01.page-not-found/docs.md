@@ -11,7 +11,7 @@ There are a couple of reasons you might receive a **Not Found** error, and they 
 !! The examples below are for the Apache Web Server which is the most common server software used.
 
 ### IIS use of .htaccess file
-After adding URL Rewrite to the IIS server using the Web Platform Installer, restart the IIS server. Go to the management interface, IIS, double click on URL Rewrite, under Inbound Rules, click on Import Rules, under Rules to Import, browse to the Configuration file, choosing the .htaccess file in the root, and then click on Import. Restart the IIS server. Access Grav now.
+After adding URL Rewrite to the IIS server using the Web Platform Installer, restart the IIS server. Go to the management interface, IIS, double-click on URL Rewrite, under Inbound Rules, click on Import Rules, under Rules to Import, browse to the Configuration file, choosing the .htaccess file in the root, and then click on Import. Restart the IIS server. Access Grav now.
 
 ### Missing .htaccess File
 
@@ -63,7 +63,7 @@ Then restart your Apache server.
 
 ![404 Not Found](error-404.png)         {.bordered}
 
-If you receive a _Grav-style_ error saying **Error 404** then your `.htaccess` is functioning correctly, but your trying to reach a page that Grav cannot find.
+If you receive a _Grav-style_ error saying **Error 404** then your `.htaccess` is functioning correctly, but you're trying to reach a page that Grav cannot find.
 
 The most common cause of this is simply that the page has been moved or renamed. Another thing to check is if the page has a `slug` set in the page YAML headers. This overrides the explicit folder name that is used by default to construct the URL.
 
