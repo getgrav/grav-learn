@@ -8,7 +8,7 @@ taxonomy:
 
 There is an obscure but persistent issue with **Apache** on **Windows** causing a 403 forbidden error.
 
-Basically Apache won't allow the `:` in the URL that works on other systems due to a security concern based on the fact that windows paths can have colons in them: `C:\some\path`.
+Basically, Apache won't allow the `:` in the URL that works on other systems due to a security concern based on the fact that windows paths can have colons in them: `C:\some\path`.
 
 We have addressed this by providing a configurable option for the parameter separator that is defaulting to `:`
 
