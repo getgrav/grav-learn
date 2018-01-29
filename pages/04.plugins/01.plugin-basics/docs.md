@@ -32,3 +32,8 @@ To access plugin configuration settings via Twig (i.e. within a Theme), the gene
 ```
 config.plugins.pluginname.pluginproperty
 ```
+
+If plugin name contains dashes you should refer to its properties using :
+```
+config.plugins['plugin-name'].pluginproperty
+```
