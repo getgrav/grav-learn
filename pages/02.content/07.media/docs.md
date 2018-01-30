@@ -838,11 +838,6 @@ Allows setting of `preload` property, which defaults to `auto`. Permitted params
 ```
 {% endverbatim %}
 [/ui-tab]
-[ui-tab title="HTML Code"]
-```
-{{ page.media['hal9000.mp3'].preload('metadata') }}
-```
-[/ui-tab]
 [/ui-tabs]
 
 #### autoplay(value)
@@ -863,11 +858,6 @@ Allows setting whether audio will `autoplay` upon page load. Defaults to `false`
 {{ page.media['hal9000.mp3'].autoplay(1) }}
 ```
 {% endverbatim %}
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```
-{{ page.media['hal9000.mp3'].autoplay(1) }}
-```
 [/ui-tab]
 [/ui-tabs]
 
@@ -891,11 +881,6 @@ Allows setting of `controlsList` property, which takes one or more of three poss
 ```
 {% endverbatim %}
 [/ui-tab]
-[ui-tab title="HTML Code"]
-```
-{{ page.media['hal9000.mp3'].controlsList('nodownload nofullscreen noremoteplayback') }}
-```
-[/ui-tab]
 [/ui-tabs]
 
 #### muted(value)
@@ -915,11 +900,6 @@ Allows setting whether audio is `muted` on load. Defaults to `false` by omission
 ```
 {% endverbatim %}
 [/ui-tab]
-[ui-tab title="HTML Code"]
-```
-{{ page.media['hal9000.mp3'].muted(1) }}
-```
-[/ui-tab]
 [/ui-tabs]
 
 #### loop(value)
@@ -938,11 +918,6 @@ Allows setting whether audio will `loop` upon playing through completion. Defaul
 {{ page.media['hal9000.mp3'].loop(1) }}
 ```
 {% endverbatim %}
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```
-{{ page.media['hal9000.mp3'].loop(1) }}
-```
 [/ui-tab]
 [/ui-tabs]
 
