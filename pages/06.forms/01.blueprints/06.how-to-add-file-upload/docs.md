@@ -6,7 +6,7 @@ taxonomy:
 
 ### File Uploads
 
-You can add file upload functionality in Pages, Config, Plugins and Themes blueprints. File uploads are always Ajax based and allow Drag & Drop from the desktop or picking them as regular file fields. Everytime a file is added to the field, it's automatically uploaded to a temporary folder, and will only be stored when the Save (or Submit) action takes place. 
+You can add file upload functionality in Pages, Config, Plugins and Themes blueprints. File uploads are always Ajax based and allow Drag & Drop from the desktop or picking them as regular file fields. Every time a file is added to the field, it's automatically uploaded to a temporary folder, and will only be stored when the Save (or Submit) action takes place. 
 
 Example of usage:
 
@@ -115,7 +115,7 @@ When the [`multiple`](#multiple) setting is enabled, `limit` allows to constrain
 
 When `limit` is set to **0**, it means that there are no restrictions on the amount of allowed files that can be uploaded.
 
-!! It is good practise to always ensure you have a set limit of allowed files that can be uploaded. This way you have more control over your server resources utilizasions.
+!! It is good practice to always ensure you have a set limit of allowed files that can be uploaded. This way you have more control over your server resources utilizations.
 
 #### `accept`
 
