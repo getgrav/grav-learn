@@ -63,7 +63,7 @@ extends@:
 
 Sometimes you may want to share some fields or sub-forms between multiple forms.
 
-Lets create `blueprints://partials/gallery.yaml` which we want to embed to our form:
+Let's create `blueprints://partials/gallery.yaml` which we want to embed to our form:
 
 ``` yaml
 form:
@@ -135,7 +135,7 @@ form:
       config-default@: site.author.name
 ```
 
-If your site author name is `John Doe`, the form is equilevant to:
+If your site author name is `John Doe`, the form is equivalent to:
 
 ``` yaml
 form:
@@ -259,7 +259,7 @@ If you create a special form field type, which needs a special handling in bluep
     }
 ```
 
-You do not need to register this function as its not really an event, but gets fired when plugin object gets constructed.
+You do not need to register this function as it's not really an event, but gets fired when plugin object gets constructed.
 The purpose of this function is to give extra instructions how to handle the field, for example above code makes display and spacer types to be virtual, meaning that they won't exist in real data.
 
 You can add any `key: value` pairs including dynamic properties like `data-options@` which will automatically get appended to the fields.
