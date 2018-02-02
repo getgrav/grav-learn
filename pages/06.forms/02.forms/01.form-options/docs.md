@@ -28,7 +28,7 @@ form:
 
 #### Action
 
-The action by default is going to be the route as the current page.  This makes sense most of the time because the form needs to be processed by the the same page that houses the form.  There are times when you want to override the action however to either specify a different file extension (`.json` perhaps) or even target a specific page anchor:
+The action by default is going to be the route as the current page.  This makes sense most of the time because the form needs to be processed by the same page that houses the form.  There are times when you want to override the action however to either specify a different file extension (`.json` perhaps) or even target a specific page anchor:
 
 ```yaml
 form:
