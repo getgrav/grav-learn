@@ -149,7 +149,7 @@ Put them in `user/themes/YOURTHEME/blueprints/`. This is best when you also inte
 
 #### In the Data folder
 
-If you are using a Gantry5 based theme, the best location is `user/data/gantry5/themes/YOURTHEME/blueprints/`, otherwise your files may be lost during theme update.
+If you are using a Gantry5 based theme, the best location is `user/data/gantry5/themes/YOURTHEME/blueprints/`, otherwise your files may be lost during a theme update.
 
 #### In a Plugin
 
