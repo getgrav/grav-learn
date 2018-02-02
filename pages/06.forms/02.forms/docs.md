@@ -71,7 +71,7 @@ Regular **markdown** content goes here...
 
 !!! This is the content of the `form.md` file, when viewed via file-system. To do this via Admin Plugin, open the page in **Expert Mode**, copy the part between the triple dashes `---`, and paste it in the Frontmatter field.
 
-This is enough to show a form in the page, below the page's content. It is a simple form with a name, email field, two buttons: one to submit the form and one to reset the fields. For more information on the available fields that are provided by the Form plugin, [checkout the next section](fields-available).
+This is enough to show a form in the page, below the page's content. It is a simple form with a name, email field, two buttons: one to submit the form and one to reset the fields. For more information on the available fields that are provided by the Form plugin, [check out the next section](fields-available).
 
 What happens when you press the `Submit` button?  It executes the `process` actions in series. To find out about other actions, [check out the available options](reference-form-actions) or [create your own](reference-form-actions#add-your-own-custom-processing-to-a-form).
 
