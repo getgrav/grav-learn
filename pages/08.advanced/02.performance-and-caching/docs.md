@@ -12,7 +12,7 @@ taxonomy:
 
 2. **SSD drives** can make a big difference. Most things can get cached in PHP user cache, but some are stored as files, so SSD drives can make a big impact on performance.
 
-3. **Native hosting** will always be faster than a Virtual Machine.  VMs are a great way hosting providers can offer flexible “cloud” type environments. These add a layer of processing that will always affect performance. Grav can still be fast on a VM (much faster than wordpress, joomla, etc), but still for optimal performance, you can't beat a native hosting option.
+3. **Native hosting** will always be faster than a Virtual Machine.  VMs are a great way hosting providers can offer flexible “cloud” type environments. These add a layer of processing that will always affect performance. Grav can still be fast on a VM (much faster than wordpress, joomla, etc), but still, for optimal performance, you can't beat a native hosting option.
 
 4. **Faster memory** is better. Because Grav is so fast, and because many of its caching solutions use memory heavily, the speed of the memory on your server can have a big impact on performance. Grav does not use extensive amounts of memory compared to some platforms so the amount of memory is not as important, nor does it impact performance as much, as memory type and speed.
 
@@ -71,7 +71,7 @@ By default, Grav uses the `file` check method for its caching.  What this means 
 
 `folder` cache check is going to be slightly faster than `file` but will not work reliably in all environments.  You will need to check if Grav picks up modifications to pages on your server when using the `folder` option.
 
-`hash` checking uses a fast hash algorithm on all of the files in each page folder.  This maybe faster than file checking in some situations and does take into account every file in the folder.
+`hash` checking uses a fast hash algorithm on all of the files in each page folder.  This may be faster than file checking in some situations and does take into account every file in the folder.
 
 If automatic re-caching of changed pages is not critical to you (or if your site is rather large), then setting this value to `none` will speed up a production environment even more. You will just need to manually [clear the cache](../grav-cli#clearing-grav-cache) after changes are made.
 
@@ -112,7 +112,7 @@ cache:
     port: 6379
 ```
 
-Alternatively you can use a socket connection:
+Alternatively, you can use a socket connection:
 
 ```
 cache:
