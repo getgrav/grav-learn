@@ -110,7 +110,7 @@ To create a custom page template, you will need a blueprint file to define the f
 #### Adding a custom page template to a theme/ plugin
 In the root of the theme/ plugin folder, create a folder named `templates`.  Inside this folder, create a new mypage.html.twig file.  This will be the Twig template for the new page template "mypage".
 
-Example myplage.html.twig:
+Example mypage.html.twig:
 ```
 {% extends 'partials/base.html.twig' %}
 
