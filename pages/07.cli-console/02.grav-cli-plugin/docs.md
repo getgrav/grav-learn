@@ -44,7 +44,7 @@ With **list** you can access all the available commands and view a quick descrip
 
 Here is an example with the **login** plugin when we run the command `bin/plugin login list`.
 
-! Not specifying any command after the plugin slug defaults automatically to `list`. This means that both `bin/plugin [slug] list` and `bin/plugin [slug]` are equivalent.
+! Not specifying any command after the plugin slug defaults automatically to `list`. This means that both `bin/plugin [slug] list` and `bin/plugin [slug]` are equivalents.
 
 ![](bin-plugin-login.png)
 
@@ -71,11 +71,11 @@ Success! User joeuser created.
 
 ### Developers: Integrate the CLI in Plugin
 
-As a Developer you might want to create CLI commands for admins or users to run. It is extremely easy to add such functionality in a Plugin.
+As a Developer, you might want to create CLI commands for admins or users to run. It is extremely easy to add such functionality in a Plugin.
 
 The first thing you want to do is to create a subfolder `cli/` at the root of your plugin. This folder will be processed by `bin/plugin` and scanned for commands classes.
 
-Grav's CLI are based on the great [Symfony Console Component](http://symfony.com/doc/current/components/console/introduction.html) and you can pretty much follow their documentation for a complete reference, there are just a few important things you should consider.
+Grav's CLI is based on the great [Symfony Console Component](http://symfony.com/doc/current/components/console/introduction.html) and you can pretty much follow their documentation for a complete reference, there are just a few important things you should consider.
 
 1. The name of the class file is standard. It should start with a capital letter and end with **Command.php**.
     * `Hello.php`: WRONG
