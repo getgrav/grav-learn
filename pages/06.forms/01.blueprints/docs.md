@@ -53,7 +53,7 @@ What determines what a page should do and how it should appear is the **Page Blu
 
 Grav provides some basic Page Blueprints: Default and Modular. Those are the two main building blocks of Grav.
 
-Additional page Blueprints are added and setup by the theme, which might decide to add as many page Blueprints as possible, or focus on some particular Page blueprints focused on what it needs to do.
+Additional page Blueprints are added and set up by the theme, which might decide to add as many page Blueprints as possible, or focus on some particular Page blueprints focused on what it needs to do.
 
 A Grav theme is much more flexible and powerful than what you might be used to on other platforms.
 
@@ -70,9 +70,9 @@ A page file is used by a page by setting its markdown file name, e.g. `blog.md`,
 
 Each of those files will use a different page file. You can also change the file type by [using the template header property](http://learn.getgrav.org/content/headers#template).
 
-The template used by a page not only determines the "look and feel" in the frontend, but also determines how the Admin Plugin will render it, allowing you to add options, select boxes, custom inputs, toggles.
+The template used by a page not only determines the "look and feel" in the frontend, but also determines how the Admin Plugin will render it, allowing you to add options, select boxes, custom inputs and toggles.
 
-How to do it: in your theme, add a `blueprints/` folder and add a YAML file with the name of the page template you added. For example if you add a `blog` page template. add a `blueprints/blog.yaml` file. You can find an [example of this directory in the **Antimatter** theme](https://github.com/getgrav/grav-theme-antimatter/tree/develop/blueprints).
+How to do it: in your theme, add a `blueprints/` folder and add a YAML file with the name of the page template you added. For example if you add a `blog` page template, add a `blueprints/blog.yaml` file. You can find an [example of this directory in the **Antimatter** theme](https://github.com/getgrav/grav-theme-antimatter/tree/develop/blueprints).
 
 ## Components of a Blueprint
 
@@ -88,7 +88,7 @@ icon: github
 author:
   name: Team Grav
   email: devs@getgrav.org
-  url: http://getgrav.org
+  url: https://getgrav.org
 homepage: https://github.com/getgrav/grav-plugin-github
 keywords: github, plugin, api
 bugs: https://github.com/getgrav/grav-plugin-github/issues
