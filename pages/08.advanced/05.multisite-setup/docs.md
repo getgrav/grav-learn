@@ -14,7 +14,7 @@ Grav has built-in multisite support. Unlike the [automatic environment configura
 
 ### Requirements for a Grav Multisite Setup
 
-The most important thing you will need to run a Grav multisite network is good website hosting. If you are not planning to create many sites and do not expect many visitors, then you can get away with shared hosting. However due to the nature of multisites, you’d probably need a VPS or dedicated server as your sites grow.
+The most important thing you will need to run a Grav multisite network is good website hosting. If you are not planning to create many sites and do not expect many visitors, then you can get away with shared hosting. However, due to the nature of multisites, you’d probably need a VPS or dedicated server as your sites grow.
 
 ### Setup and installation
 
@@ -24,7 +24,7 @@ This is essential since serving multiple websites from the same installation is 
 
 #### Quickstart (for Beginners)
 
-Once created, the `setup.php` is called every time a user requests a page. In order to serve multiple websites from one single installation, this script (roughly speaking) has to tell Grav where the files (for the configurations, themes, plugins, pages etc.) for a specific subsites are located.
+Once created, the `setup.php` is called every time a user requests a page. In order to serve multiple websites from one single installation, this script (roughly speaking) has to tell Grav where the files (for the configurations, themes, plugins, pages etc.) for a specific subsite are located.
 
 The provided snippets below setup your Grav installation in such a way that a request like
 
@@ -38,7 +38,7 @@ http://example.com/<subsite>   -->   user/sites/<subsite>
 
 will use the `user/sites` directory as the base "user" path instead of the `user` directory.
 
-If you choose sub-directories or path based URLs for subsites, then the only thing you need is to create a directory for each subsite in the `user/sites` directory containing at least the required folders `config`, `pages`, `plugins` and `themes`.
+If you choose sub-directories or path based URLs for subsites, then the only thing you need is to create a directory for each subsite in the `user/sites` directory containing at least the required folders `config`, `pages`, `plugins`, and `themes`.
 
 If you choose sub-domains for structuring your website network, then you will have to configure (wildcard) sub-domains on your server in addition to the setup of your subsites in your `user/sites` directory.
 
@@ -136,9 +136,9 @@ return [
 
 Once created a `setup.php` have access to two important variables: (i) `$container`, which is the yet not properly initialized [Grav instance](https://github.com/getgrav/grav/blob/develop/system/src/Grav/Common/Grav.php) and (ii) `$self`, which is an instance of the [ConfigServiceProvider class](https://github.com/getgrav/grav/blob/develop/system/src/Grav/Common/Service/ConfigServiceProvider.php).
 
-Inside this script you can do anything, but please be aware that the `setup.php` is called every time a user requests a page. This means that memory critical or time-consuming initializations operations lead to a slow-down of your whole system and should therefore be avoided.
+Inside this script, you can do anything, but please be aware that the `setup.php` is called every time a user requests a page. This means that memory critical or time-consuming initializations operations lead to a slow-down of your whole system and should therefore be avoided.
 
-In the end the `setup.php` has to return an associative array with the optional environment name **environment** and a stream collection **streams**
+In the end, the `setup.php` has to return an associative array with the optional environment name **environment** and a stream collection **streams**
 (for more informations and in order to set them up correctly, see the section [Streams](#streams)):
 
 ```php
@@ -171,7 +171,7 @@ return [
 
 #### Streams
 
-In Grav streams are objects, mapping a set of physical directories of the system to a logical device. They are classified via their `type` attribute. For readonly streams that's the `ReadOnlyStream` type and for read-writeable streams that's the `Stream` type. You can register any custom stream type and pointing to it as long as it is an instance of the [StreamInterface](https://github.com/rockettheme/toolbox/blob/develop/StreamWrapper/src/StreamInterface.php) interface class.
+In Grav streams are objects, mapping a set of physical directories of the system to a logical device. They are classified via their `type` attribute. For read-only streams that's the `ReadOnlyStream` type and for read-writeable streams that's the `Stream` type. You can register any custom stream type and pointing to it as long as it is an instance of the [StreamInterface](https://github.com/rockettheme/toolbox/blob/develop/StreamWrapper/src/StreamInterface.php) interface class.
 
 Mapping physical directories to a logical device can be done in two ways, either by setting up `paths` or `prefixes`. The former can be understood as a 1-to-1 mapping, whereas the latter (as the name suggests) allows you to combine several physical paths into one logical stream. Let's say you want to register a stream with the name "image". You can then with the stream `images://` list with
 
@@ -199,7 +199,7 @@ all images located in the folders `user/images` and `system/images`. For **prefi
 
 In this case `cache://` resolves to `cache`, but `cache://images` resolves to `images`.
 
-Last but not least, streams can be used in other streams. For example provided a stream `user` and a stream `system` exists, the above "image" stream can also be written as
+Last but not least, streams can be used in other streams. For example, provided a stream `user` and a stream `system` exists, the above "image" stream can also be written as
 
 ```php
 'image' => [
