@@ -8,7 +8,7 @@ Grav now has the ability to extend the [powerful configuration capabilities](../
 
 ### Automatic Environment Configuration
 
-What this means is that you can provide as little or as much configuration changes per environment as needed.  A good example of this is the [Debug Bar](../debugging).  By default the new Debug Bar is disabled in the core `system/config/system.yaml` file, and also in the user override file:
+What this means is that you can provide as little or as much configuration changes per environment as needed.  A good example of this is the [Debug Bar](../debugging).  By default, the new Debug Bar is disabled in the core `system/config/system.yaml` file, and also in the user override file:
 
 ```
 user/config/system.yaml
@@ -29,7 +29,7 @@ debugger:
   enabled: true
 ```
 
-Similarly you may want to enable CSS and Js Asset Pipelining (combining + minification) for your production site only (`user/www.mysite.com/config/system.yaml`):
+Similarly, you may want to enable CSS and Js Asset Pipelining (combining + minification) for your production site only (`user/www.mysite.com/config/system.yaml`):
 
 ```
 assets:
@@ -76,7 +76,7 @@ You can override themes in much the same way:
 user/config/themes/antimatter.yaml
 ```
 
-Can be overriden for any environment, say some production site (www.mysite.com):
+Can be overridden for any environment, say some production site (www.mysite.com):
 
 ```
 www.mysite.com/config/themes/antimatter.yaml
