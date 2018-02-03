@@ -10,7 +10,7 @@ This is especially true for folks that are running their own development servers
 
 In the end, it all comes down to personal preference. On this page, we will list some great resources out there to help you become familiar with the command line.
 
-!! Not all operating systems are compatible with one-another when it comes to commands. There are minor differences between OS X and many Linux distros, with Windows' Command Promt having a very different set of commands from the other two.
+!! Not all operating systems are compatible with one another when it comes to commands. There are minor differences between OS X and many Linux distros, with Windows' Command Prompt having a very different set of commands from the other two.
 
 ## OS X
 
@@ -52,7 +52,7 @@ When that is done, open a new console (or restart your current one) so the new p
 
 ## Grav-specific Commands
 
-One of the coolest things about Grav is that you have a host of powerful commands at your disposal to do everything from install additional plugins and themes to adding users to the Admin. In this section, we will list many of the most commonly used commands.
+One of the coolest things about Grav is that you have a host of powerful commands at your disposal to do everything from installing additional plugins and themes to adding users to the Admin. In this section, we will list many of the most commonly used commands.
 
 All of the commands listed below are compatible with any operating system.
 
@@ -71,7 +71,7 @@ All of the commands listed below are compatible with any operating system.
 | `bin/gpm info`                    | Displays the details of the desired package, such as description, author, homepage, etc.                                           |
 | `bin/gpm install`                 | Installs a resource from the repository to your current Grav instance with a simple command.                                       |
 | `bin/gpm update`                  | Checks installed plugins and themes for available updates and lists them.                                                          |
-| `bin/gpm uninstall`               | Removes an installed theme or plugin and cleares the cache.                                                                        |
+| `bin/gpm uninstall`               | Removes an installed theme or plugin and clears the cache.                                                                        |
 | `bin/gpm self-upgrade`            | Enables you to update Grav to the latest version.                                                                                  |
 
 !! These commands are explained in greater detail within the [Grav CLI](../grav-cli) and [Grav GPM](../grav-gpm) documentation.
