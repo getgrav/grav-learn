@@ -34,7 +34,7 @@ Zend Engine v2.5.0, Copyright (c) 1998-2014 Zend Technologies
     with the ionCube PHP Loader v4.6.1, Copyright (c) 2002-2014, by ionCube Ltd.
 ```
 
-If you see a reference to `(cgi-fcgi)` you will need to prefix all `bin/gpm` commands with `php-cli`. Alternatively you can setup an alias in your shell with something like: `alias php="php-cli"` which will ensure the **CLI** version of PHP runs from the command line.
+If you see a reference to `(cgi-fcgi)` you will need to prefix all `bin/gpm` commands with `php-cli`. Alternatively, you can set up an alias in your shell with something like: `alias php="php-cli"` which will ensure the **CLI** version of PHP runs from the command line.
 
 ## How Does it Work?
 
@@ -42,11 +42,11 @@ _GPM_ downloads the repository metadata from **GetGrav.org**. The repository con
 
 The repository itself gets cached locally, on the Grav instance machine running the command, for 24 hours. Any further request after the cache has been generated will not contact the **GetGrav.org** server, but rather serve from the locally-stored repository. This approach guarantees a much quicker response.
 
-Most of the commands (listed below) come with the option `--force (-f)` which allows the forcing a re-fetch of the repository. This could be extremely useful in the event an update is known to be out there and the user doesn't want to wait a full 24 hour cycle before the cache gets cleared.
+Most of the commands (listed below) come with the option `--force (-f)` which allows the forcing a re-fetch of the repository. This could be extremely useful in the event an update is known to be out there and the user doesn't want to wait a full 24-hour cycle before the cache gets cleared.
 
 ## Commands
 
-Below, we have broken down all of the commands available for _GPM_. To run a command, launch your favorite terminal app and from within the root of your Grav instance you can type `bin/gpm <command>`.
+Below, we have broken down all of the commands available for _GPM_. To run a command, launch your favorite terminal app and from within the root of your Grav instance, you can type `bin/gpm <command>`.
 
 ## Index
 
@@ -100,7 +100,7 @@ Alternatively, you can limit the updates to specific resources only.
 
 ## Uninstall
 
-The `uninstall` command removes an installed theme or plugin and cleares the cache. Because Grav is purely filesystem, uninstalling a theme or a plugin means deleting the folder physically.
+The `uninstall` command removes an installed theme or plugin and clears the cache. Because Grav is purely filesystem, uninstalling a theme or a plugin means deleting the folder physically.
 
 The command will also detect if a resource is symbolically linked, and prompts you on what to do.
 
@@ -140,6 +140,6 @@ Follow the instructions in the [Theme/Plugin Release Process](../../advanced/gra
 
 To add your new plugin/theme to the Grav repository, please open a Grav Issue on GitHub. You can also [use this precompiled link](https://github.com/getgrav/grav/issues/new?title=[add-resource]%20New%20Plugin/Theme&body=I%20would%20like%20to%20add%20my%20new%20plugin/theme%20to%20the%20Grav%20Repository.%0AHere%20are%20the%20project%20details:%20**user/repository**). Make sure you update the body to the proper `user/repository`.
 
-More details about what the plugin/theme does are welcome, and can can be placed in the Issue.
+More details about what the plugin/theme does are welcome and can be placed in the Issue.
 
-Also please be aware that before adding a repository, the Grav team will inspect your plugin/theme ensuring that it fits with the Grav standards. The team may also respond with requests for additional information, suggest minor improvements, etc. prior to closing the issue and adding the plugin/theme.
+Also please be aware that before adding a repository, the Grav team will inspect your plugin/theme ensuring that it fits the Grav standards. The team may also respond with requests for additional information, suggest minor improvements, etc. prior to closing the issue and adding the plugin/theme.
