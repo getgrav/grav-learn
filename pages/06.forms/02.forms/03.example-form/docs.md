@@ -100,7 +100,7 @@ That's it!
 
 !!! Modular pages are a bit different. In this case, also see [using forms in modular pages](https://learn.getgrav.org/forms/forms/how-to-forms-in-modular-pages)
 
-When users submit the form, the plugin will send an email to you (as set in the `from` setting of the Grav Email Plugin), and will save the entered data in the data/ folder.
+When users submit the form, the plugin will send an email to you (as set in the `form` setting of the Grav Email Plugin), and will save the entered data in the data/ folder.
 
 ! For full details on setting up and configuring email, please read the [Email plugin documentation](https://github.com/getgrav/grav-plugin-email/blob/develop/README.md)
 
