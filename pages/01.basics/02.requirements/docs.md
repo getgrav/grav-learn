@@ -60,7 +60,10 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 * `curl` (client for URL handling used by GPM)
 * `openssl` (secure sockets library used by GPM)
 * `zip` extension support (used by GPM)
+* `phar` (PHP Archive (used by composer))
 * `mbstring` (multibyte string support)
+* `ctype` (Character type checking)
+* `dom` (XML manipulation)
 * `xml` (XML support)
 
 For enabling `openssl` and (un)zip support you will need to find in the `php.ini` file of your Linux distribution for lines like:
