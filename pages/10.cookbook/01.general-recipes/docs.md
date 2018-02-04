@@ -22,7 +22,7 @@ This page contains an assortment of problems and their respective solutions rela
 
 ### Change the PHP CLI version
 
-Sometimes on the terminal the PHP version is different than the PHP version used by the web server.
+Sometimes on the terminal, the PHP version is different than the PHP version used by the web server.
 
 You can check the PHP version running in the CLI by running the command `php -v`.
 If the PHP version is less than 5.5.9, Grav won't run as it requires at least PHP 5.5.9.
@@ -55,7 +55,7 @@ PATH=/usr/local/lib/php-5.5/bin:$PATH:$HOME/bin
 export PATH
 ```
 
-The exact path of course depends on how your system is setup, where it stores the more recent PHP version binaries. That might be something you find in the Hosting documentation, or you can ask your hosting setup if you do not find it anywhere.
+The exact path of course depends on how your system is set up, where it stores the more recent PHP version binaries. That might be something you find in the Hosting documentation, or you can ask your hosting setup if you do not find it anywhere.
 
 You could also try looking in the `php-something` files or folders under the `/usr/local/bin` or `/usr/local/lib` folders, with `ls -la /usr/local/lib/ |grep -i php`.
 
@@ -69,7 +69,7 @@ A common web design requirement is to have a gallery of some kind rendered on a 
 
 The simplest way to provide a solution for this problem is to make use of Grav's [media functionality](../../content/media) which allows a page to be aware of the images available in its folder.
 
-Let's assume you have a page you've called `gallery.md` and also you have a variety of images in the same directory. The filenames themselves are not important as we will just iterate over each of the images.  Because we want to have extra data associated with each image, we will include a `meta.yaml` file for each image.  For example we have a few images:
+Let's assume you have a page you've called `gallery.md` and also you have a variety of images in the same directory. The filenames themselves are not important as we will just iterate over each of the images.  Because we want to have extra data associated with each image, we will include a `meta.yaml` file for each image.  For example, we have a few images:
 
 ```
 - fido-playing.jpg
@@ -82,7 +82,7 @@ Let's assume you have a page you've called `gallery.md` and also you have a vari
 - fido-growling.jpg.meta.yaml
 ```
 
-Each of the `.jpg` files are a relatively good size that is appropriate for a full-size version, 1280px x 720px in size. Each of the `meta.yaml` files contains a few key entries, let's look at `fido-playing.jpg.meta.yaml`:
+Each of the `.jpg` files are a relatively good size that is appropriate for a full-size version, 1280px x 720px in size. Each of the `meta.yaml` files contain a few key entries, let's look at `fido-playing.jpg.meta.yaml`:
 
 ```
 title: Fido Playing with his Bone
@@ -116,7 +116,7 @@ Now we need to display these images in reverse chronological order so the newest
 {% endblock %}
 ```
 
-For modular gallery to be displayed inside another page, remove the following code from the Twig file in order to make it work:
+For a modular gallery to be displayed inside another page, remove the following code from the Twig file in order to make it work:
 
 ```
 {% extends 'partials/base.html.twig' %}
@@ -131,9 +131,9 @@ and
 {% endblock %}
 ```
 
-Basically this extends the standard `partials/base.html.twig` (assuming your theme has this file), it then defines the `content` block and provides the content for it.  The first thing we do is echo out any `page.content`.  This would be the content of the `gallery.md` file, so it could contain a title, and a description of this page.
+Basically, this extends the standard `partials/base.html.twig` (assuming your theme has this file), it then defines the `content` block and provides the content for it.  The first thing we do is echo out any `page.content`.  This would be the content of the `gallery.md` file, so it could contain a title, and a description of this page.
 
-The next section simply loops over all the media of the page that are **images**.  We are outputting these in an unordered list to make the output semantic, and easy to style with CSS.  we are assigning each image the variable name `image` and then we are able to perform a simple `cropResize()` method to resize the image to something suitable, and then below it we provide an information section with the `title` and `description`.
+The next section simply loops over all the media of the page that are **images**.  We are outputting these in an unordered list to make the output semantic, and easy to style with CSS.  we are assigning each image the variable name `image` and then we are able to perform a simple `cropResize()` method to resize the image to something suitable, and then below it, we provide an information section with the `title` and `description`.
 
 ### Render content in columns
 
@@ -143,7 +143,7 @@ A question that has come up several times is how to quickly render a single page
 
 ##### Solution:
 
-There are many potential solutions, but one simple solutions is to divide up your content into logical sections using a delimiter such as as the HTML `<hr />` or *thematic break* tag.  In markdown this is represented by 3 or more dashes or `---`.  We simply create our content and separate our sections of content with these dashes:
+There are many potential solutions, but one simple solution is to divide up your content into logical sections using a delimiter such as the HTML `<hr />` or *thematic break* tag.  In markdown, this is represented by 3 or more dashes or `---`.  We simply create our content and separate our sections of content with these dashes:
 
 **columns.md**
 
@@ -452,7 +452,7 @@ or in PHP by calling
 
 ### Override the default logs folder location
 
-The default location for the logs output of Grav is simply called `logs/`.  Unfortunately there are instances where that `logs/` folder is already used or is off-limits.  Grav's flexible stream system allows the ability to customize the locations of these folders.
+The default location for the logs output of Grav is simply called `logs/`.  Unfortunately, there are instances where that `logs/` folder is already used or is off-limits.  Grav's flexible stream system allows the ability to customize the locations of these folders.
 
 First, you need to create your new folder.  In this example, we'll create a new folder in the root of your Grav install called `grav-logs/`.  Then create a new root-level file called `setup.php` and paste the following code:
 
@@ -592,7 +592,7 @@ Then, for each page you wish to have a unique style, you would add the following
 body_classes: featurepost
 ```
 
-Note: This is how the Antimatter theme applies page-specific classes, and so its a good standard to follow.
+Note: This is how the Antimatter theme applies page-specific classes, and so it's a good standard to follow.
 
 ### Migrate an HTML theme to Grav
 
@@ -602,7 +602,7 @@ You probably have downloaded the theme, and it's composed of several HTML files.
 
 First, [use the Grav Devtools plugin](/themes/theme-tutorial) to create a blank theme, and set Grav to use it in the System settings.
 
-Create a `templates/home.html.twig` Twig template inside the theme’s templates folder. This will represent a template specific for the home page. Usually the home is a unique page on the site, so it probably deserves a dedicated Twig file.
+Create a `templates/home.html.twig` Twig template inside the theme’s templates folder. This will represent a template specific for the home page. Usually, the home is a unique page on the site, so it probably deserves a dedicated Twig file.
 
 Copy the HTML code from the template's home page, starting at `<html>` and ending at `</html>` to your new `home.html.twig` file.
 
@@ -662,7 +662,7 @@ You need to add an asset to a specific template on your theme.
 
 #### Solution
 
-Most of the time, your assets will be added inside a twig block in you base template like below. 
+Most of the time, your assets will be added inside a twig block in your base template like below. 
 
 ```
 {% block javascripts %}
