@@ -74,7 +74,7 @@ and see the results in the Debugbar:
 
 ## Error Display
 
-Our new error display page provides detailed information, backtraces and even relevant code block.  This helps to more quickly isolate, identify and resolve critical errors. By default in Grav 1.0+, these are turned off by default, so you will need to enable them to take advantage of this helpful error handling for development:
+Our new error display page provides detailed information, backtraces, and even relevant code blocks.  This helps to more quickly isolate, identify and resolve critical errors. By default in Grav 1.0+, these are turned off by default, so you will need to enable them to take advantage of this helpful error handling for development:
 
 ```
 errors:
