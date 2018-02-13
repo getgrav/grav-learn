@@ -6,7 +6,7 @@ taxonomy:
 
 ## Using forms in modular pages
 
-If your theme does not provide a `templates/forms/form.html.twig` file, it's not setup to use forms, but no fear - just copy the form templates from Antimatter, the default Grav theme:
+If your theme does not provide a `templates/forms/form.html.twig` file, it's not set up to use forms, but no fear - just copy the form templates from Antimatter, the default Grav theme:
 
 - `templates/form.html.twig`
 - `templates/formdata.html.twig`
@@ -70,7 +70,7 @@ In the form header, make sure you add the `action` parameter, with the modular p
 Like present in the example above.
 This step is needed because if you don't explicitly add `form.action`, the code usually looks for the page route, but being the form in a modular subpage, not an actual page, the path is wrong and breaks the form submit.
 
-So if the modular page is e.g. `site.com/my-page`, just put `form: action: /my-page` in `modular.md`
+So if the modular page is e.g. `site.com/my-page`, just put `form: action: /my-page` in `modular.md`.
 Even if the modular page is the homepage, use the page route, e.g. `form: action: /home`
 
 #### A live example
