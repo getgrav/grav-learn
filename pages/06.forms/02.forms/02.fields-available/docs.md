@@ -25,13 +25,13 @@ The Forms plugin provides the following fields, which you can use to build your 
 | **[Range](#the-range-field)**           | A range input type                                          |
 | **[Select](#the-select-field)**         | A select field                                              |
 | **[Select OptGroup](#the-select-optgroup-field)**         | A grouping of options used within a select field                                              |
-| **[Spacer](#the-spacer-field)**         | Used to add a title, text or an horizontal line to the form |
+| **[Spacer](#the-spacer-field)**         | Used to add a title, text or a horizontal line to the form |
 | **[Text](#the-text-field)**             | A simple text field                                         |
 | **[Textarea](#the-textarea-field)**     | A textarea                                                  |
 
 ### Common Fields Attributes
 
-Every field accepts a list of attributes you can use. Each field could share these common attributes, but particular fields might ignore them. The best way to check which attributes are allowed on a field is to check the field description in this page, and see which attributes are mentioned.
+Every field accepts a list of attributes you can use. Each field could share these common attributes, but particular fields might ignore them. The best way to check which attributes are allowed on a field is to check the field description in this page and see which attributes are mentioned.
 
 This list provides a common ground so there's no need to repeat the description of a common field.
 
@@ -50,7 +50,7 @@ This list provides a common ground so there's no need to repeat the description 
 | `outerclasses`      | Classes added to the div that includes the label and the field                                                                                                                                                 |
 | `placeholder`       | sets the field placeholder value                                                                                                                                                                               |
 | `readonly`          | sets the field readonly state                                                                                                                                                                                  |
-| `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template you see, when used in the frontend |
+| `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can ofcourse add more in the template you see, when used in the frontend |
 | `style`             | sets the field style                                                                                                                                                                                           |
 | `title`             | sets the field title value                                                                                                                                                                                     |
 | `type`              | sets the field type                                                                                                                                                                                            |
@@ -369,7 +369,7 @@ header.email:
 
 ### The File Field
 
-With the `file` field type you can let users to upload files through the form. The field by default allows **one file** only, of type **image** and will get uploaded in the **current** page where the form has been declared.
+With the `file` field type, you can let users upload files through the form. The field by default allows **one file** only, of type **image** and will get uploaded to the **current** page where the form has been declared.
 
 ``` yaml
 # Default settings
@@ -384,7 +384,7 @@ my_files:
 | Attribute     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | :-----        | :-----                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `multiple`    | Can be `true` or `false`, when set to **true**, multiple files can be selected at the same time                                                                                                                                                                                                                                                                                                                                                                                          |
-| `destination` | Can be either **@self**, **@page:/route** or **local/rel/path/**. <br>Set to **@self**, the files will be uploaded where the form has been declared (current .md). <br>Using **@page:/route** will upload to the specified route of a page, if exists (e.g., **@page:/blog/a-blog-post**). <br>Set to **'local/rel/path'**: Can be any path relative to the Grav instance. For instance, `user/data/files`. If the path doesn't exist, it will get created so make sure it is writable. |
+| `destination` | Can be either **@self**, **@page:/route** or **local/rel/path/**. <br>Set to **@self**, the files will be uploaded where the form has been declared (current .md). <br>Using **@page:/route** will upload to the specified route of a page, if exists (e.g., **@page:/blog/a-blog-post**). <br>Set to **'local/rel/path'**: Can be any path relative to the Grav instance. For instance, `user/data/files`. If the path doesn't exist, it will get created, so make sure it is writable. |
 | `accept`      | Takes an array of MIME types that are allowed. For instance to allow only gifs and mp4 files: `accept: ['image/gif', 'video/mp4']`                                                                                                                                                                                                                                                                                                                                                       |
 
 !!! The File field in the admin is a bit different, allowing also to delete a file uploaded to a form, because the use-case in admin is to upload and then associate a file to a field.
@@ -640,7 +640,7 @@ header.newField:
 
 ### The Spacer Field
 
-The `spacer` field type is used to add some text, a headline or an hr tag
+The `spacer` field type is used to add some text, a headline or a hr tag
 
 Example:
 
@@ -678,7 +678,7 @@ header.title:
 | Attribute | Description                                       |
 | :-----    | :-----                                            |
 | `prepend` | prepend some text or HTML to the front of a field |
-| `append`  | append some text or HTML to the end of a a field  |
+| `append`  | append some text or HTML to the end of a field  |
 
 | Common Attributes Allowed                      |
 | :-----                                         |
@@ -718,8 +718,8 @@ header.content:
 
 | Attribute | Description                                                     |
 | :-----    | :-----                                                          |
-| `rows`    | Add a rows attribute with the value associated to this property |
-| `cols`    | Add a cols attribute with the value associated to this property |
+| `rows`    | Add a rows attribute with the value associated with this property |
+| `cols`    | Add a cols attribute with the value associated with this property |
 
 | Common Attributes Allowed                      |
 | :-----                                         |
