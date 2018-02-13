@@ -10,7 +10,7 @@ taxonomy:
     category: docs
 ---
 
-Perhaps the most popular and most widely used of all the VPS providers out there, [DigitalOcean](https://www.digitalocean.com/) provides a range of VPS options.  Starting at **$5/mo for a 1 CPU, 512MB system** up to $640/mo for a 20 CPU, 64GB setup, [DigitalOcean](https://www.digitalocean.com/) has solutions that can scale with you.  All their servers are built with **RAID SSD drives**, **modern hex-core hardware**, **KVM Virtualization**, and reliable **Tier-1 bandwidth** to ensure maximum performance.  They are a fantastic option for hosting your Grav-based site.
+Perhaps the most popular and most widely used of all the VPS providers out there, [DigitalOcean](https://www.digitalocean.com/) provides a range of VPS options.  Starting at **$5/mo for a 1 CPU, 1024MB system** up to $960/mo for a 32 CPU, 192GB setup, [DigitalOcean](https://www.digitalocean.com/) has solutions that can scale with you.  All their servers are built with **RAID SSD drives**, **modern hexa-core hardware**, **KVM Virtualization**, and reliable **Tier-1 bandwidth** to ensure maximum performance.  They are a fantastic option for hosting your Grav-based site.
 
 ![](digitalocean.png) {.shadow}
 
