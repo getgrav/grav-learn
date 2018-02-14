@@ -33,9 +33,11 @@ Each subfolder contains a Markdown-file which acts as a page.
 The data within these Module-folders - including Markdown-files, images, etc. - is then pulled and displayed on the Modular page. This is accomplished by creating a primary page, defining a [Page Collection](/content/collections) in the primary page's YAML FrontMatter, then iterating over this Collection in a Twig-template to generate the combined HTML page. A theme should already have a `modular.html.twig` template that will do this and is used when you create a Modular Page type. Here's a simple example from a `modular.html.twig`:
 
 ```twig
+{% verbatim %}
 {% for module in page.collection() %}
     {{ module.content }}
 {% endfor %}
+{% endverbatim %}
 ```
 
 Here is an example of the resulting modular page, highlighting the different modular folders which are used.
