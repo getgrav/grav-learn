@@ -57,6 +57,7 @@ To get **Grav** running on an IIS server you need to install **URL Rewrite**. Th
 Most hosting providers and even local LAMP setups have PHP pre-configured with everything you need for Grav to run 'out-of-the-box'. However, some Windows setups, and even Linux distributions local or on VPS (I'm looking at you Debian!) - ship with a very minimal PHP compile. Therefore, you may need to install or enable these PHP modules:
 
 * `curl` (client for URL handling used by GPM)
+* `ctype` (used by symfony/yaml/Inline)
 * `gd` (a graphics library used to manipulate images)
 * `json` (used by Symfony/Composer/GPM)
 * `mbstring` (multibyte string support)
