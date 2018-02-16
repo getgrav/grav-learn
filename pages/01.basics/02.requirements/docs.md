@@ -59,8 +59,9 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 * `curl` (client for URL handling used by GPM)
 * `gd` (a graphics library used to manipulate images)
 * `json` (used by Symfony/Composer/GPM)
-* `openssl` (secure sockets library used by GPM)
 * `mbstring` (multibyte string support)
+* `openssl` (secure sockets library used by GPM)
+* `session` (used by toolbox)
 * `xml` (XML support)
 * `zip` extension support (used by GPM)
 
