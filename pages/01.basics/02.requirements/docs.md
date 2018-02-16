@@ -58,6 +58,7 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 
 * `curl` (client for URL handling used by GPM)
 * `ctype` (used by symfony/yaml/Inline)
+* `dom` ()
 * `gd` (a graphics library used to manipulate images)
 * `json` (used by Symfony/Composer/GPM)
 * `mbstring` (multibyte string support)
