@@ -58,12 +58,13 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 
 * `curl` (client for URL handling used by GPM)
 * `ctype` (used by symfony/yaml/Inline)
-* `dom` ()
+* `dom` (used by grav/admin newsfeed)
 * `gd` (a graphics library used to manipulate images)
 * `json` (used by Symfony/Composer/GPM)
 * `mbstring` (multibyte string support)
 * `openssl` (secure sockets library used by GPM)
 * `session` (used by toolbox)
+* `simplexml` (used by grav/admin newsfeed)
 * `xml` (XML support)
 * `zip` extension support (used by GPM)
 
