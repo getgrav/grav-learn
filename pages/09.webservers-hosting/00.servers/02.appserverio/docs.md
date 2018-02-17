@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-**appserver.io** is an open source multithreaded application server for PHP. It has some advanced features and capabilites that enable you create powerful applications with PHP that tradtionally would of required Java or .Net.
+**appserver.io** is an open source multithreaded application server for PHP. It has some advanced features and capabilites that enable you create powerful applications with PHP that tradtionally would have required Java or .Net.
 
 ### Features
 
