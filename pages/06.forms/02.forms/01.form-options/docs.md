@@ -70,3 +70,12 @@ You can also set explicit classes on the form.  There are no default values here
 form:
     classes: 'form-style form-surround'
 ```
+
+#### Inline Errors
+
+Setting Inline Errors in the form's markdown file or definition enables the display of in-line errors, an important troubleshooting tool.
+
+```yaml
+form:
+    inline_errors: true
+```
