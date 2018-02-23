@@ -71,6 +71,21 @@ process:
     - display: thankyou
 ```
 
+#### Validation Message
+
+You can utilize the message action to trigger in the event of a failed validation. For example:
+
+```yaml
+username:
+   type: text
+   label: Username
+  validate:
+     required: true
+     message: My custom message when validation fails!
+```
+
+This will enable you to write a custom message that users will see in the event that validation fails.
+
 ### Display
 
 After submitting the form the user can be redirected to another page. That page will be a subpage of the form, so for example, if your form lives in `/form`, you can redirect users to `/form/thankyou` with the following code:
