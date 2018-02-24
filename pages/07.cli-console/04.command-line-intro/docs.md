@@ -74,7 +74,7 @@ All of the commands listed below are compatible with any operating system.
 | `bin/gpm uninstall`               | Removes an installed theme or plugin and clears the cache.                                                                        |
 | `bin/gpm self-upgrade`            | Enables you to update Grav to the latest version.                                                                                  |
 
-!! These commands are explained in greater detail within the [Grav CLI](../grav-cli) and [Grav GPM](../grav-gpm) documentation.
+!! These commands are explained in greater detail within the [Grav CLI](../grav-cli) and [Grav GPM](../grav-cli-gpm) documentation.
 
 ## Symbolic Links
 
