@@ -106,6 +106,8 @@ form:
                 second_field: { type: text, label: 'Second Field' }
 ```
 
+The above form outputs as follows:
+
 ```html
 <form action="/grav/example/forms" class="" id="my-example-form" method="post" name="Example Form">
   <fieldset id="my-fieldset">
