@@ -79,3 +79,59 @@ Setting Inline Errors in the form's markdown file or definition enables the disp
 form:
     inline_errors: true
 ```
+
+#### Client-side Validation
+
+Turning client-side validation off will enable you to see in-line errors and detailed server-side validation that go beyond the HTML5 client-side validation. You can disable client-side validation through form.yaml or in the form definition.
+
+```yaml
+form:
+    client_side_validation: false
+```
+
+#### Fieldsets
+
+You can set up `<fieldset></fieldset>` tags for the fields in your form using the `fieldset:` designation in the form.
+
+```yaml
+form:
+    name: Example Form
+    fields:
+        example:
+            type: fieldset
+            id: my-fieldset
+            legend: 'Test Fieldset'
+            fields:
+                first_field: { type: text, label: 'First Field' }
+                second_field: { type: text, label: 'Second Field' }
+```
+
+```html
+<form action="/grav/example/forms" class="" id="my-example-form" method="post" name="Example Form">
+  <fieldset id="my-fieldset">
+    <legend>Test Fieldset</legend>
+    <div class="form-group">
+      <div class="form-label-wrapper">
+        <label class="form-label">First Field</label>
+      </div>
+      <div class="form-data" data-grav-default="null" data-grav-disabled="true" data-grav-field="text">
+        <div class="form-input-wrapper">
+          <input class="form-input" name="data[first_field]" type="text" value="">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-label-wrapper">
+        <label class="form-label">Second Field</label>
+      </div>
+      <div class="form-data" data-grav-default="null" data-grav-disabled="true" data-grav-field="text">
+        <div class="form-input-wrapper">
+          <input class="form-input" name="data[second_field]" type="text" value="">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
+```
+
+In the above example, the fields appear within the `my-fieldset` fieldset. You'll also notice that the `<legend></legend>` tags are supporting through the `legend:` option.
