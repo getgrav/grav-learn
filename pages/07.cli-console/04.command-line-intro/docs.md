@@ -54,7 +54,7 @@ When that is done, open a new console (or restart your current one) so the new p
 
 One of the coolest things about Grav is that you have a host of powerful commands at your disposal to do everything from installing additional plugins and themes to adding users to the Admin. In this section, we will list many of the most commonly used commands.
 
-All of the commands listed below are compatible with any operating system.
+All of the commands listed below are compatible with <strong>any operating system.</strong>
 
 | Command                           | Description                                                                                                                        |
 | :----------------                 | :--------------------------------------                                                                                            |
@@ -75,6 +75,12 @@ All of the commands listed below are compatible with any operating system.
 | `bin/gpm self-upgrade`            | Enables you to update Grav to the latest version.                                                                                  |
 
 !! These commands are explained in greater detail within the [Grav CLI](../grav-cli) and [Grav GPM](../grav-cli-gpm) documentation.
+
+The commands listed below, are compatible with <strong>mac or unix systems.</strong>
+ 
+| Command                               | Description                                                                                                               |
+| :----------------                     | :--------------------------------------                                                                                   |
+|  ``` bin/gpm index \| grep '\| installed' ```  | Lists all plugins and themes you currently have installed. 
 
 ## Symbolic Links
 
