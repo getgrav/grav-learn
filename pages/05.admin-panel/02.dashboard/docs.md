@@ -6,7 +6,7 @@ process:
     twig: true
 ---
 
-![Admin Dashboard](grav_dashboard.png?classes=shadow)
+![Admin Dashboard](grav-dashboard.png?classes=shadow)
 
 The **Dashboard** serves as a hub of information for the **Administration Panel** plugin. From this one page, you can check traffic statistics, maintenance information, Grav updates, create new backups, see the latest page updates, as well as to quickly clear Grav's cache.
 
@@ -17,7 +17,7 @@ It's a starting point for your administrative experience.
 
 ### Cache and Updates Checking
 
-![Admin Dashboard](grav_dashboard_cache.png?classes=shadow)
+![Admin Dashboard](grav-dashboard-cache.png?classes=shadow)
 
 Along the top of the Dashboard, you will find two buttons. The first of which initiates a clearing of the Grav cache. Clicking the main **Clear Cache** button will wipe the entire cache, including any caching of assets and images. Using the **drop-down** feature to the right, you can choose from specific types of cache clearing processes.
 
@@ -29,13 +29,13 @@ The second button initiates an update check for your site. This includes any sup
 
 ### Maintenance and Statistics
 
-![Admin Dashboard](grav_dashboard_maintenance.png?classes=shadow)
+![Admin Dashboard](grav-dashboard-maintenance.png?classes=shadow)
 
 The **Maintenance** and **Statistics** sections give you quick access to important information about your site.
 
 On the **Maintenance** side, you can see a percentage graph letting you know how many of Grav's bits and pieces are completely up-to-date.
 
-![Admin Dashboard](grav_dashboard_maintenance_2.png?classes=shadow)
+![Admin Dashboard](grav-dashboard-maintenance_2.png?classes=shadow)
 
 If new updates are available, an <i class="fa fa-cloud-download"></i> **Update** button will appear that enables you to perform a one-click update for all plugins and themes. This button will not update Grav itself, which notifies you about a required update just above the Maintenance and Statistics sections.
 
