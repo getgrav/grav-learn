@@ -49,7 +49,7 @@ The **Statistics** section displays simple, at-a-glance traffic data breaking do
 
 ### Latest Page Updates
 
-![Admin Dashboard](grav_dashboard_latest.png?classes=shadow)
+![Admin Dashboard](grav-dashboard-latest.png?classes=shadow)
 
 The **Latest Page Updates** area of the admin gives you an at-a-glance view of the latest content changes made to pages in your Grav site. This list is sorted by most recently updated, and is generated each time you refresh the page. Selecting the title of a page in this list will take you directly to the page's editor in the admin.
 
