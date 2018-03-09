@@ -27,7 +27,7 @@ Below, we break down the options available when you select these buttons.
 
 #### Add Page
 
-![Admin Pages](add_2.png?classes=shadow)
+![Admin Pages](add2.png?classes=shadow)
 
 The **Add Page** button creates a non-modular page for your site. Once selected, a popup will appear enabling you to enter a **Title** and **Folder Name**, assign a **Parent Page** and **Display Template**, as well as to set whether the page should be visible or hidden.
 
@@ -45,7 +45,7 @@ Once you have filled out this information, selecting **Continue** will take you 
 
 #### Add Modular Page
 
-![Admin Pages](add_3.png?classes=shadow)
+![Admin Pages](add3.png?classes=shadow)
 
 The second button along the top of the **Pages** area of the admin allows you to add a modular subpage to your site. Modular pages are different from regular pages because they are actually a collection of pages, arranged and displayed as one page. This button specifically lets you create subpages and assign them to a parent modular page.
 
@@ -62,7 +62,7 @@ Once you have filled out this information, selecting **Continue** will take you 
 
 ### Pages List
 
-![Admin Pages](pages_2.png?classes=shadow)
+![Admin Pages](pages2.png?classes=shadow)
 
 The pages list that appears in this area gives you quick access to all of your current pages, as well as an at-a-glance method for seeing whether or not the pages are visible.
 
