@@ -23,7 +23,7 @@ Below is a breakdown of the different configuration sections that appear in the 
 
 ### Content
 
-![Admin Configuration](configuration_system_content.png?classes=shadow)
+![Admin Configuration](configuration-system-content.png?classes=shadow)
 
 This section is where you set the basic properties of content handling for your site. The home page, default theme, and various other content display options are set here.
 
@@ -44,7 +44,7 @@ This section is where you set the basic properties of content handling for your 
 
 ### Languages
 
-![Admin Configuration](configuration_system_languages.png?classes=shadow)
+![Admin Configuration](configuration-system-languages.png?classes=shadow)
 
 Multilanguage features are set in this section.
 
@@ -59,7 +59,7 @@ Multilanguage features are set in this section.
 
 ### HTTP Headers
 
-![Admin Configuration](configuration_system_http.png?classes=shadow)
+![Admin Configuration](configuration-system-http.png?classes=shadow)
 
 HTTP header options can be set in this section. This is useful for browser-based caching and optimization.
 
@@ -72,7 +72,7 @@ HTTP header options can be set in this section. This is useful for browser-based
 
 ### Markdown
 
-![Admin Configuration](configuration_system_markdown.png?classes=shadow)
+![Admin Configuration](configuration-system-markdown.png?classes=shadow)
 
 Markdown makes up the bulk of Grav's page content. This section gives you options to enable Markdown Extra, as well as to set how Grav handles Markdown.
 
@@ -85,7 +85,7 @@ Markdown makes up the bulk of Grav's page content. This section gives you option
 
 ### Caching
 
-![Admin Configuration](configuration_system_caching.png?classes=shadow)
+![Admin Configuration](configuration-system-caching.png?classes=shadow)
 
 Grav's integrated caching feature helps make it one of the fastest flat-file CMS options out there. You can configure your site's primary caching functions in this section.
 
@@ -100,7 +100,7 @@ Grav's integrated caching feature helps make it one of the fastest flat-file CMS
 
 ### Twig Templating
 
-![Admin Configuration](configuration_system_twig.png?classes=shadow)
+![Admin Configuration](configuration-system-twig.png?classes=shadow)
 
 This section focuses on Grav's Twig templating feature. You can set Twig caching, debug, and change detection settings here.
 
@@ -113,7 +113,7 @@ This section focuses on Grav's Twig templating feature. You can set Twig caching
 
 ### Assets
 
-![Admin Configuration](configuration_system_assets.png?classes=shadow)
+![Admin Configuration](configuration-system-assets.png?classes=shadow)
 
 This section deals with assets handling, including CSS and JavaScript assets.
 
@@ -130,7 +130,7 @@ This section deals with assets handling, including CSS and JavaScript assets.
 
 ### Error Handler
 
-![Admin Configuration](configuration_system_error.png?classes=shadow)
+![Admin Configuration](configuration-system-error.png?classes=shadow)
 
 You can set how Grav handles error reporting and display here. This is a useful tool to have during site development.
 
@@ -141,7 +141,7 @@ You can set how Grav handles error reporting and display here. This is a useful 
 
 ### Debugger
 
-![Admin Configuration](configuration_system_debugger.png?classes=shadow)
+![Admin Configuration](configuration-system-debugger.png?classes=shadow)
 
 Like error handling, Grav's integrated debugging tools give you the ability to locate and troubleshoot issues. This is especially useful during development.
 
@@ -153,7 +153,7 @@ Like error handling, Grav's integrated debugging tools give you the ability to l
 
 ### Media
 
-![Admin Configuration](configuration_system_media.png?classes=shadow)
+![Admin Configuration](configuration-system-media.png?classes=shadow)
 
 This section determines how Grav handles media content. Image quality, file upload size limits, and other media handling options are configured here.
 
@@ -167,7 +167,7 @@ This section determines how Grav handles media content. Image quality, file uplo
 
 ### Session
 
-![Admin Configuration](configuration_system_session.png?classes=shadow)
+![Admin Configuration](configuration-system-session.png?classes=shadow)
 
 This section gives you the ability to enable session support, set timeout limits, and the name of the session cookie used to handle this information.
 
@@ -179,7 +179,7 @@ This section gives you the ability to enable session support, set timeout limits
 
 ### Advanced
 
-![Admin Configuration](configuration_system_advanced.png?classes=shadow)
+![Admin Configuration](configuration-system-advanced.png?classes=shadow)
 
 This section contains advanced system options.
 
