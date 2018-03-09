@@ -35,7 +35,7 @@ The **Maintenance** and **Statistics** sections give you quick access to importa
 
 On the **Maintenance** side, you can see a percentage graph letting you know how many of Grav's bits and pieces are completely up-to-date.
 
-![Admin Dashboard](grav-dashboard-maintenance_2.png?classes=shadow)
+![Admin Dashboard](grav-dashboard-maintenance-2.png?classes=shadow)
 
 If new updates are available, an <i class="fa fa-cloud-download"></i> **Update** button will appear that enables you to perform a one-click update for all plugins and themes. This button will not update Grav itself, which notifies you about a required update just above the Maintenance and Statistics sections.
 
