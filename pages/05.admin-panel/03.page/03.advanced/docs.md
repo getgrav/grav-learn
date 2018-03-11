@@ -9,7 +9,7 @@ process:
     twig: true
 ---
 
-![Admin Page Editor](page_advanced.png?width=1009&classes=shadow)
+![Admin Page Editor](page-advanced.png?width=2528&classes=shadow)
 
 The **Page Editor** in the admin is a powerful text editor and page manager that enables you to create your page's content (including media files), its publishing and taxonomy options, settings, overrides, and theme-specific options.
 
@@ -23,7 +23,7 @@ In this page, we will go over the features and functionality found in the **Adva
 
 ### Settings
 
-![Admin Page Editor](page_advanced_settings.png?width=1009&classes=shadow)
+![Admin Page Editor](page-advanced-settings.png?width=974&classes=shadow)
 
 The **Settings** area focuses on various critical options for your page. This is where you would go to change the name of the folder the page is stored in, its parent, and the template used when displaying the page.
 
@@ -37,7 +37,7 @@ The **Settings** area focuses on various critical options for your page. This is
 
 ### Ordering
 
-![Admin Page Editor](page_advanced_ordering.png?width=1009&classes=shadow)
+![Admin Page Editor](page-advanced-ordering.png?width=940&classes=shadow)
 
 The **Ordering** section gives you the ability to configuring page ordering of non-numbered folders.
 
@@ -47,7 +47,7 @@ The **Ordering** section gives you the ability to configuring page ordering of n
 
 ### Overrides
 
-![Admin Page Editor](page_advanced_overrides.png?width=1009&classes=shadow)
+![Admin Page Editor](page-advanced-overrides.png?width=1946&classes=shadow)
 
 Overrides are those options that give your page extra functionality, set its slug to something different than the default one based on the folder name, caching settings, navigation visibility, and make a page unreachable via a direct URL.
 
@@ -62,3 +62,21 @@ You can also use this area to turn on and off various processes for the page, su
 | Routable               | Sets whether or not this page is reachable by a URL. If disabled, the page will not be reachable on the front end. |
 | Caching                | Enables or disables caching for the page.                                                                          |
 | Visible                | Determines if a page is visible in the navigation.                                                                 |
+
+### Route Overrides
+
+![Admin Page Editor](page-advanced-route.png?width=940&classes=shadow)
+
+| Options         | Description                                             |
+| :-----          | :-----                                                  |
+| Default Route   | Enter a new default route.                              |
+| Canonical Route | Enter a new value for to use for the canonical routing. |
+| Route Aliases   | Create route aliases.                                   |
+
+### Admin Specific Overrides
+
+![Admin Page Editor](page-advanced-admin.png?width=1946&classes=shadow)
+
+| Options                | Description                                                                                   |
+| :-----                 | :-----                                                                                        |
+| Children Display Order | Set the order children are displayed in. You can choose folder name or collection definition. |
