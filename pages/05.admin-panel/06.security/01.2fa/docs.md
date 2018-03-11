@@ -31,11 +31,11 @@ Now, you can select your avatar image to access your user profile settings. Next
 
 A QR code will appear along with a 2FA secret key. Write the key down and put it somewhere safe.
 
-![](2fa_4.png?classes=shadow)
+![](2fa_4.png?width=1009&classes=shadow)
 
 Using your authenticator app of choice, scan the QR code or enter the secret key to register your 2FA key. Save your profile page to lock in your 2FA settings.
 
-![](2fa_5.png?classes=shadow)
+![](2fa_5.png?width=1009&classes=shadow)
 
 A purple 2FA badge will now appear next to your name in the sidebar. This badge lets you know that 2FA is active on the account.
 
