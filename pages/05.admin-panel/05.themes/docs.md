@@ -16,7 +16,7 @@ In this page, we will explore how to manage existing themes, and add a new one t
 
 ### Controls
 
-![Admin Themes](themes_1.png?width=1009&classes=shadow)
+![Admin Themes](themes1.png?width=1009&classes=shadow)
 
 Along the top of the **Themes** area of the admin, you will find the <i class="fa fa-reply"></i> **Back**, <i class="fa fa-plus"></i> **Add**, and <i class="fa fa-refresh"></i> **Check for Updates** buttons.
 
@@ -26,11 +26,11 @@ Along the top of the **Themes** area of the admin, you will find the <i class="f
 
 #### Adding a New Theme
 
-![Admin Themes](themes_2.png?width=1009&classes=shadow)
+![Admin Themes](themes2.png?width=1009&classes=shadow)
 
 <i class="fa fa-plus"></i> **Add** pulls up a display of currently-available Grav themes you can add to your site. This is a quick and easy way to install a new theme. Simply select the <i class="fa fa-plus"></i> **Install** button to install the theme.
 
-![Admin Themes](themes_3.png?width=1009&classes=shadow)
+![Admin Themes](themes3.png?width=1009&classes=shadow)
 
 Doing so will take you to the new theme's **Information** panel which contains more detailed information about the theme, as well as any options set in its *blueprints* file. Once you are satisfied with any settings changes, simply select the <i class="fa fa-check"></i> **Save** button to save your changes.
 
@@ -38,7 +38,7 @@ You can also delete the theme from your site by selecting the red <i class="fa f
 
 ### Installed Themes
 
-![Admin Themes](themes_4.png?width=1009&classes=shadow)
+![Admin Themes](themes4.png?width=1009&classes=shadow)
 
 The **Installed Themes** section displays your currently-installed themes. Selecting the thumbnail of a theme takes you to the information page for that theme, while the gray **Activate** button at the bottom of each thumbnail gives you the ability to set that theme as the active default theme for your site.
 
