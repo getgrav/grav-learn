@@ -9,13 +9,13 @@ process:
     twig: true
 ---
 
-![Admin Options](grav-options1.png)
+![Admin Options](grav-options1.png?width=2546&classes=shadow)
 
 The Admin Panel plugin has a set of options of its own accessible in the **Plugins** area of the admin. To reach them, simply navigate to **Plugins > Admin Panel** and select the title link for the plugin called **Admin Panel**. This will open a page filled with useful options to help you customize your experience with the Admin.
 
 ### Plugin Information
 
-![Admin Options](grav-options2.png)
+![Admin Options](grav-options2.png?width=1964&classes=shadow)
 
 The top of the Admin Panel options page gives you some information about the Admin Panel plugin. This includes the plugin author, homepage, and license, in addition to other links and information to help you find additional information and report any bugs.
 
@@ -23,7 +23,7 @@ This is a pretty standard feature in any plugin's options page.
 
 ### Basics
 
-![Admin Options](grav-options3.png)
+![Admin Options](grav-options3.png?width=1416&classes=shadow)
 
 The **Basics** section of this page gives you a set of options to help you define your experience within the Admin. This includes being able to change the text that appears at the top of the sidebar, create a custom path to the administrator, and more.
 
@@ -47,7 +47,7 @@ We've broken down these options, and what they do, below.
 
 ### Dashboard
 
-![Admin Options](grav-options4.png)
+![Admin Options](grav-options4.png?width=1068&classes=shadow)
 
 This section of the page lets you customize the items that appear in the main dashboard of the admin. Not a fan of the News Feed and want to get rid of it? Want to streamline your dashboard down to one or two sections you love? This is where you can do that.
 
@@ -61,7 +61,7 @@ This section of the page lets you customize the items that appear in the main da
 
 ### Notifications
 
-![Admin Options](grav-options5.png)
+![Admin Options](grav-options5.png?width=1062&classes=shadow)
 
 You can enable or disable specific types of notifications from this section. You can turn off feed update notifications, as well as notifications for plugins and/or themes.
 
@@ -74,7 +74,7 @@ You can enable or disable specific types of notifications from this section. You
 
 ### Popularity
 
-![Admin Options](grav-options6.png)
+![Admin Options](grav-options6.png?width=1928&classes=shadow)
 
 One of the Admin's great features is its ability to track and display traffic information from the Admin's dashboard. This section of the Admin plugin's options gives you the ability to enable or disable traffic tracking, and configure how that data is displayed.
 
