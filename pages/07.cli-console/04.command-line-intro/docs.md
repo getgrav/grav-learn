@@ -82,7 +82,7 @@ Symbolic Links (also known as symlinks) are incredibly useful and easy to perfor
 
 Another great benefit of doing this is that it takes up virtually zero additional disk space since you don't have multiple copies of the same files.
 
-Where Grav is concerned, symlinks are a great way to add plugins, themes, and content to multiple instances and doing so in a way that makes it infinitely easier to update and modify. You make a chance once, and it appears everywhere the file(s) are symlinked.
+Where Grav is concerned, symlinks are a great way to add plugins, themes, and content to multiple instances and doing so in a way that makes it infinitely easier to update and modify. You make a change once, and it appears everywhere the file(s) are symlinked.
 
 The process for performing a symlink is pretty straightforward, with minor differences between operating systems.
 
