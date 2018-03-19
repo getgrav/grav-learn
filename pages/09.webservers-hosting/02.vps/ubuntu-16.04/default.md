@@ -205,7 +205,7 @@ This is the easy part!  First we need to jump back over to the Grav user, so eit
 
 ```
 $ cd ~/www
-$ wget https://getgrav.org/download/core/grav/latest
+$ wget -O grav-v{{ grav_version }}.zip https://getgrav.org/download/core/grav/latest
 $ unzip grav-v{{ grav_version }}.zip
 $ rm -Rf html
 $ mv grav html
