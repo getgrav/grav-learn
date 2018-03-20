@@ -6,7 +6,7 @@ process:
     twig: true
 ---
 
-The concept of **Modular Pages** is a little tricky to get your head around at first, but when you do you'll see how convenient they are to use. A **Modular Page** is a collection of pages stacked on top of each other to create a unified, single page. This let's you create a complex page-structure by using the **LEGO building-brick**-approach, and who doesn't love LEGO?!
+The concept of **Modular Pages** is a little tricky to get your head around at first, but when you do you'll see how convenient they are to use. A **Modular Page** is a collection of pages stacked on top of each other to create a unified, single page. This lets you create a complex page-structure by using the **LEGO building-brick**-approach, and who doesn't love LEGO?!
 
 ## What are Modular Pages and what are they not?
 
