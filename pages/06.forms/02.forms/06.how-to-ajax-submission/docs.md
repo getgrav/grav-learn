@@ -19,6 +19,7 @@ You can create any standard form you like, so for this example, we'll keep the f
 title: Ajax Test-Form
 form:
     name: ajax-test-form
+    action: forms/ajax-test
     template: form-messages
     refresh_prevention: true
 
@@ -38,6 +39,8 @@ form:
 ```
 
 As you can see this is a very basic form that simply asks for your name and provides a submit button.  The only thing that stands out is the `template: form-messages` part.  As outlined in the [Frontend Forms](../../forms) section, you can provide a custom Twig template with which to display the result of the form processing.  This is a great way for us to process the form, and then simply return the messages via Ajax and inject them into the page.  There is already a `form-messages.html.twig` template provided with the forms plugin that does just this.
+
+!! NOTE: We use a hard-coded `action:` so the ajax has a consistent URL rather than the default page URL. This resolves an issue with the Ajax request not handling redirects properly. This can otherwise cause issues on the 'home' page.
 
 ![](simple-form.png?classes=shadow)
 
