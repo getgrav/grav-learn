@@ -98,3 +98,13 @@ Then change the line `route: '/admin'` to something more ambiguous, for example 
 ```
 http://yourwebsite.com/myspecialplace
 ```
+
+### Offline Mode
+
+![Offline](offline.png?width=1028&classes=shadow)
+
+In the event that your server loses its connection to the Internet, the Grav Admin automatically enters into an Offline Mode. This mode is indicated by a notice below the low in the upper-left corner of the admin.
+
+When in Offline Mode, the admin will not attempt to retrieve updates to the CMS, plugins, or themes. This prevents hangups and other issues that would otherwise result from being unable to reach the update servers.
+
+Once an Internet connection is re-established, the notice will disappear and Offline Mode will end, automatically.
