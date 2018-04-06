@@ -72,11 +72,7 @@ In this example, we will be linking `pages/01.blue/01.sky/item.md` to `/pages/02
 [link](../../02.green)
 ```
 
-If you want to link to a directory two steps up, you can do so using this process. In this example, we will link `pages/01.blue/01.sky/item.md` to `/pages/02.green/`.
-
-```markdown
-[link](../../02.green)
-```
+If you want to link to a directory two steps up, you can do so using this process. 
 
 The next example is a lot like the file link we demonstrated earlier. Instead of linking directly to the file, we're linking to its directory, which should load the file we want anyway since it's the default file. If you were creating a link from `pages/01.blue/01.sky/item.md` to `/pages/02.green/01.grass/` you would use the following command.
 
