@@ -26,7 +26,11 @@ param_sep: ':'
 wrapped_site: false
 reverse_proxy_setup: false
 force_ssl: false
+force_lowercase_urls: true
 custom_base_url: ''
+username_regex: '^[a-z0-9_-]{3,16}$'
+pwd_regex: '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+intl_enabled: true
 ```
 
 These configuration options do not appear within their own child sections. They're general options that affect the way the site operates, its timezone, and base URL.
@@ -38,7 +42,12 @@ These configuration options do not appear within their own child sections. They'
 * **wrapped_site**: For themes/plugins to know if Grav is wrapped by another platform. Can be `true` or `false`.
 * **reverse_proxy_setup**: Running in a reverse proxy scenario with different webserver ports than proxy. Can be `true` or `false`.
 * **force_ssl**: If enabled, Grav forces to be accessed via HTTPS (NOTE: Not an ideal solution). Can be `true` or `false`.
+* **force_lowercase_urls**:If you want to support mixed cased URLs set this to false
 * **custom_base_url**: Manually set the base_url here.
+* **username_regex**: Only lowercase chars, digits, dashes, underscores. 3 - 16 chars
+* **pwd_regex**: At least one number, one uppercase and lowercase letter, and be at least 8+ chars
+* **intl_enabled**: Special logic for PHP International Extension (mod_intl)
+
 
 ### languages
 
@@ -110,6 +119,7 @@ pages:
   types: [txt,xml,html,htm,json,rss,atom]
   append_url_extension: ''
   expires: 604800
+  cache_control:
   last_modified: false
   etag: false
   vary_accept_encoding: false
@@ -155,6 +165,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 * **types**: List of valid page types. For example: `[txt,xml,html,htm,json,rss,atom]`
 * **append_url_extension**: Append page's extension in Page URLs (e.g. `.html` results in **/path/page.html**).
 * **expires**: Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible).
+* **cache_control**: Can be blank for no setting, or a valid `cache-control` text value
 * **last_modified**: Set the last modified date header based on file modification timestamp. Can be set `true` or `false`.
 * **etag**: Set the etag header tag. Can be set to `true` or `false`.
 * **vary_accept_encoding**: Add `Vary: Accept-Encoding` header. Can be set to `true` or `false`.
@@ -178,6 +189,8 @@ cache:
     method: file
   driver: auto
   prefix: 'g'
+  clear_images_by_default: true
+  cli_compatibility: false
   lifetime: 604800
   gzip: false
   allow_webserver_gzip: false
@@ -192,6 +205,8 @@ The **Cache** section is where you can configure the site's caching settings. Yo
     - **method**: Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching)
 * **driver**: Select a cache driver. Options are: `auto`, `file`, `apc`, `xcache`, `redis`, `memcache`, and `wincache`.
 * **prefix**: Cache prefix string (prevents cache conflicts). Example: `g`.
+* **clear_images_by_default**: By default grav will include processed images in cache clear, this can be disabled
+* **cli_compatibility**: Ensures only non-volatile drivers are used (file, redis, memcache, etc.)
 * **lifetime**: Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days.
 * **gzip**: GZip compress the page output. Can be set to `true` or `false`.
 * **allow_webserver_gzip**: This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete.
@@ -306,6 +321,7 @@ media:
   enable_media_timestamp: false
   unsupported_inline_types: []
   allowed_fallback_types: []
+  auto_metadata_exif: false
 ```
 
 The **Media** section handles the configuration options for settings related to the handling of media files. This includes timestamp display, upload size, and more.
@@ -313,6 +329,7 @@ The **Media** section handles the configuration options for settings related to 
 * **enable_media_timestamp**: Enable media timetsamps.
 * **unsupported_inline_types**: Array of supported media types to try to display inline. These file types are placed within `[]` brackets.
 * **allowed_fallback_types**: Array of allowed media types of files found if accessed via Page route. These file types are placed within `[]` brackets.
+* **auto_metadata_exif**: Automatically create metadata files from Exif data where possible
 
 ### session
 
