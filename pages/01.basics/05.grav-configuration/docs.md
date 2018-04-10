@@ -89,7 +89,7 @@ The **Home** section is where you set the default path for the site's home page.
 
 ```yaml
 pages:
-  theme: antimatter
+  theme: quark
   order:
     by: default
     dir: asc
@@ -137,7 +137,7 @@ pages:
 
 The **Pages** section of the `system/config/system.yaml` file is where you set a lot of the main theme-related settings. For example, this is where you set the theme used to render the site, page ordering, twig and markdown processing defaults, and more. This is where most of the decisions that affect the way your pages are rendered are made.
 
-* **theme**: This is where you set the default theme. This defaults to `antimatter`.
+* **theme**: This is where you set the default theme. This defaults to `quark`.
 * **order**:
     - **by**: Order pages by `default`, `alpha` or `date`.
     - **dir**: Default ordering direction, `asc` or `desc`.
