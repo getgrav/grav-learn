@@ -84,7 +84,7 @@ Here is an example of a comment tag as you would find it in a Twig template file
 
 #### Output Tags
 
-Output tags (`{{ Insert Output Here }}`) set code that is output directly to the browser. This is where you would put anything you want to appear on the front end.
+Output tags (`{{ Insert Output Here }}`) will be evaluated and added to the generated output. This is where you would put anything you want to appear on the front end, or in some other generated content.
 
 Here is an example of output tags being used in a Twig template:
 
