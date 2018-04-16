@@ -1029,8 +1029,6 @@ To start using responsive images, all you need to do is add higher density image
 
 Grav also has support for media queries inside the `sizes` attribute, allowing you to use different widths depending on the device's screen size. In contrast to the first method, you don't have to create multiple images; they will get created automatically. The fallback image is the current image, so a browser without support for `srcset`, will display the original image.
 
-!! For the moment it does not work inside markdown, only in your ```twig``` files.
-
 [ui-tabs]
 [ui-tab title="Markdown"]
 ```
