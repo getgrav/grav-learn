@@ -1097,6 +1097,17 @@ In our example, we set the maximum to `1600`. This will result in increments of 
 
 !!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
 
+
+#### Manual size definition
+
+Instead of letting Grav generate the sizes in even steps between given boundaries, you may manually define which sizes Grav should generate:
+
+```
+![](retina.jpg?derivatives=[360,720,1200])
+```
+
+This will generate downsizes versions of the `retina.jpg` image in three widths: 360, 720 and 1200px.
+
 ## Metafiles
 
 Every medium that you reference in Grav, e.g. `image1.jpg`, `sample-trailer.mov`, or even `archive.zip` has the ability to have variables set or even overridden via a **metafile**.  These files take the format of `<filename>.meta.yaml`.  For example, for an image with the filename `image1.jpg` you could create a metafile called `image1.jpg.meta.yaml`.
