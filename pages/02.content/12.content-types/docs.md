@@ -6,7 +6,7 @@ taxonomy:
 
 ## Default Content Type
 
-As is typical with most web platforms, Grav's default content type is **HTML**. This means than when a user requests a route in their browser, for example: `/blog/new-macbook-pros-soon`, because there is no file extension Grav assumes you are requesting an HTML page.  If your page was defined by a page with filename of  `blog-item.md`, Grav in turn looks for a Twig template called `blog-item.html.twig`  to render the page.
+As is typical with most web platforms, Grav's default content type is **HTML**. This means that when a user requests a route in their browser, for example: `/blog/new-macbook-pros-soon`, because there is no file extension Grav assumes you are requesting an HTML page.  If your page was defined by a page with filename of  `blog-item.md`, Grav in turn looks for a Twig template called `blog-item.html.twig`  to render the page.
 
 If the user requested the type explicitly via `/blog/new-macbook-pros-soon.html`, Grav would still look for that same `blog-item.html.twig` file.
 
