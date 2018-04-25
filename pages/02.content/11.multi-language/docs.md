@@ -267,7 +267,7 @@ There are 12 monkeys in the London Zoo
 
 #### Complex Translations
 
-Sometimes it's required to perform complex translations with replacement in specific languages.  You can utilize the full power of the Language objects `translate()` method with teh `tl` filter/function.  For example:
+Sometimes it's required to perform complex translations with replacement in specific languages.  You can utilize the full power of the Language objects `translate()` method with the `tl` filter/function.  For example:
 
 ```
 {{ ["SIMPLE_TEXT", 12, 'London Zoo']|tl(['fr']) }}
