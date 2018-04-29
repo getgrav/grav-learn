@@ -48,7 +48,7 @@ Alternatively you can put them in your theme, as that is easily accessible via C
 You may also want to put all the media files into their own folder, so that they can all be accessed at one go. For instance you might want to keep all your MP3 files in a folder `user/pages/mp3s` (not visible) and put the name of the MP3 file associated with a particular page in a header field called `thistrack`. If you then wish to access the file for a partiular page and play it using the HTML5 audio element, you will need code like this:
 
     <audio controls>
-    <source src="{{ page.find('/mp3s').media[page.header.thistrack~'.mp3'] }}
+    <source src="{{ page.find('/mp3s').media[page.header.thistrack~'.mp3'] }}">
     </audio>
 
 
