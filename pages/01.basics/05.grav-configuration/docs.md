@@ -368,6 +368,7 @@ The **GPM** section offers the user options that control how Grav's GPM sources 
 
 * **releases**: Set to either `stable` or `testing` to determine if you want to update to the latest stable or testing build.
 * **proxy_url**: Configure a manual proxy URL for GPM. For example: `127.0.0.1:3128`.
+* **method**: Either 'curl', 'fopen' or 'auto'. 'auto' will try fopen first and if not available cURL
 * **verify_peer**: On some systems (Windows mostly) GPM is unable to connect because the SSL certificate cannot be verified. Disabling this setting might help.
 * **official_gpm_only**: By default GPM direct-install will only allow URLs via the official GPM proxy to ensure security, disable this to allow other sources.
 
