@@ -1134,3 +1134,23 @@ Let's say you wanted to just pull the `alt_text` value listed for the image file
 {% endverbatim %}
 
 This will pull up the example phrase `My Alt Text` instead of the image. This is just a basic example. You can use this method for a number of things, including creating a gallery with multiple unique data points you want to have referenced for each image. Your images, in essence, have a set of data unique to them that can be easily referenced and pulled as needed.
+
+## Video Options
+
+In-line video control options are another capability baked into Grav. These options, added in-line with the file name, give you the ability to determine an embedded video's `autoplay`, `controls`, and `loop` settings.
+
+Here is an example:
+
+```
+![video.mov](video.mov?loop=1&controls=0&autoplay=1)
+```
+
+The options are as follows:
+
+| Attribute   | Explanation                                                                               |
+| :-----      | :-----                                                                                    |
+| autoplay    | Enables (`1`) or Disables (`0`) autoplay for the video on pageload.                       |
+| controls    | Enables (`1`) or Disables (`0`) media controls for the embedded video.                    |
+| loop        | Enables (`1`) or Disables (`0`) automatic looping for the video, replaying it as it ends. |
+
+
