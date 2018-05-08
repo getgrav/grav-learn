@@ -80,7 +80,7 @@ home:
   hide_in_urls: false
 ```
 
-The **Home** section is where you set the default path for the site's home page. You can also choose to hide the home route in URLs.
+The **Home** section is where you set the default path for the site's homepage. You can also choose to hide the home route in URLs.
 
 * **alias**: Default path for home, ie: `/home` or `/`.
 * **hide_in_urls**: Hide the home route in URLs. Can be `true` or `false`.
@@ -278,7 +278,7 @@ errors:
 
 The **Errors** section determines how Grav handles error display and logging.
 
-* **display**: Determines how errors are displayed. Enter either `1` for full backtrace, `0` for Simple Error, or `-1` for System Error.
+* **display**: Determines how errors are displayed. Enter either `1` for the full backtrace, `0` for Simple Error, or `-1` for System Error.
 * **log**: Log errors to `/logs` folder. Can be set to `true` or `false`.
 
 ### debugger
@@ -465,7 +465,7 @@ Paths to the configuration files will be used as a **namespace** for your config
 
 Alternatively, you can put all the options into one file and use YAML structures to specify the hierarchy for your configuration options. This namespacing is built from a combination of the **path + filename + option name**.
 
-For example: An option such as `author: Frank Smith` in file `plugins/myplugin.yaml` could be accessible via: `plugins.myplugin.author`. However, you could also have a `plugins.yaml` file and in that file have a option name called `myplugin: author: Frank Smith` and it would still be reachable by the same `plugins.myplugin.author` namespace.
+For example: An option such as `author: Frank Smith` in file `plugins/myplugin.yaml` could be accessible via: `plugins.myplugin.author`. However, you could also have a `plugins.yaml` file and in that file have an option name called `myplugin: author: Frank Smith` and it would still be reachable by the same `plugins.myplugin.author` namespace.
 
 Some example configuration files could be structured:
 
