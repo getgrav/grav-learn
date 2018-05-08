@@ -24,7 +24,7 @@ Even though technically you do not need a standalone web server, it is better to
 
 * OS X 10.9 Mavericks already ships with the Apache Web server and PHP 5.5, so job done!
 * [MAMP/MAMP Pro](http://mamp.info) comes with Apache, MySQL and of course PHP.  It is a great way to get more control over which version of PHP you are running, setting up virtual hosts, plus other useful features such as automatically handling dynamic DNS.
-* [AMPPS](http://www.ampps.com/downloads) is a software stack from Softaculous enabling Apache, PHP, Perl, Python,.. . This includes everything you need (and more) for GRAV development.
+* [AMPPS](http://www.ampps.com/downloads) is a software stack from Softaculous enabling Apache, PHP, Perl, Python,.. This includes everything you need (and more) for GRAV development.
 
 ### Windows
 
@@ -32,7 +32,7 @@ Even though technically you do not need a standalone web server, it is better to
 * [EasyPHP](http://www.easyphp.org/) provides a personal Web hosting package as well as a more powerful developer version.
 * [MAMP for Windows](http://mamp.info) is a long-time Mac favorite, but now available for Windows.
 * [IIS with PHP](http://php.iis.net/) is a fast way to run PHP on Windows.
-* [AMPPS](http://www.ampps.com/downloads) is a software stack from Softaculous enabling Apache, PHP, Perl, Python,.. . This includes everything you need (and more) for GRAV development.
+* [AMPPS](http://www.ampps.com/downloads) is a software stack from Softaculous enabling Apache, PHP, Perl, Python,.. This includes everything you need (and more) for GRAV development.
 
 ### Linux
 
@@ -134,8 +134,8 @@ Another option if you primarily work with just creating content, is to use a **M
 
 1. [MacDown](http://macdown.uranusjr.com/) - OS X - Free, a simple lightweight open source Markdown editor.
 1. [LightPaper](http://lightpaper.42squares.in/) - OS X - $9.99, clean, powerful.  Our markdown editor of choice on the Mac. **Get 25% OFF with Discount Code: GET_GRAV_25**
-2. [MarkDrop](http://culturezoo.com/markdrop/) - OS X - $5, but super clean and and Droplr support built-in.
-3. [MarkdownPad](http://markdownpad.com/) - Windows - Free and Pro versions. Even has YAML front-matter support.  A very solid solution for Windows users .
+2. [MarkDrop](http://culturezoo.com/markdrop/) - OS X - $5, but super clean and Droplr support built-in.
+3. [MarkdownPad](http://markdownpad.com/) - Windows - Free and Pro versions. Even has YAML front-matter support.  A very solid solution for Windows users.
 
 ### FTP Clients
 
@@ -143,7 +143,7 @@ Although there are many ways to deploy **Grav**, the simplest is to simply copy 
 
 1. [Transmit](http://panic.com/transmit/) - OS X - The de facto FTP/SFTP client on OS X.  Easy to use, fast, folder-syncing and pretty much anything else you could ask for.
 2. [FileZilla](https://filezilla-project.org/) - OS X/Windows/Linux - Probably the best option for Windows and Linux users. Free and very powerful (but very ugly on the Mac!).
-3. [Cyberduck](http://cyberduck.io/) - OS X/Windows - A decent free option for both OS X and Windows users.  Not as full featured as the others.
+3. [Cyberduck](http://cyberduck.io/) - OS X/Windows - A decent free option for both OS X and Windows users.  Not as full-featured as the others.
 4. [ForkLift](http://www.binarynights.com/forklift/) - OS X - A solid alternative to Transmit, and slightly cheaper to boot.
 
 
