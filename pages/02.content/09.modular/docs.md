@@ -10,7 +10,7 @@ The concept of **Modular Pages** is a little tricky to get your head around at f
 
 ## What are Modular Pages and what are they not?
 
-In Grav, [Pages]((/content/content-pages)) are a broad concept that captures almost any type of combination of elements that you can imagine going into a website. Importantly, Modular Pages are a subset of this concept but not the same as a regular Page. A regular Page is fairly standalone, in the sense that Grav will render and display it without depending on other content such as other pages or child-pages. A Modular page, however, does not have child-pages. This is illustrated by imagining a simple page-structure:
+In Grav, [Pages](/content/content-pages) are a broad concept that captures almost any type of combination of elements that you can imagine going into a website. Importantly, Modular Pages are a subset of this concept but not the same as a regular Page. A regular Page is fairly standalone, in the sense that Grav will render and display it without depending on other content such as other pages or child-pages. A Modular page, however, does not have child-pages. This is illustrated by imagining a simple page-structure:
 
 A regular Page found at _domain.com/books_ has some details about what books are for sale. Several child-pages exist for this Page, such as _domain.com/books/gullivers-travels_ and _domain.com/books/the-hobbit_. Their folders are named the same as the address that Grav renders: `/pages/books`, `/pages/books/gullivers-travels`, and `/pages/books/the-hobbit`. This structure would not work in a Modular Page.
 
