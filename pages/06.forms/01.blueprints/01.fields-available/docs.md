@@ -705,6 +705,16 @@ header.features:
       label: Text
 ```
 
+Accessing and displaying the data of a `list` field is done with a simple twig for loop, like in the example below:
+
+```
+{% for feature in page.header.features %}
+    {{ feature.icon }}
+    {{ feature.header }}
+    {{ feature.text }}
+{% endfor %}
+```
+
 
 | Attribute   | Description                                              |
 | :-----      | :-----                                                   |
