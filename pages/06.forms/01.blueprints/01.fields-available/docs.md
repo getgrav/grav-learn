@@ -806,6 +806,7 @@ home.alias:
 | `multiple`     | Select multiple pages                  |
 | `selectize`    |                                        |
 
+If you set `multiple` to true, you need to add `validate.type: array`. Otherwise the array of selected pages will not be saved correctly.
 
 | Common Attributes Allowed                      |
 | :-----                                         |
