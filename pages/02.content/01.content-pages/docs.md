@@ -94,7 +94,7 @@ The important thing to understand is the name of the file directly references th
 
 You can of course name your file whatever you like, for example: `document.md`, which would make Grav look for a template-file in the theme that matches, such as the **document.html.twig** Twig-template.
 
-!! This behavior can be overridden in the page by setting the [template parameter](/headers#template) in the headers.
+!! This behavior can be overridden in the page by setting the [template parameter](/content/headers#template) in the headers.
 
 An example page file could look like this:
 
