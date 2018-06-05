@@ -24,7 +24,7 @@ form:
       type: text
       label: Folder Name
       validate:
-        type: slug
+        rule: slug
 ```
 Above example creates rule `slug`, which is then used in the folder field of the form.
 
