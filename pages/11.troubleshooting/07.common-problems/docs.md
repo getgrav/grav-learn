@@ -70,3 +70,11 @@ opcache.restrict_api=
 ```
 
 This is an issue with any [ServerPilot](https://serverpilot.io) managed hosting with PHP 7.2 enabled.  A ticket has been submitted to resolve this on their end.
+
+### LinkedIn Sharing and Wayback Machine Indexing Not Working
+
+**Problem:** Sharing pages with LinkedIn and having the page's data propagate is not working. The Wayback Machine is not properly indexing my website's pages.
+
+**Solution:** Enable WebServer Gzip or Gzip compression. Both may be used, but at least one needs to be active for these particular functions to work on some server cases.
+
+This [issue](https://github.com/getgrav/grav/issues/1639) has popped up for users on specific server environments. In particular, with AWS cloud-based servers, users were experiencing issues sharing web pages from their Grav sites on LinkedIn or having them properly indexed by the Wayback Machine. This problem was resolved by turning on either WebServer Gzip or Gzip compression.
