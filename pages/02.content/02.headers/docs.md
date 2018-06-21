@@ -68,6 +68,14 @@ publish_date: 01/23/2015 13:00
 
 Optional field, but can provide a date to automatically trigger publication. Valid values are any string date values that [strtotime()](http://php.net/manual/en/function.strtotime.php) supports.
 
+### Expires
+
+```ruby
+Expires: 604800
+```
+
+Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible).
+
 ### Unpublish Date
 
 ```ruby
