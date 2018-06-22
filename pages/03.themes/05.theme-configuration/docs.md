@@ -82,12 +82,16 @@ As well as the blueprint information, you can also easily access the current the
 
 ```
 Theme Color Option: {{ grav.theme.config.color_option }}
+or
+Theme Color Option: {{ config.theme.color_option }}
+or
+Theme Color Option: {{ theme.color_option }}
 ```
 
 And of course, the same thing in PHP is:
 
 ```
-$color_option = $this->grav['theme']['config']['color_option'];
+$color_option = $this->grav['theme']->config()['color_option'];
 ```
 
 Simple!
