@@ -77,10 +77,10 @@ In general, Grav can be installed in a root level folder of an existing WordPres
 
 If the above suggestions still do not work, run
 
-`chcon -Rv --type=httpd_sys_rw_content_t` into the Grav root folder.
+`chcon -Rv system_u:object_r:httpd_sys_rw_content_t:s0 ./` into the Grav root folder.
 
 References:
-
+- [https://unix.stackexchange.com/questions/337704/selinux-is-preventing-nginx-from-writing-via-php-fpm](https://unix.stackexchange.com/questions/337704/selinux-is-preventing-nginx-from-writing-via-php-fpm)
 - [https://github.com/getgrav/grav/issues/912#issuecomment-227627196](https://github.com/getgrav/grav/issues/912#issuecomment-227627196)
 - [http://stopdisablingselinux.com](http://stopdisablingselinux.com/)
 - [http://stackoverflow.com/questions/28786047/failed-to-open-stream-on-file-put-contents-in-php-on-centos-7](http://stackoverflow.com/questions/28786047/failed-to-open-stream-on-file-put-contents-in-php-on-centos-7)
