@@ -133,9 +133,10 @@ Although you can get away with Notepad, Textedit, Vi, or whatever default text e
 Another option if you primarily work with just creating content, is to use a **Markdown Editor**. These often are very content-centric and usually provide a **live-preview** of your content rendered as HTML.  There are literally hundreds of these, but some good options include:
 
 1. [MacDown](http://macdown.uranusjr.com/) - OS X - Free, a simple lightweight open source Markdown editor.
-1. [LightPaper](http://lightpaper.42squares.in/) - OS X - $9.99, clean, powerful.  Our markdown editor of choice on the Mac. **Get 25% OFF with Discount Code: GET_GRAV_25**
-2. [MarkDrop](http://culturezoo.com/markdrop/) - OS X - $5, but super clean and Droplr support built-in.
-3. [MarkdownPad](http://markdownpad.com/) - Windows - Free and Pro versions. Even has YAML front-matter support.  A very solid solution for Windows users.
+2. [LightPaper](http://lightpaper.42squares.in/) - OS X - $9.99, clean, powerful.  Our markdown editor of choice on the Mac. **Get 25% OFF with Discount Code: GET_GRAV_25**
+3. [MarkDrop](http://culturezoo.com/markdrop/) - OS X - $5, but super clean and Droplr support built-in.
+4. [MarkdownPad](http://markdownpad.com/) - Windows - Free and Pro versions. Even has YAML front-matter support.  A very solid solution for Windows users.
+5. [Mark Text](https://marktext.github.io/website/) - Free, open source markdown editor for Windows / Linux / OS X. 
 
 ### FTP Clients
 
