@@ -1,6 +1,6 @@
 ---
 title: Reports
-published: false
+published: true
 taxonomy:
     category: docs
 content:
@@ -18,7 +18,7 @@ twig_first: true
 
 This is the public repository for security reports for Grav. Below are the most recent reports that have been submitted and processed.
 
-{% for p in page.collection %}
+{% for p in page.collection.visible %}
   <a href="{{ p.url }}">
     <h4>{{ p.title }}</h4>
   </a>
