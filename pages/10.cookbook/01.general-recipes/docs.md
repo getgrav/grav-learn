@@ -19,6 +19,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Dynamically style one or more pages](#dynamically-style-one-or-more-pages)
 1. [Migrate an HTML theme to Grav](#migrate-an-html-theme-to-grav)
 1. [Add an asset to a specific page](#add-an-asset-to-a-specific-page)
+1. [Reuse page or modular content on another page](#reuse-page-or-modular-content-on-another-page)
 
 ### Change the PHP CLI version
 
@@ -681,3 +682,50 @@ Edit your template and add your asset with the `{{ parent() }}`.
      {{ parent() }}
 {% endblock %}
 ```
+
+### Reuse page or modular content on another page
+
+#### Problem:
+You have many pages or modules and would like to share the same content block on more than one page without having to maintain multiple separate instances of the same text.
+
+#### Solution:
+
+This is a very simple straightforward method which does not require a plugin and can be used within the admin panel.
+
+**Note:** There is also plugin [Grav Page Inject Plugin](https://github.com/getgrav/grav-plugin-page-inject) for this functionality which may be suitable for more advanced scenarios.
+
+First, create a new template file to act as a placeholder for the content - it can have any name, this one is named "modular_reuse" and will be in the stored in your theme's templates/modular_ folder for this example but can be stored anywhere in the templates folder.
+ 
+
+`modular_reuse.html.twig` contains only one line:
+```
+{{ page.content }}
+```
+Next, create a new modular page in the admin panel where this content should be displayed using this new "modular reuse" template. The new page name can be anything you like as it will not be displayed - the original page title will be output.
+
+The content of the page is just one line: 
+Page:
+```
+{% include 'modular_reuse.html.twig' with {'page': page.find('/test-page/amazing-offers')} %}
+```
+Modular:
+```
+{% include 'modular/modular_reuse.html.twig' with {'page': page.find('/test-page/_amazing-offers')} %}
+```
+
+What comes after "include" is where the template from step one is stored, probably in the `templates` folder for pages in the `templates/modular` folder for modulars.
+
+After page.find should come the actual link to the original content that you want to reuse. Modular content starts with an _ but pages do not. The easiest way to find the correct link is to open the page in the admin panel and copy the url after the word admin. 
+
+![page url(page-url.jpg)
+
+The final page should look like this:
+```
+---
+title: 'Modular Reuse Example'
+---
+
+{% include 'modular/modular_reuse.html.twig' with {'page': page.find('/test-page/_amazing-offers')} %}
+```
+
+Now "amazing offers" can be displayed in multiple places but only needs to be updated once.
