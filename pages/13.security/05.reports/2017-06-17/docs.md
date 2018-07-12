@@ -15,6 +15,10 @@ Summary. Eg. "REST-API is publicly exposed without authentication required."
 
 Title is "PROJECT_FULL: LEVEL, TARGET, ID", eg. `Grav Core: Less Critical, Access Bypass, CORE-2017-001`, where ID is "ID: PROJECT_SHORT-YEAR-INT(3)", eg. `CORE-2017-001`. ID should be incremented following previous report within the project, year. Date should be in [Grav-parsable format](https://learn.getgrav.org/content/headers#date).
 
+### Advisory
+
+What users should do to solve the issue or to prevent the vulnerability. Eg. "Update to v1.2.2 of Grav Core", "Change PHP settings to `safe_mode = On`", "Ensure Server-configuration prevents access via HTTP/1.1".
+
 ### Description
 
 What the vulnerability exposes, why it is insecure, and how it would be used. Eg. "Public requests to /api could modify a page with a `POST` or `PATCH` request, without being authenticated."
