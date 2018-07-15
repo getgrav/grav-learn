@@ -36,6 +36,7 @@ Most events within Grav fire in a specific order and it is important to understa
 1. [onShutdown](../event-hooks#onShutdown)
 1. [onBeforeDownload](../event-hooks#onBeforeDownload)
 1. [onPageFallBackUrl](../event-hooks#onPageFallBackUrl)
+2. [onMediaLocate](../event-hooks#onMediaLocate)
 
 ## Core Grav Event Hooks
 
@@ -224,3 +225,7 @@ After a folder is parsed and processed.  This is fired for **every folder** in t
 #### onPageFallBackUrl
 
 If a route is not recognized as a page, Grav tries to access a page media asset. The event is fired as soon as the procedure begins, so plugins can hook and provide additional functionality.
+
+#### onMediaLocate
+
+Adds support for custom media locations for excerpts.
