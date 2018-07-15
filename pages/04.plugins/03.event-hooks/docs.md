@@ -37,6 +37,7 @@ Most events within Grav fire in a specific order and it is important to understa
 1. [onBeforeDownload](../event-hooks#onBeforeDownload)
 1. [onPageFallBackUrl](../event-hooks#onPageFallBackUrl)
 2. [onMediaLocate](../event-hooks#onMediaLocate)
+1. [onTwigLoader](../event-hooks#onTwigLoader)
 
 ## Core Grav Event Hooks
 
@@ -229,3 +230,7 @@ If a route is not recognized as a page, Grav tries to access a page media asset.
 #### onMediaLocate
 
 Adds support for custom media locations for excerpts.
+
+#### onTwigLoader
+
+Adds support for use of namespaces in conjunction with two new methods in Twig class: `Twig::addPath($path, $namespace)` and `Twig::prependPath($path, $namespace)`.
