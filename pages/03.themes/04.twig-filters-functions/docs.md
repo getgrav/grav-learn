@@ -430,19 +430,17 @@ Similar to evaluate, but will evaluate and process with Twig
 
 ##### EXIF
 
-Output a the EXIF data on an image base on it's filepath.  This requires that `media.auto_metadata_exif:` is enabled in `system.yaml`
+Output the EXIF data from an image based on its filepath. This requires that `media: auto_metadata_exif: true` is set in `system.yaml`. For example, in a Twig-template:
 
 ```
 {% verbatim %}
-{% set image = page.find('/content/media').media['sample-image.jpg'] %}
-{% set data = exif(image.filepath, true) %}
-{{ print_r(data)}}
+{% set image = page.media['sample-image.jpg'] %}
+{% set exif = exif(image.filepath, true) %}
+{{ exif.MaxApertureValue }}
 {% endverbatim %}
 ```
 
-
-{% set data = exif(image.filepath, false) %}
-Outputs **{{ dump(data)}}**
+This would write the `MaxApertureValue`-value set in the camera, for example "40/10". You can always use `{% verbatim %}{{ dump(exif)}}{% endverbatim %}` to show all the available data in the debugger.
 
 ##### Get Cookie
 

@@ -136,6 +136,8 @@ Basically, this extends the standard `partials/base.html.twig` (assuming your th
 
 The next section simply loops over all the media of the page that are **images**.  We are outputting these in an unordered list to make the output semantic, and easy to style with CSS.  we are assigning each image the variable name `image` and then we are able to perform a simple `cropResize()` method to resize the image to something suitable, and then below it, we provide an information section with the `title` and `description`.
 
+You could make a more advanced gallery-implementation by using creating filters for camera-data, with the [EXIF](/themes/twig-filters-functions#exif)-function.
+
 ### Render content in columns
 
 ##### Problem:

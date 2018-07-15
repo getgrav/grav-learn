@@ -165,7 +165,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 * **types**: List of valid page types. For example: `[txt,xml,html,htm,json,rss,atom]`
 * **append_url_extension**: Append page's extension in Page URLs (e.g. `.html` results in **/path/page.html**).
 * **expires**: Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible).
-* **cache_control**: Can be blank for no setting, or a valid `cache-control` text value
+* **cache_control**: Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value
 * **last_modified**: Set the last modified date header based on file modification timestamp. Can be set `true` or `false`.
 * **etag**: Set the etag header tag. Can be set to `true` or `false`.
 * **vary_accept_encoding**: Add `Vary: Accept-Encoding` header. Can be set to `true` or `false`.
@@ -205,7 +205,7 @@ The **Cache** section is where you can configure the site's caching settings. Yo
     - **method**: Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching)
 * **driver**: Select a cache driver. Options are: `auto`, `file`, `apc`, `xcache`, `redis`, `memcache`, and `wincache`.
 * **prefix**: Cache prefix string (prevents cache conflicts). Example: `g`.
-* **clear_images_by_default**: By default grav will include processed images in cache clear, this can be disabled
+* **clear_images_by_default**: By default grav will include processed images when cache clears, this can be disabled by setting this to `false`
 * **cli_compatibility**: Ensures only non-volatile drivers are used (file, redis, memcache, etc.)
 * **lifetime**: Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days.
 * **gzip**: GZip compress the page output. Can be set to `true` or `false`.
