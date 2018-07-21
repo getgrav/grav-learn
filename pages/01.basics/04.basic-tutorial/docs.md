@@ -4,19 +4,19 @@ taxonomy:
     category: docs
 ---
 
-Assuming you successfully [installed Grav](../installation) with the instructions listed in the previous chapter, we can continue on and play around with Grav a little to get you more comfortable.
+Assuming you successfully [installed Grav](../installation) with the instructions listed in the previous chapter, we can continue and play around with Grav a little to get you more comfortable.
 
-Because Grav does not require a database, it is actually pretty easy to work with, without having to worry about causing issues between your Grav installation and any other big data source. If something goes awry, you can generally recover very easily.
+Because Grav does not require a database, it is pretty easy to work with, without having to worry about causing issues between your Grav installation and any other significant data source. If something goes awry, you can generally recover very easily.
 
 ## Content Basics
 
 First, let us familiarize ourselves with where Grav stores content.  We will go into more depth in a [future chapter](../folder-structure), but for the time being, you need to be aware that all our user content, is stored in the `user/pages/` folder of your Grav install.
 
-Currently there is only one folder in the pages folder, and it is called `01.home`.  The `01.` portion of the folder is optional but provides a couple of things that can be handy.
+Currently, there is only one folder in the pages folder, and it is called `01.home`.  The `01.` portion of the folder is optional but provides a couple of things that can be handy.
 
 Firstly, it lets you expressly define the order of your pages.  For example, `01` will come before `02`, but `00` will come before `01`.
 
-The other thing that the numeric portion of the folder name does, is explicitly inform Grav this page should be visible in the menu.  It is important to note that the numeric portion up to and including the `.` will be removed from URLs.
+The other thing that the numeric portion of the folder name does is explicitly inform Grav this page should be visible in the menu.  It is important to note that the numeric portion up to and including the `.` will be removed from URLs.
 
 ## Home Page Configuration
 
@@ -26,9 +26,9 @@ If you examine this configuration file in your install, you will see that it alr
 
 ## Page Editing
 
-Pages in **Grav** are composed in **Markdown** syntax.  Markdown is a formatting syntax that is written in plain text and then converted automatically to HTML. It uses very simple text symbols to indicate key HTML tags making it very easy to write without having to know the complexities of HTML. There are numerous other benefits of using Markdown including less-errors, valid markup, very readable, simple to learn, transferable, etc.
+Pages in **Grav** are composed in **Markdown** syntax.  Markdown is a formatting syntax that is written in plain text and then converted automatically to HTML. It uses elementary text symbols to indicate key HTML tags making it very easy to write without having to know the complexities of HTML. There are numerous other benefits of using Markdown including less-errors, valid markup, very readable, simple to learn, transferable, etc.
 
-You can read an [extensive write-up of available syntax](../../content/markdown) with examples in the documentation, but for now, just follow along.
+You can read an [extensive write-up of available syntax](../../content/markdown) with examples in the documentation, but for now, follow along.
 
 Open the home page in your text editor. The file that controls the homepage is located in the `user/pages/01.home/` folder and is called `default.md`. All of the content you create will be created in the `user/pages/` folder in your Grav installation.
 
@@ -51,7 +51,7 @@ When you edit the page in a text editor, the content will look something like th
     * Download **plugins**, **themes**, as well as other Grav **skeleton** packages from the [Grav Downloads](http://getgrav.org/downloads) page.
     * Check out our [Grav Development Blog](http://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
 
-Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers](../../content/headers), and these are written in a very simple format called [YAML](../../advanced/yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.
+Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers](../../content/headers), and these are written in a straightforward format called [YAML](../../advanced/yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.
 
 ```ruby
 title: Home
@@ -88,7 +88,7 @@ This overview should provide you with a few key pointers for writing Markdown, b
 
 Creating a new page is a simple affair in **Grav**.  Just follow these simple steps:
 
-1. Navigate to your pages folder: `user/pages/` and create a new folder.  In this example we will use [explicit default ordering](http://learn.getgrav.org/content/content-pages) and call the folder `02.mypage`.
+1. Navigate to your pages folder: `user/pages/` and create a new folder.  In this example, we will use [explicit default ordering](http://learn.getgrav.org/content/content-pages) and call the folder `02.mypage`.
 2. Launch your text editor, create a new file, and paste in the following sample code:
 
     ```markdown
@@ -103,7 +103,7 @@ Creating a new page is a simple affair in **Grav**.  Just follow these simple st
 3. Save this file in the `user/pages/02.mypage/` folder as `default.md`. This will tell **Grav** to render the page using the **default** template.
 4. That's it! Reload your browser to see your new page in the menu.
 
-The page will automatically show up in the Menu after the **"Home"** menu item. If you wish to change the name that shows up in the Menu, simply add: `menu: My Page` between the dashes in the page content.
+The page will automatically show up in the Menu after the **"Home"** menu item. If you wish to change the name that shows up in the Menu, add: `menu: My Page` between the dashes in the page content.
 
 **Congratulations**, you have now successfully created a new page in Grav.  There is much more you can do with Grav, so please continue reading to find out about more advanced capabilities and in-depth features.
 
