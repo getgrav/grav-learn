@@ -8,9 +8,9 @@ All Grav configuration files are written in [YAML syntax](../../advanced/yaml) w
 
 ## System Configuration
 
-Grav focuses on making things as easy as possible for the user, and the same goes for configuration.  Grav comes with some sensible default options and these are contained in a file that resides in the `system/config/system.yaml` file.
+Grav focuses on making things as easy as possible for the user, and the same goes for configuration.  Grav comes with some sensible default options, and these are contained in a file that resides in the `system/config/system.yaml` file.
 
-However, **you should never change this file**, rather any configuration changes you need to make should be stored in a file called `user/config/system.yaml`.  Any setting in this file with the same structure and naming will override the setting provided in the default system configuration file.
+However, **you should never change this file**, instead any configuration changes you need to make should be stored in a file called `user/config/system.yaml`.  Any setting in this file with the same structure and naming will override the setting provided in the default system configuration file.
 
 !!!! Generally speaking you should **NEVER** change anything in the `system/` folder.  All things the user does (creating content, installing plugins, editing configuration, etc.) should be done in the `user/` folder.  This way it allows simpler upgrading and also keeps your changes all in one location for backing up, synchronizing, etc.
 
