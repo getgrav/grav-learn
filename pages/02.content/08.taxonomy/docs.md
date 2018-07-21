@@ -100,3 +100,20 @@ This will find all posts with `tag` set to `dog` **or** `cat`.
 ## Taxonomy based Collections
 
 We covered this in an earlier chapter, but it is important to remember that you can also use taxonomies in the [page headers](../headers) to filter a collection of pages associated with a parent page.  If you need a refresher on this subject, please refer back to that [chapter on taxonomy collection headers](../collections).
+
+## Adding Custom Taxonomy Values in Default and Options
+
+You can use the format below in blueprints to override the `Default` and/or `Options` taxonomies. An important note here is that if you are using this method to override both of these attributes, you should add `validate: type: commalist`, otherwise it may not function as desired.
+
+```YAML
+taxonomies:
+  fields:
+    header.taxonomy:
+      default:
+        category: ['blog','page']
+        tag: ['test']
+      options:
+        category: ['grav']
+      validate:
+        type: commalist
+```

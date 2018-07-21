@@ -10,6 +10,7 @@ Here you can find information on problems and issues raised on [Grav forum](http
 1. [Admin Interface won't scroll](#admin-interface-wont-scroll)
 1. [Fetch failed](#fetch-failed)
 1. [Zend OPcache API is restricted](#zend-opcache-api-is-restricted)
+2. [Cannot Scroll in Admin on CloudFlare](#cannot-scroll-in-admin-on-cloudflare)
 
 ### Cannot connect to the GPM
 
@@ -78,3 +79,13 @@ This is an issue with any [ServerPilot](https://serverpilot.io) managed hosting 
 **Solution:** Enable WebServer Gzip or Gzip compression. Both may be used, but at least one needs to be active for these particular functions to work on some server cases.
 
 This [issue](https://github.com/getgrav/grav/issues/1639) has popped up for users on specific server environments. In particular, with AWS cloud-based servers, users were experiencing issues sharing web pages from their Grav sites on LinkedIn or having them properly indexed by the Wayback Machine. This problem was resolved by turning on either WebServer Gzip or Gzip compression.
+
+### Cannot Scroll in Admin on CloudFlare
+
+For CloudFlare users, the ability to scroll in the Admin can be interrupted. There are solutions to this, as follows:
+
+In CloudFlare's interface, go to **Speed** and disable **Rocket Loader** (or through a page-rule).
+
+It can also be disabled in the (default) 'automatic' mode with a **data-attribute** on scripts: `<script data-cfasync="false" src="/javascript.js"></script>`.
+
+An example of a page-rule would be the URL match `example.com/staging/*/admin`, where the `*` is a wildcard indicating any folder-name. For settings, add `Rocket Loader` and select **Off**.
