@@ -6,7 +6,7 @@ process:
     twig: true
 ---
 
-In Grav-speak, **Pages** are the fundamental building-blocks of your site. They are how you write content and provide navigation in the Grav system.
+In Grav-speak, **Pages** are the fundamental building blocks of your site. They are how you write content and provide navigation in the Grav system.
 
 Combining content and navigation ensures that the system is intuitive to use for even the most inexperienced of content authors. However, this system, in conjunction with powerful taxonomy capabilities, is still powerful enough to handle complex content requirements.
 
@@ -42,7 +42,7 @@ A Modular Page is a special type of listing page because it actually builds a **
 
 !! A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](https://getgrav.org/downloads/skeletons).
 
-Each of these page types follow the same basic structure, so before we can get into the nitty-gritty of each type, we must explain how pages in Grav are constructed.
+Each of these page types follows the same basic structure, so before we can get into the nitty-gritty of each type, we must explain how pages in Grav are constructed.
 
 !! A Module, because it is intended to be part of another page, is inherently not a page you can reach directly via a URL. Because of this, all modular pages are by default set as **non-routable**.
 
@@ -92,7 +92,7 @@ Within the page-folder, we create the actual page-file. The filename should end 
 
 The important thing to understand is the name of the file directly references the name of the theme's template file that will be used to render. The standard name for the main template file is **default**, so the file would be named `default.md`.
 
-You can of course name your file whatever you like, for example: `document.md`, which would make Grav look for a template-file in the theme that matches, such as the **document.html.twig** Twig-template.
+You, can of course, name your file whatever you like, for example: `document.md`, which would make Grav look for a template file in the theme that matches, such as the **document.html.twig** Twig-template.
 
 !! This behavior can be overridden in the page by setting the [template parameter](/content/headers#template) in the headers.
 
@@ -115,7 +115,7 @@ sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellente
 velit orci, laoreet at adipiscing eu, interdum quis nibh. Nunc a accumsan purus.
 ```
 
-The settings between the pair of `---` markers is known as the YAML FrontMatter, and it is comprised of basic YAML settings for the page.
+The settings between the pair of `---` markers are known as the YAML FrontMatter, and it is comprised of basic YAML settings for the page.
 
 In this example, we are explicitly setting the title, as well the taxonomy to **blog** so we can filter it later.  The content after the second `---` is the actual content that will be compiled and rendered as HTML on your site.  This is written in [Markdown](/content/markdown), which will be covered in detail in a future chapter. Just know that the `#`, `**`, and `_` markers translate to **heading 1**, **bold**, and **italics**, respectively.
 
@@ -125,9 +125,9 @@ In this example, we are explicitly setting the title, as well the taxonomy to **
 
 There is a setting in the `site.yaml` file that lets you define a default size (in characters) of the summary that can be used via `page.summary()` to display a summary or synopsis of the page. This is particularly useful for blogs where you want to have a listing that contains just summary information, and not the full page content.
 
-By default this value is `300` characters. You can override this in your own `user/config/site.yaml` file, but an even more useful approach is to use the manual **summary separator** also known as the **summary delimiter**: `===`.
+By default, this value is `300` characters. You can override this in your `user/config/site.yaml` file, but an even more useful approach is to use the manual **summary separator** also known as the **summary delimiter**: `===`.
 
-You just need to ensure you put this in your content with blank lines **above** and **below**. For example:
+You need to ensure you put this in your content with blank lines **above** and **below**. For example:
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
