@@ -26,9 +26,9 @@ When you download and install the **Core Grav** package, you are greeted by a st
 
 ![Listing Page](content-listing.jpg?classes=shadow)
 
-This is really an extension of a regular Page. This is a page that has a reference to a collection of pages.
+This is an extension of a regular Page. This is a page that has a reference to a collection of pages.
 
-The simplest approach to setting this up is to create **child-pages** below the Listing Page. An example of this would be a **blog listing page**, where you would display a summary list of blog posts that exist as child-pages.
+The most straightforward approach to setting this up is to create **child-pages** below the Listing Page. An example of this would be a **blog listing page**, where you would display a summary list of blog posts that exist as child-pages.
 
 There is also some configuration settings to **control the order** of the listing as well as a **limit on the number of items**, and whether or not **pagination** should be enabled.
 
@@ -38,7 +38,7 @@ There is also some configuration settings to **control the order** of the listin
 
 ![Modular Page](content-modular.jpg?classes=shadow)
 
-A Modular Page is a special type of listing page because it actually builds a **single page** from its **child-pages**. This allows for the ability to build very complex **one-page layouts** from Modules. This is accomplished by constructing the **Modular Page** from multiple **Module-folders** found in the page's primary folder.
+A Modular Page is a special type of listing page because it builds a **single page** from its **child-pages**. This allows for the ability to build very complex **one-page layouts** from Modules. This is accomplished by constructing the **Modular Page** from multiple **Module-folders** found in the page's primary folder.
 
 !! A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](https://getgrav.org/downloads/skeletons).
 
@@ -50,15 +50,15 @@ Each of these page types follows the same basic structure, so before we can get 
 
 All content pages are located in the `/user/pages` folder. Each **Page** should be placed in its own folder.
 
-!! Folder names should also be valid **slugs**. Slugs are entirely lowercase, with accented characters replaced by letters from the Latin alphabet and whitespace characters replaced by a dash or an underscore, in order to avoid being encoded.
+!! Folder names should also be valid **slugs**. Slugs are entirely lowercase, with accented characters replaced by letters from the Latin alphabet and whitespace characters replaced by a dash or an underscore, to avoid being encoded.
 
-Grav understands that any integer value followed by a period will be solely for the purpose of ordering, and is removed internally in the system. For example, if you have a folder named `01.home`, Grav will treat this folder as `home`, but will ensure that with default ordering, it comes before `02.blog`.
+Grav understands that any integer value followed by a period will be solely for ordering, and is removed internally in the system. For example, if you have a folder named `01.home`, Grav will treat this folder as `home`, but will ensure that with default ordering, it comes before `02.blog`.
 
 ![Grav Folder Example](page-folders.png)
 
 Your site must have an entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://yoursite.com` in your browser, by default Grav expects an alias `home/`, but you can override the home-location by changing the `home.alias` option in the [Grav configuration file](/basics/grav-configuration).
 
-**Module-folders** are identified by an underscore (`_`) before the folder name. This is a special folder type that is intended to be used only with **modular content**.  These are **not routable** and **not visible** in the navigation. An example of a Module-folder would be a folder such as `user/pages/01.home/_header`. Home is actually configured as a **modular page** and would be constructed from the `_header`, `_features`, and `_body` Modules.
+**Module-folders** are identified by an underscore (`_`) before the folder name. This is a special folder type that is intended to be used only with **modular content**.  These are **not routable** and **not visible** in the navigation. An example of a Module-folder would be a folder such as `user/pages/01.home/_header`. Home is configured as a **modular page** and would be constructed from the `_header`, `_features`, and `_body` Modules.
 
 The textual name of each folder defaults to the _slug_ that the system uses as part of the URL. For example if you have a folder such as `/user/pages/02.blog`, the slug for this page would default to `blog`, and the full URL would be `http://yoursite.com/blog`. A blog item page, located in `/user/pages/02.blog/blog-item-5` would be accessible via `http://yoursite.com/blog/blog-item-5`.
 
@@ -82,7 +82,7 @@ When dealing with collections, there are several options available to control ho
 | **manual**   | The order based on the `order_manual` variable                                                                                                       |
 | **random**   | The order is randomized                                                                                                                              |
 
-You can specifically define a manual order by providing a list of options to the `content.order.custom` configuration setting. This will work in conjunction with the `content.order.by` because it first tries to manually order the pages, but any pages not specified in the manual order, will fall through and be ordered by the ordering provided.
+You can specifically define a manual order by providing a list of options to the `content.order.custom` configuration setting. This will work in conjunction with the `content.order.by` because it first tries to order the pages manually, but any pages not specified in the manual order, will fall through and be ordered by the ordering provided.
 
 !! You can override the **default behavior** for folder ordering and the direction in which the ordering occurs by setting the `pages.order.dir` and the `pages.order.by` options in the [Grav system configuration file](/basics/grav-configuration).
 
@@ -92,7 +92,7 @@ Within the page-folder, we create the actual page-file. The filename should end 
 
 The important thing to understand is the name of the file directly references the name of the theme's template file that will be used to render. The standard name for the main template file is **default**, so the file would be named `default.md`.
 
-You, can of course, name your file whatever you like, for example: `document.md`, which would make Grav look for a template file in the theme that matches, such as the **document.html.twig** Twig-template.
+You can, of course, name your file whatever you like, for example: `document.md`, which would make Grav look for a template file in the theme that matches, such as the **document.html.twig** Twig-template.
 
 !! This behavior can be overridden in the page by setting the [template parameter](/content/headers#template) in the headers.
 
@@ -168,7 +168,7 @@ This allows you to perform a wide variety of functionality from any page on your
 ```
 {% endverbatim %}
 
-In the next section we will continue to dig into the specifics of a Page in detail.
+In the next section, we will continue to dig into the specifics of a Page in detail.
 
 ### contentMeta
 

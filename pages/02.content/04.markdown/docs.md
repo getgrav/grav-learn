@@ -10,7 +10,7 @@ Let's face it: Writing content for the Web is tiresome. WYSIWYG editors help all
 
 Some of the key benefits are:
 
-1. Markdown is simple to learn, with minimal extra characters so it's also quicker to write content.
+1. Markdown is simple to learn, with minimal extra characters, so it's also quicker to write content.
 2. Less chance of errors when writing in markdown.
 3. Produces valid XHTML output.
 4. Keeps the content and the visual display separate, so you cannot mess up the look of your site.
@@ -23,7 +23,7 @@ John Gruber, the author of Markdown, puts it like this:
 > -- <cite>John Gruber</cite>
 
 
-Grav ships with built-in support for [Markdown](http://daringfireball.net/projects/markdown/) and [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/). You must enable **Markdown Extra** in your `system.yaml` configuration file
+Grav ships with built-in support for [Markdown](http://daringfireball.net/projects/markdown/) and [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/). You must enable **Markdown Extra** in your `system.yaml` configuration file.
 
 Without further delay, let us go over the main elements of Markdown and what the resulting HTML looks like:
 

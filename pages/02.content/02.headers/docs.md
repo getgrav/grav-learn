@@ -20,7 +20,7 @@ If you have no headers at all, you will not have any control over the title of t
 title: Title of my Page
 ```
 
-If the `title` variable is not set, Grav has a fall back solution, and will try to use the capitalized `slug` variable:
+If the `title` variable is not set, Grav has a fallback solution, and will try to use the capitalized `slug` variable:
 
 ### Slug
 
@@ -435,11 +435,11 @@ sitemap:
 
 The significance of these headers is that Grav does not use them by default. They are only read by the **sitemap plugin** to determine how often this particular page is modified and what its priority should be.
 
-Any page header such as this should be documented, and generally there will be some default value that will be used if the page does not provide it.
+Any page header such as this should be documented, and generally, there will be some default value that will be used if the page does not provide it.
 
 Another example would be to store page-specific data that could then be used by Twig in the content of the page.
 
-For example you might have want to associate some author reference for the page. If you added these YAML settings to the page header:
+For example, you might have want to associate some author reference for the page. If you added these YAML settings to the page header:
 
 ```ruby
 author:
