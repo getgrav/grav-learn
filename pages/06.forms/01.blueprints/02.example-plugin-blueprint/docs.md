@@ -24,8 +24,8 @@ bugs: https://github.com/getgrav/grav-plugin-assets/issues
 license: MIT
 
 dependencies:
-  - afterburner2
-  - github: https://github.com/getgrav/grav-plugin-github.git
+  - { name: afterburner2 }
+  - { name: github }
   - { name: email, version: '~2.0' }
 ```
 
