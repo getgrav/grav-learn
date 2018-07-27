@@ -71,10 +71,18 @@ Optional field, but can provide a date to automatically trigger publication. Val
 ### Expires
 
 ```ruby
-Expires: 604800
+expires: 604800
 ```
 
 Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible).
+
+### Cache-control
+
+```ruby
+cache_control: max-age=604800
+```
+
+Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value
 
 ### Unpublish Date
 

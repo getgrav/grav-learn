@@ -252,9 +252,7 @@ Each level in the hierarchy adds two whitespaces before the variable. YAML will 
 
 ### Complex Collections
 
-With Grav **0.9.41** you can now provide multiple complex collection definitions and the resulting collection will be the sum of all the pages found from each of the collection definitions.
-
-for example:
+You can also provide multiple complex collection definitions and the resulting collection will be the sum of all the pages found from each of the collection definitions. For example:
 
 ```ruby
 content:
@@ -262,6 +260,16 @@ content:
     - '@self.children'
     - '@taxonomy':
          category: [blog, featured]
+```
+
+Additionally, you can filter the collection by using `filter: type: value`. The type can be any of the following: `published`, `non-published`, `visible`, `non-visible`, `modular`, `non-modular`, `routable`, `non-routable`, `type`, `types`, `access`. These correspond to the [Collection-specific methods](#collection-object-methods), and you can use several to filter your collection. They are all either `true` or `false`, except for `type` which takes a single template-name, `types` which takes an array of template-names, and `access` which takes an array of access-levels. For example:
+
+```ruby
+ content:
+  items: '@self.siblings'
+  filter: 
+    published: true
+    type: 'blog'
 ```
 
 ### Ordering Options
@@ -372,6 +380,7 @@ Also has several useful Collection-specific methods:
 * `Collection::key()` - Returns the current slug of the the current item
 * `Collection::remove($path)` - Removes a specific page in the collection, or current if `$path = null`
 * `Collection::order($by, $dir, $manual)` - Orders the current collection
+* `Collection::intersect` - Merge two collections, keeping items that occur in both collections (like an "AND" condition)
 * `Collection::isFirst($path)` - Determines if the page identified by path is first
 * `Collection::isLast($path)` - Determines if the page identified by path is last
 * `Collection::prevSibling($path)` - Returns the previous sibling page if possible
@@ -380,7 +389,8 @@ Also has several useful Collection-specific methods:
 * `Collection::dateRange($startDate, $endDate, $field)` - Filters the current collection with dates
 * `Collection::visible()` - Filters the current collection to include only visible pages
 * `Collection::nonVisible()` - Filters the current collection to include only non-visible pages
-* `Collection::modular()`  - Filters the current collection to include only modular pages
+* `Collection::merge()` - Merge two collections, keeping items that occur in either collection (like an "OR" condition)
+* `Collection::modular()` - Filters the current collection to include only modular pages
 * `Collection::nonModular()` - Filters the current collection to include only non-modular pages
 * `Collection::published()` - Filters the current collection to include only published pages
 * `Collection::nonPublished()` - Filters the current collection to include only non-published pages
@@ -442,7 +452,7 @@ foreach ($collection as $page) {
 }
 ```
 
-You can also use the same `evaluate()` method that the frontmatter-based page collections make use of:
+The `order()`-function can also, in addition to the `by`- and `dir`-parameters, take a `manual`- and `sort_flags`-parameter. These are [documented above](#ordering-options). You can also use the same `evaluate()` method that the frontmatter-based page collections make use of:
 
 ```
 $page = Grav::instance()['page'];
