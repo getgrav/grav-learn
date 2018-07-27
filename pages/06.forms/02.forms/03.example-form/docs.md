@@ -94,7 +94,7 @@ Make sure you add your own `recaptcha_site_key` reCAPTCHA parameter ([see the re
 
 Now inside the page folder create a subfolder named `thankyou/`, create a new file named `formdata.md`. Users submitting the form will be redirected on that page.
 
-The `formdata` page template is provided in Landio and other themes. If your theme does not provide it, you'll see an error. You can just copy it from ( [Landio] (https://demo.getgrav.org/landio-skeleton/)) and things should work fine.
+The `formdata` page template is by the **form plugin** itself.  If you want to modify this, simply copy it from the form plugin's `templates/` folder int your theme's `templates/` folder and edit it.
 
 That's it!
 
