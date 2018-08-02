@@ -206,6 +206,7 @@ This returns `true` or `false` based on whether or not this page is configured a
 ##### root()
 
 This returns `true` or `false` based on whether or not this page is the root page of the tree hierarchy.
+Using: {{ page.parent.root() }}
 
 ##### active()
 
