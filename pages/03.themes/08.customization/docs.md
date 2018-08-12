@@ -78,7 +78,7 @@ The basic concept is that you define a theme as the **base-theme** that you are 
 To achieve this you need to follow these steps:
 
 1. Create a new folder: `user/themes/mytheme` to house your new theme.
-2. Copy the theme YAML file from the theme you're inheriting (or from the `user/config/themes` folder if you have customized it) to `/user/themes/mytheme/mytheme.yaml` and add the following content (replacing `user/themes/antimatter` with the name of the theme you are inheriting):
+2. Create a `/user/themes/mytheme/mytheme.yaml` file that contains the following content:
    ```
    streams:
      schemes:
@@ -89,6 +89,7 @@ To achieve this you need to follow these steps:
              - user/themes/mytheme
              - user/themes/antimatter
    ```
+   Grav will merge this YAML file with the base theme's config file. If the base theme contains any variables you wish to override, simply restate them here with the new values.
 3. Create a `/user/themes/mytheme/blueprints.yaml` file that contains at least the basic elements required to define a theme:
    ```
    name: MyTheme
