@@ -18,7 +18,7 @@ After creating an account and navigating to the **Vultr Control Manager**, click
 
 ![](deploy.png) {.center}
 
-Next select the **Operating System** from the list available.  We have selected **Ubuntu 16.04 x64** to be consistent with the other guides and because it's the latests, very popular, reliable, and well supported distribution.
+Next select the **Operating System** from the list available.  We have selected **Ubuntu 18.04 LTS** to be consistent with the other guides and because it's the latests, very popular, reliable, and well supported distribution.
 
 For the **Server Size** you can pick a size that is appropriate for you but Grav will run great on any of them.  For the sake of this guide, we'll use the 1 CPU, 1GB memory option that is currently priced at $8/month.
 
@@ -32,7 +32,7 @@ After a minute or so, your server should be ready and you can click the **manage
 
 ---
 
-[plugin:content-inject](/webservers-hosting/vps/ubuntu-16.04)
+[plugin:content-inject](/webservers-hosting/vps/ubuntu-18.04)
 
 
 

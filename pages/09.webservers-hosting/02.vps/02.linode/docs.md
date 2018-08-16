@@ -22,7 +22,7 @@ After the Linode has been created you will need to click the **Dashboard** link 
 
 ![](deploy-image.png) {.center}
 
-For the sake of compatibility and ease of use, I like to choose a stable distribution of Ubuntu.  So **Ubuntu 16.04 LTS** it is! Leave the rest as defaults and provide a **strong password**, then click deploy:
+For the sake of compatibility and ease of use, I like to choose a stable distribution of Ubuntu.  So **Ubuntu 18.04 LTS** it is! Leave the rest as defaults and provide a **strong password**, then click deploy:
 
 ![](pick-distro.png) {.center}
 
@@ -34,7 +34,7 @@ You can click on the **Remote Access** tab in the Linode Manager to get relevant
 
 ---
 
-[plugin:content-inject](/webservers-hosting/vps/ubuntu-16.04)
+[plugin:content-inject](/webservers-hosting/vps/ubuntu-18.04)
 
 
 

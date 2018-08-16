@@ -19,13 +19,13 @@ Navigate to their [Linux VPS Hosting](https://www.rosehosting.com/linux-vps-host
 
 ![](rosehosting-plans.png) {.center}
 
-After you enter your existing domain name's information or order a new one, you'll be taken to the **Product Configuration** page where you can choose your billing cycle and the OS you want to use. For this guide we'll be using **Ubuntu 16.04 LTS**. You can get an additional DNS service for free and order addons like WHM/cPanel and Softaculous. Their support team can install Webmin or any other application on your VPS for free. Confirm the order information and billing information and submit it.
+After you enter your existing domain name's information or order a new one, you'll be taken to the **Product Configuration** page where you can choose your billing cycle and the OS you want to use. For this guide we'll be using **Ubuntu 18.04 LTS**. You can get an additional DNS service for free and order addons like WHM/cPanel and Softaculous. Their support team can install Webmin or any other application on your VPS for free. Confirm the order information and billing information and submit it.
 
 Your order will be processed and confirmed, after which you will receive an e-mail with information about your VPS. You will get an SSH login and password with **full root access**.
 
 ---
 
-[plugin:content-inject](/webservers-hosting/vps/ubuntu-16.04)
+[plugin:content-inject](/webservers-hosting/vps/ubuntu-18.04)
 
 
 
