@@ -38,6 +38,8 @@ Antimatter sets it to
 
 In short, it just loops the values and prints them in the email body.
 
+!! Refer to the email plugin documentation for additional [important form email options](https://github.com/getgrav/grav-plugin-email#emails-sent-with-forms) including [multipart message bodies](https://github.com/getgrav/grav-plugin-email#multi-part-mime-messages) (good for anti-spam scores), `reply_to`, and [attachments](https://github.com/getgrav/grav-plugin-email#sending-attachments).
+
 ##### Dynamic email attribute
 
 If you want for example to set the `email.from` field from a Form input, you can get its content and use it in this way:

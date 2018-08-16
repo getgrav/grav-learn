@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Because Grav is a **flat-file based CMS**, meaning there is no database that underpins it, the folder structure of your site is very important.  At the **top level** of your Grav installation the folder structure looks like:
+Because Grav is a **flat-file based CMS**, meaning no database underpins it, the folder structure of your site is very important.  At the **top level** of your Grav installation the folder structure looks like:
 
 ```bash
 /assets
@@ -17,7 +17,7 @@ Because Grav is a **flat-file based CMS**, meaning there is no database that und
 /vendor
 ```
 
-So let us dig a little deeper into each of these top level folders and explain what they are for:
+So let us dig a little deeper into each of these top-level folders and explain what they are for:
 
 ### /assets
 
@@ -47,7 +47,7 @@ This folder acts like an image cache and is intended for automatically generated
 
 ### /logs
 
-When Grav detects an error, or if you have extra logging or profiling turned on, it stores the relevant logfiles in the `logs` folder.
+When Grav detects an error, or if you have extra logging or profiling turned on, it stores the relevant log files in the `logs` folder.
 
 ### /system
 
@@ -55,9 +55,9 @@ The `system` folder is where the files that make Grav actually function live.  Y
 
 ### /vendor
 
-The `vendor` folder contains important libraries that Grav relies on.  This folder is similar to the `system` folder in that its contents should not be edited unless you're really sure you know what you're doing.
+The `vendor` folder contains important libraries that Grav relies on.  This folder is similar to the `system` folder in that its contents should not be edited unless you are absolutely certain of what you're doing.
 
-**(v0.9.2+)**  If you [installed](../installation) Grav from GitHub, the `vendor` folder won't have been installed with it. In order to create and populate the vendor folder you will have to run `bin/grav install` or `composer install` from the root of your Grav instance. More details can be found under the [installation](../installation) section.
+**(v0.9.2+)**  If you [installed](../installation) Grav from GitHub, the `vendor` folder won't have been installed with it. In order to create and populate the vendor folder, you will have to run `bin/grav install` or `composer install` from the root of your Grav instance. More details can be found in the [installation](../installation) section.
 
 ### /user
 
@@ -78,7 +78,7 @@ The `accounts` folder is where you will define user accounts if access restricti
 
 ### /user/config
 
-The [files in the config directory](../grav-configuration) are used to configure the web site and have been discussed in the previous chapter.
+The [files in the config directory](../grav-configuration) are used to configure the website and have been discussed in the previous chapter.
 
 ### /user/data
 
@@ -92,8 +92,8 @@ This is the heart of Grav. The `pages` folder is where you create and edit your 
 
 ### /user/plugins
 
-A plugin can extend the fast core of Grav with particular features you may need for your Website. Plugins can be downloaded from [GetGrav.org/downloads/plugins](https://getgrav.org/downloads/plugins) or you can [develop your own](../../plugins/plugin-tutorial).
+A plugin can extend the fast core of Grav with particular features you may need for your Website. Plugins can be downloaded from [GetGrav.org/downloads/plugins](https://getgrav.org/downloads/plugins), or you can [develop your own](../../plugins/plugin-tutorial).
 
 ### /user/themes
 
-A theme turns your content into a true website.  It converts the content you have constructed into the HTML that a browser understands and displays to your audience.  There is a base theme that is provided with Grav but you can also download others from [GetGrav.org/downloads/themes](https://getgrav.org/downloads/themes) or even create your own.  The [Themes](../../themes) section will outline this in further detail.
+A theme turns your content into a true website.  It converts the content you have constructed into the HTML that a browser understands and displays to your audience.  There is a base theme that is provided with Grav, but you can also download others from [GetGrav.org/downloads/themes](https://getgrav.org/downloads/themes) or even create your own.  The [Themes](../../themes) section will outline this in further detail.

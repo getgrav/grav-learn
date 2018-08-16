@@ -705,6 +705,16 @@ header.features:
       label: Text
 ```
 
+Accessing and displaying the data of a `list` field is done with a simple twig for loop, like in the example below:
+
+```
+{% for feature in page.header.features %}
+    {{ feature.icon }}
+    {{ feature.header }}
+    {{ feature.text }}
+{% endfor %}
+```
+
 
 | Attribute   | Description                                              |
 | :-----      | :-----                                                   |
@@ -796,6 +806,7 @@ home.alias:
 | `multiple`     | Select multiple pages                  |
 | `selectize`    |                                        |
 
+If you set `multiple` to true, you need to add `validate.type: array`. Otherwise the array of selected pages will not be saved correctly.
 
 | Common Attributes Allowed                      |
 | :-----                                         |

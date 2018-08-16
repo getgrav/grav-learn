@@ -75,7 +75,7 @@ These skeletons are a base on which you can grow your site, quickly and efficien
 
 #### Skeleton Requirements
 
-A proper Grav plugin requires certain files in order to function properly, be listed in the Grav repository, and be visible in the Grav admin plugin.  Please ensure your plugin contains all these files:
+A proper Grav skeleton requires certain files in order to function properly, be listed in the Grav repository, and be visible in the Grav admin plugin.  Please ensure your skeleton contains all these files:
 
 * **.dependencies** - A file to define theme and plugin dependencies for this skeleton
 * **blueprints.yaml** - skeleton definition file and form definition file

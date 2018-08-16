@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Installation of Grav is a trivial process. In fact, there is no real installation.  You have **three** options for installing Grav.  The first - and simplest - way is to simply download the **zip** archive, and extract it. The second way is to install with **composer**. The third way is to clone the source project directly from **GitHub**, and then run an included script command to install needed dependencies:
+Installation of Grav is a trivial process. In fact, there is no real installation. You have **three** options for installing Grav. The first - and simplest - way is to download the **zip** archive, and extract it. The second way is to install with **Composer**. The third way is to clone the source project directly from **GitHub**, and then run an included script command to install needed dependencies:
 
 ## Check for PHP version
 
@@ -14,7 +14,7 @@ Grav is incredibly easy to set up and get running. Be sure you have at least PHP
 $ php -v
 ```
 
-This should report the version and build information.  For example:
+This should report the version and build information. For example:
 
 ```bash
 PHP 5.5.20 (cli) (built: Jan 19 2014 21:32:15)
@@ -78,9 +78,9 @@ Another method is to clone Grav from the GitHub repository, and then run a simpl
 
 Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is PHP 5.5.9 or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](../requirements) chapter of this guide.
 
-If your web root is, for example, `~/public_html` then you could extract it into this folder and reach it via `http://localhost`.  If you extracted it into `~/public_html/grav` you would reach it via `http://localhost/grav`.
+If your web root is, for example, `~/public_html` then you could extract it into this folder and reach it via `http://localhost`. If you extracted it into `~/public_html/grav` you would reach it via `http://localhost/grav`.
 
-!!! Every web server must be configured. Grav ships with .htaccess by default, for Apache, and comes with some [default server configuration files](https://github.com/getgrav/grav/tree/master/webserver-configs), for `nginx`, `caddy server`, `iis` and `lighttpd`. Use them accordingly when needed.
+!!! Every web server must be configured. Grav ships with .htaccess by default, for Apache, and comes with some [default server configuration files](https://github.com/getgrav/grav/tree/master/webserver-configs), for `nginx`, `caddy server`, `iis`, and `lighttpd`. Use them accordingly when needed.
 
 #### Running Grav with the Built-in PHP Webserver Using `router.php`
 
@@ -96,7 +96,7 @@ Document root is /Users/example/sites/grav/
 Press Ctrl-C to quit.
 ```
 
-Your terminal will also give you real-time updates of any activity on this ad hoc-style server. You can copy the URL given in the `Listening on` line and paste that into your browser of choice to access your site, including the administrator.
+Your terminal will also give you real-time updates of any activity on this ad hoc-style server. You can copy the URL provided in the `Listening on` line and paste that into your browser of choice to access your site, including the administrator.
 
 !!!! This is a useful tool for quick development, and should **not** be used in place of a dedicated web server such as Apache.
 
@@ -107,9 +107,9 @@ The first time it loads, Grav pre-compiles some files. If you now refresh your b
 
 ![Grav Installed](install.png?cropResize=600,600)  {.border}
 
-!! In the previous examples, **$** represents the command prompt.  This may look different on various platforms.
+!! In the previous examples, **$** represents the command prompt. This may look different on various platforms.
 
-By default, Grav comes with some sample pages to give you something to get started with.  Your site is already fully functional and you can configure it, add content, extend it, or customize it as much as you like.
+By default, Grav comes with some sample pages to give you something to get started with. Your site is already fully functional and you can configure it, add content, extend it, or customize it as much as you like.
 
 ## Installation & Setup Problems
 
@@ -119,7 +119,7 @@ If any issues are discovered during the initial page load (or after a cache-flus
 
 Please consult the [Troubleshooting](../../troubleshooting) section for help regarding specific issues.
 
-! If you have issues with file permissions, please check the [Permissions Troubleshooting documentation](/troubleshooting/permissions).  Also you could look at the [Hosting Guides documentation](/webservers-hosting) that have specific instructions for various hosting environments
+! If you have issues with file permissions, please check the [Permissions Troubleshooting documentation](/troubleshooting/permissions). Also, you could look at the [Hosting Guides documentation](/webservers-hosting) that has specific instructions for various hosting environments
 
 ## Grav Updates
 
@@ -131,4 +131,4 @@ The preferred method for updating Grav (from v0.9.3 onwards) is to use the **Gra
 bin/gpm selfupgrade -f
 ```
 
-Full information can be found in the [Grav GPM Documentation](../../advanced/grav-gpm).  We also have GPM integrated in our [Admin Panel](../../admin-panel) plugin which will check, prompt, and automatically install any updates.
+Full information can be found in the [Grav GPM Documentation](../../advanced/grav-gpm). We also have GPM integrated into our [Admin Panel](../../admin-panel) plugin which will check, prompt, and automatically install any updates.

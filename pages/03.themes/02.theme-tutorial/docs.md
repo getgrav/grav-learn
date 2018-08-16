@@ -54,7 +54,7 @@ $ bin/plugin devtools new-theme
 
 This process will ask you a few questions that are required to create the new theme:
 
-! We're going to use **pure-blank** to create a new theme, but you can create a simple **inheritence** style template that inherits from another base theme
+! We're going to use **pure-blank** to create a new theme, but you can create a simple **inheritance** style template that inherits from another base theme
 
 ```
 $ bin/plugin devtools new-theme
@@ -64,7 +64,7 @@ Enter Developer Name: Acme Corp
 Enter Developer Email: contact@acme.co
 Please choose a template type
   [0] pure-blank
-  [1] inheritence
+  [1] inheritance
  > 0
 
 SUCCESS theme mytheme -> Created Successfully

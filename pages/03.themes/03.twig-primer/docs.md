@@ -6,7 +6,7 @@ taxonomy:
 
 Twig is a quick, optimized template engine for PHP. It is designed from the ground up to make creating templates easier on both the developer and the designer.
 
-Its easy-to-follow syntax and straightforward processes make it a natural fit for anyone familiar with Smarty, Django, Jinja, Liquid, or Stencil then Twig will likely be a very easy transition for you.
+Its easy-to-follow syntax and straightforward processes make it a natural fit for anyone familiar with Smarty, Django, Jinja, Liquid, or Stencil.
 
 We use it for our Grav templates in part because of its flexibility and inherent security. The fact that it is also one of the fastest template engines for PHP out there made choosing it for use in Grav a no brainer.
 
@@ -84,7 +84,7 @@ Here is an example of a comment tag as you would find it in a Twig template file
 
 #### Output Tags
 
-Output tags (`{{ Insert Output Here }}`) set code that is output directly to the browser. This is where you would put anything you want to appear on the front end.
+Output tags (`{{ Insert Output Here }}`) will be evaluated and added to the generated output. This is where you would put anything you want to appear on the front end, or in some other generated content.
 
 Here is an example of output tags being used in a Twig template:
 

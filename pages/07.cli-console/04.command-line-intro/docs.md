@@ -54,7 +54,7 @@ When that is done, open a new console (or restart your current one) so the new p
 
 One of the coolest things about Grav is that you have a host of powerful commands at your disposal to do everything from installing additional plugins and themes to adding users to the Admin. In this section, we will list many of the most commonly used commands.
 
-All of the commands listed below are compatible with any operating system.
+All of the commands listed below are compatible with <strong>any operating system.</strong>
 
 | Command                           | Description                                                                                                                        |
 | :----------------                 | :--------------------------------------                                                                                            |
@@ -74,7 +74,13 @@ All of the commands listed below are compatible with any operating system.
 | `bin/gpm uninstall`               | Removes an installed theme or plugin and clears the cache.                                                                        |
 | `bin/gpm self-upgrade`            | Enables you to update Grav to the latest version.                                                                                  |
 
-!! These commands are explained in greater detail within the [Grav CLI](../grav-cli) and [Grav GPM](../grav-gpm) documentation.
+!! These commands are explained in greater detail within the [Grav CLI](../grav-cli) and [Grav GPM](../grav-cli-gpm) documentation.
+
+The commands listed below, are compatible with <strong>mac or unix systems.</strong>
+ 
+| Command                               | Description                                                                                                               |
+| :----------------                     | :--------------------------------------                                                                                   |
+|  ``` bin/gpm index \| grep '\| installed' ```  | Lists all plugins and themes you currently have installed. 
 
 ## Symbolic Links
 
@@ -82,7 +88,7 @@ Symbolic Links (also known as symlinks) are incredibly useful and easy to perfor
 
 Another great benefit of doing this is that it takes up virtually zero additional disk space since you don't have multiple copies of the same files.
 
-Where Grav is concerned, symlinks are a great way to add plugins, themes, and content to multiple instances and doing so in a way that makes it infinitely easier to update and modify. You make a chance once, and it appears everywhere the file(s) are symlinked.
+Where Grav is concerned, symlinks are a great way to add plugins, themes, and content to multiple instances and doing so in a way that makes it infinitely easier to update and modify. You make a change once, and it appears everywhere the file(s) are symlinked.
 
 The process for performing a symlink is pretty straightforward, with minor differences between operating systems.
 

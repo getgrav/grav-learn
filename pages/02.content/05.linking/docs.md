@@ -28,9 +28,9 @@ To get us started, here is a quick look at some of the common components of a Gr
 
 Grav doesn't just limit your internal links to specific names within your file/directory structure. It can also pull slugs assigned both in the header of the file, as well as the fallback directory name. This makes creating quick links easy as you don't have to remember the specific file name, but an easily remembered (and relevant) slug.
 
-Grav's templating engine uses file names to determine which template to apply to them. For example, a blog might use the common file name `item.md` for each blog post. The blog post itself can be assigned a slug that makes more sense, such as `grass` or `grass-is-green`.
+Grav's templating engine uses file names to determine which template to apply to them. For example, a blog might use the standard file name `item.md` for each blog post. The blog post itself can be assigned a slug that makes more sense, such as `grass` or `grass-is-green`.
 
-Directory names also have numbers assigned which helps with ordering. You don't have to include these numbers with slug-relative links. Grav ignores them when creating the slug, so your site's URL structure is more clean.
+Directory names also have numbers assigned which helps with ordering. You don't have to include these numbers with slug-relative links. Grav ignores them when creating the slug, so your site's URL structure is cleaner.
 
 Here are a few examples of slug-relative links.
 
@@ -72,11 +72,7 @@ In this example, we will be linking `pages/01.blue/01.sky/item.md` to `/pages/02
 [link](../../02.green)
 ```
 
-If you want to link to a directory two steps up, you can do so using this process. In this example, we will link `pages/01.blue/01.sky/item.md` to `/pages/02.green/`.
-
-```markdown
-[link](../../02.green)
-```
+If you want to link to a directory two steps up, you can do so using this process. 
 
 The next example is a lot like the file link we demonstrated earlier. Instead of linking directly to the file, we're linking to its directory, which should load the file we want anyway since it's the default file. If you were creating a link from `pages/01.blue/01.sky/item.md` to `/pages/02.green/01.grass/` you would use the following command.
 

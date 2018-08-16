@@ -20,7 +20,7 @@ If you have no headers at all, you will not have any control over the title of t
 title: Title of my Page
 ```
 
-If the `title` variable is not set, Grav has a fall back solution, and will try to use the capitalized `slug` variable:
+If the `title` variable is not set, Grav has a fallback solution, and will try to use the capitalized `slug` variable:
 
 ### Slug
 
@@ -67,6 +67,22 @@ publish_date: 01/23/2015 13:00
 ```
 
 Optional field, but can provide a date to automatically trigger publication. Valid values are any string date values that [strtotime()](http://php.net/manual/en/function.strtotime.php) supports.
+
+### Expires
+
+```ruby
+expires: 604800
+```
+
+Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible).
+
+### Cache-control
+
+```ruby
+cache_control: max-age=604800
+```
+
+Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value
 
 ### Unpublish Date
 
@@ -427,11 +443,11 @@ sitemap:
 
 The significance of these headers is that Grav does not use them by default. They are only read by the **sitemap plugin** to determine how often this particular page is modified and what its priority should be.
 
-Any page header such as this should be documented, and generally there will be some default value that will be used if the page does not provide it.
+Any page header such as this should be documented, and generally, there will be some default value that will be used if the page does not provide it.
 
 Another example would be to store page-specific data that could then be used by Twig in the content of the page.
 
-For example you might have want to associate some author reference for the page. If you added these YAML settings to the page header:
+For example, you might have want to associate some author reference for the page. If you added these YAML settings to the page header:
 
 ```ruby
 author:

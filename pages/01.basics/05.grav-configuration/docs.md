@@ -8,9 +8,9 @@ All Grav configuration files are written in [YAML syntax](../../advanced/yaml) w
 
 ## System Configuration
 
-Grav focuses on making things as easy as possible for the user, and the same goes for configuration.  Grav comes with some sensible default options and these are contained in a file that resides in the `system/config/system.yaml` file.
+Grav focuses on making things as easy as possible for the user, and the same goes for configuration.  Grav comes with some sensible default options, and these are contained in a file that resides in the `system/config/system.yaml` file.
 
-However, **you should never change this file**, rather any configuration changes you need to make should be stored in a file called `user/config/system.yaml`.  Any setting in this file with the same structure and naming will override the setting provided in the default system configuration file.
+However, **you should never change this file**, instead any configuration changes you need to make should be stored in a file called `user/config/system.yaml`.  Any setting in this file with the same structure and naming will override the setting provided in the default system configuration file.
 
 !!!! Generally speaking you should **NEVER** change anything in the `system/` folder.  All things the user does (creating content, installing plugins, editing configuration, etc.) should be done in the `user/` folder.  This way it allows simpler upgrading and also keeps your changes all in one location for backing up, synchronizing, etc.
 
@@ -26,7 +26,11 @@ param_sep: ':'
 wrapped_site: false
 reverse_proxy_setup: false
 force_ssl: false
+force_lowercase_urls: true
 custom_base_url: ''
+username_regex: '^[a-z0-9_-]{3,16}$'
+pwd_regex: '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+intl_enabled: true
 ```
 
 These configuration options do not appear within their own child sections. They're general options that affect the way the site operates, its timezone, and base URL.
@@ -38,7 +42,12 @@ These configuration options do not appear within their own child sections. They'
 * **wrapped_site**: For themes/plugins to know if Grav is wrapped by another platform. Can be `true` or `false`.
 * **reverse_proxy_setup**: Running in a reverse proxy scenario with different webserver ports than proxy. Can be `true` or `false`.
 * **force_ssl**: If enabled, Grav forces to be accessed via HTTPS (NOTE: Not an ideal solution). Can be `true` or `false`.
+* **force_lowercase_urls**:If you want to support mixed cased URLs set this to false
 * **custom_base_url**: Manually set the base_url here.
+* **username_regex**: Only lowercase chars, digits, dashes, underscores. 3 - 16 chars
+* **pwd_regex**: At least one number, one uppercase and lowercase letter, and be at least 8+ chars
+* **intl_enabled**: Special logic for PHP International Extension (mod_intl)
+
 
 ### languages
 
@@ -71,7 +80,7 @@ home:
   hide_in_urls: false
 ```
 
-The **Home** section is where you set the default path for the site's home page. You can also choose to hide the home route in URLs.
+The **Home** section is where you set the default path for the site's homepage. You can also choose to hide the home route in URLs.
 
 * **alias**: Default path for home, ie: `/home` or `/`.
 * **hide_in_urls**: Hide the home route in URLs. Can be `true` or `false`.
@@ -80,7 +89,7 @@ The **Home** section is where you set the default path for the site's home page.
 
 ```yaml
 pages:
-  theme: antimatter
+  theme: quark
   order:
     by: default
     dir: asc
@@ -110,6 +119,7 @@ pages:
   types: [txt,xml,html,htm,json,rss,atom]
   append_url_extension: ''
   expires: 604800
+  cache_control:
   last_modified: false
   etag: false
   vary_accept_encoding: false
@@ -127,7 +137,7 @@ pages:
 
 The **Pages** section of the `system/config/system.yaml` file is where you set a lot of the main theme-related settings. For example, this is where you set the theme used to render the site, page ordering, twig and markdown processing defaults, and more. This is where most of the decisions that affect the way your pages are rendered are made.
 
-* **theme**: This is where you set the default theme. This defaults to `antimatter`.
+* **theme**: This is where you set the default theme. This defaults to `quark`.
 * **order**:
     - **by**: Order pages by `default`, `alpha` or `date`.
     - **dir**: Default ordering direction, `asc` or `desc`.
@@ -155,6 +165,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 * **types**: List of valid page types. For example: `[txt,xml,html,htm,json,rss,atom]`
 * **append_url_extension**: Append page's extension in Page URLs (e.g. `.html` results in **/path/page.html**).
 * **expires**: Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible).
+* **cache_control**: Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value
 * **last_modified**: Set the last modified date header based on file modification timestamp. Can be set `true` or `false`.
 * **etag**: Set the etag header tag. Can be set to `true` or `false`.
 * **vary_accept_encoding**: Add `Vary: Accept-Encoding` header. Can be set to `true` or `false`.
@@ -178,6 +189,8 @@ cache:
     method: file
   driver: auto
   prefix: 'g'
+  clear_images_by_default: true
+  cli_compatibility: false
   lifetime: 604800
   gzip: false
   allow_webserver_gzip: false
@@ -192,6 +205,8 @@ The **Cache** section is where you can configure the site's caching settings. Yo
     - **method**: Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching)
 * **driver**: Select a cache driver. Options are: `auto`, `file`, `apc`, `xcache`, `redis`, `memcache`, and `wincache`.
 * **prefix**: Cache prefix string (prevents cache conflicts). Example: `g`.
+* **clear_images_by_default**: By default grav will include processed images when cache clears, this can be disabled by setting this to `false`
+* **cli_compatibility**: Ensures only non-volatile drivers are used (file, redis, memcache, etc.)
 * **lifetime**: Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days.
 * **gzip**: GZip compress the page output. Can be set to `true` or `false`.
 * **allow_webserver_gzip**: This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete.
@@ -263,7 +278,7 @@ errors:
 
 The **Errors** section determines how Grav handles error display and logging.
 
-* **display**: Determines how errors are displayed. Enter either `1` for full backtrace, `0` for Simple Error, or `-1` for System Error.
+* **display**: Determines how errors are displayed. Enter either `1` for the full backtrace, `0` for Simple Error, or `-1` for System Error.
 * **log**: Log errors to `/logs` folder. Can be set to `true` or `false`.
 
 ### debugger
@@ -306,6 +321,7 @@ media:
   enable_media_timestamp: false
   unsupported_inline_types: []
   allowed_fallback_types: []
+  auto_metadata_exif: false
 ```
 
 The **Media** section handles the configuration options for settings related to the handling of media files. This includes timestamp display, upload size, and more.
@@ -313,6 +329,7 @@ The **Media** section handles the configuration options for settings related to 
 * **enable_media_timestamp**: Enable media timetsamps.
 * **unsupported_inline_types**: Array of supported media types to try to display inline. These file types are placed within `[]` brackets.
 * **allowed_fallback_types**: Array of allowed media types of files found if accessed via Page route. These file types are placed within `[]` brackets.
+* **auto_metadata_exif**: Automatically create metadata files from Exif data where possible
 
 ### session
 
@@ -351,6 +368,7 @@ The **GPM** section offers the user options that control how Grav's GPM sources 
 
 * **releases**: Set to either `stable` or `testing` to determine if you want to update to the latest stable or testing build.
 * **proxy_url**: Configure a manual proxy URL for GPM. For example: `127.0.0.1:3128`.
+* **method**: Either 'curl', 'fopen' or 'auto'. 'auto' will try fopen first and if not available cURL
 * **verify_peer**: On some systems (Windows mostly) GPM is unable to connect because the SSL certificate cannot be verified. Disabling this setting might help.
 * **official_gpm_only**: By default GPM direct-install will only allow URLs via the official GPM proxy to ensure security, disable this to allow other sources.
 
@@ -447,7 +465,7 @@ Paths to the configuration files will be used as a **namespace** for your config
 
 Alternatively, you can put all the options into one file and use YAML structures to specify the hierarchy for your configuration options. This namespacing is built from a combination of the **path + filename + option name**.
 
-For example: An option such as `author: Frank Smith` in file `plugins/myplugin.yaml` could be accessible via: `plugins.myplugin.author`. However, you could also have a `plugins.yaml` file and in that file have a option name called `myplugin: author: Frank Smith` and it would still be reachable by the same `plugins.myplugin.author` namespace.
+For example: An option such as `author: Frank Smith` in file `plugins/myplugin.yaml` could be accessible via: `plugins.myplugin.author`. However, you could also have a `plugins.yaml` file and in that file have an option name called `myplugin: author: Frank Smith` and it would still be reachable by the same `plugins.myplugin.author` namespace.
 
 Some example configuration files could be structured:
 

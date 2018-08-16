@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-When you are designing a theme, Grav gives you access to all sorts of objects and variables from your Twig templates.  The Twig templating framework provides powerful ways to read and manipulate these objects and variables.  This is [fully explained in their own documentation](http://twig.sensiolabs.org/doc/templates.html) as well as [summarized succinctly in our own documentation](../twig-primer).
+When you are designing a theme, Grav gives you access to all sorts of objects and variables from within your Twig templates.  The Twig templating framework provides powerful ways to read and manipulate these objects and variables.  This is [fully explained in their own documentation](http://twig.sensiolabs.org/doc/templates.html) as well as [summarized succinctly in our own documentation](../twig-primer).
 
 !!!! In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provide those after the method name.  `page.content` is equivalent to `page.content()`
 
@@ -206,6 +206,7 @@ This returns `true` or `false` based on whether or not this page is configured a
 ##### root()
 
 This returns `true` or `false` based on whether or not this page is the root page of the tree hierarchy.
+Using: {{ page.parent.root() }}
 
 ##### active()
 

@@ -4,19 +4,19 @@ taxonomy:
     category: docs
 ---
 
-Grav has a variety of flexible linking options that allow you to link images from one page to another, and even from remote sources. If you have ever linked files using HTML or worked with a file system using a command line, a lot of this should be very easy to pick up.
+Grav has a variety of flexible linking options that allow you to link images from one page to another, and even from remote sources. If you have ever linked files using HTML or worked with a file system using a command line, a lot of this should be elementary to pick up.
 
 We will run to some easy examples using this very basic, trimmed down model of what a Grav site's **Pages** directory might look like.
 
 ![Pages Directory](pages.png)
 
-Using this directory structure as an example, we will take a look at the different types of links you can use to display media files in your content. We have image files in every folder, including one image for each blog post, and three images in a special `/images` directory which acts as a page, but contains only media files.
+Using this directory structure as an example, we will take a look at the different types of links you can use to display media files in your content. We have image files in every folder, including one image for each blog post, and three images in a special `/images` directory which acts as a page but contains only media files.
 
-The use of the `/images` folder serves as an example of how you can maintain a simple centralized image directory to store files that are frequently used by multiple pages. This simplifies the linking process in these cases.
+The use of the `/images` folder serves as an example of how you can maintain a simple, centralized image directory to store files that are frequently used by multiple pages. This simplifies the linking process in these cases.
 
-!!!! If you decide to use a centralized image directory, be advised that this directory should exist within the `/pages` folder as this folder is intended for front end content.
+!!!! If you decide to use a centralized image directory, be advised that this directory should exist within the `/pages` folder as this folder is intended for front-end content.
 
-To get us started, here is a quick look at some of the common components of a Grav markdown-based image tag.
+To get us started, here is a quick look at some of the standard components of a Grav markdown-based image tag.
 
 ```
 ![Alt Text](../path/image.ext)
@@ -37,7 +37,7 @@ To get us started, here is a quick look at some of the common components of a Gr
 
 With relative links, the location of the source file is every bit as important as that of the destination. If either file in the mix is moved, changing the path between them, the link can be broken.
 
-The advantage of this type of linking structure is that you can easily switch between a local development server and a live server with a different domain name and as long as the file structure remains consistent, the links should work without a problem.
+The advantage of this type of linking structure is that you can quickly switch between a local development server and a live server with a different domain name and as long as the file structure remains consistent, the links should work without a problem.
 
 A file link points to a particular file by name, rather than its directory or slug. If you were creating an image link in `pages/01.blog/test-post-1/item.md` to `/pages/01.blog/test-post-3/test_image_3.jpg` you would use the following command.
 

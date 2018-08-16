@@ -78,7 +78,7 @@ The basic concept is that you define a theme as the **base-theme** that you are 
 To achieve this you need to follow these steps:
 
 1. Create a new folder: `user/themes/mytheme` to house your new theme.
-2. Create a new theme YAML file: `/user/themes/mytheme/mytheme.yaml` with the following content:
+2. Copy the theme YAML file from the theme you're inheriting (or from the `user/config/themes` folder if you have customized it) to `/user/themes/mytheme/mytheme.yaml` and add the following content (replacing `user/themes/antimatter` with the name of the theme you are inheriting):
    ```
    streams:
      schemes:
