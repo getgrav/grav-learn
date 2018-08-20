@@ -89,6 +89,15 @@ form:
     client_side_validation: false
 ```
 
+#### Keep Alive
+
+You can ensure your forms do fail to submit when your session expires, by enabling the `keep_alive` option on the form.  By enabling this, an AJAX request will be made to Grav before your session expires to keep it 'fresh':
+
+```
+form:    
+    keep_alive: true
+````
+
 #### Fieldsets
 
 You can set up `<fieldset></fieldset>` tags for the fields in your form using the `fieldset:` designation in the form.
