@@ -1,5 +1,5 @@
 ---
-title: Example: Plugin Blueprint
+title: 'Example: Plugin Blueprint'
 taxonomy:
     category: docs
 ---

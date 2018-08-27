@@ -1,5 +1,5 @@
 ---
-title: Reference: Form Actions
+title: 'Reference: Form Actions'
 taxonomy:
     category: docs
 ---

@@ -1,5 +1,5 @@
 ---
-title: Reference: Form Options
+title: 'Reference: Form Options'
 taxonomy:
     category: docs
 ---

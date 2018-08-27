@@ -1,5 +1,5 @@
 ---
-title: Reference: Blueprint Form Fields
+title: 'Reference: Blueprint Form Fields'
 taxonomy:
     category: docs
 ---

@@ -1,5 +1,5 @@
 ---
-title: Example: Page Blueprints
+title: 'Example: Page Blueprints'
 taxonomy:
     category: docs
 ---

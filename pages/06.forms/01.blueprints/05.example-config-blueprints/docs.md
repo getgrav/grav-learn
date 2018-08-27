@@ -1,5 +1,5 @@
 ---
-title: Example: Config Blueprints
+title: 'Example: Config Blueprints'
 taxonomy:
     category: docs
 ---
