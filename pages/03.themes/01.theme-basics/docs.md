@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Themes in Grav are quite simple, and very flexible because they are built with the powerful [Twig Templating engine](https://twig.sensiolabs.org/). We typically use [Sass CSS Extension](http://sass-lang.com) to generate our CSS files, but there is nothing stopping you from using [Less](http://lesscss.org/), or even regular CSS. It simply comes down to your own personal preferences.
+Themes in Grav are quite simple, and very flexible because they are built with the powerful [Twig Templating engine](https://twig.sensiolabs.org/). Every theme is created with a combination of twig files (a mixture of twig-like PHP code and HTML), called templates, and CSS. We typically use [Sass CSS Extension](http://sass-lang.com) to generate our CSS files, but there is nothing stopping you from using [Less](http://lesscss.org/), or even regular CSS. It simply comes down to your own personal preferences.
 
 ## Content Pages & Twig Templates
 
@@ -65,11 +65,40 @@ color: blue
 
 !! The `color: blue` configuration option does not actually do anything. It is merely used as an example of how to override a setting.
 
-Also you should provide a `300px` x `300px` image of your theme and call it `thumbnail.jpg` at the root of the theme.
+To know more about the available forms that you can create, refer to [chapter 6. Forms](../../forms). You should also provide a `300px` x `300px` image of your theme and call it `thumbnail.jpg` at the root of the theme. It will show up in the theme section of your admin panel.
+
+### Templates
+
+There are **no set rules** regarding the structure of a Grav theme except that there must be appropriate Twig templates provided in the `templates/` folder for each of the page types you use in your content.
+
+!! Because of this tight coupling between page content and Twig templates in a theme, it often makes sense to develop themes in conjunction with the content they are intended to be used with.  A good way to create _general_ themes is to support the template types used by the Skeleton packages that are available on our [downloads page](https://getgrav.org/downloads). For example, support: **default**, **blog**, **error**, **item**, and **modular**.
+
+Generally speaking, the root of the `templates/` folder should be used to house the primary templates that are supported, then create a sub-folder called `partials/` to contain parts, or smaller template _chunks_.
+
+If you want to support **modular** templates in your theme, you should also create a sub-folder of templates called `modular/` and store your modular Twig template files in there.
+
+The story for supporting **forms** is the same. Create another sub-folder called `forms/` and store any custom form templates in it.
+
+### SCSS / LESS / CSS
+
+Again, there is nothing set in stone here, but a solid practice is to have a sub-folder called `scss/` if you want to develop with Sass, or `less/` if you prefer Less along with a `css/` folder to put static CSS files, and a `css-compiled/` folder for any automatically generated files from your Sass or Less compilations.
+
+How you organize your files here is completely up to you.  Feel free to follow our example in the default **antimatter** theme provided with the Grav Base package for some ideas.  We are using the **scss** variant of Sass which is more CSS-like, and frankly more natural to write.
+
+To install Sass on your computer, simply [follow the instructions on the sass-lang.com](http://sass-lang.com/install) website.
+
+1. Execute the simple provided scss shell script by typing `$ ./scss.sh` from the root of the theme.
+2. Running the command directly `$ scss --sourcemap --watch scss:css-compiled` which is the same thing.
+
+By default, this will compile your scss files into the `css-compiled/` folder.  You can then reference the resulting css file in your theme.
+
+### Blueprints
+
+The `blueprints/` folder is used to define forms for options and configuration for each of the template files. These are used by the **Administration Panel** and are optional. The theme is 100% functional without these, but they will not be editable via the administration panel, unless provided.
 
 ### Theme and Plugin Events
 
-Another powerful feature that is purely optional is the ability for a theme to interact with Grav via the **plugins** architecture.  To accomplish this, simply create a file called `mytheme.php` and use the following format:
+Another powerful feature that is purely optional is the ability for a theme to interact with Grav via the **plugins** architecture. In short, during the initialization sequence of grav, there are several points in the sequence where you can "hook" your own piece of code. This can be useful, for example, to define extra path shortcuts in your theme when twig is initializing, so that you can use them in your twig templates. These hooks are available to you through a set of "empty" functions with names predefined by the Grav system, which you can fill at your convenience. [Chapter 4. Plugins](../../plugins) has more information about the plugin system and the available event hooks. To make use of this hooks in your theme, simply create a file called `mytheme.php` and use the following format:
 
 	<?php
 	namespace Grav\Theme;
@@ -110,36 +139,7 @@ Another powerful feature that is purely optional is the ability for a theme to i
         }
 	}
 
-You can then use the provided **plugins methods** which are covered in the [next section](../../plugins) in greater detail.
-
-### Templates
-
-There are **no set rules** regarding the structure of a Grav theme except that there must be appropriate Twig templates provided in the `templates/` folder for each of the page types you use in your content.
-
-!! Because of this tight coupling between page content and Twig templates in a theme, it often makes sense to develop themes in conjunction with the content they are intended to be used with.  A good way to create _general_ themes is to support the template types used by the Skeleton packages that are available on our [downloads page](https://getgrav.org/downloads). For example, support: **default**, **blog**, **error**, **item**, and **modular**.
-
-Generally speaking, the root of the `templates/` folder should be used to house the primary templates that are supported, then create a sub-folder called `partials/` to contain parts, or smaller template _chunks_.
-
-If you want to support **modular** templates in your theme, you should also create a sub-folder of templates called `modular/` and store your modular Twig template files in there.
-
-The story for supporting **forms** is the same. Create another sub-folder called `forms/` and store any custom form templates in it.
-
-### Blueprints
-
-The `blueprints/` folder is used to define forms for options and configuration for each of the template files. These are used by the **Administration Panel** and are optional. The theme is 100% functional without these, but they will not be editable via the administration panel, unless provided.
-
-### SCSS / LESS / CSS
-
-Again, there is nothing set in stone here, but a solid practice is to have a sub-folder called `scss/` if you want to develop with Sass, or `less/` if you prefer Less along with a `css/` folder to put static CSS files, and a `css-compiled/` folder for any automatically generated files from your Sass or Less compilations.
-
-How you organize your files here is completely up to you.  Feel free to follow our example in the default **antimatter** theme provided with the Grav Base package for some ideas.  We are using the **scss** variant of Sass which is more CSS-like, and frankly more natural to write.
-
-To install Sass on your computer, simply [follow the instructions on the sass-lang.com](http://sass-lang.com/install) website.
-
-1. Execute the simple provided scss shell script by typing `$ ./scss.sh` from the root of the theme.
-2. Running the command directly `$ scss --sourcemap --watch scss:css-compiled` which is the same thing.
-
-By default, this will compile your scss files into the `css-compiled/` folder.  You can then reference the resulting css file in your theme.
+As you can observe, in order to use the event hooks you first need to register them in a list with the `getSubscribedEvents` function and then define them with your own code. If you subscribe an event for use, define it aswell. Otherwise you will get an error.
 
 ### Other Folders
 
