@@ -242,7 +242,6 @@ $ sudo service apache2 restart
 Now you can point the browser to [http://mysite-dev](http://mysite-dev?target=_blank) and it will open the Grav installation at `C:/your/path/to/webroot/mysite` using the config files in folder `/user/mysite-dev/config/`.
 
 ## Automatically start Apache (optional)
-!!!! Needs improvement
 For starting and stopping Apache, elevated privileges are required. And to be granted the elevated privileges, a password is requested. To prevent Ubuntu asking for a password you can grant yourself permanent elevated privileges for certain services.
 
 Start the [visudo](http://manpages.ubuntu.com/manpages/trusty/man8/visudo.8.html?target=_blank) editor to edit the sudoer file:
