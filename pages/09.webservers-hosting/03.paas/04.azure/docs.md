@@ -16,7 +16,7 @@ taxonomy:
 * Github Account
 * A copy of Grav
 
-![Azure Logo](cw-logo.png)
+![Azure Logo](Azure.png)
 
 ## Signing Up On Azure
 First [sign up for an account](https://azure.microsoft.com/en-gb/free/) on Azure, you will receive access to free services plus £150 (UK) in credit to use for the first 30 days. 
@@ -78,7 +78,10 @@ Now that your Web App is up and running and you have the code, it is time to dep
 
 + You will be asked for credentials to your GitHub account and then presented with options about which repository and branch to pull from, select the options relevant for you
 
-+ Azure will now start to pull your code from GitHub, within a few minutes your site should be live
++ *Azure will now start to pull your code from GitHub, within a few minutes your site should be live*
+
+
+##Additional Information 
 
 ### Custom Domain
 
