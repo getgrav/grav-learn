@@ -25,7 +25,7 @@ First [sign up for an account](https://azure.microsoft.com/en-gb/free/) on Azure
 If you do not have a GitHub account set [please sign up for one](https://github.com/join?source=header-home), the free plan is sufficient. 
 
 ## Clone Grav Source Code
-You need a copy of Grav in order to follow this tutorial, I would suggest Forking a copy of the [basic Grav source files](https://github.com/getgrav/grav).
+You need a copy of Grav in order to follow this tutorial, I would suggest downloading the basic Grav and Admin Plugin files, and creating a Github repository with those files 
 
 You should now have all the necessary components to deploy a working copy of Grav within Azure. 
 
@@ -35,6 +35,8 @@ In addition to the Grav code you need a web.config file.  The web.config file is
 
 An example web.config file is available [here](web.config).  This web.config file, covers off what the Web App should do with file formats such as *.woff* and *.woff2*, which are now part of the latest [Font Awesome packs](https://fontawesome.com).
 
+Grav have also included examples of the web.config files in their source files, you can find them located in the *webserver-configs* folder. 
+
 Once you have your web.config setup, you should upload this to your Grav GitHub repository, it needs to be at the root level. 
 
 ## Installing And Running Grav On Azure
@@ -43,7 +45,11 @@ Once you have your web.config setup, you should upload this to your Grav GitHub 
 
 + The first step is to [login to the Azure Portal](https://portal.azure.com), click on *Create a Resource* on the left hand side menu. 
 
+![Step 1](step1.png)
+
 + Search for *web app* and select the service
+
+![Step 2](step2.png)
 
 + A new blade will open, describing the Web App service.  At the bottom of the page you will find a *create* button, when you initiate that another blade will open.  You will be asked several questions. 
 
@@ -56,6 +62,8 @@ Once you have your web.config setup, you should upload this to your Grav GitHub 
 
 My recommendation regarding the App Service Plan would be to select the Dev/Test F1 plan for testing purposes.  The plan has some limitations but it will give you the ability to deploy your first Grav site on Azure without incurring any costs.  In terms of the location I would select one that is close to your location.  Also in this example I would avoid deploying Application Insights as it needs coded in order to integrate with Grav. 
 
+![Step 3](step3.png)
+
 Your Web App should deploy within a few minutes and be ready for you to deploy your Grav code to. 
 
 ### Deploying Your Code
@@ -63,6 +71,8 @@ Your Web App should deploy within a few minutes and be ready for you to deploy y
 Now that your Web App is up and running and you have the code, it is time to deploy it.  To do that open up the Web App within the Azure Portal. 
 
 + Navigate to the *Deployment Options* blade 
+
+![Step 4](step4.png)
 
 + Select GitHub as your source
 
