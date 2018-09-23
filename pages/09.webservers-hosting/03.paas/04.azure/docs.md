@@ -81,7 +81,7 @@ Now that your Web App is up and running and you have the code, it is time to dep
 + *Azure will now start to pull your code from GitHub, within a few minutes your site should be live*
 
 
-##Additional Information 
+## Additional Information 
 
 ### Custom Domain
 
