@@ -147,7 +147,7 @@ This form mimics the default `Add Page` modal's form. For the **folder** as you 
 
 **name** is `post` so it will use the `post` page blueprint.
 
-Second step is to edit the configuration of the admin panel: `user/plugins/admin.yaml`. Add this snippet at the end of the configuration file:
+Second step is to edit the configuration of the Admin plugin. To add custom code to the configuration file `admin.yaml` of the Admin Plugin, create the file `user/config/plugins/admin.yaml`and add this snippet:
 
 ```yaml
 add_modals:
