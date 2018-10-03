@@ -64,7 +64,21 @@ My recommendation regarding the App Service Plan would be to select the Dev/Test
 
 ![Step 3](step3.png)
 
-Your Web App should deploy within a few minutes and be ready for you to deploy your Grav code to. 
+Your Web App should deploy within a few minutes. 
+
+### Install Composer
+
+Composer is a dependency manager for PHP. Composer will manage the dependencies you require on a project by project basis, meaning Composer will pull in all the required libraries, dependencies and for your application.  As Grav is a PHP application we need to ensure the Composer is installed on the Web App for Grav to run properly. 
+
+In order to do this follow these steps:
+
+    - Open up your Web App
+    - Click on the Extensions setting
+    - Click on Add
+    - Select Composer
+    - Click OK
+
+Once Composer has installed on your Web App you are now ready to deploy your code. 
 
 ### Deploying Your Code
 
