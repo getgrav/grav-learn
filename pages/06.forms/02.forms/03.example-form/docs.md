@@ -1,5 +1,5 @@
 ---
-title: Example: Contact Form
+title: 'Example: Contact Form'
 taxonomy:
     category: docs
 ---

@@ -1,5 +1,5 @@
 ---
-title: Reference: Blueprint Form Fields
+title: 'Reference: Blueprint Form Fields'
 taxonomy:
     category: docs
 ---
@@ -536,6 +536,8 @@ custom_file:
 | `limit`       | When `multiple` is enabled, allows to constrain the amount of files permitted to be uploaded               |
 | `filesize`    | The size in MB each file is allowed                                                                        |
 | `accept`      | Add a list of accepted page mime types and extensions. E.g. `["image/*", '.mp3']`                          |
+| `random_name` | Uses a random filename for each file |
+| `avoid_overwriting` | Will append a timestamp before each filename if a conflict would occur |
 
 | Common Attributes Allowed                      |
 | :-----                                         |

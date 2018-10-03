@@ -1,5 +1,5 @@
 ---
-title: Reference: Form Options
+title: 'Reference: Form Options'
 taxonomy:
     category: docs
 ---
@@ -88,6 +88,15 @@ Turning client-side validation off will enable you to see in-line errors and det
 form:
     client_side_validation: false
 ```
+
+#### Keep Alive
+
+You can ensure your forms do fail to submit when your session expires, by enabling the `keep_alive` option on the form.  By enabling this, an AJAX request will be made to Grav before your session expires to keep it 'fresh':
+
+```yaml
+form:    
+    keep_alive: true
+````
 
 #### Fieldsets
 

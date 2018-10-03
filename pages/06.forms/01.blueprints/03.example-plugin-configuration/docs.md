@@ -1,5 +1,5 @@
 ---
-title: Example: Plugin Configuration
+title: 'Example: Plugin Configuration'
 taxonomy:
     category: docs
 ---

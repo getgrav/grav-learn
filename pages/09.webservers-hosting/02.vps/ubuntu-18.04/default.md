@@ -57,7 +57,7 @@ $ cgi.fix_pathinfo=0
 Save and close the file, and then restart the service.
 
 ```
-$ service restart php7.2-fpm
+$ service php7.2-fpm restart
 ```
 
 ### Configure Nginx Connection Pool
@@ -196,7 +196,7 @@ Now all we have to do is restart Nginx and the php7-fpm process and test to ensu
 
 ```
 $ service nginx restart
-$ service php-fpm7.2 restart
+$ service php7.2-fpm restart
 ```
 
 Now point your browser at your server: `http://{{ page.header.localname }}` and you should see the text: **Working!**

@@ -1,5 +1,5 @@
 ---
-title: How to: Ajax Submission
+title: 'How to: Ajax Submission'
 taxonomy:
     category: docs
 ---

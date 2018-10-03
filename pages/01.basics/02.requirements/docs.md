@@ -7,7 +7,7 @@ taxonomy:
 Grav is intentionally designed with few requirements. You can easily run Grav on your local computer, as well as 99% of all Web hosting providers. If you have a pen handy, jot down the following Grav system requirements:
 
 1. Web Server (Apache, Nginx, LiteSpeed, Lightly, IIS, etc.)
-2. PHP 5.5.9 or higher
+2. PHP 5.6.3 or higher
 3. hmm... that's it really, (but please look at php requirements for a smooth experience)!
 
 Grav is built with plain text files for your content. There is no database needed.
@@ -16,7 +16,7 @@ Grav is built with plain text files for your content. There is no database neede
 
 ## Web Servers
 
-Grav is so simple and versatile that you don't even need a web server to run it. You can run it directly off the built-in `router.php` PHP tool as long as you're running PHP 5.5.9 or later.
+Grav is so simple and versatile that you don't even need a web server to run it. You can run it directly off the built-in `router.php` PHP tool as long as you're running PHP 5.6.3 or later.
 
 This is a useful way to check a Grav install and perform some brief development, but it is **not** recommended for a live site or even for advanced development tasks. We've outlined how in our [Installation guide](../installation#running-grav-with-the-built-in-php-webserver-using-routerphp).
 
@@ -24,7 +24,7 @@ Even though technically you do not need a standalone web server, it is better to
 
 ### Mac
 
-* OS X 10.9 Mavericks already ships with the Apache Web server and PHP 5.5, so job done!
+* OS X 10.13 High Sierra already ships with the Apache Web server and PHP 7.2, so job done!
 * [MAMP/MAMP Pro](http://mamp.info) comes with Apache, MySQL and of course PHP. It is a great way to get more control over which version of PHP you are running, setting up virtual hosts, plus other useful features such as automatically handling dynamic DNS.
 * [AMPPS](http://www.ampps.com/downloads) is a software stack from Softaculous enabling Apache, PHP, Perl, Python,.. This includes everything you need (and more) for GRAV development.
 
