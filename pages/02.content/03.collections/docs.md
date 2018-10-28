@@ -484,3 +484,28 @@ If you need to programatically generate a collection, you can do so by calling `
 </ul>
 ```
 
+Generating menu for the whole site (you need to set *menu* property in the page's frontmatter):
+
+```
+---
+title: Home
+menu: Home
+---
+```
+
+```
+{% set options = { items: {'@root.descendants':''}, 'order': {'by': 'folder', 'dir': 'asc'}} %}
+{% set my_collection = page.collection(options) %}
+
+{% for p in my_collection %}
+{% if p.header.menu %}
+	<ul>
+	{% if page.slug == p.slug %}
+		<li class="{{ p.slug }} active"><span>{{ p.menu }}</span></li>
+	{% else %}
+		<li class="{{ p.slug }}"><a href="{{ p.url }}">{{ p.menu }}</a></li>
+	{% endif %}
+	</ul>
+{% endif %}
+{% endfor %}
+```
