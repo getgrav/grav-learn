@@ -8,6 +8,11 @@ pages:
   process:
     markdown: true
     twig: false
+  hide_empty_folders: true
+
+languages:
+    supported: [15,16,17]
+    pages_fallback_only: true
 
 cache:
   enabled: true
