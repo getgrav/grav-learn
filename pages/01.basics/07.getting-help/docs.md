@@ -22,9 +22,9 @@ You can join in a discussion on any of the topics we post about on the [Grav Dev
 
 If you find a bug, have a general question or even want to contribute to the Grav project as a whole, you can use the [Grav GitHub Issues tracker](https://github.com/getgrav/grav/issues).  We are very diligent about responding to issues posted here, and it can provide a useful way to start a conversation with us.  If you have a specific problem with one of our plugins, themes or skeletons, you can also submit an issue on that repository.
 
-## Chat on Slack
+## Chat on Discord
 
-You can **chat with us live** on [Slack](https://chat.getgrav.org). Slack has become synonymous with simple communication.  We use it for our development team, and we have gotten lots of requests to move from our previous Gitter.im solution to Slack.  Now we have!  So join us there and get involved with the growing Grav community!
+You can **chat with us live** on [Discord](https://chat.getgrav.org). We've recently [moved from Slack to Discord](https://getgrav.org/blog/chat-moving-to-discord) for our community chat platform, and have now hanging out there for all your Grav needs!  So [join us there](https://chat.getgrav.org) and get involved with the growing Grav community!
 
 
 
