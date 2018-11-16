@@ -197,7 +197,7 @@ Additionally you can pass parameters to the function call just by using array wh
 
 When you extend a blueprint or import a file, by default the new fields are added to the end of the list. Sometimes this is not what you want to do, you may want to add item as the first or after some existing field.
 
-If you want to create a field, you can state its ordering using the `ordering@` property. This field can contain either a field name or an integer (0 = first item).
+If you want to create a field, you can state its ordering using the `ordering@` property. This field can contain either a field name or an integer (-1 = first item).
 
 Here is an example:
 
@@ -205,7 +205,7 @@ Here is an example:
 form:
   fields:
     route:
-      ordering@: 0
+      ordering@: -1
       type: select
       label: Parent
       classes: fancy
