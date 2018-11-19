@@ -85,6 +85,7 @@ Here are the currently supported access levels explained:
 - `admin.statistics`: allows a user to see the site statistics
 - `admin.cache`: allows a user to clear the cache
 
+!! Changes made to a user.yaml file while that user is logged-in will only take effect after they log out and back in again.
 
 ### Custom Admin URL
 
