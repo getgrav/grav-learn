@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-We saw in [the previous example](example-plugin-blueprint.md) how to define a blueprint for a plugin and/or theme.
+We saw in [the previous example](../example-plugin-blueprint) how to define a blueprint for a plugin and/or theme.
 
 Now, let's see how to offer configuration options for a plugin or theme, that will be shown by the Admin Plugin.
 
