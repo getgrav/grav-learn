@@ -105,7 +105,7 @@ The above code will validate the Captcha in the frontend and prevent form submis
 ```
     process:
         - captcha:
-            recatpcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
+            recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
 ```
 
 [See the Contact Form example](/forms/forms/example-form) to see it in action.
