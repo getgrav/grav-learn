@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-### Chapter 12
+### Chapter 13
 
 # Security Policies
 
