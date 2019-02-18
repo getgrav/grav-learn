@@ -109,12 +109,18 @@ As we described in the **Plugin Overview**, we need to have a few configuration 
 
 ```
 enabled: true
+active: true
 route: /random
 filters:
     category: blog
 ```
 
 This allows us to have multiple filters if we wish, but for now, we just want all content with the taxonomy `category: blog` to be eligible for the random selection.
+
+All plugins must have the `enabled` option. If this is `false` in the site-wide configuration, your plugin 
+will never be initialized by Grav. All plugins also have the `active` option. If this is `false` in the site-wide 
+configuration, each page will need to activate your plugin. Note that multiple plugins also support `enabled`/`active` in
+page frontmatter by using `mergeConfig`, detailed below. 
 
 !!!! The Grav default install has taxonomy defined for `category` and `tag` by default.  This configuration can be modified in your `user/config/site.yaml` file.
 

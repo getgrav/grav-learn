@@ -29,7 +29,7 @@ The Forms plugin provides the following fields, which you can use to build your 
 | **[Text](#the-text-field)**             | A simple text field                                         |
 | **[Textarea](#the-textarea-field)**     | A textarea                                                  |
 
-### Common Fields Attributes
+### Common Field Attributes
 
 Every field accepts a list of attributes you can use. Each field could share these common attributes, but particular fields might ignore them. The best way to check which attributes are allowed on a field is to check the field description in this page and see which attributes are mentioned.
 
@@ -45,6 +45,7 @@ This list provides a common ground so there's no need to repeat the description 
 | `help`              | Adds a tooltip to the field                                                                                                                                                                                    |
 | `id`                | sets the field id. Also sets the `for` attribute on the label                                                                                                                                                  |
 | `label`             | sets the field label                                                                                                                                                                                           |
+| `display_label`     | Accepts `true` or `false`                                                                                                                                                                                           |
 | `name`              | sets the field name                                                                                                                                                                                            |
 | `novalidate`        | sets the field novalidate state                                                                                                                                                                                |
 | `outerclasses`      | Classes added to the div that includes the label and the field                                                                                                                                                 |
@@ -104,7 +105,7 @@ The above code will validate the Captcha in the frontend and prevent form submis
 ```
     process:
         - captcha:
-            recatpcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
+            recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
 ```
 
 [See the Contact Form example](/forms/forms/example-form) to see it in action.

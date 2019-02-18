@@ -21,6 +21,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Add an asset to a specific page](#add-an-asset-to-a-specific-page)
 1. [Reuse page or modular content on another page](#reuse-page-or-modular-content-on-another-page)
 1. [Make a custom anti-spam field for your contact form](#make-a-custom-anti-spam-field-for-your-contact-form)
+1. [Display different robots.txt contents for different environments](#display-different-robots-txt-contents-for-different-environments)
 
 ### Change the PHP CLI version
 
@@ -718,9 +719,7 @@ Modular:
 
 What comes after "include" is where the template from step one is stored, probably in the `templates` folder for pages in the `templates/modular` folder for modulars.
 
-After page.find should come the actual link to the original content that you want to reuse. Modular content starts with an _ but pages do not. The easiest way to find the correct link is to open the page in the admin panel and copy the url after the word admin. 
-
-![page url(page-url.jpg)
+After page.find should come the actual link to the original content that you want to reuse. Modular content starts with an _ but pages do not. The easiest way to find the correct link is to open the page in the admin panel and copy the url after the word admin.
 
 The final page should look like this:
 ```
@@ -759,3 +758,73 @@ Make it harder for the bot to guess what it can and can't fill it in, when filli
 The question should be something simple, but with multiple simple wrong answers accompanying it. What matters is the order of the answers. The right answer should never be the first one; aim for somewhere in the middle. It's important to randomize the values behind the answers (labels) yourself, so a database of associated values and answers won't help in answering.
 
 Bots get smarter all the time, but they tend to forego trying to answer the same question several times if the first attempt fails. Also, even the smartest of them rely on dictionaries of known data to guess at an answer. We ask a simple question, "What is five times eight?", and give three options, "32", "40", and "48". The right answer is obviously "40", but instead of checking the bot's math-skills, we're assigning the values "alaska", "oklahoma", and "california" to these numbers, respectively. Because bots look at the possible values, rather than their label, the answers bears no relation to the question. You could even add an answer "Pineapple" with the value "mississippi" and validate against that, and just tell your users to choose that as their answer. The point is to personalize the randomization of data.
+
+
+### Display different robots.txt contents for different environments
+
+#### Problem:
+
+You've setup a subdomain, `dev.yourdomain.com`, as a development site to preview what you're working on before publishing changes to `yourdomain.com`, and want to disallow search indexers from crawling it while keeping the production site visible in search results.
+
+#### Solution:
+
+While you should password-protect your development site to really keep it private, sometimes it's sufficient, and just more practical, to simply disallow search engine indexers from crawling your site. Luckily, Grav can handle pages in txt format just as it does html, so we can use [environment configurations](/advanced/environment-config) and twig templates to complete the job.
+
+First, let's create a configuration file `site.yaml` that will tell our template that `dev.yourdomain.com` is a development environment.
+
+`/user/[dev.yourdomain.com]/config/site.yaml`:
+
+    environment: dev
+
+
+Then, create a `robots.txt.twig` page template that checks if Grav is currently running on our development site, and displays different contents if it is.
+
+`/user/themes/[yourtheme]/templates/robots.txt.twig`:
+
+```
+{% if config.site.environment == 'dev' %}
+{% for rule in page.header.dev %}
+{{ rule }}
+{% endfor %}
+
+{% else %}
+{{ page.content }}
+
+{% endif %}
+```
+
+Finally, create a page routed at `/robots.txt` with the default `robots.txt` rules in the page content, and our alternative development version rules in the page frontmatter. To render the page contents as raw text instead of html, we'll also disable markdown rendering.
+
+`/user/pages/robots/robots.md`:
+
+```
+---
+routes:
+  default: /robots.txt
+process:
+  markdown: false
+
+dev:
+  - 'User-agent: *'
+  - 'Disallow: /'
+---
+
+User-agent: *
+Disallow: /backup/
+Disallow: /bin/
+Disallow: /cache/
+Disallow: /grav/
+Disallow: /logs/
+Disallow: /system/
+Disallow: /vendor/
+Disallow: /user/
+Allow: /user/pages/
+Allow: /user/themes/
+Allow: /user/images/
+Allow: /user/plugins/*.css$
+Allow: /user/plugins/*.js$
+```
+
+Now you should have a `robots.txt` file placed at your site's root with dynamic contents, also editable with the Admin plugin. 
+
+Note: make sure your production site won't display `Disallow: /`, as that will completely obliterate your search engine visibility.

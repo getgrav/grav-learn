@@ -14,8 +14,8 @@ At this point, you might want to either setup a local `/etc/hosts` entry to give
 After successfully SSH'ing to your server as **root**, the first thing you will want to do is update and upgrade all the installed packages.  This will ensure you are running the _latest-and-greatest_:
 
 ```
-$ apt update
-$ apt upgrade
+# apt update
+# apt upgrade
 ```
 
 Just answer `Y` if prompted.
@@ -23,8 +23,8 @@ Just answer `Y` if prompted.
 Before we go any further, let's remove **Apache2** which we will replace with **Nginx**:
 
 ```
-$ apt remove apache2*
-$ apt autoremove
+# apt remove apache2*
+# apt autoremove
 ```
 
 !! NOTE: You might not have this installed.  But better safe than sorry!
@@ -32,7 +32,7 @@ $ apt autoremove
 Next you will want to install some essential packages:
 
 ```
-$ apt install vim zip unzip nginx git php-fpm php-cli php-gd php-curl php-mbstring php-xml php-zip php-apcu
+# apt install vim zip unzip nginx git php-fpm php-cli php-gd php-curl php-mbstring php-xml php-zip php-apcu
 ```
 
 This will install the complete VIM editor (rather than the mini version that ships with Ubuntu), Nginx web server, GIT commands, and **PHP 7.2**.
@@ -41,7 +41,7 @@ This will install the complete VIM editor (rather than the mini version that shi
 Once php-fpm is installed, there is a slight configuration change that needs to take place for a more secure setup.
 
 ```
-$ vi /etc/php/7.2/fpm/php.ini
+# vim /etc/php/7.2/fpm/php.ini
 ```
 
 Search for `cgi.fix_pathinfo`. This will be commented out by default and set to '1'.
@@ -51,13 +51,13 @@ This is an extremely insecure setting because it tells PHP to attempt to execute
 Uncomment this line and change '1' to '0' so it looks like this
 
 ```
-$ cgi.fix_pathinfo=0
+cgi.fix_pathinfo=0
 ```
 
 Save and close the file, and then restart the service.
 
 ```
-$ service php7.2-fpm restart
+# systemctl restart php7.2-fpm 
 ```
 
 ### Configure Nginx Connection Pool
@@ -67,12 +67,12 @@ Nginx has already been installed, but you should configure is so that it uses a 
 Navigate to the pool directory and create a new `grav` configuration:
 
 ```
-$ cd /etc/php/7.2/fpm/pool.d
-$ mv www.conf www.conf.bak
-$ vi grav.conf
+# cd /etc/php/7.2/fpm/pool.d
+# mv www.conf www.conf.bak
+# vim grav.conf
 ```
 
-In Vi, you can paste the following pool configuration:
+In Vim, you can paste the following pool configuration:
 
 ```
 [grav]
@@ -80,7 +80,7 @@ In Vi, you can paste the following pool configuration:
 user = grav
 group = grav
 
-listen = /run/php/php7.2-fpm.sock
+listen = /var/run/php/php7.2-fpm.sock
 
 listen.owner = www-data
 listen.group = www-data
@@ -99,14 +99,15 @@ The key things here are the `user` and `group` being set to a user called `grav`
 We need to create the dedicated `grav` user now:
 
 ```
-$ adduser grav
+# adduser grav
 ```
 
 Provide a strong password, and leave the other values as default. We need to next create an appropriate location for Nginx to serve files from, so let's switch user and create those folder, and create a couple of test files:
 
 ```
-$ su - grav
-$ mkdir www;cd www;mkdir html;cd html
+# su - grav
+$ mkdir -p www/html
+$ cd www/html
 ```
 
 Create a simple `index.html` with the contents of:
@@ -125,8 +126,8 @@ Now we can exit out of this user and return to root in order to setup the Nginx 
 
 ```
 $ exit
-$ cd /etc/nginx/sites-available/
-$ vi grav
+# cd /etc/nginx/sites-available/
+# vim grav
 ```
 
 Then simply paste in this configuration:
@@ -163,15 +164,16 @@ server {
 
     ## Begin - PHP
     location ~ \.php$ {
+        fastcgi_index index.php;
+        include snippets/fastcgi-php.conf;
+        
         # Choose either a socket or TCP/IP address
         fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
-        # fastcgi_pass unix:/var/run/php5-fpm.sock; #legacy
+        
+        # legacy (e.g. PHP 5) logic
+        # fastcgi_pass unix:/var/run/php5-fpm.sock; 
         # fastcgi_pass 127.0.0.1:9000;
-
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_index index.php;
-        include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+        # fastcgi_split_path_info ^(.+\.php)(/.+)$;
     }
     ## End - PHP
 }
@@ -180,9 +182,9 @@ server {
 This is the stock `nginx.conf` file that comes with Grav with 2 changes. 1) the `root` has been adapted to our user/folder we just created and the `fastcgi_pass` option has been set to the socket we defined in our `grav` pool. Now we just need to link this file appropriately so that it's **enabled**:
 
 ```
-$ cd ../sites-enabled
-$ ln -s ../sites-available/grav
-$ rm default
+# cd ../sites-enabled
+# ln -s ../sites-available/grav
+# rm default
 ```
 
 You can test the configuration with the command `nginx -t`. It should return the following.
@@ -195,8 +197,8 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 Now all we have to do is restart Nginx and the php7-fpm process and test to ensure we have configured Nginx and the PHP connection pool correctly:
 
 ```
-$ service nginx restart
-$ service php7.2-fpm restart
+# systemctl restart nginx 
+# systemctl restart php7.2-fpm
 ```
 
 Now point your browser at your server: `http://{{ page.header.localname }}` and you should see the text: **Working!**

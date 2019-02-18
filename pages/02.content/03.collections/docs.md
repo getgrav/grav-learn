@@ -236,7 +236,7 @@ content:
 
 The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. Published pages that have **both** `foo` **and** `bar` tags will be collected.  The [Taxonomy](../taxonomy) chapter will cover this concept in more detail.
 
-!! If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `@taxonomy: {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the hierarchy, each with listed values placed within `[]` brackets. Pages must meet **all** these requirements to be found.
+!! If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `'@taxonomy': {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the hierarchy, each with listed values placed within `[]` brackets. Pages must meet **all** these requirements to be found.
 
 If you have multiple variables in a single parent to set, you can do this using the inline method, but for simplicity, we recommend using the standard method. Here is an example.
 
@@ -484,3 +484,28 @@ If you need to programatically generate a collection, you can do so by calling `
 </ul>
 ```
 
+Generating menu for the whole site (you need to set *menu* property in the page's frontmatter):
+
+```
+---
+title: Home
+menu: Home
+---
+```
+
+```
+{% set options = { items: {'@root.descendants':''}, 'order': {'by': 'folder', 'dir': 'asc'}} %}
+{% set my_collection = page.collection(options) %}
+
+{% for p in my_collection %}
+{% if p.header.menu %}
+	<ul>
+	{% if page.slug == p.slug %}
+		<li class="{{ p.slug }} active"><span>{{ p.menu }}</span></li>
+	{% else %}
+		<li class="{{ p.slug }}"><a href="{{ p.url }}">{{ p.menu }}</a></li>
+	{% endif %}
+	</ul>
+{% endif %}
+{% endfor %}
+```
