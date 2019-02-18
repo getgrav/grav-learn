@@ -239,6 +239,19 @@
   transform-style: preserve-3d;
 }
 
+.no-margin-bottom {
+    pre {
+        margin-bottom: 0;
+        border-radius: 2px 2px 0 0;
+    }
+}
+.no-margin-top {
+    pre {
+        margin-top: 0;
+        border-radius: 0 0 2px 2px;
+    }
+}
+
 .hljs::selection,
 .hljs span::selection {
   background: #8b949e !important;

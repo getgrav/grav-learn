@@ -8,6 +8,7 @@ Because Grav is a **flat-file based CMS**, meaning no database underpins it, the
 
 ```bash
 /assets
+/backup
 /bin
 /cache
 /images
@@ -28,6 +29,10 @@ So let us dig a little deeper into each of these top-level folders and explain w
 ### /bin
 
 The `bin` folder contains the [Grav CLI application](../../advanced/grav-cli) that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers so we'll set this topic aside for later discussion.
+
+### /backup
+
+The `backup` folder is the default location for Grav backups.
 
 ### /cache
 
