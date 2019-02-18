@@ -20,6 +20,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Migrate an HTML theme to Grav](#migrate-an-html-theme-to-grav)
 1. [Add an asset to a specific page](#add-an-asset-to-a-specific-page)
 1. [Reuse page or modular content on another page](#reuse-page-or-modular-content-on-another-page)
+1. [Make a custom anti-spam field for your contact form](#make-a-custom-anti-spam-field-for-your-contact-form)
 
 ### Change the PHP CLI version
 
@@ -731,3 +732,30 @@ title: 'Modular Reuse Example'
 ```
 
 Now "amazing offers" can be displayed in multiple places but only needs to be updated once.
+
+### Make a custom anti-spam field for your contact form
+
+#### Problem:
+
+Normal methods of spam-prevention, like the honeypot-field, is bypassed by certain spam-bots.
+
+#### Solution:
+
+Make it harder for the bot to guess what it can and can't fill it in, when filling out the contact form. Put simply, ask a question the user won't fail to answer, but whose answers are hard for a bot to understand the significance of. In your Markdown-file with [Form-data
+](https://learn.getgrav.org/forms/forms/example-form), add this field:
+
+    - name: personality
+      type: radio
+      label: What is five times eight?
+      options:
+        alaska: 32
+        oklahoma: 40
+        california: 48
+      validate:
+        required: true
+        pattern: "^oklahoma$"
+        message: Not quite, try that math again.
+
+The question should be something simple, but with multiple simple wrong answers accompanying it. What matters is the order of the answers. The right answer should never be the first one; aim for somewhere in the middle. It's important to randomize the values behind the answers (labels) yourself, so a database of associated values and answers won't help in answering.
+
+Bots get smarter all the time, but they tend to forego trying to answer the same question several times if the first attempt fails. Also, even the smartest of them rely on dictionaries of known data to guess at an answer. We ask a simple question, "What is five times eight?", and give three options, "32", "40", and "48". The right answer is obviously "40", but instead of checking the bot's math-skills, we're assigning the values "alaska", "oklahoma", and "california" to these numbers, respectively. Because bots look at the possible values, rather than their label, the answers bears no relation to the question. You could even add an answer "Pineapple" with the value "mississippi" and validate against that, and just tell your users to choose that as their answer. The point is to personalize the randomization of data.

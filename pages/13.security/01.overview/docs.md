@@ -6,7 +6,7 @@ taxonomy:
 
 If you discover a possible security issue related to Grav or one of its extensions, please send an email to the core team at [contact@getgrav.org](mailto:contact@getgrav.org) and we'll address it as soon as possible.
 
-Issues should not be publicly disclosed - including on GitHub, Slack, or the forum - before the core team has had a chance to examine it and contact the relevant parties to solve it. Also, if the issue is not a potential threat for the users of Grav, it should probably be submitted [as an issue](https://github.com/getgrav/grav/blob/develop/CONTRIBUTING.md#bug-reports) instead. If you are unsure, get in touch and we'll help you figure out where the report belongs.
+Issues should not be publicly disclosed - including on GitHub, Discord, or the Discourse forum - before the core team has had a chance to examine it and contact the relevant parties to solve it. Also, if the issue is not a potential threat for the users of Grav, it should probably be submitted [as an issue](https://github.com/getgrav/grav/blob/develop/CONTRIBUTING.md#bug-reports) instead. If you are unsure, get in touch and we'll help you figure out where the report belongs.
 
 ## Submitting a report
 
