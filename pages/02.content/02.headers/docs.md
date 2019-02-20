@@ -169,7 +169,7 @@ Enable or disable on a page level whether or not to display a Last Modified head
 
 ### Lightbox
 
-``` ruby
+```yaml
 lightbox: true
 ```
 
@@ -278,7 +278,7 @@ redirect: '/some/custom/route[303]'
 
 ### Routes
 
-```
+```yaml
 routes:
   default: '/my/example/page'
   canonical: '/canonical/url/alias'
@@ -291,7 +291,7 @@ With Grav **0.9.30** you can now provide a **default route** that overrides the 
 
 You can also specify a specific **canonical route** that can be used in themes to output a canonical link:
 
-```
+```html
 <link rel="canonical" href="https://yoursite/dresses/green-dresses-are-awesome" />
 ```
 
@@ -431,7 +431,7 @@ metadata:
 
 This will produce the HTML:
 
-```
+```html
 <meta name="generator" content="Grav" />
 <meta name="description" content="Your page description goes here" />
 <meta http-equiv="refresh" content="30" />
@@ -492,7 +492,7 @@ metadata:
 
 This will produce the HTML:
 
-```
+```html
 <meta name="twitter:card" property="twitter:card" content="summary" />
 <meta name="twitter:site" property="twitter:site" content="@flickr" />
 <meta name="twitter:title" property="twitter:title" content="Your Page Title" />
@@ -514,7 +514,7 @@ An advanced feature that can come in handy for some power users is the ability t
 
 To take advantage of this, simply create a `frontmatter.yaml` file alongside your page's `.md` file and add any valid frontmatter values.  For example:
 
-```
+```yaml
 metadata:
     generator: 'Super Grav'
     description: Give your page a powerup with Grav!
