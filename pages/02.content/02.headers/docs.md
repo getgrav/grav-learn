@@ -8,23 +8,49 @@ The headers (alternatively known as frontmatter) at the top of a page are comple
 
 ! Headers are also known as **Page Frontmatter** and are commonly referred to as such so as not to be confused with HTTP Headers.
 
-## Standard Page Headers
+## Basic Page Headers
 
-A Standard page is a regular single page. There are a number of standard header options available.  These are **valid for all pages**.
+There are a number of basic header options available.
 
-### Title
+### Cache Enable
 
-If you have no headers at all, you will not have any control over the title of the page as it shows in the browser and search engines.  For this reason, it is recommended to _at least_ put the `title` variable in the header of the page:
-
-```ruby
-title: Title of my Page
+```yaml
+cache_enable: false
 ```
 
-If the `title` variable is not set, Grav has a fallback solution, and will try to use the capitalized `slug` variable:
+By default, Grav will cache the contents of the page file to ensure things run as fast as possible.  There are advanced scenarios where you do not want the page to be cached.
+
+An example of this is when you are using dynamic Twig variables in your content. The `cache_enable` variable allows this behavior to be overridden.  We will cover Twig Content variables in a later chapter. Valid values are `true` or `false`.
+
+### Date
+
+```yaml
+date: 01/01/2014 3:14pm
+```
+
+The `date` variable allows you to specifically set a date associated with this page.  This is often used to indicate when a post was created and can be used for display or sort-order purposes.  If not set, this defaults to the last **modified time** of the page.
+
+! Dates in the `m/d/y` or `d-m-y` formats are disambiguated by looking at the separator between the various components: if the separator is a slash (`/`), then the **American** `m/d/y` is assumed; whereas if the separator is a dash (`-`) or a dot (`.`), then the **European** `d-m-y` format is assumed.
+
+### Menu
+
+```yaml
+menu: My Page
+```
+
+The `menu` variable lets you set the text to be used in the navigation. There are several layers of fall-backs for the menu, so if no `menu` variable is set, Grav will try to use the `title` variable.
+
+### Published
+
+```yaml
+published: true
+```
+
+By default, a page is **published** unless you explicitly set `published: false` or via a `publish_date` being in the future, or `unpublish_date` in the past. Valid values are `true` or `false`.
 
 ### Slug
 
-```ruby
+```yaml
 slug: my-page-slug
 ```
 
@@ -34,97 +60,219 @@ The `slug` variable allows you to specifically set the page's portion of the URL
 
 For example: If a blog post's title is `Blog Post Example`, the recommended slug would be `blog-post-example`.
 
-### Menu
+### Taxonomy
 
-```ruby
-menu: My Page
+```yaml
+taxonomy:
+    category: blog
+    tag: [sample, demo, grav]
 ```
 
-The `menu` variable lets you set the text to be used in the navigation. There are several layers of fall-backs for the menu, so if no `menu` variable is set, Grav will try to use the `title` variable.
+A very useful header variable, `taxonomy` lets you assign values to **taxonomy** you defined as valid types in the [Site Configuration](../../basics/grav-configuration#site-configuration) file.
 
-### Date
+If the taxonomy is not defined in that file, it will be ignored.  In this example, the page is defined as being in the `blog` category, and has the tags: `sample`, `demo`, and `grav`.  These taxonomies can be used to find these pages from other pages, plugins and even themes. The [Taxonomy](../taxonomy) chapter will cover this concept in more detail.
 
-```ruby
-date: 01/01/2014 3:14pm
+### Title
+
+If you have no headers at all, you will not have any control over the title of the page as it shows in the browser and search engines.  For this reason, it is recommended to _at least_ put the `title` variable in the header of the page:
+
+```yaml
+title: Title of my Page
 ```
 
-The `date` variable allows you to specifically set a date associated with this page.  This is often used to indicate when a post was created and can be used for display or sort-order purposes.  If not set, this defaults to the last **modified time** of the page.
+If the `title` variable is not set, Grav has a fallback solution, and will try to use the capitalized `slug` variable.
 
-! Dates in the `m/d/y` or `d-m-y` formats are disambiguated by looking at the separator between the various components: if the separator is a slash (`/`), then the **American** `m/d/y` is assumed; whereas if the separator is a dash (`-`) or a dot (`.`), then the **European** `d-m-y` format is assumed.
+## Advanced Headers
 
-### Published
+These are still important but less commonly used. They can be used to provide advanced functionality within your page.
 
-```ruby
-published: true
+### Append URL extension
+
+```yaml
+append_url_extension: '.json'
 ```
 
-By default, a page is **published** unless you explicitly set `published: false` or via a `publish_date` being in the future, or `unpublish_date` in the past. Valid values are `true` or `false`.
-
-### Publish Date
-
-```ruby
-publish_date: 01/23/2015 13:00
-```
-
-Optional field, but can provide a date to automatically trigger publication. Valid values are any string date values that [strtotime()](http://php.net/manual/en/function.strtotime.php) supports.
-
-### Expires
-
-```ruby
-expires: 604800
-```
-
-Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible).
+Allows the page to override the default extension and set one programatically.  It will also set the appropriate header attributes for the response.
 
 ### Cache-control
 
-```ruby
+```yaml
 cache_control: max-age=604800
 ```
 
 Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value
 
-### Unpublish Date
+### Date Format
 
-```ruby
-unpublish_date: 05/17/2015 00:32
+```yaml
+dateformat: 'Y-m-d H:i:s'
 ```
 
-Optional field, but can provide a date to automatically trigger un-publication. Valid values are any string date values that [strtotime()](http://php.net/manual/en/function.strtotime.php) supports.
+Overrides the default Grav configuration for date formats and lets it be set at the page level. You can use any of the [PHP date formats](http://php.net/manual/en/datetime.formats.date.php) available.
 
-### Visible
+### Debugger
 
-```ruby
-visible: false
+When you enable the debugger via the `system.yaml` configuration file, the debugger will display on every page.  There are cases where this may not be desirable or may cause conflicts with the output.  Such an example is when you are requesting a page that is intended to return rendered HTML to an Ajax call.  This should not have the debugger injected into the resulting data.  To disable the debugger on this page you can use the `debugger` page header:
+
+```yaml
+debugger: false
 ```
 
-By default, a page is **visible** in the **navigation** if the surrounding folder has a numerical prefix, i.e. `/01.home` is visible, while `/error` is **not visible**. This behavior can be overwritten by setting the `visible` variable in the header. Valid values are `true` or `false`.
+### ETag
 
-### SSL
-
-```ruby
-ssl: true
+```yaml
+etag: true
 ```
 
-As of Grav **1.0.9** you can now enable a specific page to be forced with SSL **on** or **off**.  This **only works** with the `absolute_urls: true` option set in the `system.yaml` configuration.  This is because to be able to switch back and forth between SSL and non-SSL pages, you must be using full URLs with the protocol and host included.
+Enable or disable on a page level whether or not to display an ETag header variable with a unique value. False by default unless overridden in your `system.yaml`.
+
+### Expires
+
+```yaml
+expires: 604800
+```
+
+Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible).
+
+### External Url
+
+```yaml
+external_url: https://www.mysite.com/foo/bar
+```
+
+Allows you to override the dynamically generated URL with one you explicitly provide.
+
+
+### HTTP Response Code
+
+```yaml
+http_response_code: 404
+```
+
+Allows the dynamic setting of an HTTP Response Code.
+
+### Language
+
+```yaml
+language: fr
+```
+
+This allows you to override the language for a paritcular page
+
+### LastModified
+
+```yaml
+last_modified: true
+```
+
+Enable or disable on a page level whether or not to display a Last Modified header variable with modified date. False by default unless overridden in your `system.yaml`.
+
+### Lightbox
+
+``` ruby
+lightbox: true
+```
+
+Although strictly speaking this is not a standard page header, it is a common way to enable the loading of a standard lightbox JavaScript and CSS for a page.  By default the core `antimatter` theme does not load the prerequisites to enable lightbox capabilities of images, be sure to install a lightbox plugin such as **Featherlight**, which is available via GPM.
+
+### Login Redirect Here
+
+```yaml
+login_redirect_here: false
+```
+
+The `login_redirect_here` header enables you to determine whether or not someone is kept on that page after logging in through the [Grav Login Plugin](https://github.com/getgrav/grav-plugin-login). Setting this header to `false` will forward someone to the prior page after a successful login.
+
+A `true` setting here will enable the person to stay on the current page after a successful login. This is also the default setting, which applies if there is no `login_redirect_here` header in the frontmatter.
+
+You can override this default behavior by forcing a standard location by specifying an explicit option in your Login configuration YAML:
+
+```yaml
+redirect_after_login: '/profile'
+```
+
+This will always take you to the `/profile` route after a successful login.
+
+### Markdown
+
+```yaml
+  markdown:
+    extra: false
+    auto_line_breaks: false
+    auto_url_links: false
+    escape_markup: false
+    special_chars:
+      '>': 'gt'
+      '<': 'lt'
+```
+
+* `extra`: Enable support for Markdown Extra support (GFM by default)
+* `auto_line_breaks`: Enable automatic line breaks
+* `auto_url_links`: Enable automatic HTML links
+* `escape_markup`: Escape markup tags into entities
+* `special_chars`: List of special characters to automatically convert to
+
+These Markdown settings are a new feature we added in **v0.9.14**.  You can enable these globally via your `user/config/system.yaml` configuration file, or you can override this global setting _per-page_ with this `markdown` header option.
+
+### Never Cache Twig
+
+```yaml
+never_cache_twig: true
+```
+
+Enabling this will allow you to add a processing logic that can change dynamically on each page load, rather than caching the results and storing it for each page load. This can be enabled/disabled site-wide in the **system.yaml**, or on a specific page. Can be set `true` or `false`.
+
+This is a subtle change, but one that is especially useful in modular pages as it keeps you from having to constantly disable caching when you're working with it. The page is still cached, but not the Twig. The Twig is processed after the cached content is retrieved. For modular forms, it now works with just this setting rather than having to disable the modular page cache.
+
+!! This is not compatible with `twig_first: true` currently because all processing is happening in the one Twig call.
+
+### Process
+
+```yaml
+process:
+	markdown: false
+	twig: true
+```
+
+Processing of the page is another advanced capability. By default Grav will process `markdown` but will **not** process `twig` in a page.  This choice to not process Twig by default is purely for performance reasons as this is not a commonly needed feature.  The `process` variable allows you to override this behavior.
+
+You may want to disable `markdown` on a particular page if you want to use 100% HTML in your page and not have the markdown process run at all.  Also it allows a plugin to process content in another manner completely. Valid values are `true` or `false`.
+
+There are situations when you want to use Twig templating functionality in your content, and this is accomplished by setting the `twig` variable to true.
+
+### Process Twig First
+
+```yaml
+twig_first: false
+```
+
+If set to `true` Twig processing will occur before any Markdown processing. This can be particularly useful if your Twig generates markdown that needs to be available in order to be processed by the Markdown compiler.  One thing to note, if have `cache_enable: false` **and** `twig_first: true` page caching is effectively disabled.
+
+### Publish Date
+
+```yaml
+publish_date: 01/23/2015 13:00
+```
+
+Optional field, but can provide a date to automatically trigger publication. Valid values are any string date values that [strtotime()](http://php.net/manual/en/function.strtotime.php) supports.
 
 ### Redirect
 
-```ruby
+```yaml
 redirect: '/some/custom/route'
 ```
 
 or
 
-```ruby
+```yaml
 redirect: 'http://someexternalsite.com'
 ```
 
-As of Grav **0.9.41** you can now redirect to another internal or external page right from a page header.  Of course this means this page will not be displayed, but the page can still be in a collection, menu, etc because it will exist as a page within Grav.
+You can redirect to another internal or external page right from a page header.  Of course this means this page will not be displayed, but the page can still be in a collection, menu, etc because it will exist as a page within Grav.
 
-As of Grav **1.0.0** you can also append a redirect code to a URL by using square brackets:
+You can also append a redirect code to a URL by using square brackets:
 
-```ruby
+```yaml
 redirect: '/some/custom/route[303]'
 ```
 
@@ -151,7 +299,7 @@ Lastly, you can specify an array of **route aliases** that can be used as altern
 
 ### Routable
 
-```ruby
+```yaml
 routable: false
 ```
 
@@ -159,27 +307,17 @@ By default, all pages are **routable**.  This means that they can be reached by 
 
 Grav automatically looks for a page with the route `/error` if another page cannot be found.  With this being an actual page within Grav, you would have complete control over what this page looks like.  You probably do not want people accessing this page directly in their browser, however, so this page commonly has its `routable` variable set to false. Valid values are `true` or `false`.
 
-### Login Redirect Here
+### SSL
 
-```ruby
-login_redirect_here: false
+```yaml
+ssl: true
 ```
 
-The `login_redirect_here` header enables you to determine whether or not someone is kept on that page after logging in through the [Grav Login Plugin](https://github.com/getgrav/grav-plugin-login). Setting this header to `false` will forward someone to the prior page after a successful login.
-
-A `true` setting here will enable the person to stay on the current page after a successful login. This is also the default setting, which applies if there is no `login_redirect_here` header in the frontmatter.
-
-You can override this default behavior by forcing a standard location by specifying an explicit option in your Login configuration YAML:
-
-```ruby
-redirect_after_login: '/profile'
-```
-
-This will always take you to the `/profile` route after a successful login.
+As of Grav **1.0.9** you can now enable a specific page to be forced with SSL **on** or **off**.  This **only works** with the `absolute_urls: true` option set in the `system.yaml` configuration.  This is because to be able to switch back and forth between SSL and non-SSL pages, you must be using full URLs with the protocol and host included.
 
 ### Summary
 
-```ruby
+```yaml
 summary:
   enabled: true
   format: short | long
@@ -201,7 +339,7 @@ The **summary** option configures what the `page.summary()` method returns.  Thi
 
 ### Template
 
-```ruby
+```yaml
 template: custom
 ```
 
@@ -213,7 +351,7 @@ In the example above, the page will use the `custom` template from the theme.  T
 
 ### Template Format
 
-```ruby
+```yaml
 template_format: xml
 ```
 
@@ -223,123 +361,64 @@ Using the `template_format` page header, we can tell the browser how to render t
 
 We [used this method](https://github.com/getgrav/grav-plugin-sitemap/commit/00c23738bdbfe9683627bf0f99bda12eab9505d5#diff-190081f40350c0272970d9171f3437a2) with the [Grav Sitemap Plugin](https://github.com/getgrav/grav-plugin-sitemap).
 
-### Taxonomy
+### Unpublish Date
 
-```ruby
-taxonomy:
-    category: blog
-    tag: [sample, demo, grav]
+```yaml
+unpublish_date: 05/17/2015 00:32
 ```
 
-A very useful header variable, `taxonomy` lets you assign values to **taxonomy** you defined as valid types in the [Site Configuration](../../basics/grav-configuration#site-configuration) file.
+Optional field, but can provide a date to automatically trigger un-publication. Valid values are any string date values that [strtotime()](http://php.net/manual/en/function.strtotime.php) supports.
 
-If the taxonomy is not defined in that file, it will be ignored.  In this example, the page is defined as being in the `blog` category, and has the tags: `sample`, `demo`, and `grav`.  These taxonomies can be used to find these pages from other pages, plugins and even themes. The [Taxonomy](../taxonomy) chapter will cover this concept in more detail.
+### Visible
 
-### Cache Enable
-
-```ruby
-cache_enable: false
+```yaml
+visible: false
 ```
 
-By default, Grav will cache the contents of the page file to ensure things run as fast as possible.  There are advanced scenarios where you do not want the page to be cached.
+By default, a page is **visible** in the **navigation** if the surrounding folder has a numerical prefix, i.e. `/01.home` is visible, while `/error` is **not visible**. This behavior can be overwritten by setting the `visible` variable in the header. Valid values are `true` or `false`.
 
-An example of this is when you are using dynamic Twig variables in your content. The `cache_enable` variable allows this behavior to be overridden.  We will cover Twig Content variables in a later chapter. Valid values are `true` or `false`.
+## Custom Page Headers
 
-### Never Cache Twig
+Of course, you can create your own custom page headers using any valid YAML syntax.  These would be page-specific and be available for any plugin, or theme to make use of. A good example of this would be to set some variable specific to a sitemap plugin, such as:
 
-```ruby
-never_cache_twig: true
+```yaml
+sitemap:
+    changefreq: monthly
+    priority: 1.03
 ```
 
-Enabling this will allow you to add a processing logic that can change dynamically on each page load, rather than caching the results and storing it for each page load. This can be enabled/disabled site-wide in the **system.yaml**, or on a specific page. Can be set `true` or `false`.
+The significance of these headers is that Grav does not use them by default. They are only read by the **sitemap plugin** to determine how often this particular page is modified and what its priority should be.
 
-This is a subtle change, but one that is especially useful in modular pages as it keeps you from having to constantly disable caching when you're working with it. The page is still cached, but not the Twig. The Twig is processed after the cached content is retrieved. For modular forms, it now works with just this setting rather than having to disable the modular page cache.
+Any page header such as this should be documented, and generally, there will be some default value that will be used if the page does not provide it.
 
-!! This is not compatible with `twig_first: true` currently because all processing is happening in the one Twig call.
+Another example would be to store page-specific data that could then be used by Twig in the content of the page.
 
-### Process
+For example, you might have want to associate some author reference for the page. If you added these YAML settings to the page header:
 
-```ruby
-process:
-	markdown: false
-	twig: true
+```yaml
+author:
+    name: Sandy Johnson
+    twitter: @sandyjohnson
+    bio: Sandy is a freelance journalist and author of several publications on open source CMS platforms.
 ```
 
-Processing of the page is another advanced capability. By default Grav will process `markdown` but will **not** process `twig` in a page.  This choice to not process Twig by default is purely for performance reasons as this is not a commonly needed feature.  The `process` variable allows you to override this behavior.
+You could then access them from Twig:
 
-You may want to disable `markdown` on a particular page if you want to use 100% HTML in your page and not have the markdown process run at all.  Also it allows a plugin to process content in another manner completely. Valid values are `true` or `false`.
-
-There are situations when you want to use Twig templating functionality in your content, and this is accomplished by setting the `twig` variable to true.
-
-### Process Twig First
-
-```ruby
-twig_first: false
 ```
-
-If set to `true` Twig processing will occur before any Markdown processing. This can be particularly useful if your Twig generates markdown that needs to be available in order to be processed by the Markdown compiler.  One thing to note, if have `cache_enable: false` **and** `twig_first: true` page caching is effectively disabled.
-
-### Markdown
-
-```ruby
-  markdown:
-    extra: false
-    auto_line_breaks: false
-    auto_url_links: false
-    escape_markup: false
-    special_chars:
-      '>': 'gt'
-      '<': 'lt'
+<section id="author-details">
+    <h2>{{ page.header.author.name }}</h2>
+    <p>{{ page.header.author.bio }}</p>
+    <span>Contact: <a href="https://twitter.com/{{ page.header.author.twitter }}"><i class="fa fa-twitter"></i></a></span>
+</section>
 ```
-
-* `extra`: Enable support for Markdown Extra support (GFM by default)
-* `auto_line_breaks`: Enable automatic line breaks
-* `auto_url_links`: Enable automatic HTML links
-* `escape_markup`: Escape markup tags into entities
-* `special_chars`: List of special characters to automatically convert to
-
-These Markdown settings are a new feature we added in **v0.9.14**.  You can enable these globally via your `user/config/system.yaml` configuration file, or you can override this global setting _per-page_ with this `markdown` header option.
-
-### Lightbox
-
-``` ruby
-lightbox: true
-```
-
-Although strictly speaking this is not a standard page header, it is a common way to enable the loading of a standard lightbox JavaScript and CSS for a page.  By default the core `antimatter` theme does not load the prerequisites to enable lightbox capabilities of images, be sure to install a lightbox plugin such as **Featherlight**, which is available via GPM.
-
-### HTTP Response Code
-
-``` ruby
-http_response_code: 404
-```
-
-Allows the dynamic setting of an HTTP Response Code.
-
-### ETag
-
-```ruby
-etag: true
-```
-
-Enable or disable on a page level whether or not to display an ETag header variable with a unique value. False by default unless overridden in your `system.yaml`.
-
-### LastModified
-
-```ruby
-last_modified: true
-```
-
-Enable or disable on a page level whether or not to display a Last Modified header variable with modified date. False by default unless overridden in your `system.yaml`.
-
 
 ## Meta Page Headers
 
 Meta headers allow you to set the [standard set of HTML **<meta> tags**](http://www.w3schools.com/tags/tag_meta.asp) for each page as well as [OpenGraph](http://ogp.me/), [Facebook](https://developers.facebook.com/docs/sharing/best-practices), and [Twitter](https://dev.twitter.com/cards/overview).
 
-### Standard Metatag examples
+#### Standard Metatag examples
 
-```ruby
+```yaml
 metadata:
     refresh: 30
     generator: 'Grav'
@@ -364,9 +443,9 @@ This will produce the HTML:
 
 All HTML5 metatags are supported.
 
-### OpenGraph Metatag examples
+#### OpenGraph Metatag examples
 
-```ruby
+```yaml
 metadata:
     'og:title': The Rock
     'og:type': video.movie
@@ -385,9 +464,9 @@ This will produce the HTML:
 
 For a full outline of all OpenGraph metatags that can be used, please consult the [official documentation](http://ogp.me/).
 
-### Facebook Metatag examples
+#### Facebook Metatag examples
 
-```ruby
+```yaml
 metadata:
     'fb:app_id': your_facebook_app_id
 ```
@@ -400,9 +479,9 @@ This will produce the HTML:
 
 Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific tags and these are support automatically by Grav.
 
-### Twitter Metatag examples
+#### Twitter Metatag examples
 
-```ruby
+```yaml
 metadata:
     'twitter:card' : summary
     'twitter:site' : @flickr
@@ -422,49 +501,6 @@ This will produce the HTML:
 ```
 
 For a full outline of all Twitter metatags that can be used, please consult the [official documentation](https://dev.twitter.com/cards/overview).
-
-## Debugger
-
-When you enable the debugger via the `system.yaml` configuration file, the debugger will display on every page.  There are cases where this may not be desirable or may cause conflicts with the output.  Such an example is when you are requesting a page that is intended to return rendered HTML to an Ajax call.  This should not have the debugger injected into the resulting data.  To disable the debugger on this page you can use the `debugger` page header:
-
-```ruby
-debugger: false
-```
-
-## Custom Page Headers
-
-Of course, you can create your own custom page headers using any valid YAML syntax.  These would be page-specific and be available for any plugin, or theme to make use of. A good example of this would be to set some variable specific to a sitemap plugin, such as:
-
-```ruby
-sitemap:
-    changefreq: monthly
-    priority: 1.03
-```
-
-The significance of these headers is that Grav does not use them by default. They are only read by the **sitemap plugin** to determine how often this particular page is modified and what its priority should be.
-
-Any page header such as this should be documented, and generally, there will be some default value that will be used if the page does not provide it.
-
-Another example would be to store page-specific data that could then be used by Twig in the content of the page.
-
-For example, you might have want to associate some author reference for the page. If you added these YAML settings to the page header:
-
-```ruby
-author:
-    name: Sandy Johnson
-    twitter: @sandyjohnson
-    bio: Sandy is a freelance journalist and author of several publications on open source CMS platforms.
-```
-
-You could then access them from Twig:
-
-```
-<section id="author-details">
-    <h2>{{ page.header.author.name }}</h2>
-    <p>{{ page.header.author.bio }}</p>
-    <span>Contact: <a href="https://twitter.com/{{ page.header.author.twitter }}"><i class="fa fa-twitter"></i></a></span>
-</section>
-```
 
 This really provides a lot of flexibility and power.
 
