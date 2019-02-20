@@ -7,7 +7,12 @@ taxonomy:
 Grav is intentionally designed with few requirements. You can easily run Grav on your local computer, as well as 99% of all Web hosting providers. If you have a pen handy, jot down the following Grav system requirements:
 
 1. Web Server (Apache, Nginx, LiteSpeed, Lightly, IIS, etc.)
+[version=15]
 2. PHP 5.6.3 or higher
+[/version]
+[version=16]
+2. PHP 7.1.3 or higher
+[/version]
 3. hmm... that's it really, (but please look at PHP requirements for a smooth experience)!
 
 Grav is built with plain text files for your content. There is no database needed.
