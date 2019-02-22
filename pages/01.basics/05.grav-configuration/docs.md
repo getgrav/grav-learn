@@ -210,7 +210,9 @@ The **Cache** section is where you can configure the site's caching settings. Yo
     - **method**: Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching)
 * **driver**: Select a cache driver. Options are: `auto`, `file`, `apc`, `xcache`, `redis`, `memcache`, and `wincache`.
 * **prefix**: Cache prefix string (prevents cache conflicts). Example: `g`.
+[vesrion=16]
 * **purge_at**: How often to purge old cache using cron `at` syntax (using new scheduler available in Grav 1.6+)
+[/version]
 * **clear_images_by_default**: By default grav will include processed images when cache clears, this can be disabled by setting this to `false`
 * **cli_compatibility**: Ensures only non-volatile drivers are used (file, redis, memcache, etc.)
 * **lifetime**: Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days.
@@ -410,6 +412,7 @@ Strict mode allows for a cleaner migration to future versions of Grav by moving 
 * **yaml_compat**: Enables YAML backwards compatibility
 * **twig_compat**: Enables deprecated Twig autoescape setting
 
+[version=16]
 ### accounts (Grav 1.6+ only)
 
 ```yaml
@@ -424,7 +427,7 @@ Accounts is a new setting for 1.6 that allows you to try out the new experimenta
 * **storage**: Flex storage type: `file` or `folder`
 
 !! You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
-
+[/version]
 
 ## Site Configuration
 
