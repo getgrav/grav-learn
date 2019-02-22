@@ -186,6 +186,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 
 ### cache
 
+[version=15]
 ```yaml
 cache:
   enabled: true
@@ -193,7 +194,6 @@ cache:
     method: file
   driver: auto
   prefix: 'g'
-  purge_at: '0 4 * * *'
   clear_images_by_default: true
   cli_compatibility: false
   lifetime: 604800
@@ -202,6 +202,28 @@ cache:
   redis:
     socket: false
 ```
+[/version]
+
+[version=16]
+```yaml
+cache:
+  enabled: true
+  check:
+    method: file
+  driver: auto
+  prefix: 'g'
+  purge_at: '0 4 * * *'
+  clear_at: '0 3 * * *'
+  clear_job_type: 'standard'
+  clear_images_by_default: true
+  cli_compatibility: false
+  lifetime: 604800
+  gzip: false
+  allow_webserver_gzip: false
+  redis:
+    socket: false
+```
+[/version]
 
 The **Cache** section is where you can configure the site's caching settings. You can enable, disable, choose the method, and more.
 
@@ -210,8 +232,10 @@ The **Cache** section is where you can configure the site's caching settings. Yo
     - **method**: Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching)
 * **driver**: Select a cache driver. Options are: `auto`, `file`, `apc`, `xcache`, `redis`, `memcache`, and `wincache`.
 * **prefix**: Cache prefix string (prevents cache conflicts). Example: `g`.
-[vesrion=16]
-* **purge_at**: How often to purge old cache using cron `at` syntax (using new scheduler available in Grav 1.6+)
+[version=16]
+* **purge_at**: Scheduler: How often to purge old cache using cron `at` syntax
+* **clear_at**: Scheduler: How often to clear the cache using cron `at` syntax
+* **clear_job_type**: Type to clear when processing the scheduled clear job `standard`|`all`
 [/version]
 * **clear_images_by_default**: By default grav will include processed images when cache clears, this can be disabled by setting this to `false`
 * **cli_compatibility**: Ensures only non-volatile drivers are used (file, redis, memcache, etc.)
