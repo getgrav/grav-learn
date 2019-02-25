@@ -17,7 +17,7 @@ Grav is intentionally designed with few requirements. You can easily run Grav on
 
 Grav is built with plain text files for your content. There is no database needed.
 
-!! A PHP user cache such as APCu, XCache, Memcached, or Redis is highly recommended for optimal performance. Not to worry though, these are usually already part of your hosting package!
+!! A PHP user cache such as APCu, Memcached, or Redis is highly recommended for optimal performance. Not to worry though, these are usually already part of your hosting package!
 
 ## Web Servers
 
@@ -89,7 +89,6 @@ and remove the leading semicolon.
 
 * `apcu` for increased cache performance
 * `opcache` for increased PHP performance
-* `xcache` alternative to *apcu*, not as fast, but still pretty good
 * `yaml` PECL Yaml provides native yaml processing and can dramatically increase performance
 * `xdebug` useful for debugging in a development environment
 

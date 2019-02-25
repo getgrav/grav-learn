@@ -230,7 +230,7 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 * **enabled**: Set to true to enable caching. Can be set to `true` or `false`.
 * **check**:
     - **method**: Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching)
-* **driver**: Select a cache driver. Options are: `auto`, `file`, `apc`, `xcache`, `redis`, `memcache`, and `wincache`.
+* **driver**: Select a cache driver. Options are: `auto`, `file`, `apcu`, `redis`, `memcache`, and `wincache`.
 * **prefix**: Cache prefix string (prevents cache conflicts). Example: `g`.
 [version=16]
 * **purge_at**: Scheduler: How often to purge old cache using cron `at` syntax
@@ -560,7 +560,7 @@ Some example configuration files could be structured:
 
 ### Plugins Configuration
 
-Most **plugins will come with their own YAML configuration file. We recommend copying this file to the **user/config/plugins/** directory rather than editing configuration options directly to the file located in the plugin's directory. Doing this will ensure that an update to the plugin will not overwrite your settings, and keep all of your configurable options in one, convenient place.
+Most **plugins** will come with their own YAML configuration file. We recommend copying this file to the `user/config/plugins/` directory rather than editing configuration options directly to the file located in the plugin's directory. Doing this will ensure that an update to the plugin will not overwrite your settings, and keep all of your configurable options in one, convenient place.
 
 If you have a plugin called `user/plugins/myplugin` that has a configuration file called `user/plugins/myplugin/myplugin.yaml` then you would copy this file to `user/config/plugins/myplugin.yaml` and edit the file there.
 
@@ -568,4 +568,4 @@ The YAML file that exists within the plugin's primary directory will act as a fa
 
 ### Themes Configuration
 
-The same rules for themes apply as they did for plugins.  So if you have a theme called `user/themes/mytheme` that has a configuration file called `user/themes/mytheme/mytheme.yaml` then you would copy this file to `user/config/themes/mytheme.yaml` and edit the file there.
+The same rules for **themes** apply as they did for plugins.  So if you have a theme called `user/themes/mytheme` that has a configuration file called `user/themes/mytheme/mytheme.yaml` then you would copy this file to `user/config/themes/mytheme.yaml` and edit the file there.
