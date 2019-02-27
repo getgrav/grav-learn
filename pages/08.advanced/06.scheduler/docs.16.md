@@ -133,6 +133,20 @@ Job Details
 └─────────────────────┴──────────────────┴──────────────────┴────────┘
 ```
 
+## Manually Running Jobs
+
+The CLI command provides an simple way to manually run any jobs.  In fact this is what the scheduler is doing when it runs periodically.
+
+```bash
+$ bin/grav scheduler
+```
+
+This will silently run the jobs, but you can also see details of what run using:
+
+```bash
+$ bin/grav scheduler -v
+```
+
 ## Grav System Jobs
 
 The Grav core provides a few jobs out-of-the-box.  These include some useful maintenance type tasks:

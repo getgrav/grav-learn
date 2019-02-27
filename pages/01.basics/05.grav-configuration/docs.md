@@ -513,6 +513,55 @@ Let's break down the elements of this sample file:
 
 !! For most people, the most important element of this file is the `Taxonomy` list.  The taxonomies in this list **must** be defined here if you wish to use them in your content.
 
+## Security
+
+In Grav 1.5 we introduced a new `system/config/security.yaml` file that sets some sensible defaults and is used by the Admin plugin when **Saving** content[version=16], as well in the new **Reports** section of **Tools**[/version].
+
+The default configuration looks like this:
+
+```yaml
+xss_whitelist: [admin.super]
+xss_enabled:
+    on_events: true
+    invalid_protocols: true
+    moz_binding: true
+    html_inline_styles: true
+    dangerous_tags: true
+xss_invalid_protocols:
+    - javascript
+    - livescript
+    - vbscript
+    - mocha
+    - feed
+    - data
+xss_dangerous_tags:
+    - applet
+    - meta
+    - xml
+    - blink
+    - link
+    - style
+    - script
+    - embed
+    - object
+    - iframe
+    - frame
+    - frameset
+    - ilayer
+    - layer
+    - bgsound
+    - title
+    - base
+uploads_dangerous_extensions:
+    - php
+    - html
+    - htm
+    - js
+    - exe
+```
+
+If you wish to make any changes to these settings, you should copy this file to `user/config/security.yaml` and make edits there.
+
 ## Other Configuration Settings and Files
 
 User configuration is completely optional. You can override as little or as much of the default settings as you need. This applies to both the system, site, and any plugin configurations in your site.
