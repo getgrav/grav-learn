@@ -4,4 +4,8 @@
            data-search-input="{{ base_url_relative }}/s/q"/>
     <span data-search-clear><i class="fa fa-close"></i></span>
 </div>
-<p class="adv-search"><i class="fa fa-sliders"></i> <a href="{{ url('search') }}">Advanced Search</a></p>
+<div class="search-options">
+    <div class="adv-search"><i class="fa fa-sliders"></i> <a href="{{ url('search') }}">Advanced</a></div>
+    {% include 'partials/versions.html.twig' %}
+</div>
+

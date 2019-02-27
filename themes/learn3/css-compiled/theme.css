@@ -641,6 +641,10 @@ hr {
   white-space: pre-wrap;
 }
 
+code.language-bash {
+  white-space: pre;
+}
+
 .tabs-wrapper pre {
   margin: 1rem 0;
   border: 0;
@@ -1232,10 +1236,29 @@ pre .copy-to-clipboard:hover {
 }
 
 .adv-search {
-  margin: 5px 0 0 0;
   font-size: 90%;
   text-align: left;
   text-indent: 5px;
+}
+
+.search-options {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  margin-top: 10px;
+}
+.search-options .version-chooser {
+  flex-grow: 1;
+  text-align: right;
+}
+.search-options .version-chooser select {
+  display: inline-block;
+  background-color: #764890;
+  border: 1px solid #6b4282;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
 .parent-element {

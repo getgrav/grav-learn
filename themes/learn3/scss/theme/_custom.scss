@@ -226,10 +226,32 @@
 }
 
 .adv-search {
-    margin: 5px 0 0 0;
     font-size: 90%;
     text-align: left;
     text-indent: 5px;
+}
+
+.search-options {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    margin-top: 10px;
+
+
+    .version-chooser {
+        flex-grow: 1;
+        text-align: right;
+
+        select {
+            display: inline-block;
+            background-color: darken($header-bg, 5%);
+            border: 1px solid darken($header-bg, 9%);
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+    }
 }
 
 // Utils

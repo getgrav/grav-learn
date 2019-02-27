@@ -4,12 +4,6 @@ taxonomy:
     category: docs
 ---
 
-<style>
-code.language-bash {
-    white-space: pre;
-}
-</style>
-
 The Grav scheduler is a new feature that was added in Grav 1.6 that allows jobs to be run on a periodic basis.  The underlying processing relies on the server's **cron** scheduler, but once a single entry has been added to the cron service, all jobs and specific schedules can be configured via Grav.
 
 One of the main advantages of utilizing the scheduler to handle tasks, is that they can be performed without any user interaction and independtly of the front end.  Tasks such as periodic cache clearing, backups, sycronization, search indexing, etc, are all prime candidates for scheduled tasks.

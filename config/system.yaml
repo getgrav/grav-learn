@@ -11,7 +11,7 @@ pages:
   hide_empty_folders: true
 
 languages:
-    supported: [15,16,17]
+    supported: [15,16]
     pages_fallback_only: true
 
 cache:
