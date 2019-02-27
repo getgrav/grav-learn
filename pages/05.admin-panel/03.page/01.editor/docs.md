@@ -58,7 +58,7 @@ Here is a breakdown of the tools found in the content editor:
 | <i class="fa fa-fw fa-bold"></i>          | Adds **Bold** tags to your content.               |
 | <i class="fa fa-fw fa-italic"></i>        | Adds *Italic* tags to your content.               |
 | <i class="fa fa-fw fa-strikethrough"></i> | Adds ~~Strikethrough~~ tags to your content.      |
-| <i class="fa fa-fw fa-link"></i>          | Adds [links](http://getgrav.org) to your content. |
+| <i class="fa fa-fw fa-link"></i>          | Adds [links](https://getgrav.org) to your content. |
 | <i class="fa fa-fw fa-picture-o"></i>     | Adds media to your content.                       |
 | <i class="fa fa-fw fa-quote-right"></i>   | Adds quote tags to your content.                  |
 | <i class="fa fa-fw fa-list-ul"></i>       | Creates an unordered list.                        |

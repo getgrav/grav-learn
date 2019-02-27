@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-!! Download and install locally the Blog Site skeleton from [http://getgrav.org/downloads/skeletons](http://getgrav.org/downloads/skeletons), or at least have ready the [https://github.com/getgrav/grav-skeleton-blog-site](https://github.com/getgrav/grav-skeleton-blog-site) repository to check. This is a sample site that uses the Antimatter theme. Having an up and running Grav site that already works with a Blog structure will surely give a hand if you’re stuck or you don’t understand what to do next.
+!! Download and install locally the Blog Site skeleton from [https://getgrav.org/downloads/skeletons](https://getgrav.org/downloads/skeletons), or at least have ready the [https://github.com/getgrav/grav-skeleton-blog-site](https://github.com/getgrav/grav-skeleton-blog-site) repository to check. This is a sample site that uses the Antimatter theme. Having an up and running Grav site that already works with a Blog structure will surely give a hand if you’re stuck or you don’t understand what to do next.
 
 ## Check your theme provides the Blog and Item page templates
 

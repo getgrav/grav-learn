@@ -43,13 +43,13 @@ When you edit the page in a text editor, the content will look something like th
 
     Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **antimatter** theme to get you started.
 
-    ! If you want a more **full-featured** base install, you should check out [**Skeleton** packages available in the downloads](http://getgrav.org/downloads).
+    ! If you want a more **full-featured** base install, you should check out [**Skeleton** packages available in the downloads](https://getgrav.org/downloads).
 
     ### Find out all about Grav
 
     * Learn about **Grav** by checking out our dedicated [Learn Grav](http://learn.getgrav.org) site.
-    * Download **plugins**, **themes**, as well as other Grav **skeleton** packages from the [Grav Downloads](http://getgrav.org/downloads) page.
-    * Check out our [Grav Development Blog](http://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
+    * Download **plugins**, **themes**, as well as other Grav **skeleton** packages from the [Grav Downloads](https://getgrav.org/downloads) page.
+    * Check out our [Grav Development Blog](https://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
 
 Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers](../../content/headers), and these are written in a straightforward format called [YAML](../../advanced/yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.
 
@@ -74,8 +74,8 @@ This is a simple paragraph that would have been wrapped in regular `<p>` tags wh
 
 ```markdown
 * Learn about **Grav** by checking out our dedicated [Learn Grav](http://learn.getgrav.org) site.
-* Download **plugins**, **themes**, as well as other Grav **skeleton** packages from the [Grav Downloads](http://getgrav.org/downloads) page.
-* Check out our [Grav Development Blog](http://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
+* Download **plugins**, **themes**, as well as other Grav **skeleton** packages from the [Grav Downloads](https://getgrav.org/downloads) page.
+* Check out our [Grav Development Blog](https://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
 ```
 
 Creating unordered lists is super simple in markdown. Simply use an `*`, `-`, or `+`, and a space to indicate that text is part of a list.  For an ordered list, simply use a number and a period before the text.

@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Here you can find information on problems and issues raised on [Grav forum](http://getgrav.org/forum) and in the [Discord Chat server](https://chat.getgrav.org) that occur frequently enough that we thought we would save time and list the problem and the relevant solution in one easy to find location.
+Here you can find information on problems and issues raised on [Grav forum](https://getgrav.org/forum) and in the [Discord Chat server](https://chat.getgrav.org) that occur frequently enough that we thought we would save time and list the problem and the relevant solution in one easy to find location.
 
 1. [Cannot connect to the GPM](#cannot-connect-to-the-gpm)
 1. [Admin Interface won't scroll](#admin-interface-wont-scroll)

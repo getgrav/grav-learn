@@ -677,7 +677,7 @@ When saving the page, we'll see the following YAML added to the page frontmatter
 buttons:
     -
         text: 'Some text'
-        url: 'http://getgrav.org'
+        url: 'https://getgrav.org'
         primary: false
     -
         text: 'Another text'

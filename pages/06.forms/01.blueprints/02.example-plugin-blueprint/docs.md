@@ -16,7 +16,7 @@ icon: list-alt
 author:
   name: Team Grav
   email: devs@getgrav.org
-  url: http://getgrav.org
+  url: https://getgrav.org
 homepage: https://github.com/getgrav/grav-plugin-assets
 demo: http://learn.getgrav.org
 keywords: assets, javascript, css, inline
@@ -36,7 +36,7 @@ There are different properties that you can use to give your resource an identit
 | __name*__         | This is the name of the resource. Avoid appending Plugin or Theme, there is no need for that.                                                                                                                                                                                                                                                                              |
 | __version*__      | The version of the resource. This value should always change on each release, incrementally. You should follow the [semver](http://semver.org/) standard, too.                                                                                                                                                                                                            |
 | __description*__  | The description of your resource. Please don't exceed **200** characters. A description should be short and straight to the point. You can use markdown syntax if needed. It's also a good idea to wrap your description in quotation marks.                                                                                                                              |
-| __icon*__         | Icon is what will be used on [getgrav.org](http://getgrav.org). At this stage, we are using [FontAwesome](http://fortawesome.github.io/Font-Awesome/icons/) icons library, so if you are developing a new plugin or theme, it should be your job to ensure the icon you picked is not already used. Otherwise we will have to change it for you.                          |
+| __icon*__         | Icon is what will be used on [getgrav.org](https://getgrav.org). At this stage, we are using [FontAwesome](http://fortawesome.github.io/Font-Awesome/icons/) icons library, so if you are developing a new plugin or theme, it should be your job to ensure the icon you picked is not already used. Otherwise we will have to change it for you.                          |
 | _screenshot_      | _(optional)_ Screenshot is only ever evaluated for _Themes_ and completely ignored for _Plugins_. For _Themes_, this would be the filename of the screenshot that comes with the theme (default: `screenshot.jpg`). If you have a _screenshot.jpg_ image at the root of your theme, then you can avoid using this property. Our repository will automatically pick it up. |
 | __author.name*__  | The developer full name                                                                                                                                                                                                                                                                                                                                                   |
 | _author.email_    | _(optional)_ The developer email.                                                                                                                                                                                                                                                                                                                                                      |
@@ -60,7 +60,7 @@ icon: github
 author:
   name: Team Grav
   email: devs@getgrav.org
-  url: http://getgrav.org
+  url: https://getgrav.org
 homepage: https://github.com/getgrav/grav-plugin-github
 keywords: github, plugin, api
 bugs: https://github.com/getgrav/grav-plugin-github/issues

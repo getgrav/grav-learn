@@ -27,7 +27,7 @@ There is also **free trial** — which is feature complete but limited in time. 
 
 ## Install locally
 
-First [download](http://getgrav.org/downloads) and unpack the latest Grav locally. It unpacks in the subfolder `grav`. You might configure your localhost to serve the grav site locally now.
+First [download](https://getgrav.org/downloads) and unpack the latest Grav locally. It unpacks in the subfolder `grav`. You might configure your localhost to serve the grav site locally now.
 
 
 ## Deploy to Fortrabbit
