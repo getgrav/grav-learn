@@ -50,7 +50,7 @@ There are different properties that you can use to give your resource an identit
 | _license_         | _(optional)_ The type of license your resource is (MIT, GPL, etc). It is adviced that you always provide a `LICENSE` file with your resource.                                                                                                                                                                                                                             |
 | _dependencies_    | _(optional)_ A list of dependencies that the plugin/theme requires.  The default process is to use GPM to install them, however, if an optional GIT repository URL is provided, installing direct from the repository will be an option also. Also if you use an array, you can define a name and a version explicitly using [Composer-style package versions](https://getcomposer.org/doc/articles/versions.md) |
 
-Here is an example of the identity portion of the [GitHub plugin](http://github.com/getgrav/grav-plugin-github) blueprints:
+Here is an example of the identity portion of the [GitHub plugin](https://github.com/getgrav/grav-plugin-github) blueprints:
 
 ```yaml
 name: GitHub

@@ -92,7 +92,7 @@ In an absolute link, the link opens with a `/`. Here is an example of an absolut
 [link](/blue/sky)
 ```
 
-The second method is fashioned after the **Directory Relative** style detailed previously. This method leaves in elements like the ordering numbers at the beginning of directory names. While this does add the potential of a broken link when content is reordered, it is more reliable when used with services like [Github](http://github.com) where content links do not have the benefit of Grav's flexibility. Here is an example of an absolute link made to `pages/01.blue/01.sky/item.md` using this style.
+The second method is fashioned after the **Directory Relative** style detailed previously. This method leaves in elements like the ordering numbers at the beginning of directory names. While this does add the potential of a broken link when content is reordered, it is more reliable when used with services like [Github](https://github.com) where content links do not have the benefit of Grav's flexibility. Here is an example of an absolute link made to `pages/01.blue/01.sky/item.md` using this style.
 
 ```markdown
 [link](/01.blue/01.sky)
