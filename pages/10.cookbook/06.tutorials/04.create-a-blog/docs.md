@@ -75,7 +75,7 @@ In this case the theme includes the partial `partials/blog_item.html.twig`, resp
 
 ### To learn more
 
-- Collections: [http://learn.getgrav.org/content/collections](http://learn.getgrav.org/content/collections)
-- Listing Page: [http://learn.getgrav.org/content/content-pages#listing-page](http://learn.getgrav.org/content/content-pages#listing-page)
-- Folders: [http://learn.getgrav.org/content/content-pages#folders](http://learn.getgrav.org/content/content-pages#folders)
-- Taxonomy: [http://learn.getgrav.org/content/taxonomy#taxonomy-example](http://learn.getgrav.org/content/taxonomy#taxonomy-example)
+- Collections: [https://learn.getgrav.org/content/collections](https://learn.getgrav.org/content/collections)
+- Listing Page: [https://learn.getgrav.org/content/content-pages#listing-page](https://learn.getgrav.org/content/content-pages#listing-page)
+- Folders: [https://learn.getgrav.org/content/content-pages#folders](https://learn.getgrav.org/content/content-pages#folders)
+- Taxonomy: [https://learn.getgrav.org/content/taxonomy#taxonomy-example](https://learn.getgrav.org/content/taxonomy#taxonomy-example)

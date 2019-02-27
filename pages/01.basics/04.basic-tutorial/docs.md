@@ -47,7 +47,7 @@ When you edit the page in a text editor, the content will look something like th
 
     ### Find out all about Grav
 
-    * Learn about **Grav** by checking out our dedicated [Learn Grav](http://learn.getgrav.org) site.
+    * Learn about **Grav** by checking out our dedicated [Learn Grav](https://learn.getgrav.org) site.
     * Download **plugins**, **themes**, as well as other Grav **skeleton** packages from the [Grav Downloads](https://getgrav.org/downloads) page.
     * Check out our [Grav Development Blog](https://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
 
@@ -73,7 +73,7 @@ Congratulations! You have installed the **Base Grav Package** that provides a **
 This is a simple paragraph that would have been wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicate bold text or `<b>` in HTML.  Italic text is indicated by wrapping text in `_` markers.
 
 ```markdown
-* Learn about **Grav** by checking out our dedicated [Learn Grav](http://learn.getgrav.org) site.
+* Learn about **Grav** by checking out our dedicated [Learn Grav](https://learn.getgrav.org) site.
 * Download **plugins**, **themes**, as well as other Grav **skeleton** packages from the [Grav Downloads](https://getgrav.org/downloads) page.
 * Check out our [Grav Development Blog](https://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
 ```
@@ -88,7 +88,7 @@ This overview should provide you with a few key pointers for writing Markdown, b
 
 Creating a new page is a simple affair in **Grav**.  Just follow these simple steps:
 
-1. Navigate to your pages folder: `user/pages/` and create a new folder.  In this example, we will use [explicit default ordering](http://learn.getgrav.org/content/content-pages) and call the folder `02.mypage`.
+1. Navigate to your pages folder: `user/pages/` and create a new folder.  In this example, we will use [explicit default ordering](https://learn.getgrav.org/content/content-pages) and call the folder `02.mypage`.
 2. Launch your text editor, create a new file, and paste in the following sample code:
 
     ```markdown

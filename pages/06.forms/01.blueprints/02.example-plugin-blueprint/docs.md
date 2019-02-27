@@ -18,7 +18,7 @@ author:
   email: devs@getgrav.org
   url: https://getgrav.org
 homepage: https://github.com/getgrav/grav-plugin-assets
-demo: http://learn.getgrav.org
+demo: https://learn.getgrav.org
 keywords: assets, javascript, css, inline
 bugs: https://github.com/getgrav/grav-plugin-assets/issues
 license: MIT
