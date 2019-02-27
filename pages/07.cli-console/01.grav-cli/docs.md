@@ -1,5 +1,5 @@
 ---
-title: Grav CLI
+title: Grav command
 taxonomy:
     category: docs
 ---

@@ -1,5 +1,5 @@
 ---
-title: Grav CLI GPM
+title: GPM Command
 taxonomy:
     category: docs
 ---

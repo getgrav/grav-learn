@@ -1,5 +1,5 @@
 ---
-title: Grav CLI Plugin
+title: Plugin Command
 taxonomy:
     category: docs
 ---
