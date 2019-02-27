@@ -4,21 +4,21 @@ taxonomy:
     category: docs
 ---
 
-It's no secret that Grav was built with the command line in mind. While the Admin plugin is certainly making it easier to get more done without opening a Terminal (OS X and Linux) or Command Prompt (Windows), there's a lot to be said about the speed and level of control that comes with working from the command line.
+It's no secret that Grav was built with the command line in mind. While the Admin plugin is certainly making it easier to get more done without opening a Terminal (MacOS and Linux) or Command Prompt (Windows), there's a lot to be said about the speed and level of control that comes with working from the command line.
 
 This is especially true for folks that are running their own development servers, or a remote server with which they have the ability to access the command line. The amount of tools at your disposal from the command line are incredible. You can control virtually all aspects of your site's hosting, Grav, and its plugins and themes with a handful of keystrokes.
 
 In the end, it all comes down to personal preference. On this page, we will list some great resources out there to help you become familiar with the command line.
 
-!! Not all operating systems are compatible with one another when it comes to commands. There are minor differences between OS X and many Linux distros, with Windows' Command Prompt having a very different set of commands from the other two.
+!! Not all operating systems are compatible with one another when it comes to commands. There are minor differences between MacOS and many Linux distros, with Windows' Command Prompt having a very different set of commands from the other two.
 
-## OS X
+## MacOS
 
-OS X is based on Unix and is POSIX standards compliant. This means that most of the commands you may be familiar with on other Unix or Linux-based operating systems will work exactly as expected in OS X. There are some exceptions to the rule, and it's for that reason that we recommend researching Terminal commands for the specific operating system you're working with.
+MacOS is based on Unix and is POSIX standards compliant. This means that most of the commands you may be familiar with on other Unix or Linux-based operating systems will work exactly as expected in MacOS. There are some exceptions to the rule, and it's for that reason that we recommend researching Terminal commands for the specific operating system you're working with.
 
-Here are some great resources to help you become accustomed to using the Terminal in OS X:
+Here are some great resources to help you become accustomed to using the Terminal in MacOS:
 
-* [Michael Hogg's OS X Terminal Commands Guide](http://michael-hogg.co.uk/os_x_terminal.php) - A practical resource for OS X-friendly Terminal commands, what they do, and how to use them.
+* [Michael Hogg's MacOS Terminal Commands Guide](http://michael-hogg.co.uk/os_x_terminal.php) - A practical resource for MacOS-friendly Terminal commands, what they do, and how to use them.
 * [MacRumors Guide to Terminal](http://guides.macrumors.com/Terminal) - A useful resource for navigating and using the Terminal, including tips for using it with the GUI.
 * [Envato Tuts+ Terminal Tips and Tricks](http://computers.tutsplus.com/tutorials/40-terminal-tips-and-tricks-you-never-thought-you-needed--mac-51192) - 40 clever tips and tricks for mastering the Terminal. Includes commands you won't find in many basic introductions.
 * [Envato Tuts+ Taming the Terminal](http://computers.tutsplus.com/articles/new-mactuts-session-taming-the-terminal--mac-45471) - A multi-part, detailed course in using the Terminal. Includes videos, screenshots, and more.
@@ -56,6 +56,7 @@ One of the coolest things about Grav is that you have a host of powerful command
 
 All of the commands listed below are compatible with <strong>any operating system.</strong>
 
+[version=15]
 | Command                           | Description                                                                                                                        |
 | :----------------                 | :--------------------------------------                                                                                            |
 | `bin/grav list`                   | Lists all commands available in Grav (excluding the GPM).                                                                          |
@@ -71,16 +72,41 @@ All of the commands listed below are compatible with <strong>any operating syste
 | `bin/gpm info`                    | Displays the details of the desired package, such as description, author, homepage, etc.                                           |
 | `bin/gpm install`                 | Installs a resource from the repository to your current Grav instance with a simple command.                                       |
 | `bin/gpm update`                  | Checks installed plugins and themes for available updates and lists them.                                                          |
-| `bin/gpm uninstall`               | Removes an installed theme or plugin and clears the cache.                                                                        |
+| `bin/gpm uninstall`               | Removes an installed theme or plugin and clears the cache.                                                                         |
 | `bin/gpm self-upgrade`            | Enables you to update Grav to the latest version.                                                                                  |
+| `bin/gpm security`                | Runs through the configured XSS security checks on all Grav pages                                                                  |
+[/version]
+
+[version=16]
+| Command                           | Description                                                                                                                        |
+| :----------------                 | :--------------------------------------                                                                                            |
+| `bin/grav list`                   | Lists all commands available in Grav (excluding the GPM).                                                                          |
+| `bin/grav help <command>`         | Gives you help on a specific command.                                                                                              |
+| `bin/grav new-project <location>` | Used to create a new, clean Grav instance in a different folder. Can be run from an existing Grav install.                         |
+| `bin/grav install`                | This command installs any dependencies needed to run your current Grav install.                                                    |
+| `bin/grav cache`                  | This command clears the cache of your Grav install. Options include: `--all`, `--assets-only`, `--images-only`, and `--cache-only` |
+| `bin/grav backup`                 | Creates a zip backup of your current Grav site.                                                                                    |
+| `bin/grav composer`               | Updates manually-installed composer-based vendor packages.                                                                         |
+| `bin/gpm list`                    | Lists all commands available via Grav's GPM (Grav Package Manager)                                                                 |
+| `bin/gpm help <command>`          | Gives you help on a specific command.                                                                                              |
+| `bin/gpm index`                   | Shows a list of all the available resources in the Grav repository, organized by themes and plugins.                               |
+| `bin/gpm info`                    | Displays the details of the desired package, such as description, author, homepage, etc.                                           |
+| `bin/gpm install`                 | Installs a resource from the repository to your current Grav instance with a simple command.                                       |
+| `bin/gpm update`                  | Checks installed plugins and themes for available updates and lists them.                                                          |
+| `bin/gpm uninstall`               | Removes an installed theme or plugin and clears the cache.                                                                         |
+| `bin/gpm self-upgrade`            | Enables you to update Grav to the latest version.                                                                                  |
+| `bin/gpm security`                | Runs through the configured XSS security checks on all Grav pages                                                                  |
+| `bin/gpm logviewer`               | Easily view Grav logs with configuration options to pick log file, number of lines, and verbosity                                  |
+| `bin/gpm scheduler`               | Manage the scheduled jobs and manually run the scheduler process if required                                                       |
+[/version]
 
 !! These commands are explained in greater detail within the [Grav CLI](../grav-cli) and [Grav GPM](../grav-cli-gpm) documentation.
 
 The commands listed below, are compatible with <strong>mac or unix systems.</strong>
- 
+
 | Command                               | Description                                                                                                               |
 | :----------------                     | :--------------------------------------                                                                                   |
-|  ``` bin/gpm index \| grep '\| installed' ```  | Lists all plugins and themes you currently have installed. 
+|  ``` bin/gpm index \| grep '\| installed' ```  | Lists all plugins and themes you currently have installed.
 
 ## Symbolic Links
 
@@ -92,17 +118,17 @@ Where Grav is concerned, symlinks are a great way to add plugins, themes, and co
 
 The process for performing a symlink is pretty straightforward, with minor differences between operating systems.
 
-### Symbolic Links in OS X and Linux
+### Symbolic Links in MacOS and Linux
 
 ![](osx_symlink.png)
 
 The command follows a common pattern of `ln -s <original file, directory, or its contents> <put virtual copies here>`.
 
-The commands that initiate a symlink differ between operating systems. For OS X and the majority of Unix and Linux distros, `ln -s` is the command. The `ln` part tells the system you want to create a link. The `-s` switch sets the link as symbolic.
+The commands that initiate a symlink differ between operating systems. For MacOS and the majority of Unix and Linux distros, `ln -s` is the command. The `ln` part tells the system you want to create a link. The `-s` switch sets the link as symbolic.
 
 ### Symbolic Links in Windows
 
-The basic structure of the command in Windows is `mklink <type> <put virtual copies here> <original file, directory, or its contents>`. Unlike OS X or Linux, you will need to set the argument for the type of file you're symbolically linking. The source and destination are also flipped in this case, where the new symbolic link comes before the file you're linking to. There are three arguments you can use here:
+The basic structure of the command in Windows is `mklink <type> <put virtual copies here> <original file, directory, or its contents>`. Unlike MacOS or Linux, you will need to set the argument for the type of file you're symbolically linking. The source and destination are also flipped in this case, where the new symbolic link comes before the file you're linking to. There are three arguments you can use here:
 
 * `/j` - This is the most commonly used argument. It creates a symlink of a directory.
 * `/h` - This creates a symbolic link for a specific file.
@@ -115,7 +141,7 @@ Basically, you state the command that initiates the symlink, what you're symboli
 
 ##### Link Contents of One Folder to Another
 
-| OS X and Linux              | Windows                           |
+| MacOS and Linux              | Windows                           |
 | :-----                      | :-----                            |
 | `ln -s ~/folder1 ~/folder2` | `mklink /J C:\folder2 C:\folder1` |
 
@@ -123,7 +149,7 @@ This command creates a symlink that takes contents originally placed in **folder
 
 ##### Link Entire Folders from One Place to Another
 
-| OS X and Linux               | Windows                            |
+| MacOS and Linux               | Windows                            |
 | :-----                       | :-----                             |
 | `ln -s ~/folder1 ~/folder2/` | `mklink /J C:\folder2\ C:\folder1` |
 
@@ -131,7 +157,7 @@ This command copies the entire **folder1** directory and places it in the target
 
 ##### Link Individual File(s) from One Place to Another
 
-| OS X and Linux                       | Windows                                     |
+| MacOS and Linux                       | Windows                                     |
 | :-----                               | :-----                                      |
 | `ln -s ~/folder1/file.jpg ~/folder2` | `mklink /H C:\folder2\ C:\folder1\file.jpg` |
 

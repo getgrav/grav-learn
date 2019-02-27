@@ -16,7 +16,7 @@ Grav natively supports **3 types of Pages** that allow you to create a rich sele
 
 #### Regular Page
 
-![Standard Page](content-standard.jpg?classes=shadow)
+![Standard Page](content-standard.png)
 
 A regular Page is generally a single page such as a **blog post**, **contact form**, **error page** etc. This is the most common type of page that you will create. By default a Page is considered a regular page unless you tell Grav otherwise.
 
@@ -24,7 +24,7 @@ When you download and install the **Core Grav** package, you are greeted by a st
 
 #### Listing Page
 
-![Listing Page](content-listing.jpg?classes=shadow)
+![Listing Page](content-listing.png)
 
 This is an extension of a regular Page. This is a page that has a reference to a collection of pages.
 
@@ -36,9 +36,9 @@ There is also some configuration settings to **control the order** of the listin
 
 #### Modular Page
 
-![Modular Page](content-modular.jpg?classes=shadow)
+![Modular Page](content-modular.png)
 
-A Modular Page is a special type of listing page because it builds a **single page** from its **child-pages**. This allows for the ability to build very complex **one-page layouts** from Modules. This is accomplished by constructing the **Modular Page** from multiple **Module-folders** found in the page's primary folder.
+A Modular Page is a special type of listing page because it builds a **single modular page** from its **child modular sub-pages**. This allows for the ability to build very complex **one-page layouts** from Modules. This is accomplished by constructing the **Modular Page** from multiple **Modular sub-page folders** found in the modular page's primary folder.
 
 !! A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](https://getgrav.org/downloads/skeletons).
 
@@ -54,11 +54,26 @@ All content pages are located in the `/user/pages` folder. Each **Page** should 
 
 Grav understands that any integer value followed by a period will be solely for ordering, and is removed internally in the system. For example, if you have a folder named `01.home`, Grav will treat this folder as `home`, but will ensure that with default ordering, it comes before `02.blog`.
 
-![Grav Folder Example](page-folders.png)
+```txt
+/user
+└── /pages
+    ├── /01.home
+    │   ├── /_header
+    │   ├── /_features
+    │   ├── /_body
+    ├── /02.blog
+    │   ├── /blog-item-1
+    │   ├── /blog-item-2
+    │   ├── /blog-item-3
+    │   ├── /blog-item-4
+    │   └── /blog-item-5
+    ├── /03.about-us
+    └── /error
+```
 
 Your site must have an entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://yoursite.com` in your browser, by default Grav expects an alias `home/`, but you can override the home-location by changing the `home.alias` option in the [Grav configuration file](/basics/grav-configuration).
 
-**Module-folders** are identified by an underscore (`_`) before the folder name. This is a special folder type that is intended to be used only with **modular content**.  These are **not routable** and **not visible** in the navigation. An example of a Module-folder would be a folder such as `user/pages/01.home/_header`. Home is configured as a **modular page** and would be constructed from the `_header`, `_features`, and `_body` Modules.
+**Modular sub-pages** are identified by an underscore (`_`) before the folder name. This is a special folder type that is intended to be used only with **modular content**.  These are **not routable** and **not visible** in the navigation. An example of a modular page setup would be a folder such as `user/pages/01.home`. Home is configured as a **modular page** that would contain a collection of child pages, and would be constructed from the `_header`, `_features`, and `_body` modular sub-pages.
 
 The textual name of each folder defaults to the _slug_ that the system uses as part of the URL. For example if you have a folder such as `/user/pages/02.blog`, the slug for this page would default to `blog`, and the full URL would be `http://yoursite.com/blog`. A blog item page, located in `/user/pages/02.blog/blog-item-5` would be accessible via `http://yoursite.com/blog/blog-item-5`.
 

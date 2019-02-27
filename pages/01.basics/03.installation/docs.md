@@ -17,9 +17,10 @@ $ php -v
 This should report the version and build information. For example:
 
 ```bash
-PHP 7.2.1 (cli) (built: Jan  4 2018 04:29:12)
-Copyright (c) 1997-2017 The PHP Group
-Zend Engine v3.2.0, Copyright (c) 1998-2017 Zend Technologies
+PHP 7.2.15 (cli) (built: Feb  7 2019 20:10:03) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
+    with Zend OPcache v7.2.15, Copyright (c) 1999-2018, by Zend Technologies
 ```
 
 ## Option 1: Install from ZIP package
@@ -76,7 +77,7 @@ Another method is to clone Grav from the GitHub repository, and then run a simpl
 
 #### Apache/IIS/Nginx
 
-Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is PHP 5.6.3 or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](../requirements) chapter of this guide.
+Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is [version=15]PHP 5.6.3[/version][version=16]PHP 7.1.3[/version] or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](../requirements) chapter of this guide.
 
 If your web root is, for example, `~/public_html` then you could extract it into this folder and reach it via `http://localhost`. If you extracted it into `~/public_html/grav` you would reach it via `http://localhost/grav`.
 
@@ -84,15 +85,15 @@ If your web root is, for example, `~/public_html` then you could extract it into
 
 #### Running Grav with the Built-in PHP Webserver Using `router.php`
 
-You can run Grav using a simple command from Terminal / Command Prompt using the built-in PHP server available to any system with PHP 5.6.3+ installed. All you need to do is navigate to the root of your Grav install using the Terminal or Command Prompt and enter `php -S localhost:8000 system/router.php`. You can replace the port number (in our example it's `8000`) with any port you prefer.
+You can run Grav using a simple command from Terminal / Command Prompt using the built-in PHP server available to any system with [version=15]PHP 5.6.3+[/version][version=16]PHP 7.1.3+[/version] installed. All you need to do is navigate to the root of your Grav install using the Terminal or Command Prompt and enter `php -S localhost:8000 system/router.php`. You can replace the port number (in our example it's `8000`) with any port you prefer.
 
 Entering this command will present you with output similar to the following:
 
 ```bash
 $ php -S localhost:8000 system/router.php
-PHP 7.0.14 Development Server started at Thu Jan 26 17:19:50 2017
+PHP 7.2.15 Development Server started at Sun Feb 17 21:02:14 2019
 Listening on http://localhost:8000
-Document root is /Users/example/sites/grav/
+Document root is /Users/rhuk/Projects/grav/grav
 Press Ctrl-C to quit.
 ```
 
@@ -105,7 +106,7 @@ Your terminal will also give you real-time updates of any activity on this ad ho
 
 The first time it loads, Grav pre-compiles some files. If you now refresh your browser, you will get a faster, cached version.
 
-![Grav Installed](install.png?cropResize=600,600)  {.border}
+![Grav Installed](install.png)
 
 !! In the previous examples, **$** represents the command prompt. This may look different on various platforms.
 
@@ -115,7 +116,7 @@ By default, Grav comes with some sample pages to give you something to get start
 
 If any issues are discovered during the initial page load (or after a cache-flush event) you may see an error page:
 
-![Grav with Problems](problems.png?cropResize=600,600)  {.border}
+![Grav with Problems](problems.png)
 
 Please consult the [Troubleshooting](../../troubleshooting) section for help regarding specific issues.
 
@@ -125,7 +126,7 @@ Please consult the [Troubleshooting](../../troubleshooting) section for help reg
 
 ### Automatic Updates
 
-The preferred method for updating Grav (from v0.9.3 onwards) is to use the **Grav Package Manager (GPM)**. All you need to do  is to navigate to the root of your Grav site and type:
+The preferred method for updating Grav is to use the **Grav Package Manager (GPM)**. All you need to do  is to navigate to the root of your Grav site and type:
 
 ```
 bin/gpm selfupgrade -f
