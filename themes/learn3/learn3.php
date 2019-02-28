@@ -8,13 +8,13 @@ class Learn3 extends Theme
 {
     public static function getSubscribedEvents() {
         return [
-            'onThemeInitialized' => ['onThemeInitialized', 0],
+            'onTwigInitialized' => ['onTwigInitialized', 0],
             'onTwigPageVariables' => ['onTwigPageVariables', 0],
             'onTNTSearchQuery' => ['onTNTSearchQuery', 1000],
         ];
     }
 
-    public function onThemeInitialized() {
+    public function onTwigInitialized() {
         $sc = $this->grav['shortcode'];
         $sc->getHandlers()->addAlias('version', 'lang');
     }

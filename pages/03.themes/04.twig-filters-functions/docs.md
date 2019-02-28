@@ -140,7 +140,7 @@ Removes trailing spaces at the beginning of a string. It can also remove other c
 
 Take an arbitrary string containing markdown and convert it to HTML using the markdown parser of Grav
 
-`'something with **markdown** and [a link](http://www.cnn.com)'|markdown` <i class="fa fa-long-arrow-right"></i> {{ 'something with **markdown** and [a link](http://www.cnn.com)'|markdown }}
+`'something with **markdown** and [a link](http://www.cnn.com)'|markdown` <i class="fa fa-long-arrow-right"></i> something with **markdown** and [a link](http://www.cnn.com)
 
 ##### MD5
 
