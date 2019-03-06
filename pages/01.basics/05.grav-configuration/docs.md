@@ -33,7 +33,7 @@ pwd_regex: '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
 intl_enabled: true
 ```
 
-These configuration options do not appear within their own child sections. They're general options that affect the way the site operates, its timezone, and base URL.
+These configuration options do not appear within their own child sections. They're general options that affect the way the site operates, its timezone, and base URL. dsksdkdskds
 
 * **absolute_urls**: Absolute or relative URLs for `base_url`.
 * **timezone**: Valid values can be found [here](http://php.net/manual/en/timezones.php).
