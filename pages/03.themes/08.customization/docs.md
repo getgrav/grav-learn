@@ -98,7 +98,7 @@ To achieve this you need to follow these steps:
    author:
      name: Team Grav
      email: devs@getgrav.org
-     url: http://getgrav.org
+     url: https://getgrav.org
    ```
    You can provide more details including form definitions to control functionality of your form.  For more details on this you should examine the Antimatter theme's blueprint.yaml file
 
@@ -134,7 +134,7 @@ In order to modify specific **SCSS** files, we need to use a little configuratio
 
 When you make changes in your custom SCSS file, all the SCSS will be recompiled into `mytheme/css-compiled/template.css` and automatically referenced correctly by Grav.
 
-For more information on this topic, please check out the blog post titled *[Theme Development with Inheritance](http://getgrav.org/blog/theme-development-with-inheritance)*.
+For more information on this topic, please check out the blog post titled *[Theme Development with Inheritance](https://getgrav.org/blog/theme-development-with-inheritance)*.
 
 
 

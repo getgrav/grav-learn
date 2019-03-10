@@ -222,7 +222,7 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 {% block footer %}
     <div class="footer text-center">
         <div class="wrapper padding">
-            <p><a href="http://getgrav.org">Grav</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://www.rockettheme.com">RocketTheme</a>.</p>
+            <p><a href="https://getgrav.org">Grav</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://www.rockettheme.com">RocketTheme</a>.</p>
         </div>
     </div>
 {% endblock %}

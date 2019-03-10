@@ -112,7 +112,7 @@ _Please note that demo content is not copied when your plugin or theme is instal
 
 ## Theme/Plugin Release Process
 
-When you have created your new theme or plugin and would like to see it added to the [Grav Repository](http://getgrav.org/downloads) there are a few standard things that you need to ensure:
+When you have created your new theme or plugin and would like to see it added to the [Grav Repository](https://getgrav.org/downloads) there are a few standard things that you need to ensure:
 
 1. It is open source with a `LICENSE` file that provides an [MIT](http://en.wikipedia.org/wiki/MIT_License) compatible license [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/LICENSE)
 2. Contains a `README.md` file with a summary of functionality and instructions on how to install and configure it. [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/README.md)
@@ -126,7 +126,7 @@ When you have created your new theme or plugin and would like to see it added to
 
 ## ChangeLog Format
 
-The GetGrav.org site uses a custom ChangeLog format that is written in standard markdown but can be manipulated with some simple CSS and [displayed in an attractive format](http://getgrav.org/downloads#changelog).  In order to ensure your ChangeLogs can be parsed and formatted properly, please use this syntax:
+The GetGrav.org site uses a custom ChangeLog format that is written in standard markdown but can be manipulated with some simple CSS and [displayed in an attractive format](https://getgrav.org/downloads#changelog).  In order to ensure your ChangeLogs can be parsed and formatted properly, please use this syntax:
 
 ```
 # vX.Y.Z
