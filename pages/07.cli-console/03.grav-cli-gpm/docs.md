@@ -1,12 +1,12 @@
 ---
-title: Grav CLI GPM
+title: GPM Command
 taxonomy:
     category: docs
 ---
 
 Since the release of version **0.9.3**, Grav includes a _GPM_ (Grav Package Manager) which allows you to install, update, uninstall and list all the themes and plugins available on the Grav repository, as well as upgrade Grav itself to the latest version.
 
-Like the [Grav CLI](../grav-cli), the _GPM_ is a command-line tool which requires the user to run commands via a command-line interface, such as **Terminal** in OS X. UNIX style commands are not natively available in Windows cmd. Installing the [msysgit](http://msysgit.github.io/) package on a Windows machine adds [Git](https://git-scm.com/) and Git BASH, which is an alternative command prompt that makes UNIX commands available.
+Like the [Grav CLI](../grav-cli), the _GPM_ is a command-line tool which requires the user to run commands via a command-line interface, such as **Terminal** in MacOS. UNIX style commands are not natively available in Windows cmd. Installing the [msysgit](https://msysgit.github.io/) package on a Windows machine adds [Git](https://git-scm.com/) and Git BASH, which is an alternative command prompt that makes UNIX commands available.
 
 To get started with _GPM_, you can run the following command to receive a list of all presently available commands:
 

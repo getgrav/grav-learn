@@ -15,15 +15,15 @@ For Nginx:
 
     ps aux | grep -v root | grep nginx | cut -d\  -f1 | sort | uniq
 
-And find out which user owns the file in your grav directory by running 
-    
+And find out which user owns the file in your grav directory by running
+
     ls -l
 
-  
+
 Being a file-based CMS, Grav needs to write to the file-system in order to create cache and log files. There are three main scenarios:
 
 1. ##### PHP/Webserver runs with the same user that edits the files.  (Preferred)
-   This is the approach used by most **shared hosting** setups and also works well for local development. The blog post we wrote regarding [OS X Yosemite, Apache, and PHP](https://getgrav.org/blog/mac-os-x-apache-setup-multiple-php-versions) outlines how to configure Apache to run as your personal user account. This approach is not considered secure enough to use on a dedicated web host, so the second or third option should be used.
+   This is the approach used by most **shared hosting** setups and also works well for local development. The blog post we wrote regarding [MacOS Yosemite, Apache, and PHP](https://getgrav.org/blog/mac-os-x-apache-setup-multiple-php-versions) outlines how to configure Apache to run as your personal user account. This approach is not considered secure enough to use on a dedicated web host, so the second or third option should be used.
 
 2. ##### PHP/Webserver runs with different accounts but same Group
    By using a shared Group between your user and PHP/Webserver account with `775` and `664` permissions you ensure that even though you have two different accounts, both will have **Read/Write** access to the files.  You should also probably set a `umask 0002` on the root so that new files are created with the proper permissions.

@@ -33,7 +33,7 @@ pwd_regex: '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
 intl_enabled: true
 ```
 
-These configuration options do not appear within their own child sections. They're general options that affect the way the site operates, its timezone, and base URL.
+These configuration options do not appear within their own child sections. They're general options that affect the way the site operates, its timezone, and base URL. 
 
 * **absolute_urls**: Absolute or relative URLs for `base_url`.
 * **timezone**: Valid values can be found [here](http://php.net/manual/en/timezones.php).
@@ -55,6 +55,7 @@ These configuration options do not appear within their own child sections. They'
 languages:
   supported: []
   include_default_lang: true
+  pages_fallback_only: false
   translations: true
   translations_fallback: true
   session_store_active: false
@@ -66,6 +67,7 @@ The **Languages** area of the file establishes the site's language settings. Thi
 
 * **supported**: List of languages supported. eg: `[en, fr, de]`
 * **include_default_lang**: Include the default lang prefix in all URLs. Can be `true` or `false`.
+* **pages_fallback_only**: Only fallback to find page content through supported languages. Can be `true` or `false`.
 * **translations**: Enable translations by default. Can be `true` or `false`.
 * **translations_fallback**: Fallback through supported translations if active lang doesn't exist. Can be `true` or `false`.
 * **session_store_active**: Store active language in session. Can be `true` or `false`.
@@ -129,6 +131,7 @@ pages:
   ignore_files: [.DS_Store]
   ignore_folders: [.git, .idea]
   ignore_hidden: true
+  hide_empty_folders: false
   url_taxonomy_filters: true
   frontmatter:
     process_twig: false
@@ -175,6 +178,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 * **ignore_files**: Files to ignore in Pages. Example: `[.DS_Store] `.
 * **ignore_folders**: Folders to ignore in Pages. Example: `[.git, .idea]`
 * **ignore_hidden**: Ignore all Hidden files and folders. Can be set to `true` or `false`.
+* **hide_empty_folders**: If folder has no .md file, should it be hidden. Can be set to `true` or `false`.
 * **url_taxonomy_filters**: Enable auto-magic URL-based taxonomy filters for page collections. Can be set to `true` or `false`.
 * **frontmatter**:
     - **process_twig**: Should the frontmatter be processed to replace Twig variables? Can be set to `true` or `false`.
@@ -182,6 +186,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 
 ### cache
 
+[version=15]
 ```yaml
 cache:
   enabled: true
@@ -197,14 +202,41 @@ cache:
   redis:
     socket: false
 ```
+[/version]
+
+[version=16]
+```yaml
+cache:
+  enabled: true
+  check:
+    method: file
+  driver: auto
+  prefix: 'g'
+  purge_at: '0 4 * * *'
+  clear_at: '0 3 * * *'
+  clear_job_type: 'standard'
+  clear_images_by_default: true
+  cli_compatibility: false
+  lifetime: 604800
+  gzip: false
+  allow_webserver_gzip: false
+  redis:
+    socket: false
+```
+[/version]
 
 The **Cache** section is where you can configure the site's caching settings. You can enable, disable, choose the method, and more.
 
 * **enabled**: Set to true to enable caching. Can be set to `true` or `false`.
 * **check**:
     - **method**: Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching)
-* **driver**: Select a cache driver. Options are: `auto`, `file`, `apc`, `xcache`, `redis`, `memcache`, and `wincache`.
+* **driver**: Select a cache driver. Options are: `auto`, `file`, `apcu`, `redis`, `memcache`, and `wincache`.
 * **prefix**: Cache prefix string (prevents cache conflicts). Example: `g`.
+[version=16]
+* **purge_at**: Scheduler: How often to purge old cache using cron `at` syntax
+* **clear_at**: Scheduler: How often to clear the cache using cron `at` syntax
+* **clear_job_type**: Type to clear when processing the scheduled clear job `standard`|`all`
+[/version]
 * **clear_images_by_default**: By default grav will include processed images when cache clears, this can be disabled by setting this to `false`
 * **cli_compatibility**: Ensures only non-volatile drivers are used (file, redis, memcache, etc.)
 * **lifetime**: Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days.
@@ -281,6 +313,21 @@ The **Errors** section determines how Grav handles error display and logging.
 * **display**: Determines how errors are displayed. Enter either `1` for the full backtrace, `0` for Simple Error, or `-1` for System Error.
 * **log**: Log errors to `/logs` folder. Can be set to `true` or `false`.
 
+### log
+
+```yaml
+log:
+  handler: file
+  syslog:
+    facility: local6
+```
+
+The **Log** section allows you to configure alternate logging capabilities for Grav.
+
+* **handler**: Log handler. Currently supported: `file` | `syslog`
+* **syslog**
+    - **facility**: Syslog facilities output
+
 ### debugger
 
 ```yaml
@@ -336,8 +383,10 @@ The **Media** section handles the configuration options for settings related to 
 ```yaml
 session:
   enabled: true
+  initialize: true
   timeout: 1800
   name: grav-site
+  uniqueness: path
   secure: false
   httponly: true
   split: true
@@ -347,8 +396,10 @@ session:
 These options determine session properties for your site.
 
 * **enabled**: Enable Session support. Can be set to `true` or `false`.
+* **initialize**: Initialize session from Grav (if `false`, plugin needs to start the session)
 * **timeout**: Timeout in seconds. For example: `1800`.
 * **name**: Name prefix of the session cookie. Use alphanumeric, dashes or underscores only. Do not use dots in the session name. For example: `grav-site`.
+* **uniqueness**: Should sessions be `path` based or `security.salt` based
 * **secure**: Set session secure. If `true`, indicates that communication for this cookie must be over an encrypted transmission. Enable this only on sites that run exclusively on HTTPS. Can be set to `true` or `false`.
 * **httponly**: Set session HTTP only. If true, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed. Can be set to `true` or `false`.
 * **path**:
@@ -372,8 +423,35 @@ The **GPM** section offers the user options that control how Grav's GPM sources 
 * **verify_peer**: On some systems (Windows mostly) GPM is unable to connect because the SSL certificate cannot be verified. Disabling this setting might help.
 * **official_gpm_only**: By default GPM direct-install will only allow URLs via the official GPM proxy to ensure security, disable this to allow other sources.
 
-!! You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
+### strict mode
 
+```yaml
+strict_mode:
+  yaml_compat: true
+  twig_compat: true
+```
+
+Strict mode allows for a cleaner migration to future versions of Grav by moving to the newer versions of YAML and Twig processors.  These may not be compatible with all 3rd party extensions.
+
+* **yaml_compat**: Enables YAML backwards compatibility
+* **twig_compat**: Enables deprecated Twig autoescape setting
+
+[version=16]
+### accounts (Grav 1.6+ only)
+
+```yaml
+accounts:
+  type: data
+  storage: file
+```
+
+Accounts is a new setting for 1.6 that allows you to try out the new experimental Flex Users.  This basically means that Users are stored as Flex objects allowing more power and performance.
+
+* **type**: Account type: `data` or `flex`
+* **storage**: Flex storage type: `file` or `folder`
+
+!! You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
+[/version]
 
 ## Site Configuration
 
@@ -381,12 +459,13 @@ As well as the `system.yaml` file, Grav also provides a default `site.yaml` conf
 
 The default `system/config/site.yaml` file that ships with Grav looks something like this:
 
-```ruby
+```yaml
 title: Grav                                 # Name of the site
+default_lang: en                            # Default language for site (potentially used by theme)
 
 author:
   name: John Appleseed                      # Default author name
-  email: 'john@email.com'                   # Default author email
+  email: 'john@example.com'                 # Default author email
 
 taxonomies: [category,tag]                  # Arbitrary list of taxonomy types
 
@@ -400,22 +479,23 @@ summary:
   delimiter: ===                            # The summary delimiter
 
 redirects:
-#  '/redirect-test': '/'                         # Redirect test goes to home page
-#  '/old/(.*)': '/new/$1'                        # Would redirect /old/my-page to /new/my-page
+#  '/redirect-test': '/'                    # Redirect test goes to home page
+#  '/old/(.*)': '/new/$1'                   # Would redirect /old/my-page to /new/my-page
 
 routes:
-#  '/something/else': '/blog/sample-3'         # Alias for /blog/sample-3
-#  '/new/(.*)': '/blog/$1'                     # Regex any /new/my-page URL to /blog/my-page Route
+#  '/something/else': '/blog/sample-3'      # Alias for /blog/sample-3
+#  '/new/(.*)': '/blog/$1'                  # Regex any /new/my-page URL to /blog/my-page Route
 
 blog:
   route: '/blog'                            # Custom value added (accessible via system.blog.route)
 
-#menu:                                      # Sample Menu Example
+#menu:                                      # Menu Example
 #    - text: Source
 #      icon: github
 #      url: https://github.com/getgrav/grav
 #    - icon: twitter
 #      url: http://twitter.com/getgrav
+
 ```
 
 Let's break down the elements of this sample file:
@@ -432,6 +512,55 @@ Let's break down the elements of this sample file:
 | **(custom options)** | You can create any option you like in this file and a good example is the `blog: route: '/blog'` option that is accessible in your Twig templates with `system.blog.route`                                                                                                                                                                                               |
 
 !! For most people, the most important element of this file is the `Taxonomy` list.  The taxonomies in this list **must** be defined here if you wish to use them in your content.
+
+## Security
+
+In Grav 1.5 we introduced a new `system/config/security.yaml` file that sets some sensible defaults and is used by the Admin plugin when **Saving** content[version=16], as well in the new **Reports** section of **Tools**[/version].
+
+The default configuration looks like this:
+
+```yaml
+xss_whitelist: [admin.super]
+xss_enabled:
+    on_events: true
+    invalid_protocols: true
+    moz_binding: true
+    html_inline_styles: true
+    dangerous_tags: true
+xss_invalid_protocols:
+    - javascript
+    - livescript
+    - vbscript
+    - mocha
+    - feed
+    - data
+xss_dangerous_tags:
+    - applet
+    - meta
+    - xml
+    - blink
+    - link
+    - style
+    - script
+    - embed
+    - object
+    - iframe
+    - frame
+    - frameset
+    - ilayer
+    - layer
+    - bgsound
+    - title
+    - base
+uploads_dangerous_extensions:
+    - php
+    - html
+    - htm
+    - js
+    - exe
+```
+
+If you wish to make any changes to these settings, you should copy this file to `user/config/security.yaml` and make edits there.
 
 ## Other Configuration Settings and Files
 
@@ -480,7 +609,7 @@ Some example configuration files could be structured:
 
 ### Plugins Configuration
 
-Most **plugins will come with their own YAML configuration file. We recommend copying this file to the **user/config/plugins/** directory rather than editing configuration options directly to the file located in the plugin's directory. Doing this will ensure that an update to the plugin will not overwrite your settings, and keep all of your configurable options in one, convenient place.
+Most **plugins** will come with their own YAML configuration file. We recommend copying this file to the `user/config/plugins/` directory rather than editing configuration options directly to the file located in the plugin's directory. Doing this will ensure that an update to the plugin will not overwrite your settings, and keep all of your configurable options in one, convenient place.
 
 If you have a plugin called `user/plugins/myplugin` that has a configuration file called `user/plugins/myplugin/myplugin.yaml` then you would copy this file to `user/config/plugins/myplugin.yaml` and edit the file there.
 
@@ -488,4 +617,4 @@ The YAML file that exists within the plugin's primary directory will act as a fa
 
 ### Themes Configuration
 
-The same rules for themes apply as they did for plugins.  So if you have a theme called `user/themes/mytheme` that has a configuration file called `user/themes/mytheme/mytheme.yaml` then you would copy this file to `user/config/themes/mytheme.yaml` and edit the file there.
+The same rules for **themes** apply as they did for plugins.  So if you have a theme called `user/themes/mytheme` that has a configuration file called `user/themes/mytheme/mytheme.yaml` then you would copy this file to `user/config/themes/mytheme.yaml` and edit the file there.

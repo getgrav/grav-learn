@@ -34,51 +34,53 @@ Open the home page in your text editor. The file that controls the homepage is l
 
 When you edit the page in a text editor, the content will look something like this:
 
-    ---
-    title: Home
-    ---
+[div class="no-margin-bottom"]
+```yaml
+---
+title: Home
+body_classes: title-center title-h1h2
+---
+```
+[/div]
+[div class="no-margin-top"]
+```markdown
 
-    # Grav is Running!
-    ## You have installed **Grav** successfully
+# Say Hello to Grav!
+## installation successful...
 
-    Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **antimatter** theme to get you started.
+Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **Quark** theme to get you started.
 
-    ! If you want a more **full-featured** base install, you should check out [**Skeleton** packages available in the downloads](https://getgrav.org/downloads).
-
-    ### Find out all about Grav
-
-    * Learn about **Grav** by checking out our dedicated [Learn Grav](https://learn.getgrav.org) site.
-    * Download **plugins**, **themes**, as well as other Grav **skeleton** packages from the [Grav Downloads](https://getgrav.org/downloads) page.
-    * Check out our [Grav Development Blog](https://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
+!! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
+```
+[/div]
 
 Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers](../../content/headers), and these are written in a straightforward format called [YAML](../../advanced/yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.
 
-```ruby
+```yaml
 title: Home
+body_classes: title-center title-h1h2
 ```
 
 This block sets the HTML title tag for the page (the text you see in the browser tab).  You can also access this from your themes via the `page.title` attribute.  There are a [few standard headers](../../content/headers) that let you configure a variety of options for this page. Another example is `menu: Something` that lets you override the text used to display the name of the page in a menu.  By default, Grav will use the title for the menu value.
 
 ```markdown
-# Grav is Running!
-## You have installed **Grav** successfully
+# Say Hello to Grav!
+## installation successful...
 ```
 
 The `#` or `hashes` syntax in markdown indicates a title.  A single `#` with a space and then text converts into an `<h1>` header in HTML. `##` or double hash would convert into an `<h2>` tag.  Of course, this goes all the way up to the HTML valid `<h6>` tag which of course, would be six hashes: `###### My H6 Level Header`.
 
 ```markdown
-Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **antimatter** theme to get you started.
+Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **Quark** theme to get you started.
 ```
 
 This is a simple paragraph that would have been wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicate bold text or `<b>` in HTML.  Italic text is indicated by wrapping text in `_` markers.
 
 ```markdown
-* Learn about **Grav** by checking out our dedicated [Learn Grav](https://learn.getgrav.org) site.
-* Download **plugins**, **themes**, as well as other Grav **skeleton** packages from the [Grav Downloads](https://getgrav.org/downloads) page.
-* Check out our [Grav Development Blog](https://getgrav.org/blog) to find out the latest goings on in the Grav-verse.
+!! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
 ```
 
-Creating unordered lists is super simple in markdown. Simply use an `*`, `-`, or `+`, and a space to indicate that text is part of a list.  For an ordered list, simply use a number and a period before the text.
+This section uses a custom markdown feature that is provided by the included `markdown-notices` plugin.  This allows you to create simple notices by prefix a paragraph of text with a number of `!` (apostrophe) symbols, from `!` to `!!!!`.
 
 This overview should provide you with a few key pointers for writing Markdown, but you should check out our more [detailed explanation](../../content/markdown) to get a thorough understanding.
 
@@ -88,20 +90,26 @@ This overview should provide you with a few key pointers for writing Markdown, b
 
 Creating a new page is a simple affair in **Grav**.  Just follow these simple steps:
 
-1. Navigate to your pages folder: `user/pages/` and create a new folder.  In this example, we will use [explicit default ordering](https://learn.getgrav.org/content/content-pages) and call the folder `02.mypage`.
+1. Navigate to your pages folder: `user/pages/` and create a new folder.  In this example, we will use [explicit default ordering](https://learn.getgrav.org/content/content-pages) and call the folder `03.mypage`.
 2. Launch your text editor, create a new file, and paste in the following sample code:
 
-    ```markdown
-    ---
-    title: My New Page
-    ---
-    # My New Page!
+[div class="no-margin-bottom"]
+```yaml
+---
+title: My New Page
+---
+```
+[/div]
+[div class="no-margin-top"]
+```markdown
+# My New Page!
 
-    This is the body of **my new page** and I can easily use _Markdown_ syntax here.
-    ```
+This is the body of **my new page** and I can easily use _Markdown_ syntax here.
+```
+[/div]
 
-3. Save this file in the `user/pages/02.mypage/` folder as `default.md`. This will tell **Grav** to render the page using the **default** template.
-4. That's it! Reload your browser to see your new page in the menu.
+3. Save this file in the `user/pages/03.mypage/` folder as `default.md`. This will tell **Grav** to render the page using the **default** template in the current theme: `user/themes/quark/templates/default.html.twig`.
+4. That's it! Reload your browser to see your new page in the menu at the top.
 
 The page will automatically show up in the Menu after the **"Home"** menu item. If you wish to change the name that shows up in the Menu, add: `menu: My Page` between the dashes in the page content.
 
