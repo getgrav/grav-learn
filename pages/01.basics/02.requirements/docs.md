@@ -136,7 +136,6 @@ Although you can get away with Notepad, Textedit, Vi, or whatever default text e
 3. [SublimeText](http://www.sublimetext.com/) - MacOS/Windows/Linux - A commercial developer's editor, but well worth the price. Very powerful especially combined with plugins such as [Markdown Extended](https://sublime.wbond.net/packages/Markdown%20Extended), [Pretty YAML](https://sublime.wbond.net/packages/Pretty%20YAML), and [PHP-Twig](https://sublime.wbond.net/packages/PHP-Twig).
 4. [Notepad++](http://notepad-plus-plus.org/) - Windows - A free and very popular developer's editor for Windows.
 5. [Bluefish](http://bluefish.openoffice.nl/index.html) - MacOS/Windows/Linux - A free, open source text editor geared towards programmers and web developers.
-6. [Visual Studio Code](https://code.visualstudio.com/) - A lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux.
 
 ### Markdown Editors
 
