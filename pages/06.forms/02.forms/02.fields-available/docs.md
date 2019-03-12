@@ -10,24 +10,47 @@ The Forms plugin provides the following fields, which you can use to build your 
 
 | Field                                   | Description                                                 |
 | :-----                                  | :-----                                                      |
+| **Array** ||
+| **Avatar** ||
 | **[Captcha](#the-captcha-field)**       | A captcha antispam field, using reCAPTCHA                   |
 | **[Checkbox](#the-checkbox-field)**     | A simple checkbox                                           |
 | **[Checkboxes](#the-checkboxes-field)** | A series of checkboxes                                      |
+| **Color** ||
+| **Columns** ||
+| **Column** ||
 | **[Conditional](#the-conditional-field)** | A conditional field that will display or hide fields based on a condition                                        |
 | **[Date](#the-date-field)**             | A date selection field                                      |
+| **Datetime** ||
 | **[Display](#the-display-field)**       | A text or instructions field (not an input field)           |
 | **[Email](#the-email-field)**           | An email field, with validation                             |
+| **Fieldset** ||
 | **[File](#the-file-field)**             | A file field for uploading                                  |
+| **Formname** ||
 | **[Hidden](#the-hidden-field)**         | An hidden field                                             |
 | **[Honeypot](#the-honeypot-field)**     | A hidden field which returns an error when filled           |
+| **[Ignore](#the-ignore-field)**         | used to remove unused fields when extending from another blueprint |
+| **Key** ||
+| **Month** ||
+| **Number** ||
 | **[Password](#the-password-field)**     | A password field                                            |
 | **[Radio](#the-radio-field)**           | A radio input type                                          |
 | **[Range](#the-range-field)**           | A range input type                                          |
 | **[Select](#the-select-field)**         | A select field                                              |
 | **[Select OptGroup](#the-select-optgroup-field)**         | A grouping of options used within a select field                                              |
-| **[Spacer](#the-spacer-field)**         | Used to add a title, text or a horizontal line to the form |
+| **Signature** ||
+| **[Spacer](#the-spacer-field)**         | Used to add a title, text or a horizontal line to the form  |
+| **Switch** ||
+| **[Tabs](#the-tabs-tab-fields)**        | divides the settings in a list of tabs                      |
+| **[Tab](#the-tabs-tab-fields)**         | used by the `Tabs` field to render a tab                    |
+| **Tel** ||
 | **[Text](#the-text-field)**             | A simple text field                                         |
 | **[Textarea](#the-textarea-field)**     | A textarea                                                  |
+| **Time** ||
+| **[Toggle](#the-toggle-field)**         | a on/off kind of input, with configurable labels            |
+| **Unique Id** ||
+| **Url** ||
+| **Value** ||
+| **Week** ||
 
 ### Common Field Attributes
 
@@ -441,6 +464,21 @@ A honeypot field is a popular alternative to captcha fields.
 
 ---
 
+### The Ignore Field
+
+The `ignore` field type can be used to remove unused fields when extending from another blueprint
+
+Example:
+
+```yaml
+header.process:
+  type: ignore
+content:
+  type: ignore
+```
+
+---
+
 ### The Password Field
 
 The `password` field type is used to present a password text input field.
@@ -662,6 +700,44 @@ test:
 
 ---
 
+### The Tabs / Tab Fields
+
+![Tabs](tabs_field_bp.gif)
+
+The `tabs` and `tab` field types are used to divide the contained form fields in tabs.
+
+Example:
+
+```yaml
+tabs:
+  type: tabs
+  active: 1
+
+  fields:
+    content:
+      type: tab
+      title: PLUGIN_ADMIN.CONTENT
+
+      fields:
+
+        # .... other subfields
+
+    options:
+      type: tab
+      title: PLUGIN_ADMIN.OPTIONS
+
+      fields:
+
+        # .... other subfields
+```
+
+
+| Attribute | Description           |
+| :-----    | :-----                |
+| `active`  | The active tab number |
+
+---
+
 ### The Text Field
 
 ![Text Field](text_field.gif)
@@ -742,3 +818,43 @@ header.content:
 | [validate.pattern](#common-fields-attributes)  |
 | [validate.message](#common-fields-attributes)  |
 
+---
+
+### The Toggle Field
+
+![Toggle Field](toggle_field_bp.gif)
+
+The `toggle` field type is an on/off kind of input, with configurable labels.
+
+Example:
+
+```yaml
+summary.enabled:
+    type: toggle
+    label: PLUGIN_ADMIN.ENABLED
+    highlight: 1
+    help: PLUGIN_ADMIN.ENABLED_HELP
+    options:
+        1: PLUGIN_ADMIN.YES
+        0: PLUGIN_ADMIN.NO
+    validate:
+        type: bool
+```
+
+
+| Attribute   | Description                                                  |
+| :-----      | :-----                                                       |
+| `highlight` | The key of the option to highlight (set green when selected) |
+| `options`   | The list of key-value options                              |
+
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [default](#common-fields-attributes)           |
+| [help](#common-fields-attributes)              |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [style](#common-fields-attributes)             |
+| [toggleable](#common-fields-attributes)        |
+| [validate.required](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
+| [disabled](#common-fields-attributes)          |

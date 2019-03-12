@@ -15,25 +15,39 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 | Field                                             | Description                                                                                                                                                                                                 |
 | :-----                                            | :-----                                                                                                                                                                                                      |
 | **[Array](#the-array-field)**                     | used to create key-value arrays                                                                                                                                                                             |
+| **BackupHistory**  ||
+| **Blueprint**  ||
 | **[Colorpicker](#the-colorpicker-field)**                     | show a color picker                                                                                                                                                                             |
 | **[Columns](#the-columns-column-fields)**         | used to break the form into multiple columns                                                                                                                                                                  |
 | **[Column](#the-columns-column-fields)**          | used to show a single column (used with the `Columns` field)                                                                                                                                                |
+| **Cron**  ||
+| **CronStatus**  ||
 | **[Dateformat](#the-dateformat-field)**           | a special select that renders the current date/time in the passed formats                                                                                                                                   |
 | **[Datetime](#the-datetime-field)**               | a date and time selection field                                                                                                                                                                             |
 | **[Editor](#the-editor-field)**                   | show a markdown editor                                                                                                                                                                                      |
 | **[Fieldset](#the-fieldset-field)**               | group a set of fields inside a collapsible accordion                                                                                                                                                        |
 | **[File](#the-file-field)**                       | in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
 | **[Filepicker](#the-filepicker-field)**                       | **Filepicker** allows to choose files from a location in the web server filesystem. |
-| **[Ignore](#the-ignore-field)**                   | used to remove unused fields when extending from another blueprint                                                                                                                                          |
+| **Frontmatter**  ||
+| **IconPicker**  ||
 | **[List](#the-list-field)**                       | used to create collections of fields                                                                                                                                                                        |
+| **Markdown**  ||
+| **MediaPicker**  ||
+| **Multilevel**  ||
+| **Order**  ||
+| **PageMedia**  ||
 | **[PageMediaSelect](#the-pagemediaselect-field)** | shows a select with all the page media. Used in Pages blueprints to let the user choose a media file to be assigned to a field.                                                                             |
 | **[Pages](#the-pages-field)**                     | shows a list of the site pages                                                                                                                                                                              |
+| **Parents**  ||
+| **Permissions**  ||
+| **Range**  ||
 | **[Section](#the-section-field)**                 | used to divide a setting page into sections; each section comes with a title                                                                                                                                |
 | **[Selectize](#the-selectize-field)**             | a hybrid of a text box and a select box. Mostly useful for tagging and other element picking fields.                                                                                                        |
-| **[Tabs](#the-tabs-tab-fields)**                  | divides the settings in a list of tabs                                                                                                                                                                      |
-| **[Tab](#the-tabs-tab-fields)**                   | used by the `Tabs` field to render a tab                                                                                                                                                                    |
+| **SelectUnique**  ||
 | **[Taxonomy](#the-taxonomy-field)**               | a special select preconfigured to select one or more taxonomies                                                                                                                                             |
-| **[Toggle](#the-toggle-field)**                   | a on/off kind of input, with configurable labels                                                                                                                                                            |
+| **ThemeSelect**  ||
+| **UserInfo**  ||
+| **Xss**  ||
 
 ### Common Fields Attributes
 
@@ -619,21 +633,6 @@ A honeypot field is a popular alternative to captcha fields.
 
 ---
 
-### The Ignore Field
-
-The `ignore` field type can be used to remove unused fields when extending from another blueprint
-
-Example:
-
-```yaml
-header.process:
-  type: ignore
-content:
-  type: ignore
-```
-
----
-
 ### The List Field
 
 ![List Field](list_field_bp.gif)
@@ -903,44 +902,6 @@ taxonomies:
 
 ---
 
-### The Tabs / Tab Fields
-
-![Tabs](tabs_field_bp.gif)
-
-The `tabs` and `tab` field types are used to divide the contained form fields in tabs.
-
-Example:
-
-```yaml
-tabs:
-  type: tabs
-  active: 1
-
-  fields:
-    content:
-      type: tab
-      title: PLUGIN_ADMIN.CONTENT
-
-      fields:
-
-        # .... other subfields
-
-    options:
-      type: tab
-      title: PLUGIN_ADMIN.OPTIONS
-
-      fields:
-
-        # .... other subfields
-```
-
-
-| Attribute | Description           |
-| :-----    | :-----                |
-| `active`  | The active tab number |
-
----
-
 ### The Taxonomy Field
 
 ![Taxonomy](taxonomy_field_bp.gif)
@@ -979,44 +940,3 @@ header.taxonomy:
 | [validate.required](#common-fields-attributes)   |
 | [validate.pattern](#common-fields-attributes)    |
 | [validate.message](#common-fields-attributes)    |
-
----
-
-### The Toggle Field
-
-![Toggle Field](toggle_field_bp.gif)
-
-The `toggle` field type is an on/off kind of input, with configurable labels.
-
-Example:
-
-```yaml
-summary.enabled:
-    type: toggle
-    label: PLUGIN_ADMIN.ENABLED
-    highlight: 1
-    help: PLUGIN_ADMIN.ENABLED_HELP
-    options:
-        1: PLUGIN_ADMIN.YES
-        0: PLUGIN_ADMIN.NO
-    validate:
-        type: bool
-```
-
-
-| Attribute   | Description                                                  |
-| :-----      | :-----                                                       |
-| `highlight` | The key of the option to highlight (set green when selected) |
-| `options`   | The list of key-value options                              |
-
-| Common Attributes Allowed                      |
-| :-----                                         |
-| [default](#common-fields-attributes)           |
-| [help](#common-fields-attributes)              |
-| [label](#common-fields-attributes)             |
-| [name](#common-fields-attributes)              |
-| [style](#common-fields-attributes)             |
-| [toggleable](#common-fields-attributes)        |
-| [validate.required](#common-fields-attributes) |
-| [validate.type](#common-fields-attributes)     |
-| [disabled](#common-fields-attributes)          |
