@@ -14,30 +14,55 @@ Most events within Grav fire in a specific order and it is important to understa
 
 1. [onFatalException](../event-hooks#onFatalException) _(no order, can occur anytime)_
 1. [onPluginsInitialized](../event-hooks#onPluginsInitialized)
+1. onThemeInitialized
+1. onRequestHandlerInit (1.6)
+1. onTask (1.6)
+  1. onTask.{task}
+1. onAction (1.6)
+  1. onAction.{action} (1.6)
+1. onBackupsInitialized
+1. onSchedulerInitialized (1.6)
 1. [onAssetsInitialized](../event-hooks#onAssetsInitialized)
 1. [onTwigTemplatePaths](../event-hooks#onTwigTemplatePaths)
+1. [onTwigLoader](../event-hooks#onTwigLoader)
 1. [onTwigInitialized](../event-hooks#onTwigInitialized)
 1. [onTwigExtensions](../event-hooks#onTwigExtensions)
-1. [onTwigPageVariables](../event-hooks#onTwigPageVariables) _(each page not cached yet)_
-1. [onPageContentRaw](../event-hooks#onPageContentRaw) _(each page not cached yet)_
-1. [onPageProcessed](../event-hooks#onPageProcessed) _(each page not cached yet)_
-1. [onMarkdownInitialized](../event-hooks#onMarkdownInitialized)
-1. [onPageContentProcessed](../event-hooks#onPageContentProcessed) _(each page not cached yet)_
-1. [onFolderProcessed](../event-hooks#onFolderProcessed) _(for each folder found)_
 1. [onBuildPagesInitialized](../event-hooks#onBuildPagesInitialized) _(once when pages are reprocessed)_
-1. [onBlueprintCreated](../event-hooks#onBlueprintCreated)
+  1. [onPageProcessed](../event-hooks#onPageProcessed) _(each page not cached yet)_
+  1. onFormPageHeaderProcessed (1.6) _(each page not cached yet)_
+  1. [onFolderProcessed](../event-hooks#onFolderProcessed) _(for each folder found)_
 1. [onPagesInitialized](../event-hooks#onPagesInitialized)
-1. [onPageNotFound](../event-hooks#onPageNotFound)
 1. [onPageInitialized](../event-hooks#onPageInitialized)
-1. [onCollectionProcessed](../event-hooks#onCollectionProcessed) _(when collection is requested)_
+  1. [onPageContentRaw](../event-hooks#onPageContentRaw) _(each page not cached yet)_
+  1. [onMarkdownInitialized](../event-hooks#onMarkdownInitialized)
+  1. [onPageContentProcessed](../event-hooks#onPageContentProcessed) _(each page not cached yet)_
+1. [onPageNotFound](../event-hooks#onPageNotFound)
+1. onPageAction (1.6)
+  1. onPageAction.{action} (1.6)
+1. onPageTask (1.6)
+  1. onPageTask.{task} (1.6)
+1. [onTwigPageVariables](../event-hooks#onTwigPageVariables) _(each page not cached yet)_
+1. onHttpPostFilter (1.5.2)
 1. [onTwigSiteVariables](../event-hooks#onTwigSiteVariables)
+1. [onCollectionProcessed](../event-hooks#onCollectionProcessed) _(when collection is requested)_
 1. [onOutputGenerated](../event-hooks#onOutputGenerated)
 1. [onOutputRendered](../event-hooks#onOutputRendered)
 1. [onShutdown](../event-hooks#onShutdown)
+
+Misc events:
+
+1. [onBlueprintCreated](../event-hooks#onBlueprintCreated)
+1. onTwigTemplateVariables
+1. onTwigStringVariables
 1. [onBeforeDownload](../event-hooks#onBeforeDownload)
 1. [onPageFallBackUrl](../event-hooks#onPageFallBackUrl)
-2. [onMediaLocate](../event-hooks#onMediaLocate)
-1. [onTwigLoader](../event-hooks#onTwigLoader)
+1. [onMediaLocate](../event-hooks#onMediaLocate)
+1. [onGetPageBlueprints](../event-hooks#onGetPageBlueprints)
+1. [onGetPageTemplates](../event-hooks#onGetPageTemplates)
+1. onFlexObjectRender (1.6)
+1. onFlexCollectionRender (1.6)
+1. onBeforeCacheClear
+1. onImageMediumSaved (ImageFile)
 
 ## Core Grav Event Hooks
 
