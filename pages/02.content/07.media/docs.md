@@ -41,7 +41,13 @@ and also you can find them easily via markdown and perform operations on them:
 
 `![](/images/my-image.jpg?cropResize=300,300)`
 
-Alternatively you can put them in your theme, as that is easily accessible via CSS references.
+Alternatively you can put them in your theme, as that is easily accessible via CSS references or from a markdown file by using `theme://` stream:
+
+`![](theme://images/theme-image.jpg)`
+
+And finally, there is `user/images`, where you can use `image://` stream to access them:
+
+`![](image://my-image.jpg)`
 
 !!!! Grav has a `/images` folder. Do not put your own images in that folder, as it hosts Grav auto-generated, cached images.
 
