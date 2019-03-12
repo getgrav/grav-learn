@@ -58,14 +58,16 @@ This process will ask you a few questions that are required to create the new th
 
 ```
 $ bin/plugin devtools new-theme
+
 Enter Theme Name: MyTheme
 Enter Theme Description: My New Theme
 Enter Developer Name: Acme Corp
 Enter Developer Email: contact@acme.co
 Please choose a template type
-  [0] pure-blank
-  [1] inheritance
- > 0
+  [pure-blank ] Basic Theme using Pure.css
+  [inheritance] Inherit from another theme
+  [copy       ] Copy another theme
+ > pure-blank
 
 SUCCESS theme mytheme -> Created Successfully
 
