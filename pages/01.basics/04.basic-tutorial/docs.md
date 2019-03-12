@@ -50,7 +50,7 @@ body_classes: title-center title-h1h2
 
 Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **Quark** theme to get you started.
 
-!! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](http://learn.getgrav.org/troubleshooting/page-not-found).
+!! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
 ```
 [/div]
 
@@ -77,7 +77,7 @@ Congratulations! You have installed the **Base Grav Package** that provides a **
 This is a simple paragraph that would have been wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicate bold text or `<b>` in HTML.  Italic text is indicated by wrapping text in `_` markers.
 
 ```markdown
-!! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](http://learn.getgrav.org/troubleshooting/page-not-found).
+!! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
 ```
 
 This section uses a custom markdown feature that is provided by the included `markdown-notices` plugin.  This allows you to create simple notices by prefix a paragraph of text with a number of `!` (apostrophe) symbols, from `!` to `!!!!`.
@@ -90,7 +90,7 @@ This overview should provide you with a few key pointers for writing Markdown, b
 
 Creating a new page is a simple affair in **Grav**.  Just follow these simple steps:
 
-1. Navigate to your pages folder: `user/pages/` and create a new folder.  In this example, we will use [explicit default ordering](http://learn.getgrav.org/content/content-pages) and call the folder `03.mypage`.
+1. Navigate to your pages folder: `user/pages/` and create a new folder.  In this example, we will use [explicit default ordering](https://learn.getgrav.org/content/content-pages) and call the folder `03.mypage`.
 2. Launch your text editor, create a new file, and paste in the following sample code:
 
 [div class="no-margin-bottom"]

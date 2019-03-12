@@ -129,7 +129,7 @@ or:
 Remote image links enable you to directly display pretty much any media file via its URL. This doesn't have to include your own site's content, but it can. Here is an example of how you would display to a remote image file.
 
 ```markdown
-![Remote Image 1](http://getgrav.org/images/testimage.png)
+![Remote Image 1](https://getgrav.org/images/testimage.png)
 ```
 
 You can link to pretty much any direct URL, including secured HTTPS links.

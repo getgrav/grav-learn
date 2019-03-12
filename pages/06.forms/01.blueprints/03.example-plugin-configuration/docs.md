@@ -38,7 +38,7 @@ icon: university
 author:
   name: Team Grav
   email: devs@getgrav.org
-  url: http://getgrav.org
+  url: https://getgrav.org
 homepage: https://github.com/getgrav/grav-plugin-archives
 demo: http://demo.getgrav.org/blog-skeleton
 keywords: archives, plugin, blog, month, year, date, navigation, history

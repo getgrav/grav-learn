@@ -18,7 +18,7 @@ icon: empire
 author:
   name: Team Grav
   email: devs@getgrav.org
-  url: http://getgrav.org
+  url: https://getgrav.org
 homepage: https://github.com/getgrav/grav-theme-antimatter
 demo: http://demo.getgrav.org/blog-skeleton
 keywords: antimatter, theme, core, modern, fast, responsive, html5, css3

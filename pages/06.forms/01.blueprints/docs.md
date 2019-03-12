@@ -68,7 +68,7 @@ A theme can also allow its users to build all of them, but usually a fine-tuned 
 
 A page file is used by a page by setting its markdown file name, e.g. `blog.md`, `default.md` or `form.md`.
 
-Each of those files will use a different page file. You can also change the file type by [using the template header property](http://learn.getgrav.org/content/headers#template).
+Each of those files will use a different page file. You can also change the file type by [using the template header property](https://learn.getgrav.org/content/headers#template).
 
 The template used by a page not only determines the "look and feel" in the frontend, but also determines how the Admin Plugin will render it, allowing you to add options, select boxes, custom inputs and toggles.
 
