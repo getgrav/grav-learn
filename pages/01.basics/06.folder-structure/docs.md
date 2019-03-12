@@ -70,8 +70,11 @@ This is the most important folder for the majority of Grav users. This folder is
 
 ```bash
 /user/accounts
+/user/blueprints
 /user/config
 /user/data
+/user/images
+/user/languages
 /user/pages
 /user/plugins
 /user/themes
@@ -80,6 +83,10 @@ This is the most important folder for the majority of Grav users. This folder is
 ### /user/accounts
 
 The `accounts` folder is where you will define user accounts if access restrictions are required to certain portions of your site.
+
+### /user/blueprints
+
+The `blueprints` folder contains your custom blueprints for the site.
 
 ### /user/config
 
@@ -90,6 +97,15 @@ The [files in the config directory](../grav-configuration) are used to configure
 The `data` folder can be used by plugins to store data that you can reference later.  A good example of a plugin that utilizes this folder is the **Forms** plugin that can take a web form and store the submitted data in a text file in this folder.  You can also store other things such as user-uploads or anything you wish to really.
 
 !! This folder is not accessible via a browser by default.
+
+### /user/images
+
+The `images` folder can be used for storing your images. It can be accessed by using `image://` stream. 
+
+
+### /user/languages
+
+The `languages` folder contains custom or installed language files for your system. 
 
 ### /user/pages
 
