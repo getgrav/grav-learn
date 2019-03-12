@@ -164,7 +164,7 @@ This section determines how Grav handles media content. Image quality and other 
 | Image Debug Watermark      | Show an overlay over images indicating the pixel depth of the image when working with Retina for example. |
 | Enable Timestamps on Media | Appends a timestamp based on last modified date to each media item.
 
-!! Caching images that have already been optimised (outside of Grav) could result in the output file being a much larger filesize than the original. This is due to a bug in the Gregwar image library and not directly related to Grav (see this ![open issue](https://github.com/Gregwar/Image/issues/115) for more information). The alternative is to set "Cache All Images" to No
+!! Caching images that have already been optimised (outside of Grav) could result in the output file being a much larger filesize than the original. This is due to a bug in the Gregwar image library and not directly related to Grav (see this [open issue](https://github.com/Gregwar/Image/issues/115) for more information). The alternative is to set "Cache All Images" to No
 
 ### Session
 
