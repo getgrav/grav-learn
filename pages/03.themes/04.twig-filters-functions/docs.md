@@ -334,6 +334,44 @@ Converts a string into "under_scored" format
 
 `'CamelCased'|underscorize` <i class="fa fa-long-arrow-right"></i> **{{ 'CamelCased'|underscorize }}**
 
+[version=16]
+##### Casting Values
+
+PHP 7 is getting more strict type checks, which means that passing a value of wrong type may now throw an exception. To avoid this, you should use filters which ensure that the value passed to a method is valid:  
+
+**|string**
+
+Cast value to string.
+
+**|int**
+
+Cast value to integer.
+
+**|bool**
+
+Cast value to boolean.
+
+**|float**
+
+Cast value to floating point number.
+
+**|array**
+
+Cast value to an array.
+
+##### chunk_split
+##### nicenumber
+##### nicefilesize
+##### print_r
+##### yaml_encode
+##### yaml_decode
+##### nicecron
+##### get_type
+##### of_type
+
+TODO:
+
+[/version]
 
 ### Twig Functions
 
@@ -552,3 +590,22 @@ The `vardump()` function outputs the current variable to the screen (rather than
 
 {% set my_array = {foo: 'bar', baz: 'qux'} %}
 {{ vardump(my_array)}}
+
+[version=16]
+##### print_r
+##### http_response_code
+##### regex_replace
+##### regex_filter
+##### body_class
+##### theme_var
+##### header_var
+##### read_file
+##### nicenumber
+##### nicefilesize
+##### nicetime
+##### cron
+##### xss
+##### tl
+##### get_type
+##### of_type
+[/version]

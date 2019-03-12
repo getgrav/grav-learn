@@ -105,7 +105,7 @@ The `images` folder can be used for storing your images. It can be accessed by u
 
 ### /user/languages
 
-The `languages` folder contains custom or installed language files for your system. 
+The `languages` folder contains [Translation Overrides](../../content/multi-language#translation-overrides). 
 
 ### /user/pages
 
