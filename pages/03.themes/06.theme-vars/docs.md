@@ -28,6 +28,10 @@ The `{{ base_url_relative }}` returns the base URL to the Grav site, without the
 
 The `{{ base_url_absolute }}` returns the base URL to the Grav site, including the host information.
 
+### base_url_simple variable
+
+The `{{ base_url_simple }}` returns the base URL to the Grav site, without the language code.
+
 ### home_url variable
 
 The `{{ home_url }}` is particularly useful to use to link back to the homepage of your site. It is similar to `base_url` but takes into account the situation when the this is empty.
@@ -43,6 +47,15 @@ The `{{ theme_dir }}` variable returns the file directory folder of the current 
 ### theme_url variable
 
 The `{{ theme_url }}` returns the relative URL to the current theme.
+
+### html_lang variable
+
+The `{{ html_lang }}` returns the active language.
+
+### language_codes variable
+
+The `{{ language_codes }}` returns list of available languages of the site.
+
 
 !! When linking to assets like images or JavaScript and CSS files, it's recommended to use the `url()` function in combination with the `theme://` stream as described on the [Twig Filters & Functions](/themes/twig-filters-functions#url) page. For JavaScript and CSS, the [Asset Manager](/themes/asset-manager) is even easier to use but in some cases like dynamic or conditional loading of assets, it will not work.
 
