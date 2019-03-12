@@ -155,15 +155,14 @@ Like error handling, Grav's integrated debugging tools give you the ability to l
 
 ![Admin Configuration](configuration-system-media.png?width=1670&classes=shadow)
 
-This section determines how Grav handles media content. Image quality, file upload size limits, and other media handling options are configured here.
+This section determines how Grav handles media content. Image quality and other media handling options are configured here.
 
 | Option                     | Description                                                                                               |
 | :-----                     | :-----                                                                                                    |
 | Default Image Quality      | Default image quality to use when resampling or caching images (85%).                                     |
 | Cache All Images           | Run all images through Grav's cache system even if they have no media manipulations.                      |
 | Image Debug Watermark      | Show an overlay over images indicating the pixel depth of the image when working with Retina for example. |
-| File Upload Limit          | Set maximum upload size in bytes (0 is unlimited).                                                        |
-| Enable Timestamps on Media | Appends a timestamp based on last modified date to each media item.                                       
+| Enable Timestamps on Media | Appends a timestamp based on last modified date to each media item.
 
 !! Caching images that have already been optimised (outside of Grav) could result in the output file being a much larger filesize than the original. This is due to a bug in the Gregwar image library and not directly related to Grav (see this ![open issue](https://github.com/Gregwar/Image/issues/115) for more information). The alternative is to set "Cache All Images" to No
 
