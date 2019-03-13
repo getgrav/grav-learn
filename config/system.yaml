@@ -17,7 +17,7 @@ languages:
 cache:
   enabled: true
   check:
-    method: none
+    method: folder
   driver: auto
   prefix: 'g'
 
