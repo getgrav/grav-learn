@@ -1,3 +1,8 @@
+---
+title: Grav 1.6 API
+shortcode-core:
+    active: false
+---
 ## Table of contents
 
 - [\Grav\Common\Taxonomy](#class-gravcommontaxonomy)
