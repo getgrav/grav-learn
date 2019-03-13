@@ -19,7 +19,13 @@
 - [\Grav\Common\Session](#class-gravcommonsession)
 - [\Grav\Common\Getters (abstract)](#class-gravcommongetters-abstract)
 - [\Grav\Common\Debugger](#class-gravcommondebugger)
-- [\Grav\Common\Backup\ZipBackup](#class-gravcommonbackupzipbackup)
+- [\Grav\Common\Assets\InlineCss](#class-gravcommonassetsinlinecss)
+- [\Grav\Common\Assets\InlineJs](#class-gravcommonassetsinlinejs)
+- [\Grav\Common\Assets\BaseAsset (abstract)](#class-gravcommonassetsbaseasset-abstract)
+- [\Grav\Common\Assets\Pipeline](#class-gravcommonassetspipeline)
+- [\Grav\Common\Assets\Css](#class-gravcommonassetscss)
+- [\Grav\Common\Assets\Js](#class-gravcommonassetsjs)
+- [\Grav\Common\Backup\Backups](#class-gravcommonbackupbackups)
 - [\Grav\Common\Config\CompiledConfig](#class-gravcommonconfigcompiledconfig)
 - [\Grav\Common\Config\CompiledBase (abstract)](#class-gravcommonconfigcompiledbase-abstract)
 - [\Grav\Common\Config\Languages](#class-gravcommonconfiglanguages)
@@ -42,8 +48,12 @@
 - [\Grav\Common\File\CompiledJsonFile](#class-gravcommonfilecompiledjsonfile)
 - [\Grav\Common\File\CompiledYamlFile](#class-gravcommonfilecompiledyamlfile)
 - [\Grav\Common\File\CompiledMarkdownFile](#class-gravcommonfilecompiledmarkdownfile)
+- [\Grav\Common\Filesystem\ZipArchiver](#class-gravcommonfilesystemziparchiver)
+- [\Grav\Common\Filesystem\RecursiveDirectoryFilterIterator](#class-gravcommonfilesystemrecursivedirectoryfilteriterator)
 - [\Grav\Common\Filesystem\RecursiveFolderFilterIterator](#class-gravcommonfilesystemrecursivefolderfilteriterator)
+- [\Grav\Common\Filesystem\Archiver (abstract)](#class-gravcommonfilesystemarchiver-abstract)
 - [\Grav\Common\Filesystem\Folder (abstract)](#class-gravcommonfilesystemfolder-abstract)
+- [\Grav\Common\Form\FormFlash](#class-gravcommonformformflash)
 - [\Grav\Common\GPM\Upgrader](#class-gravcommongpmupgrader)
 - [\Grav\Common\GPM\GPM](#class-gravcommongpmgpm)
 - [\Grav\Common\GPM\AbstractCollection (abstract)](#class-gravcommongpmabstractcollection-abstract)
@@ -67,6 +77,7 @@
 - [\Grav\Common\Helpers\Truncator](#class-gravcommonhelperstruncator)
 - [\Grav\Common\Helpers\Base32](#class-gravcommonhelpersbase32)
 - [\Grav\Common\Helpers\Exif](#class-gravcommonhelpersexif)
+- [\Grav\Common\Helpers\LogViewer](#class-gravcommonhelperslogviewer)
 - [\Grav\Common\Helpers\Excerpts](#class-gravcommonhelpersexcerpts)
 - [\Grav\Common\Language\Language](#class-gravcommonlanguagelanguage)
 - [\Grav\Common\Language\LanguageCodes](#class-gravcommonlanguagelanguagecodes)
@@ -81,7 +92,11 @@
 - [\Grav\Common\Page\Header](#class-gravcommonpageheader)
 - [\Grav\Common\Page\Media](#class-gravcommonpagemedia)
 - [\Grav\Common\Page\Types](#class-gravcommonpagetypes)
+- [\Grav\Common\Page\Interfaces\PageLegacyInterface (interface)](#interface-gravcommonpageinterfacespagelegacyinterface)
+- [\Grav\Common\Page\Interfaces\PageTranslateInterface (interface)](#interface-gravcommonpageinterfacespagetranslateinterface)
 - [\Grav\Common\Page\Interfaces\FullPageInterface (interface)](#interface-gravcommonpageinterfacesfullpageinterface)
+- [\Grav\Common\Page\Interfaces\PageRoutableInterface (interface)](#interface-gravcommonpageinterfacespageroutableinterface)
+- [\Grav\Common\Page\Interfaces\PageContentInterface (interface)](#interface-gravcommonpageinterfacespagecontentinterface)
 - [\Grav\Common\Page\Interfaces\PageInterface (interface)](#interface-gravcommonpageinterfacespageinterface)
 - [\Grav\Common\Page\Medium\AudioMedium](#class-gravcommonpagemediumaudiomedium)
 - [\Grav\Common\Page\Medium\StaticImageMedium](#class-gravcommonpagemediumstaticimagemedium)
@@ -96,54 +111,81 @@
 - [\Grav\Common\Page\Medium\MediumFactory](#class-gravcommonpagemediummediumfactory)
 - [\Grav\Common\Page\Medium\AbstractMedia (abstract)](#class-gravcommonpagemediumabstractmedia-abstract)
 - [\Grav\Common\Processors\ProcessorInterface (interface)](#interface-gravcommonprocessorsprocessorinterface)
+- [\Grav\Common\Processors\DebuggerProcessor](#class-gravcommonprocessorsdebuggerprocessor)
 - [\Grav\Common\Processors\InitializeProcessor](#class-gravcommonprocessorsinitializeprocessor)
-- [\Grav\Common\Processors\SiteSetupProcessor](#class-gravcommonprocessorssitesetupprocessor)
 - [\Grav\Common\Processors\TwigProcessor](#class-gravcommonprocessorstwigprocessor)
 - [\Grav\Common\Processors\RenderProcessor](#class-gravcommonprocessorsrenderprocessor)
 - [\Grav\Common\Processors\AssetsProcessor](#class-gravcommonprocessorsassetsprocessor)
+- [\Grav\Common\Processors\RequestProcessor](#class-gravcommonprocessorsrequestprocessor)
+- [\Grav\Common\Processors\BackupsProcessor](#class-gravcommonprocessorsbackupsprocessor)
 - [\Grav\Common\Processors\TasksProcessor](#class-gravcommonprocessorstasksprocessor)
-- [\Grav\Common\Processors\DebuggerInitProcessor](#class-gravcommonprocessorsdebuggerinitprocessor)
 - [\Grav\Common\Processors\ErrorsProcessor](#class-gravcommonprocessorserrorsprocessor)
 - [\Grav\Common\Processors\PagesProcessor](#class-gravcommonprocessorspagesprocessor)
 - [\Grav\Common\Processors\PluginsTestProcessor](#class-gravcommonprocessorspluginstestprocessor)
 - [\Grav\Common\Processors\DebuggerAssetsProcessor](#class-gravcommonprocessorsdebuggerassetsprocessor)
 - [\Grav\Common\Processors\ProcessorBase (abstract)](#class-gravcommonprocessorsprocessorbase-abstract)
+- [\Grav\Common\Processors\SchedulerProcessor](#class-gravcommonprocessorsschedulerprocessor)
+- [\Grav\Common\Processors\LoggerProcessor](#class-gravcommonprocessorsloggerprocessor)
 - [\Grav\Common\Processors\ThemesProcessor](#class-gravcommonprocessorsthemesprocessor)
 - [\Grav\Common\Processors\PluginsProcessor](#class-gravcommonprocessorspluginsprocessor)
 - [\Grav\Common\Processors\ConfigurationProcessor](#class-gravcommonprocessorsconfigurationprocessor)
+- [\Grav\Common\Processors\Events\RequestHandlerEvent](#class-gravcommonprocessorseventsrequesthandlerevent)
+- [\Grav\Common\Scheduler\Scheduler](#class-gravcommonschedulerscheduler)
+- [\Grav\Common\Scheduler\Job](#class-gravcommonschedulerjob)
+- [\Grav\Common\Scheduler\Cron](#class-gravcommonschedulercron)
+- [\Grav\Common\Service\RequestServiceProvider](#class-gravcommonservicerequestserviceprovider)
+- [\Grav\Common\Service\PagesServiceProvider](#class-gravcommonservicepagesserviceprovider)
+- [\Grav\Common\Service\SchedulerServiceProvider](#class-gravcommonserviceschedulerserviceprovider)
 - [\Grav\Common\Service\StreamsServiceProvider](#class-gravcommonservicestreamsserviceprovider)
 - [\Grav\Common\Service\LoggerServiceProvider](#class-gravcommonserviceloggerserviceprovider)
 - [\Grav\Common\Service\TaskServiceProvider](#class-gravcommonservicetaskserviceprovider)
-- [\Grav\Common\Service\PageServiceProvider](#class-gravcommonservicepageserviceprovider)
+- [\Grav\Common\Service\BackupsServiceProvider](#class-gravcommonservicebackupsserviceprovider)
 - [\Grav\Common\Service\SessionServiceProvider](#class-gravcommonservicesessionserviceprovider)
+- [\Grav\Common\Service\FilesystemServiceProvider](#class-gravcommonservicefilesystemserviceprovider)
 - [\Grav\Common\Service\ErrorServiceProvider](#class-gravcommonserviceerrorserviceprovider)
+- [\Grav\Common\Service\InflectorServiceProvider](#class-gravcommonserviceinflectorserviceprovider)
 - [\Grav\Common\Service\AssetsServiceProvider](#class-gravcommonserviceassetsserviceprovider)
 - [\Grav\Common\Service\ConfigServiceProvider](#class-gravcommonserviceconfigserviceprovider)
 - [\Grav\Common\Service\OutputServiceProvider](#class-gravcommonserviceoutputserviceprovider)
+- [\Grav\Common\Service\AccountsServiceProvider](#class-gravcommonserviceaccountsserviceprovider)
 - [\Grav\Common\Twig\Twig](#class-gravcommontwigtwig)
 - [\Grav\Common\Twig\TwigExtension](#class-gravcommontwigtwigextension)
 - [\Grav\Common\Twig\TwigEnvironment](#class-gravcommontwigtwigenvironment)
+- [\Grav\Common\Twig\Node\TwigNodeThrow](#class-gravcommontwignodetwignodethrow)
+- [\Grav\Common\Twig\Node\TwigNodeRender](#class-gravcommontwignodetwignoderender)
 - [\Grav\Common\Twig\Node\TwigNodeTryCatch](#class-gravcommontwignodetwignodetrycatch)
 - [\Grav\Common\Twig\Node\TwigNodeStyle](#class-gravcommontwignodetwignodestyle)
 - [\Grav\Common\Twig\Node\TwigNodeSwitch](#class-gravcommontwignodetwignodeswitch)
 - [\Grav\Common\Twig\Node\TwigNodeScript](#class-gravcommontwignodetwignodescript)
 - [\Grav\Common\Twig\Node\TwigNodeMarkdown](#class-gravcommontwignodetwignodemarkdown)
 - [\Grav\Common\Twig\TokenParser\TwigTokenParserTryCatch](#class-gravcommontwigtokenparsertwigtokenparsertrycatch)
+- [\Grav\Common\Twig\TokenParser\TwigTokenParserThrow](#class-gravcommontwigtokenparsertwigtokenparserthrow)
 - [\Grav\Common\Twig\TokenParser\TwigTokenParserMarkdown](#class-gravcommontwigtokenparsertwigtokenparsermarkdown)
 - [\Grav\Common\Twig\TokenParser\TwigTokenParserSwitch](#class-gravcommontwigtokenparsertwigtokenparserswitch)
 - [\Grav\Common\Twig\TokenParser\TwigTokenParserStyle](#class-gravcommontwigtokenparsertwigtokenparserstyle)
 - [\Grav\Common\Twig\TokenParser\TwigTokenParserScript](#class-gravcommontwigtokenparsertwigtokenparserscript)
-- [\Grav\Common\User\User](#class-gravcommonuseruser)
+- [\Grav\Common\Twig\TokenParser\TwigTokenParserRender](#class-gravcommontwigtokenparsertwigtokenparserrender)
 - [\Grav\Common\User\Authentication (abstract)](#class-gravcommonuserauthentication-abstract)
 - [\Grav\Common\User\Group](#class-gravcommonusergroup)
+- [\Grav\Common\User\DataUser\User](#class-gravcommonuserdatauseruser)
+- [\Grav\Common\User\DataUser\UserCollection](#class-gravcommonuserdatauserusercollection)
+- [\Grav\Common\User\FlexUser\User](#class-gravcommonuserflexuseruser)
+- [\Grav\Common\User\FlexUser\UserIndex](#class-gravcommonuserflexuseruserindex)
+- [\Grav\Common\User\FlexUser\UserCollection](#class-gravcommonuserflexuserusercollection)
+- [\Grav\Common\User\FlexUser\Storage\UserFolderStorage](#class-gravcommonuserflexuserstorageuserfolderstorage)
+- [\Grav\Common\User\FlexUser\Storage\UserFileStorage](#class-gravcommonuserflexuserstorageuserfilestorage)
+- [\Grav\Common\User\Interfaces\UserInterface (interface)](#interface-gravcommonuserinterfacesuserinterface)
+- [\Grav\Common\User\Interfaces\UserCollectionInterface (interface)](#interface-gravcommonuserinterfacesusercollectioninterface)
 - [\Grav\Console\ConsoleCommand](#class-gravconsoleconsolecommand)
 - [\Grav\Console\Cli\SecurityCommand](#class-gravconsoleclisecuritycommand)
 - [\Grav\Console\Cli\InstallCommand](#class-gravconsolecliinstallcommand)
 - [\Grav\Console\Cli\BackupCommand](#class-gravconsoleclibackupcommand)
 - [\Grav\Console\Cli\CleanCommand](#class-gravconsoleclicleancommand)
-- [\Grav\Console\Cli\ClearCacheCommand](#class-gravconsolecliclearcachecommand)
+- [\Grav\Console\Cli\LogViewerCommand](#class-gravconsoleclilogviewercommand)
+- [\Grav\Console\Cli\CacheCommand](#class-gravconsoleclicachecommand)
 - [\Grav\Console\Cli\SandboxCommand](#class-gravconsoleclisandboxcommand)
 - [\Grav\Console\Cli\NewProjectCommand](#class-gravconsoleclinewprojectcommand)
+- [\Grav\Console\Cli\SchedulerCommand](#class-gravconsoleclischedulercommand)
 - [\Grav\Console\Cli\ComposerCommand](#class-gravconsoleclicomposercommand)
 - [\Grav\Console\Gpm\IndexCommand](#class-gravconsolegpmindexcommand)
 - [\Grav\Console\Gpm\InfoCommand](#class-gravconsolegpminfocommand)
@@ -168,6 +210,7 @@
 - [\Grav\Framework\Cache\Exception\InvalidArgumentException](#class-gravframeworkcacheexceptioninvalidargumentexception)
 - [\Grav\Framework\Cache\Exception\CacheException](#class-gravframeworkcacheexceptioncacheexception)
 - [\Grav\Framework\Collection\AbstractFileCollection](#class-gravframeworkcollectionabstractfilecollection)
+- [\Grav\Framework\Collection\AbstractIndexCollection (abstract)](#class-gravframeworkcollectionabstractindexcollection-abstract)
 - [\Grav\Framework\Collection\FileCollection](#class-gravframeworkcollectionfilecollection)
 - [\Grav\Framework\Collection\ArrayCollection](#class-gravframeworkcollectionarraycollection)
 - [\Grav\Framework\Collection\CollectionInterface (interface)](#interface-gravframeworkcollectioncollectioninterface)
@@ -177,14 +220,54 @@
 - [\Grav\Framework\ContentBlock\HtmlBlock](#class-gravframeworkcontentblockhtmlblock)
 - [\Grav\Framework\ContentBlock\ContentBlockInterface (interface)](#interface-gravframeworkcontentblockcontentblockinterface)
 - [\Grav\Framework\ContentBlock\HtmlBlockInterface (interface)](#interface-gravframeworkcontentblockhtmlblockinterface)
+- [\Grav\Framework\DI\Container](#class-gravframeworkdicontainer)
+- [\Grav\Framework\File\MarkdownFile](#class-gravframeworkfilemarkdownfile)
+- [\Grav\Framework\File\AbstractFile](#class-gravframeworkfileabstractfile)
+- [\Grav\Framework\File\DataFile](#class-gravframeworkfiledatafile)
+- [\Grav\Framework\File\IniFile](#class-gravframeworkfileinifile)
+- [\Grav\Framework\File\File](#class-gravframeworkfilefile)
+- [\Grav\Framework\File\JsonFile](#class-gravframeworkfilejsonfile)
+- [\Grav\Framework\File\YamlFile](#class-gravframeworkfileyamlfile)
+- [\Grav\Framework\File\CsvFile](#class-gravframeworkfilecsvfile)
 - [\Grav\Framework\File\Formatter\MarkdownFormatter](#class-gravframeworkfileformattermarkdownformatter)
 - [\Grav\Framework\File\Formatter\JsonFormatter](#class-gravframeworkfileformatterjsonformatter)
 - [\Grav\Framework\File\Formatter\FormatterInterface (interface)](#interface-gravframeworkfileformatterformatterinterface)
 - [\Grav\Framework\File\Formatter\SerializeFormatter](#class-gravframeworkfileformatterserializeformatter)
 - [\Grav\Framework\File\Formatter\IniFormatter](#class-gravframeworkfileformatteriniformatter)
+- [\Grav\Framework\File\Formatter\AbstractFormatter (abstract)](#class-gravframeworkfileformatterabstractformatter-abstract)
 - [\Grav\Framework\File\Formatter\YamlFormatter](#class-gravframeworkfileformatteryamlformatter)
+- [\Grav\Framework\File\Formatter\CsvFormatter](#class-gravframeworkfileformattercsvformatter)
+- [\Grav\Framework\File\Interfaces\FileInterface (interface)](#interface-gravframeworkfileinterfacesfileinterface)
+- [\Grav\Framework\File\Interfaces\FileFormatterInterface (interface)](#interface-gravframeworkfileinterfacesfileformatterinterface)
+- [\Grav\Framework\Filesystem\Filesystem](#class-gravframeworkfilesystemfilesystem)
+- [\Grav\Framework\Filesystem\Interfaces\FilesystemInterface (interface)](#interface-gravframeworkfilesysteminterfacesfilesysteminterface)
+- [\Grav\Framework\Flex\FlexForm](#class-gravframeworkflexflexform)
+- [\Grav\Framework\Flex\FlexCollection](#class-gravframeworkflexflexcollection)
+- [\Grav\Framework\Flex\Flex](#class-gravframeworkflexflex)
+- [\Grav\Framework\Flex\FlexObject](#class-gravframeworkflexflexobject)
+- [\Grav\Framework\Flex\FlexIndex](#class-gravframeworkflexflexindex)
+- [\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)
+- [\Grav\Framework\Flex\Interfaces\FlexIndexInterface (interface)](#interface-gravframeworkflexinterfacesflexindexinterface)
+- [\Grav\Framework\Flex\Interfaces\FlexObjectInterface (interface)](#interface-gravframeworkflexinterfacesflexobjectinterface)
+- [\Grav\Framework\Flex\Interfaces\FlexCollectionInterface (interface)](#interface-gravframeworkflexinterfacesflexcollectioninterface)
+- [\Grav\Framework\Flex\Interfaces\FlexAuthorizeInterface (interface)](#interface-gravframeworkflexinterfacesflexauthorizeinterface)
+- [\Grav\Framework\Flex\Interfaces\FlexStorageInterface (interface)](#interface-gravframeworkflexinterfacesflexstorageinterface)
+- [\Grav\Framework\Flex\Interfaces\FlexFormInterface (interface)](#interface-gravframeworkflexinterfacesflexforminterface)
+- [\Grav\Framework\Flex\Storage\AbstractFilesystemStorage (abstract)](#class-gravframeworkflexstorageabstractfilesystemstorage-abstract)
+- [\Grav\Framework\Flex\Storage\FolderStorage](#class-gravframeworkflexstoragefolderstorage)
+- [\Grav\Framework\Flex\Storage\FileStorage](#class-gravframeworkflexstoragefilestorage)
+- [\Grav\Framework\Flex\Storage\SimpleStorage](#class-gravframeworkflexstoragesimplestorage)
+- [\Grav\Framework\Form\FormFlash](#class-gravframeworkformformflash)
+- [\Grav\Framework\Form\FormFlashFile](#class-gravframeworkformformflashfile)
+- [\Grav\Framework\Form\Interfaces\FormFactoryInterface (interface)](#interface-gravframeworkforminterfacesformfactoryinterface)
+- [\Grav\Framework\Form\Interfaces\FormInterface (interface)](#interface-gravframeworkforminterfacesforminterface)
+- [\Grav\Framework\Media\Interfaces\MediaCollectionInterface (interface)](#interface-gravframeworkmediainterfacesmediacollectioninterface)
+- [\Grav\Framework\Media\Interfaces\MediaManipulationInterface (interface)](#interface-gravframeworkmediainterfacesmediamanipulationinterface)
+- [\Grav\Framework\Media\Interfaces\MediaObjectInterface (interface)](#interface-gravframeworkmediainterfacesmediaobjectinterface)
+- [\Grav\Framework\Media\Interfaces\MediaInterface (interface)](#interface-gravframeworkmediainterfacesmediainterface)
 - [\Grav\Framework\Object\ObjectCollection](#class-gravframeworkobjectobjectcollection)
 - [\Grav\Framework\Object\LazyObject](#class-gravframeworkobjectlazyobject)
+- [\Grav\Framework\Object\ObjectIndex (abstract)](#class-gravframeworkobjectobjectindex-abstract)
 - [\Grav\Framework\Object\ArrayObject](#class-gravframeworkobjectarrayobject)
 - [\Grav\Framework\Object\PropertyObject](#class-gravframeworkobjectpropertyobject)
 - [\Grav\Framework\Object\Collection\ObjectExpressionVisitor](#class-gravframeworkobjectcollectionobjectexpressionvisitor)
@@ -196,20 +279,41 @@
 - [\Grav\Framework\Page\Interfaces\PageMediaCollectionInterface (interface)](#interface-gravframeworkpageinterfacespagemediacollectioninterface)
 - [\Grav\Framework\Page\Interfaces\PageCollectionInterface (interface)](#interface-gravframeworkpageinterfacespagecollectioninterface)
 - [\Grav\Framework\Page\Interfaces\PageContentInterface (interface)](#interface-gravframeworkpageinterfacespagecontentinterface)
+- [\Grav\Framework\Pagination\Pagination](#class-gravframeworkpaginationpagination)
+- [\Grav\Framework\Pagination\AbstractPagination](#class-gravframeworkpaginationabstractpagination)
+- [\Grav\Framework\Pagination\AbstractPaginationPage (abstract)](#class-gravframeworkpaginationabstractpaginationpage-abstract)
+- [\Grav\Framework\Pagination\PaginationPage](#class-gravframeworkpaginationpaginationpage)
+- [\Grav\Framework\Pagination\Interfaces\PaginationInterface (interface)](#interface-gravframeworkpaginationinterfacespaginationinterface)
+- [\Grav\Framework\Pagination\Interfaces\PaginationPageInterface (interface)](#interface-gravframeworkpaginationinterfacespaginationpageinterface)
 - [\Grav\Framework\Plugin\PluginCollection](#class-gravframeworkpluginplugincollection)
 - [\Grav\Framework\Plugin\PluginInterface (interface)](#interface-gravframeworkpluginplugininterface)
 - [\Grav\Framework\Plugin\Interfaces\PluginCollectionInterface (interface)](#interface-gravframeworkplugininterfacesplugincollectioninterface)
 - [\Grav\Framework\Plugin\Interfaces\PluginObjectInterface (interface)](#interface-gravframeworkplugininterfacespluginobjectinterface)
+- [\Grav\Framework\Psr7\Stream](#class-gravframeworkpsr7stream)
+- [\Grav\Framework\Psr7\Uri](#class-gravframeworkpsr7uri)
+- [\Grav\Framework\Psr7\UploadedFile](#class-gravframeworkpsr7uploadedfile)
+- [\Grav\Framework\Psr7\ServerRequest](#class-gravframeworkpsr7serverrequest)
 - [\Grav\Framework\Psr7\AbstractUri (abstract)](#class-gravframeworkpsr7abstracturi-abstract)
+- [\Grav\Framework\Psr7\Response](#class-gravframeworkpsr7response)
+- [\Grav\Framework\Psr7\Request](#class-gravframeworkpsr7request)
+- [\Grav\Framework\RequestHandler\RequestHandler](#class-gravframeworkrequesthandlerrequesthandler)
+- [\Grav\Framework\RequestHandler\Exception\InvalidArgumentException](#class-gravframeworkrequesthandlerexceptioninvalidargumentexception)
+- [\Grav\Framework\RequestHandler\Exception\RequestException](#class-gravframeworkrequesthandlerexceptionrequestexception)
+- [\Grav\Framework\RequestHandler\Exception\NotFoundException](#class-gravframeworkrequesthandlerexceptionnotfoundexception)
+- [\Grav\Framework\RequestHandler\Exception\NotHandledException](#class-gravframeworkrequesthandlerexceptionnothandledexception)
+- [\Grav\Framework\RequestHandler\Exception\PageExpiredException](#class-gravframeworkrequesthandlerexceptionpageexpiredexception)
+- [\Grav\Framework\RequestHandler\Middlewares\Exceptions](#class-gravframeworkrequesthandlermiddlewaresexceptions)
 - [\Grav\Framework\RequestHandler\Middlewares\RemoveTrailingSlash](#class-gravframeworkrequesthandlermiddlewaresremovetrailingslash)
 - [\Grav\Framework\RequestHandler\Middlewares\RemoveFileExtension](#class-gravframeworkrequesthandlermiddlewaresremovefileextension)
 - [\Grav\Framework\Route\RouteFactory](#class-gravframeworkrouteroutefactory)
 - [\Grav\Framework\Route\Route](#class-gravframeworkrouteroute)
 - [\Grav\Framework\Session\Session](#class-gravframeworksessionsession)
 - [\Grav\Framework\Session\SessionInterface (interface)](#interface-gravframeworksessionsessioninterface)
+- [\Grav\Framework\Session\Exceptions\SessionException](#class-gravframeworksessionexceptionssessionexception)
 - [\Grav\Framework\Uri\UriFactory](#class-gravframeworkuriurifactory)
 - [\Grav\Framework\Uri\Uri](#class-gravframeworkuriuri)
 - [\Grav\Framework\Uri\UriPartsFilter](#class-gravframeworkuriuripartsfilter)
+- [\Grav\Installer\Install](#class-gravinstallerinstall)
 
 <hr /><a id="class-gravcommontaxonomy"></a>
 ### Class: \Grav\Common\Taxonomy
@@ -219,7 +323,7 @@
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>[\Grav\Common\Grav](#class-gravcommongrav)</em> <strong>$grav</strong>)</strong> : <em>void</em><br /><em>Constructor that resets the map</em> |
-| public | <strong>addTaxonomy(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$page</strong>, <em>array</em> <strong>$page_taxonomy=null</strong>)</strong> : <em>void</em><br /><em>Takes an individual page and processes the taxonomies configured in its header. It then adds those taxonomies to the map</em> |
+| public | <strong>addTaxonomy(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$page</strong>, <em>array</em> <strong>$page_taxonomy=null</strong>)</strong> : <em>void</em><br /><em>Takes an individual page and processes the taxonomies configured in its header. It then adds those taxonomies to the map</em> |
 | public | <strong>findTaxonomy(</strong><em>array</em> <strong>$taxonomies</strong>, <em>string</em> <strong>$operator=`'and'`</strong>)</strong> : <em>Collection Collection object set to contain matches found in the taxonomy map</em><br /><em>Returns a new Page object with the sub-pages containing all the values set for a particular taxonomy.</em> |
 | public | <strong>getTaxonomyItemKeys(</strong><em>string</em> <strong>$taxonomy</strong>)</strong> : <em>array keys of this taxonomy</em><br /><em>Gets item keys per taxonomy</em> |
 | public | <strong>taxonomy(</strong><em>array</em> <strong>$var=null</strong>)</strong> : <em>array the taxonomy map</em><br /><em>Gets and Sets the taxonomy map</em> |
@@ -273,14 +377,16 @@
 <hr /><a id="class-gravcommoncache"></a>
 ### Class: \Grav\Common\Cache
 
-> The GravCache object is used throughout Grav to store and retrieve cached data. It uses DoctrineCache library and supports a variety of caching mechanisms. Those include: APCu APC XCache RedisCache MemCache MemCacheD FileSystem
+> The GravCache object is used throughout Grav to store and retrieve cached data. It uses DoctrineCache library and supports a variety of caching mechanisms. Those include: APCu RedisCache MemCache MemCacheD FileSystem
 
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>[\Grav\Common\Grav](#class-gravcommongrav)</em> <strong>$grav</strong>)</strong> : <em>void</em><br /><em>Constructor</em> |
 | public static | <strong>clearCache(</strong><em>string</em> <strong>$remove=`'standard'`</strong>)</strong> : <em>array</em><br /><em>Helper method to clear all Grav caches</em> |
+| public static | <strong>clearJob(</strong><em>string</em> <strong>$type</strong>)</strong> : <em>void</em><br /><em>Static function to call as a scheduled Job to clear Grav cache</em> |
 | public | <strong>contains(</strong><em>string</em> <strong>$id</strong>)</strong> : <em>bool true if the cached items exists</em><br /><em>Returns a boolean state of whether or not the item exists in the cache based on id key</em> |
 | public | <strong>delete(</strong><em>string</em> <strong>$id</strong>)</strong> : <em>bool true if the item was deleted successfully</em><br /><em>Deletes an item in the cache based on the id</em> |
+| public | <strong>deleteAll()</strong> : <em>bool</em><br /><em>Deletes all cache</em> |
 | public | <strong>fetch(</strong><em>string</em> <strong>$id</strong>)</strong> : <em>object/bool returns the cached entry, can be any type, or false if doesn't exist</em><br /><em>Gets a cached entry if it exists based on an id. If it does not exist, it returns false</em> |
 | public | <strong>getCacheDriver()</strong> : <em>DoctrineCache\CacheProvider The cache driver to use</em><br /><em>Automatically picks the cache mechanism to use.  If you pick one manually it will use that If there is no config option for $driver in the config, or it's set to 'auto', it will pick the best option based on which cache extensions are installed.</em> |
 | public | <strong>getCacheStatus()</strong> : <em>string</em><br /><em>Get cache state</em> |
@@ -290,9 +396,13 @@
 | public | <strong>getKey()</strong> : <em>mixed</em><br /><em>Getter method to get the cache key</em> |
 | public | <strong>getLifetime()</strong> : <em>mixed</em><br /><em>Retrieve the cache lifetime (in seconds)</em> |
 | public | <strong>init(</strong><em>[\Grav\Common\Grav](#class-gravcommongrav)</em> <strong>$grav</strong>)</strong> : <em>void</em><br /><em>Initialization that sets a base key and the driver based on configuration settings</em> |
-| public | <strong>isVolatileDriver(</strong><em>mixed</em> <strong>$setting</strong>)</strong> : <em>bool</em><br /><em>is this driver a volatile driver in that it resides in PHP process memory</em> |
+| public static | <strong>invalidateCache()</strong> : <em>void</em> |
+| public | <strong>isVolatileDriver(</strong><em>string</em> <strong>$setting</strong>)</strong> : <em>bool</em><br /><em>is this driver a volatile driver in that it resides in PHP process memory</em> |
+| public | <strong>onSchedulerInitialized(</strong><em>\RocketTheme\Toolbox\Event\Event</em> <strong>$event</strong>)</strong> : <em>void</em> |
+| public static | <strong>purgeJob()</strong> : <em>void</em><br /><em>Static function to call as a scheduled Job to purge old Doctrine files</em> |
+| public | <strong>purgeOldCache()</strong> : <em>int</em><br /><em>Deletes the old out of date file-based caches</em> |
 | public | <strong>save(</strong><em>string</em> <strong>$id</strong>, <em>array/object</em> <strong>$data</strong>, <em>int</em> <strong>$lifetime=null</strong>)</strong> : <em>void</em><br /><em>Stores a new cached entry.</em> |
-| public | <strong>setEnabled(</strong><em>mixed</em> <strong>$enabled</strong>)</strong> : <em>void</em><br /><em>Public accessor to set the enabled state of the cache</em> |
+| public | <strong>setEnabled(</strong><em>bool/int</em> <strong>$enabled</strong>)</strong> : <em>void</em><br /><em>Public accessor to set the enabled state of the cache</em> |
 | public | <strong>setKey(</strong><em>mixed</em> <strong>$key</strong>)</strong> : <em>void</em><br /><em>Setter method to set key (Advanced)</em> |
 | public | <strong>setLifetime(</strong><em>int</em> <strong>$future</strong>)</strong> : <em>void</em><br /><em>Set the cache lifetime programmatically</em> |
 
@@ -322,8 +432,8 @@
 | public static | <strong>buildParams(</strong><em>array</em> <strong>$params</strong>)</strong> : <em>string</em> |
 | public static | <strong>buildUrl(</strong><em>array</em> <strong>$parsed_url</strong>)</strong> : <em>string</em><br /><em>The opposite of built-in PHP method parse_url()</em> |
 | public static | <strong>cleanPath(</strong><em>mixed</em> <strong>$path</strong>)</strong> : <em>mixed/string</em><br /><em>Removes extra double slashes and fixes back-slashes</em> |
-| public static | <strong>convertUrl(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$page</strong>, <em>string/array</em> <strong>$url</strong>, <em>string</em> <strong>$type=`'link'`</strong>, <em>bool</em> <strong>$absolute=false</strong>, <em>bool</em> <strong>$route_only=false</strong>)</strong> : <em>string the more friendly formatted url</em><br /><em>Converts links from absolute '/' or relative (../..) to a Grav friendly format</em> |
-| public static | <strong>convertUrlOld(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$page</strong>, <em>string</em> <strong>$markdown_url</strong>, <em>string</em> <strong>$type=`'link'`</strong>, <em>null</em> <strong>$relative=null</strong>)</strong> : <em>string the more friendly formatted url</em><br /><em>Converts links from absolute '/' or relative (../..) to a Grav friendly format</em> |
+| public static | <strong>convertUrl(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$page</strong>, <em>string/array</em> <strong>$url</strong>, <em>string</em> <strong>$type=`'link'`</strong>, <em>bool</em> <strong>$absolute=false</strong>, <em>bool</em> <strong>$route_only=false</strong>)</strong> : <em>string/array the more friendly formatted url</em><br /><em>Converts links from absolute '/' or relative (../..) to a Grav friendly format</em> |
+| public static | <strong>convertUrlOld(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$page</strong>, <em>string</em> <strong>$markdown_url</strong>, <em>string</em> <strong>$type=`'link'`</strong>, <em>null</em> <strong>$relative=null</strong>)</strong> : <em>string the more friendly formatted url</em><br /><em>Converts links from absolute '/' or relative (../..) to a Grav friendly format</em> |
 | public | <strong>currentPage()</strong> : <em>int</em><br /><em>Return current page number.</em> |
 | public | <strong>environment()</strong> : <em>String</em><br /><em>Gets the environment name</em> |
 | public | <strong>extension(</strong><em>string/null</em> <strong>$default=null</strong>)</strong> : <em>string The extension of the URI</em><br /><em>Return the Extension of the URI</em> |
@@ -332,6 +442,7 @@
 | public static | <strong>filterQuery(</strong><em>string</em> <strong>$query</strong>)</strong> : <em>string The percent-encoded query string.</em><br /><em>Filters the query string or fragment of a URI.</em> |
 | public static | <strong>filterUserInfo(</strong><em>string</em> <strong>$info</strong>)</strong> : <em>string The percent-encoded user or password string.</em><br /><em>Filters the user info string.</em> |
 | public | <strong>fragment(</strong><em>string</em> <strong>$fragment=null</strong>)</strong> : <em>string/null</em><br /><em>Gets the Fragment portion of a URI (eg #target)</em> |
+| public | <strong>getContentType(</strong><em>bool</em> <strong>$short=true</strong>)</strong> : <em>null/string</em><br /><em>Get content type from request</em> |
 | public static | <strong>getCurrentRoute()</strong> : <em>[\Grav\Framework\Route\Route](#class-gravframeworkrouteroute)</em><br /><em>Returns current route.</em> |
 | public static | <strong>getCurrentUri()</strong> : <em>[\Grav\Framework\Uri\Uri](#class-gravframeworkuriuri)</em><br /><em>Returns current Uri.</em> |
 | public | <strong>host()</strong> : <em>string/null The host of the URI</em><br /><em>Return the host of the URI</em> |
@@ -373,7 +484,7 @@
 |:-----------|:---------|
 | public static | <strong>detectXss(</strong><em>string</em> <strong>$string</strong>)</strong> : <em>boolean/string Type of XSS vector if the given `$string` may contain XSS, false otherwise. Copies the code from: https://github.com/symphonycms/xssfilter/blob/master/extension.driver.php#L138</em><br /><em>Determine if string potentially has a XSS attack. This simple function does not catch all XSS and it is likely to return false positives because of it tags all potentially dangerous HTML tags and attributes without looking into their content.</em> |
 | public static | <strong>detectXssFromArray(</strong><em>array</em> <strong>$array</strong>, <em>string</em> <strong>$prefix=`''`</strong>)</strong> : <em>array Returns flatten list of potentially dangerous input values, such as 'data.content'.</em> |
-| public static | <strong>detectXssFromPages(</strong><em>mixed</em> <strong>$pages</strong>, <em>\callable</em> <strong>$status=null</strong>)</strong> : <em>void</em> |
+| public static | <strong>detectXssFromPages(</strong><em>[\Grav\Common\Page\Pages](#class-gravcommonpagepages)</em> <strong>$pages</strong>, <em>bool</em> <strong>$route=true</strong>, <em>\callable</em> <strong>$status=null</strong>)</strong> : <em>void</em> |
 
 <hr /><a id="class-gravcommoniterator"></a>
 ### Class: \Grav\Common\Iterator
@@ -432,102 +543,112 @@
 | public | <strong>getPlatform()</strong> : <em>string the lowercase platform name</em><br /><em>Get the current platform identifier Currently detected platforms: Desktop -> Windows -> Linux -> Macintosh -> Chrome OS Mobile -> Android -> iPhone -> iPad / iPod Touch -> Windows Phone OS -> Kindle -> Kindle Fire -> BlackBerry -> Playbook -> Tizen Console -> Nintendo 3DS -> New Nintendo 3DS -> Nintendo Wii -> Nintendo WiiU -> PlayStation 3 -> PlayStation 4 -> PlayStation Vita -> Xbox 360 -> Xbox One</em> |
 | public | <strong>getVersion()</strong> : <em>string the browser major version identifier</em><br /><em>Get the current major version identifier</em> |
 | public | <strong>isHuman()</strong> : <em>bool</em><br /><em>Determine if the request comes from a human, or from a bot/crawler</em> |
+| public | <strong>isTrackable()</strong> : <em>bool</em><br /><em>Determine if “Do Not Track” is set by browser</em> |
 
 <hr /><a id="class-gravcommonassets"></a>
 ### Class: \Grav\Common\Assets
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>array</em> <strong>$options=array()</strong>)</strong> : <em>void</em><br /><em>Assets constructor.</em> |
-| public | <strong>__toString()</strong> : <em>string</em> |
-| public | <strong>add(</strong><em>mixed</em> <strong>$asset</strong>, <em>int</em> <strong>$priority=null</strong>, <em>bool</em> <strong>$pipeline=true</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add an asset or a collection of assets. It automatically detects the asset type (JavaScript, CSS or collection). You may add more than one asset passing an array as argument.</em> |
-| public | <strike><strong>addAsyncJs(</strong><em>mixed</em> <strong>$asset</strong>, <em>int</em> <strong>$priority=null</strong>, <em>bool</em> <strong>$pipeline=true</strong>, <em>string</em> <strong>$group=null</strong>)</strong> : <em>[\Grav\Common\Assets](#class-gravcommonassets)</em></strike><br /><em>DEPRECATED - Please use dynamic method with ['loading' => 'async']</em> |
-| public | <strong>addCss(</strong><em>mixed</em> <strong>$asset</strong>, <em>int</em> <strong>$priority=null</strong>, <em>bool</em> <strong>$pipeline=true</strong>, <em>string</em> <strong>$group=null</strong>, <em>string</em> <strong>$loading=null</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add a CSS asset. It checks for duplicates. You may add more than one asset passing an array as argument. The second argument may alternatively contain an array of options which take precedence over positional arguments.</em> |
-| public | <strike><strong>addDeferJs(</strong><em>mixed</em> <strong>$asset</strong>, <em>int</em> <strong>$priority=null</strong>, <em>bool</em> <strong>$pipeline=true</strong>, <em>string</em> <strong>$group=null</strong>)</strong> : <em>[\Grav\Common\Assets](#class-gravcommonassets)</em></strike><br /><em>DEPRECATED - Please use dynamic method with ['loading' => 'defer']</em> |
+| public | <strong>add(</strong><em>array/string</em> <strong>$asset</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add an asset or a collection of assets. It automatically detects the asset type (JavaScript, CSS or collection). You may add more than one asset passing an array as argument.</em> |
+| public | <strike><strong>addAsyncJs(</strong><em>string/array</em> <strong>$asset</strong>, <em>int</em> <strong>$priority=10</strong>, <em>bool</em> <strong>$pipeline=true</strong>, <em>string</em> <strong>$group=`'head'`</strong>)</strong> : <em>[\Grav\Common\Assets](#class-gravcommonassets)</em></strike><br /><em>DEPRECATED - Please use dynamic method with ['loading' => 'async'].</em> |
+| public | <strong>addCss(</strong><em>mixed</em> <strong>$asset</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add a CSS asset or a collection of assets.</em> |
+| public | <strike><strong>addDeferJs(</strong><em>string/array</em> <strong>$asset</strong>, <em>int</em> <strong>$priority=10</strong>, <em>bool</em> <strong>$pipeline=true</strong>, <em>string</em> <strong>$group=`'head'`</strong>)</strong> : <em>[\Grav\Common\Assets](#class-gravcommonassets)</em></strike><br /><em>DEPRECATED - Please use dynamic method with ['loading' => 'defer'].</em> |
 | public | <strong>addDir(</strong><em>string</em> <strong>$directory</strong>, <em>string</em> <strong>$pattern=`'/.\.(css|js)$/i'`</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add all assets matching $pattern within $directory.</em> |
 | public | <strong>addDirCss(</strong><em>string</em> <strong>$directory</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add all CSS assets within $directory</em> |
 | public | <strong>addDirJs(</strong><em>string</em> <strong>$directory</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add all JavaScript assets within $directory</em> |
-| public | <strong>addInlineCss(</strong><em>mixed</em> <strong>$asset</strong>, <em>int</em> <strong>$priority=null</strong>, <em>null</em> <strong>$group=null</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add an inline CSS asset. It checks for duplicates. For adding chunks of string-based inline CSS</em> |
-| public | <strong>addInlineJs(</strong><em>mixed</em> <strong>$asset</strong>, <em>int</em> <strong>$priority=null</strong>, <em>string</em> <strong>$group=null</strong>, <em>null</em> <strong>$attributes=null</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add an inline JS asset. It checks for duplicates. For adding chunks of string-based inline JS</em> |
-| public | <strong>addJs(</strong><em>mixed</em> <strong>$asset</strong>, <em>int</em> <strong>$priority=null</strong>, <em>bool</em> <strong>$pipeline=true</strong>, <em>string</em> <strong>$loading=null</strong>, <em>string</em> <strong>$group=null</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add a JavaScript asset. It checks for duplicates. You may add more than one asset passing an array as argument. The second argument may alternatively contain an array of options which take precedence over positional arguments.</em> |
-| public | <strong>addTo(</strong><em>array</em> <strong>$assembly</strong>, <em>mixed</em> <strong>$asset</strong>, <em>int</em> <strong>$priority=null</strong>, <em>bool</em> <strong>$pipeline=true</strong>, <em>string</em> <strong>$loading=null</strong>, <em>string</em> <strong>$group=null</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add an asset to its assembly. It checks for duplicates. You may add more than one asset passing an array as argument. The third argument may alternatively contain an array of options which take precedence over positional arguments.</em> |
+| public | <strong>addInlineCss(</strong><em>mixed</em> <strong>$asset</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add an Inline CSS asset or a collection of assets.</em> |
+| public | <strong>addInlineJs(</strong><em>mixed</em> <strong>$asset</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add an Inline JS asset or a collection of assets.</em> |
+| public | <strong>addJs(</strong><em>mixed</em> <strong>$asset</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add a JS asset or a collection of assets.</em> |
 | public | <strong>config(</strong><em>array</em> <strong>$config</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Set up configuration options. All the class properties except 'js' and 'css' are accepted here. Also, an extra option 'autoload' may be passed containing an array of assets and/or collections that will be automatically added on startup.</em> |
 | public | <strong>css(</strong><em>string</em> <strong>$group=`'head'`</strong>, <em>array</em> <strong>$attributes=array()</strong>)</strong> : <em>string</em><br /><em>Build the CSS link tags.</em> |
-| public | <strong>exists(</strong><em>mixed</em> <strong>$asset</strong>)</strong> : <em>bool</em><br /><em>Determines if an asset exists as a collection, CSS or JS reference</em> |
+| public | <strong>exists(</strong><em>string</em> <strong>$asset</strong>)</strong> : <em>bool</em><br /><em>Determines if an asset exists as a collection, CSS or JS reference</em> |
 | public | <strong>getCollections()</strong> : <em>array</em><br /><em>Return the array of all the registered collections</em> |
 | public | <strong>getCss(</strong><em>null/string</em> <strong>$key=null</strong>)</strong> : <em>array</em><br /><em>Return the array of all the registered CSS assets If a $key is provided, it will try to return only that asset else it will return null</em> |
 | public | <strong>getJs(</strong><em>null/string</em> <strong>$key=null</strong>)</strong> : <em>array</em><br /><em>Return the array of all the registered JS assets If a $key is provided, it will try to return only that asset else it will return null</em> |
-| public | <strong>getQuerystring(</strong><em>mixed</em> <strong>$asset</strong>)</strong> : <em>string</em> |
 | public | <strong>getTimestamp(</strong><em>bool</em> <strong>$include_join=true</strong>)</strong> : <em>string</em><br /><em>Get the timestamp for assets</em> |
 | public | <strong>init()</strong> : <em>void</em><br /><em>Initialization called in the Grav lifecycle to initialize the Assets with appropriate configuration</em> |
 | public | <strong>js(</strong><em>string</em> <strong>$group=`'head'`</strong>, <em>array</em> <strong>$attributes=array()</strong>)</strong> : <em>string</em><br /><em>Build the JavaScript script tags.</em> |
 | public | <strong>registerCollection(</strong><em>string</em> <strong>$collectionName</strong>, <em>array</em> <strong>$assets</strong>, <em>bool</em> <strong>$overwrite=false</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Add/replace collection.</em> |
-| public | <strong>removeCss(</strong><em>string</em> <strong>$key</strong>)</strong> : <em>void</em><br /><em>Removes an item from the CSS array if set</em> |
-| public | <strong>removeJs(</strong><em>string</em> <strong>$key</strong>)</strong> : <em>void</em><br /><em>Removes an item from the JS array if set</em> |
+| public | <strong>removeCss(</strong><em>string</em> <strong>$key</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Removes an item from the CSS array if set</em> |
+| public | <strong>removeJs(</strong><em>string</em> <strong>$key</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Removes an item from the JS array if set</em> |
+| public | <strong>render(</strong><em>mixed</em> <strong>$type</strong>, <em>string</em> <strong>$group=`'head'`</strong>, <em>array</em> <strong>$attributes=array()</strong>)</strong> : <em>void</em> |
 | public | <strong>reset()</strong> : <em>\Grav\Common\$this</em><br /><em>Reset all assets.</em> |
 | public | <strong>resetCss()</strong> : <em>\Grav\Common\$this</em><br /><em>Reset CSS assets.</em> |
 | public | <strong>resetJs()</strong> : <em>\Grav\Common\$this</em><br /><em>Reset JavaScript assets.</em> |
-| public | <strong>setCollection(</strong><em>mixed</em> <strong>$collections</strong>)</strong> : <em>void</em><br /><em>Set the array of collections explicitly</em> |
-| public | <strong>setCss(</strong><em>mixed</em> <strong>$css</strong>)</strong> : <em>void</em><br /><em>Set the whole array of CSS assets</em> |
-| public | <strong>setCssPipeline(</strong><em>boolean</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Sets the state of CSS Pipeline</em> |
-| public | <strong>setJs(</strong><em>mixed</em> <strong>$js</strong>)</strong> : <em>void</em><br /><em>Set the whole array of JS assets</em> |
-| public | <strong>setJsPipeline(</strong><em>boolean</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Sets the state of JS Pipeline</em> |
-| public | <strong>setTimestamp(</strong><em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Explicitly set's a timestamp for assets</em> |
-| protected | <strong>attributes(</strong><em>array</em> <strong>$attributes</strong>)</strong> : <em>string</em><br /><em>Build an HTML attribute string from an array.</em> |
-| protected | <strong>buildLocalLink(</strong><em>string</em> <strong>$asset</strong>, <em>bool</em> <strong>$absolute=false</strong>)</strong> : <em>string the final link url to the asset</em><br /><em>Build local links including grav asset shortcodes</em> |
-| protected | <strong>cssRewrite(</strong><em>string</em> <strong>$file</strong>, <em>string</em> <strong>$relative_path</strong>)</strong> : <em>mixed</em><br /><em>Finds relative CSS urls() and rewrites the URL with an absolute one</em> |
-| protected | <strong>gatherLinks(</strong><em>array</em> <strong>$links</strong>, <em>bool</em> <strong>$css=true</strong>)</strong> : <em>string</em><br /><em>Download and concatenate the content of several links.</em> |
-| protected | <strong>getLastModificationTime(</strong><em>string</em> <strong>$asset</strong>)</strong> : <em>string the last modifcation time or false on error</em><br /><em>Get the last modification time of asset</em> |
-| protected | <strong>isRemoteLink(</strong><em>string</em> <strong>$link</strong>)</strong> : <em>bool</em><br /><em>Determine whether a link is local or remote. Understands both "http://" and "https://" as well as protocol agnostic links "//"</em> |
-| protected | <strong>moveImports(</strong><em>string</em> <strong>$file</strong>)</strong> : <em>string the modified file with any @imports at the top of the file</em><br /><em>Moves @import statements to the top of the file per the CSS specification</em> |
-| protected | <strong>pipelineCss(</strong><em>string</em> <strong>$group=`'head'`</strong>, <em>bool</em> <strong>$returnURL=true</strong>)</strong> : <em>bool/string URL or generated content if available, else false</em><br /><em>Minify and concatenate CSS</em> |
-| protected | <strong>pipelineJs(</strong><em>string</em> <strong>$group=`'head'`</strong>, <em>bool</em> <strong>$returnURL=true</strong>)</strong> : <em>bool/string URL or generated content if available, else false</em><br /><em>Minify and concatenate JS files.</em> |
+| public | <strong>setCollection(</strong><em>array</em> <strong>$collections</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Set the array of collections explicitly</em> |
+| public | <strong>setCss(</strong><em>array</em> <strong>$css</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Set the whole array of CSS assets</em> |
+| public | <strong>setCssPipeline(</strong><em>boolean</em> <strong>$value</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Sets the state of CSS Pipeline</em> |
+| public | <strong>setJs(</strong><em>array</em> <strong>$js</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Set the whole array of JS assets</em> |
+| public | <strong>setJsPipeline(</strong><em>boolean</em> <strong>$value</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Sets the state of JS Pipeline</em> |
+| public | <strong>setTimestamp(</strong><em>string/int</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Explicitly set's a timestamp for assets</em> |
+| protected | <strong>addType(</strong><em>mixed</em> <strong>$collection</strong>, <em>mixed</em> <strong>$type</strong>, <em>mixed</em> <strong>$asset</strong>, <em>mixed</em> <strong>$options</strong>)</strong> : <em>void</em> |
+| protected | <strong>createArgumentsFromLegacy(</strong><em>array</em> <strong>$args</strong>, <em>array</em> <strong>$defaults</strong>)</strong> : <em>mixed</em> |
+| protected | <strong>filterAssets(</strong><em>mixed</em> <strong>$assets</strong>, <em>mixed</em> <strong>$key</strong>, <em>mixed</em> <strong>$value</strong>, <em>bool</em> <strong>$sort=false</strong>)</strong> : <em>void</em> |
 | protected | <strong>rglob(</strong><em>string</em> <strong>$directory</strong>, <em>string</em> <strong>$pattern</strong>, <em>string</em> <strong>$ltrim=null</strong>)</strong> : <em>array</em><br /><em>Recursively get files matching $pattern within $directory.</em> |
-| protected | <strong>sortAssetsByPriorityThenOrder(</strong><em>mixed</em> <strong>$a</strong>, <em>mixed</em> <strong>$b</strong>)</strong> : <em>mixed</em> |
+| protected | <strong>sortAssets(</strong><em>mixed</em> <strong>$assets</strong>)</strong> : <em>void</em> |
+| protected | <strong>unifyLegacyArguments(</strong><em>array</em> <strong>$args</strong>, <em>string</em> <strong>$type=`'Css'`</strong>)</strong> : <em>array</em> |
+
+*This class extends [\Grav\Framework\Object\PropertyObject](#class-gravframeworkobjectpropertyobject)*
+
+*This class implements \ArrayAccess, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \JsonSerializable, \Serializable, [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface)*
 
 <hr /><a id="class-gravcommonutils-abstract"></a>
 ### Class: \Grav\Common\Utils (abstract)
 
 | Visibility | Function |
 |:-----------|:---------|
+| public static | <strong>arrayCombine(</strong><em>mixed</em> <strong>$arr1</strong>, <em>mixed</em> <strong>$arr2</strong>)</strong> : <em>array/false</em><br /><em>Array combine but supports different array lengths</em> |
+| public static | <strong>arrayDiffMultidimensional(</strong><em>mixed</em> <strong>$array1</strong>, <em>mixed</em> <strong>$array2</strong>)</strong> : <em>array</em><br /><em>Returns an array with the differences between $array1 and $array2</em> |
 | public static | <strong>arrayFilterRecursive(</strong><em>array</em> <strong>$source</strong>, <em>callable</em> <strong>$fn</strong>)</strong> : <em>array</em><br /><em>Recursively filter an array, filtering values by processing them through the $fn function argument</em> |
 | public static | <strong>arrayFlatten(</strong><em>array</em> <strong>$array</strong>)</strong> : <em>array</em><br /><em>Flatten an array</em> |
+| public static | <strong>arrayFlattenDotNotation(</strong><em>array</em> <strong>$array</strong>, <em>string</em> <strong>$prepend=`''`</strong>)</strong> : <em>array</em><br /><em>Flatten a multi-dimensional associative array into dot notation</em> |
+| public static | <strong>arrayIsAssociative(</strong><em>mixed</em> <strong>$arr</strong>)</strong> : <em>bool</em><br /><em>Array is associative or not</em> |
 | public static | <strong>arrayMergeRecursiveUnique(</strong><em>mixed</em> <strong>$array1</strong>, <em>mixed</em> <strong>$array2</strong>)</strong> : <em>mixed</em><br /><em>Recursive Merge with uniqueness</em> |
+| public static | <strong>arrayUnflattenDotNotation(</strong><em>mixed</em> <strong>$array</strong>, <em>string</em> <strong>$separator=`'.'`</strong>)</strong> : <em>array</em><br /><em>Opposite of flatten, convert flat dot notation array to multi dimensional array</em> |
 | public static | <strong>checkFilename(</strong><em>string</em> <strong>$filename</strong>)</strong> : <em>bool</em><br /><em>Returns true if filename is considered safe.</em> |
-| public static | <strong>contains(</strong><em>string</em> <strong>$haystack</strong>, <em>string/string[]</em> <strong>$needle</strong>)</strong> : <em>bool</em><br /><em>Check if the $haystack string contains the substring $needle</em> |
+| public static | <strong>contains(</strong><em>string</em> <strong>$haystack</strong>, <em>string/string[]</em> <strong>$needle</strong>, <em>bool</em> <strong>$case_sensitive=true</strong>)</strong> : <em>bool</em><br /><em>Check if the $haystack string contains the substring $needle</em> |
+| public static | <strong>convertSize(</strong><em>integer</em> <strong>$bytes</strong>, <em>string</em> <strong>$to</strong>, <em>integer</em> <strong>$decimal_places=1</strong>)</strong> : <em>integer Returns only the number of units, not the type letter. Returns if the $to unit type is out of scope.</em><br /><em>Convert bytes to the unit specified by the $to parameter.</em> |
 | public static | <strong>date2timestamp(</strong><em>string</em> <strong>$date</strong>, <em>string</em> <strong>$format=null</strong>)</strong> : <em>int the timestamp</em><br /><em>Get the timestamp of a date strtotime argument</em> |
 | public static | <strong>dateFormats()</strong> : <em>array</em><br /><em>Return the Grav date formats allowed</em> |
+| public static | <strong>dateNow(</strong><em>null</em> <strong>$default_format=null</strong>)</strong> : <em>string</em><br /><em>Get current date/time</em> |
 | public static | <strong>download(</strong><em>string</em> <strong>$file</strong>, <em>bool</em> <strong>$force_download=true</strong>, <em>int</em> <strong>$sec</strong>, <em>int</em> <strong>$bytes=1024</strong>)</strong> : <em>void</em><br /><em>Provides the ability to download a file to the browser</em> |
-| public static | <strong>endsWith(</strong><em>string</em> <strong>$haystack</strong>, <em>string/string[]</em> <strong>$needle</strong>)</strong> : <em>bool</em><br /><em>Check if the $haystack string ends with the substring $needle</em> |
+| public static | <strong>endsWith(</strong><em>string</em> <strong>$haystack</strong>, <em>string/string[]</em> <strong>$needle</strong>, <em>bool</em> <strong>$case_sensitive=true</strong>)</strong> : <em>bool</em><br /><em>Check if the $haystack string ends with the substring $needle</em> |
 | public static | <strong>generateRandomString(</strong><em>int</em> <strong>$length=5</strong>)</strong> : <em>string</em><br /><em>Generate a random string of a given length</em> |
 | public static | <strong>getDotNotation(</strong><em>mixed</em> <strong>$array</strong>, <em>mixed</em> <strong>$key</strong>, <em>null</em> <strong>$default=null</strong>)</strong> : <em>mixed</em><br /><em>Get a portion of an array (passed by reference) with dot-notation key</em> |
 | public static | <strong>getExtensionByMime(</strong><em>string</em> <strong>$mime</strong>, <em>string</em> <strong>$default=`'html'`</strong>)</strong> : <em>string</em><br /><em>Return the mimetype based on filename extension</em> |
+| public static | <strong>getExtensions(</strong><em>array</em> <strong>$mimetypes</strong>)</strong> : <em>array</em><br /><em>Get all the extensions for an array of mimetypes</em> |
 | public static | <strong>getMimeByExtension(</strong><em>string</em> <strong>$extension</strong>, <em>string</em> <strong>$default=`'application/octet-stream'`</strong>)</strong> : <em>string</em><br /><em>Return the mimetype based on filename extension</em> |
 | public static | <strong>getMimeByFilename(</strong><em>string</em> <strong>$filename</strong>, <em>string</em> <strong>$default=`'application/octet-stream'`</strong>)</strong> : <em>string</em><br /><em>Return the mimetype based on filename</em> |
 | public static | <strong>getMimeByLocalFile(</strong><em>string</em> <strong>$filename</strong>, <em>string</em> <strong>$default=`'application/octet-stream'`</strong>)</strong> : <em>string/bool</em><br /><em>Return the mimetype based on existing local file</em> |
+| public static | <strong>getMimeTypes(</strong><em>array</em> <strong>$extensions</strong>)</strong> : <em>array</em><br /><em>Get all the mimetypes for an array of extensions</em> |
 | public static | <strong>getNonce(</strong><em>string</em> <strong>$action</strong>, <em>bool</em> <strong>$previousTick=false</strong>)</strong> : <em>string the nonce</em><br /><em>Creates a hashed nonce tied to the passed action. Tied to the current user and time. The nonce for a given action is the same for 12 hours.</em> |
-| public static | <strong>getPagePathFromToken(</strong><em>mixed</em> <strong>$path</strong>, <em>\Grav\Common\Page/null</em> <strong>$page=null</strong>)</strong> : <em>string</em><br /><em>Get's path based on a token</em> |
+| public static | <strong>getPagePathFromToken(</strong><em>mixed</em> <strong>$path</strong>, <em>\Grav\Common\PageInterface/null/[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$page=null</strong>)</strong> : <em>string</em><br /><em>Get's path based on a token</em> |
 | public static | <strong>getUploadLimit()</strong> : <em>mixed</em> |
 | public static | <strong>isAdminPlugin()</strong> : <em>bool</em><br /><em>Simple helper method to get whether or not the admin plugin is active</em> |
 | public static | <strong>isApache()</strong> : <em>bool</em><br /><em>Utility to determine if the server running PHP is Apache</em> |
 | public static | <strong>isFunctionDisabled(</strong><em>string</em> <strong>$function</strong>)</strong> : <em>bool</em><br /><em>Check whether a function is disabled in the PHP settings</em> |
 | public static | <strong>isPositive(</strong><em>string</em> <strong>$value</strong>)</strong> : <em>boolean</em><br /><em>Checks if a value is positive</em> |
 | public static | <strong>isWindows()</strong> : <em>bool</em><br /><em>Utility method to determine if the current OS is Windows</em> |
+| public static | <strong>matchWildcard(</strong><em>mixed</em> <strong>$wildcard_pattern</strong>, <em>mixed</em> <strong>$haystack</strong>)</strong> : <em>false/int</em><br /><em>Function that can match wildcards match_wildcard('foo*', $test),      // TRUE match_wildcard('bar*', $test),      // FALSE match_wildcard('*bar*', $test),     // TRUE match_wildcard('**blob**', $test),  // TRUE match_wildcard('*a?d*', $test),     // TRUE match_wildcard('*etc**', $test)     // TRUE</em> |
+| public static | <strong>mb_substr_replace(</strong><em>string</em> <strong>$original</strong>, <em>string</em> <strong>$replacement</strong>, <em>int</em> <strong>$position</strong>, <em>int</em> <strong>$length</strong>)</strong> : <em>string</em><br /><em>Multibyte compatible substr_replace</em> |
 | public static | <strong>mergeObjects(</strong><em>object</em> <strong>$obj1</strong>, <em>object</em> <strong>$obj2</strong>)</strong> : <em>object</em><br /><em>Merge two objects into one.</em> |
 | public static | <strong>multibyteParseUrl(</strong><em>mixed</em> <strong>$url</strong>)</strong> : <em>mixed</em><br /><em>Multibyte-safe Parse URL function</em> |
 | public static | <strong>normalizePath(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>string</em><br /><em>Normalize path by processing relative `.` and `..` syntax and merging path</em> |
 | public static | <strong>parseSize(</strong><em>mixed</em> <strong>$size</strong>)</strong> : <em>int</em><br /><em>Parse a readable file size and return a value in bytes</em> |
 | public static | <strong>pathPrefixedByLangCode(</strong><em>string</em> <strong>$string</strong>)</strong> : <em>bool</em><br /><em>Checks if the passed path contains the language code prefix</em> |
+| public static | <strong>prettySize(</strong><em>int</em> <strong>$bytes</strong>, <em>int</em> <strong>$precision=2</strong>)</strong> : <em>string</em><br /><em>Return a pretty size based on bytes</em> |
+| public static | <strong>processMarkdown(</strong><em>mixed</em> <strong>$string</strong>, <em>bool</em> <strong>$block=true</strong>)</strong> : <em>mixed/string</em><br /><em>Process a string as markdown</em> |
 | public static | <strong>replaceFirstOccurrence(</strong><em>mixed</em> <strong>$search</strong>, <em>mixed</em> <strong>$replace</strong>, <em>mixed</em> <strong>$subject</strong>)</strong> : <em>mixed</em><br /><em>Utility method to replace only the first occurrence in a string</em> |
 | public static | <strong>replaceLastOccurrence(</strong><em>mixed</em> <strong>$search</strong>, <em>mixed</em> <strong>$replace</strong>, <em>mixed</em> <strong>$subject</strong>)</strong> : <em>mixed</em><br /><em>Utility method to replace only the last occurrence in a string</em> |
-| public static | <strike><strong>resolve(</strong><em>array</em> <strong>$array</strong>, <em>string</em> <strong>$path</strong>, <em>null</em> <strong>$default=null</strong>)</strong> : <em>mixed</em></strike><br /><em>DEPRECATED - Use getDotNotation() method instead</em> |
+| public static | <strike><strong>resolve(</strong><em>array</em> <strong>$array</strong>, <em>string</em> <strong>$path</strong>, <em>null</em> <strong>$default=null</strong>)</strong> : <em>mixed</em></strike><br /><em>DEPRECATED - 1.5 Use ->getDotNotation() method instead.</em> |
 | public static | <strong>safeTruncate(</strong><em>string</em> <strong>$string</strong>, <em>int</em> <strong>$limit=150</strong>)</strong> : <em>string</em><br /><em>Truncate text by number of characters in a "word-safe" manor.</em> |
 | public static | <strong>safeTruncateHtml(</strong><em>string</em> <strong>$text</strong>, <em>int</em> <strong>$length=25</strong>, <em>string</em> <strong>$ellipsis=`'...'`</strong>)</strong> : <em>string</em><br /><em>Truncate HTML by number of characters in a "word-safe" manor.</em> |
 | public static | <strong>setDotNotation(</strong><em>mixed</em> <strong>$array</strong>, <em>mixed</em> <strong>$key</strong>, <em>mixed</em> <strong>$value</strong>, <em>bool</em> <strong>$merge=false</strong>)</strong> : <em>mixed</em><br /><em>Set portion of array (passed by reference) for a dot-notation key and set the value</em> |
 | public static | <strong>sortArrayByArray(</strong><em>array</em> <strong>$array</strong>, <em>array</em> <strong>$orderArray</strong>)</strong> : <em>array</em><br /><em>Sort a multidimensional array  by another array of ordered keys</em> |
 | public static | <strong>sortArrayByKey(</strong><em>mixed</em> <strong>$array</strong>, <em>mixed</em> <strong>$array_key</strong>, <em>int</em> <strong>$direction=3</strong>, <em>int</em> <strong>$sort_flags</strong>)</strong> : <em>array</em><br /><em>Sort an array by a key value in the array</em> |
-| public static | <strong>startsWith(</strong><em>string</em> <strong>$haystack</strong>, <em>string/string[]</em> <strong>$needle</strong>)</strong> : <em>bool</em><br /><em>Check if the $haystack string starts with the substring $needle</em> |
-| public static | <strong>substrToString(</strong><em>mixed</em> <strong>$haystack</strong>, <em>mixed</em> <strong>$needle</strong>)</strong> : <em>string</em><br /><em>Returns the substring of a string up to a specified needle.  if not found, return the whole haystack</em> |
+| public static | <strong>startsWith(</strong><em>string</em> <strong>$haystack</strong>, <em>string/string[]</em> <strong>$needle</strong>, <em>bool</em> <strong>$case_sensitive=true</strong>)</strong> : <em>bool</em><br /><em>Check if the $haystack string starts with the substring $needle</em> |
+| public static | <strong>substrToString(</strong><em>mixed</em> <strong>$haystack</strong>, <em>mixed</em> <strong>$needle</strong>, <em>bool</em> <strong>$case_sensitive=true</strong>)</strong> : <em>string</em><br /><em>Returns the substring of a string up to a specified needle.  if not found, return the whole haystack</em> |
 | public static | <strong>timezones()</strong> : <em>array</em><br /><em>Get the formatted timezones list</em> |
 | public static | <strong>truncate(</strong><em>string</em> <strong>$string</strong>, <em>int</em> <strong>$limit=150</strong>, <em>bool</em> <strong>$up_to_break=false</strong>, <em>string</em> <strong>$break=`' '`</strong>, <em>string</em> <strong>$pad=`'&hellip;'`</strong>)</strong> : <em>string</em><br /><em>Truncate text by number of characters but can cut off words.</em> |
 | public static | <strong>truncateHtml(</strong><em>string</em> <strong>$text</strong>, <em>int</em> <strong>$length=100</strong>, <em>string</em> <strong>$ellipsis=`'...'`</strong>)</strong> : <em>string</em><br /><em>Truncate HTML by number of characters. not "word-safe"!</em> |
@@ -539,25 +660,25 @@
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__call(</strong><em>mixed</em> <strong>$method</strong>, <em>mixed</em> <strong>$args</strong>)</strong> : <em>void</em><br /><em>Magic Catch All Function Used to call closures like measureTime on the instance. Source: http://stackoverflow.com/questions/419804/closures-as-class-members</em> |
+| public | <strong>__call(</strong><em>mixed</em> <strong>$method</strong>, <em>mixed</em> <strong>$args</strong>)</strong> : <em>void</em><br /><em>Magic Catch All Function Used to call closures. Source: http://stackoverflow.com/questions/419804/closures-as-class-members</em> |
 | public | <strong>fallbackUrl(</strong><em>mixed</em> <strong>$path</strong>)</strong> : <em>void</em><br /><em>This attempts to find media, other files, and download them</em> |
 | public | <strong>fireEvent(</strong><em>string</em> <strong>$eventName</strong>, <em>\RocketTheme\Toolbox\Event\Event</em> <strong>$event=null</strong>)</strong> : <em>\RocketTheme\Toolbox\Event\Event</em><br /><em>Fires an event with optional parameters.</em> |
-| public | <strong>header()</strong> : <em>void</em><br /><em>Set response header.</em> |
+| public | <strong>header(</strong><em>\Grav\Common\ResponseInterface/null/\Psr\Http\Message\ResponseInterface</em> <strong>$response=null</strong>)</strong> : <em>void</em><br /><em>Set response header.</em> |
 | public static | <strong>instance(</strong><em>array</em> <strong>$values=array()</strong>)</strong> : <em>[\Grav\Common\Grav](#class-gravcommongrav)</em><br /><em>Return the Grav instance. Create it if it's not already instanced</em> |
+| public | <strong>measureTime(</strong><em>\string</em> <strong>$timerId</strong>, <em>\string</em> <strong>$timerTitle</strong>, <em>\callable</em> <strong>$callback</strong>)</strong> : <em>mixed Returns value returned by the callable.</em><br /><em>Measure how long it takes to do an action.</em> |
 | public | <strong>process()</strong> : <em>void</em><br /><em>Process a request</em> |
 | public | <strong>redirect(</strong><em>string</em> <strong>$route</strong>, <em>int</em> <strong>$code=null</strong>)</strong> : <em>void</em><br /><em>Redirect browser to another location.</em> |
 | public | <strong>redirectLangSafe(</strong><em>string</em> <strong>$route</strong>, <em>int</em> <strong>$code=null</strong>)</strong> : <em>void</em><br /><em>Redirect browser to another location taking language into account (preferred)</em> |
 | public static | <strong>resetInstance()</strong> : <em>void</em><br /><em>Reset the Grav instance.</em> |
 | public | <strong>setLocale()</strong> : <em>void</em><br /><em>Set the system locale based on the language and configuration</em> |
+| public | <strong>setup(</strong><em>\string</em> <strong>$environment=null</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Setup Grav instance using specific environment. Initializes Grav streams by</em> |
 | public | <strong>shutdown()</strong> : <em>void</em><br /><em>Set the final content length for the page and flush the buffer</em> |
 | protected static | <strong>load(</strong><em>array</em> <strong>$values</strong>)</strong> : <em>\Grav\Common\static</em><br /><em>Initialize and return a Grav instance</em> |
-| protected | <strong>registerService(</strong><em>string</em> <strong>$serviceKey</strong>, <em>string</em> <strong>$serviceClass</strong>)</strong> : <em>void</em><br /><em>Register a service with the container.</em> |
-| protected | <strong>registerServiceProvider(</strong><em>string</em> <strong>$serviceClass</strong>)</strong> : <em>void</em><br /><em>Register a service provider with the container.</em> |
 | protected | <strong>registerServices()</strong> : <em>void</em><br /><em>Register all services Services are defined in the diMap. They can either only the class of a Service Provider or a pair of serviceKey => serviceClass that gets directly mapped into the container.</em> |
 
-*This class extends \RocketTheme\Toolbox\DI\Container*
+*This class extends [\Grav\Framework\DI\Container](#class-gravframeworkdicontainer)*
 
-*This class implements \ArrayAccess*
+*This class implements \Psr\Container\ContainerInterface, \ArrayAccess*
 
 <hr /><a id="class-gravcommoninflector"></a>
 ### Class: \Grav\Common\Inflector
@@ -566,19 +687,19 @@
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>camelize(</strong><em>string</em> <strong>$word</strong>)</strong> : <em>string UpperCamelCasedWord</em><br /><em>Returns given word as CamelCased Converts a word like "send_email" to "SendEmail". It will remove non alphanumeric character from the word, so "who's online" will be converted to "WhoSOnline"</em> |
-| public | <strong>classify(</strong><em>string</em> <strong>$table_name</strong>)</strong> : <em>string SingularClassName</em><br /><em>Converts a table name to its class name according to rails naming conventions. Converts "people" to "Person"</em> |
-| public | <strong>humanize(</strong><em>string</em> <strong>$word</strong>, <em>string</em> <strong>$uppercase=`''`</strong>)</strong> : <em>string Human-readable word</em><br /><em>Returns a human-readable string from $word Returns a human-readable string from $word, by replacing underscores with a space, and by upper-casing the initial character by default. If you need to uppercase all the words you just have to pass 'all' as a second parameter. instead of just the first one.</em> |
-| public | <strong>hyphenize(</strong><em>string</em> <strong>$word</strong>)</strong> : <em>string hyphenized word</em><br /><em>Converts a word "into-it-s-hyphenated-version" Convert any "CamelCased" or "ordinary Word" into an "hyphenated-word". This can be really useful for creating friendly URLs.</em> |
-| public | <strong>init()</strong> : <em>void</em> |
-| public | <strong>monthize(</strong><em>int</em> <strong>$days</strong>)</strong> : <em>int</em><br /><em>Converts a number of days to a number of months</em> |
-| public | <strong>ordinalize(</strong><em>integer</em> <strong>$number</strong>)</strong> : <em>string Ordinal representation of given string.</em><br /><em>Converts number to its ordinal English form. This method converts 13 to 13th, 2 to 2nd ...</em> |
-| public | <strong>pluralize(</strong><em>string</em> <strong>$word</strong>, <em>int</em> <strong>$count=2</strong>)</strong> : <em>string Plural noun</em><br /><em>Pluralizes English nouns.</em> |
-| public | <strong>singularize(</strong><em>string</em> <strong>$word</strong>, <em>int</em> <strong>$count=1</strong>)</strong> : <em>string Singular noun.</em><br /><em>Singularizes English nouns.</em> |
-| public | <strong>tableize(</strong><em>string</em> <strong>$class_name</strong>)</strong> : <em>string plural_table_name</em><br /><em>Converts a class name to its table name according to rails naming conventions. Converts "Person" to "people"</em> |
-| public | <strong>titleize(</strong><em>string</em> <strong>$word</strong>, <em>string</em> <strong>$uppercase=`''`</strong>)</strong> : <em>string Text formatted as title</em><br /><em>Converts an underscored or CamelCase word into a English sentence. The titleize public function converts text like "WelcomePage", "welcome_page" or  "welcome page" to this "Welcome Page". If second parameter is set to 'first' it will only capitalize the first character of the title. first character. Otherwise it will uppercase all the words in the title.</em> |
-| public | <strong>underscorize(</strong><em>string</em> <strong>$word</strong>)</strong> : <em>string Underscored word</em><br /><em>Converts a word "into_it_s_underscored_version" Convert any "CamelCased" or "ordinary Word" into an "underscored_word". This can be really useful for creating friendly URLs.</em> |
-| public | <strong>variablize(</strong><em>string</em> <strong>$word</strong>)</strong> : <em>string Returns a lowerCamelCasedWord</em><br /><em>Same as camelize but first char is underscored Converts a word like "send_email" to "sendEmail". It will remove non alphanumeric character from the word, so "who's online" will be converted to "whoSOnline"</em> |
+| public static | <strong>camelize(</strong><em>string</em> <strong>$word</strong>)</strong> : <em>string UpperCamelCasedWord</em><br /><em>Returns given word as CamelCased Converts a word like "send_email" to "SendEmail". It will remove non alphanumeric character from the word, so "who's online" will be converted to "WhoSOnline"</em> |
+| public static | <strong>classify(</strong><em>string</em> <strong>$table_name</strong>)</strong> : <em>string SingularClassName</em><br /><em>Converts a table name to its class name according to rails naming conventions. Converts "people" to "Person"</em> |
+| public static | <strong>humanize(</strong><em>string</em> <strong>$word</strong>, <em>string</em> <strong>$uppercase=`''`</strong>)</strong> : <em>string Human-readable word</em><br /><em>Returns a human-readable string from $word Returns a human-readable string from $word, by replacing underscores with a space, and by upper-casing the initial character by default. If you need to uppercase all the words you just have to pass 'all' as a second parameter. instead of just the first one.</em> |
+| public static | <strong>hyphenize(</strong><em>string</em> <strong>$word</strong>)</strong> : <em>string hyphenized word</em><br /><em>Converts a word "into-it-s-hyphenated-version" Convert any "CamelCased" or "ordinary Word" into an "hyphenated-word". This can be really useful for creating friendly URLs.</em> |
+| public static | <strong>init()</strong> : <em>void</em> |
+| public static | <strong>monthize(</strong><em>int</em> <strong>$days</strong>)</strong> : <em>int</em><br /><em>Converts a number of days to a number of months</em> |
+| public static | <strong>ordinalize(</strong><em>integer</em> <strong>$number</strong>)</strong> : <em>string Ordinal representation of given string.</em><br /><em>Converts number to its ordinal English form. This method converts 13 to 13th, 2 to 2nd ...</em> |
+| public static | <strong>pluralize(</strong><em>string</em> <strong>$word</strong>, <em>int</em> <strong>$count=2</strong>)</strong> : <em>string Plural noun</em><br /><em>Pluralizes English nouns.</em> |
+| public static | <strong>singularize(</strong><em>string</em> <strong>$word</strong>, <em>int</em> <strong>$count=1</strong>)</strong> : <em>string Singular noun.</em><br /><em>Singularizes English nouns.</em> |
+| public static | <strong>tableize(</strong><em>string</em> <strong>$class_name</strong>)</strong> : <em>string plural_table_name</em><br /><em>Converts a class name to its table name according to rails naming conventions. Converts "Person" to "people"</em> |
+| public static | <strong>titleize(</strong><em>string</em> <strong>$word</strong>, <em>string</em> <strong>$uppercase=`''`</strong>)</strong> : <em>string Text formatted as title</em><br /><em>Converts an underscored or CamelCase word into a English sentence. The titleize public function converts text like "WelcomePage", "welcome_page" or  "welcome page" to this "Welcome Page". If second parameter is set to 'first' it will only capitalize the first character of the title. first character. Otherwise it will uppercase all the words in the title.</em> |
+| public static | <strong>underscorize(</strong><em>string</em> <strong>$word</strong>)</strong> : <em>string Underscored word</em><br /><em>Converts a word "into_it_s_underscored_version" Convert any "CamelCased" or "ordinary Word" into an "underscored_word". This can be really useful for creating friendly URLs.</em> |
+| public static | <strong>variablize(</strong><em>string</em> <strong>$word</strong>)</strong> : <em>string Returns a lowerCamelCasedWord</em><br /><em>Same as camelize but first char is underscored Converts a word like "send_email" to "sendEmail". It will remove non alphanumeric character from the word, so "who's online" will be converted to "whoSOnline"</em> |
 
 <hr /><a id="class-gravcommonplugin"></a>
 ### Class: \Grav\Common\Plugin
@@ -589,7 +710,8 @@
 | public | <strong>config()</strong> : <em>array</em><br /><em>Get configuration of the plugin.</em> |
 | public | <strong>getBlueprint()</strong> : <em>mixed</em><br /><em>Simpler getter for the plugin blueprint</em> |
 | public static | <strong>getSubscribedEvents()</strong> : <em>array</em><br /><em>By default assign all methods as listeners using the default priority.</em> |
-| public | <strong>isAdmin()</strong> : <em>bool</em><br /><em>Determine if this is running under the admin</em> |
+| public | <strong>isAdmin()</strong> : <em>bool</em><br /><em>Determine if plugin is running under the admin</em> |
+| public | <strong>isCli()</strong> : <em>bool</em><br /><em>Determine if plugin is running under the CLI</em> |
 | public | <strong>offsetExists(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>bool Returns TRUE on success or FALSE on failure.</em><br /><em>Whether or not an offset exists.</em> |
 | public | <strong>offsetGet(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>mixed Can return all value types.</em><br /><em>Returns the value at specified offset.</em> |
 | public | <strong>offsetSet(</strong><em>mixed</em> <strong>$offset</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Assigns a value to the specified offset.</em> |
@@ -600,7 +722,7 @@
 | protected | <strong>enable(</strong><em>array</em> <strong>$events</strong>)</strong> : <em>void</em> |
 | protected | <strong>isPluginActiveAdmin(</strong><em>mixed</em> <strong>$plugin_route</strong>)</strong> : <em>bool</em><br /><em>Determine if this route is in Admin and active for the plugin</em> |
 | protected | <strong>loadBlueprint()</strong> : <em>mixed</em><br /><em>Load blueprints.</em> |
-| protected | <strong>mergeConfig(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$page</strong>, <em>bool/mixed</em> <strong>$deep=false</strong>, <em>array</em> <strong>$params=array()</strong>, <em>string</em> <strong>$type=`'plugins'`</strong>)</strong> : <em>[\Grav\Common\Data\Data](#class-gravcommondatadata)</em><br /><em>Merge global and page configurations. plugin settings. merge with the plugin settings.</em> |
+| protected | <strong>mergeConfig(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$page</strong>, <em>bool/mixed</em> <strong>$deep=false</strong>, <em>array</em> <strong>$params=array()</strong>, <em>string</em> <strong>$type=`'plugins'`</strong>)</strong> : <em>[\Grav\Common\Data\Data](#class-gravcommondatadata)</em><br /><em>Merge global and page configurations. plugin settings. merge with the plugin settings.</em> |
 | protected | <strong>parseLinks(</strong><em>string</em> <strong>$content</strong>, <em>callable</em> <strong>$function</strong>, <em>string</em> <strong>$internal_regex=`'(.*)'`</strong>)</strong> : <em>string</em><br /><em>This function will search a string for markdown links in a specific format.  The link value can be optionally compared against via the $internal_regex and operated on by the callback $function provided. format: [plugin:myplugin_name](function_data)</em> |
 
 *This class implements \RocketTheme\Toolbox\Event\EventSubscriberInterface, \Symfony\Component\EventDispatcher\EventSubscriberInterface, \ArrayAccess*
@@ -615,7 +737,7 @@
 | public | <strong>getBlueprint()</strong> : <em>mixed</em><br /><em>Simpler getter for the theme blueprint</em> |
 | public static | <strong>saveConfig(</strong><em>string</em> <strong>$theme_name</strong>)</strong> : <em>true</em><br /><em>Persists to disk the theme parameters currently stored in the Grav Config object</em> |
 | protected | <strong>loadBlueprint()</strong> : <em>mixed</em><br /><em>Load blueprints.</em> |
-| protected | <strong>mergeConfig(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$page</strong>, <em>string</em> <strong>$deep=`'merge'`</strong>, <em>array</em> <strong>$params=array()</strong>, <em>string</em> <strong>$type=`'themes'`</strong>)</strong> : <em>void</em><br /><em>Override the mergeConfig method to work for themes</em> |
+| protected | <strong>mergeConfig(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$page</strong>, <em>string</em> <strong>$deep=`'merge'`</strong>, <em>array</em> <strong>$params=array()</strong>, <em>string</em> <strong>$type=`'themes'`</strong>)</strong> : <em>void</em><br /><em>Override the mergeConfig method to work for themes</em> |
 
 *This class extends [\Grav\Common\Plugin](#class-gravcommonplugin)*
 
@@ -630,7 +752,7 @@
 | public | <strong>__isset(</strong><em>string</em> <strong>$name</strong>)</strong> : <em>bool</em><br /><em>Checks if session variable is defined.</em> |
 | public | <strong>__set(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Sets session variable.</em> |
 | public | <strong>__unset(</strong><em>string</em> <strong>$name</strong>)</strong> : <em>void</em><br /><em>Removes session variable.</em> |
-| public | <strike><strong>all()</strong> : <em>array Attributes</em></strike><br /><em>DEPRECATED - 1.5 Use getAll() method instead</em> |
+| public | <strike><strong>all()</strong> : <em>array Attributes</em></strike><br /><em>DEPRECATED - 1.5 Use ->getAll() method instead.</em> |
 | public | <strong>clear()</strong> : <em>\Grav\Framework\Session\$this</em><br /><em>Free all session variables.</em> |
 | public | <strong>close()</strong> : <em>\Grav\Framework\Session\$this</em><br /><em>Force the session to be saved and closed</em> |
 | public | <strong>getAll()</strong> : <em>array</em><br /><em>Returns all session variables.</em> |
@@ -641,9 +763,9 @@
 | public | <strong>getIterator()</strong> : <em>\ArrayIterator Return an ArrayIterator of $_SESSION</em><br /><em>Retrieve an external iterator</em> |
 | public | <strong>getName()</strong> : <em>string/null</em><br /><em>Get session name</em> |
 | public | <strong>init()</strong> : <em>void</em><br /><em>Initialize session. Code in this function has been moved into SessionServiceProvider class.</em> |
-| public static | <strike><strong>instance()</strong> : <em>[\Grav\Framework\Session\Session](#class-gravframeworksessionsession)</em></strike><br /><em>DEPRECATED - 1.5 Use getInstance() method instead</em> |
+| public static | <strike><strong>instance()</strong> : <em>[\Grav\Framework\Session\Session](#class-gravframeworksessionsession)</em></strike><br /><em>DEPRECATED - 1.5 Use ->getInstance() method instead.</em> |
 | public | <strong>invalidate()</strong> : <em>\Grav\Framework\Session\$this</em><br /><em>Invalidates the current session.</em> |
-| public | <strong>isStarted()</strong> : <em>Boolean</em><br /><em>Checks if the session was started.</em> |
+| public | <strong>isStarted()</strong> : <em>bool</em><br /><em>Checks if the session was started.</em> |
 | public | <strong>setAutoStart(</strong><em>bool</em> <strong>$auto</strong>)</strong> : <em>\Grav\Common\$this</em> |
 | public | <strong>setFlashCookieObject(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$object</strong>, <em>int</em> <strong>$time=60</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Store something in cookie temporarily.</em> |
 | public | <strong>setFlashObject(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$object</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Store something in session temporarily.</em> |
@@ -651,7 +773,7 @@
 | public | <strong>setName(</strong><em>string</em> <strong>$name</strong>)</strong> : <em>\Grav\Framework\Session\$this</em><br /><em>Set session name</em> |
 | public | <strong>setOptions(</strong><em>array</em> <strong>$options</strong>)</strong> : <em>void</em><br /><em>Sets session.* ini variables.</em> |
 | public | <strong>start(</strong><em>bool</em> <strong>$readonly=false</strong>)</strong> : <em>\Grav\Framework\Session\$this</em><br /><em>Starts the session storage</em> |
-| public | <strike><strong>started()</strong> : <em>Boolean</em></strike><br /><em>DEPRECATED - 1.5 Use isStarted() method instead</em> |
+| public | <strike><strong>started()</strong> : <em>Boolean</em></strike><br /><em>DEPRECATED - 1.5 Use ->isStarted() method instead.</em> |
 
 *This class extends [\Grav\Framework\Session\Session](#class-gravframeworksessionsession)*
 
@@ -682,36 +804,137 @@
 |:-----------|:---------|
 | public | <strong>__construct()</strong> : <em>void</em><br /><em>Debugger constructor.</em> |
 | public | <strong>addAssets()</strong> : <em>\Grav\Common\$this</em><br /><em>Add the debugger assets to the Grav Assets</em> |
-| public | <strong>addCollector(</strong><em>mixed</em> <strong>$collector</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Adds a data collector</em> |
+| public | <strong>addCollector(</strong><em>\Grav\Common\DataCollectorInterface</em> <strong>$collector</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Adds a data collector</em> |
 | public | <strong>addException(</strong><em>[\Exception](http://php.net/manual/en/class.exception.php)</em> <strong>$e</strong>)</strong> : <em>[\Grav\Common\Debugger](#class-gravcommondebugger)</em><br /><em>Dump exception into the Messages tab of the Debug Bar</em> |
 | public | <strong>addMessage(</strong><em>mixed</em> <strong>$message</strong>, <em>string</em> <strong>$label=`'info'`</strong>, <em>bool</em> <strong>$isString=true</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Dump variables into the Messages tab of the Debug Bar</em> |
 | public | <strong>deprecatedErrorHandler(</strong><em>int</em> <strong>$errno</strong>, <em>string</em> <strong>$errstr</strong>, <em>string</em> <strong>$errfile</strong>, <em>int</em> <strong>$errline</strong>)</strong> : <em>bool</em> |
 | public | <strong>enabled(</strong><em>bool</em> <strong>$state=null</strong>)</strong> : <em>null</em><br /><em>Set/get the enabled state of the debugger</em> |
 | public | <strong>getCaller(</strong><em>mixed</em> <strong>$limit=2</strong>)</strong> : <em>mixed</em> |
-| public | <strong>getCollector(</strong><em>mixed</em> <strong>$collector</strong>)</strong> : <em>\DebugBar\DataCollector\DataCollectorInterface</em><br /><em>Returns a data collector</em> |
+| public | <strong>getCollector(</strong><em>\Grav\Common\DataCollectorInterface</em> <strong>$collector</strong>)</strong> : <em>\DebugBar\DataCollector\DataCollectorInterface</em><br /><em>Returns a data collector</em> |
 | public | <strong>getData()</strong> : <em>array</em><br /><em>Returns collected debugger data.</em> |
 | public | <strong>init()</strong> : <em>\Grav\Common\$this</em><br /><em>Initialize the debugger</em> |
 | public | <strong>render()</strong> : <em>\Grav\Common\$this</em><br /><em>Displays the debug bar</em> |
 | public | <strong>sendDataInHeaders()</strong> : <em>\Grav\Common\$this</em><br /><em>Sends the data through the HTTP headers</em> |
 | public | <strong>setErrorHandler()</strong> : <em>void</em> |
-| public | <strong>startTimer(</strong><em>mixed</em> <strong>$name</strong>, <em>string/null</em> <strong>$description=null</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Start a timer with an associated name and description</em> |
+| public | <strong>startTimer(</strong><em>string</em> <strong>$name</strong>, <em>string/null</em> <strong>$description=null</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Start a timer with an associated name and description</em> |
 | public | <strong>stopTimer(</strong><em>string</em> <strong>$name</strong>)</strong> : <em>\Grav\Common\$this</em><br /><em>Stop the named timer</em> |
 | protected | <strong>addDeprecations()</strong> : <em>void</em> |
 | protected | <strong>getDepracatedMessage(</strong><em>mixed</em> <strong>$deprecated</strong>)</strong> : <em>mixed</em> |
 | protected | <strong>getFunction(</strong><em>mixed</em> <strong>$trace</strong>)</strong> : <em>mixed</em> |
 
-<hr /><a id="class-gravcommonbackupzipbackup"></a>
-### Class: \Grav\Common\Backup\ZipBackup
+<hr /><a id="class-gravcommonassetsinlinecss"></a>
+### Class: \Grav\Common\Assets\InlineCss
 
 | Visibility | Function |
 |:-----------|:---------|
-| public static | <strong>backup(</strong><em>string/null</em> <strong>$destination=null</strong>, <em>\callable</em> <strong>$messager=null</strong>)</strong> : <em>null/string</em><br /><em>Backup</em> |
+| public | <strong>__construct(</strong><em>array</em> <strong>$elements=array()</strong>, <em>mixed</em> <strong>$key=null</strong>)</strong> : <em>void</em> |
+| public | <strong>render()</strong> : <em>void</em> |
+
+*This class extends [\Grav\Common\Assets\BaseAsset](#class-gravcommonassetsbaseasset-abstract)*
+
+*This class implements [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface), \Serializable, \JsonSerializable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \ArrayAccess*
+
+<hr /><a id="class-gravcommonassetsinlinejs"></a>
+### Class: \Grav\Common\Assets\InlineJs
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$elements=array()</strong>, <em>mixed</em> <strong>$key=null</strong>)</strong> : <em>void</em> |
+| public | <strong>render()</strong> : <em>void</em> |
+
+*This class extends [\Grav\Common\Assets\BaseAsset](#class-gravcommonassetsbaseasset-abstract)*
+
+*This class implements [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface), \Serializable, \JsonSerializable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \ArrayAccess*
+
+<hr /><a id="class-gravcommonassetsbaseasset-abstract"></a>
+### Class: \Grav\Common\Assets\BaseAsset (abstract)
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$elements=array()</strong>, <em>mixed</em> <strong>$key=null</strong>)</strong> : <em>void</em> |
+| public | <strong>getAsset()</strong> : <em>mixed</em> |
+| public | <strong>getRemote()</strong> : <em>mixed</em> |
+| public | <strong>init(</strong><em>mixed</em> <strong>$asset</strong>, <em>mixed</em> <strong>$options</strong>)</strong> : <em>void</em> |
+| public static | <strong>isRemoteLink(</strong><em>string</em> <strong>$link</strong>)</strong> : <em>bool</em><br /><em>Determine whether a link is local or remote. Understands both "http://" and "https://" as well as protocol agnostic links "//"</em> |
+| public | <strong>jsonSerialize()</strong> : <em>array</em><br /><em>Implements JsonSerializable interface.</em> |
+| public | <strong>abstract render()</strong> : <em>void</em> |
+| protected | <strong>buildLocalLink(</strong><em>string</em> <strong>$asset</strong>)</strong> : <em>string the final link url to the asset</em><br /><em>Build local links including grav asset shortcodes</em> |
+| protected | <strong>gatherLinks(</strong><em>array</em> <strong>$assets</strong>, <em>bool</em> <strong>$css=true</strong>, <em>array</em> <strong>$no_pipeline=array()</strong>)</strong> : <em>string</em><br /><em>Download and concatenate the content of several links.</em> |
+| protected | <strong>moveImports(</strong><em>string</em> <strong>$file</strong>)</strong> : <em>string the modified file with any @imports at the top of the file</em><br /><em>Moves @import statements to the top of the file per the CSS specification</em> |
+| protected | <strong>renderAttributes()</strong> : <em>string</em><br /><em>Build an HTML attribute string from an array.</em> |
+| protected | <strong>renderQueryString(</strong><em>string</em> <strong>$asset=null</strong>)</strong> : <em>string</em><br /><em>Render Querystring</em> |
+
+*This class extends [\Grav\Framework\Object\PropertyObject](#class-gravframeworkobjectpropertyobject)*
+
+*This class implements \ArrayAccess, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \JsonSerializable, \Serializable, [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface)*
+
+<hr /><a id="class-gravcommonassetspipeline"></a>
+### Class: \Grav\Common\Assets\Pipeline
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$elements=array()</strong>, <em>\string</em> <strong>$key=null</strong>)</strong> : <em>void</em> |
+| public static | <strong>isRemoteLink(</strong><em>string</em> <strong>$link</strong>)</strong> : <em>bool</em><br /><em>Determine whether a link is local or remote. Understands both "http://" and "https://" as well as protocol agnostic links "//"</em> |
+| public | <strong>renderCss(</strong><em>array</em> <strong>$assets</strong>, <em>string</em> <strong>$group</strong>, <em>array</em> <strong>$attributes=array()</strong>, <em>array</em> <strong>$no_pipeline=array()</strong>)</strong> : <em>bool/string URL or generated content if available, else false</em><br /><em>Minify and concatenate CSS</em> |
+| public | <strong>renderJs(</strong><em>array</em> <strong>$assets</strong>, <em>string</em> <strong>$group</strong>, <em>array</em> <strong>$attributes=array()</strong>, <em>array</em> <strong>$no_pipeline=array()</strong>)</strong> : <em>bool/string URL or generated content if available, else false</em><br /><em>Minify and concatenate JS files.</em> |
+| protected | <strong>cssRewrite(</strong><em>string</em> <strong>$file</strong>, <em>string</em> <strong>$dir</strong>, <em>boolean</em> <strong>$local</strong>)</strong> : <em>mixed</em><br /><em>Finds relative CSS urls() and rewrites the URL with an absolute one</em> |
+| protected | <strong>gatherLinks(</strong><em>array</em> <strong>$assets</strong>, <em>bool</em> <strong>$css=true</strong>, <em>array</em> <strong>$no_pipeline=array()</strong>)</strong> : <em>string</em><br /><em>Download and concatenate the content of several links.</em> |
+| protected | <strong>moveImports(</strong><em>string</em> <strong>$file</strong>)</strong> : <em>string the modified file with any @imports at the top of the file</em><br /><em>Moves @import statements to the top of the file per the CSS specification</em> |
+| protected | <strong>renderAttributes()</strong> : <em>string</em><br /><em>Build an HTML attribute string from an array.</em> |
+| protected | <strong>renderQueryString(</strong><em>string</em> <strong>$asset=null</strong>)</strong> : <em>string</em><br /><em>Render Querystring</em> |
+
+*This class extends [\Grav\Framework\Object\PropertyObject](#class-gravframeworkobjectpropertyobject)*
+
+*This class implements \ArrayAccess, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \JsonSerializable, \Serializable, [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface)*
+
+<hr /><a id="class-gravcommonassetscss"></a>
+### Class: \Grav\Common\Assets\Css
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$elements=array()</strong>, <em>mixed</em> <strong>$key=null</strong>)</strong> : <em>void</em> |
+| public | <strong>render()</strong> : <em>void</em> |
+
+*This class extends [\Grav\Common\Assets\BaseAsset](#class-gravcommonassetsbaseasset-abstract)*
+
+*This class implements [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface), \Serializable, \JsonSerializable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \ArrayAccess*
+
+<hr /><a id="class-gravcommonassetsjs"></a>
+### Class: \Grav\Common\Assets\Js
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$elements=array()</strong>, <em>mixed</em> <strong>$key=null</strong>)</strong> : <em>void</em> |
+| public | <strong>render()</strong> : <em>void</em> |
+
+*This class extends [\Grav\Common\Assets\BaseAsset](#class-gravcommonassetsbaseasset-abstract)*
+
+*This class implements [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface), \Serializable, \JsonSerializable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \ArrayAccess*
+
+<hr /><a id="class-gravcommonbackupbackups"></a>
+### Class: \Grav\Common\Backup\Backups
+
+| Visibility | Function |
+|:-----------|:---------|
+| public static | <strong>backup(</strong><em>int</em> <strong>$id</strong>, <em>\callable</em> <strong>$status=null</strong>)</strong> : <em>null/string</em><br /><em>Backup</em> |
+| public static | <strong>getAvailableBackups(</strong><em>bool</em> <strong>$force=false</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getBackupDownloadUrl(</strong><em>mixed</em> <strong>$backup</strong>, <em>mixed</em> <strong>$base_url</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getBackupNames()</strong> : <em>mixed</em> |
+| public static | <strong>getBackupProfiles()</strong> : <em>mixed</em> |
+| public static | <strong>getPurgeConfig()</strong> : <em>mixed</em> |
+| public static | <strong>getTotalBackupsSize()</strong> : <em>mixed</em> |
+| public | <strong>init()</strong> : <em>void</em> |
+| public | <strong>onSchedulerInitialized(</strong><em>\RocketTheme\Toolbox\Event\Event</em> <strong>$event</strong>)</strong> : <em>void</em> |
+| public static | <strong>purge()</strong> : <em>void</em> |
+| public | <strong>setup()</strong> : <em>void</em> |
+| protected static | <strong>convertExclude(</strong><em>mixed</em> <strong>$exclude</strong>)</strong> : <em>void</em> |
 
 <hr /><a id="class-gravcommonconfigcompiledconfig"></a>
 ### Class: \Grav\Common\Config\CompiledConfig
 
 | Visibility | Function |
 |:-----------|:---------|
+| public | <strong>__construct(</strong><em>mixed</em> <strong>$cacheFolder</strong>, <em>array</em> <strong>$files</strong>, <em>mixed</em> <strong>$path</strong>)</strong> : <em>void</em> |
 | public | <strong>load(</strong><em>bool</em> <strong>$withDefaults=false</strong>)</strong> : <em>mixed</em> |
 | public | <strong>modified()</strong> : <em>void</em><br /><em>Function gets called when cached configuration is saved.</em> |
 | public | <strong>setBlueprints(</strong><em>\callable</em> <strong>$blueprints</strong>)</strong> : <em>\Grav\Common\Config\$this</em><br /><em>Set blueprints for the configuration.</em> |
@@ -747,20 +970,25 @@
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>checksum(</strong><em>mixed</em> <strong>$checksum=null</strong>)</strong> : <em>void</em> |
+| public | <strong>flattenByLang(</strong><em>mixed</em> <strong>$lang</strong>)</strong> : <em>void</em> |
 | public | <strong>mergeRecursive(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>void</em> |
 | public | <strong>modified(</strong><em>mixed</em> <strong>$modified=null</strong>)</strong> : <em>void</em> |
 | public | <strong>reformat()</strong> : <em>void</em> |
 | public | <strong>timestamp(</strong><em>mixed</em> <strong>$timestamp=null</strong>)</strong> : <em>void</em> |
+| public | <strong>unflatten(</strong><em>mixed</em> <strong>$array</strong>)</strong> : <em>void</em> |
 
 *This class extends [\Grav\Common\Data\Data](#class-gravcommondatadata)*
 
-*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface)*
+*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \JsonSerializable, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface)*
 
 <hr /><a id="class-gravcommonconfigcompiledblueprints"></a>
 ### Class: \Grav\Common\Config\CompiledBlueprints
 
+> Class CompiledBlueprints
+
 | Visibility | Function |
 |:-----------|:---------|
+| public | <strong>__construct(</strong><em>mixed</em> <strong>$cacheFolder</strong>, <em>array</em> <strong>$files</strong>, <em>mixed</em> <strong>$path</strong>)</strong> : <em>void</em> |
 | public | <strong>checksum()</strong> : <em>bool/string</em><br /><em>Returns checksum from the configuration files. You can set $this->checksum = false to disable this check.</em> |
 | protected | <strong>createObject(</strong><em>array</em> <strong>$data=array()</strong>)</strong> : <em>mixed</em><br /><em>Create configuration object.</em> |
 | protected | <strong>finalizeObject()</strong> : <em>void</em><br /><em>Finalize configuration object.</em> |
@@ -776,6 +1004,7 @@
 
 | Visibility | Function |
 |:-----------|:---------|
+| public | <strong>__construct(</strong><em>mixed</em> <strong>$cacheFolder</strong>, <em>array</em> <strong>$files</strong>, <em>mixed</em> <strong>$path</strong>)</strong> : <em>void</em> |
 | public | <strong>modified()</strong> : <em>void</em><br /><em>Function gets called when cached configuration is saved.</em> |
 | protected | <strong>createObject(</strong><em>array</em> <strong>$data=array()</strong>)</strong> : <em>mixed</em><br /><em>Create configuration object.</em> |
 | protected | <strong>finalizeObject()</strong> : <em>void</em><br /><em>Finalize configuration object.</em> |
@@ -796,7 +1025,7 @@
 
 *This class extends [\Grav\Common\Data\Data](#class-gravcommondatadata)*
 
-*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface)*
+*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \JsonSerializable, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface)*
 
 <hr /><a id="class-gravcommonconfigconfigfilefinder"></a>
 ### Class: \Grav\Common\Config\ConfigFileFinder
@@ -821,7 +1050,7 @@
 |:-----------|:---------|
 | public | <strong>checksum(</strong><em>mixed</em> <strong>$checksum=null</strong>)</strong> : <em>void</em> |
 | public | <strong>debug()</strong> : <em>void</em> |
-| public | <strong>getLanguages()</strong> : <em>mixed</em> |
+| public | <strike><strong>getLanguages()</strong> : <em>mixed</em></strike><br /><em>DEPRECATED - 1.5 Use Grav::instance()['languages'] instead.</em> |
 | public | <strong>init()</strong> : <em>void</em> |
 | public | <strong>key()</strong> : <em>void</em> |
 | public | <strong>modified(</strong><em>mixed</em> <strong>$modified=null</strong>)</strong> : <em>void</em> |
@@ -830,7 +1059,7 @@
 
 *This class extends [\Grav\Common\Data\Data](#class-gravcommondatadata)*
 
-*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface)*
+*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \JsonSerializable, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface)*
 
 <hr /><a id="interface-gravcommondatadatainterface"></a>
 ### Interface: \Grav\Common\Data\DataInterface
@@ -866,12 +1095,13 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>exists()</strong> : <em>bool</em><br /><em>Returns whether the data already exists in the storage. NOTE: This method does not check if the data is current.</em> |
 | public | <strong>extra()</strong> : <em>array</em><br /><em>Get extra items which haven't been defined in blueprints.</em> |
 | public | <strong>file(</strong><em>\RocketTheme\Toolbox\File\FileInterface</em> <strong>$storage=null</strong>)</strong> : <em>\RocketTheme\Toolbox\File\FileInterface</em><br /><em>Set or get the data storage.</em> |
-| public | <strong>filter()</strong> : <em>$this Filter all items by using blueprints.</em> |
+| public | <strong>filter()</strong> : <em>\Grav\Common\Data\$this</em> |
 | public | <strong>get(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>mixed Value.</em><br /><em>Get value by using dot notation for nested arrays/objects.</em> |
 | public | <strong>getDefaults()</strong> : <em>array</em><br /><em>Get nested structure containing default values defined in the blueprints. Fields without default value are ignored in the list.</em> |
-| public | <strong>getJoined(</strong><em>string</em> <strong>$name</strong>, <em>array</em> <strong>$value</strong>, <em>string</em> <strong>$separator=`'.'`</strong>)</strong> : <em>array</em><br /><em>Get value from the configuration and join it with given data.</em> |
+| public | <strong>getJoined(</strong><em>string</em> <strong>$name</strong>, <em>array/object</em> <strong>$value</strong>, <em>string</em> <strong>$separator=`'.'`</strong>)</strong> : <em>array</em><br /><em>Get value from the configuration and join it with given data.</em> |
 | public | <strong>join(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>, <em>string</em> <strong>$separator=`'.'`</strong>)</strong> : <em>\Grav\Common\Data\$this</em><br /><em>Join nested values together by using blueprints.</em> |
 | public | <strong>joinDefaults(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>, <em>string</em> <strong>$separator=`'.'`</strong>)</strong> : <em>\Grav\Common\Data\$this</em><br /><em>Set default values by using blueprints.</em> |
+| public | <strong>jsonSerialize()</strong> : <em>void</em> |
 | public | <strong>merge(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>\Grav\Common\Data\$this</em><br /><em>Merge two configurations together.</em> |
 | public | <strong>offsetExists(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>bool Returns TRUE on success or FALSE on failure.</em><br /><em>Whether or not an offset exists.</em> |
 | public | <strong>offsetGet(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>mixed Can return all value types.</em><br /><em>Returns the value at specified offset.</em> |
@@ -908,7 +1138,7 @@ $data->undef('this.is.my.nested.variable');
 $value = $data->value('this.is.my.nested.variable');
 ```
 
-*This class implements [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), \ArrayAccess, \Countable, \RocketTheme\Toolbox\ArrayTraits\ExportInterface*
+*This class implements [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), \ArrayAccess, \Countable, \JsonSerializable, \RocketTheme\Toolbox\ArrayTraits\ExportInterface*
 
 <hr /><a id="class-gravcommondatavalidation"></a>
 ### Class: \Grav\Common\Data\Validation
@@ -918,6 +1148,7 @@ $value = $data->value('this.is.my.nested.variable');
 | public static | <strong>filter(</strong><em>mixed</em> <strong>$value</strong>, <em>array</em> <strong>$field</strong>)</strong> : <em>mixed Filtered value.</em><br /><em>Filter value against a blueprint field definition.</em> |
 | public static | <strong>filterIgnore(</strong><em>mixed</em> <strong>$value</strong>, <em>array</em> <strong>$params</strong>, <em>array</em> <strong>$field</strong>)</strong> : <em>void</em> |
 | public static | <strong>filterItem_List(</strong><em>mixed</em> <strong>$value</strong>, <em>mixed</em> <strong>$params</strong>)</strong> : <em>void</em> |
+| public static | <strong>filterUnset(</strong><em>mixed</em> <strong>$value</strong>, <em>array</em> <strong>$params</strong>, <em>array</em> <strong>$field</strong>)</strong> : <em>void</em> |
 | public static | <strong>filterYaml(</strong><em>mixed</em> <strong>$value</strong>, <em>mixed</em> <strong>$params</strong>)</strong> : <em>void</em> |
 | public static | <strong>typeArray(</strong><em>mixed</em> <strong>$value</strong>, <em>array</em> <strong>$params</strong>, <em>array</em> <strong>$field</strong>)</strong> : <em>bool True if validation succeeded.</em><br /><em>Custom input: array</em> |
 | public static | <strong>typeBool(</strong><em>mixed</em> <strong>$value</strong>, <em>mixed</em> <strong>$params</strong>)</strong> : <em>void</em> |
@@ -943,6 +1174,7 @@ $value = $data->value('this.is.my.nested.variable');
 | public static | <strong>typeTextarea(</strong><em>mixed</em> <strong>$value</strong>, <em>array</em> <strong>$params</strong>, <em>array</em> <strong>$field</strong>)</strong> : <em>bool True if validation succeeded.</em><br /><em>HTML5 input: textarea</em> |
 | public static | <strong>typeTime(</strong><em>mixed</em> <strong>$value</strong>, <em>array</em> <strong>$params</strong>, <em>array</em> <strong>$field</strong>)</strong> : <em>bool True if validation succeeded.</em><br /><em>HTML5 input: time</em> |
 | public static | <strong>typeToggle(</strong><em>mixed</em> <strong>$value</strong>, <em>array</em> <strong>$params</strong>, <em>array</em> <strong>$field</strong>)</strong> : <em>bool True if validation succeeded.</em><br /><em>Custom input: toggle</em> |
+| public static | <strong>typeUnset(</strong><em>mixed</em> <strong>$value</strong>, <em>array</em> <strong>$params</strong>, <em>array</em> <strong>$field</strong>)</strong> : <em>bool True if validation succeeded.</em><br /><em>Input value which can be ignored.</em> |
 | public static | <strong>typeUrl(</strong><em>mixed</em> <strong>$value</strong>, <em>array</em> <strong>$params</strong>, <em>array</em> <strong>$field</strong>)</strong> : <em>bool True if validation succeeded.</em><br /><em>HTML5 input: url</em> |
 | public static | <strong>typeWeek(</strong><em>mixed</em> <strong>$value</strong>, <em>array</em> <strong>$params</strong>, <em>array</em> <strong>$field</strong>)</strong> : <em>bool True if validation succeeded.</em><br /><em>HTML5 input: week</em> |
 | public static | <strong>validate(</strong><em>mixed</em> <strong>$value</strong>, <em>array</em> <strong>$field</strong>)</strong> : <em>array</em><br /><em>Validate value against a blueprint field definition.</em> |
@@ -988,14 +1220,20 @@ $value = $data->value('this.is.my.nested.variable');
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>extra(</strong><em>array</em> <strong>$data</strong>, <em>string</em> <strong>$prefix=`''`</strong>)</strong> : <em>array</em><br /><em>Return data fields that do not exist in blueprints.</em> |
-| public | <strong>filter(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>array</em><br /><em>Filter data by using blueprints.</em> |
+| public | <strong>filter(</strong><em>array</em> <strong>$data</strong>, <em>\boolean</em> <strong>$missingValuesAsNull=false</strong>, <em>\boolean</em> <strong>$keepEmptyValues=false</strong>)</strong> : <em>array</em><br /><em>Filter data by using blueprints.</em> |
+| public | <strong>flattenData(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>array</em><br /><em>Flatten data by using blueprints.</em> |
 | public | <strong>getDefaults()</strong> : <em>array</em><br /><em>Get nested structure containing default values defined in the blueprints. Fields without default value are ignored in the list.</em> |
 | public | <strong>mergeData(</strong><em>array</em> <strong>$data1</strong>, <em>array</em> <strong>$data2</strong>, <em>string</em> <strong>$name=null</strong>, <em>string</em> <strong>$separator=`'.'`</strong>)</strong> : <em>array</em><br /><em>Merge two arrays by using blueprints.</em> |
+| public | <strong>processForm(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$toggles=array()</strong>)</strong> : <em>array</em><br /><em>Process data coming from a form.</em> |
 | public | <strong>schema()</strong> : <em>[\Grav\Common\Data\BlueprintSchema](#class-gravcommondatablueprintschema)</em><br /><em>Return blueprint data schema.</em> |
+| public | <strong>setScope(</strong><em>mixed</em> <strong>$scope</strong>)</strong> : <em>void</em> |
 | public | <strong>setTypes(</strong><em>array</em> <strong>$types</strong>)</strong> : <em>\Grav\Common\Data\$this</em><br /><em>Set default values for field types.</em> |
 | public | <strong>validate(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>void</em><br /><em>Validate data against blueprints.</em> |
+| protected | <strong>addPropertyRecursive(</strong><em>mixed</em> <strong>$field</strong>, <em>mixed</em> <strong>$property</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em> |
 | protected | <strong>dynamicConfig(</strong><em>array</em> <strong>$field</strong>, <em>string</em> <strong>$property</strong>, <em>array</em> <strong>$call</strong>)</strong> : <em>void</em> |
 | protected | <strong>dynamicData(</strong><em>array</em> <strong>$field</strong>, <em>string</em> <strong>$property</strong>, <em>array</em> <strong>$call</strong>)</strong> : <em>void</em> |
+| protected | <strong>dynamicScope(</strong><em>array</em> <strong>$field</strong>, <em>string</em> <strong>$property</strong>, <em>array</em> <strong>$call</strong>)</strong> : <em>void</em> |
+| protected | <strong>dynamicSecurity(</strong><em>array</em> <strong>$field</strong>, <em>string</em> <strong>$property</strong>, <em>array</em> <strong>$call</strong>)</strong> : <em>void</em> |
 | protected | <strong>getFiles(</strong><em>string/array</em> <strong>$path</strong>, <em>string</em> <strong>$context=null</strong>)</strong> : <em>array</em> |
 | protected | <strong>initInternals()</strong> : <em>void</em><br /><em>Initialize validator.</em> |
 | protected | <strong>loadFile(</strong><em>string</em> <strong>$filename</strong>)</strong> : <em>string</em> |
@@ -1021,15 +1259,21 @@ $value = $data->value('this.is.my.nested.variable');
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>filter(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>array</em><br /><em>Filter data by using blueprints.</em> |
+| public | <strong>filter(</strong><em>array</em> <strong>$data</strong>, <em>bool</em> <strong>$missingValuesAsNull=false</strong>, <em>bool</em> <strong>$keepEmptyValues=false</strong>)</strong> : <em>array</em><br /><em>Filter data by using blueprints.</em> |
+| public | <strong>flattenData(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>array</em><br /><em>Flatten data by using blueprints.</em> |
+| public | <strong>getType(</strong><em>string</em> <strong>$name</strong>)</strong> : <em>array</em> |
+| public | <strong>getTypes()</strong> : <em>array</em> |
+| public | <strong>processForm(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$toggles=array()</strong>)</strong> : <em>array</em> |
 | public | <strong>toArray()</strong> : <em>array</em><br /><em>Convert object into an array.</em> |
 | public | <strong>toJson()</strong> : <em>string</em><br /><em>Convert object into JSON string.</em> |
 | public | <strong>toYaml(</strong><em>int</em> <strong>$inline=3</strong>, <em>int</em> <strong>$indent=2</strong>)</strong> : <em>string A YAML string representing the object.</em><br /><em>Convert object into YAML string.</em> |
 | public | <strong>validate(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>void</em><br /><em>Validate data against blueprints.</em> |
 | protected | <strong>checkRequired(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$fields</strong>)</strong> : <em>array</em> |
 | protected | <strong>dynamicConfig(</strong><em>array</em> <strong>$field</strong>, <em>string</em> <strong>$property</strong>, <em>array</em> <strong>$call</strong>)</strong> : <em>void</em> |
-| protected | <strong>filterArray(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$rules</strong>)</strong> : <em>array</em> |
-| protected | <strong>validateArray(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$rules</strong>)</strong> : <em>void</em> |
+| protected | <strong>filterArray(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$rules</strong>, <em>bool</em> <strong>$missingValuesAsNull</strong>, <em>bool</em> <strong>$keepEmptyValues</strong>)</strong> : <em>array</em> |
+| protected | <strong>flattenArray(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$rules</strong>, <em>\string</em> <strong>$prefix</strong>)</strong> : <em>array</em> |
+| protected | <strong>processFormRecursive(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$toggles</strong>, <em>array</em> <strong>$nested</strong>)</strong> : <em>array</em> |
+| protected | <strong>validateArray(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$rules</strong>)</strong> : <em>array</em> |
 
 *This class extends \RocketTheme\Toolbox\Blueprints\BlueprintSchema*
 
@@ -1044,7 +1288,7 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>addResourcePath(</strong><em>mixed</em> <strong>$path</strong>)</strong> : <em>void</em> |
 | public | <strong>getResourcePaths()</strong> : <em>mixed</em> |
 | public | <strong>handle()</strong> : <em>int/null</em> |
-| protected | <strong>getResource(</strong><em>mixed</em> <strong>$resource</strong>)</strong> : <em>string</em> |
+| protected | <strong>getResource(</strong><em>string</em> <strong>$resource</strong>)</strong> : <em>string</em> |
 
 *This class extends \Whoops\Handler\Handler*
 
@@ -1118,17 +1362,54 @@ $value = $data->value('this.is.my.nested.variable');
 
 *This class implements \RocketTheme\Toolbox\File\FileInterface*
 
+<hr /><a id="class-gravcommonfilesystemziparchiver"></a>
+### Class: \Grav\Common\Filesystem\ZipArchiver
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>addEmptyFolders(</strong><em>mixed</em> <strong>$folders</strong>, <em>\callable</em> <strong>$status=null</strong>)</strong> : <em>void</em> |
+| public | <strong>compress(</strong><em>mixed</em> <strong>$source</strong>, <em>\callable</em> <strong>$status=null</strong>)</strong> : <em>void</em> |
+| public | <strong>extract(</strong><em>mixed</em> <strong>$destination</strong>, <em>\callable</em> <strong>$status=null</strong>)</strong> : <em>void</em> |
+
+*This class extends [\Grav\Common\Filesystem\Archiver](#class-gravcommonfilesystemarchiver-abstract)*
+
+<hr /><a id="class-gravcommonfilesystemrecursivedirectoryfilteriterator"></a>
+### Class: \Grav\Common\Filesystem\RecursiveDirectoryFilterIterator
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\RecursiveIterator</em> <strong>$iterator</strong>, <em>string</em> <strong>$root</strong>, <em>array</em> <strong>$ignore_folders</strong>, <em>array</em> <strong>$ignore_files</strong>)</strong> : <em>void</em><br /><em>Create a RecursiveFilterIterator from a RecursiveIterator</em> |
+| public | <strong>accept()</strong> : <em>bool true if the current element is acceptable, otherwise false.</em><br /><em>Check whether the current element of the iterator is acceptable</em> |
+| public | <strong>getChildren()</strong> : <em>mixed</em> |
+
+*This class extends \RecursiveFilterIterator*
+
+*This class implements \RecursiveIterator, \OuterIterator, \Traversable, \Iterator*
+
 <hr /><a id="class-gravcommonfilesystemrecursivefolderfilteriterator"></a>
 ### Class: \Grav\Common\Filesystem\RecursiveFolderFilterIterator
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>\RecursiveIterator</em> <strong>$iterator</strong>)</strong> : <em>void</em><br /><em>Create a RecursiveFilterIterator from a RecursiveIterator</em> |
+| public | <strong>__construct(</strong><em>\RecursiveIterator</em> <strong>$iterator</strong>, <em>array</em> <strong>$ignore_folders=array()</strong>)</strong> : <em>void</em><br /><em>Create a RecursiveFilterIterator from a RecursiveIterator</em> |
 | public | <strong>accept()</strong> : <em>bool true if the current element is acceptable, otherwise false.</em><br /><em>Check whether the current element of the iterator is acceptable</em> |
 
 *This class extends \RecursiveFilterIterator*
 
 *This class implements \RecursiveIterator, \OuterIterator, \Traversable, \Iterator*
+
+<hr /><a id="class-gravcommonfilesystemarchiver-abstract"></a>
+### Class: \Grav\Common\Filesystem\Archiver (abstract)
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>abstract addEmptyFolders(</strong><em>mixed</em> <strong>$folders</strong>, <em>\callable</em> <strong>$status=null</strong>)</strong> : <em>void</em> |
+| public | <strong>abstract compress(</strong><em>mixed</em> <strong>$folder</strong>, <em>\callable</em> <strong>$status=null</strong>)</strong> : <em>void</em> |
+| public static | <strong>create(</strong><em>mixed</em> <strong>$compression</strong>)</strong> : <em>mixed</em> |
+| public | <strong>abstract extract(</strong><em>mixed</em> <strong>$destination</strong>, <em>\callable</em> <strong>$status=null</strong>)</strong> : <em>void</em> |
+| public | <strong>setArchive(</strong><em>mixed</em> <strong>$archive_file</strong>)</strong> : <em>void</em> |
+| public | <strong>setOptions(</strong><em>mixed</em> <strong>$options</strong>)</strong> : <em>void</em> |
+| protected | <strong>getArchiveFiles(</strong><em>mixed</em> <strong>$rootPath</strong>)</strong> : <em>mixed</em> |
 
 <hr /><a id="class-gravcommonfilesystemfolder-abstract"></a>
 ### Class: \Grav\Common\Filesystem\Folder (abstract)
@@ -1141,14 +1422,33 @@ $value = $data->value('this.is.my.nested.variable');
 | public static | <strong>delete(</strong><em>string</em> <strong>$target</strong>, <em>bool</em> <strong>$include_target=true</strong>)</strong> : <em>bool</em><br /><em>Recursively delete directory from filesystem.</em> |
 | public static | <strong>getRelativePath(</strong><em>string</em> <strong>$path</strong>, <em>string/mixed/string</em> <strong>$base=`'/home/matias/www/grav/learn'`</strong>)</strong> : <em>string</em><br /><em>Get relative path between target and base path. If path isn't relative, return full path.</em> |
 | public static | <strong>getRelativePathDotDot(</strong><em>string</em> <strong>$path</strong>, <em>string</em> <strong>$base</strong>)</strong> : <em>string</em><br /><em>Get relative path between target and base path. If path isn't relative, return full path.</em> |
-| public static | <strong>hashAllFiles(</strong><em>mixed</em> <strong>$path</strong>)</strong> : <em>string</em><br /><em>Recursively md5 hash all files in a path</em> |
+| public static | <strong>hashAllFiles(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>string</em><br /><em>Recursively md5 hash all files in a path</em> |
 | public static | <strong>lastModifiedFile(</strong><em>string</em> <strong>$path</strong>, <em>string</em> <strong>$extensions=`'md|yaml'`</strong>)</strong> : <em>int</em><br /><em>Recursively find the last modified time under given path by file.</em> |
 | public static | <strong>lastModifiedFolder(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>int</em><br /><em>Recursively find the last modified time under given path.</em> |
 | public static | <strong>mkdir(</strong><em>string</em> <strong>$folder</strong>)</strong> : <em>void</em> |
 | public static | <strong>move(</strong><em>string</em> <strong>$source</strong>, <em>string</em> <strong>$target</strong>)</strong> : <em>void</em><br /><em>Move directory in filesystem.</em> |
-| public static | <strong>rcopy(</strong><em>mixed</em> <strong>$src</strong>, <em>mixed</em> <strong>$dest</strong>)</strong> : <em>bool</em><br /><em>Recursive copy of one directory to another</em> |
+| public static | <strong>rcopy(</strong><em>string</em> <strong>$src</strong>, <em>string</em> <strong>$dest</strong>)</strong> : <em>bool</em><br /><em>Recursive copy of one directory to another</em> |
 | public static | <strong>shift(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>string</em><br /><em>Shift first directory out of the path.</em> |
 | protected static | <strong>doDelete(</strong><em>string</em> <strong>$folder</strong>, <em>bool</em> <strong>$include_target=true</strong>)</strong> : <em>bool</em> |
+
+<hr /><a id="class-gravcommonformformflash"></a>
+### Class: \Grav\Common\Form\FormFlash
+
+| Visibility | Function |
+|:-----------|:---------|
+| public static | <strong>clearSession(</strong><em>\string</em> <strong>$sessionId</strong>)</strong> : <em>void</em> |
+| public | <strike><strong>cropFile(</strong><em>\string</em> <strong>$field</strong>, <em>\string</em> <strong>$filename</strong>, <em>array</em> <strong>$upload</strong>, <em>array</em> <strong>$crop</strong>)</strong> : <em>bool</em></strike><br /><em>DEPRECATED - 1.6 For backwards compatibility only, do not use</em> |
+| public | <strike><strong>getLegacyFiles()</strong> : <em>array</em></strike><br /><em>DEPRECATED - 1.6 For backwards compatibility only, do not use</em> |
+| public static | <strong>getSessionTmpDir(</strong><em>\string</em> <strong>$sessionId</strong>)</strong> : <em>string</em> |
+| public | <strong>setUser(</strong><em>\Grav\Common\Form\UserInterface/null/[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em> <strong>$user=null</strong>)</strong> : <em>\Grav\Common\Form\$this</em> |
+| public | <strike><strong>uploadFile(</strong><em>\string</em> <strong>$field</strong>, <em>\string</em> <strong>$filename</strong>, <em>array</em> <strong>$upload</strong>)</strong> : <em>bool</em></strike><br /><em>DEPRECATED - 1.6 For backwards compatibility only, do not use</em> |
+| protected | <strong>getTmpIndex()</strong> : <em>\RocketTheme\Toolbox\File\YamlFile</em> |
+| protected | <strong>removeTmpDir()</strong> : <em>void</em> |
+| protected | <strong>removeTmpFile(</strong><em>\string</em> <strong>$name</strong>)</strong> : <em>void</em> |
+
+*This class extends [\Grav\Framework\Form\FormFlash](#class-gravframeworkformformflash)*
+
+*This class implements \JsonSerializable*
 
 <hr /><a id="class-gravcommongpmupgrader"></a>
 ### Class: \Grav\Common\GPM\Upgrader
@@ -1179,16 +1479,16 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>checkNextSignificantReleasesAreCompatible(</strong><em>string</em> <strong>$version1</strong>, <em>string</em> <strong>$version2</strong>)</strong> : <em>bool</em><br /><em>Check if two releases are compatible by next significant release ~1.2 is equivalent to >=1.2 <2.0.0 ~1.2.3 is equivalent to >=1.2.3 <1.3.0 In short, allows the last digit specified to go up</em> |
 | public | <strong>checkNoOtherPackageNeedsTheseDependenciesInALowerVersion(</strong><em>mixed</em> <strong>$dependencies_slugs</strong>)</strong> : <em>void</em> |
 | public | <strong>checkNoOtherPackageNeedsThisDependencyInALowerVersion(</strong><em>string</em> <strong>$slug</strong>, <em>string</em> <strong>$version_with_operator</strong>, <em>array</em> <strong>$ignore_packages_list</strong>)</strong> : <em>bool</em><br /><em>Check the package identified by $slug can be updated to the version passed as argument. Thrown an exception if it cannot be updated because another package installed requires it to be at an older version.</em> |
-| public | <strong>checkPackagesCanBeInstalled(</strong><em>mixed</em> <strong>$packages_names_list</strong>)</strong> : <em>void</em><br /><em>Check the passed packages list can be updated</em> |
-| public static | <strong>copyPackage(</strong><em>mixed</em> <strong>$package_file</strong>, <em>mixed</em> <strong>$tmp</strong>)</strong> : <em>null/string</em><br /><em>Copy the local zip package to tmp</em> |
+| public | <strong>checkPackagesCanBeInstalled(</strong><em>array</em> <strong>$packages_names_list</strong>)</strong> : <em>void</em><br /><em>Check the passed packages list can be updated</em> |
+| public static | <strong>copyPackage(</strong><em>string</em> <strong>$package_file</strong>, <em>string</em> <strong>$tmp</strong>)</strong> : <em>null/string</em><br /><em>Copy the local zip package to tmp</em> |
 | public | <strong>countInstalled()</strong> : <em>integer Amount of installed packages</em><br /><em>Returns the amount of locally installed packages</em> |
 | public | <strong>countUpdates()</strong> : <em>integer Amount of available updates</em><br /><em>Returns the amount of updates available</em> |
-| public static | <strong>downloadPackage(</strong><em>mixed</em> <strong>$package_file</strong>, <em>mixed</em> <strong>$tmp</strong>)</strong> : <em>null/string</em><br /><em>Download the zip package via the URL</em> |
+| public static | <strong>downloadPackage(</strong><em>string</em> <strong>$package_file</strong>, <em>string</em> <strong>$tmp</strong>)</strong> : <em>null/string</em><br /><em>Download the zip package via the URL</em> |
 | public | <strong>findPackage(</strong><em>string</em> <strong>$search</strong>, <em>bool</em> <strong>$ignore_exception=false</strong>)</strong> : <em>[\Grav\Common\GPM\Remote\Package](#class-gravcommongpmremotepackage)/bool Package if found, FALSE if not</em><br /><em>Searches for a Package in the repository</em> |
 | public | <strong>findPackages(</strong><em>array</em> <strong>$searches=array()</strong>)</strong> : <em>array Array of found Packages Format: ['total' => int, 'not_found' => array, <found-slugs>]</em><br /><em>Searches for a list of Packages in the repository</em> |
 | public static | <strong>getBlueprints(</strong><em>mixed</em> <strong>$source</strong>)</strong> : <em>array/bool</em><br /><em>Find/Parse the blueprint file</em> |
 | public | <strong>getDependencies(</strong><em>array</em> <strong>$packages</strong>)</strong> : <em>mixed</em><br /><em>Fetch the dependencies, check the installed packages and return an array with the list of packages with associated an information on what to do: install, update or ignore. `ignore` means the package is already installed and can be safely left as-is. `install` means the package is not installed and must be installed. `update` means the package is already installed and must be updated as a dependency needs a higher version.</em> |
-| public static | <strong>getInstallPath(</strong><em>mixed</em> <strong>$type</strong>, <em>mixed</em> <strong>$name</strong>)</strong> : <em>string</em><br /><em>Get the install path for a name and a particular type of package</em> |
+| public static | <strong>getInstallPath(</strong><em>string</em> <strong>$type</strong>, <em>string</em> <strong>$name</strong>)</strong> : <em>string</em><br /><em>Get the install path for a name and a particular type of package</em> |
 | public | <strong>getInstallable(</strong><em>array</em> <strong>$list_type_installed=array()</strong>)</strong> : <em>array The installed packages</em><br /><em>Returns the Locally installable packages</em> |
 | public | <strong>getInstalled()</strong> : <em>[\Grav\Common\GPM\Local\Packages](#class-gravcommongpmlocalpackages)</em><br /><em>Return the locally installed packages</em> |
 | public | <strong>getInstalledPackage(</strong><em>string</em> <strong>$slug</strong>)</strong> : <em>Local\Package The instance of the Package</em><br /><em>Return the instance of a specific Package</em> |
@@ -1196,11 +1496,11 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>getInstalledPlugins()</strong> : <em>Iterator The installed plugins</em><br /><em>Returns the Locally installed plugins</em> |
 | public | <strong>getInstalledTheme(</strong><em>string</em> <strong>$slug</strong>)</strong> : <em>Local\Package The instance of the Theme</em><br /><em>Return the instance of a specific Theme</em> |
 | public | <strong>getInstalledThemes()</strong> : <em>Iterator The installed themes</em><br /><em>Returns the Locally installed themes</em> |
-| public | <strong>getLatestVersionOfPackage(</strong><em>mixed</em> <strong>$package_name</strong>)</strong> : <em>string/null</em><br /><em>Get the latest release of a package from the GPM</em> |
-| public static | <strong>getPackageName(</strong><em>mixed</em> <strong>$source</strong>)</strong> : <em>bool/string</em><br /><em>Try to guess the package name from the source files</em> |
-| public static | <strong>getPackageType(</strong><em>mixed</em> <strong>$source</strong>)</strong> : <em>bool/string</em><br /><em>Try to guess the package type from the source files</em> |
+| public | <strong>getLatestVersionOfPackage(</strong><em>string</em> <strong>$package_name</strong>)</strong> : <em>string/null</em><br /><em>Get the latest release of a package from the GPM</em> |
+| public static | <strong>getPackageName(</strong><em>string</em> <strong>$source</strong>)</strong> : <em>bool/string</em><br /><em>Try to guess the package name from the source files</em> |
+| public static | <strong>getPackageType(</strong><em>string</em> <strong>$source</strong>)</strong> : <em>bool/string</em><br /><em>Try to guess the package type from the source files</em> |
 | public | <strong>getPackagesThatDependOnPackage(</strong><em>string</em> <strong>$slug</strong>)</strong> : <em>array</em><br /><em>Return the list of packages that have the passed one as dependency</em> |
-| public | <strong>getReleaseType(</strong><em>mixed</em> <strong>$package_name</strong>)</strong> : <em>string/null</em><br /><em>Get the release type of a package (stable / testing)</em> |
+| public | <strong>getReleaseType(</strong><em>string</em> <strong>$package_name</strong>)</strong> : <em>string/null</em><br /><em>Get the release type of a package (stable / testing)</em> |
 | public | <strong>getRepository()</strong> : <em>Remote\Packages Available Plugins and Themes Format: ['plugins' => array, 'themes' => array]</em><br /><em>Returns the list of Plugins and Themes available in the repository</em> |
 | public | <strong>getRepositoryPlugin(</strong><em>string</em> <strong>$slug</strong>)</strong> : <em>mixed Package if found, NULL if not</em><br /><em>Returns a Plugin from the repository</em> |
 | public | <strong>getRepositoryPlugins()</strong> : <em>Iterator The Plugins remotely available</em><br /><em>Returns the list of Plugins available in the repository</em> |
@@ -1213,8 +1513,8 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>isPluginInstalled(</strong><em>string</em> <strong>$slug</strong>)</strong> : <em>boolean True if the Plugin has been installed. False otherwise</em><br /><em>Checks if a Plugin is installed</em> |
 | public | <strong>isPluginInstalledAsSymlink(</strong><em>mixed</em> <strong>$slug</strong>)</strong> : <em>bool</em> |
 | public | <strong>isPluginUpdatable(</strong><em>string</em> <strong>$plugin</strong>)</strong> : <em>boolean True if the Plugin is updatable. False otherwise</em><br /><em>Checks if a Plugin is updatable</em> |
-| public | <strong>isStableRelease(</strong><em>mixed</em> <strong>$package_name</strong>)</strong> : <em>boolean</em><br /><em>Returns true if the package latest release is stable</em> |
-| public | <strong>isTestingRelease(</strong><em>mixed</em> <strong>$package_name</strong>)</strong> : <em>boolean</em><br /><em>Returns true if the package latest release is testing</em> |
+| public | <strong>isStableRelease(</strong><em>string</em> <strong>$package_name</strong>)</strong> : <em>boolean</em><br /><em>Returns true if the package latest release is stable</em> |
+| public | <strong>isTestingRelease(</strong><em>string</em> <strong>$package_name</strong>)</strong> : <em>boolean</em><br /><em>Returns true if the package latest release is testing</em> |
 | public | <strong>isThemeInstalled(</strong><em>string</em> <strong>$slug</strong>)</strong> : <em>boolean True if the Theme has been installed. False otherwise</em><br /><em>Checks if a Theme is installed</em> |
 | public | <strong>isThemeUpdatable(</strong><em>string</em> <strong>$theme</strong>)</strong> : <em>boolean True if the Theme is updatable. False otherwise</em><br /><em>Checks if a Theme is Updatable</em> |
 | public | <strong>isUpdatable(</strong><em>string</em> <strong>$slug</strong>)</strong> : <em>boolean True if updatable. False otherwise or if not found</em><br /><em>Check if a Plugin or Theme is updatable</em> |
@@ -1244,7 +1544,7 @@ $value = $data->value('this.is.my.nested.variable');
 
 | Visibility | Function |
 |:-----------|:---------|
-| public static | <strong>get(</strong><em>mixed</em> <strong>$slug=null</strong>)</strong> : <em>string</em><br /><em>Returns the license for a Premium package</em> |
+| public static | <strong>get(</strong><em>mixed</em> <strong>$slug=null</strong>)</strong> : <em>array/string</em><br /><em>Returns the license for a Premium package</em> |
 | public static | <strong>getLicenseFile()</strong> : <em>\RocketTheme\Toolbox\File\FileInterface</em><br /><em>Get's the License File object</em> |
 | public static | <strong>set(</strong><em>mixed</em> <strong>$slug</strong>, <em>mixed</em> <strong>$license</strong>)</strong> : <em>boolean</em><br /><em>Returns the license for a Premium package</em> |
 | public static | <strong>validate(</strong><em>mixed</em> <strong>$license=null</strong>)</strong> : <em>bool</em><br /><em>Validates the License format</em> |
@@ -1268,14 +1568,14 @@ $value = $data->value('this.is.my.nested.variable');
 |:-----------|:---------|
 | public static | <strong>copyInstall(</strong><em>mixed</em> <strong>$source_path</strong>, <em>mixed</em> <strong>$install_path</strong>)</strong> : <em>bool</em> |
 | public static | <strong>getMessage()</strong> : <em>string The message</em><br /><em>Returns the last message added by the installer</em> |
-| public static | <strong>install(</strong><em>string</em> <strong>$zip</strong>, <em>string</em> <strong>$destination</strong>, <em>array</em> <strong>$options=array()</strong>, <em>string</em> <strong>$extracted=null</strong>)</strong> : <em>bool True if everything went fine, False otherwise.</em><br /><em>Installs a given package to a given destination.</em> |
+| public static | <strong>install(</strong><em>string</em> <strong>$zip</strong>, <em>string</em> <strong>$destination</strong>, <em>array</em> <strong>$options=array()</strong>, <em>string</em> <strong>$extracted=null</strong>, <em>bool</em> <strong>$keepExtracted=false</strong>)</strong> : <em>bool True if everything went fine, False otherwise.</em><br /><em>Installs a given package to a given destination.</em> |
 | public static | <strong>isGravInstance(</strong><em>string</em> <strong>$target</strong>)</strong> : <em>boolean True if is a Grav Instance. False otherwise</em><br /><em>Validates if the given path is a Grav Instance</em> |
 | public static | <strong>isValidDestination(</strong><em>string</em> <strong>$destination</strong>, <em>array</em> <strong>$exclude=array()</strong>)</strong> : <em>boolean True if validation passed. False otherwise</em><br /><em>Runs a set of checks on the destination and sets the Error if any</em> |
 | public static | <strong>lastErrorCode()</strong> : <em>integer The code of the last error</em><br /><em>Returns the last error code of the occurred error</em> |
 | public static | <strong>lastErrorMsg()</strong> : <em>string The message of the last error</em><br /><em>Returns the last error occurred in a string message format</em> |
 | public static | <strong>moveInstall(</strong><em>mixed</em> <strong>$source_path</strong>, <em>mixed</em> <strong>$install_path</strong>)</strong> : <em>bool</em> |
 | public static | <strong>setError(</strong><em>int/string</em> <strong>$error</strong>)</strong> : <em>void</em><br /><em>Allows to manually set an error</em> |
-| public static | <strong>sophisticatedInstall(</strong><em>mixed</em> <strong>$source_path</strong>, <em>mixed</em> <strong>$install_path</strong>, <em>array</em> <strong>$ignores=array()</strong>)</strong> : <em>bool</em> |
+| public static | <strong>sophisticatedInstall(</strong><em>mixed</em> <strong>$source_path</strong>, <em>mixed</em> <strong>$install_path</strong>, <em>array/mixed</em> <strong>$ignores=array()</strong>, <em>bool/mixed</em> <strong>$keep_source=false</strong>)</strong> : <em>bool</em> |
 | public static | <strong>unZip(</strong><em>mixed</em> <strong>$zip_file</strong>, <em>mixed</em> <strong>$destination</strong>)</strong> : <em>bool/string</em><br /><em>Unzip a file to somewhere</em> |
 | public static | <strong>uninstall(</strong><em>string</em> <strong>$path</strong>, <em>array</em> <strong>$options=array()</strong>)</strong> : <em>boolean True if everything went fine, False otherwise.</em><br /><em>Uninstalls one or more given package</em> |
 
@@ -1287,9 +1587,10 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>__construct(</strong><em>[\Grav\Common\Data\Data](#class-gravcommondatadata)</em> <strong>$package</strong>, <em>mixed</em> <strong>$type=null</strong>)</strong> : <em>void</em> |
 | public | <strong>__get(</strong><em>mixed</em> <strong>$key</strong>)</strong> : <em>void</em> |
 | public | <strong>__isset(</strong><em>mixed</em> <strong>$key</strong>)</strong> : <em>void</em> |
+| public | <strong>__set(</strong><em>mixed</em> <strong>$key</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em> |
 | public | <strong>__toString()</strong> : <em>void</em> |
-| public | <strong>getData()</strong> : <em>mixed</em> |
-| public | <strong>toArray()</strong> : <em>void</em> |
+| public | <strong>getData()</strong> : <em>[\Grav\Common\Data\Data](#class-gravcommondatadata)</em> |
+| public | <strong>toArray()</strong> : <em>array</em> |
 | public | <strong>toJson()</strong> : <em>void</em> |
 
 <hr /><a id="class-gravcommongpmcommoncachedcollection"></a>
@@ -1468,6 +1769,17 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>__construct()</strong> : <em>void</em><br /><em>Exif constructor.</em> |
 | public | <strong>getReader()</strong> : <em>mixed</em> |
 
+<hr /><a id="class-gravcommonhelperslogviewer"></a>
+### Class: \Grav\Common\Helpers\LogViewer
+
+| Visibility | Function |
+|:-----------|:---------|
+| public static | <strong>levelColor(</strong><em>mixed</em> <strong>$level</strong>)</strong> : <em>mixed/string</em><br /><em>Helper class to get level color</em> |
+| public | <strong>objectTail(</strong><em>mixed</em> <strong>$filepath</strong>, <em>int</em> <strong>$lines=1</strong>, <em>bool</em> <strong>$desc=true</strong>)</strong> : <em>array</em><br /><em>Get the objects of a tailed file</em> |
+| public | <strong>parse(</strong><em>mixed</em> <strong>$line</strong>)</strong> : <em>array</em><br /><em>Parse a monolog row into array bits</em> |
+| public static | <strong>parseTrace(</strong><em>mixed</em> <strong>$trace</strong>, <em>mixed</em> <strong>$rows=10</strong>)</strong> : <em>array</em><br /><em>Parse text of trace into an array of lines</em> |
+| public | <strong>tail(</strong><em>mixed</em> <strong>$filepath</strong>, <em>int</em> <strong>$lines=1</strong>)</strong> : <em>bool/string</em><br /><em>Optimized way to get just the last few entries of a log file</em> |
+
 <hr /><a id="class-gravcommonhelpersexcerpts"></a>
 ### Class: \Grav\Common\Helpers\Excerpts
 
@@ -1475,9 +1787,9 @@ $value = $data->value('this.is.my.nested.variable');
 |:-----------|:---------|
 | public static | <strong>getExcerptFromHtml(</strong><em>string</em> <strong>$html</strong>, <em>string</em> <strong>$tag</strong>)</strong> : <em>array/null returns nested array excerpt</em><br /><em>Get an Excerpt array from a chunk of HTML</em> |
 | public static | <strong>getHtmlFromExcerpt(</strong><em>mixed</em> <strong>$excerpt</strong>)</strong> : <em>string</em><br /><em>Rebuild HTML tag from an excerpt array</em> |
-| public static | <strong>processImageExcerpt(</strong><em>array</em> <strong>$excerpt</strong>, <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$page</strong>)</strong> : <em>mixed</em><br /><em>Process an image excerpt</em> |
-| public static | <strong>processImageHtml(</strong><em>string</em> <strong>$html</strong>, <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$page</strong>)</strong> : <em>string Returns final HTML string</em><br /><em>Process Grav image media URL from HTML tag</em> |
-| public static | <strong>processLinkExcerpt(</strong><em>mixed</em> <strong>$excerpt</strong>, <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$page</strong>, <em>string</em> <strong>$type=`'link'`</strong>)</strong> : <em>mixed</em><br /><em>Process a Link excerpt</em> |
+| public static | <strong>processImageExcerpt(</strong><em>array</em> <strong>$excerpt</strong>, <em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$page</strong>)</strong> : <em>mixed</em><br /><em>Process an image excerpt</em> |
+| public static | <strong>processImageHtml(</strong><em>string</em> <strong>$html</strong>, <em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$page</strong>)</strong> : <em>string Returns final HTML string</em><br /><em>Process Grav image media URL from HTML tag</em> |
+| public static | <strong>processLinkExcerpt(</strong><em>mixed</em> <strong>$excerpt</strong>, <em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$page</strong>, <em>string</em> <strong>$type=`'link'`</strong>)</strong> : <em>mixed</em><br /><em>Process a Link excerpt</em> |
 | public static | <strong>processMediaActions(</strong><em>mixed</em> <strong>$medium</strong>, <em>mixed</em> <strong>$url</strong>)</strong> : <em>mixed</em><br /><em>Process media actions</em> |
 | protected static | <strong>parseUrl(</strong><em>string</em> <strong>$url</strong>)</strong> : <em>array/bool</em><br /><em>Variation of parse_url() which works also with local streams.</em> |
 | protected static | <strong>resolveStream(</strong><em>mixed</em> <strong>$url</strong>)</strong> : <em>void</em> |
@@ -1491,11 +1803,12 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>enabled()</strong> : <em>bool</em><br /><em>Ensure that languages are enabled</em> |
 | public | <strong>getActive()</strong> : <em>mixed</em><br /><em>Gets current active language</em> |
 | public | <strong>getAvailable()</strong> : <em>string</em><br /><em>Gets a pipe-separated string of available languages</em> |
-| public | <strong>getBrowserLanguages(</strong><em>array</em> <strong>$accept_langs=array()</strong>)</strong> : <em>array</em><br /><em>Get the browser accepted languages</em> |
+| public | <strike><strong>getBrowserLanguages(</strong><em>array</em> <strong>$accept_langs=array()</strong>)</strong> : <em>array</em></strike><br /><em>DEPRECATED - 1.6 No longer used - using content negotiation.</em> |
 | public | <strong>getDefault()</strong> : <em>mixed</em><br /><em>Gets current default language</em> |
 | public | <strong>getFallbackLanguages()</strong> : <em>array</em><br /><em>Gets an array of languages with active first, then fallback languages</em> |
 | public | <strong>getFallbackPageExtensions(</strong><em>string/null</em> <strong>$file_ext=null</strong>)</strong> : <em>array</em><br /><em>Gets an array of valid extensions with active first, then fallback extensions</em> |
 | public | <strong>getLanguage()</strong> : <em>mixed</em><br /><em>Gets language, active if set, else default</em> |
+| public | <strong>getLanguageCode(</strong><em>mixed</em> <strong>$code</strong>, <em>string</em> <strong>$type=`'name'`</strong>)</strong> : <em>bool</em><br /><em>Accessible wrapper to LanguageCodes</em> |
 | public | <strong>getLanguageURLPrefix(</strong><em>null</em> <strong>$lang=null</strong>)</strong> : <em>string</em><br /><em>Get's a URL prefix based on configuration</em> |
 | public | <strong>getLanguages()</strong> : <em>array</em><br /><em>Gets the array of supported languages</em> |
 | public | <strong>getTranslation(</strong><em>string</em> <strong>$lang</strong>, <em>string</em> <strong>$key</strong>, <em>bool</em> <strong>$array_support=false</strong>)</strong> : <em>string</em><br /><em>Lookup the translation text for a given lang and key</em> |
@@ -1506,7 +1819,7 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>setActive(</strong><em>mixed</em> <strong>$lang</strong>)</strong> : <em>bool</em><br /><em>Sets active language manually</em> |
 | public | <strong>setActiveFromUri(</strong><em>mixed</em> <strong>$uri</strong>)</strong> : <em>mixed</em><br /><em>Sets the active language based on the first part of the URL</em> |
 | public | <strong>setDefault(</strong><em>mixed</em> <strong>$lang</strong>)</strong> : <em>bool</em><br /><em>Sets default language manually</em> |
-| public | <strong>setLanguages(</strong><em>mixed</em> <strong>$langs</strong>)</strong> : <em>void</em><br /><em>Sets the current supported languages manually</em> |
+| public | <strong>setLanguages(</strong><em>array</em> <strong>$langs</strong>)</strong> : <em>void</em><br /><em>Sets the current supported languages manually</em> |
 | public | <strong>translate(</strong><em>mixed</em> <strong>$args</strong>, <em>array</em> <strong>$languages=null</strong>, <em>bool</em> <strong>$array_support=false</strong>, <em>bool</em> <strong>$html_out=false</strong>)</strong> : <em>string</em><br /><em>Translate a key and possibly arguments into a string using current lang and fallbacks Other arguments can be passed and replaced in the translation with sprintf syntax</em> |
 | public | <strong>translateArray(</strong><em>mixed</em> <strong>$key</strong>, <em>mixed</em> <strong>$index</strong>, <em>null</em> <strong>$languages=null</strong>, <em>bool</em> <strong>$html_out=false</strong>)</strong> : <em>string</em><br /><em>Translate Array</em> |
 | public | <strong>validate(</strong><em>mixed</em> <strong>$lang</strong>)</strong> : <em>bool</em><br /><em>Ensures the language is valid and supported</em> |
@@ -1516,12 +1829,12 @@ $value = $data->value('this.is.my.nested.variable');
 
 | Visibility | Function |
 |:-----------|:---------|
+| public static | <strong>get(</strong><em>mixed</em> <strong>$code</strong>, <em>mixed</em> <strong>$type</strong>)</strong> : <em>mixed</em> |
 | public static | <strong>getName(</strong><em>mixed</em> <strong>$code</strong>)</strong> : <em>mixed</em> |
 | public static | <strong>getNames(</strong><em>array</em> <strong>$keys</strong>)</strong> : <em>mixed</em> |
 | public static | <strong>getNativeName(</strong><em>mixed</em> <strong>$code</strong>)</strong> : <em>mixed</em> |
 | public static | <strong>getOrientation(</strong><em>mixed</em> <strong>$code</strong>)</strong> : <em>mixed</em> |
 | public static | <strong>isRtl(</strong><em>mixed</em> <strong>$code</strong>)</strong> : <em>bool</em> |
-| protected static | <strong>get(</strong><em>mixed</em> <strong>$code</strong>, <em>mixed</em> <strong>$type</strong>)</strong> : <em>mixed</em> |
 
 <hr /><a id="class-gravcommonmarkdownparsedownextra"></a>
 ### Class: \Grav\Common\Markdown\ParsedownExtra
@@ -1572,6 +1885,9 @@ $value = $data->value('this.is.my.nested.variable');
 
 | Visibility | Function |
 |:-----------|:---------|
+| public | <strong>getPath()</strong> : <em>string/null</em><br /><em>Return media path.</em> |
+
+*This class implements [\Grav\Framework\Media\Interfaces\MediaCollectionInterface](#interface-gravframeworkmediainterfacesmediacollectioninterface)*
 
 <hr /><a id="interface-gravcommonmediainterfacesmediaobjectinterface"></a>
 ### Interface: \Grav\Common\Media\Interfaces\MediaObjectInterface
@@ -1581,6 +1897,8 @@ $value = $data->value('this.is.my.nested.variable');
 | Visibility | Function |
 |:-----------|:---------|
 
+*This class implements [\Grav\Framework\Media\Interfaces\MediaObjectInterface](#interface-gravframeworkmediainterfacesmediaobjectinterface)*
+
 <hr /><a id="interface-gravcommonmediainterfacesmediainterface"></a>
 ### Interface: \Grav\Common\Media\Interfaces\MediaInterface
 
@@ -1588,9 +1906,8 @@ $value = $data->value('this.is.my.nested.variable');
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>getMedia()</strong> : <em>MediaCollectionInterface Collection of associated media.</em><br /><em>Gets the associated media collection.</em> |
-| public | <strong>getMediaFolder()</strong> : <em>string/null Media path or null if the object doesn't have media folder.</em><br /><em>Get filesystem path to the associated media.</em> |
-| public | <strong>getMediaOrder()</strong> : <em>array Empty array means default ordering.</em><br /><em>Get display order for the associated media.</em> |
+
+*This class implements [\Grav\Framework\Media\Interfaces\MediaInterface](#interface-gravframeworkmediainterfacesmediainterface)*
 
 <hr /><a id="class-gravcommonpagepages"></a>
 ### Class: \Grav\Common\Page\Pages
@@ -1599,25 +1916,25 @@ $value = $data->value('this.is.my.nested.variable');
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>[\Grav\Common\Grav](#class-gravcommongrav)</em> <strong>$c</strong>)</strong> : <em>void</em><br /><em>Constructor</em> |
 | public | <strong>accessLevels()</strong> : <em>array</em><br /><em>Get access levels of the site pages</em> |
-| public | <strong>addPage(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$page</strong>, <em>string</em> <strong>$route=null</strong>)</strong> : <em>void</em><br /><em>Adds a page and assigns a route to it.</em> |
-| public | <strong>all(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$current=null</strong>)</strong> : <em>[\Grav\Common\Page\Collection](#class-gravcommonpagecollection)</em><br /><em>Get all pages</em> |
-| public | <strong>ancestor(</strong><em>string</em> <strong>$route</strong>, <em>string</em> <strong>$path=null</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)/null</em><br /><em>Get a page ancestor.</em> |
+| public | <strong>addPage(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$page</strong>, <em>string</em> <strong>$route=null</strong>)</strong> : <em>void</em><br /><em>Adds a page and assigns a route to it.</em> |
+| public | <strong>all(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$current=null</strong>)</strong> : <em>[\Grav\Common\Page\Collection](#class-gravcommonpagecollection)</em><br /><em>Get all pages</em> |
+| public | <strong>ancestor(</strong><em>string</em> <strong>$route</strong>, <em>string</em> <strong>$path=null</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)Interface/null</em><br /><em>Get a page ancestor.</em> |
 | public | <strong>base(</strong><em>string</em> <strong>$path=null</strong>)</strong> : <em>string</em><br /><em>Get or set base path for the pages.</em> |
 | public | <strong>baseRoute(</strong><em>string</em> <strong>$lang=null</strong>)</strong> : <em>string</em><br /><em>Get base route for Grav pages.</em> |
 | public | <strong>baseUrl(</strong><em>string</em> <strong>$lang=null</strong>, <em>bool/null</em> <strong>$absolute=null</strong>)</strong> : <em>string</em><br /><em>Get base URL for Grav pages.</em> |
 | public | <strong>blueprints(</strong><em>string</em> <strong>$type</strong>)</strong> : <em>[\Grav\Common\Data\Blueprint](#class-gravcommondatablueprint)</em><br /><em>Get a blueprint for a page type.</em> |
 | public | <strong>children(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>[\Grav\Common\Page\Collection](#class-gravcommonpagecollection)</em><br /><em>Get children of the path.</em> |
-| public | <strong>dispatch(</strong><em>string</em> <strong>$route</strong>, <em>bool</em> <strong>$all=false</strong>, <em>bool</em> <strong>$redirect=true</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)/null</em><br /><em>Dispatch URI to a page.</em> |
-| public | <strong>find(</strong><em>string</em> <strong>$route</strong>, <em>bool</em> <strong>$all=false</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)/null</em><br /><em>alias method to return find a page.</em> |
-| public | <strong>get(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em><br /><em>Get a page instance.</em> |
+| public | <strong>dispatch(</strong><em>string</em> <strong>$route</strong>, <em>bool</em> <strong>$all=false</strong>, <em>bool</em> <strong>$redirect=true</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)Interface/null</em><br /><em>Dispatch URI to a page.</em> |
+| public | <strong>find(</strong><em>string</em> <strong>$route</strong>, <em>bool</em> <strong>$all=false</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)Interface/null</em><br /><em>alias method to return find a page.</em> |
+| public | <strong>get(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em><br /><em>Get a page instance.</em> |
 | public static | <strong>getHomeRoute()</strong> : <em>string</em><br /><em>Gets the home route</em> |
-| public | <strong>getList(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$current=null</strong>, <em>int</em> <strong>$level</strong>, <em>bool</em> <strong>$rawRoutes=false</strong>, <em>bool</em> <strong>$showAll=true</strong>, <em>bool</em> <strong>$showFullpath=false</strong>, <em>bool</em> <strong>$showSlug=false</strong>, <em>bool</em> <strong>$showModular=false</strong>, <em>bool</em> <strong>$limitLevels=false</strong>)</strong> : <em>array</em><br /><em>Get list of route/title of all pages.</em> |
+| public | <strong>getList(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$current=null</strong>, <em>int</em> <strong>$level</strong>, <em>bool</em> <strong>$rawRoutes=false</strong>, <em>bool</em> <strong>$showAll=true</strong>, <em>bool</em> <strong>$showFullpath=false</strong>, <em>bool</em> <strong>$showSlug=false</strong>, <em>bool</em> <strong>$showModular=false</strong>, <em>bool</em> <strong>$limitLevels=false</strong>)</strong> : <em>array</em><br /><em>Get list of route/title of all pages.</em> |
 | public | <strong>getPagesCacheId()</strong> : <em>mixed</em><br /><em>Get the Pages cache ID this is particularly useful to know if pages have changed and you want to sync another cache with pages cache - works best in `onPagesInitialized()`</em> |
 | public static | <strong>getTypes()</strong> : <em>[\Grav\Common\Page\Types](#class-gravcommonpagetypes)</em><br /><em>Get available page types.</em> |
 | public | <strong>homeUrl(</strong><em>string</em> <strong>$lang=null</strong>, <em>bool</em> <strong>$absolute=null</strong>)</strong> : <em>string</em><br /><em>Get home URL for Grav site.</em> |
-| public | <strong>inherited(</strong><em>string</em> <strong>$route</strong>, <em>string</em> <strong>$field=null</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)/null</em><br /><em>Get a page ancestor trait.</em> |
+| public | <strong>inherited(</strong><em>string</em> <strong>$route</strong>, <em>string</em> <strong>$field=null</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)Interface/null</em><br /><em>Get a page ancestor trait.</em> |
 | public | <strong>init()</strong> : <em>void</em><br /><em>Class initialization. Must be called before using this class.</em> |
-| public | <strong>instances()</strong> : <em>array/[\Grav\Common\Page\Page](#class-gravcommonpagepage)[]</em><br /><em>Returns a list of all pages.</em> |
+| public | <strong>instances()</strong> : <em>array/[\Grav\Common\Page\Page](#class-gravcommonpagepage)Interface[]</em><br /><em>Returns a list of all pages.</em> |
 | public | <strong>lastModified(</strong><em>int</em> <strong>$modified=null</strong>)</strong> : <em>int/null</em><br /><em>Get or set last modification time.</em> |
 | public static | <strong>modularTypes()</strong> : <em>array</em><br /><em>Get available page types.</em> |
 | public static | <strong>pageTypes()</strong> : <em>array</em><br /><em>Get template types based on page type (standard or modular)</em> |
@@ -1625,18 +1942,18 @@ $value = $data->value('this.is.my.nested.variable');
 | public static | <strong>parentsRawRoutes()</strong> : <em>array</em><br /><em>Get available parents raw routes.</em> |
 | public static | <strong>resetHomeRoute()</strong> : <em>void</em><br /><em>Needed for testing where we change the home route via config</em> |
 | public | <strong>resetPages(</strong><em>mixed</em> <strong>$pages_dir</strong>)</strong> : <em>void</em><br /><em>Accessible method to manually reset the pages cache</em> |
-| public | <strong>root()</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em><br /><em>Get root page.</em> |
+| public | <strong>root()</strong> : <em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em><br /><em>Get root page.</em> |
 | public | <strong>route(</strong><em>string</em> <strong>$route=`'/'`</strong>, <em>string</em> <strong>$lang=null</strong>)</strong> : <em>string</em><br /><em>Get route for Grav site.</em> |
 | public | <strong>routes()</strong> : <em>array</em><br /><em>Returns a list of all routes.</em> |
-| public | <strong>sort(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$page</strong>, <em>string</em> <strong>$order_by=null</strong>, <em>string</em> <strong>$order_dir=null</strong>, <em>mixed</em> <strong>$sort_flags=null</strong>)</strong> : <em>array</em><br /><em>Sort sub-pages in a page.</em> |
-| public | <strong>sortCollection(</strong><em>[\Grav\Common\Page\Collection](#class-gravcommonpagecollection)</em> <strong>$collection</strong>, <em>mixed</em> <strong>$orderBy</strong>, <em>string</em> <strong>$orderDir=`'asc'`</strong>, <em>null</em> <strong>$orderManual=null</strong>, <em>mixed</em> <strong>$sort_flags=null</strong>)</strong> : <em>array</em> |
+| public | <strong>sort(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$page</strong>, <em>string</em> <strong>$order_by=null</strong>, <em>string</em> <strong>$order_dir=null</strong>, <em>mixed</em> <strong>$sort_flags=null</strong>)</strong> : <em>array</em><br /><em>Sort sub-pages in a page.</em> |
+| public | <strong>sortCollection(</strong><em>[\Grav\Common\Page\Collection](#class-gravcommonpagecollection)</em> <strong>$collection</strong>, <em>mixed</em> <strong>$orderBy</strong>, <em>string</em> <strong>$orderDir=`'asc'`</strong>, <em>null</em> <strong>$orderManual=null</strong>, <em>null</em> <strong>$sort_flags=null</strong>)</strong> : <em>array</em> |
 | public static | <strong>types()</strong> : <em>array</em><br /><em>Get available page types.</em> |
 | public | <strong>url(</strong><em>string</em> <strong>$route=`'/'`</strong>, <em>string</em> <strong>$lang=null</strong>, <em>bool</em> <strong>$absolute=null</strong>)</strong> : <em>string</em><br /><em>Get URL for Grav site.</em> |
 | protected | <strong>arrayShuffle(</strong><em>array</em> <strong>$list</strong>)</strong> : <em>array</em><br /><em>Shuffles an associative array</em> |
 | protected | <strong>buildPages()</strong> : <em>void</em><br /><em>Builds pages.</em> |
 | protected | <strong>buildRoutes()</strong> : <em>void</em> |
 | protected | <strong>buildSort(</strong><em>string</em> <strong>$path</strong>, <em>array</em> <strong>$pages</strong>, <em>string</em> <strong>$order_by=`'default'`</strong>, <em>array</em> <strong>$manual=null</strong>, <em>int</em> <strong>$sort_flags=null</strong>)</strong> : <em>void</em> |
-| protected | <strong>recurse(</strong><em>string</em> <strong>$directory</strong>, <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)/null/[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$parent=null</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em><br /><em>Recursive function to load & build page relationships.</em> |
+| protected | <strong>recurse(</strong><em>string</em> <strong>$directory</strong>, <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)Interface/null/[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$parent=null</strong>)</strong> : <em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em><br /><em>Recursive function to load & build page relationships.</em> |
 
 <hr /><a id="class-gravcommonpagecollection"></a>
 ### Class: \Grav\Common\Page\Collection
@@ -1645,11 +1962,11 @@ $value = $data->value('this.is.my.nested.variable');
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>array</em> <strong>$items=array()</strong>, <em>array</em> <strong>$params=array()</strong>, <em>[\Grav\Common\Page\Pages](#class-gravcommonpagepages)/null/[\Grav\Common\Page\Pages](#class-gravcommonpagepages)</em> <strong>$pages=null</strong>)</strong> : <em>void</em><br /><em>Collection constructor.</em> |
 | public | <strong>add(</strong><em>mixed</em> <strong>$path</strong>, <em>mixed</em> <strong>$slug</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Add a page with path and slug</em> |
-| public | <strong>addPage(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$page</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Add a single page to a collection</em> |
-| public | <strong>adjacentSibling(</strong><em>string</em> <strong>$path</strong>, <em>integer</em> <strong>$direction=1</strong>)</strong> : <em>Page The sibling item.</em><br /><em>Returns the adjacent sibling based on a direction.</em> |
+| public | <strong>addPage(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$page</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Add a single page to a collection</em> |
+| public | <strong>adjacentSibling(</strong><em>string</em> <strong>$path</strong>, <em>integer</em> <strong>$direction=1</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)Interface/Collection The sibling item.</em><br /><em>Returns the adjacent sibling based on a direction.</em> |
 | public | <strong>batch(</strong><em>mixed</em> <strong>$size</strong>)</strong> : <em>array/[\Grav\Common\Page\Collection](#class-gravcommonpagecollection)[]</em><br /><em>Split collection into array of smaller collections.</em> |
 | public | <strong>copy()</strong> : <em>\Grav\Common\Page\static</em><br /><em>Create a copy of this collection</em> |
-| public | <strong>current()</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em><br /><em>Returns current page.</em> |
+| public | <strong>current()</strong> : <em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em><br /><em>Returns current page.</em> |
 | public | <strong>currentPosition(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>Integer the index of the current page.</em><br /><em>Returns the item in the current position.</em> |
 | public | <strong>dateRange(</strong><em>mixed</em> <strong>$startDate</strong>, <em>bool</em> <strong>$endDate=false</strong>, <em>bool/mixed</em> <strong>$field=false</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Returns the items between a set of date ranges of either the page date field (default) or an arbitrary datetime page field where end date is optional Dates can be passed in as text that strtotime() can process http://php.net/manual/en/function.strtotime.php</em> |
 | public | <strong>intersect(</strong><em>[\Grav\Common\Page\Collection](#class-gravcommonpagecollection)</em> <strong>$collection</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Intersect another collection with the current collection</em> |
@@ -1658,20 +1975,20 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>key()</strong> : <em>mixed</em><br /><em>Returns current slug.</em> |
 | public | <strong>merge(</strong><em>[\Grav\Common\Page\Collection](#class-gravcommonpagecollection)</em> <strong>$collection</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Merge another collection with the current collection</em> |
 | public | <strong>modular()</strong> : <em>Collection The collection with only modular pages</em><br /><em>Creates new collection with only modular pages</em> |
-| public | <strong>nextSibling(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>Page The next item.</em><br /><em>Gets the next sibling based on current position.</em> |
+| public | <strong>nextSibling(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>PageInterface The next item.</em><br /><em>Gets the next sibling based on current position.</em> |
 | public | <strong>nonModular()</strong> : <em>Collection The collection with only non-modular pages</em><br /><em>Creates new collection with only non-modular pages</em> |
 | public | <strong>nonPublished()</strong> : <em>Collection The collection with only non-published pages</em><br /><em>Creates new collection with only non-published pages</em> |
 | public | <strong>nonRoutable()</strong> : <em>Collection The collection with only non-routable pages</em><br /><em>Creates new collection with only non-routable pages</em> |
 | public | <strong>nonVisible()</strong> : <em>Collection The collection with only non-visible pages</em><br /><em>Creates new collection with only non-visible pages</em> |
-| public | <strong>ofOneOfTheseAccessLevels(</strong><em>mixed</em> <strong>$accessLevels</strong>)</strong> : <em>Collection The collection</em><br /><em>Creates new collection with only pages of one of the specified access levels</em> |
-| public | <strong>ofOneOfTheseTypes(</strong><em>mixed</em> <strong>$types</strong>)</strong> : <em>Collection The collection</em><br /><em>Creates new collection with only pages of one of the specified types</em> |
-| public | <strong>ofType(</strong><em>mixed</em> <strong>$type</strong>)</strong> : <em>Collection The collection</em><br /><em>Creates new collection with only pages of the specified type</em> |
+| public | <strong>ofOneOfTheseAccessLevels(</strong><em>array</em> <strong>$accessLevels</strong>)</strong> : <em>Collection The collection</em><br /><em>Creates new collection with only pages of one of the specified access levels</em> |
+| public | <strong>ofOneOfTheseTypes(</strong><em>string[]</em> <strong>$types</strong>)</strong> : <em>Collection The collection</em><br /><em>Creates new collection with only pages of one of the specified types</em> |
+| public | <strong>ofType(</strong><em>string</em> <strong>$type</strong>)</strong> : <em>Collection The collection</em><br /><em>Creates new collection with only pages of the specified type</em> |
 | public | <strong>offsetGet(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>mixed Can return all value types.</em><br /><em>Returns the value at specified offset.</em> |
 | public | <strong>order(</strong><em>string</em> <strong>$by</strong>, <em>string</em> <strong>$dir=`'asc'`</strong>, <em>array</em> <strong>$manual=null</strong>, <em>string</em> <strong>$sort_flags=null</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Reorder collection.</em> |
 | public | <strong>params()</strong> : <em>array</em><br /><em>Get the collection params</em> |
-| public | <strong>prevSibling(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>Page The previous item.</em><br /><em>Gets the previous sibling based on current position.</em> |
+| public | <strong>prevSibling(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>PageInterface The previous item.</em><br /><em>Gets the previous sibling based on current position.</em> |
 | public | <strong>published()</strong> : <em>Collection The collection with only published pages</em><br /><em>Creates new collection with only published pages</em> |
-| public | <strong>remove(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)/string/null</em> <strong>$key=null</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Remove item from the list.</em> |
+| public | <strong>remove(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)Interface/string/null</em> <strong>$key=null</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Remove item from the list.</em> |
 | public | <strong>routable()</strong> : <em>Collection The collection with only routable pages</em><br /><em>Creates new collection with only routable pages</em> |
 | public | <strong>setParams(</strong><em>array</em> <strong>$params</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Set parameters to the Collection</em> |
 | public | <strong>toExtendedArray()</strong> : <em>array</em><br /><em>Get the extended version of this Collection with each page keyed by route</em> |
@@ -1690,8 +2007,9 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>active()</strong> : <em>bool True if it is active</em><br /><em>Returns whether or not this page is the currently active page requested via the URL.</em> |
 | public | <strong>activeChild()</strong> : <em>bool True if active child exists</em><br /><em>Returns whether or not this URI's URL contains the URL of the active page. Or in other words, is this page's URL in the current URL</em> |
 | public | <strong>addContentMeta(</strong><em>mixed</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Add an entry to the page's contentMeta array</em> |
-| public | <strong>adjacentSibling(</strong><em>integer</em> <strong>$direction=1</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)/bool the sibling page</em><br /><em>Returns the adjacent sibling based on a direction.</em> |
-| public | <strong>ancestor(</strong><em>bool</em> <strong>$lookup=null</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage) page you were looking for if it exists</em><br /><em>Helper method to return an ancestor page.</em> |
+| public | <strong>addForms(</strong><em>array</em> <strong>$new</strong>)</strong> : <em>void</em> |
+| public | <strong>adjacentSibling(</strong><em>integer</em> <strong>$direction=1</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)Interface/bool the sibling page</em><br /><em>Returns the adjacent sibling based on a direction.</em> |
+| public | <strong>ancestor(</strong><em>bool</em> <strong>$lookup=null</strong>)</strong> : <em>PageInterface page you were looking for if it exists</em><br /><em>Helper method to return an ancestor page.</em> |
 | public | <strong>blueprintName()</strong> : <em>string</em><br /><em>Get the blueprint name for this page.  Use the blueprint form field if set</em> |
 | public | <strong>blueprints()</strong> : <em>[\Grav\Common\Data\Blueprint](#class-gravcommondatablueprint)</em><br /><em>Get blueprints for the page.</em> |
 | public | <strong>cacheControl(</strong><em>null</em> <strong>$var=null</strong>)</strong> : <em>null</em><br /><em>Gets and sets the cache-control property.  If not set it will return the default value (null) https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control for more details on valid options</em> |
@@ -1702,7 +2020,7 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>collection(</strong><em>string/string/array</em> <strong>$params=`'content'`</strong>, <em>bool/boolean</em> <strong>$pagination=true</strong>)</strong> : <em>[\Grav\Common\Page\Collection](#class-gravcommonpagecollection)</em><br /><em>Get a collection of pages in the current context.</em> |
 | public | <strong>content(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string Content</em><br /><em>Gets and Sets the content based on content portion of the .md file</em> |
 | public | <strong>contentMeta()</strong> : <em>mixed</em><br /><em>Get the contentMeta array and initialize content first if it's not already</em> |
-| public | <strong>copy(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$parent</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Prepare a copy from the page. Copies also everything that's under the current page. Returns a new Page object for the copy. You need to call $this->save() in order to perform the move.</em> |
+| public | <strong>copy(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$parent</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Prepare a copy from the page. Copies also everything that's under the current page. Returns a new Page object for the copy. You need to call $this->save() in order to perform the move.</em> |
 | public | <strong>currentPosition()</strong> : <em>Integer the index of the current page.</em><br /><em>Returns the item in the current position.</em> |
 | public | <strong>date(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>int unix timestamp representation of the date</em><br /><em>Gets and sets the date for this Page object. This is typically passed in via the page headers</em> |
 | public | <strong>dateformat(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string string representation of a date format</em><br /><em>Gets and sets the date format for this Page object. This is typically passed in via the page headers using typical PHP date string structure - http://php.net/manual/en/function.date.php</em> |
@@ -1717,9 +2035,10 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>filePath(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string/null the file path</em><br /><em>Gets and sets the path to the .md file for this Page object.</em> |
 | public | <strong>filePathClean()</strong> : <em>string The relative file path</em><br /><em>Gets the relative path to the .md file</em> |
 | public | <strong>filter()</strong> : <em>void</em><br /><em>Filter page header from illegal contents.</em> |
-| public | <strong>find(</strong><em>string</em> <strong>$url</strong>, <em>bool</em> <strong>$all=false</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage) page you were looking for if it exists</em><br /><em>Helper method to return a page.</em> |
+| public | <strong>find(</strong><em>string</em> <strong>$url</strong>, <em>bool</em> <strong>$all=false</strong>)</strong> : <em>PageInterface page you were looking for if it exists</em><br /><em>Helper method to return a page.</em> |
 | public | <strong>folder(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string/null</em><br /><em>Get/set the folder.</em> |
 | public | <strong>folderExists()</strong> : <em>bool</em><br /><em>Returns whether or not the current folder exists</em> |
+| public | <strong>forms()</strong> : <em>array</em><br /><em>Returns normalized list of name => form pairs.</em> |
 | public | <strong>frontmatter(</strong><em>string/null</em> <strong>$var=null</strong>)</strong> : <em>string</em><br /><em>Gets and Sets the page frontmatter</em> |
 | public | <strong>getAction()</strong> : <em>string The Action string.</em><br /><em>Gets the action.</em> |
 | public | <strong>getContentMeta(</strong><em>null</em> <strong>$name=null</strong>)</strong> : <em>mixed</em><br /><em>Return the whole contentMeta array as it currently stands</em> |
@@ -1727,12 +2046,14 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>getMediaFolder()</strong> : <em>string/null</em><br /><em>Get filesystem path to the associated media.</em> |
 | public | <strong>getMediaOrder()</strong> : <em>array Empty array means default ordering.</em><br /><em>Get display order for the associated media.</em> |
 | public | <strong>getMediaUri()</strong> : <em>null/string</em><br /><em>Get URI ot the associated media. Method will return null if path isn't URI.</em> |
-| public | <strong>getOriginal()</strong> : <em>Page The original version of the page.</em><br /><em>Gets the Page Unmodified (original) version of the page.</em> |
+| public | <strong>getOriginal()</strong> : <em>PageInterface The original version of the page.</em><br /><em>Gets the Page Unmodified (original) version of the page.</em> |
 | public | <strong>getRawContent()</strong> : <em>string the current page content</em><br /><em>Needed by the onPageContentProcessed event to get the raw page content</em> |
 | public | <strong>header(</strong><em>object/array</em> <strong>$var=null</strong>)</strong> : <em>object the current YAML configuration</em><br /><em>Gets and Sets the header based on the YAML configuration at the top of the .md file</em> |
 | public | <strong>home()</strong> : <em>bool True if it is the homepage</em><br /><em>Returns whether or not this page is the currently configured home page.</em> |
+| public | <strong>httpHeaders()</strong> : <em>void</em> |
+| public | <strong>httpResponseCode()</strong> : <em>int</em> |
 | public | <strong>id(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string the identifier</em><br /><em>Gets and sets the identifier for this Page object.</em> |
-| public | <strong>inherited(</strong><em>string</em> <strong>$field</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em><br /><em>Helper method to return an ancestor page to inherit from. The current page object is returned.</em> |
+| public | <strong>inherited(</strong><em>string</em> <strong>$field</strong>)</strong> : <em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em><br /><em>Helper method to return an ancestor page to inherit from. The current page object is returned.</em> |
 | public | <strong>inheritedField(</strong><em>string</em> <strong>$field</strong>)</strong> : <em>array</em><br /><em>Helper method to return an ancestor field only to inherit from. The first occurrence of an ancestor field will be returned if at all.</em> |
 | public | <strong>init(</strong><em>[\SplFileInfo](http://php.net/manual/en/class.splfileinfo.php)</em> <strong>$file</strong>, <em>string</em> <strong>$extension=null</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Initializes the page instance variables based on a file</em> |
 | public | <strong>isDir()</strong> : <em>bool True if its a directory</em><br /><em>Returns whether or not this Page object is a directory or a page.</em> |
@@ -1742,7 +2063,7 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>language(</strong><em>mixed</em> <strong>$var=null</strong>)</strong> : <em>mixed</em><br /><em>Get page language</em> |
 | public | <strong>lastModified(</strong><em>boolean</em> <strong>$var=null</strong>)</strong> : <em>boolean show last_modified header</em><br /><em>Gets and sets the option to show the last_modified header for the page.</em> |
 | public | <strong>link(</strong><em>bool</em> <strong>$include_host=false</strong>)</strong> : <em>string the permalink</em><br /><em>Gets the URL for a page - alias of url().</em> |
-| public | <strong>maxCount(</strong><em>int</em> <strong>$var=null</strong>)</strong> : <em>int the maximum number of sub-pages</em><br /><em>Gets and sets the maxCount field which describes how many sub-pages should be displayed if the sub_pages header property is set for this page object.</em> |
+| public | <strike><strong>maxCount(</strong><em>int</em> <strong>$var=null</strong>)</strong> : <em>int the maximum number of sub-pages</em></strike><br /><em>DEPRECATED - 1.6</em> |
 | public | <strong>media(</strong><em>[\Grav\Common\Page\Media](#class-gravcommonpagemedia)</em> <strong>$var=null</strong>)</strong> : <em>Media Representation of associated media.</em><br /><em>Gets and sets the associated media as found in the page folder.</em> |
 | public | <strong>menu(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string the menu field for the page</em><br /><em>Gets and sets the menu name for this Page.  This is the text that can be used specifically for navigation. If no menu field is set, it will use the title()</em> |
 | public | <strong>metadata(</strong><em>array</em> <strong>$var=null</strong>)</strong> : <em>array an Array of metadata values for the page</em><br /><em>Function to merge page metadata tags and build an array of Metadata objects that can then be rendered in the page.</em> |
@@ -1750,17 +2071,17 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>modifyHeader(</strong><em>mixed</em> <strong>$key</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Modify a header value directly</em> |
 | public | <strong>modular(</strong><em>bool</em> <strong>$var=null</strong>)</strong> : <em>bool true if modular_twig</em><br /><em>Gets and sets the modular var that helps identify this page is a modular child</em> |
 | public | <strong>modularTwig(</strong><em>bool</em> <strong>$var=null</strong>)</strong> : <em>bool true if modular_twig</em><br /><em>Gets and sets the modular_twig var that helps identify this page as a modular child page that will need twig processing handled differently from a regular page.</em> |
-| public | <strong>move(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$parent</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Prepare move page to new location. Moves also everything that's under the current page. You need to call $this->save() in order to perform the move.</em> |
+| public | <strong>move(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$parent</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Prepare move page to new location. Moves also everything that's under the current page. You need to call $this->save() in order to perform the move.</em> |
 | public | <strong>name(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string The name of this page.</em><br /><em>Gets and sets the name field.  If no name field is set, it will return 'default.md'.</em> |
-| public | <strong>nextSibling()</strong> : <em>Page the next Page item</em><br /><em>Gets the next sibling based on current position.</em> |
+| public | <strong>nextSibling()</strong> : <em>PageInterface the next Page item</em><br /><em>Gets the next sibling based on current position.</em> |
 | public | <strong>order(</strong><em>int</em> <strong>$var=null</strong>)</strong> : <em>int/bool</em><br /><em>Get/set order number of this page.</em> |
-| public | <strong>orderBy(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string supported options include "default", "title", "date", and "folder"</em><br /><em>Gets and sets the order by which the sub-pages should be sorted. default - is the order based on the file system, ie 01.Home before 02.Advark title - is the order based on the title set in the pages date - is the order based on the date set in the pages folder - is the order based on the name of the folder with any numerics omitted</em> |
-| public | <strong>orderDir(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string the order, either "asc" or "desc"</em><br /><em>Gets and sets the order by which any sub-pages should be sorted.</em> |
-| public | <strong>orderManual(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>array</em><br /><em>Gets the manual order set in the header.</em> |
-| public | <strong>parent(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$var=null</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)/null the parent page object if it exists.</em><br /><em>Gets and Sets the parent object for this page</em> |
+| public | <strike><strong>orderBy(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string supported options include "default", "title", "date", and "folder"</em></strike><br /><em>DEPRECATED - 1.6</em> |
+| public | <strike><strong>orderDir(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string the order, either "asc" or "desc"</em></strike><br /><em>DEPRECATED - 1.6</em> |
+| public | <strike><strong>orderManual(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>array</em></strike><br /><em>DEPRECATED - 1.6</em> |
+| public | <strong>parent(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$var=null</strong>)</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)Interface/null the parent page object if it exists.</em><br /><em>Gets and Sets the parent object for this page</em> |
 | public | <strong>path(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string/null the path</em><br /><em>Gets and sets the path to the folder where the .md for this Page object resides. This is equivalent to the filePath but without the filename.</em> |
 | public | <strong>permalink()</strong> : <em>string The permalink.</em><br /><em>Gets the URL with host information, aka Permalink.</em> |
-| public | <strong>prevSibling()</strong> : <em>Page the previous Page item</em><br /><em>Gets the previous sibling based on current position.</em> |
+| public | <strong>prevSibling()</strong> : <em>PageInterface the previous Page item</em><br /><em>Gets the previous sibling based on current position.</em> |
 | public | <strong>process(</strong><em>array</em> <strong>$var=null</strong>)</strong> : <em>array an Array of name value pairs where the name is the process and value is true or false</em><br /><em>Gets and Sets the process setup for this Page. This is multi-dimensional array that consists of a simple array of arrays with the form array("markdown"=>true) for example</em> |
 | public | <strong>publishDate(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>int unix timestamp representation of the date</em><br /><em>Gets and Sets the Page publish date</em> |
 | public | <strong>published(</strong><em>bool</em> <strong>$var=null</strong>)</strong> : <em>bool true if the page is published</em><br /><em>Gets and Sets whether or not this Page is considered published</em> |
@@ -1789,7 +2110,7 @@ $value = $data->value('this.is.my.nested.variable');
 | public | <strong>toArray()</strong> : <em>array</em><br /><em>Convert page to an array.</em> |
 | public | <strong>toJson()</strong> : <em>string</em><br /><em>Convert page to JSON encoded string.</em> |
 | public | <strong>toYaml()</strong> : <em>string</em><br /><em>Convert page to YAML encoded string.</em> |
-| public | <strong>topParent()</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)/null the top parent page object if it exists.</em><br /><em>Gets the top parent object for this page</em> |
+| public | <strong>topParent()</strong> : <em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)Interface/null the top parent page object if it exists.</em><br /><em>Gets the top parent object for this page</em> |
 | public | <strong>translatedLanguages(</strong><em>bool</em> <strong>$onlyPublished=false</strong>)</strong> : <em>array the page translated languages</em><br /><em>Return an array with the routes of other translated languages</em> |
 | public | <strong>unpublishDate(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>int/null unix timestamp representation of the date</em><br /><em>Gets and Sets the Page unpublish date</em> |
 | public | <strong>unsetRouteSlug()</strong> : <em>void</em><br /><em>Helper method to clear the route out so it regenerates next time you use it</em> |
@@ -1807,12 +2128,13 @@ $value = $data->value('this.is.my.nested.variable');
 | protected | <strong>getCacheKey()</strong> : <em>string</em> |
 | protected | <strong>getInheritedParams(</strong><em>string</em> <strong>$field</strong>)</strong> : <em>array</em><br /><em>Method that contains shared logic for inherited() and inheritedField()</em> |
 | protected | <strong>getMediaCache()</strong> : <em>[\Grav\Common\Cache](#class-gravcommoncache)</em> |
+| protected | <strong>normalizeForm(</strong><em>mixed</em> <strong>$form</strong>, <em>mixed</em> <strong>$name=null</strong>, <em>array</em> <strong>$rules=array()</strong>)</strong> : <em>void</em> |
 | protected | <strong>processFrontmatter()</strong> : <em>void</em> |
 | protected | <strong>processMarkdown()</strong> : <em>void</em><br /><em>Process the Markdown content.  Uses Parsedown or Parsedown Extra depending on configuration</em> |
 | protected | <strong>setMedia(</strong><em>[\Grav\Common\Media\Interfaces\MediaCollectionInterface](#interface-gravcommonmediainterfacesmediacollectioninterface)</em> <strong>$media</strong>)</strong> : <em>\Grav\Common\Page\$this</em><br /><em>Sets the associated media collection.</em> |
 | protected | <strong>setPublishState()</strong> : <em>void</em> |
 
-*This class implements [\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)*
+*This class implements [\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface), [\Grav\Common\Page\Interfaces\PageLegacyInterface](#interface-gravcommonpageinterfacespagelegacyinterface), [\Grav\Framework\Media\Interfaces\MediaInterface](#interface-gravframeworkmediainterfacesmediainterface), [\Grav\Common\Media\Interfaces\MediaInterface](#interface-gravcommonmediainterfacesmediainterface), [\Grav\Common\Page\Interfaces\PageTranslateInterface](#interface-gravcommonpageinterfacespagetranslateinterface), [\Grav\Common\Page\Interfaces\PageRoutableInterface](#interface-gravcommonpageinterfacespageroutableinterface), [\Grav\Common\Page\Interfaces\PageContentInterface](#interface-gravcommonpageinterfacespagecontentinterface)*
 
 <hr /><a id="class-gravcommonpageheader"></a>
 ### Class: \Grav\Common\Page\Header
@@ -1852,16 +2174,17 @@ $data->undef('this.is.my.nested.variable');
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>string</em> <strong>$path</strong>, <em>array</em> <strong>$media_order=null</strong>)</strong> : <em>void</em> |
+| public | <strong>__construct(</strong><em>string</em> <strong>$path</strong>, <em>array</em> <strong>$media_order=null</strong>, <em>bool</em> <strong>$load=true</strong>)</strong> : <em>void</em> |
 | public | <strong>__wakeup()</strong> : <em>void</em><br /><em>Initialize static variables on unserialize.</em> |
+| public | <strong>getPath()</strong> : <em>string</em><br /><em>Return media path.</em> |
 | public | <strong>offsetExists(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>bool</em> |
 | public | <strong>offsetGet(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>mixed</em> |
-| public | <strong>path()</strong> : <em>mixed</em><br /><em>Enable accessing the media path</em> |
+| public | <strike><strong>path()</strong> : <em>string</em></strike><br /><em>DEPRECATED - 1.6 Use $this->getPath() instead.</em> |
 | protected | <strong>init()</strong> : <em>void</em><br /><em>Initialize class.</em> |
 
 *This class extends [\Grav\Common\Page\Medium\AbstractMedia](#class-gravcommonpagemediumabstractmedia-abstract)*
 
-*This class implements [\Grav\Common\Media\Interfaces\MediaCollectionInterface](#interface-gravcommonmediainterfacesmediacollectioninterface), \ArrayAccess, \Countable*
+*This class implements [\Grav\Framework\Media\Interfaces\MediaCollectionInterface](#interface-gravframeworkmediainterfacesmediacollectioninterface), [\Grav\Common\Media\Interfaces\MediaCollectionInterface](#interface-gravcommonmediainterfacesmediacollectioninterface), \ArrayAccess, \Countable*
 
 <hr /><a id="class-gravcommonpagetypes"></a>
 ### Class: \Grav\Common\Page\Types
@@ -1889,6 +2212,81 @@ $data->undef('this.is.my.nested.variable');
 | public | <strong>valid()</strong> : <em>bool Returns TRUE on success or FALSE on failure.</em><br /><em>This method is called after Iterator::rewind() and Iterator::next() to check if the current position is valid.</em> |
 
 *This class implements \ArrayAccess, \Iterator, \Traversable, \Countable*
+
+<hr /><a id="interface-gravcommonpageinterfacespagelegacyinterface"></a>
+### Interface: \Grav\Common\Page\Interfaces\PageLegacyInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>addContentMeta(</strong><em>mixed</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Add an entry to the page's contentMeta array</em> |
+| public | <strong>addForms(</strong><em>array</em> <strong>$new</strong>)</strong> : <em>void</em> |
+| public | <strong>adjacentSibling(</strong><em>integer</em> <strong>$direction=1</strong>)</strong> : <em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)/bool the sibling page</em><br /><em>Returns the adjacent sibling based on a direction.</em> |
+| public | <strong>ancestor(</strong><em>bool</em> <strong>$lookup=null</strong>)</strong> : <em>PageInterface page you were looking for if it exists</em><br /><em>Helper method to return an ancestor page.</em> |
+| public | <strong>blueprintName()</strong> : <em>string</em><br /><em>Get the blueprint name for this page.  Use the blueprint form field if set</em> |
+| public | <strong>blueprints()</strong> : <em>[\Grav\Common\Data\Blueprint](#class-gravcommondatablueprint)</em><br /><em>Get blueprints for the page.</em> |
+| public | <strong>cacheControl(</strong><em>null</em> <strong>$var=null</strong>)</strong> : <em>null</em><br /><em>Gets and sets the cache-control property.  If not set it will return the default value (null) https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control for more details on valid options</em> |
+| public | <strong>cachePageContent()</strong> : <em>void</em><br /><em>Fires the onPageContentProcessed event, and caches the page content using a unique ID for the page</em> |
+| public | <strong>childType()</strong> : <em>string</em><br /><em>Returns child page type.</em> |
+| public | <strong>children()</strong> : <em>[\Grav\Common\Page\Collection](#class-gravcommonpagecollection)</em><br /><em>Returns children of this page.</em> |
+| public | <strong>collection(</strong><em>string/string/array</em> <strong>$params=`'content'`</strong>, <em>bool/boolean</em> <strong>$pagination=true</strong>)</strong> : <em>[\Grav\Common\Page\Collection](#class-gravcommonpagecollection)</em><br /><em>Get a collection of pages in the current context.</em> |
+| public | <strong>contentMeta()</strong> : <em>mixed</em><br /><em>Get the contentMeta array and initialize content first if it's not already</em> |
+| public | <strong>copy(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$parent</strong>)</strong> : <em>\Grav\Common\Page\Interfaces\$this</em><br /><em>Prepare a copy from the page. Copies also everything that's under the current page. Returns a new Page object for the copy. You need to call $this->save() in order to perform the move.</em> |
+| public | <strong>debugger()</strong> : <em>mixed</em><br /><em>Returns the state of the debugger override etting for this page</em> |
+| public | <strong>eTag(</strong><em>boolean</em> <strong>$var=null</strong>)</strong> : <em>boolean show etag header</em><br /><em>Gets and sets the option to show the etag header for the page.</em> |
+| public | <strong>evaluate(</strong><em>string/array</em> <strong>$value</strong>, <em>bool</em> <strong>$only_published=true</strong>)</strong> : <em>mixed</em> |
+| public | <strong>expires(</strong><em>int</em> <strong>$var=null</strong>)</strong> : <em>int The expires value</em><br /><em>Gets and sets the expires field. If not set will return the default</em> |
+| public | <strong>extension(</strong><em>null</em> <strong>$var=null</strong>)</strong> : <em>null/string</em><br /><em>Gets and sets the extension field.</em> |
+| public | <strong>extra()</strong> : <em>array</em><br /><em>Get unknown header variables.</em> |
+| public | <strong>file()</strong> : <em>\Grav\Common\Page\Interfaces\MarkdownFile/null</em><br /><em>Get file object to the page.</em> |
+| public | <strong>filePath(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string/null the file path</em><br /><em>Gets and sets the path to the .md file for this Page object.</em> |
+| public | <strong>filePathClean()</strong> : <em>string The relative file path</em><br /><em>Gets the relative path to the .md file</em> |
+| public | <strong>filter()</strong> : <em>void</em><br /><em>Filter page header from illegal contents.</em> |
+| public | <strong>find(</strong><em>string</em> <strong>$url</strong>, <em>bool</em> <strong>$all=false</strong>)</strong> : <em>PageInterface page you were looking for if it exists</em><br /><em>Helper method to return a page.</em> |
+| public | <strong>folderExists()</strong> : <em>bool</em><br /><em>Returns whether or not the current folder exists</em> |
+| public | <strong>forms()</strong> : <em>array</em><br /><em>Returns normalized list of name => form pairs.</em> |
+| public | <strong>frontmatter(</strong><em>string/null</em> <strong>$var=null</strong>)</strong> : <em>string</em><br /><em>Gets and Sets the page frontmatter</em> |
+| public | <strong>getAction()</strong> : <em>string The Action string.</em><br /><em>Gets the action.</em> |
+| public | <strong>getContentMeta(</strong><em>null</em> <strong>$name=null</strong>)</strong> : <em>mixed</em><br /><em>Return the whole contentMeta array as it currently stands</em> |
+| public | <strong>getOriginal()</strong> : <em>PageInterface The original version of the page.</em><br /><em>Gets the Page Unmodified (original) version of the page.</em> |
+| public | <strong>httpHeaders()</strong> : <em>void</em> |
+| public | <strong>httpResponseCode()</strong> : <em>int</em> |
+| public | <strong>inherited(</strong><em>string</em> <strong>$field</strong>)</strong> : <em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em><br /><em>Helper method to return an ancestor page to inherit from. The current page object is returned.</em> |
+| public | <strong>inheritedField(</strong><em>string</em> <strong>$field</strong>)</strong> : <em>array</em><br /><em>Helper method to return an ancestor field only to inherit from. The first occurrence of an ancestor field will be returned if at all.</em> |
+| public | <strong>init(</strong><em>[\SplFileInfo](http://php.net/manual/en/class.splfileinfo.php)</em> <strong>$file</strong>, <em>string</em> <strong>$extension=null</strong>)</strong> : <em>\Grav\Common\Page\Interfaces\$this</em><br /><em>Initializes the page instance variables based on a file</em> |
+| public | <strong>isFirst()</strong> : <em>boolean True if item is first.</em><br /><em>Check to see if this item is the first in an array of sub-pages.</em> |
+| public | <strong>isLast()</strong> : <em>boolean True if item is last</em><br /><em>Check to see if this item is the last in an array of sub-pages.</em> |
+| public | <strike><strong>maxCount(</strong><em>int</em> <strong>$var=null</strong>)</strong> : <em>int the maximum number of sub-pages</em></strike><br /><em>DEPRECATED - 1.6</em> |
+| public | <strong>metadata(</strong><em>array</em> <strong>$var=null</strong>)</strong> : <em>array an Array of metadata values for the page</em><br /><em>Function to merge page metadata tags and build an array of Metadata objects that can then be rendered in the page.</em> |
+| public | <strong>modifyHeader(</strong><em>mixed</em> <strong>$key</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Modify a header value directly</em> |
+| public | <strong>modular(</strong><em>bool</em> <strong>$var=null</strong>)</strong> : <em>bool true if modular_twig</em><br /><em>Gets and sets the modular var that helps identify this page is a modular child</em> |
+| public | <strong>modularTwig(</strong><em>bool</em> <strong>$var=null</strong>)</strong> : <em>bool true if modular_twig</em><br /><em>Gets and sets the modular_twig var that helps identify this page as a modular child page that will need twig processing handled differently from a regular page.</em> |
+| public | <strong>move(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$parent</strong>)</strong> : <em>\Grav\Common\Page\Interfaces\$this</em><br /><em>Prepare move page to new location. Moves also everything that's under the current page. You need to call $this->save() in order to perform the move.</em> |
+| public | <strong>name(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string The name of this page.</em><br /><em>Gets and sets the name field.  If no name field is set, it will return 'default.md'.</em> |
+| public | <strong>nextSibling()</strong> : <em>PageInterface the next Page item</em><br /><em>Gets the next sibling based on current position.</em> |
+| public | <strike><strong>orderBy(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string supported options include "default", "title", "date", and "folder"</em></strike><br /><em>DEPRECATED - 1.6</em> |
+| public | <strike><strong>orderDir(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string the order, either "asc" or "desc"</em></strike><br /><em>DEPRECATED - 1.6</em> |
+| public | <strike><strong>orderManual(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>array</em></strike><br /><em>DEPRECATED - 1.6</em> |
+| public | <strong>prevSibling()</strong> : <em>PageInterface the previous Page item</em><br /><em>Gets the previous sibling based on current position.</em> |
+| public | <strong>raw(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string Raw content string</em><br /><em>Gets and Sets the raw data</em> |
+| public | <strong>save(</strong><em>bool/bool/mixed</em> <strong>$reorder=true</strong>)</strong> : <em>void</em><br /><em>Save page if there's a file assigned to it.</em> |
+| public | <strong>setContentMeta(</strong><em>mixed</em> <strong>$content_meta</strong>)</strong> : <em>mixed</em><br /><em>Sets the whole content meta array in one shot</em> |
+| public | <strong>setSummary(</strong><em>string</em> <strong>$summary</strong>)</strong> : <em>void</em><br /><em>Sets the summary of the page</em> |
+| public | <strong>ssl(</strong><em>mixed</em> <strong>$var=null</strong>)</strong> : <em>void</em> |
+| public | <strong>template(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string the template name</em><br /><em>Gets and sets the template field. This is used to find the correct Twig template file to render. If no field is set, it will return the name without the .md extension</em> |
+| public | <strong>templateFormat(</strong><em>null</em> <strong>$var=null</strong>)</strong> : <em>null</em><br /><em>Allows a page to override the output render format, usually the extension provided in the URL. (e.g. `html`, `json`, `xml`, etc).</em> |
+| public | <strong>toArray()</strong> : <em>array</em><br /><em>Convert page to an array.</em> |
+| public | <strong>toJson()</strong> : <em>string</em><br /><em>Convert page to JSON encoded string.</em> |
+| public | <strong>toYaml()</strong> : <em>string</em><br /><em>Convert page to YAML encoded string.</em> |
+| public | <strong>validate()</strong> : <em>void</em><br /><em>Validate page header.</em> |
+
+<hr /><a id="interface-gravcommonpageinterfacespagetranslateinterface"></a>
+### Interface: \Grav\Common\Page\Interfaces\PageTranslateInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>language(</strong><em>mixed</em> <strong>$var=null</strong>)</strong> : <em>mixed</em><br /><em>Get page language</em> |
+| public | <strong>translatedLanguages(</strong><em>bool</em> <strong>$onlyPublished=false</strong>)</strong> : <em>array the page translated languages</em><br /><em>Return an array with the routes of other translated languages</em> |
+| public | <strong>untranslatedLanguages(</strong><em>bool</em> <strong>$includeUnpublished=false</strong>)</strong> : <em>array the page untranslated languages</em><br /><em>Return an array listing untranslated languages available</em> |
 
 <hr /><a id="interface-gravcommonpageinterfacesfullpageinterface"></a>
 ### Interface: \Grav\Common\Page\Interfaces\FullPageInterface
@@ -2009,6 +2407,70 @@ $data->undef('this.is.my.nested.variable');
 | public | <strong>value(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed</em><br /><em>Get value from a page variable (used mostly for creating edit forms).</em> |
 | public | <strong>visible(</strong><em>bool</em> <strong>$var=null</strong>)</strong> : <em>bool true if the page is visible</em><br /><em>Gets and Sets whether or not this Page is visible for navigation</em> |
 
+<hr /><a id="interface-gravcommonpageinterfacespageroutableinterface"></a>
+### Interface: \Grav\Common\Page\Interfaces\PageRoutableInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>active()</strong> : <em>bool True if it is active</em><br /><em>Returns whether or not this page is the currently active page requested via the URL.</em> |
+| public | <strong>activeChild()</strong> : <em>bool True if active child exists</em><br /><em>Returns whether or not this URI's URL contains the URL of the active page. Or in other words, is this page's URL in the current URL</em> |
+| public | <strong>canonical(</strong><em>bool</em> <strong>$include_lang=true</strong>)</strong> : <em>string</em><br /><em>Returns the canonical URL for a page</em> |
+| public | <strong>currentPosition()</strong> : <em>Integer the index of the current page.</em><br /><em>Returns the item in the current position.</em> |
+| public | <strong>folder(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string/null</em><br /><em>Get/set the folder.</em> |
+| public | <strong>home()</strong> : <em>bool True if it is the homepage</em><br /><em>Returns whether or not this page is the currently configured home page.</em> |
+| public | <strong>link(</strong><em>bool</em> <strong>$include_host=false</strong>)</strong> : <em>string the permalink</em><br /><em>Gets the URL for a page - alias of url().</em> |
+| public | <strong>parent(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$var=null</strong>)</strong> : <em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)/null the parent page object if it exists.</em><br /><em>Gets and Sets the parent object for this page</em> |
+| public | <strong>path(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string/null the path</em><br /><em>Gets and sets the path to the folder where the .md for this Page object resides. This is equivalent to the filePath but without the filename.</em> |
+| public | <strong>permalink()</strong> : <em>string The permalink.</em><br /><em>Gets the URL with host information, aka Permalink.</em> |
+| public | <strong>rawRoute(</strong><em>null</em> <strong>$var=null</strong>)</strong> : <em>null/string</em><br /><em>Gets and Sets the page raw route</em> |
+| public | <strong>redirect(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string</em><br /><em>Gets the redirect set in the header.</em> |
+| public | <strong>relativePagePath()</strong> : <em>void</em><br /><em>Returns the clean path to the page file</em> |
+| public | <strong>root()</strong> : <em>bool True if it is the root</em><br /><em>Returns whether or not this page is the root node of the pages tree.</em> |
+| public | <strong>routable(</strong><em>bool</em> <strong>$var=null</strong>)</strong> : <em>bool true if the page is routable</em><br /><em>Gets and Sets whether or not this Page is routable, ie you can reach it via a URL. The page must be *routable* and *published*</em> |
+| public | <strong>route(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string The route for the Page.</em><br /><em>Gets the route for the page based on the route headers if available, else from the parents route and the current Page's slug.</em> |
+| public | <strong>routeAliases(</strong><em>array</em> <strong>$var=null</strong>)</strong> : <em>array The route aliases for the Page.</em><br /><em>Gets the route aliases for the page based on page headers.</em> |
+| public | <strong>routeCanonical(</strong><em>null</em> <strong>$var=null</strong>)</strong> : <em>bool/string</em><br /><em>Gets the canonical route for this page if its set. If provided it will use that value, else if it's `true` it will use the default route.</em> |
+| public | <strong>topParent()</strong> : <em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)/null the top parent page object if it exists.</em><br /><em>Gets the top parent object for this page</em> |
+| public | <strong>unsetRouteSlug()</strong> : <em>void</em><br /><em>Helper method to clear the route out so it regenerates next time you use it</em> |
+| public | <strong>url(</strong><em>bool</em> <strong>$include_host=false</strong>, <em>bool</em> <strong>$canonical=false</strong>, <em>bool</em> <strong>$include_lang=true</strong>, <em>bool</em> <strong>$raw_route=false</strong>)</strong> : <em>string The url.</em><br /><em>Gets the url for the Page.</em> |
+| public | <strong>urlExtension()</strong> : <em>string The extension of this page. For example `.html`</em><br /><em>Returns the page extension, got from the page `url_extension` config and falls back to the system config `system.pages.append_url_extension`.</em> |
+
+<hr /><a id="interface-gravcommonpageinterfacespagecontentinterface"></a>
+### Interface: \Grav\Common\Page\Interfaces\PageContentInterface
+
+> Methods currently implemented in Flex Page emulation layer.
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>content(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string Content</em><br /><em>Gets and Sets the content based on content portion of the .md file</em> |
+| public | <strong>date(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>int unix timestamp representation of the date</em><br /><em>Gets and sets the date for this Page object. This is typically passed in via the page headers</em> |
+| public | <strong>dateformat(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string string representation of a date format</em><br /><em>Gets and sets the date format for this Page object. This is typically passed in via the page headers using typical PHP date string structure - http://php.net/manual/en/function.date.php</em> |
+| public | <strong>exists()</strong> : <em>bool</em><br /><em>Returns whether the page exists in the filesystem.</em> |
+| public | <strong>folder(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string/null</em><br /><em>Get/set the folder.</em> |
+| public | <strong>getRawContent()</strong> : <em>string the current page content</em><br /><em>Needed by the onPageContentProcessed event to get the raw page content</em> |
+| public | <strong>header(</strong><em>object/array</em> <strong>$var=null</strong>)</strong> : <em>object the current YAML configuration</em><br /><em>Gets and Sets the header based on the YAML configuration at the top of the .md file</em> |
+| public | <strong>id(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string the identifier</em><br /><em>Gets and sets the identifier for this Page object.</em> |
+| public | <strong>isDir()</strong> : <em>bool True if its a directory</em><br /><em>Returns whether or not this Page object is a directory or a page.</em> |
+| public | <strong>isPage()</strong> : <em>bool True if its a page with a .md file associated</em><br /><em>Returns whether or not this Page object has a .md file associated with it or if its just a directory.</em> |
+| public | <strong>lastModified(</strong><em>boolean</em> <strong>$var=null</strong>)</strong> : <em>boolean show last_modified header</em><br /><em>Gets and sets the option to show the last_modified header for the page.</em> |
+| public | <strong>media(</strong><em>\Grav\Common\Page\Interfaces\Media</em> <strong>$var=null</strong>)</strong> : <em>Media Representation of associated media.</em><br /><em>Gets and sets the associated media as found in the page folder.</em> |
+| public | <strong>menu(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string the menu field for the page</em><br /><em>Gets and sets the menu name for this Page.  This is the text that can be used specifically for navigation. If no menu field is set, it will use the title()</em> |
+| public | <strong>modified(</strong><em>int</em> <strong>$var=null</strong>)</strong> : <em>int modified unix timestamp</em><br /><em>Gets and sets the modified timestamp.</em> |
+| public | <strong>order(</strong><em>int</em> <strong>$var=null</strong>)</strong> : <em>int/bool</em><br /><em>Get/set order number of this page.</em> |
+| public | <strong>process(</strong><em>array</em> <strong>$var=null</strong>)</strong> : <em>array an Array of name value pairs where the name is the process and value is true or false</em><br /><em>Gets and Sets the process setup for this Page. This is multi-dimensional array that consists of a simple array of arrays with the form array("markdown"=>true) for example</em> |
+| public | <strong>publishDate(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>int unix timestamp representation of the date</em><br /><em>Gets and Sets the Page publish date</em> |
+| public | <strong>published(</strong><em>bool</em> <strong>$var=null</strong>)</strong> : <em>bool true if the page is published</em><br /><em>Gets and Sets whether or not this Page is considered published</em> |
+| public | <strong>rawMarkdown(</strong><em>null</em> <strong>$var=null</strong>)</strong> : <em>null</em><br /><em>Gets and Sets the Page raw content</em> |
+| public | <strong>setRawContent(</strong><em>mixed</em> <strong>$content</strong>)</strong> : <em>void</em><br /><em>Needed by the onPageContentProcessed event to set the raw page content</em> |
+| public | <strong>shouldProcess(</strong><em>string</em> <strong>$process</strong>)</strong> : <em>bool whether or not the processing method is enabled for this Page</em><br /><em>Gets the configured state of the processing method.</em> |
+| public | <strong>slug(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string the slug</em><br /><em>Gets and Sets the slug for the Page. The slug is used in the URL routing. If not set it uses the parent folder from the path</em> |
+| public | <strong>summary(</strong><em>int</em> <strong>$size=null</strong>, <em>bool/boolean</em> <strong>$textOnly=false</strong>)</strong> : <em>string</em><br /><em>Get the summary.</em> |
+| public | <strong>taxonomy(</strong><em>array</em> <strong>$var=null</strong>)</strong> : <em>array an array of taxonomies</em><br /><em>Gets and sets the taxonomy array which defines which taxonomies this page identifies itself with.</em> |
+| public | <strong>title(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>string the title of the Page</em><br /><em>Gets and sets the title for this Page.  If no title is set, it will use the slug() to get a name</em> |
+| public | <strong>unpublishDate(</strong><em>string</em> <strong>$var=null</strong>)</strong> : <em>int/null unix timestamp representation of the date</em><br /><em>Gets and Sets the Page unpublish date</em> |
+| public | <strong>value(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed</em><br /><em>Get value from a page variable (used mostly for creating edit forms).</em> |
+| public | <strong>visible(</strong><em>bool</em> <strong>$var=null</strong>)</strong> : <em>bool true if the page is visible</em><br /><em>Gets and Sets whether or not this Page is visible for navigation</em> |
+
 <hr /><a id="interface-gravcommonpageinterfacespageinterface"></a>
 ### Interface: \Grav\Common\Page\Interfaces\PageInterface
 
@@ -2016,6 +2478,8 @@ $data->undef('this.is.my.nested.variable');
 
 | Visibility | Function |
 |:-----------|:---------|
+
+*This class implements [\Grav\Common\Page\Interfaces\PageContentInterface](#interface-gravcommonpageinterfacespagecontentinterface), [\Grav\Common\Page\Interfaces\PageRoutableInterface](#interface-gravcommonpageinterfacespageroutableinterface), [\Grav\Common\Page\Interfaces\PageTranslateInterface](#interface-gravcommonpageinterfacespagetranslateinterface), [\Grav\Common\Media\Interfaces\MediaInterface](#interface-gravcommonmediainterfacesmediainterface), [\Grav\Framework\Media\Interfaces\MediaInterface](#interface-gravframeworkmediainterfacesmediainterface), [\Grav\Common\Page\Interfaces\PageLegacyInterface](#interface-gravcommonpageinterfacespagelegacyinterface)*
 
 <hr /><a id="class-gravcommonpagemediumaudiomedium"></a>
 ### Class: \Grav\Common\Page\Medium\AudioMedium
@@ -2034,7 +2498,7 @@ $data->undef('this.is.my.nested.variable');
 
 *This class extends [\Grav\Common\Page\Medium\Medium](#class-gravcommonpagemediummedium)*
 
-*This class implements [\Grav\Common\Media\Interfaces\MediaObjectInterface](#interface-gravcommonmediainterfacesmediaobjectinterface), [\Grav\Common\Page\Medium\RenderableInterface](#interface-gravcommonpagemediumrenderableinterface), [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), \ArrayAccess, \Countable, \RocketTheme\Toolbox\ArrayTraits\ExportInterface*
+*This class implements [\Grav\Framework\Media\Interfaces\MediaObjectInterface](#interface-gravframeworkmediainterfacesmediaobjectinterface), [\Grav\Common\Media\Interfaces\MediaObjectInterface](#interface-gravcommonmediainterfacesmediaobjectinterface), [\Grav\Common\Page\Medium\RenderableInterface](#interface-gravcommonpagemediumrenderableinterface), [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), \ArrayAccess, \Countable, \JsonSerializable, \RocketTheme\Toolbox\ArrayTraits\ExportInterface*
 
 <hr /><a id="class-gravcommonpagemediumstaticimagemedium"></a>
 ### Class: \Grav\Common\Page\Medium\StaticImageMedium
@@ -2046,7 +2510,7 @@ $data->undef('this.is.my.nested.variable');
 
 *This class extends [\Grav\Common\Page\Medium\Medium](#class-gravcommonpagemediummedium)*
 
-*This class implements [\Grav\Common\Media\Interfaces\MediaObjectInterface](#interface-gravcommonmediainterfacesmediaobjectinterface), [\Grav\Common\Page\Medium\RenderableInterface](#interface-gravcommonpagemediumrenderableinterface), [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), \ArrayAccess, \Countable, \RocketTheme\Toolbox\ArrayTraits\ExportInterface*
+*This class implements [\Grav\Framework\Media\Interfaces\MediaObjectInterface](#interface-gravframeworkmediainterfacesmediaobjectinterface), [\Grav\Common\Media\Interfaces\MediaObjectInterface](#interface-gravcommonmediainterfacesmediaobjectinterface), [\Grav\Common\Page\Medium\RenderableInterface](#interface-gravcommonpagemediumrenderableinterface), [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), \ArrayAccess, \Countable, \JsonSerializable, \RocketTheme\Toolbox\ArrayTraits\ExportInterface*
 
 <hr /><a id="interface-gravcommonpagemediumrenderableinterface"></a>
 ### Interface: \Grav\Common\Page\Medium\RenderableInterface
@@ -2090,19 +2554,21 @@ $data->undef('this.is.my.nested.variable');
 | public | <strong>muted(</strong><em>bool</em> <strong>$status=false</strong>)</strong> : <em>\Grav\Common\Page\Medium\$this</em><br /><em>Allows to set the muted attribute</em> |
 | public | <strong>playsinline(</strong><em>bool</em> <strong>$status=false</strong>)</strong> : <em>\Grav\Common\Page\Medium\$this</em><br /><em>Allows to set the playsinline attribute</em> |
 | public | <strong>poster(</strong><em>mixed</em> <strong>$urlImage</strong>)</strong> : <em>\Grav\Common\Page\Medium\$this</em><br /><em>Allows to set the video's poster image</em> |
+| public | <strong>preload(</strong><em>null</em> <strong>$status=null</strong>)</strong> : <em>\Grav\Common\Page\Medium\$this</em><br /><em>Allows ability to set the preload option</em> |
 | public | <strong>reset()</strong> : <em>\Grav\Common\Page\Medium\$this</em><br /><em>Reset medium.</em> |
 | public | <strong>resize(</strong><em>int</em> <strong>$width=null</strong>, <em>int</em> <strong>$height=null</strong>)</strong> : <em>\Grav\Common\Page\Medium\$this</em><br /><em>Resize media by setting attributes</em> |
 | protected | <strong>sourceParsedownElement(</strong><em>array</em> <strong>$attributes</strong>, <em>bool/boolean</em> <strong>$reset=true</strong>)</strong> : <em>array</em><br /><em>Parsedown element for source display mode</em> |
 
 *This class extends [\Grav\Common\Page\Medium\Medium](#class-gravcommonpagemediummedium)*
 
-*This class implements [\Grav\Common\Media\Interfaces\MediaObjectInterface](#interface-gravcommonmediainterfacesmediaobjectinterface), [\Grav\Common\Page\Medium\RenderableInterface](#interface-gravcommonpagemediumrenderableinterface), [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), \ArrayAccess, \Countable, \RocketTheme\Toolbox\ArrayTraits\ExportInterface*
+*This class implements [\Grav\Framework\Media\Interfaces\MediaObjectInterface](#interface-gravframeworkmediainterfacesmediaobjectinterface), [\Grav\Common\Media\Interfaces\MediaObjectInterface](#interface-gravcommonmediainterfacesmediaobjectinterface), [\Grav\Common\Page\Medium\RenderableInterface](#interface-gravcommonpagemediumrenderableinterface), [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), \ArrayAccess, \Countable, \JsonSerializable, \RocketTheme\Toolbox\ArrayTraits\ExportInterface*
 
 <hr /><a id="class-gravcommonpagemediumglobalmedia"></a>
 ### Class: \Grav\Common\Page\Medium\GlobalMedia
 
 | Visibility | Function |
 |:-----------|:---------|
+| public | <strong>getPath()</strong> : <em>null</em><br /><em>Return media path.</em> |
 | public | <strong>offsetExists(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>bool</em> |
 | public | <strong>offsetGet(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>mixed</em> |
 | protected | <strong>addMedium(</strong><em>string</em> <strong>$stream</strong>)</strong> : <em>[\Grav\Common\Page\Medium\Medium](#class-gravcommonpagemediummedium)/null</em> |
@@ -2110,10 +2576,12 @@ $data->undef('this.is.my.nested.variable');
 
 *This class extends [\Grav\Common\Page\Medium\AbstractMedia](#class-gravcommonpagemediumabstractmedia-abstract)*
 
-*This class implements [\Grav\Common\Media\Interfaces\MediaCollectionInterface](#interface-gravcommonmediainterfacesmediacollectioninterface), \ArrayAccess, \Countable*
+*This class implements [\Grav\Framework\Media\Interfaces\MediaCollectionInterface](#interface-gravframeworkmediainterfacesmediacollectioninterface), [\Grav\Common\Media\Interfaces\MediaCollectionInterface](#interface-gravcommonmediainterfacesmediacollectioninterface), \ArrayAccess, \Countable*
 
 <hr /><a id="class-gravcommonpagemediummedium"></a>
 ### Class: \Grav\Common\Page\Medium\Medium
+
+> Class Medium
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -2133,23 +2601,27 @@ $data->undef('this.is.my.nested.variable');
 | public | <strong>link(</strong><em>bool/boolean</em> <strong>$reset=true</strong>, <em>array</em> <strong>$attributes=array()</strong>)</strong> : <em>[\Grav\Common\Page\Medium\Link](#class-gravcommonpagemediumlink)</em><br /><em>Turn the current Medium into a Link</em> |
 | public | <strong>meta()</strong> : <em>[\Grav\Common\Data\Data](#class-gravcommondatadata)</em><br /><em>Return just metadata from the Medium object</em> |
 | public | <strong>metadata()</strong> : <em>array</em><br /><em>Returns an array containing just the metadata</em> |
+| public | <strong>modified()</strong> : <em>int/null</em><br /><em>Get file modification time for the medium.</em> |
 | public | <strong>parsedownElement(</strong><em>string</em> <strong>$title=null</strong>, <em>string</em> <strong>$alt=null</strong>, <em>string</em> <strong>$class=null</strong>, <em>string</em> <strong>$id=null</strong>, <em>bool/boolean</em> <strong>$reset=true</strong>)</strong> : <em>array</em><br /><em>Get an element (is array) that can be rendered by the Parsedown engine</em> |
 | public | <strong>path(</strong><em>bool</em> <strong>$reset=true</strong>)</strong> : <em>string path to file</em><br /><em>Return PATH to file.</em> |
 | public | <strong>querystring(</strong><em>string</em> <strong>$querystring=null</strong>, <em>bool/boolean</em> <strong>$withQuestionmark=true</strong>)</strong> : <em>string</em><br /><em>Get/set querystring for the file's url</em> |
 | public | <strong>relativePath(</strong><em>bool</em> <strong>$reset=true</strong>)</strong> : <em>mixed</em><br /><em>Return the relative path to file</em> |
 | public | <strong>reset()</strong> : <em>\Grav\Common\Page\Medium\$this</em><br /><em>Reset medium.</em> |
+| public | <strong>setTimestamp(</strong><em>string/int/null</em> <strong>$timestamp=null</strong>)</strong> : <em>\Grav\Common\Page\Medium\$this</em><br /><em>Set querystring to file modification timestamp (or value provided as a parameter).</em> |
+| public | <strong>size()</strong> : <em>int</em> |
 | public | <strong>style(</strong><em>string</em> <strong>$style</strong>)</strong> : <em>\Grav\Common\Page\Medium\$this</em><br /><em>Allows to add an inline style attribute from Markdown or Twig Example: ![Example](myimg.png?style=float:left)</em> |
 | public | <strong>thumbnail(</strong><em>string</em> <strong>$type=`'auto'`</strong>)</strong> : <em>\Grav\Common\Page\Medium\$this</em><br /><em>Switch thumbnail.</em> |
 | public | <strong>thumbnailExists(</strong><em>string</em> <strong>$type=`'page'`</strong>)</strong> : <em>bool</em><br /><em>Helper method to determine if this media item has a thumbnail or not</em> |
 | public | <strong>url(</strong><em>bool</em> <strong>$reset=true</strong>)</strong> : <em>string</em><br /><em>Return URL to file.</em> |
 | public | <strong>urlHash(</strong><em>string</em> <strong>$hash=null</strong>, <em>bool/boolean</em> <strong>$withHash=true</strong>)</strong> : <em>string</em><br /><em>Get/set hash for the file's url</em> |
+| public | <strong>urlQuerystring(</strong><em>mixed</em> <strong>$url</strong>)</strong> : <em>string</em><br /><em>Get the URL with full querystring</em> |
 | protected | <strong>getThumbnail()</strong> : <em>[\Grav\Common\Page\Medium\ThumbnailImageMedium](#class-gravcommonpagemediumthumbnailimagemedium)</em><br /><em>Get the thumbnail Medium object</em> |
 | protected | <strong>sourceParsedownElement(</strong><em>array</em> <strong>$attributes</strong>, <em>bool/boolean</em> <strong>$reset=true</strong>)</strong> : <em>array</em><br /><em>Parsedown element for source display mode</em> |
 | protected | <strong>textParsedownElement(</strong><em>array</em> <strong>$attributes</strong>, <em>bool/boolean</em> <strong>$reset=true</strong>)</strong> : <em>array</em><br /><em>Parsedown element for text display mode</em> |
 
 *This class extends [\Grav\Common\Data\Data](#class-gravcommondatadata)*
 
-*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), [\Grav\Common\Page\Medium\RenderableInterface](#interface-gravcommonpagemediumrenderableinterface), [\Grav\Common\Media\Interfaces\MediaObjectInterface](#interface-gravcommonmediainterfacesmediaobjectinterface)*
+*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \JsonSerializable, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), [\Grav\Common\Page\Medium\RenderableInterface](#interface-gravcommonpagemediumrenderableinterface), [\Grav\Common\Media\Interfaces\MediaObjectInterface](#interface-gravcommonmediainterfacesmediaobjectinterface), [\Grav\Framework\Media\Interfaces\MediaObjectInterface](#interface-gravframeworkmediainterfacesmediaobjectinterface)*
 
 <hr /><a id="class-gravcommonpagemediumimagemedium"></a>
 ### Class: \Grav\Common\Page\Medium\ImageMedium
@@ -2172,7 +2644,7 @@ $data->undef('this.is.my.nested.variable');
 | public | <strong>lightbox(</strong><em>int</em> <strong>$width=null</strong>, <em>int</em> <strong>$height=null</strong>, <em>bool/boolean</em> <strong>$reset=true</strong>)</strong> : <em>[\Grav\Common\Page\Medium\Link](#class-gravcommonpagemediumlink)</em><br /><em>Turn the current Medium into a Link with lightbox enabled</em> |
 | public | <strong>link(</strong><em>bool/boolean</em> <strong>$reset=true</strong>, <em>array</em> <strong>$attributes=array()</strong>)</strong> : <em>[\Grav\Common\Page\Medium\Link](#class-gravcommonpagemediumlink)</em><br /><em>Turn the current Medium into a Link</em> |
 | public | <strong>path(</strong><em>bool</em> <strong>$reset=true</strong>)</strong> : <em>string path to image</em><br /><em>Return PATH to image.</em> |
-| public | <strong>quality(</strong><em>int</em> <strong>$quality=null</strong>)</strong> : <em>[\Grav\Common\Page\Medium\Medium](#class-gravcommonpagemediummedium)</em><br /><em>Sets or gets the quality of the image</em> |
+| public | <strong>quality(</strong><em>int</em> <strong>$quality=null</strong>)</strong> : <em>int/\Grav\Common\Page\Medium\$this</em><br /><em>Sets or gets the quality of the image</em> |
 | public | <strong>reset()</strong> : <em>\Grav\Common\Page\Medium\$this</em><br /><em>Reset image.</em> |
 | public | <strong>setImagePrettyName(</strong><em>mixed</em> <strong>$name</strong>)</strong> : <em>void</em><br /><em>Allows the ability to override the Inmage's Pretty name stored in cache</em> |
 | public | <strong>sizes(</strong><em>string</em> <strong>$sizes=null</strong>)</strong> : <em>string</em><br /><em>Set or get sizes parameter for srcset media action</em> |
@@ -2185,7 +2657,7 @@ $data->undef('this.is.my.nested.variable');
 
 *This class extends [\Grav\Common\Page\Medium\Medium](#class-gravcommonpagemediummedium)*
 
-*This class implements [\Grav\Common\Media\Interfaces\MediaObjectInterface](#interface-gravcommonmediainterfacesmediaobjectinterface), [\Grav\Common\Page\Medium\RenderableInterface](#interface-gravcommonpagemediumrenderableinterface), [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), \ArrayAccess, \Countable, \RocketTheme\Toolbox\ArrayTraits\ExportInterface*
+*This class implements [\Grav\Framework\Media\Interfaces\MediaObjectInterface](#interface-gravframeworkmediainterfacesmediaobjectinterface), [\Grav\Common\Media\Interfaces\MediaObjectInterface](#interface-gravcommonmediainterfacesmediaobjectinterface), [\Grav\Common\Page\Medium\RenderableInterface](#interface-gravcommonpagemediumrenderableinterface), [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), \ArrayAccess, \Countable, \JsonSerializable, \RocketTheme\Toolbox\ArrayTraits\ExportInterface*
 
 <hr /><a id="class-gravcommonpagemediumthumbnailimagemedium"></a>
 ### Class: \Grav\Common\Page\Medium\ThumbnailImageMedium
@@ -2203,7 +2675,7 @@ $data->undef('this.is.my.nested.variable');
 
 *This class extends [\Grav\Common\Page\Medium\ImageMedium](#class-gravcommonpagemediumimagemedium)*
 
-*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), [\Grav\Common\Page\Medium\RenderableInterface](#interface-gravcommonpagemediumrenderableinterface), [\Grav\Common\Media\Interfaces\MediaObjectInterface](#interface-gravcommonmediainterfacesmediaobjectinterface)*
+*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \JsonSerializable, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), [\Grav\Common\Page\Medium\RenderableInterface](#interface-gravcommonpagemediumrenderableinterface), [\Grav\Common\Media\Interfaces\MediaObjectInterface](#interface-gravcommonmediainterfacesmediaobjectinterface), [\Grav\Framework\Media\Interfaces\MediaObjectInterface](#interface-gravframeworkmediainterfacesmediaobjectinterface)*
 
 <hr /><a id="class-gravcommonpagemediummediumfactory"></a>
 ### Class: \Grav\Common\Page\Medium\MediumFactory
@@ -2212,6 +2684,7 @@ $data->undef('this.is.my.nested.variable');
 |:-----------|:---------|
 | public static | <strong>fromArray(</strong><em>array</em> <strong>$items=array()</strong>, <em>\Grav\Common\Page\Medium\Blueprint/null/[\Grav\Common\Data\Blueprint](#class-gravcommondatablueprint)</em> <strong>$blueprint=null</strong>)</strong> : <em>[\Grav\Common\Page\Medium\Medium](#class-gravcommonpagemediummedium)</em><br /><em>Create Medium from array of parameters</em> |
 | public static | <strong>fromFile(</strong><em>string</em> <strong>$file</strong>, <em>array</em> <strong>$params=array()</strong>)</strong> : <em>[\Grav\Common\Page\Medium\Medium](#class-gravcommonpagemediummedium)</em><br /><em>Create Medium from a file</em> |
+| public static | <strong>fromUploadedFile(</strong><em>[\Grav\Framework\Form\FormFlashFile](#class-gravframeworkformformflashfile)</em> <strong>$uploadedFile</strong>, <em>array</em> <strong>$params=array()</strong>)</strong> : <em>[\Grav\Common\Page\Medium\Medium](#class-gravcommonpagemediummedium)</em><br /><em>Create Medium from an uploaded file</em> |
 | public static | <strong>scaledFromMedium(</strong><em>[\Grav\Common\Page\Medium\ImageMedium](#class-gravcommonpagemediumimagemedium)</em> <strong>$medium</strong>, <em>int</em> <strong>$from</strong>, <em>int</em> <strong>$to</strong>)</strong> : <em>[\Grav\Common\Page\Medium\Medium](#class-gravcommonpagemediummedium)/array</em><br /><em>Create a new ImageMedium by scaling another ImageMedium object.</em> |
 
 <hr /><a id="class-gravcommonpagemediumabstractmedia-abstract"></a>
@@ -2220,126 +2693,139 @@ $data->undef('this.is.my.nested.variable');
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__invoke(</strong><em>string</em> <strong>$filename</strong>)</strong> : <em>mixed</em><br /><em>Call object as function to get medium by filename.</em> |
+| public | <strong>add(</strong><em>string</em> <strong>$name</strong>, <em>\Grav\Common\Page\Medium\MediaObjectInterface</em> <strong>$file</strong>)</strong> : <em>void</em> |
 | public | <strong>all()</strong> : <em>array/\Grav\Common\Page\Medium\MediaObjectInterface[]</em><br /><em>Get a list of all media.</em> |
 | public | <strong>audios()</strong> : <em>array/\Grav\Common\Page\Medium\MediaObjectInterface[]</em><br /><em>Get a list of all audio media.</em> |
 | public | <strong>files()</strong> : <em>array/\Grav\Common\Page\Medium\MediaObjectInterface[]</em><br /><em>Get a list of all file media.</em> |
 | public | <strong>get(</strong><em>string</em> <strong>$filename</strong>)</strong> : <em>[\Grav\Common\Page\Medium\Medium](#class-gravcommonpagemediummedium)/null</em><br /><em>Get medium by filename.</em> |
 | public | <strong>images()</strong> : <em>array/\Grav\Common\Page\Medium\MediaObjectInterface[]</em><br /><em>Get a list of all image media.</em> |
 | public | <strong>offsetGet(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>mixed</em> |
+| public | <strong>setTimestamps(</strong><em>string/int/null</em> <strong>$timestamp=null</strong>)</strong> : <em>\Grav\Common\Page\Medium\$this</em><br /><em>Set file modification timestamps (query params) for all the media files.</em> |
 | public | <strong>videos()</strong> : <em>array/\Grav\Common\Page\Medium\MediaObjectInterface[]</em><br /><em>Get a list of all video media.</em> |
-| protected | <strong>add(</strong><em>string</em> <strong>$name</strong>, <em>\Grav\Common\Page\Medium\MediaObjectInterface</em> <strong>$file</strong>)</strong> : <em>void</em> |
 | protected | <strong>getFileParts(</strong><em>string</em> <strong>$filename</strong>)</strong> : <em>array</em><br /><em>Get filename, extension and meta part.</em> |
 | protected | <strong>orderMedia(</strong><em>mixed</em> <strong>$media</strong>)</strong> : <em>array</em><br /><em>Order the media based on the page's media_order</em> |
 
 *This class extends [\Grav\Common\Getters](#class-gravcommongetters-abstract)*
 
-*This class implements \Countable, \ArrayAccess, [\Grav\Common\Media\Interfaces\MediaCollectionInterface](#interface-gravcommonmediainterfacesmediacollectioninterface)*
+*This class implements \Countable, \ArrayAccess, [\Grav\Common\Media\Interfaces\MediaCollectionInterface](#interface-gravcommonmediainterfacesmediacollectioninterface), [\Grav\Framework\Media\Interfaces\MediaCollectionInterface](#interface-gravframeworkmediainterfacesmediacollectioninterface)*
 
 <hr /><a id="interface-gravcommonprocessorsprocessorinterface"></a>
 ### Interface: \Grav\Common\Processors\ProcessorInterface
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
+
+*This class implements \Psr\Http\Server\MiddlewareInterface*
+
+<hr /><a id="class-gravcommonprocessorsdebuggerprocessor"></a>
+### Class: \Grav\Common\Processors\DebuggerProcessor
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
+
+*This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
+
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
 
 <hr /><a id="class-gravcommonprocessorsinitializeprocessor"></a>
 ### Class: \Grav\Common\Processors\InitializeProcessor
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
 
 *This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
 
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
-
-<hr /><a id="class-gravcommonprocessorssitesetupprocessor"></a>
-### Class: \Grav\Common\Processors\SiteSetupProcessor
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
-
-*This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
-
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
 
 <hr /><a id="class-gravcommonprocessorstwigprocessor"></a>
 ### Class: \Grav\Common\Processors\TwigProcessor
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
 
 *This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
 
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
 
 <hr /><a id="class-gravcommonprocessorsrenderprocessor"></a>
 ### Class: \Grav\Common\Processors\RenderProcessor
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
 
 *This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
 
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
 
 <hr /><a id="class-gravcommonprocessorsassetsprocessor"></a>
 ### Class: \Grav\Common\Processors\AssetsProcessor
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
 
 *This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
 
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+
+<hr /><a id="class-gravcommonprocessorsrequestprocessor"></a>
+### Class: \Grav\Common\Processors\RequestProcessor
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
+
+*This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
+
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+
+<hr /><a id="class-gravcommonprocessorsbackupsprocessor"></a>
+### Class: \Grav\Common\Processors\BackupsProcessor
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
+
+*This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
+
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
 
 <hr /><a id="class-gravcommonprocessorstasksprocessor"></a>
 ### Class: \Grav\Common\Processors\TasksProcessor
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
 
 *This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
 
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
-
-<hr /><a id="class-gravcommonprocessorsdebuggerinitprocessor"></a>
-### Class: \Grav\Common\Processors\DebuggerInitProcessor
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
-
-*This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
-
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
 
 <hr /><a id="class-gravcommonprocessorserrorsprocessor"></a>
 ### Class: \Grav\Common\Processors\ErrorsProcessor
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
 
 *This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
 
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
 
 <hr /><a id="class-gravcommonprocessorspagesprocessor"></a>
 ### Class: \Grav\Common\Processors\PagesProcessor
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
 
 *This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
 
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
 
 <hr /><a id="class-gravcommonprocessorspluginstestprocessor"></a>
 ### Class: \Grav\Common\Processors\PluginsTestProcessor
@@ -2350,16 +2836,18 @@ $data->undef('this.is.my.nested.variable');
 
 *This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
 
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+
 <hr /><a id="class-gravcommonprocessorsdebuggerassetsprocessor"></a>
 ### Class: \Grav\Common\Processors\DebuggerAssetsProcessor
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
 
 *This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
 
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
 
 <hr /><a id="class-gravcommonprocessorsprocessorbase-abstract"></a>
 ### Class: \Grav\Common\Processors\ProcessorBase (abstract)
@@ -2367,39 +2855,213 @@ $data->undef('this.is.my.nested.variable');
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>[\Grav\Common\Grav](#class-gravcommongrav)</em> <strong>$container</strong>)</strong> : <em>void</em> |
+| protected | <strong>addMessage(</strong><em>mixed</em> <strong>$message</strong>, <em>string</em> <strong>$label=`'info'`</strong>, <em>bool</em> <strong>$isString=true</strong>)</strong> : <em>void</em> |
+| protected | <strong>startTimer(</strong><em>mixed</em> <strong>$id=null</strong>, <em>mixed</em> <strong>$title=null</strong>)</strong> : <em>void</em> |
+| protected | <strong>stopTimer(</strong><em>mixed</em> <strong>$id=null</strong>)</strong> : <em>void</em> |
+
+*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface), \Psr\Http\Server\MiddlewareInterface*
+
+<hr /><a id="class-gravcommonprocessorsschedulerprocessor"></a>
+### Class: \Grav\Common\Processors\SchedulerProcessor
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
+
+*This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
+
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+
+<hr /><a id="class-gravcommonprocessorsloggerprocessor"></a>
+### Class: \Grav\Common\Processors\LoggerProcessor
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
+
+*This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
+
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
 
 <hr /><a id="class-gravcommonprocessorsthemesprocessor"></a>
 ### Class: \Grav\Common\Processors\ThemesProcessor
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
 
 *This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
 
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
 
 <hr /><a id="class-gravcommonprocessorspluginsprocessor"></a>
 ### Class: \Grav\Common\Processors\PluginsProcessor
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
 
 *This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
 
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
 
 <hr /><a id="class-gravcommonprocessorsconfigurationprocessor"></a>
 ### Class: \Grav\Common\Processors\ConfigurationProcessor
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>process()</strong> : <em>void</em> |
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
 
 *This class extends [\Grav\Common\Processors\ProcessorBase](#class-gravcommonprocessorsprocessorbase-abstract)*
 
-*This class implements [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+*This class implements \Psr\Http\Server\MiddlewareInterface, [\Grav\Common\Processors\ProcessorInterface](#interface-gravcommonprocessorsprocessorinterface)*
+
+<hr /><a id="class-gravcommonprocessorseventsrequesthandlerevent"></a>
+### Class: \Grav\Common\Processors\Events\RequestHandlerEvent
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>addMiddleware(</strong><em>\string</em> <strong>$name</strong>, <em>\Psr\Http\Server\MiddlewareInterface</em> <strong>$middleware</strong>)</strong> : <em>[\Grav\Common\Processors\Events\RequestHandlerEvent](#class-gravcommonprocessorseventsrequesthandlerevent)</em> |
+| public | <strong>getHandler()</strong> : <em>[\Grav\Framework\RequestHandler\RequestHandler](#class-gravframeworkrequesthandlerrequesthandler)</em> |
+| public | <strong>getRequest()</strong> : <em>\Psr\Http\Message\ServerRequestInterface</em> |
+| public | <strong>getResponse()</strong> : <em>\Grav\Common\Processors\Events\ResponseInterface/null</em> |
+| public | <strong>getRoute()</strong> : <em>[\Grav\Framework\Route\Route](#class-gravframeworkrouteroute)</em> |
+| public | <strong>setResponse(</strong><em>\Psr\Http\Message\ResponseInterface</em> <strong>$response</strong>)</strong> : <em>\Grav\Common\Processors\Events\$this</em> |
+
+*This class extends \RocketTheme\Toolbox\Event\Event*
+
+*This class implements \ArrayAccess*
+
+<hr /><a id="class-gravcommonschedulerscheduler"></a>
+### Class: \Grav\Common\Scheduler\Scheduler
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct()</strong> : <em>void</em><br /><em>Create new instance.</em> |
+| public | <strong>addCommand(</strong><em>string</em> <strong>$command</strong>, <em>array</em> <strong>$args=array()</strong>, <em>string</em> <strong>$id=null</strong>)</strong> : <em>[\Grav\Common\Scheduler\Job](#class-gravcommonschedulerjob)</em><br /><em>Queue a raw shell command.</em> |
+| public | <strong>addFunction(</strong><em>\callable</em> <strong>$fn</strong>, <em>array</em> <strong>$args=array()</strong>, <em>string</em> <strong>$id=null</strong>)</strong> : <em>[\Grav\Common\Scheduler\Job](#class-gravcommonschedulerjob)</em><br /><em>Queues a PHP function execution.</em> |
+| public | <strong>clearJobs()</strong> : <em>void</em><br /><em>Remove all queued Jobs.</em> |
+| public | <strong>getAllJobs()</strong> : <em>array</em><br /><em>Get all jobs if they are disabled or not as one array</em> |
+| public | <strong>getCronCommand()</strong> : <em>string</em><br /><em>Helper to get the full Cron command</em> |
+| public | <strong>getJobStates()</strong> : <em>\RocketTheme\Toolbox\File\FileInterface/\Grav\Common\Scheduler\YamlFile</em><br /><em>Get the Job states file</em> |
+| public | <strong>getQueuedJobs(</strong><em>bool</em> <strong>$all=false</strong>)</strong> : <em>array</em><br /><em>Get the queued jobs as background/foreground</em> |
+| public | <strong>getVerboseOutput(</strong><em>string</em> <strong>$type=`'text'`</strong>)</strong> : <em>mixed The return depends on the requested $type</em><br /><em>Get the scheduler verbose output.</em> |
+| public | <strong>isCrontabSetup()</strong> : <em>int</em><br /><em>Helper to determine if cron job is setup</em> |
+| public | <strong>loadSavedJobs()</strong> : <em>mixed</em><br /><em>Load saved jobs from config/scheduler.yaml file</em> |
+| public | <strong>resetRun()</strong> : <em>void</em><br /><em>Reset all collected data of last run. Call before run() if you call run() multiple times.</em> |
+| public | <strong>run(</strong><em>[\DateTime](http://php.net/manual/en/class.datetime.php)/[\Datetime](http://php.net/manual/en/class.datetime.php)</em> <strong>$runTime=null</strong>)</strong> : <em>array Executed jobs</em><br /><em>Run the scheduler.</em> |
+
+<hr /><a id="class-gravcommonschedulerjob"></a>
+### Class: \Grav\Common\Scheduler\Job
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>string/callable</em> <strong>$command</strong>, <em>array</em> <strong>$args=array()</strong>, <em>string</em> <strong>$id=null</strong>)</strong> : <em>void</em><br /><em>Create a new Job instance.</em> |
+| public | <strong>april(</strong><em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every April.</em> |
+| public | <strong>at(</strong><em>string</em> <strong>$expression</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the Job execution time. *compo</em> |
+| public | <strong>august(</strong><em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every August.</em> |
+| public | <strong>backlink(</strong><em>mixed</em> <strong>$link=null</strong>)</strong> : <em>null/string</em><br /><em>Sets/Gets an option backlink</em> |
+| public | <strong>before(</strong><em>\callable</em> <strong>$fn</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set function to be called before job execution Job object is injected as a parameter to callable function.</em> |
+| public | <strong>configure(</strong><em>array</em> <strong>$config=array()</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Configure the job.</em> |
+| public | <strong>daily(</strong><em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to once a day.</em> |
+| public | <strong>december(</strong><em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every December.</em> |
+| public | <strong>email(</strong><em>string/array</em> <strong>$email</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the emails where the output should be sent to. The Job should be set to write output to a file for this to work.</em> |
+| public | <strong>everyMinute()</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every minute.</em> |
+| public | <strong>february(</strong><em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every February.</em> |
+| public | <strong>finalize()</strong> : <em>void</em><br /><em>Finish up processing the job</em> |
+| public | <strong>friday(</strong><em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every Friday.</em> |
+| public | <strong>getArguments()</strong> : <em>string/null</em><br /><em>Get optional arguments</em> |
+| public | <strong>getAt()</strong> : <em>string</em><br /><em>Get the cron 'at' syntax for this job</em> |
+| public | <strong>getCommand()</strong> : <em>string</em><br /><em>Get the command</em> |
+| public | <strong>getCronExpression()</strong> : <em>mixed</em> |
+| public | <strong>getEnabled()</strong> : <em>bool</em><br /><em>Get the status of this job</em> |
+| public | <strong>getId()</strong> : <em>string</em><br /><em>Get the Job id.</em> |
+| public | <strong>getOutput()</strong> : <em>mixed</em><br /><em>Get the job output.</em> |
+| public | <strong>hourly(</strong><em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every hour.</em> |
+| public | <strong>inForeground()</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Force the Job to run in foreground.</em> |
+| public | <strong>isDue(</strong><em>[\DateTime](http://php.net/manual/en/class.datetime.php)</em> <strong>$date=null</strong>)</strong> : <em>bool</em><br /><em>Check if the Job is due to run. It accepts as input a DateTime used to check if the job is due. Defaults to job creation time. It also default the execution time if not previously defined.</em> |
+| public | <strong>isOverlapping()</strong> : <em>bool</em><br /><em>Check if the Job is overlapping.</em> |
+| public | <strong>isSuccessful()</strong> : <em>bool</em><br /><em>Get the status of the last run for this job</em> |
+| public | <strong>january(</strong><em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every January.</em> |
+| public | <strong>july(</strong><em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every July.</em> |
+| public | <strong>june(</strong><em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every June.</em> |
+| public | <strong>march(</strong><em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every March.</em> |
+| public | <strong>may(</strong><em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every May.</em> |
+| public | <strong>monday(</strong><em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every Monday.</em> |
+| public | <strong>monthly(</strong><em>string/int/string</em> <strong>$month=`'*'`</strong>, <em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to once a month.</em> |
+| public | <strong>november(</strong><em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every November.</em> |
+| public | <strong>october(</strong><em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every October.</em> |
+| public | <strong>onlyOne(</strong><em>string</em> <strong>$tempDir=null</strong>, <em>\callable</em> <strong>$whenOverlapping=null</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>This will prevent the Job from overlapping. It prevents another instance of the same Job of being executed if the previous is still running. The job id is used as a filename for the lock file.</em> |
+| public | <strong>output(</strong><em>string/array</em> <strong>$filename</strong>, <em>bool</em> <strong>$append=false</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the file/s where to write the output of the job.</em> |
+| public | <strong>run()</strong> : <em>bool</em><br /><em>Run the job.</em> |
+| public | <strong>runInBackground()</strong> : <em>bool</em><br /><em>Check if the Job can run in background.</em> |
+| public | <strong>saturday(</strong><em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every Saturday.</em> |
+| public | <strong>september(</strong><em>int/string</em> <strong>$day=1</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every September.</em> |
+| public | <strong>sunday(</strong><em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every Sunday.</em> |
+| public | <strong>then(</strong><em>\callable</em> <strong>$fn</strong>, <em>bool</em> <strong>$runInBackground=false</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set a function to be called after job execution. By default this will force the job to run in foreground because the output is injected as a parameter of this function, but it could be avoided by passing true as a second parameter. The job will run in background if it meets all the other criteria.</em> |
+| public | <strong>thursday(</strong><em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every Thursday.</em> |
+| public | <strong>tuesday(</strong><em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every Tuesday.</em> |
+| public | <strong>wednesday(</strong><em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to every Wednesday.</em> |
+| public | <strong>weekly(</strong><em>int/string</em> <strong>$weekday</strong>, <em>int/string</em> <strong>$hour</strong>, <em>int/string</em> <strong>$minute</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Set the execution time to once a week.</em> |
+| public | <strong>when(</strong><em>\callable</em> <strong>$fn</strong>)</strong> : <em>\Grav\Common\Scheduler\self</em><br /><em>Truth test to define if the job should run if due.</em> |
+
+<hr /><a id="class-gravcommonschedulercron"></a>
+### Class: \Grav\Common\Scheduler\Cron
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>string</em> <strong>$cron=null</strong>)</strong> : <em>void</em> |
+| public | <strong>getCron()</strong> : <em>string</em> |
+| public | <strong>getCronDaysOfMonth()</strong> : <em>string</em> |
+| public | <strong>getCronDaysOfWeek()</strong> : <em>string</em> |
+| public | <strong>getCronHours()</strong> : <em>string</em> |
+| public | <strong>getCronMinutes()</strong> : <em>string</em> |
+| public | <strong>getCronMonths()</strong> : <em>string</em> |
+| public | <strong>getDaysOfMonth()</strong> : <em>array</em> |
+| public | <strong>getDaysOfWeek()</strong> : <em>array</em> |
+| public | <strong>getHours()</strong> : <em>array</em> |
+| public | <strong>getMinutes()</strong> : <em>array</em> |
+| public | <strong>getMonths()</strong> : <em>array</em> |
+| public | <strong>getText(</strong><em>string</em> <strong>$lang</strong>)</strong> : <em>string</em> |
+| public | <strong>getType()</strong> : <em>string</em> |
+| public | <strong>matchExact(</strong><em>int/string/[\Datetime](http://php.net/manual/en/class.datetime.php)</em> <strong>$date</strong>)</strong> : <em>void</em> |
+| public | <strong>matchWithMargin(</strong><em>int/string/[\Datetime](http://php.net/manual/en/class.datetime.php)</em> <strong>$date</strong>, <em>int</em> <strong>$minuteBefore</strong>, <em>int</em> <strong>$minuteAfter</strong>)</strong> : <em>void</em> |
+| public | <strong>setCron(</strong><em>string</em> <strong>$cron</strong>)</strong> : <em>[\Grav\Common\Scheduler\Cron](#class-gravcommonschedulercron)</em> |
+| public | <strong>setDaysOfMonth(</strong><em>string/array</em> <strong>$dom</strong>)</strong> : <em>[\Grav\Common\Scheduler\Cron](#class-gravcommonschedulercron)</em> |
+| public | <strong>setDaysOfWeek(</strong><em>string/array</em> <strong>$dow</strong>)</strong> : <em>[\Grav\Common\Scheduler\Cron](#class-gravcommonschedulercron)</em> |
+| public | <strong>setHours(</strong><em>string/array</em> <strong>$hours</strong>)</strong> : <em>[\Grav\Common\Scheduler\Cron](#class-gravcommonschedulercron)</em> |
+| public | <strong>setMinutes(</strong><em>string/array</em> <strong>$minutes</strong>)</strong> : <em>[\Grav\Common\Scheduler\Cron](#class-gravcommonschedulercron)</em> |
+| public | <strong>setMonths(</strong><em>string/array</em> <strong>$months</strong>)</strong> : <em>[\Grav\Common\Scheduler\Cron](#class-gravcommonschedulercron)</em> |
+| protected | <strong>arrayToCron(</strong><em>array</em> <strong>$array</strong>)</strong> : <em>string</em> |
+| protected | <strong>cronToArray(</strong><em>array/string</em> <strong>$string</strong>, <em>int</em> <strong>$min</strong>, <em>int</em> <strong>$max</strong>)</strong> : <em>array</em> |
+| protected | <strong>parseDate(</strong><em>mixed</em> <strong>$date</strong>, <em>int</em> <strong>$min</strong>, <em>int</em> <strong>$hour</strong>, <em>int</em> <strong>$day</strong>, <em>int</em> <strong>$month</strong>, <em>int</em> <strong>$weekday</strong>)</strong> : <em>[\DateTime](http://php.net/manual/en/class.datetime.php)</em> |
+
+<hr /><a id="class-gravcommonservicerequestserviceprovider"></a>
+### Class: \Grav\Common\Service\RequestServiceProvider
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>register(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>void</em> |
+
+*This class implements \Pimple\ServiceProviderInterface*
+
+<hr /><a id="class-gravcommonservicepagesserviceprovider"></a>
+### Class: \Grav\Common\Service\PagesServiceProvider
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>register(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>void</em> |
+
+*This class implements \Pimple\ServiceProviderInterface*
+
+<hr /><a id="class-gravcommonserviceschedulerserviceprovider"></a>
+### Class: \Grav\Common\Service\SchedulerServiceProvider
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>register(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>void</em> |
+
+*This class implements \Pimple\ServiceProviderInterface*
 
 <hr /><a id="class-gravcommonservicestreamsserviceprovider"></a>
 ### Class: \Grav\Common\Service\StreamsServiceProvider
@@ -2428,8 +3090,8 @@ $data->undef('this.is.my.nested.variable');
 
 *This class implements \Pimple\ServiceProviderInterface*
 
-<hr /><a id="class-gravcommonservicepageserviceprovider"></a>
-### Class: \Grav\Common\Service\PageServiceProvider
+<hr /><a id="class-gravcommonservicebackupsserviceprovider"></a>
+### Class: \Grav\Common\Service\BackupsServiceProvider
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -2446,8 +3108,26 @@ $data->undef('this.is.my.nested.variable');
 
 *This class implements \Pimple\ServiceProviderInterface*
 
+<hr /><a id="class-gravcommonservicefilesystemserviceprovider"></a>
+### Class: \Grav\Common\Service\FilesystemServiceProvider
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>register(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>void</em> |
+
+*This class implements \Pimple\ServiceProviderInterface*
+
 <hr /><a id="class-gravcommonserviceerrorserviceprovider"></a>
 ### Class: \Grav\Common\Service\ErrorServiceProvider
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>register(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>void</em> |
+
+*This class implements \Pimple\ServiceProviderInterface*
+
+<hr /><a id="class-gravcommonserviceinflectorserviceprovider"></a>
+### Class: \Grav\Common\Service\InflectorServiceProvider
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -2473,7 +3153,6 @@ $data->undef('this.is.my.nested.variable');
 | public static | <strong>languages(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>void</em> |
 | public static | <strong>load(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>[\Grav\Common\Config\Config](#class-gravcommonconfigconfig)</em> |
 | public | <strong>register(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>void</em> |
-| public static | <strong>setup(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>void</em> |
 
 *This class implements \Pimple\ServiceProviderInterface*
 
@@ -2483,6 +3162,18 @@ $data->undef('this.is.my.nested.variable');
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>register(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>void</em> |
+
+*This class implements \Pimple\ServiceProviderInterface*
+
+<hr /><a id="class-gravcommonserviceaccountsserviceprovider"></a>
+### Class: \Grav\Common\Service\AccountsServiceProvider
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>register(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>void</em> |
+| protected | <strong>dataAccounts(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>void</em> |
+| protected | <strong>flexAccounts(</strong><em>\Pimple\Container</em> <strong>$container</strong>)</strong> : <em>void</em> |
+| protected | <strong>getFlexStorage(</strong><em>mixed</em> <strong>$config</strong>)</strong> : <em>mixed</em> |
 
 *This class implements \Pimple\ServiceProviderInterface*
 
@@ -2496,11 +3187,11 @@ $data->undef('this.is.my.nested.variable');
 | public | <strong>init()</strong> : <em>void</em><br /><em>Twig initialization that sets the twig loader chain, then the environment, then extensions and also the base set of twig vars</em> |
 | public | <strong>loader()</strong> : <em>\Twig_Loader_Filesystem</em> |
 | public | <strong>prependPath(</strong><em>mixed</em> <strong>$template_path</strong>, <em>string/null</em> <strong>$namespace=`'__main__'`</strong>)</strong> : <em>void</em><br /><em>Wraps the Twig_Loader_Filesystem prependPath method (should be used only in `onTwigLoader()` event</em> |
-| public | <strong>processPage(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$item</strong>, <em>string</em> <strong>$content=null</strong>)</strong> : <em>string The rendered output</em><br /><em>Twig process that renders a page item. It supports two variations: 1) Handles modular pages by rendering a specific page based on its modular twig template 2) Renders individual page items for twig processing before the site rendering</em> |
+| public | <strong>processPage(</strong><em>[\Grav\Common\Page\Interfaces\PageInterface](#interface-gravcommonpageinterfacespageinterface)</em> <strong>$item</strong>, <em>string</em> <strong>$content=null</strong>)</strong> : <em>string The rendered output</em><br /><em>Twig process that renders a page item. It supports two variations: 1) Handles modular pages by rendering a specific page based on its modular twig template 2) Renders individual page items for twig processing before the site rendering</em> |
 | public | <strong>processSite(</strong><em>string</em> <strong>$format=null</strong>, <em>array</em> <strong>$vars=array()</strong>)</strong> : <em>string the rendered output</em><br /><em>Twig process that renders the site layout. This is the main twig process that renders the overall page and handles all the layout for the site display.</em> |
 | public | <strong>processString(</strong><em>string</em> <strong>$string</strong>, <em>array</em> <strong>$vars=array()</strong>)</strong> : <em>string</em><br /><em>Process a Twig template directly by using a Twig string and optional array of variables</em> |
 | public | <strong>processTemplate(</strong><em>string</em> <strong>$template</strong>, <em>array</em> <strong>$vars=array()</strong>)</strong> : <em>string</em><br /><em>Process a Twig template directly by using a template name and optional array of variables</em> |
-| public | <strike><strong>setAutoescape(</strong><em>boolean</em> <strong>$state</strong>)</strong> : <em>void</em></strike><br /><em>DEPRECATED - 1.5</em> |
+| public | <strike><strong>setAutoescape(</strong><em>boolean</em> <strong>$state</strong>)</strong> : <em>void</em></strike><br /><em>DEPRECATED - 1.5 Auto-escape should always be turned on to protect against XSS issues (can be disabled per template file).</em> |
 | public | <strong>setTemplate(</strong><em>string</em> <strong>$name</strong>, <em>string</em> <strong>$template</strong>)</strong> : <em>void</em><br /><em>Adds or overrides a template.</em> |
 | public | <strong>template(</strong><em>string</em> <strong>$template</strong>)</strong> : <em>string the template name</em><br /><em>Simple helper method to get the twig template if it has already been set, else return the one being passed in</em> |
 | public | <strong>twig()</strong> : <em>\Twig_Environment</em> |
@@ -2524,6 +3215,7 @@ $data->undef('this.is.my.nested.variable');
 | public | <strong>boolFilter(</strong><em>mixed</em> <strong>$input</strong>)</strong> : <em>bool</em><br /><em>Casts input to bool.</em> |
 | public | <strong>chunkSplitFilter(</strong><em>mixed</em> <strong>$value</strong>, <em>mixed</em> <strong>$chars</strong>, <em>string</em> <strong>$split=`'-'`</strong>)</strong> : <em>string</em><br /><em>Wrapper for chunk_split() function</em> |
 | public | <strong>containsFilter(</strong><em>String</em> <strong>$haystack</strong>, <em>String</em> <strong>$needle</strong>)</strong> : <em>boolean</em><br /><em>determine if a string contains another</em> |
+| public | <strong>cronFunc(</strong><em>mixed</em> <strong>$at</strong>)</strong> : <em>\Cron\CronExpression</em><br /><em>Get Cron object for a crontab 'at' format</em> |
 | public | <strong>definedDefaultFilter(</strong><em>mixed</em> <strong>$value</strong>, <em>null</em> <strong>$default=null</strong>)</strong> : <em>null</em> |
 | public | <strong>dump(</strong><em>\Twig_Environment</em> <strong>$env</strong>, <em>mixed</em> <strong>$context</strong>)</strong> : <em>void</em><br /><em>Based on Twig_Extension_Debug / twig_var_dump (c) 2011 Fabien Potencier</em> |
 | public | <strong>endsWithFilter(</strong><em>mixed</em> <strong>$haystack</strong>, <em>mixed</em> <strong>$needle</strong>)</strong> : <em>bool</em> |
@@ -2537,6 +3229,7 @@ $data->undef('this.is.my.nested.variable');
 | public | <strong>getFunctions()</strong> : <em>array</em><br /><em>Return a list of all functions.</em> |
 | public | <strong>getGlobals()</strong> : <em>array</em><br /><em>Register some standard globals</em> |
 | public | <strong>getTokenParsers()</strong> : <em>array</em> |
+| public | <strong>getTypeFunc(</strong><em>mixed</em> <strong>$var</strong>)</strong> : <em>string</em><br /><em>Function/Filter to return the type of variable</em> |
 | public | <strong>gistFunc(</strong><em>string</em> <strong>$id</strong>, <em>bool/string/bool</em> <strong>$file=false</strong>)</strong> : <em>string</em><br /><em>Output a Gist</em> |
 | public | <strong>inflectorFilter(</strong><em>string</em> <strong>$action</strong>, <em>string</em> <strong>$data</strong>, <em>int</em> <strong>$count=null</strong>)</strong> : <em>mixed</em><br /><em>Inflector supports following notations: `{{ 'person'|pluralize }} => people` `{{ 'shoes'|singularize }} => shoe` `{{ 'welcome page'|titleize }} => "Welcome Page"` `{{ 'send_email'|camelize }} => SendEmail` `{{ 'CamelCased'|underscorize }} => camel_cased` `{{ 'Something Text'|hyphenize }} => something-text` `{{ 'something_text_to_read'|humanize }} => "Something text to read"` `{{ '181'|monthize }} => 5` `{{ '10'|ordinalize }} => 10th`</em> |
 | public | <strong>intFilter(</strong><em>mixed</em> <strong>$input</strong>)</strong> : <em>int</em><br /><em>Casts input to int.</em> |
@@ -2548,10 +3241,12 @@ $data->undef('this.is.my.nested.variable');
 | public | <strong>md5Filter(</strong><em>string</em> <strong>$str</strong>)</strong> : <em>string</em><br /><em>Return MD5 hash from the input.</em> |
 | public | <strong>mediaDirFunc(</strong><em>mixed</em> <strong>$media_dir</strong>)</strong> : <em>\Grav\Common\Twig\Media/null</em><br /><em>Process a folder as Media and return a media object</em> |
 | public | <strong>modulusFilter(</strong><em>string/int</em> <strong>$number</strong>, <em>int</em> <strong>$divider</strong>, <em>array</em> <strong>$items=null</strong>)</strong> : <em>int</em><br /><em>Returns the modulus of an integer</em> |
+| public | <strong>niceCronFilter(</strong><em>mixed</em> <strong>$at</strong>)</strong> : <em>void</em> |
 | public | <strong>niceFilesizeFunc(</strong><em>mixed</em> <strong>$bytes</strong>)</strong> : <em>string</em><br /><em>Returns a nicer more readable filesize based on bytes</em> |
 | public | <strong>niceNumberFunc(</strong><em>int/float</em> <strong>$n</strong>)</strong> : <em>bool/string</em><br /><em>Returns a nicer more readable number</em> |
-| public | <strong>nicetimeFunc(</strong><em>mixed</em> <strong>$date</strong>, <em>bool/mixed</em> <strong>$long_strings=true</strong>)</strong> : <em>boolean</em><br /><em>displays a facebook style 'time ago' formatted date/time</em> |
+| public | <strong>nicetimeFunc(</strong><em>mixed</em> <strong>$date</strong>, <em>bool</em> <strong>$long_strings=true</strong>, <em>bool</em> <strong>$show_tense=true</strong>)</strong> : <em>boolean</em><br /><em>displays a facebook style 'time ago' formatted date/time</em> |
 | public | <strong>nonceFieldFunc(</strong><em>string</em> <strong>$action</strong>, <em>string</em> <strong>$nonceParamName=`'nonce'`</strong>)</strong> : <em>string the nonce input field</em><br /><em>Used to add a nonce to a form. Call {{ nonce_field('action') }} specifying a string representing the action. For maximum protection, ensure that the string representing the action is as specific as possible</em> |
+| public | <strong>ofTypeFunc(</strong><em>mixed</em> <strong>$var</strong>, <em>null</em> <strong>$typeTest=null</strong>, <em>null</em> <strong>$className=null</strong>)</strong> : <em>bool</em><br /><em>Function/Filter to test type of variable</em> |
 | public static | <strong>padFilter(</strong><em>mixed</em> <strong>$input</strong>, <em>mixed</em> <strong>$pad_length</strong>, <em>string</em> <strong>$pad_string=`' '`</strong>, <em>int</em> <strong>$pad_type=1</strong>)</strong> : <em>string</em><br /><em>Pad a string to a certain length with another string</em> |
 | public | <strong>pageHeaderVarFunc(</strong><em>mixed</em> <strong>$var</strong>, <em>null</em> <strong>$pages=null</strong>)</strong> : <em>mixed</em><br /><em>Look for a page header variable in an array of pages working its way through until a value is found</em> |
 | public | <strong>randomStringFunc(</strong><em>int</em> <strong>$count=5</strong>)</strong> : <em>string</em><br /><em>Generate a random string</em> |
@@ -2569,7 +3264,7 @@ $data->undef('this.is.my.nested.variable');
 | public | <strong>stringFilter(</strong><em>mixed</em> <strong>$input</strong>)</strong> : <em>string</em><br /><em>Casts input to string.</em> |
 | public | <strong>stringFunc(</strong><em>mixed</em> <strong>$value</strong>)</strong> : <em>string</em><br /><em>Returns a string from a value. If the value is array, return it json encoded</em> |
 | public | <strong>themeVarFunc(</strong><em>mixed</em> <strong>$var</strong>, <em>bool</em> <strong>$default=null</strong>)</strong> : <em>string</em><br /><em>Get a theme variable</em> |
-| public | <strong>translate()</strong> : <em>mixed</em> |
+| public | <strong>translate(</strong><em>\Twig_Environment</em> <strong>$twig</strong>)</strong> : <em>mixed</em> |
 | public | <strong>translateArray(</strong><em>mixed</em> <strong>$key</strong>, <em>mixed</em> <strong>$index</strong>, <em>null</em> <strong>$lang=null</strong>)</strong> : <em>mixed</em> |
 | public | <strong>translateFunc()</strong> : <em>string</em><br /><em>Translate a string</em> |
 | public | <strong>translateLanguage(</strong><em>mixed</em> <strong>$args</strong>, <em>array/null/array</em> <strong>$languages=null</strong>, <em>bool</em> <strong>$array_support=false</strong>, <em>bool</em> <strong>$html_out=false</strong>)</strong> : <em>mixed</em><br /><em>Translate Strings</em> |
@@ -2596,12 +3291,36 @@ $data->undef('this.is.my.nested.variable');
 
 *This class extends \Twig\Environment*
 
+<hr /><a id="class-gravcommontwignodetwignodethrow"></a>
+### Class: \Grav\Common\Twig\Node\TwigNodeThrow
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>mixed</em> <strong>$code</strong>, <em>\Twig_Node</em> <strong>$message</strong>, <em>int</em> <strong>$lineno</strong>, <em>string/null</em> <strong>$tag=null</strong>)</strong> : <em>void</em><br /><em>TwigNodeThrow constructor.</em> |
+| public | <strong>compile(</strong><em>\Twig_Compiler</em> <strong>$compiler</strong>)</strong> : <em>void</em><br /><em>Compiles the node to PHP.</em> |
+
+*This class extends \Twig\Node\Node*
+
+*This class implements \Countable, \IteratorAggregate, \Traversable, \Twig_NodeInterface*
+
+<hr /><a id="class-gravcommontwignodetwignoderender"></a>
+### Class: \Grav\Common\Twig\Node\TwigNodeRender
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\Twig_Node_Expression</em> <strong>$object</strong>, <em>\Twig_Node_Expression/null/\Twig_Node_Expression</em> <strong>$layout</strong>, <em>\Twig_Node_Expression/null/\Twig_Node_Expression</em> <strong>$context</strong>, <em>int</em> <strong>$lineno</strong>, <em>string/null</em> <strong>$tag=null</strong>)</strong> : <em>void</em> |
+| public | <strong>compile(</strong><em>\Twig_Compiler</em> <strong>$compiler</strong>)</strong> : <em>void</em><br /><em>Compiles the node to PHP.</em> |
+
+*This class extends \Twig\Node\Node*
+
+*This class implements \Countable, \IteratorAggregate, \Traversable, \Twig_NodeInterface, \Twig\Node\NodeCaptureInterface*
+
 <hr /><a id="class-gravcommontwignodetwignodetrycatch"></a>
 ### Class: \Grav\Common\Twig\Node\TwigNodeTryCatch
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>\Twig_Node</em> <strong>$try</strong>, <em>\Twig_Node</em> <strong>$catch=null</strong>, <em>mixed</em> <strong>$lineno</strong>, <em>mixed</em> <strong>$tag=null</strong>)</strong> : <em>void</em> |
+| public | <strong>__construct(</strong><em>\Twig_Node</em> <strong>$try</strong>, <em>\Twig_Node/null/\Twig_Node</em> <strong>$catch=null</strong>, <em>int</em> <strong>$lineno</strong>, <em>string/null</em> <strong>$tag=null</strong>)</strong> : <em>void</em><br /><em>TwigNodeTryCatch constructor.</em> |
 | public | <strong>compile(</strong><em>\Twig_Compiler</em> <strong>$compiler</strong>)</strong> : <em>void</em><br /><em>Compiles the node to PHP.</em> |
 
 *This class extends \Twig\Node\Node*
@@ -2613,7 +3332,7 @@ $data->undef('this.is.my.nested.variable');
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>\Twig_Node/null/\Twig_Node</em> <strong>$body=null</strong>, <em>\Twig_Node_Expression</em> <strong>$file=null</strong>, <em>\Twig_Node_Expression</em> <strong>$group=null</strong>, <em>\Twig_Node_Expression</em> <strong>$priority=null</strong>, <em>\Twig_Node_Expression/null/\Twig_Node_Expression</em> <strong>$attributes=null</strong>, <em>int</em> <strong>$lineno</strong>, <em>null</em> <strong>$tag=null</strong>)</strong> : <em>void</em><br /><em>TwigNodeAssets constructor.</em> |
+| public | <strong>__construct(</strong><em>\Twig_Node/null/\Twig_Node</em> <strong>$body=null</strong>, <em>\Twig_Node_Expression/null/\Twig_Node_Expression</em> <strong>$file=null</strong>, <em>\Twig_Node_Expression/null/\Twig_Node_Expression</em> <strong>$group=null</strong>, <em>\Twig_Node_Expression/null/\Twig_Node_Expression</em> <strong>$priority=null</strong>, <em>\Twig_Node_Expression/null/\Twig_Node_Expression</em> <strong>$attributes=null</strong>, <em>int</em> <strong>$lineno</strong>, <em>string/null</em> <strong>$tag=null</strong>)</strong> : <em>void</em><br /><em>TwigNodeAssets constructor.</em> |
 | public | <strong>compile(</strong><em>\Twig_Compiler</em> <strong>$compiler</strong>)</strong> : <em>void</em><br /><em>Compiles the node to PHP.</em> |
 
 *This class extends \Twig\Node\Node*
@@ -2625,7 +3344,7 @@ $data->undef('this.is.my.nested.variable');
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>\Twig_Node</em> <strong>$value</strong>, <em>\Twig_Node</em> <strong>$cases</strong>, <em>\Twig_Node</em> <strong>$default=null</strong>, <em>mixed</em> <strong>$lineno</strong>, <em>mixed</em> <strong>$tag=null</strong>)</strong> : <em>void</em> |
+| public | <strong>__construct(</strong><em>\Twig_Node</em> <strong>$value</strong>, <em>\Twig_Node</em> <strong>$cases</strong>, <em>\Twig_Node/null/\Twig_Node</em> <strong>$default=null</strong>, <em>int</em> <strong>$lineno</strong>, <em>string/null</em> <strong>$tag=null</strong>)</strong> : <em>void</em><br /><em>TwigNodeSwitch constructor.</em> |
 | public | <strong>compile(</strong><em>\Twig_Compiler</em> <strong>$compiler</strong>)</strong> : <em>void</em><br /><em>Compiles the node to PHP.</em> |
 
 *This class extends \Twig\Node\Node*
@@ -2649,7 +3368,7 @@ $data->undef('this.is.my.nested.variable');
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>\Twig_Node</em> <strong>$body</strong>, <em>mixed</em> <strong>$lineno</strong>, <em>string</em> <strong>$tag=`'markdown'`</strong>)</strong> : <em>void</em> |
+| public | <strong>__construct(</strong><em>\Twig_Node</em> <strong>$body</strong>, <em>mixed</em> <strong>$lineno</strong>, <em>string</em> <strong>$tag=`'markdown'`</strong>)</strong> : <em>void</em><br /><em>TwigNodeMarkdown constructor.</em> |
 | public | <strong>compile(</strong><em>\Twig_Compiler</em> <strong>$compiler</strong>)</strong> : <em>void</em><br /><em>Compiles the node to PHP.</em> |
 
 *This class extends \Twig\Node\Node*
@@ -2665,6 +3384,20 @@ $data->undef('this.is.my.nested.variable');
 |:-----------|:---------|
 | public | <strong>decideCatch(</strong><em>\Twig_Token</em> <strong>$token</strong>)</strong> : <em>void</em> |
 | public | <strong>decideEnd(</strong><em>\Twig_Token</em> <strong>$token</strong>)</strong> : <em>void</em> |
+| public | <strong>getTag()</strong> : <em>string The tag name</em><br /><em>Gets the tag name associated with this token parser.</em> |
+| public | <strong>parse(</strong><em>\Twig_Token</em> <strong>$token</strong>)</strong> : <em>\Twig_Node A Twig_Node instance</em><br /><em>Parses a token and returns a node.</em> |
+
+*This class extends \Twig\TokenParser\AbstractTokenParser*
+
+*This class implements \Twig\TokenParser\TokenParserInterface*
+
+<hr /><a id="class-gravcommontwigtokenparsertwigtokenparserthrow"></a>
+### Class: \Grav\Common\Twig\TokenParser\TwigTokenParserThrow
+
+> Handles try/catch in template file. <pre> {% throw 404 'Not Found' %} </pre>
+
+| Visibility | Function |
+|:-----------|:---------|
 | public | <strong>getTag()</strong> : <em>string The tag name</em><br /><em>Gets the tag name associated with this token parser.</em> |
 | public | <strong>parse(</strong><em>\Twig_Token</em> <strong>$token</strong>)</strong> : <em>\Twig_Node A Twig_Node instance</em><br /><em>Parses a token and returns a node.</em> |
 
@@ -2735,34 +3468,27 @@ $data->undef('this.is.my.nested.variable');
 
 *This class implements \Twig\TokenParser\TokenParserInterface*
 
-<hr /><a id="class-gravcommonuseruser"></a>
-### Class: \Grav\Common\User\User
+<hr /><a id="class-gravcommontwigtokenparsertwigtokenparserrender"></a>
+### Class: \Grav\Common\Twig\TokenParser\TwigTokenParserRender
+
+> Renders an object. {% render object layout: 'default' with { variable: true } %}
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__sleep()</strong> : <em>void</em><br /><em>Serialize user.</em> |
-| public | <strong>__wakeup()</strong> : <em>void</em><br /><em>Unserialize user.</em> |
-| public | <strong>authenticate(</strong><em>string</em> <strong>$password</strong>)</strong> : <em>bool</em><br /><em>Authenticate user. If user password needs to be updated, new information will be saved.</em> |
-| public | <strike><strong>authorise(</strong><em>string</em> <strong>$action</strong>)</strong> : <em>bool</em></strike><br /><em>DEPRECATED - use authorize()</em> |
-| public | <strong>authorize(</strong><em>string</em> <strong>$action</strong>)</strong> : <em>bool</em><br /><em>Checks user authorization to the action.</em> |
-| public | <strong>avatarUrl()</strong> : <em>string</em><br /><em>Return the User's avatar URL</em> |
-| public static | <strong>find(</strong><em>string</em> <strong>$query</strong>, <em>array</em> <strong>$fields=array()</strong>)</strong> : <em>[\Grav\Common\User\User](#class-gravcommonuseruser)</em><br /><em>Find a user by username, email, etc</em> |
-| public static | <strong>load(</strong><em>string</em> <strong>$username</strong>)</strong> : <em>[\Grav\Common\User\User](#class-gravcommonuseruser)</em><br /><em>Load user account. Always creates user object. To check if user exists, use $this->exists().</em> |
-| public | <strong>offsetExists(</strong><em>string</em> <strong>$offset</strong>)</strong> : <em>bool</em> |
-| public | <strong>offsetGet(</strong><em>string</em> <strong>$offset</strong>)</strong> : <em>mixed</em> |
-| public static | <strong>remove(</strong><em>string</em> <strong>$username</strong>)</strong> : <em>bool True if the action was performed</em><br /><em>Remove user account.</em> |
-| public | <strong>save()</strong> : <em>void</em><br /><em>Save user without the username</em> |
+| public | <strong>getTag()</strong> : <em>string The tag name</em><br /><em>Gets the tag name associated with this token parser.</em> |
+| public | <strong>parse(</strong><em>\Twig_Token</em> <strong>$token</strong>)</strong> : <em>\Twig_Node A Twig_Node instance</em><br /><em>Parses a token and returns a node.</em> |
+| protected | <strong>parseArguments(</strong><em>\Twig_Token</em> <strong>$token</strong>)</strong> : <em>array</em> |
 
-*This class extends [\Grav\Common\Data\Data](#class-gravcommondatadata)*
+*This class extends \Twig\TokenParser\AbstractTokenParser*
 
-*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface)*
+*This class implements \Twig\TokenParser\TokenParserInterface*
 
 <hr /><a id="class-gravcommonuserauthentication-abstract"></a>
 ### Class: \Grav\Common\User\Authentication (abstract)
 
 | Visibility | Function |
 |:-----------|:---------|
-| public static | <strong>create(</strong><em>string</em> <strong>$password</strong>)</strong> : <em>string/bool</em><br /><em>Create password hash from plaintext password.</em> |
+| public static | <strong>create(</strong><em>string</em> <strong>$password</strong>)</strong> : <em>string</em><br /><em>Create password hash from plaintext password.</em> |
 | public static | <strong>verify(</strong><em>string</em> <strong>$password</strong>, <em>string</em> <strong>$hash</strong>)</strong> : <em>int Returns if the check fails, 1 if password matches, 2 if hash needs to be updated.</em><br /><em>Verifies that a password matches a hash.</em> |
 
 <hr /><a id="class-gravcommonusergroup"></a>
@@ -2778,7 +3504,238 @@ $data->undef('this.is.my.nested.variable');
 
 *This class extends [\Grav\Common\Data\Data](#class-gravcommondatadata)*
 
-*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface)*
+*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \JsonSerializable, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface)*
+
+<hr /><a id="class-gravcommonuserdatauseruser"></a>
+### Class: \Grav\Common\User\DataUser\User
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$items=array()</strong>, <em>\Grav\Common\User\DataUser\Blueprint</em> <strong>$blueprints=null</strong>)</strong> : <em>void</em><br /><em>User constructor.</em> |
+| public | <strong>__sleep()</strong> : <em>void</em><br /><em>Serialize user.</em> |
+| public | <strong>__wakeup()</strong> : <em>void</em><br /><em>Unserialize user.</em> |
+| public | <strong>authenticate(</strong><em>\string</em> <strong>$password</strong>)</strong> : <em>bool</em><br /><em>Authenticate user. If user password needs to be updated, new information will be saved.</em> |
+| public | <strike><strong>authorise(</strong><em>string</em> <strong>$action</strong>)</strong> : <em>bool</em></strike><br /><em>DEPRECATED - 1.5 Use ->authorize() method instead.</em> |
+| public | <strong>authorize(</strong><em>\string</em> <strong>$action</strong>, <em>\string</em> <strong>$scope=null</strong>)</strong> : <em>bool</em><br /><em>Checks user authorization to the action.</em> |
+| public | <strike><strong>avatarUrl()</strong> : <em>string</em></strike><br /><em>DEPRECATED - 1.6 Use ->getAvatarUrl() method instead.</em> |
+| public | <strike><strong>count()</strong> : <em>int</em></strike><br /><em>DEPRECATED - 1.6 Method makes no sense for user account.</em> |
+| public | <strong>getAvatarImage()</strong> : <em>\Grav\Common\User\DataUser\ImageMedium/null</em><br /><em>Return media object for the User's avatar. Note: if there's no local avatar image for the user, you should call getAvatarUrl() to get the external avatar URL.</em> |
+| public | <strike><strong>getAvatarMedia()</strong> : <em>\Grav\Common\User\DataUser\ImageMedium/null</em></strike><br /><em>DEPRECATED - 1.6 Use ->getAvatarImage() method instead.</em> |
+| public | <strong>getAvatarUrl()</strong> : <em>string</em><br /><em>Return the User's avatar URL</em> |
+| public | <strong>getMedia()</strong> : <em>mixed</em> |
+| public | <strong>getMediaFolder()</strong> : <em>mixed</em> |
+| public | <strong>getMediaOrder()</strong> : <em>mixed</em> |
+| public | <strong>isValid()</strong> : <em>bool</em> |
+| public | <strike><strong>merge(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>\Grav\Common\User\DataUser\$this</em></strike><br /><em>DEPRECATED - 1.6 Use `->update($data)` instead (same but with data validation & filtering, file upload support).</em> |
+| public | <strong>offsetExists(</strong><em>string</em> <strong>$offset</strong>)</strong> : <em>bool</em> |
+| public | <strong>offsetGet(</strong><em>string</em> <strong>$offset</strong>)</strong> : <em>mixed</em> |
+| public | <strong>save()</strong> : <em>void</em><br /><em>Save user without the username</em> |
+| public | <strong>update(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$files=array()</strong>)</strong> : <em>\Grav\Common\User\DataUser\$this</em><br /><em>Update object with data</em> |
+| protected | <strong>getAvatarFile()</strong> : <em>mixed</em> |
+
+*This class extends [\Grav\Common\Data\Data](#class-gravcommondatadata)*
+
+*This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface, \JsonSerializable, \Countable, \ArrayAccess, [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), [\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface), [\Grav\Framework\Media\Interfaces\MediaInterface](#interface-gravframeworkmediainterfacesmediainterface), [\Grav\Common\Media\Interfaces\MediaInterface](#interface-gravcommonmediainterfacesmediainterface)*
+
+<hr /><a id="class-gravcommonuserdatauserusercollection"></a>
+### Class: \Grav\Common\User\DataUser\UserCollection
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\string</em> <strong>$className</strong>)</strong> : <em>void</em><br /><em>UserCollection constructor.</em> |
+| public | <strong>delete(</strong><em>string</em> <strong>$username</strong>)</strong> : <em>bool True if the action was performed</em><br /><em>Remove user account.</em> |
+| public | <strong>find(</strong><em>string</em> <strong>$query</strong>, <em>array</em> <strong>$fields=array()</strong>)</strong> : <em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em><br /><em>Find a user by username, email, etc</em> |
+| public | <strong>load(</strong><em>string</em> <strong>$username</strong>)</strong> : <em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em><br /><em>Load user account. Always creates user object. To check if user exists, use $this->exists().</em> |
+
+*This class implements [\Grav\Common\User\Interfaces\UserCollectionInterface](#interface-gravcommonuserinterfacesusercollectioninterface)*
+
+<hr /><a id="class-gravcommonuserflexuseruser"></a>
+### Class: \Grav\Common\User\FlexUser\User
+
+> Flex User Flex User is mostly compatible with the older User class, except on few key areas: - Constructor parameters have been changed. Old code creating a new user does not work. - Serializer has been changed -- existing sessions will be killed.
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$elements</strong>, <em>mixed</em> <strong>$key</strong>, <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$flexDirectory</strong>, <em>\boolean</em> <strong>$validate=false</strong>)</strong> : <em>void</em> |
+| public | <strong>__debugInfo()</strong> : <em>void</em> |
+| public | <strong>authenticate(</strong><em>\string</em> <strong>$password</strong>)</strong> : <em>bool</em><br /><em>Authenticate user. If user password needs to be updated, new information will be saved.</em> |
+| public | <strike><strong>authorise(</strong><em>string</em> <strong>$action</strong>)</strong> : <em>bool</em></strike><br /><em>DEPRECATED - 1.5 Use ->authorize() method instead.</em> |
+| public | <strong>authorize(</strong><em>\string</em> <strong>$action</strong>, <em>\string</em> <strong>$scope=null</strong>)</strong> : <em>bool</em><br /><em>Checks user authorization to the action.</em> |
+| public | <strike><strong>avatarUrl()</strong> : <em>string</em></strike><br /><em>DEPRECATED - 1.6 Use ->getAvatarUrl() method instead.</em> |
+| public | <strong>checkMediaFilename(</strong><em>\string</em> <strong>$filename</strong>)</strong> : <em>void</em> |
+| public | <strong>checkUploadedMediaFile(</strong><em>\Psr\Http\Message\UploadedFileInterface</em> <strong>$uploadedFile</strong>)</strong> : <em>void</em> |
+| public | <strike><strong>count()</strong> : <em>int</em></strike><br /><em>DEPRECATED - 1.6 Method makes no sense for user account.</em> |
+| public | <strong>def(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Common\User\FlexUser\$this</em><br /><em>Set default value by using dot notation for nested arrays/objects.</em> |
+| public | <strong>deleteMediaFile(</strong><em>\string</em> <strong>$filename</strong>)</strong> : <em>void</em> |
+| public | <strong>extra()</strong> : <em>array</em><br /><em>Get extra items which haven't been defined in blueprints.</em> |
+| public | <strong>file(</strong><em>\RocketTheme\Toolbox\File\FileInterface</em> <strong>$storage=null</strong>)</strong> : <em>\RocketTheme\Toolbox\File\FileInterface</em><br /><em>Set or get the data storage.</em> |
+| public | <strong>filter()</strong> : <em>\Grav\Common\User\FlexUser\$this</em><br /><em>Filter all items by using blueprints.</em> |
+| public | <strong>get(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>mixed Value.</em><br /><em>Get value by using dot notation for nested arrays/objects.</em> |
+| public | <strong>getAvatarImage()</strong> : <em>\Grav\Common\User\FlexUser\ImageMedium/null</em><br /><em>Return media object for the User's avatar. Note: if there's no local avatar image for the user, you should call getAvatarUrl() to get the external avatar URL.</em> |
+| public | <strike><strong>getAvatarMedia()</strong> : <em>\Grav\Common\User\FlexUser\ImageMedium/null</em></strike><br /><em>DEPRECATED - 1.6 Use ->getAvatarImage() method instead.</em> |
+| public | <strong>getAvatarUrl()</strong> : <em>string</em><br /><em>Return the User's avatar URL</em> |
+| public static | <strong>getCachedMethods()</strong> : <em>array</em> |
+| public | <strong>getDefaults()</strong> : <em>array</em><br /><em>Get nested structure containing default values defined in the blueprints. Fields without default value are ignored in the list.</em> |
+| public | <strong>getJoined(</strong><em>string</em> <strong>$name</strong>, <em>array/object</em> <strong>$value</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>array</em><br /><em>Get value from the configuration and join it with given data.</em> |
+| public | <strong>getMedia()</strong> : <em>[\Grav\Common\Media\Interfaces\MediaCollectionInterface](#interface-gravcommonmediainterfacesmediacollectioninterface)</em> |
+| public | <strong>getMediaFolder()</strong> : <em>string</em> |
+| public | <strong>getMediaOrder()</strong> : <em>array Empty array means default ordering.</em><br /><em>Get display order for the associated media.</em> |
+| public | <strong>getMediaUri()</strong> : <em>null/string</em><br /><em>Get URI ot the associated media. Method will return null if path isn't URI.</em> |
+| public | <strong>getProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getStorageFolder()</strong> : <em>string</em> |
+| public | <strong>isAuthorized(</strong><em>\string</em> <strong>$action</strong>, <em>\string</em> <strong>$scope=null</strong>, <em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em> <strong>$user=null</strong>)</strong> : <em>bool</em> |
+| public | <strong>isValid()</strong> : <em>bool</em> |
+| public | <strong>join(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Common\User\FlexUser\$this</em><br /><em>Join nested values together by using blueprints.</em> |
+| public | <strong>joinDefaults(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Common\User\FlexUser\$this</em><br /><em>Set default values by using blueprints.</em> |
+| public | <strike><strong>merge(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>\Grav\Common\User\FlexUser\$this</em></strike><br /><em>DEPRECATED - 1.6 Use `->update($data)` instead (same but with data validation & filtering, file upload support).</em> |
+| public | <strong>prepareStorage()</strong> : <em>array</em> |
+| public | <strong>raw()</strong> : <em>string</em><br /><em>Return unmodified data as raw string. NOTE: This function only returns data which has been saved to the storage.</em> |
+| public | <strong>save()</strong> : <em>void</em><br /><em>Save user without the username</em> |
+| public | <strong>set(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Common\User\FlexUser\$this</em><br /><em>Set value by using dot notation for nested arrays/objects.</em> |
+| public | <strong>setDefaults(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>\Grav\Common\User\FlexUser\$this</em><br /><em>Set default values to the configuration if variables were not set.</em> |
+| public | <strong>toArray()</strong> : <em>array</em><br /><em>Convert object into an array.</em> |
+| public | <strong>toJson()</strong> : <em>string</em><br /><em>Convert object into JSON string.</em> |
+| public | <strong>toYaml(</strong><em>int</em> <strong>$inline=5</strong>, <em>int</em> <strong>$indent=2</strong>)</strong> : <em>string A YAML string representing the object.</em><br /><em>Convert object into YAML string.</em> |
+| public | <strong>undef(</strong><em>string</em> <strong>$name</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Common\User\FlexUser\$this</em><br /><em>Unset value by using dot notation for nested arrays/objects.</em> |
+| public | <strong>uploadMediaFile(</strong><em>\Psr\Http\Message\UploadedFileInterface</em> <strong>$uploadedFile</strong>, <em>\string</em> <strong>$filename=null</strong>)</strong> : <em>void</em> |
+| public | <strong>validate()</strong> : <em>\Grav\Common\User\FlexUser\$this</em><br /><em>Validate by blueprints.</em> |
+| public | <strong>value(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string/null</em> <strong>$separator=null</strong>)</strong> : <em>mixed</em><br /><em>Get value from a page variable (used mostly for creating edit forms).</em> |
+| protected | <strong>clearMediaCache()</strong> : <em>void</em><br /><em>Clear media cache.</em> |
+| protected | <strong>createMedium(</strong><em>string</em> <strong>$uri</strong>)</strong> : <em>\Grav\Common\User\FlexUser\Medium/null</em> |
+| protected | <strong>doSerialize()</strong> : <em>array</em> |
+| protected | <strong>doUnserialize(</strong><em>array</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
+| protected | <strong>getMediaCache()</strong> : <em>\Grav\Common\User\FlexUser\Cache</em> |
+| protected | <strong>getOriginalMedia()</strong> : <em>MediaCollectionInterface Representation of associated media.</em><br /><em>Gets the associated media collection (original images).</em> |
+| protected | <strong>getUpdatedMedia()</strong> : <em>array</em> |
+| protected | <strong>isAuthorizedAction(</strong><em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em> <strong>$user</strong>, <em>\string</em> <strong>$action</strong>, <em>\string</em> <strong>$scope=null</strong>)</strong> : <em>bool</em> |
+| protected | <strong>isAuthorizedSuperAdmin(</strong><em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em> <strong>$user</strong>)</strong> : <em>bool</em> |
+| protected | <strong>offsetLoad_media()</strong> : <em>void</em> |
+| protected | <strong>offsetSerialize_media()</strong> : <em>void</em> |
+| protected | <strong>parseFileProperty(</strong><em>array</em> <strong>$value</strong>)</strong> : <em>array</em> |
+| protected | <strong>saveUpdatedMedia()</strong> : <em>void</em> |
+| protected | <strong>setAuthorizeRule(</strong><em>\string</em> <strong>$authorize</strong>)</strong> : <em>void</em> |
+| protected | <strong>setMedia(</strong><em>[\Grav\Common\Media\Interfaces\MediaCollectionInterface](#interface-gravcommonmediainterfacesmediacollectioninterface)</em> <strong>$media</strong>)</strong> : <em>\Grav\Common\User\FlexUser\$this</em><br /><em>Sets the associated media collection.</em> |
+| protected | <strong>setUpdatedMedia(</strong><em>array</em> <strong>$files</strong>)</strong> : <em>void</em> |
+###### Examples of User::def()
+```
+$data->def('this.is.my.nested.variable', 'default');
+```
+###### Examples of User::get()
+```
+$value = $this->get('this.is.my.nested.variable');
+```
+###### Examples of User::set()
+```
+$data->set('this.is.my.nested.variable', $value);
+```
+###### Examples of User::undef()
+```
+$data->undef('this.is.my.nested.variable');
+```
+
+*This class extends [\Grav\Framework\Flex\FlexObject](#class-gravframeworkflexflexobject)*
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexAuthorizeInterface](#interface-gravframeworkflexinterfacesflexauthorizeinterface), [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface), \Serializable, \JsonSerializable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \ArrayAccess, [\Grav\Framework\Flex\Interfaces\FlexObjectInterface](#interface-gravframeworkflexinterfacesflexobjectinterface), [\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface), \RocketTheme\Toolbox\ArrayTraits\ExportInterface, [\Grav\Framework\Media\Interfaces\MediaInterface](#interface-gravframeworkmediainterfacesmediainterface), [\Grav\Common\Media\Interfaces\MediaInterface](#interface-gravcommonmediainterfacesmediainterface), [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), [\Grav\Framework\Media\Interfaces\MediaManipulationInterface](#interface-gravframeworkmediainterfacesmediamanipulationinterface), \Countable*
+
+<hr /><a id="class-gravcommonuserflexuseruserindex"></a>
+### Class: \Grav\Common\User\FlexUser\UserIndex
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>find(</strong><em>string</em> <strong>$query</strong>, <em>array</em> <strong>$fields=array()</strong>)</strong> : <em>[\Grav\Common\User\FlexUser\User](#class-gravcommonuserflexuseruser)</em><br /><em>Find a user by username, email, etc</em> |
+| public | <strong>load(</strong><em>string</em> <strong>$username</strong>)</strong> : <em>[\Grav\Common\User\FlexUser\User](#class-gravcommonuserflexuseruser)</em><br /><em>Load user account. Always creates user object. To check if user exists, use $this->exists().</em> |
+| public static | <strong>loadEntriesFromStorage(</strong><em>[\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)</em> <strong>$storage</strong>)</strong> : <em>array</em> |
+| protected static | <strong>getIndexFile(</strong><em>[\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)</em> <strong>$storage</strong>)</strong> : <em>mixed</em> |
+| protected static | <strong>onChanges(</strong><em>array</em> <strong>$entries</strong>, <em>array</em> <strong>$added</strong>, <em>array</em> <strong>$updated</strong>, <em>array</em> <strong>$removed</strong>)</strong> : <em>void</em> |
+| protected static | <strong>updateIndexData(</strong><em>mixed</em> <strong>$entry</strong>, <em>array</em> <strong>$data</strong>)</strong> : <em>void</em> |
+
+*This class extends [\Grav\Framework\Flex\FlexIndex](#class-gravframeworkflexflexindex)*
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexIndexInterface](#interface-gravframeworkflexinterfacesflexindexinterface), [\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface), \Doctrine\Common\Collections\Collection, \ArrayAccess, \Traversable, \IteratorAggregate, \Countable, \JsonSerializable, [\Grav\Framework\Collection\CollectionInterface](#interface-gravframeworkcollectioncollectioninterface), [\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface), \Serializable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \Doctrine\Common\Collections\Selectable, [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface)*
+
+<hr /><a id="class-gravcommonuserflexuserusercollection"></a>
+### Class: \Grav\Common\User\FlexUser\UserCollection
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>delete(</strong><em>string</em> <strong>$username</strong>)</strong> : <em>bool True if user account was found and was deleted.</em><br /><em>Delete user account.</em> |
+| public | <strong>find(</strong><em>string</em> <strong>$query</strong>, <em>array</em> <strong>$fields=array()</strong>)</strong> : <em>[\Grav\Common\User\FlexUser\User](#class-gravcommonuserflexuseruser)</em><br /><em>Find a user by username, email, etc</em> |
+| public | <strong>load(</strong><em>string</em> <strong>$username</strong>)</strong> : <em>[\Grav\Common\User\FlexUser\User](#class-gravcommonuserflexuseruser)</em><br /><em>Load user account. Always creates user object. To check if user exists, use $this->exists().</em> |
+
+*This class extends [\Grav\Framework\Flex\FlexCollection](#class-gravframeworkflexflexcollection)*
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface), \JsonSerializable, [\Grav\Framework\Collection\CollectionInterface](#interface-gravframeworkcollectioncollectioninterface), \Doctrine\Common\Collections\Collection, \ArrayAccess, \Traversable, \IteratorAggregate, \Countable, \Doctrine\Common\Collections\Selectable, [\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface), \Serializable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface), [\Grav\Common\User\Interfaces\UserCollectionInterface](#interface-gravcommonuserinterfacesusercollectioninterface)*
+
+<hr /><a id="class-gravcommonuserflexuserstorageuserfolderstorage"></a>
+### Class: \Grav\Common\User\FlexUser\Storage\UserFolderStorage
+
+| Visibility | Function |
+|:-----------|:---------|
+
+*This class extends [\Grav\Framework\Flex\Storage\FolderStorage](#class-gravframeworkflexstoragefolderstorage)*
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)*
+
+<hr /><a id="class-gravcommonuserflexuserstorageuserfilestorage"></a>
+### Class: \Grav\Common\User\FlexUser\Storage\UserFileStorage
+
+| Visibility | Function |
+|:-----------|:---------|
+
+*This class extends [\Grav\Framework\Flex\Storage\FileStorage](#class-gravframeworkflexstoragefilestorage)*
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)*
+
+<hr /><a id="interface-gravcommonuserinterfacesuserinterface"></a>
+### Interface: \Grav\Common\User\Interfaces\UserInterface
+
+> Interface UserInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>authenticate(</strong><em>\string</em> <strong>$password</strong>)</strong> : <em>bool</em><br /><em>Authenticate user. If user password needs to be updated, new information will be saved.</em> |
+| public | <strong>authorize(</strong><em>\string</em> <strong>$action</strong>, <em>\string</em> <strong>$scope=null</strong>)</strong> : <em>bool</em><br /><em>Checks user authorization to the action.</em> |
+| public | <strong>def(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Common\User\Interfaces\$this</em><br /><em>Set default value by using dot notation for nested arrays/objects.</em> |
+| public | <strong>exists()</strong> : <em>bool</em><br /><em>Returns whether the data already exists in the storage. NOTE: This method does not check if the data is current.</em> |
+| public | <strong>get(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>mixed Value.</em><br /><em>Get value by using dot notation for nested arrays/objects.</em> |
+| public | <strong>getAvatarImage()</strong> : <em>\Grav\Common\User\Interfaces\ImageMedium/null</em><br /><em>Return media object for the User's avatar. Note: if there's no local avatar image for the user, you should call getAvatarUrl() to get the external avatar URL.</em> |
+| public | <strong>getAvatarUrl()</strong> : <em>string</em><br /><em>Return the User's avatar URL.</em> |
+| public | <strong>getDefaults()</strong> : <em>array</em><br /><em>Get nested structure containing default values defined in the blueprints. Fields without default value are ignored in the list.</em> |
+| public | <strong>getJoined(</strong><em>string</em> <strong>$name</strong>, <em>array/object</em> <strong>$value</strong>, <em>string</em> <strong>$separator=`'.'`</strong>)</strong> : <em>array</em><br /><em>Get value from the configuration and join it with given data.</em> |
+| public | <strong>join(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>, <em>string</em> <strong>$separator=`'.'`</strong>)</strong> : <em>\Grav\Common\User\Interfaces\$this</em><br /><em>Join nested values together by using blueprints.</em> |
+| public | <strong>joinDefaults(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>, <em>string</em> <strong>$separator=`'.'`</strong>)</strong> : <em>\Grav\Common\User\Interfaces\$this</em><br /><em>Set default values by using blueprints.</em> |
+| public | <strong>raw()</strong> : <em>string</em><br /><em>Return unmodified data as raw string. NOTE: This function only returns data which has been saved to the storage.</em> |
+| public | <strong>set(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Common\User\Interfaces\$this</em><br /><em>Set value by using dot notation for nested arrays/objects.</em> |
+| public | <strong>setDefaults(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>\Grav\Common\User\Interfaces\$this</em><br /><em>Set default values to the configuration if variables were not set.</em> |
+| public | <strong>undef(</strong><em>string</em> <strong>$name</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Common\User\Interfaces\$this</em><br /><em>Unset value by using dot notation for nested arrays/objects.</em> |
+| public | <strong>update(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$files=array()</strong>)</strong> : <em>\Grav\Common\User\Interfaces\$this</em><br /><em>Update object with data</em> |
+###### Examples of UserInterface::def()
+```
+$data->def('this.is.my.nested.variable', 'default');
+```
+###### Examples of UserInterface::get()
+```
+$value = $this->get('this.is.my.nested.variable');
+```
+###### Examples of UserInterface::set()
+```
+$data->set('this.is.my.nested.variable', $value);
+```
+###### Examples of UserInterface::undef()
+```
+$data->undef('this.is.my.nested.variable');
+```
+
+*This class implements [\Grav\Common\Data\DataInterface](#interface-gravcommondatadatainterface), [\Grav\Common\Media\Interfaces\MediaInterface](#interface-gravcommonmediainterfacesmediainterface), [\Grav\Framework\Media\Interfaces\MediaInterface](#interface-gravframeworkmediainterfacesmediainterface), \ArrayAccess, \JsonSerializable, \RocketTheme\Toolbox\ArrayTraits\ExportInterface*
+
+<hr /><a id="interface-gravcommonuserinterfacesusercollectioninterface"></a>
+### Interface: \Grav\Common\User\Interfaces\UserCollectionInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>delete(</strong><em>string</em> <strong>$username</strong>)</strong> : <em>bool True if user account was found and was deleted.</em><br /><em>Delete user account.</em> |
+| public | <strong>find(</strong><em>string</em> <strong>$query</strong>, <em>array</em> <strong>$fields=array()</strong>)</strong> : <em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em><br /><em>Find a user by username, email, etc</em> |
+| public | <strong>load(</strong><em>string</em> <strong>$username</strong>)</strong> : <em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em><br /><em>Load user account. Always creates user object. To check if user exists, use $this->exists().</em> |
 
 <hr /><a id="class-gravconsoleconsolecommand"></a>
 ### Class: \Grav\Console\ConsoleCommand
@@ -2787,7 +3744,7 @@ $data->undef('this.is.my.nested.variable');
 |:-----------|:---------|
 | public | <strong>clearCache(</strong><em>array</em> <strong>$all=array()</strong>)</strong> : <em>int</em> |
 | public | <strong>composerUpdate(</strong><em>mixed</em> <strong>$path</strong>, <em>string</em> <strong>$action=`'install'`</strong>)</strong> : <em>void</em> |
-| public static | <strong>getGrav()</strong> : <em>[\Grav\Common\Grav](#class-gravcommongrav)</em> |
+| public | <strong>invalidateCache()</strong> : <em>void</em> |
 | public | <strong>isGravInstance(</strong><em>mixed</em> <strong>$path</strong>)</strong> : <em>bool</em> |
 | public | <strong>loadLocalConfig()</strong> : <em>mixed string the local config file name. false if local config does not exist</em><br /><em>Load the local config file</em> |
 | public | <strong>setupConsole(</strong><em>\Symfony\Component\Console\Input\InputInterface</em> <strong>$input</strong>, <em>\Symfony\Component\Console\Output\OutputInterface</em> <strong>$output</strong>)</strong> : <em>void</em><br /><em>Set colors style definition for the formatter.</em> |
@@ -2823,7 +3780,7 @@ $data->undef('this.is.my.nested.variable');
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>output(</strong><em>mixed</em> <strong>$args</strong>)</strong> : <em>void</em> |
+| public | <strong>outputProgress(</strong><em>mixed</em> <strong>$args</strong>)</strong> : <em>void</em> |
 | protected | <strong>configure()</strong> : <em>void</em> |
 | protected | <strong>serve()</strong> : <em>int/null/void</em> |
 
@@ -2840,8 +3797,18 @@ $data->undef('this.is.my.nested.variable');
 
 *This class extends \Symfony\Component\Console\Command\Command*
 
-<hr /><a id="class-gravconsolecliclearcachecommand"></a>
-### Class: \Grav\Console\Cli\ClearCacheCommand
+<hr /><a id="class-gravconsoleclilogviewercommand"></a>
+### Class: \Grav\Console\Cli\LogViewerCommand
+
+| Visibility | Function |
+|:-----------|:---------|
+| protected | <strong>configure()</strong> : <em>void</em> |
+| protected | <strong>serve()</strong> : <em>int/null/void</em> |
+
+*This class extends [\Grav\Console\ConsoleCommand](#class-gravconsoleconsolecommand)*
+
+<hr /><a id="class-gravconsoleclicachecommand"></a>
+### Class: \Grav\Console\Cli\CacheCommand
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -2862,6 +3829,16 @@ $data->undef('this.is.my.nested.variable');
 
 <hr /><a id="class-gravconsoleclinewprojectcommand"></a>
 ### Class: \Grav\Console\Cli\NewProjectCommand
+
+| Visibility | Function |
+|:-----------|:---------|
+| protected | <strong>configure()</strong> : <em>void</em> |
+| protected | <strong>serve()</strong> : <em>int/null/void</em> |
+
+*This class extends [\Grav\Console\ConsoleCommand](#class-gravconsoleconsolecommand)*
+
+<hr /><a id="class-gravconsoleclischedulercommand"></a>
+### Class: \Grav\Console\Cli\SchedulerCommand
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -3177,7 +4154,7 @@ $value = $data->set('this.is.my.nested.variable', $newField);
 | public | <strong>abstract has(</strong><em>string</em> <strong>$key</strong>)</strong> : <em>bool</em><br /><em>Determines whether an item is present in the cache. NOTE: It is recommended that has() is only to be used for cache warming type purposes and not to be used within your live applications operations for get/set, as this method is subject to a race condition where your has() will return true and immediately after, another script can remove it making the state of your app out of date.</em> |
 | public | <strong>abstract set(</strong><em>string</em> <strong>$key</strong>, <em>mixed</em> <strong>$value</strong>, <em>null/int/[\DateInterval](http://php.net/manual/en/class.dateinterval.php)</em> <strong>$ttl=null</strong>)</strong> : <em>bool True on success and false on failure.</em><br /><em>Persists data in the cache, uniquely referenced by a key with an optional expiration TTL time. the driver supports TTL then the library may set a default value for it or let the driver take care of that.</em> |
 | public | <strong>abstract setMultiple(</strong><em>\Psr\SimpleCache\iterable</em> <strong>$values</strong>, <em>null/int/[\DateInterval](http://php.net/manual/en/class.dateinterval.php)</em> <strong>$ttl=null</strong>)</strong> : <em>bool True on success and false on failure.</em><br /><em>Persists a set of key => value pairs in the cache, with an optional TTL. the driver supports TTL then the library may set a default value for it or let the driver take care of that.</em> |
-| public | <strong>setValidation(</strong><em>mixed</em> <strong>$validation</strong>)</strong> : <em>void</em> |
+| public | <strong>setValidation(</strong><em>bool</em> <strong>$validation</strong>)</strong> : <em>void</em> |
 | protected | <strong>convertTtl(</strong><em>null/int/[\DateInterval](http://php.net/manual/en/class.dateinterval.php)</em> <strong>$ttl</strong>)</strong> : <em>int/null</em> |
 | protected | <strong>getDefaultLifetime()</strong> : <em>int/null</em> |
 | protected | <strong>getNamespace()</strong> : <em>string</em> |
@@ -3390,6 +4367,65 @@ $value = $data->set('this.is.my.nested.variable', $newField);
 
 *This class implements \JsonSerializable, [\Grav\Framework\Collection\CollectionInterface](#interface-gravframeworkcollectioncollectioninterface), \Doctrine\Common\Collections\Collection, \ArrayAccess, \Traversable, \IteratorAggregate, \Countable, [\Grav\Framework\Collection\FileCollectionInterface](#interface-gravframeworkcollectionfilecollectioninterface), \Doctrine\Common\Collections\Selectable*
 
+<hr /><a id="class-gravframeworkcollectionabstractindexcollection-abstract"></a>
+### Class: \Grav\Framework\Collection\AbstractIndexCollection (abstract)
+
+> Abstract Index Collection.
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$entries=array()</strong>)</strong> : <em>void</em><br /><em>Initializes a new IndexCollection.</em> |
+| public | <strong>__toString()</strong> : <em>string</em><br /><em>Returns a string representation of this object.</em> |
+| public | <strong>add(</strong><em>mixed</em> <strong>$element</strong>)</strong> : <em>void</em> |
+| public | <strong>chunk(</strong><em>int</em> <strong>$size</strong>)</strong> : <em>array</em><br /><em>Split collection into chunks.</em> |
+| public | <strong>clear()</strong> : <em>void</em> |
+| public | <strong>contains(</strong><em>mixed</em> <strong>$element</strong>)</strong> : <em>void</em> |
+| public | <strong>containsKey(</strong><em>mixed</em> <strong>$key</strong>)</strong> : <em>void</em> |
+| public | <strong>count()</strong> : <em>void</em> |
+| public | <strong>current()</strong> : <em>void</em> |
+| public | <strong>exists(</strong><em>[\Closure](http://php.net/manual/en/class.closure.php)</em> <strong>$p</strong>)</strong> : <em>void</em> |
+| public | <strong>filter(</strong><em>[\Closure](http://php.net/manual/en/class.closure.php)</em> <strong>$p</strong>)</strong> : <em>void</em> |
+| public | <strong>first()</strong> : <em>void</em> |
+| public | <strong>forAll(</strong><em>[\Closure](http://php.net/manual/en/class.closure.php)</em> <strong>$p</strong>)</strong> : <em>void</em> |
+| public | <strong>get(</strong><em>mixed</em> <strong>$key</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getIterator()</strong> : <em>mixed</em><br /><em>Required by interface IteratorAggregate.</em> |
+| public | <strong>getKeys()</strong> : <em>mixed</em> |
+| public | <strong>getValues()</strong> : <em>mixed</em> |
+| public | <strong>indexOf(</strong><em>mixed</em> <strong>$element</strong>)</strong> : <em>void</em> |
+| public | <strong>isEmpty()</strong> : <em>bool</em> |
+| public | <strong>jsonSerialize()</strong> : <em>array</em><br /><em>Implementes JsonSerializable interface.</em> |
+| public | <strong>key()</strong> : <em>void</em> |
+| public | <strong>last()</strong> : <em>void</em> |
+| public | <strong>limit(</strong><em>int</em> <strong>$start</strong>, <em>int/null</em> <strong>$limit=null</strong>)</strong> : <em>\Grav\Framework\Collection\static</em> |
+| public | <strong>map(</strong><em>[\Closure](http://php.net/manual/en/class.closure.php)</em> <strong>$func</strong>)</strong> : <em>void</em> |
+| public | <strong>next()</strong> : <em>void</em> |
+| public | <strong>offsetExists(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>void</em><br /><em>Required by interface ArrayAccess.</em> |
+| public | <strong>offsetGet(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>void</em><br /><em>Required by interface ArrayAccess.</em> |
+| public | <strong>offsetSet(</strong><em>mixed</em> <strong>$offset</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Required by interface ArrayAccess.</em> |
+| public | <strong>offsetUnset(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>void</em><br /><em>Required by interface ArrayAccess.</em> |
+| public | <strong>partition(</strong><em>[\Closure](http://php.net/manual/en/class.closure.php)</em> <strong>$p</strong>)</strong> : <em>void</em> |
+| public | <strong>remove(</strong><em>mixed</em> <strong>$key</strong>)</strong> : <em>void</em> |
+| public | <strong>removeElement(</strong><em>mixed</em> <strong>$element</strong>)</strong> : <em>void</em> |
+| public | <strong>reverse()</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Reverse the order of the items.</em> |
+| public | <strong>select(</strong><em>array</em> <strong>$keys</strong>)</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Select items from collection. Collection is returned in the order of $keys given to the function.</em> |
+| public | <strong>serialize()</strong> : <em>string</em> |
+| public | <strong>set(</strong><em>mixed</em> <strong>$key</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em> |
+| public | <strong>shuffle()</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Shuffle items.</em> |
+| public | <strong>slice(</strong><em>mixed</em> <strong>$offset</strong>, <em>mixed</em> <strong>$length=null</strong>)</strong> : <em>void</em> |
+| public | <strong>toArray()</strong> : <em>void</em> |
+| public | <strong>unselect(</strong><em>array</em> <strong>$keys</strong>)</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Un-select items from collection.</em> |
+| public | <strong>unserialize(</strong><em>string</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
+| protected | <strong>createFrom(</strong><em>array</em> <strong>$entries</strong>)</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Creates a new instance from the specified elements. This method is provided for derived classes to specify how a new instance should be created when constructor semantics have changed.</em> |
+| protected | <strong>abstract getElementMeta(</strong><em>mixed</em> <strong>$element</strong>)</strong> : <em>mixed</em> |
+| protected | <strong>getEntries()</strong> : <em>array</em> |
+| protected | <strong>abstract isAllowedElement(</strong><em>mixed</em> <strong>$value</strong>)</strong> : <em>bool</em> |
+| protected | <strong>abstract loadCollection(</strong><em>array/null/array</em> <strong>$entries=null</strong>)</strong> : <em>[\Grav\Framework\Collection\CollectionInterface](#interface-gravframeworkcollectioncollectioninterface)</em> |
+| protected | <strong>abstract loadElement(</strong><em>string</em> <strong>$key</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>mixed/null</em> |
+| protected | <strong>abstract loadElements(</strong><em>array/null/array</em> <strong>$entries=null</strong>)</strong> : <em>array</em> |
+| protected | <strong>setEntries(</strong><em>array</em> <strong>$entries</strong>)</strong> : <em>void</em> |
+
+*This class implements [\Grav\Framework\Collection\CollectionInterface](#interface-gravframeworkcollectioncollectioninterface), \JsonSerializable, \Countable, \IteratorAggregate, \Traversable, \ArrayAccess, \Doctrine\Common\Collections\Collection*
+
 <hr /><a id="class-gravframeworkcollectionfilecollection"></a>
 ### Class: \Grav\Framework\Collection\FileCollection
 
@@ -3419,7 +4455,9 @@ $value = $data->set('this.is.my.nested.variable', $newField);
 | public | <strong>chunk(</strong><em>int</em> <strong>$size</strong>)</strong> : <em>array</em><br /><em>Split collection into chunks.</em> |
 | public | <strong>jsonSerialize()</strong> : <em>array</em><br /><em>Implementes JsonSerializable interface.</em> |
 | public | <strong>reverse()</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Reverse the order of the items.</em> |
+| public | <strong>select(</strong><em>array</em> <strong>$keys</strong>)</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Select items from collection. Collection is returned in the order of $keys given to the function.</em> |
 | public | <strong>shuffle()</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Shuffle items.</em> |
+| public | <strong>unselect(</strong><em>array</em> <strong>$keys</strong>)</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Un-select items from collection.</em> |
 
 *This class extends \Doctrine\Common\Collections\ArrayCollection*
 
@@ -3434,7 +4472,9 @@ $value = $data->set('this.is.my.nested.variable', $newField);
 |:-----------|:---------|
 | public | <strong>chunk(</strong><em>int</em> <strong>$size</strong>)</strong> : <em>array</em><br /><em>Split collection into chunks.</em> |
 | public | <strong>reverse()</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Reverse the order of the items.</em> |
+| public | <strong>select(</strong><em>array</em> <strong>$keys</strong>)</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Select items from collection. Collection is returned in the order of $keys given to the function.</em> |
 | public | <strong>shuffle()</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Shuffle items.</em> |
+| public | <strong>unselect(</strong><em>array</em> <strong>$keys</strong>)</strong> : <em>\Grav\Framework\Collection\static</em><br /><em>Un-select items from collection.</em> |
 
 *This class implements \Doctrine\Common\Collections\Collection, \ArrayAccess, \Traversable, \IteratorAggregate, \Countable, \JsonSerializable*
 
@@ -3448,7 +4488,9 @@ $value = $data->set('this.is.my.nested.variable', $newField);
 | public | <strong>chunk(</strong><em>mixed</em> <strong>$size</strong>)</strong> : <em>void</em> |
 | public | <strong>jsonSerialize()</strong> : <em>void</em> |
 | public | <strong>reverse()</strong> : <em>void</em> |
+| public | <strong>select(</strong><em>array</em> <strong>$keys</strong>)</strong> : <em>void</em> |
 | public | <strong>shuffle()</strong> : <em>void</em> |
+| public | <strong>unselect(</strong><em>array</em> <strong>$keys</strong>)</strong> : <em>void</em> |
 
 *This class extends \Doctrine\Common\Collections\AbstractLazyCollection*
 
@@ -3477,10 +4519,12 @@ $value = $data->set('this.is.my.nested.variable', $newField);
 | public | <strong>addBlock(</strong><em>[\Grav\Framework\ContentBlock\ContentBlockInterface](#interface-gravframeworkcontentblockcontentblockinterface)</em> <strong>$block</strong>)</strong> : <em>\Grav\Framework\ContentBlock\$this</em> |
 | public | <strong>build(</strong><em>array</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
 | public static | <strong>create(</strong><em>string</em> <strong>$id=null</strong>)</strong> : <em>\Grav\Framework\ContentBlock\static</em> |
+| public | <strong>disableCache()</strong> : <em>\Grav\Framework\ContentBlock\$this</em> |
 | public static | <strong>fromArray(</strong><em>array</em> <strong>$serialized</strong>)</strong> : <em>[\Grav\Framework\ContentBlock\ContentBlockInterface](#interface-gravframeworkcontentblockcontentblockinterface)</em> |
 | public | <strong>getChecksum()</strong> : <em>string</em> |
 | public | <strong>getId()</strong> : <em>string</em> |
 | public | <strong>getToken()</strong> : <em>string</em> |
+| public | <strong>isCached()</strong> : <em>bool</em> |
 | public | <strong>serialize()</strong> : <em>string</em> |
 | public | <strong>setChecksum(</strong><em>string</em> <strong>$checksum</strong>)</strong> : <em>\Grav\Framework\ContentBlock\$this</em> |
 | public | <strong>setContent(</strong><em>string</em> <strong>$content</strong>)</strong> : <em>\Grav\Framework\ContentBlock\$this</em> |
@@ -3573,19 +4617,160 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 
 *This class implements [\Grav\Framework\ContentBlock\ContentBlockInterface](#interface-gravframeworkcontentblockcontentblockinterface), \Serializable*
 
+<hr /><a id="class-gravframeworkdicontainer"></a>
+### Class: \Grav\Framework\DI\Container
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>get(</strong><em>mixed</em> <strong>$id</strong>)</strong> : <em>mixed</em> |
+| public | <strong>has(</strong><em>mixed</em> <strong>$id</strong>)</strong> : <em>bool</em> |
+
+*This class extends \Pimple\Container*
+
+*This class implements \ArrayAccess, \Psr\Container\ContainerInterface*
+
+<hr /><a id="class-gravframeworkfilemarkdownfile"></a>
+### Class: \Grav\Framework\File\MarkdownFile
+
+> Class MarkdownFile
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>string</em> <strong>$filepath</strong>, <em>[\Grav\Framework\File\Formatter\MarkdownFormatter](#class-gravframeworkfileformattermarkdownformatter)</em> <strong>$formatter</strong>)</strong> : <em>void</em><br /><em>File constructor.</em> |
+
+*This class extends [\Grav\Framework\File\DataFile](#class-gravframeworkfiledatafile)*
+
+*This class implements [\Grav\Framework\File\Interfaces\FileInterface](#interface-gravframeworkfileinterfacesfileinterface), \Serializable*
+
+<hr /><a id="class-gravframeworkfileabstractfile"></a>
+### Class: \Grav\Framework\File\AbstractFile
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__clone()</strong> : <em>void</em> |
+| public | <strong>__construct(</strong><em>\string</em> <strong>$filepath</strong>, <em>[\Grav\Framework\File\File](#class-gravframeworkfilefile)system/null/[\Grav\Framework\Filesystem\Filesystem](#class-gravframeworkfilesystemfilesystem)</em> <strong>$filesystem=null</strong>)</strong> : <em>void</em> |
+| public | <strong>__destruct()</strong> : <em>void</em><br /><em>Unlock file when the object gets destroyed.</em> |
+| public | <strong>delete()</strong> : <em>bool</em><br /><em>Delete file from filesystem.</em> |
+| public | <strong>exists()</strong> : <em>bool</em><br /><em>Check if file exits.</em> |
+| public | <strong>getBasename()</strong> : <em>string</em><br /><em>Return name of the file without extension.</em> |
+| public | <strong>getCreationTime()</strong> : <em>int Unix timestamp. If file does not exist, method returns current time.</em><br /><em>Return file modification time.</em> |
+| public | <strong>getExtension(</strong><em>\boolean</em> <strong>$withDot=false</strong>)</strong> : <em>string</em><br /><em>Return file extension.</em> |
+| public | <strong>getFilePath()</strong> : <em>string</em><br /><em>Get full path to the file.</em> |
+| public | <strong>getFilename()</strong> : <em>string</em><br /><em>Get filename.</em> |
+| public | <strong>getModificationTime()</strong> : <em>int Unix timestamp. If file does not exist, method returns current time.</em><br /><em>Return file modification time.</em> |
+| public | <strong>getPath()</strong> : <em>string</em><br /><em>Get path to the file.</em> |
+| public | <strong>isLocked()</strong> : <em>bool True = locked, false = not locked.</em><br /><em>Returns true if file has been locked for writing.</em> |
+| public | <strong>isReadable()</strong> : <em>bool</em><br /><em>Check if file exists and can be read.</em> |
+| public | <strong>isWritable()</strong> : <em>bool</em><br /><em>Check if file can be written.</em> |
+| public | <strong>load()</strong> : <em>string/array/false</em><br /><em>(Re)Load a file and return file contents.</em> |
+| public | <strong>lock(</strong><em>\boolean</em> <strong>$block=true</strong>)</strong> : <em>bool</em><br /><em>Lock file for writing. You need to manually unlock().</em> |
+| public | <strong>rename(</strong><em>\string</em> <strong>$path</strong>)</strong> : <em>bool</em><br /><em>Rename file in the filesystem if it exists.</em> |
+| public | <strong>save(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em><br /><em>Save file.</em> |
+| public | <strong>serialize()</strong> : <em>string</em> |
+| public | <strong>unlock()</strong> : <em>bool</em><br /><em>Unlock file.</em> |
+| public | <strong>unserialize(</strong><em>string</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
+| protected | <strong>doSerialize()</strong> : <em>array</em> |
+| protected | <strong>doUnserialize(</strong><em>array</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
+| protected | <strong>isWritablePath(</strong><em>\string</em> <strong>$dir</strong>)</strong> : <em>bool</em> |
+| protected | <strong>mkdir(</strong><em>\string</em> <strong>$dir</strong>)</strong> : <em>bool</em> |
+| protected | <strong>setFilepath(</strong><em>\string</em> <strong>$filepath</strong>)</strong> : <em>void</em> |
+| protected | <strong>setPathInfo()</strong> : <em>void</em> |
+
+*This class implements [\Grav\Framework\File\Interfaces\FileInterface](#interface-gravframeworkfileinterfacesfileinterface), \Serializable*
+
+<hr /><a id="class-gravframeworkfiledatafile"></a>
+### Class: \Grav\Framework\File\DataFile
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>string</em> <strong>$filepath</strong>, <em>[\Grav\Framework\File\Interfaces\FileFormatterInterface](#interface-gravframeworkfileinterfacesfileformatterinterface)</em> <strong>$formatter</strong>)</strong> : <em>void</em><br /><em>File constructor.</em> |
+| public | <strong>load()</strong> : <em>array/false</em><br /><em>(Re)Load a file and return RAW file contents.</em> |
+| public | <strong>save(</strong><em>string/array</em> <strong>$data</strong>)</strong> : <em>void</em><br /><em>Save file.</em> |
+
+*This class extends [\Grav\Framework\File\AbstractFile](#class-gravframeworkfileabstractfile)*
+
+*This class implements \Serializable, [\Grav\Framework\File\Interfaces\FileInterface](#interface-gravframeworkfileinterfacesfileinterface)*
+
+<hr /><a id="class-gravframeworkfileinifile"></a>
+### Class: \Grav\Framework\File\IniFile
+
+> Class IniFile
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>string</em> <strong>$filepath</strong>, <em>[\Grav\Framework\File\Formatter\IniFormatter](#class-gravframeworkfileformatteriniformatter)</em> <strong>$formatter</strong>)</strong> : <em>void</em><br /><em>File constructor.</em> |
+
+*This class extends [\Grav\Framework\File\DataFile](#class-gravframeworkfiledatafile)*
+
+*This class implements [\Grav\Framework\File\Interfaces\FileInterface](#interface-gravframeworkfileinterfacesfileinterface), \Serializable*
+
+<hr /><a id="class-gravframeworkfilefile"></a>
+### Class: \Grav\Framework\File\File
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>load()</strong> : <em>string/false</em><br /><em>Load a file from the filesystem.</em> |
+| public | <strong>save(</strong><em>string</em> <strong>$data</strong>)</strong> : <em>void</em><br /><em>Save file.</em> |
+
+*This class extends [\Grav\Framework\File\AbstractFile](#class-gravframeworkfileabstractfile)*
+
+*This class implements \Serializable, [\Grav\Framework\File\Interfaces\FileInterface](#interface-gravframeworkfileinterfacesfileinterface)*
+
+<hr /><a id="class-gravframeworkfilejsonfile"></a>
+### Class: \Grav\Framework\File\JsonFile
+
+> Class JsonFile
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>string</em> <strong>$filepath</strong>, <em>[\Grav\Framework\File\Formatter\JsonFormatter](#class-gravframeworkfileformatterjsonformatter)</em> <strong>$formatter</strong>)</strong> : <em>void</em><br /><em>File constructor.</em> |
+
+*This class extends [\Grav\Framework\File\DataFile](#class-gravframeworkfiledatafile)*
+
+*This class implements [\Grav\Framework\File\Interfaces\FileInterface](#interface-gravframeworkfileinterfacesfileinterface), \Serializable*
+
+<hr /><a id="class-gravframeworkfileyamlfile"></a>
+### Class: \Grav\Framework\File\YamlFile
+
+> Class YamlFile
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>string</em> <strong>$filepath</strong>, <em>[\Grav\Framework\File\Formatter\YamlFormatter](#class-gravframeworkfileformatteryamlformatter)</em> <strong>$formatter</strong>)</strong> : <em>void</em><br /><em>File constructor.</em> |
+
+*This class extends [\Grav\Framework\File\DataFile](#class-gravframeworkfiledatafile)*
+
+*This class implements [\Grav\Framework\File\Interfaces\FileInterface](#interface-gravframeworkfileinterfacesfileinterface), \Serializable*
+
+<hr /><a id="class-gravframeworkfilecsvfile"></a>
+### Class: \Grav\Framework\File\CsvFile
+
+> Class IniFile
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>string</em> <strong>$filepath</strong>, <em>[\Grav\Framework\File\Formatter\CsvFormatter](#class-gravframeworkfileformattercsvformatter)</em> <strong>$formatter</strong>)</strong> : <em>void</em><br /><em>File constructor.</em> |
+
+*This class extends [\Grav\Framework\File\DataFile](#class-gravframeworkfiledatafile)*
+
+*This class implements [\Grav\Framework\File\Interfaces\FileInterface](#interface-gravframeworkfileinterfacesfileinterface), \Serializable*
+
 <hr /><a id="class-gravframeworkfileformattermarkdownformatter"></a>
 ### Class: \Grav\Framework\File\Formatter\MarkdownFormatter
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>array</em> <strong>$config=array()</strong>, <em>[\Grav\Framework\File\Formatter\FormatterInterface](#interface-gravframeworkfileformatterformatterinterface)</em> <strong>$headerFormatter=null</strong>)</strong> : <em>void</em> |
+| public | <strong>__construct(</strong><em>array</em> <strong>$config=array()</strong>, <em>[\Grav\Framework\File\Interfaces\FileFormatterInterface](#interface-gravframeworkfileinterfacesfileformatterinterface)</em> <strong>$headerFormatter=null</strong>)</strong> : <em>void</em> |
 | public | <strong>decode(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em> |
 | public | <strong>encode(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em> |
-| public | <strong>getDefaultFileExtension()</strong> : <em>mixed</em> |
-| public | <strike><strong>getFileExtension()</strong> : <em>mixed</em></strike><br /><em>DEPRECATED - 1.5 Use $formatter->getDefaultFileExtension() instead.</em> |
-| public | <strong>getSupportedFileExtensions()</strong> : <em>mixed</em> |
+| public | <strong>getBodyField()</strong> : <em>string</em><br /><em>Returns body field used in both encode() and decode().</em> |
+| public | <strong>getHeaderField()</strong> : <em>string</em><br /><em>Returns header field used in both encode() and decode().</em> |
+| public | <strong>getHeaderFormatter()</strong> : <em>[\Grav\Framework\File\Interfaces\FileFormatterInterface](#interface-gravframeworkfileinterfacesfileformatterinterface)</em><br /><em>Returns header formatter object used in both encode() and decode().</em> |
+| public | <strong>getRawField()</strong> : <em>string</em><br /><em>Returns raw field used in both encode() and decode().</em> |
 
-*This class implements [\Grav\Framework\File\Formatter\FormatterInterface](#interface-gravframeworkfileformatterformatterinterface)*
+*This class extends [\Grav\Framework\File\Formatter\AbstractFormatter](#class-gravframeworkfileformatterabstractformatter-abstract)*
+
+*This class implements \Serializable, [\Grav\Framework\File\Interfaces\FileFormatterInterface](#interface-gravframeworkfileinterfacesfileformatterinterface)*
 
 <hr /><a id="class-gravframeworkfileformatterjsonformatter"></a>
 ### Class: \Grav\Framework\File\Formatter\JsonFormatter
@@ -3595,21 +4780,24 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>__construct(</strong><em>array</em> <strong>$config=array()</strong>)</strong> : <em>void</em> |
 | public | <strong>decode(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em> |
 | public | <strong>encode(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em> |
-| public | <strong>getDefaultFileExtension()</strong> : <em>mixed</em> |
-| public | <strike><strong>getFileExtension()</strong> : <em>mixed</em></strike><br /><em>DEPRECATED - 1.5 Use $formatter->getDefaultFileExtension() instead.</em> |
-| public | <strong>getSupportedFileExtensions()</strong> : <em>mixed</em> |
+| public | <strong>getDecodeAssoc()</strong> : <em>bool</em><br /><em>Returns true if JSON objects will be converted into associative arrays.</em> |
+| public | <strong>getDecodeDepth()</strong> : <em>int</em><br /><em>Returns recursion depth used in decode() function.</em> |
+| public | <strong>getDecodeOptions()</strong> : <em>int</em><br /><em>Returns options used in decode() function.</em> |
+| public | <strong>getEncodeOptions()</strong> : <em>int</em><br /><em>Returns options used in encode() function.</em> |
 
-*This class implements [\Grav\Framework\File\Formatter\FormatterInterface](#interface-gravframeworkfileformatterformatterinterface)*
+*This class extends [\Grav\Framework\File\Formatter\AbstractFormatter](#class-gravframeworkfileformatterabstractformatter-abstract)*
+
+*This class implements \Serializable, [\Grav\Framework\File\Interfaces\FileFormatterInterface](#interface-gravframeworkfileinterfacesfileformatterinterface)*
 
 <hr /><a id="interface-gravframeworkfileformatterformatterinterface"></a>
-### Interface: \Grav\Framework\File\Formatter\FormatterInterface
+### <strike>Interface: \Grav\Framework\File\Formatter\FormatterInterface</strike>
+
+> **DEPRECATED** 1.6 Use Grav\Framework\File\Interfaces\FileFormatterInterface instead
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>decode(</strong><em>string</em> <strong>$data</strong>)</strong> : <em>array</em><br /><em>Decode a string into data.</em> |
-| public | <strong>encode(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>string</em><br /><em>Encode data into a string.</em> |
-| public | <strong>getDefaultFileExtension()</strong> : <em>string File extension (can be empty).</em><br /><em>Get default file extension from current formatter (with dot). Default file extension is the first defined extension.</em> |
-| public | <strong>getSupportedFileExtensions()</strong> : <em>string[]</em><br /><em>Get file extensions supported by current formatter (with dot).</em> |
+
+*This class implements [\Grav\Framework\File\Interfaces\FileFormatterInterface](#interface-gravframeworkfileinterfacesfileformatterinterface), \Serializable*
 
 <hr /><a id="class-gravframeworkfileformatterserializeformatter"></a>
 ### Class: \Grav\Framework\File\Formatter\SerializeFormatter
@@ -3619,12 +4807,12 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>__construct(</strong><em>array</em> <strong>$config=array()</strong>)</strong> : <em>void</em><br /><em>IniFormatter constructor.</em> |
 | public | <strong>decode(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em> |
 | public | <strong>encode(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em> |
-| public | <strong>getDefaultFileExtension()</strong> : <em>mixed</em> |
-| public | <strike><strong>getFileExtension()</strong> : <em>mixed</em></strike><br /><em>DEPRECATED - 1.5 Use $formatter->getDefaultFileExtension() instead.</em> |
-| public | <strong>getSupportedFileExtensions()</strong> : <em>mixed</em> |
+| public | <strong>getOptions()</strong> : <em>array/bool</em><br /><em>Returns options used in decode(). By default only allow stdClass class.</em> |
 | protected | <strong>preserveLines(</strong><em>mixed</em> <strong>$data</strong>, <em>array</em> <strong>$search</strong>, <em>array</em> <strong>$replace</strong>)</strong> : <em>mixed</em><br /><em>Preserve new lines, recursive function.</em> |
 
-*This class implements [\Grav\Framework\File\Formatter\FormatterInterface](#interface-gravframeworkfileformatterformatterinterface)*
+*This class extends [\Grav\Framework\File\Formatter\AbstractFormatter](#class-gravframeworkfileformatterabstractformatter-abstract)*
+
+*This class implements \Serializable, [\Grav\Framework\File\Interfaces\FileFormatterInterface](#interface-gravframeworkfileinterfacesfileformatterinterface)*
 
 <hr /><a id="class-gravframeworkfileformatteriniformatter"></a>
 ### Class: \Grav\Framework\File\Formatter\IniFormatter
@@ -3634,11 +4822,28 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>__construct(</strong><em>array</em> <strong>$config=array()</strong>)</strong> : <em>void</em><br /><em>IniFormatter constructor.</em> |
 | public | <strong>decode(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em> |
 | public | <strong>encode(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em> |
-| public | <strong>getDefaultFileExtension()</strong> : <em>mixed</em> |
-| public | <strike><strong>getFileExtension()</strong> : <em>mixed</em></strike><br /><em>DEPRECATED - 1.5 Use $formatter->getDefaultFileExtension() instead.</em> |
-| public | <strong>getSupportedFileExtensions()</strong> : <em>mixed</em> |
 
-*This class implements [\Grav\Framework\File\Formatter\FormatterInterface](#interface-gravframeworkfileformatterformatterinterface)*
+*This class extends [\Grav\Framework\File\Formatter\AbstractFormatter](#class-gravframeworkfileformatterabstractformatter-abstract)*
+
+*This class implements \Serializable, [\Grav\Framework\File\Interfaces\FileFormatterInterface](#interface-gravframeworkfileinterfacesfileformatterinterface)*
+
+<hr /><a id="class-gravframeworkfileformatterabstractformatter-abstract"></a>
+### Class: \Grav\Framework\File\Formatter\AbstractFormatter (abstract)
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$config=array()</strong>)</strong> : <em>void</em><br /><em>IniFormatter constructor.</em> |
+| public | <strong>abstract decode(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em> |
+| public | <strong>abstract encode(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em> |
+| public | <strong>getDefaultFileExtension()</strong> : <em>mixed</em> |
+| public | <strong>getSupportedFileExtensions()</strong> : <em>mixed</em> |
+| public | <strong>serialize()</strong> : <em>string</em> |
+| public | <strong>unserialize(</strong><em>string</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
+| protected | <strong>doSerialize()</strong> : <em>array</em> |
+| protected | <strong>doUnserialize(</strong><em>array</em> <strong>$serialized</strong>)</strong> : <em>void</em><br /><em>Note: if overridden, make sure you call parent::doUnserialize()</em> |
+| protected | <strong>getConfig(</strong><em>\string</em> <strong>$name=null</strong>)</strong> : <em>mixed</em><br /><em>Get either full configuration or a single option.</em> |
+
+*This class implements [\Grav\Framework\File\Interfaces\FileFormatterInterface](#interface-gravframeworkfileinterfacesfileformatterinterface), \Serializable*
 
 <hr /><a id="class-gravframeworkfileformatteryamlformatter"></a>
 ### Class: \Grav\Framework\File\Formatter\YamlFormatter
@@ -3648,16 +4853,746 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>__construct(</strong><em>array</em> <strong>$config=array()</strong>)</strong> : <em>void</em> |
 | public | <strong>decode(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em> |
 | public | <strong>encode(</strong><em>mixed</em> <strong>$data</strong>, <em>mixed</em> <strong>$inline=null</strong>, <em>mixed</em> <strong>$indent=null</strong>)</strong> : <em>void</em> |
-| public | <strong>getDefaultFileExtension()</strong> : <em>mixed</em> |
-| public | <strike><strong>getFileExtension()</strong> : <em>mixed</em></strike><br /><em>DEPRECATED - 1.5 Use $formatter->getDefaultFileExtension() instead.</em> |
-| public | <strong>getSupportedFileExtensions()</strong> : <em>mixed</em> |
+| public | <strong>getIndentOption()</strong> : <em>int</em> |
+| public | <strong>getInlineOption()</strong> : <em>int</em> |
+| public | <strong>useCompatibleDecoder()</strong> : <em>bool</em> |
+| public | <strong>useNativeDecoder()</strong> : <em>bool</em> |
 
-*This class implements [\Grav\Framework\File\Formatter\FormatterInterface](#interface-gravframeworkfileformatterformatterinterface)*
+*This class extends [\Grav\Framework\File\Formatter\AbstractFormatter](#class-gravframeworkfileformatterabstractformatter-abstract)*
+
+*This class implements \Serializable, [\Grav\Framework\File\Interfaces\FileFormatterInterface](#interface-gravframeworkfileinterfacesfileformatterinterface)*
+
+<hr /><a id="class-gravframeworkfileformattercsvformatter"></a>
+### Class: \Grav\Framework\File\Formatter\CsvFormatter
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$config=array()</strong>)</strong> : <em>void</em><br /><em>IniFormatter constructor.</em> |
+| public | <strong>decode(</strong><em>mixed</em> <strong>$data</strong>, <em>mixed</em> <strong>$delimiter=null</strong>)</strong> : <em>void</em> |
+| public | <strong>encode(</strong><em>mixed</em> <strong>$data</strong>, <em>mixed</em> <strong>$delimiter=null</strong>)</strong> : <em>void</em> |
+| public | <strong>getDelimiter()</strong> : <em>string</em><br /><em>Returns delimiter used to both encode and decode CSV.</em> |
+
+*This class extends [\Grav\Framework\File\Formatter\AbstractFormatter](#class-gravframeworkfileformatterabstractformatter-abstract)*
+
+*This class implements \Serializable, [\Grav\Framework\File\Interfaces\FileFormatterInterface](#interface-gravframeworkfileinterfacesfileformatterinterface)*
+
+<hr /><a id="interface-gravframeworkfileinterfacesfileinterface"></a>
+### Interface: \Grav\Framework\File\Interfaces\FileInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>delete()</strong> : <em>bool</em><br /><em>Delete file from filesystem.</em> |
+| public | <strong>exists()</strong> : <em>bool</em><br /><em>Check if file exits.</em> |
+| public | <strong>getBasename()</strong> : <em>string</em><br /><em>Return name of the file without extension.</em> |
+| public | <strong>getCreationTime()</strong> : <em>int Unix timestamp. If file does not exist, method returns current time.</em><br /><em>Return file modification time.</em> |
+| public | <strong>getExtension(</strong><em>\boolean</em> <strong>$withDot=false</strong>)</strong> : <em>string</em><br /><em>Return file extension.</em> |
+| public | <strong>getFilePath()</strong> : <em>string</em><br /><em>Get full path to the file.</em> |
+| public | <strong>getFilename()</strong> : <em>string</em><br /><em>Get filename.</em> |
+| public | <strong>getModificationTime()</strong> : <em>int Unix timestamp. If file does not exist, method returns current time.</em><br /><em>Return file modification time.</em> |
+| public | <strong>getPath()</strong> : <em>string</em><br /><em>Get path to the file.</em> |
+| public | <strong>isLocked()</strong> : <em>bool True = locked, false = not locked.</em><br /><em>Returns true if file has been locked for writing.</em> |
+| public | <strong>isReadable()</strong> : <em>bool</em><br /><em>Check if file exists and can be read.</em> |
+| public | <strong>isWritable()</strong> : <em>bool</em><br /><em>Check if file can be written.</em> |
+| public | <strong>load()</strong> : <em>string/array/false</em><br /><em>(Re)Load a file and return RAW file contents.</em> |
+| public | <strong>lock(</strong><em>\boolean</em> <strong>$block=true</strong>)</strong> : <em>bool</em><br /><em>Lock file for writing. You need to manually unlock().</em> |
+| public | <strong>rename(</strong><em>\string</em> <strong>$path</strong>)</strong> : <em>bool</em><br /><em>Rename file in the filesystem if it exists.</em> |
+| public | <strong>save(</strong><em>mixed</em> <strong>$data</strong>)</strong> : <em>void</em><br /><em>Save file.</em> |
+| public | <strong>unlock()</strong> : <em>bool</em><br /><em>Unlock file.</em> |
+
+*This class implements \Serializable*
+
+<hr /><a id="interface-gravframeworkfileinterfacesfileformatterinterface"></a>
+### Interface: \Grav\Framework\File\Interfaces\FileFormatterInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>decode(</strong><em>string</em> <strong>$data</strong>)</strong> : <em>mixed</em><br /><em>Decode a string into data.</em> |
+| public | <strong>encode(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>string</em><br /><em>Encode data into a string.</em> |
+| public | <strong>getDefaultFileExtension()</strong> : <em>string File extension (can be empty).</em><br /><em>Get default file extension from current formatter (with dot). Default file extension is the first defined extension.</em> |
+| public | <strong>getSupportedFileExtensions()</strong> : <em>string[]</em><br /><em>Get file extensions supported by current formatter (with dot).</em> |
+
+*This class implements \Serializable*
+
+<hr /><a id="class-gravframeworkfilesystemfilesystem"></a>
+### Class: \Grav\Framework\Filesystem\Filesystem
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>dirname(</strong><em>\string</em> <strong>$path</strong>, <em>\integer</em> <strong>$levels=1</strong>)</strong> : <em>string</em><br /><em>Stream-safe \dirname() replacement.</em> |
+| public static | <strong>getInstance(</strong><em>\boolean</em> <strong>$normalize=null</strong>)</strong> : <em>[\Grav\Framework\Filesystem\Filesystem](#class-gravframeworkfilesystemfilesystem)</em> |
+| public | <strong>normalize(</strong><em>\string</em> <strong>$path</strong>)</strong> : <em>string</em><br /><em>Normalize path by cleaning up \ , /./ , // and /../</em> |
+| public | <strong>parent(</strong><em>\string</em> <strong>$path</strong>, <em>\integer</em> <strong>$levels=1</strong>)</strong> : <em>string</em><br /><em>Returns parent path. Empty path is returned if there are no segments remaining. Can be used recursively to get towards the root directory.</em> |
+| public | <strong>pathinfo(</strong><em>\string</em> <strong>$path</strong>, <em>\integer</em> <strong>$options=null</strong>)</strong> : <em>array/string</em><br /><em>Stream-safe \pathinfo() replacement.</em> |
+| public | <strong>safe()</strong> : <em>\Grav\Framework\Filesystem\static</em><br /><em>Force all paths not to be normalized (speeds up the calls if given paths are known to be normalized).</em> |
+| public | <strong>setNormalization(</strong><em>\boolean</em> <strong>$normalize=null</strong>)</strong> : <em>[\Grav\Framework\Filesystem\Filesystem](#class-gravframeworkfilesystemfilesystem)</em><br /><em>Set path normalization. Default option enables normalization for the streams only, but you can force the normalization to be either on or off for every path. Disabling path normalization speeds up the calls, but may cause issues if paths were not normalized.</em> |
+| public | <strong>unsafe()</strong> : <em>\Grav\Framework\Filesystem\static</em><br /><em>Force all paths to be normalized.</em> |
+| protected | <strong>__construct(</strong><em>\boolean</em> <strong>$normalize=null</strong>)</strong> : <em>void</em><br /><em>Always use Filesystem::getInstance() instead.</em> |
+| protected | <strong>dirnameInternal(</strong><em>string/null/\string</em> <strong>$scheme</strong>, <em>\string</em> <strong>$path</strong>, <em>\integer</em> <strong>$levels=1</strong>)</strong> : <em>array</em> |
+| protected | <strong>getSchemeAndHierarchy(</strong><em>\string</em> <strong>$filename</strong>)</strong> : <em>array</em><br /><em>Gets a 2-tuple of scheme (may be null) and hierarchical part of a filename (e.g. file:///tmp -> array(file, tmp)).</em> |
+| protected | <strong>normalizePathPart(</strong><em>\string</em> <strong>$path</strong>)</strong> : <em>string</em> |
+| protected | <strong>pathinfoInternal(</strong><em>string/null/\string</em> <strong>$scheme</strong>, <em>\string</em> <strong>$path</strong>, <em>\integer</em> <strong>$options=null</strong>)</strong> : <em>void</em> |
+| protected | <strong>toString(</strong><em>string/null/\string</em> <strong>$scheme</strong>, <em>\string</em> <strong>$path</strong>)</strong> : <em>string</em> |
+
+*This class implements [\Grav\Framework\Filesystem\Interfaces\FilesystemInterface](#interface-gravframeworkfilesysteminterfacesfilesysteminterface)*
+
+<hr /><a id="interface-gravframeworkfilesysteminterfacesfilesysteminterface"></a>
+### Interface: \Grav\Framework\Filesystem\Interfaces\FilesystemInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>dirname(</strong><em>\string</em> <strong>$path</strong>, <em>\integer</em> <strong>$levels=1</strong>)</strong> : <em>string</em><br /><em>Stream-safe \dirname() replacement.</em> |
+| public | <strong>normalize(</strong><em>\string</em> <strong>$path</strong>)</strong> : <em>string</em><br /><em>Normalize path by cleaning up \ , /./ , // and /../</em> |
+| public | <strong>parent(</strong><em>\string</em> <strong>$path</strong>, <em>\integer</em> <strong>$levels=1</strong>)</strong> : <em>string</em><br /><em>Returns parent path. Empty path is returned if there are no segments remaining. Can be used recursively to get towards the root directory.</em> |
+| public | <strong>pathinfo(</strong><em>\string</em> <strong>$path</strong>, <em>\integer</em> <strong>$options=null</strong>)</strong> : <em>array/string</em><br /><em>Stream-safe \pathinfo() replacement.</em> |
+
+<hr /><a id="class-gravframeworkflexflexform"></a>
+### Class: \Grav\Framework\Flex\FlexForm
+
+> Class FlexForm
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\string</em> <strong>$name</strong>, <em>[\Grav\Framework\Flex\Interfaces\FlexObjectInterface](#interface-gravframeworkflexinterfacesflexobjectinterface)</em> <strong>$object</strong>, <em>array/null/array</em> <strong>$form=null</strong>)</strong> : <em>void</em><br /><em>FlexForm constructor.</em> |
+| public | <strong>getAction()</strong> : <em>mixed</em> |
+| public | <strong>getBlueprint()</strong> : <em>[\Grav\Common\Data\Blueprint](#class-gravcommondatablueprint)</em> |
+| public | <strong>getButtons()</strong> : <em>mixed</em> |
+| public | <strong>getData()</strong> : <em>\Grav\Framework\Flex\Data/[\Grav\Framework\Flex\FlexObject](#class-gravframeworkflexflexobject)Interface</em> |
+| public | <strong>getErrors()</strong> : <em>mixed</em> |
+| public | <strong>getFields()</strong> : <em>mixed</em> |
+| public | <strong>getFileDeleteAjaxRoute(</strong><em>string</em> <strong>$field</strong>, <em>string</em> <strong>$filename</strong>)</strong> : <em>\Grav\Framework\Flex\Route/null</em> |
+| public | <strong>getFileUploadAjaxRoute()</strong> : <em>\Grav\Framework\Flex\Route/null</em> |
+| public | <strong>getFiles()</strong> : <em>array/\Grav\Framework\Flex\UploadedFileInterface[]</em> |
+| public | <strong>getFlash()</strong> : <em>\Grav\Framework\Flex\FormFlash</em><br /><em>Get form flash object.</em> |
+| public | <strong>getFormName()</strong> : <em>mixed</em> |
+| public | <strong>getId()</strong> : <em>mixed</em> |
+| public | <strong>getMediaRoute()</strong> : <em>mixed</em> |
+| public | <strong>getMediaTaskRoute(</strong><em>array</em> <strong>$params=array()</strong>, <em>mixed</em> <strong>$extension=null</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getName()</strong> : <em>string</em> |
+| public | <strong>getNonce()</strong> : <em>mixed</em> |
+| public | <strong>getNonceAction()</strong> : <em>mixed</em> |
+| public | <strong>getNonceName()</strong> : <em>mixed</em> |
+| public | <strong>getObject()</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexObjectInterface](#interface-gravframeworkflexinterfacesflexobjectinterface)</em> |
+| public | <strong>getTasks()</strong> : <em>mixed</em> |
+| public | <strong>getUniqueId()</strong> : <em>mixed</em> |
+| public | <strong>getValue(</strong><em>\string</em> <strong>$name</strong>)</strong> : <em>mixed</em><br /><em>Get a value from the form. Note: Used in form fields.</em> |
+| public | <strong>handleRequest(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>isSubmitted()</strong> : <em>bool</em> |
+| public | <strong>isValid()</strong> : <em>bool</em> |
+| public | <strong>reset()</strong> : <em>void</em> |
+| public | <strong>serialize()</strong> : <em>string</em><br /><em>Implements \Serializable::serialize().</em> |
+| public | <strong>setId(</strong><em>\string</em> <strong>$id</strong>)</strong> : <em>void</em> |
+| public | <strong>setRequest(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>setUniqueId(</strong><em>\string</em> <strong>$uniqueId</strong>)</strong> : <em>void</em> |
+| public | <strong>submit(</strong><em>array</em> <strong>$data</strong>, <em>\Grav\Framework\Flex\UploadedFileInterface[]</em> <strong>$files=null</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>unserialize(</strong><em>string</em> <strong>$data</strong>)</strong> : <em>void</em><br /><em>Implements \Serializable::unserialize().</em> |
+| public | <strong>updateObject()</strong> : <em>void</em> |
+| public | <strong>validate()</strong> : <em>void</em> |
+| protected | <strong>decodeData(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>array</em><br /><em>Decode POST data</em> |
+| protected | <strong>doSerialize()</strong> : <em>void</em> |
+| protected | <strong>doSubmit(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$files</strong>)</strong> : <em>void</em> |
+| protected | <strong>doTraitSerialize()</strong> : <em>array</em> |
+| protected | <strong>doTraitUnserialize(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>void</em> |
+| protected | <strong>doUnserialize(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>void</em> |
+| protected | <strong>filterData(</strong><em>\ArrayAccess</em> <strong>$data</strong>)</strong> : <em>void</em><br /><em>Filter validated data.</em> |
+| protected | <strong>jsonDecode(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>array</em><br /><em>Recursively JSON decode POST data.</em> |
+| protected | <strong>parseRequest(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>)</strong> : <em>array</em><br /><em>Parse PSR-7 ServerRequest into data and files.</em> |
+| protected | <strong>setError(</strong><em>\string</em> <strong>$error</strong>)</strong> : <em>void</em><br /><em>Set a single error.</em> |
+| protected | <strong>setErrors(</strong><em>array</em> <strong>$errors</strong>)</strong> : <em>void</em><br /><em>Set all errors.</em> |
+| protected | <strong>setObject(</strong><em>[\Grav\Framework\Flex\Interfaces\FlexObjectInterface](#interface-gravframeworkflexinterfacesflexobjectinterface)</em> <strong>$object</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em><br /><em>Note: this method clones the object.</em> |
+| protected | <strong>unsetFlash()</strong> : <em>void</em> |
+| protected | <strong>validateData(</strong><em>\ArrayAccess</em> <strong>$data</strong>)</strong> : <em>void</em><br /><em>Validate data and throw validation exceptions if validation fails.</em> |
+| protected | <strong>validateUpload(</strong><em>\Psr\Http\Message\UploadedFileInterface</em> <strong>$file</strong>)</strong> : <em>void</em><br /><em>Validate uploaded file.</em> |
+| protected | <strong>validateUploads(</strong><em>array</em> <strong>$files</strong>)</strong> : <em>void</em><br /><em>Validate all uploaded files.</em> |
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexFormInterface](#interface-gravframeworkflexinterfacesflexforminterface), [\Grav\Framework\Form\Interfaces\FormInterface](#interface-gravframeworkforminterfacesforminterface), \Serializable*
+
+<hr /><a id="class-gravframeworkflexflexcollection"></a>
+### Class: \Grav\Framework\Flex\FlexCollection
+
+> Class FlexCollection
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$elements=array()</strong>, <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)/null/[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$flexDirectory=null</strong>)</strong> : <em>void</em> |
+| public | <strong>__debugInfo()</strong> : <em>void</em> |
+| public static | <strong>createFromArray(</strong><em>array</em> <strong>$entries</strong>, <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$directory</strong>, <em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>\Grav\Framework\Flex\static</em> |
+| public | <strong>find(</strong><em>string</em> <strong>$value</strong>, <em>string</em> <strong>$field=`'id'`</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexObject](#class-gravframeworkflexflexobject)/null</em> |
+| public | <strong>getCache(</strong><em>\string</em> <strong>$namespace=null</strong>)</strong> : <em>[\Grav\Framework\Cache\CacheInterface](#interface-gravframeworkcachecacheinterface)</em> |
+| public | <strong>getCacheChecksum()</strong> : <em>string</em> |
+| public | <strong>getCacheKey()</strong> : <em>string</em> |
+| public static | <strong>getCachedMethods()</strong> : <em>array</em> |
+| public | <strong>getFlexDirectory()</strong> : <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> |
+| public | <strong>getFlexKeys()</strong> : <em>string[]</em> |
+| public | <strong>getIndex()</strong> : <em>[\Grav\Framework\Flex\FlexIndex](#class-gravframeworkflexflexindex)</em> |
+| public | <strong>getKeyField()</strong> : <em>string</em> |
+| public | <strong>getMetaData(</strong><em>\string</em> <strong>$key</strong>)</strong> : <em>array</em> |
+| public | <strong>getStorageKeys()</strong> : <em>string[]</em> |
+| public | <strong>getTimestamps()</strong> : <em>int[]</em> |
+| public | <strong>getType(</strong><em>bool</em> <strong>$prefix=false</strong>)</strong> : <em>string</em> |
+| public | <strong>isAuthorized(</strong><em>\string</em> <strong>$action</strong>, <em>\string</em> <strong>$scope=null</strong>, <em>\Grav\Framework\Flex\UserInterface/null/[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em> <strong>$user=null</strong>)</strong> : <em>\Grav\Framework\Flex\static</em> |
+| public | <strong>jsonSerialize()</strong> : <em>array</em> |
+| public | <strong>render(</strong><em>string</em> <strong>$layout=null</strong>, <em>array</em> <strong>$context=array()</strong>)</strong> : <em>[\Grav\Framework\ContentBlock\HtmlBlock](#class-gravframeworkcontentblockhtmlblock)</em><br /><em>Twig example: {% render collection layout 'edit' with {my_check: true} %}</em> |
+| public | <strong>search(</strong><em>\string</em> <strong>$search</strong>, <em>string/string[]/null</em> <strong>$properties=null</strong>, <em>array/null/array</em> <strong>$options=null</strong>)</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface)</em> |
+| public | <strong>setFlexDirectory(</strong><em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$type</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>sort(</strong><em>array</em> <strong>$order</strong>)</strong> : <em>void</em> |
+| public | <strong>withKeyField(</strong><em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface)</em> |
+| protected | <strong>createFrom(</strong><em>array</em> <strong>$elements</strong>, <em>string/null</em> <strong>$keyField=null</strong>)</strong> : <em>\Grav\Framework\Flex\static</em><br /><em>Creates a new instance from the specified elements. This method is provided for derived classes to specify how a new instance should be created when constructor semantics have changed.</em> |
+| protected | <strong>getRelatedDirectory(</strong><em>string</em> <strong>$type</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> |
+| protected | <strong>getTemplate(</strong><em>string</em> <strong>$layout</strong>)</strong> : <em>\Twig_Template</em> |
+| protected | <strong>getTypePrefix()</strong> : <em>string</em> |
+| protected | <strong>setKeyField(</strong><em>mixed</em> <strong>$keyField=null</strong>)</strong> : <em>void</em> |
+
+*This class extends [\Grav\Framework\Object\ObjectCollection](#class-gravframeworkobjectobjectcollection)*
+
+*This class implements [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface), [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \Serializable, [\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface), \Doctrine\Common\Collections\Selectable, \Countable, \IteratorAggregate, \Traversable, \ArrayAccess, \Doctrine\Common\Collections\Collection, [\Grav\Framework\Collection\CollectionInterface](#interface-gravframeworkcollectioncollectioninterface), \JsonSerializable, [\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface)*
+
+<hr /><a id="class-gravframeworkflexflex"></a>
+### Class: \Grav\Framework\Flex\Flex
+
+> Class Flex
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$types</strong>, <em>array</em> <strong>$config</strong>)</strong> : <em>void</em><br /><em>Flex constructor.</em> |
+| public | <strong>addDirectory(</strong><em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$directory</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>addDirectoryType(</strong><em>\string</em> <strong>$type</strong>, <em>\string</em> <strong>$blueprint</strong>, <em>array</em> <strong>$config=array()</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>count()</strong> : <em>int</em> |
+| public | <strong>getCollection(</strong><em>\string</em> <strong>$type</strong>, <em>array/null/array</em> <strong>$keys=null</strong>, <em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexCollection](#class-gravframeworkflexflexcollection)Interface/null</em> |
+| public | <strong>getDirectories(</strong><em>array/string[]</em> <strong>$types=null</strong>, <em>\boolean</em> <strong>$keepMissing=false</strong>)</strong> : <em>array/[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)[]</em> |
+| public | <strong>getDirectory(</strong><em>\string</em> <strong>$type</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)/null</em> |
+| public | <strong>getMixedCollection(</strong><em>array</em> <strong>$keys</strong>, <em>array</em> <strong>$options=array()</strong>)</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface)</em><br /><em>collection_class:   Class to be used to create the collection. Defaults to ObjectCollection.</em> |
+| public | <strong>getObject(</strong><em>\string</em> <strong>$key</strong>, <em>\string</em> <strong>$type=null</strong>, <em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexObject](#class-gravframeworkflexflexobject)Interface/null</em> |
+| public | <strong>getObjects(</strong><em>array</em> <strong>$keys</strong>, <em>array</em> <strong>$options=array()</strong>)</strong> : <em>array</em><br /><em>types:          List of allowed types. type:           Allowed type if types isn't defined, otherwise acts as default_type. default_type:   Set default type for objects given without type (only used if key_field isn't set). keep_missing:   Set to true if you want to return missing objects as null. key_field:      Key field which is used to match the objects.</em> |
+| public | <strong>hasDirectory(</strong><em>\string</em> <strong>$type</strong>)</strong> : <em>bool</em> |
+| protected | <strong>resolveKeyAndType(</strong><em>\string</em> <strong>$flexKey</strong>, <em>\string</em> <strong>$type=null</strong>)</strong> : <em>void</em> |
+| protected | <strong>resolveType(</strong><em>\string</em> <strong>$type=null</strong>)</strong> : <em>void</em> |
+
+*This class implements \Countable*
+
+<hr /><a id="class-gravframeworkflexflexobject"></a>
+### Class: \Grav\Framework\Flex\FlexObject
+
+> Class FlexObject
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$elements</strong>, <em>string</em> <strong>$key</strong>, <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$flexDirectory</strong>, <em>bool</em> <strong>$validate=false</strong>)</strong> : <em>void</em> |
+| public | <strong>__debugInfo()</strong> : <em>void</em> |
+| public | <strong>__get(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>mixed Can return all value types.</em><br /><em>Returns the value at specified offset.</em> |
+| public | <strong>__isset(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>bool Returns TRUE on success or FALSE on failure.</em><br /><em>Checks whether or not an offset exists.</em> |
+| public | <strong>__set(</strong><em>mixed</em> <strong>$offset</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Assigns a value to the specified offset.</em> |
+| public | <strong>__toString()</strong> : <em>string</em><br /><em>Returns a string representation of this object.</em> |
+| public | <strong>__unset(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>void</em><br /><em>Magic method to unset the attribute</em> |
+| public | <strike><strong>blueprints()</strong> : <em>[\Grav\Common\Data\Blueprint](#class-gravcommondatablueprint)</em></strike><br /><em>DEPRECATED - 1.6 Admin compatibility</em> |
+| public | <strong>create(</strong><em>string/null</em> <strong>$key=null</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em><br /><em>Create new object into storage.</em> |
+| public static | <strong>createFromStorage(</strong><em>array</em> <strong>$elements</strong>, <em>array</em> <strong>$storage</strong>, <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$flexDirectory</strong>, <em>bool</em> <strong>$validate=false</strong>)</strong> : <em>mixed</em> |
+| public | <strong>defNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>defProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>delete()</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>exists()</strong> : <em>bool</em> |
+| public | <strong>getBlueprint(</strong><em>\string</em> <strong>$name=`''`</strong>)</strong> : <em>[\Grav\Common\Data\Blueprint](#class-gravcommondatablueprint)</em> |
+| public | <strong>getCache(</strong><em>\string</em> <strong>$namespace=null</strong>)</strong> : <em>[\Grav\Framework\Cache\CacheInterface](#interface-gravframeworkcachecacheinterface)</em> |
+| public | <strong>getCacheChecksum()</strong> : <em>string</em> |
+| public | <strong>getCacheKey()</strong> : <em>string</em> |
+| public static | <strong>getCachedMethods()</strong> : <em>array</em> |
+| public | <strong>getChanges()</strong> : <em>array</em><br /><em>Get any changes based on data sent to update</em> |
+| public | <strong>getFlexDirectory()</strong> : <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> |
+| public | <strong>getFlexKey()</strong> : <em>string</em><br /><em>Returns a string representation of this object.</em> |
+| public | <strong>getForm(</strong><em>\string</em> <strong>$name=`''`</strong>, <em>array/null/array</em> <strong>$form=null</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexForm](#class-gravframeworkflexflexform)</em> |
+| public | <strong>getKey()</strong> : <em>string</em> |
+| public | <strong>getMetaData()</strong> : <em>array</em> |
+| public | <strong>getNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>mixed Property value.</em> |
+| public | <strong>getProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed Property value.</em> |
+| public | <strong>getStorageKey()</strong> : <em>string</em> |
+| public | <strong>getTimestamp()</strong> : <em>int</em> |
+| public | <strong>getType(</strong><em>bool</em> <strong>$prefix=false</strong>)</strong> : <em>string</em> |
+| public | <strong>hasKey()</strong> : <em>bool</em> |
+| public | <strong>hasNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
+| public | <strong>hasProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
+| public | <strong>isAuthorized(</strong><em>\string</em> <strong>$action</strong>, <em>\string</em> <strong>$scope=null</strong>, <em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em> <strong>$user=null</strong>)</strong> : <em>bool</em> |
+| public | <strong>jsonSerialize()</strong> : <em>array</em> |
+| public | <strong>offsetExists(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>bool Returns TRUE on success or FALSE on failure.</em><br /><em>Whether or not an offset exists.</em> |
+| public | <strong>offsetGet(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>mixed Can return all value types.</em><br /><em>Returns the value at specified offset.</em> |
+| public | <strong>offsetSet(</strong><em>mixed</em> <strong>$offset</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Assigns a value to the specified offset.</em> |
+| public | <strong>offsetUnset(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>void</em><br /><em>Unsets an offset.</em> |
+| public | <strong>prepareStorage()</strong> : <em>array</em> |
+| public | <strong>render(</strong><em>string</em> <strong>$layout=null</strong>, <em>array</em> <strong>$context=array()</strong>)</strong> : <em>[\Grav\Framework\ContentBlock\HtmlBlock](#class-gravframeworkcontentblockhtmlblock)</em><br /><em>Twig example: {% render object layout 'edit' with {my_check: true} %}</em> |
+| public | <strong>save()</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>search(</strong><em>\string</em> <strong>$search</strong>, <em>string/string[]/null</em> <strong>$properties=null</strong>, <em>array/null/array</em> <strong>$options=null</strong>)</strong> : <em>float</em> |
+| public | <strong>searchNestedProperty(</strong><em>\string</em> <strong>$property</strong>, <em>\string</em> <strong>$search</strong>, <em>array/null/array</em> <strong>$options=null</strong>)</strong> : <em>float</em> |
+| public | <strong>searchProperty(</strong><em>\string</em> <strong>$property</strong>, <em>\string</em> <strong>$search</strong>, <em>array/null/array</em> <strong>$options=null</strong>)</strong> : <em>float</em> |
+| public | <strong>serialize()</strong> : <em>string</em><br /><em>Implements Serializable interface.</em> |
+| public | <strong>setFlexDirectory(</strong><em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$directory</strong>)</strong> : <em>void</em> |
+| public | <strong>setNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$value</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>setProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>setStorageKey(</strong><em>string/null</em> <strong>$key=null</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>setTimestamp(</strong><em>int</em> <strong>$timestamp=null</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>triggerEvent(</strong><em>string</em> <strong>$name</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>unserialize(</strong><em>string</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
+| public | <strong>unsetNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>unsetProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>update(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$files=array()</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>value(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>mixed</em><br /><em>Form field compatibility.</em> |
+| protected | <strong>createFormObject(</strong><em>\string</em> <strong>$name</strong>, <em>array/null/array</em> <strong>$form=null</strong>)</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexFormInterface](#interface-gravframeworkflexinterfacesflexforminterface)</em><br /><em>This methods allows you to override form objects in child classes.</em> |
+| protected | <strong>doGetProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>bool</em> <strong>$doCreate=false</strong>)</strong> : <em>mixed Property value.</em> |
+| protected | <strong>doHasProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
+| protected | <strong>doSerialize()</strong> : <em>array</em> |
+| protected | <strong>doSetProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| protected | <strong>doUnserialize(</strong><em>array</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
+| protected | <strong>doUnsetProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| protected | <strong>filterElements(</strong><em>array</em> <strong>$elements</strong>)</strong> : <em>void</em><br /><em>Filter data coming to constructor or $this->update() request. NOTE: The incoming data can be an arbitrary array so do not assume anything from its content.</em> |
+| protected | <strong>getCollectionByProperty(</strong><em>string</em> <strong>$type</strong>, <em>string</em> <strong>$property</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexCollection](#class-gravframeworkflexflexcollection)</em> |
+| protected | <strong>getElement(</strong><em>string</em> <strong>$property</strong>, <em>mixed/null</em> <strong>$default=null</strong>)</strong> : <em>mixed/null</em> |
+| protected | <strong>getElements()</strong> : <em>array</em> |
+| protected | <strong>getRelatedDirectory(</strong><em>string</em> <strong>$type</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> |
+| protected | <strong>getStorage()</strong> : <em>array</em> |
+| protected | <strong>getTemplate(</strong><em>string</em> <strong>$layout</strong>)</strong> : <em>\Twig_Template</em> |
+| protected | <strong>getTypePrefix()</strong> : <em>string</em> |
+| protected | <strong>getarrayelement(</strong><em>string</em> <strong>$property</strong>, <em>mixed/null</em> <strong>$default=null</strong>)</strong> : <em>mixed/null</em> |
+| protected | <strong>getarrayelements()</strong> : <em>array</em> |
+| protected | <strong>getarrayproperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>bool</em> <strong>$doCreate=false</strong>)</strong> : <em>mixed Property value.</em> |
+| protected | <strong>getobjectelement(</strong><em>string</em> <strong>$property</strong>, <em>mixed/null</em> <strong>$default=null</strong>)</strong> : <em>mixed/null</em> |
+| protected | <strong>getobjectelements()</strong> : <em>array</em> |
+| protected | <strong>getobjectproperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>bool/callable/bool</em> <strong>$doCreate=false</strong>)</strong> : <em>mixed Property value.</em> |
+| protected | <strong>hasarrayproperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
+| protected | <strong>hasobjectproperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
+| protected | <strong>initObjectProperties()</strong> : <em>void</em> |
+| protected | <strong>isAuthorizedAction(</strong><em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em> <strong>$user</strong>, <em>\string</em> <strong>$action</strong>, <em>\string</em> <strong>$scope=null</strong>)</strong> : <em>bool</em> |
+| protected | <strong>isAuthorizedSuperAdmin(</strong><em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em> <strong>$user</strong>)</strong> : <em>bool</em> |
+| protected | <strong>isPropertyLoaded(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>bool True if property has been loaded.</em> |
+| protected | <strong>offsetLoad(</strong><em>string</em> <strong>$offset</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>mixed</em> |
+| protected | <strong>offsetPrepare(</strong><em>string</em> <strong>$offset</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>mixed</em> |
+| protected | <strong>offsetSerialize(</strong><em>string</em> <strong>$offset</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>mixed</em> |
+| protected | <strong>searchValue(</strong><em>\string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>, <em>\string</em> <strong>$search</strong>, <em>array/null/array</em> <strong>$options=null</strong>)</strong> : <em>float</em> |
+| protected | <strong>setAuthorizeRule(</strong><em>\string</em> <strong>$authorize</strong>)</strong> : <em>void</em> |
+| protected | <strong>setElements(</strong><em>array</em> <strong>$elements</strong>)</strong> : <em>void</em> |
+| protected | <strong>setKey(</strong><em>string</em> <strong>$key</strong>)</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| protected | <strong>setStorage(</strong><em>array</em> <strong>$storage</strong>)</strong> : <em>void</em> |
+| protected | <strong>setarrayproperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em> |
+| protected | <strong>setobjectproperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em> |
+| protected | <strong>unsetarrayproperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>void</em> |
+| protected | <strong>unsetobjectproperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>void</em> |
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexObjectInterface](#interface-gravframeworkflexinterfacesflexobjectinterface), \ArrayAccess, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \JsonSerializable, \Serializable, [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface), [\Grav\Framework\Flex\Interfaces\FlexAuthorizeInterface](#interface-gravframeworkflexinterfacesflexauthorizeinterface)*
+
+<hr /><a id="class-gravframeworkflexflexindex"></a>
+### Class: \Grav\Framework\Flex\FlexIndex
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__call(</strong><em>mixed</em> <strong>$name</strong>, <em>mixed</em> <strong>$arguments</strong>)</strong> : <em>void</em> |
+| public | <strong>__construct(</strong><em>array</em> <strong>$entries</strong>, <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$flexDirectory</strong>)</strong> : <em>void</em><br /><em>Initializes a new FlexIndex.</em> |
+| public | <strong>__debugInfo()</strong> : <em>void</em> |
+| public | <strong>call(</strong><em>mixed</em> <strong>$method</strong>, <em>array</em> <strong>$arguments=array()</strong>)</strong> : <em>void</em> |
+| public static | <strong>createFromArray(</strong><em>array[]</em> <strong>$entries</strong>, <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$directory</strong>, <em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>\Grav\Framework\Flex\static</em> |
+| public static | <strong>createFromStorage(</strong><em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$directory</strong>)</strong> : <em>\Grav\Framework\Flex\static</em> |
+| public | <strong>getCache(</strong><em>\string</em> <strong>$namespace=null</strong>)</strong> : <em>[\Grav\Framework\Cache\CacheInterface](#interface-gravframeworkcachecacheinterface)</em> |
+| public | <strong>getCacheChecksum()</strong> : <em>string</em> |
+| public | <strong>getCacheKey()</strong> : <em>string</em> |
+| public | <strong>getFlexDirectory()</strong> : <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> |
+| public | <strong>getFlexKeys()</strong> : <em>string[]</em> |
+| public | <strong>getIndex()</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>getIndexMap(</strong><em>\string</em> <strong>$indexKey=null</strong>)</strong> : <em>array</em> |
+| public | <strong>getKeyField()</strong> : <em>string</em> |
+| public | <strong>getMetaData(</strong><em>\string</em> <strong>$key</strong>)</strong> : <em>array</em> |
+| public | <strong>getStorageKeys()</strong> : <em>string[]</em> |
+| public | <strong>getTimestamps()</strong> : <em>int[]</em> |
+| public | <strong>getType(</strong><em>bool</em> <strong>$prefix=false</strong>)</strong> : <em>string</em> |
+| public static | <strong>loadEntriesFromStorage(</strong><em>[\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)</em> <strong>$storage</strong>)</strong> : <em>array</em> |
+| public | <strong>orderBy(</strong><em>array</em> <strong>$orderings</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexIndex](#class-gravframeworkflexflexindex)/[\Grav\Framework\Flex\FlexCollection](#class-gravframeworkflexflexcollection)</em> |
+| public | <strong>search(</strong><em>\string</em> <strong>$search</strong>, <em>string/string[]/null</em> <strong>$properties=null</strong>, <em>array/null/array</em> <strong>$options=null</strong>)</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface)</em> |
+| public | <strong>serialize()</strong> : <em>string</em> |
+| public | <strong>unserialize(</strong><em>string</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
+| public | <strong>withKeyField(</strong><em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface)</em> |
+| protected | <strong>createFrom(</strong><em>array</em> <strong>$entries</strong>, <em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>\Grav\Framework\Flex\static</em> |
+| protected | <strong>getElementMeta(</strong><em>[\Grav\Framework\Flex\FlexObject](#class-gravframeworkflexflexobject)Interface</em> <strong>$object</strong>)</strong> : <em>mixed</em> |
+| protected static | <strong>getIndexFile(</strong><em>[\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)</em> <strong>$storage</strong>)</strong> : <em>mixed</em> |
+| protected | <strong>getIndexKeys()</strong> : <em>mixed</em> |
+| protected | <strong>getTypePrefix()</strong> : <em>string</em> |
+| protected | <strong>isAllowedElement(</strong><em>mixed</em> <strong>$value</strong>)</strong> : <em>bool</em> |
+| protected | <strong>loadCollection(</strong><em>array/null/array</em> <strong>$entries=null</strong>)</strong> : <em>[\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface)</em> |
+| protected | <strong>loadElement(</strong><em>string</em> <strong>$key</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>\Grav\Framework\Flex\ObjectInterface/null</em> |
+| protected | <strong>loadElements(</strong><em>array/null/array</em> <strong>$entries=null</strong>)</strong> : <em>[\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface)[]</em> |
+| protected static | <strong>loadEntriesFromIndex(</strong><em>[\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)</em> <strong>$storage</strong>)</strong> : <em>mixed</em> |
+| protected static | <strong>onChanges(</strong><em>array</em> <strong>$entries</strong>, <em>array</em> <strong>$added</strong>, <em>array</em> <strong>$updated</strong>, <em>array</em> <strong>$removed</strong>)</strong> : <em>void</em> |
+| protected static | <strong>onException(</strong><em>[\Exception](http://php.net/manual/en/class.exception.php)</em> <strong>$e</strong>)</strong> : <em>void</em> |
+| protected | <strong>setIndexKeys(</strong><em>array</em> <strong>$indexKeys</strong>)</strong> : <em>void</em> |
+| protected | <strong>setKeyField(</strong><em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>void</em> |
+| protected static | <strong>updateIndexData(</strong><em>mixed</em> <strong>$entry</strong>, <em>array</em> <strong>$data</strong>)</strong> : <em>void</em> |
+| protected static | <strong>updateIndexFile(</strong><em>[\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)</em> <strong>$storage</strong>, <em>array</em> <strong>$index</strong>, <em>array</em> <strong>$entries</strong>)</strong> : <em>array Compiled list of entries</em> |
+
+*This class extends [\Grav\Framework\Object\ObjectIndex](#class-gravframeworkobjectobjectindex-abstract)*
+
+*This class implements [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface), \Doctrine\Common\Collections\Selectable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \Serializable, [\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface), [\Grav\Framework\Collection\CollectionInterface](#interface-gravframeworkcollectioncollectioninterface), \JsonSerializable, \Countable, \IteratorAggregate, \Traversable, \ArrayAccess, \Doctrine\Common\Collections\Collection, [\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface), [\Grav\Framework\Flex\Interfaces\FlexIndexInterface](#interface-gravframeworkflexinterfacesflexindexinterface)*
+
+<hr /><a id="class-gravframeworkflexflexdirectory"></a>
+### Class: \Grav\Framework\Flex\FlexDirectory
+
+> Class FlexDirectory
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\string</em> <strong>$type</strong>, <em>\string</em> <strong>$blueprint_file</strong>, <em>array</em> <strong>$defaults=array()</strong>)</strong> : <em>void</em><br /><em>FlexDirectory constructor.</em> |
+| public | <strong>clearCache()</strong> : <em>\Grav\Framework\Flex\$this</em> |
+| public | <strong>createCollection(</strong><em>array</em> <strong>$entries</strong>, <em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface)</em> |
+| public | <strong>createIndex(</strong><em>array</em> <strong>$entries</strong>, <em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface)</em> |
+| public | <strong>createObject(</strong><em>array</em> <strong>$data</strong>, <em>\string</em> <strong>$key=`''`</strong>, <em>\boolean</em> <strong>$validate=false</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexObject](#class-gravframeworkflexflexobject)</em> |
+| public | <strong>getBlueprint(</strong><em>\string</em> <strong>$type=`''`</strong>, <em>\string</em> <strong>$context=`''`</strong>)</strong> : <em>[\Grav\Common\Data\Blueprint](#class-gravcommondatablueprint)</em> |
+| public | <strong>getBlueprintFile(</strong><em>\string</em> <strong>$view=`''`</strong>)</strong> : <em>string</em> |
+| public | <strong>getCache(</strong><em>\string</em> <strong>$namespace=null</strong>)</strong> : <em>[\Grav\Framework\Cache\CacheInterface](#interface-gravframeworkcachecacheinterface)</em> |
+| public | <strong>getCollection(</strong><em>array/null/array</em> <strong>$keys=null</strong>, <em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexIndex](#class-gravframeworkflexflexindex)/[\Grav\Framework\Flex\FlexCollection](#class-gravframeworkflexflexcollection)</em><br /><em>Get collection. In the site this will be filtered by the default filters (published etc). Use $directory->getIndex() if you want unfiltered collection.</em> |
+| public | <strong>getCollectionClass()</strong> : <em>string</em> |
+| public | <strong>getConfig(</strong><em>\string</em> <strong>$name=null</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getDescription()</strong> : <em>string</em> |
+| public | <strong>getIndex(</strong><em>array/null/array</em> <strong>$keys=null</strong>, <em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexIndex](#class-gravframeworkflexflexindex)/[\Grav\Framework\Flex\FlexCollection](#class-gravframeworkflexflexcollection)</em><br /><em>Get the full collection of all stored objects. Use $directory->getCollection() if you want a filtered collection.</em> |
+| public | <strong>getIndexClass()</strong> : <em>string</em> |
+| public | <strong>getMediaFolder(</strong><em>\string</em> <strong>$key=null</strong>)</strong> : <em>string</em> |
+| public | <strong>getObject(</strong><em>string</em> <strong>$key</strong>, <em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexObject](#class-gravframeworkflexflexobject)/null</em><br /><em>Returns an object if it exists. Note: It is not safe to use the object without checking if the user can access it.</em> |
+| public | <strong>getObjectClass()</strong> : <em>string</em> |
+| public | <strong>getStorage()</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)</em> |
+| public | <strong>getStorageFolder(</strong><em>\string</em> <strong>$key=null</strong>)</strong> : <em>string</em> |
+| public | <strong>getTitle()</strong> : <em>string</em> |
+| public | <strong>getType()</strong> : <em>string</em> |
+| public | <strong>isAuthorized(</strong><em>\string</em> <strong>$action</strong>, <em>\string</em> <strong>$scope=null</strong>, <em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em> <strong>$user=null</strong>)</strong> : <em>bool</em> |
+| public | <strong>isEnabled()</strong> : <em>bool</em> |
+| public | <strong>loadCollection(</strong><em>array</em> <strong>$entries</strong>, <em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface)</em> |
+| public | <strong>loadObjects(</strong><em>array</em> <strong>$entries</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexObject](#class-gravframeworkflexflexobject)[]</em> |
+| public | <strong>remove(</strong><em>\string</em> <strong>$key</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexObject](#class-gravframeworkflexflexobject)/null</em> |
+| public | <strong>update(</strong><em>array</em> <strong>$data</strong>, <em>\string</em> <strong>$key=null</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexObject](#class-gravframeworkflexflexobject)</em> |
+| protected | <strong>createStorage()</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)</em> |
+| protected | <strong>getBlueprintInternal(</strong><em>\string</em> <strong>$type_view=`''`</strong>, <em>\string</em> <strong>$context=`''`</strong>)</strong> : <em>[\Grav\Common\Data\Blueprint](#class-gravcommondatablueprint)</em> |
+| protected | <strong>isAuthorizedAction(</strong><em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em> <strong>$user</strong>, <em>\string</em> <strong>$action</strong>, <em>\string</em> <strong>$scope=null</strong>)</strong> : <em>bool</em> |
+| protected | <strong>isAuthorizedSuperAdmin(</strong><em>[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em> <strong>$user</strong>)</strong> : <em>bool</em> |
+| protected | <strong>loadIndex()</strong> : <em>[\Grav\Framework\Flex\FlexIndex](#class-gravframeworkflexflexindex)/[\Grav\Framework\Flex\FlexCollection](#class-gravframeworkflexflexcollection)</em> |
+| protected | <strong>setAuthorizeRule(</strong><em>\string</em> <strong>$authorize</strong>)</strong> : <em>void</em> |
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexAuthorizeInterface](#interface-gravframeworkflexinterfacesflexauthorizeinterface)*
+
+<hr /><a id="interface-gravframeworkflexinterfacesflexindexinterface"></a>
+### Interface: \Grav\Framework\Flex\Interfaces\FlexIndexInterface
+
+> Interface FlexCollectionInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public static | <strong>createFromStorage(</strong><em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$directory</strong>)</strong> : <em>\Grav\Framework\Flex\Interfaces\static</em> |
+| public static | <strong>loadEntriesFromStorage(</strong><em>[\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)</em> <strong>$storage</strong>)</strong> : <em>array</em> |
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface), [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface), [\Grav\Framework\Collection\CollectionInterface](#interface-gravframeworkcollectioncollectioninterface), \JsonSerializable, \Countable, \IteratorAggregate, \Traversable, \ArrayAccess, \Doctrine\Common\Collections\Collection, \Doctrine\Common\Collections\Selectable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \Serializable, [\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface)*
+
+<hr /><a id="interface-gravframeworkflexinterfacesflexobjectinterface"></a>
+### Interface: \Grav\Framework\Flex\Interfaces\FlexObjectInterface
+
+> Interface FlexObjectInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$elements</strong>, <em>string</em> <strong>$key</strong>, <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$type</strong>)</strong> : <em>void</em> |
+| public | <strong>exists()</strong> : <em>bool</em><br /><em>Returns true if the object exists in the storage.</em> |
+| public | <strong>getBlueprint(</strong><em>\string</em> <strong>$name=`''`</strong>)</strong> : <em>[\Grav\Common\Data\Blueprint](#class-gravcommondatablueprint)</em><br /><em>Returns the blueprint for the object.</em> |
+| public | <strong>getCacheChecksum()</strong> : <em>string</em><br /><em>Returns cache checksum for the object. If checksum changes, cache gets invalided.</em> |
+| public | <strong>getCacheKey()</strong> : <em>string</em><br /><em>Returns a cache key which is used for caching the object.</em> |
+| public | <strong>getFlexDirectory()</strong> : <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em><br /><em>Returns the directory where the object belongs into.</em> |
+| public | <strong>getFlexKey()</strong> : <em>string</em><br /><em>Returns a unique key for this object. NOTE: Please do not override the method!</em> |
+| public | <strong>getForm(</strong><em>\string</em> <strong>$name=`''`</strong>, <em>array/null/array</em> <strong>$form=null</strong>)</strong> : <em>[\Grav\Framework\Flex\FlexForm](#class-gravframeworkflexflexform)</em><br /><em>Returns a form instance for the object.</em> |
+| public | <strong>getStorageKey()</strong> : <em>string</em><br /><em>Returns a storage key which is used for figuring out the filename or database id.</em> |
+| public | <strong>getTimestamp()</strong> : <em>int</em><br /><em>Returns a last updated timestamp for the object.</em> |
+| public | <strong>render(</strong><em>string</em> <strong>$layout=null</strong>, <em>array</em> <strong>$context=array()</strong>)</strong> : <em>[\Grav\Framework\ContentBlock\HtmlBlock](#class-gravframeworkcontentblockhtmlblock)</em> |
+| public | <strong>search(</strong><em>\string</em> <strong>$search</strong>, <em>string/string[]/null</em> <strong>$properties=null</strong>, <em>array/null/array</em> <strong>$options=null</strong>)</strong> : <em>float Weight between 0...1</em><br /><em>Search object, returns weight between 0 and 1. Note: If you override this function, make sure you return value in range 0...1!</em> |
+| public | <strong>update(</strong><em>array</em> <strong>$data</strong>, <em>array</em> <strong>$files=array()</strong>)</strong> : <em>\Grav\Framework\Flex\Interfaces\$this</em> |
+| public | <strong>value(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>mixed</em><br /><em>Form field compatibility.</em> |
+
+*This class implements [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface), \Serializable, \JsonSerializable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \ArrayAccess*
+
+<hr /><a id="interface-gravframeworkflexinterfacesflexcollectioninterface"></a>
+### Interface: \Grav\Framework\Flex\Interfaces\FlexCollectionInterface
+
+> Interface FlexCollectionInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$elements</strong>, <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$type</strong>)</strong> : <em>void</em> |
+| public static | <strong>createFromArray(</strong><em>array</em> <strong>$entries</strong>, <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> <strong>$directory</strong>, <em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>\Grav\Framework\Flex\Interfaces\static</em> |
+| public | <strong>getFlexDirectory()</strong> : <em>[\Grav\Framework\Flex\FlexDirectory](#class-gravframeworkflexflexdirectory)</em> |
+| public | <strong>search(</strong><em>\string</em> <strong>$search</strong>, <em>string/string[]/null</em> <strong>$properties=null</strong>, <em>array/null/array</em> <strong>$options=null</strong>)</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface)</em> |
+| public | <strong>withKeyField(</strong><em>\string</em> <strong>$keyField=null</strong>)</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexCollectionInterface](#interface-gravframeworkflexinterfacesflexcollectioninterface)</em> |
+
+*This class implements [\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface), \Serializable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \Doctrine\Common\Collections\Selectable, \Doctrine\Common\Collections\Collection, \ArrayAccess, \Traversable, \IteratorAggregate, \Countable, \JsonSerializable, [\Grav\Framework\Collection\CollectionInterface](#interface-gravframeworkcollectioncollectioninterface), [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface)*
+
+<hr /><a id="interface-gravframeworkflexinterfacesflexauthorizeinterface"></a>
+### Interface: \Grav\Framework\Flex\Interfaces\FlexAuthorizeInterface
+
+> Interface FlexAuthorizeInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>isAuthorized(</strong><em>\string</em> <strong>$action</strong>, <em>\string</em> <strong>$scope=null</strong>, <em>\Grav\Framework\Flex\Interfaces\UserInterface/null/[\Grav\Common\User\Interfaces\UserInterface](#interface-gravcommonuserinterfacesuserinterface)</em> <strong>$user=null</strong>)</strong> : <em>bool</em> |
+
+<hr /><a id="interface-gravframeworkflexinterfacesflexstorageinterface"></a>
+### Interface: \Grav\Framework\Flex\Interfaces\FlexStorageInterface
+
+> Interface FlexStorageInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$options</strong>)</strong> : <em>void</em><br /><em>StorageInterface constructor.</em> |
+| public | <strong>createRows(</strong><em>array</em> <strong>$rows</strong>)</strong> : <em>array Returns created rows. Note that existing rows will fail to save and have null value.</em><br /><em>Create new rows. New keys will be assigned when the objects are created.</em> |
+| public | <strong>deleteRows(</strong><em>array</em> <strong>$rows</strong>)</strong> : <em>array Returns deleted rows. Note that non-existing rows have null value.</em><br /><em>Delete rows.</em> |
+| public | <strong>getExistingKeys()</strong> : <em>array</em><br /><em>Returns list of all stored keys in [key => timestamp] pairs.</em> |
+| public | <strong>getMediaPath(</strong><em>\string</em> <strong>$key=null</strong>)</strong> : <em>string</em><br /><em>Get filesystem path for the collection or object media.</em> |
+| public | <strong>getStoragePath(</strong><em>\string</em> <strong>$key=null</strong>)</strong> : <em>string</em><br /><em>Get filesystem path for the collection or object storage.</em> |
+| public | <strong>hasKey(</strong><em>\string</em> <strong>$key</strong>)</strong> : <em>bool</em><br /><em>Check if storage has a row for the key.</em> |
+| public | <strong>readRows(</strong><em>array</em> <strong>$rows</strong>, <em>array</em> <strong>$fetched=null</strong>)</strong> : <em>array Returns rows. Note that non-existing rows have null value.</em><br /><em>Read rows. If you pass object or array as value, that value will be used to save I/O.</em> |
+| public | <strong>renameRow(</strong><em>\string</em> <strong>$src</strong>, <em>\string</em> <strong>$dst</strong>)</strong> : <em>bool</em> |
+| public | <strong>replaceRows(</strong><em>array</em> <strong>$rows</strong>)</strong> : <em>array Returns both created and updated rows.</em><br /><em>Replace rows regardless if they exist or not. All rows should have a specified key for this to work.</em> |
+| public | <strong>updateRows(</strong><em>array</em> <strong>$rows</strong>)</strong> : <em>array Returns updated rows. Note that non-existing rows will fail to save and have null value.</em><br /><em>Update existing rows.</em> |
+
+<hr /><a id="interface-gravframeworkflexinterfacesflexforminterface"></a>
+### Interface: \Grav\Framework\Flex\Interfaces\FlexFormInterface
+
+> Class FlexForm
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>getFileDeleteAjaxRoute(</strong><em>string</em> <strong>$field</strong>, <em>string</em> <strong>$filename</strong>)</strong> : <em>\Grav\Framework\Flex\Interfaces\Route/null</em> |
+| public | <strong>getFileUploadAjaxRoute()</strong> : <em>\Grav\Framework\Flex\Interfaces\Route/null</em> |
+| public | <strong>getMediaRoute()</strong> : <em>string</em> |
+| public | <strong>getMediaTaskRoute()</strong> : <em>string</em> |
+| public | <strong>getObject()</strong> : <em>[\Grav\Framework\Flex\Interfaces\FlexObjectInterface](#interface-gravframeworkflexinterfacesflexobjectinterface)</em> |
+
+*This class implements \Serializable, [\Grav\Framework\Form\Interfaces\FormInterface](#interface-gravframeworkforminterfacesforminterface)*
+
+<hr /><a id="class-gravframeworkflexstorageabstractfilesystemstorage-abstract"></a>
+### Class: \Grav\Framework\Flex\Storage\AbstractFilesystemStorage (abstract)
+
+> Class AbstractFilesystemStorage
+
+| Visibility | Function |
+|:-----------|:---------|
+| protected | <strong>detectDataFormatter(</strong><em>\string</em> <strong>$filename</strong>)</strong> : <em>null/string</em> |
+| protected | <strong>generateKey()</strong> : <em>string</em><br /><em>Generates a random, unique key for the row.</em> |
+| protected | <strong>getFile(</strong><em>\string</em> <strong>$filename</strong>)</strong> : <em>\RocketTheme\Toolbox\File\File</em> |
+| protected | <strong>initDataFormatter(</strong><em>mixed</em> <strong>$formatter</strong>)</strong> : <em>void</em> |
+| protected | <strong>resolvePath(</strong><em>\string</em> <strong>$path</strong>)</strong> : <em>string</em> |
+| protected | <strong>validateKey(</strong><em>\string</em> <strong>$key</strong>)</strong> : <em>bool</em><br /><em>Checks if a key is valid.</em> |
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)*
+
+<hr /><a id="class-gravframeworkflexstoragefolderstorage"></a>
+### Class: \Grav\Framework\Flex\Storage\FolderStorage
+
+> Class FolderStorage
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$options</strong>)</strong> : <em>void</em> |
+| public | <strong>createRows(</strong><em>array</em> <strong>$rows</strong>)</strong> : <em>mixed</em> |
+| public | <strong>deleteRows(</strong><em>array</em> <strong>$rows</strong>)</strong> : <em>void</em> |
+| public | <strong>getExistingKeys()</strong> : <em>mixed</em> |
+| public | <strong>getMediaPath(</strong><em>\string</em> <strong>$key=null</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getPathFromKey(</strong><em>\string</em> <strong>$key</strong>)</strong> : <em>string</em><br /><em>Get filesystem path from the key.</em> |
+| public | <strong>getStoragePath(</strong><em>\string</em> <strong>$key=null</strong>)</strong> : <em>mixed</em> |
+| public | <strong>hasKey(</strong><em>\string</em> <strong>$key</strong>)</strong> : <em>bool</em> |
+| public | <strong>readRows(</strong><em>array</em> <strong>$rows</strong>, <em>mixed</em> <strong>$fetched=null</strong>)</strong> : <em>void</em> |
+| public | <strong>renameRow(</strong><em>\string</em> <strong>$src</strong>, <em>\string</em> <strong>$dst</strong>)</strong> : <em>void</em> |
+| public | <strong>replaceRows(</strong><em>array</em> <strong>$rows</strong>)</strong> : <em>void</em> |
+| public | <strong>updateRows(</strong><em>array</em> <strong>$rows</strong>)</strong> : <em>void</em> |
+| protected | <strong>buildIndex()</strong> : <em>array</em><br /><em>Returns list of all stored keys in [key => timestamp] pairs.</em> |
+| protected | <strong>buildIndexFromFilesystem(</strong><em>mixed</em> <strong>$path</strong>)</strong> : <em>void</em> |
+| protected | <strong>buildPrefixedIndexFromFilesystem(</strong><em>mixed</em> <strong>$path</strong>)</strong> : <em>void</em> |
+| protected | <strong>deleteFile(</strong><em>\RocketTheme\Toolbox\File\File</em> <strong>$file</strong>)</strong> : <em>array/string</em> |
+| protected | <strong>deleteFolder(</strong><em>\string</em> <strong>$path</strong>, <em>\boolean</em> <strong>$include_target=false</strong>)</strong> : <em>bool</em> |
+| protected | <strong>getKeyFromPath(</strong><em>\string</em> <strong>$path</strong>)</strong> : <em>string</em><br /><em>Get key from the filesystem path.</em> |
+| protected | <strong>getNewKey()</strong> : <em>string</em> |
+| protected | <strong>initOptions(</strong><em>array</em> <strong>$options</strong>)</strong> : <em>void</em> |
+| protected | <strong>loadFile(</strong><em>\RocketTheme\Toolbox\File\File</em> <strong>$file</strong>)</strong> : <em>array/null</em> |
+| protected | <strong>moveFolder(</strong><em>\string</em> <strong>$src</strong>, <em>\string</em> <strong>$dst</strong>)</strong> : <em>bool</em> |
+| protected | <strong>saveFile(</strong><em>\RocketTheme\Toolbox\File\File</em> <strong>$file</strong>, <em>array</em> <strong>$data</strong>)</strong> : <em>array</em> |
+
+*This class extends [\Grav\Framework\Flex\Storage\AbstractFilesystemStorage](#class-gravframeworkflexstorageabstractfilesystemstorage-abstract)*
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)*
+
+<hr /><a id="class-gravframeworkflexstoragefilestorage"></a>
+### Class: \Grav\Framework\Flex\Storage\FileStorage
+
+> Class FileStorage
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$options</strong>)</strong> : <em>void</em> |
+| public | <strong>getMediaPath(</strong><em>\string</em> <strong>$key=null</strong>)</strong> : <em>mixed</em> |
+| protected | <strong>buildIndex()</strong> : <em>void</em> |
+| protected | <strong>getKeyFromPath(</strong><em>\string</em> <strong>$path</strong>)</strong> : <em>mixed</em> |
+
+*This class extends [\Grav\Framework\Flex\Storage\FolderStorage](#class-gravframeworkflexstoragefolderstorage)*
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)*
+
+<hr /><a id="class-gravframeworkflexstoragesimplestorage"></a>
+### Class: \Grav\Framework\Flex\Storage\SimpleStorage
+
+> Class SimpleStorage
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$options</strong>)</strong> : <em>void</em> |
+| public | <strong>createRows(</strong><em>array</em> <strong>$rows</strong>)</strong> : <em>mixed</em> |
+| public | <strong>deleteRows(</strong><em>array</em> <strong>$rows</strong>)</strong> : <em>void</em> |
+| public | <strong>getExistingKeys()</strong> : <em>mixed</em> |
+| public | <strong>getMediaPath(</strong><em>\string</em> <strong>$key=null</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getStoragePath(</strong><em>\string</em> <strong>$key=null</strong>)</strong> : <em>mixed</em> |
+| public | <strong>hasKey(</strong><em>\string</em> <strong>$key</strong>)</strong> : <em>bool</em> |
+| public | <strong>readRows(</strong><em>array</em> <strong>$rows</strong>, <em>mixed</em> <strong>$fetched=null</strong>)</strong> : <em>void</em> |
+| public | <strong>renameRow(</strong><em>\string</em> <strong>$src</strong>, <em>\string</em> <strong>$dst</strong>)</strong> : <em>void</em> |
+| public | <strong>replaceRows(</strong><em>array</em> <strong>$rows</strong>)</strong> : <em>void</em> |
+| public | <strong>updateRows(</strong><em>array</em> <strong>$rows</strong>)</strong> : <em>void</em> |
+| protected | <strong>buildIndex()</strong> : <em>array</em><br /><em>Returns list of all stored keys in [key => timestamp] pairs.</em> |
+| protected | <strong>getKeyFromPath(</strong><em>\string</em> <strong>$path</strong>)</strong> : <em>string</em><br /><em>Get key from the filesystem path.</em> |
+| protected | <strong>getNewKey()</strong> : <em>string</em> |
+| protected | <strong>save()</strong> : <em>void</em> |
+
+*This class extends [\Grav\Framework\Flex\Storage\AbstractFilesystemStorage](#class-gravframeworkflexstorageabstractfilesystemstorage-abstract)*
+
+*This class implements [\Grav\Framework\Flex\Interfaces\FlexStorageInterface](#interface-gravframeworkflexinterfacesflexstorageinterface)*
+
+<hr /><a id="class-gravframeworkformformflash"></a>
+### Class: \Grav\Framework\Form\FormFlash
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\string</em> <strong>$sessionId</strong>, <em>\string</em> <strong>$uniqueId</strong>, <em>\string</em> <strong>$formName=null</strong>)</strong> : <em>void</em><br /><em>FormFlashObject constructor.</em> |
+| public | <strong>addFile(</strong><em>\string</em> <strong>$filename</strong>, <em>\string</em> <strong>$field</strong>, <em>array</em> <strong>$crop=null</strong>)</strong> : <em>bool</em><br /><em>Add existing file to the form flash.</em> |
+| public | <strong>addUploadedFile(</strong><em>\Psr\Http\Message\UploadedFileInterface</em> <strong>$upload</strong>, <em>\string</em> <strong>$field=null</strong>, <em>array/null/array</em> <strong>$crop=null</strong>)</strong> : <em>string Return name of the file</em><br /><em>Add uploaded file to the form flash.</em> |
+| public | <strong>clearFiles()</strong> : <em>void</em><br /><em>Clear form flash from all uploaded files.</em> |
+| public | <strong>delete()</strong> : <em>void</em> |
+| public | <strong>exists()</strong> : <em>bool</em> |
+| public | <strong>getData()</strong> : <em>mixed</em> |
+| public | <strong>getFilesByField(</strong><em>\string</em> <strong>$field</strong>)</strong> : <em>array</em> |
+| public | <strong>getFilesByFields(</strong><em>bool</em> <strong>$includeOriginal=false</strong>)</strong> : <em>array</em> |
+| public | <strong>getFormName()</strong> : <em>string</em> |
+| public static | <strong>getSessionTmpDir(</strong><em>\string</em> <strong>$sessionId</strong>)</strong> : <em>string</em> |
+| public | <strong>getTmpDir()</strong> : <em>string</em> |
+| public | <strong>getUniqieId()</strong> : <em>string</em> |
+| public | <strong>getUrl()</strong> : <em>string</em> |
+| public | <strong>getUserEmail()</strong> : <em>string</em> |
+| public | <strong>getUsername()</strong> : <em>string</em> |
+| public | <strong>jsonSerialize()</strong> : <em>array</em> |
+| public | <strong>removeFile(</strong><em>\string</em> <strong>$name</strong>, <em>\string</em> <strong>$field=null</strong>)</strong> : <em>bool</em><br /><em>Remove any file from form flash.</em> |
+| public | <strong>save()</strong> : <em>\Grav\Framework\Form\$this</em> |
+| public | <strong>setData(</strong><em>array</em> <strong>$data</strong>)</strong> : <em>void</em> |
+| public | <strong>setUrl(</strong><em>\string</em> <strong>$url</strong>)</strong> : <em>\Grav\Framework\Form\$this</em> |
+| public | <strong>setUserEmail(</strong><em>\string</em> <strong>$email=null</strong>)</strong> : <em>\Grav\Framework\Form\$this</em> |
+| public | <strong>setUserName(</strong><em>\string</em> <strong>$username=null</strong>)</strong> : <em>\Grav\Framework\Form\$this</em> |
+| protected | <strong>addFileInternal(</strong><em>\string</em> <strong>$field</strong>, <em>\string</em> <strong>$name</strong>, <em>array</em> <strong>$data</strong>, <em>array/null/array</em> <strong>$crop=null</strong>)</strong> : <em>void</em> |
+| protected | <strong>getTmpIndex()</strong> : <em>\RocketTheme\Toolbox\File\YamlFile</em> |
+| protected | <strong>removeTmpDir()</strong> : <em>void</em> |
+| protected | <strong>removeTmpFile(</strong><em>\string</em> <strong>$name</strong>)</strong> : <em>void</em> |
+
+*This class implements \JsonSerializable*
+
+<hr /><a id="class-gravframeworkformformflashfile"></a>
+### Class: \Grav\Framework\Form\FormFlashFile
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\string</em> <strong>$field</strong>, <em>array</em> <strong>$upload</strong>, <em>[\Grav\Framework\Form\FormFlash](#class-gravframeworkformformflash)</em> <strong>$flash</strong>)</strong> : <em>void</em> |
+| public | <strong>__debugInfo()</strong> : <em>void</em> |
+| public | <strong>getClientFilename()</strong> : <em>mixed</em> |
+| public | <strong>getClientMediaType()</strong> : <em>mixed</em> |
+| public | <strong>getDestination()</strong> : <em>mixed</em> |
+| public | <strong>getError()</strong> : <em>mixed</em> |
+| public | <strong>getMetaData()</strong> : <em>mixed</em> |
+| public | <strong>getSize()</strong> : <em>mixed</em> |
+| public | <strong>getStream()</strong> : <em>\Psr\Http\Message\StreamInterface</em> |
+| public | <strong>getTmpFile()</strong> : <em>mixed</em> |
+| public | <strong>isMoved()</strong> : <em>bool</em> |
+| public | <strong>jsonSerialize()</strong> : <em>void</em> |
+| public | <strong>moveTo(</strong><em>mixed</em> <strong>$targetPath</strong>)</strong> : <em>void</em> |
+
+*This class implements \Psr\Http\Message\UploadedFileInterface, \JsonSerializable*
+
+<hr /><a id="interface-gravframeworkforminterfacesformfactoryinterface"></a>
+### Interface: \Grav\Framework\Form\Interfaces\FormFactoryInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strike><strong>createPageForm(</strong><em>[\Grav\Common\Page\Page](#class-gravcommonpagepage)</em> <strong>$page</strong>, <em>\string</em> <strong>$name</strong>, <em>array</em> <strong>$form</strong>)</strong> : <em>[\Grav\Framework\Form\Interfaces\FormInterface](#interface-gravframeworkforminterfacesforminterface)/null</em></strike><br /><em>DEPRECATED - 1.6 Use FormFactory::createFormByPage() instead.</em> |
+
+<hr /><a id="interface-gravframeworkforminterfacesforminterface"></a>
+### Interface: \Grav\Framework\Form\Interfaces\FormInterface
+
+> Interface FormInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>getAction()</strong> : <em>string</em><br /><em>Get form action (URL). If action is empty, it points to the current page.</em> |
+| public | <strong>getBlueprint()</strong> : <em>[\Grav\Common\Data\Blueprint](#class-gravcommondatablueprint)</em><br /><em>Get blueprint used in the form.</em> |
+| public | <strong>getData()</strong> : <em>\Grav\Framework\Form\Interfaces\Data/object</em><br /><em>Get current data passed to the form.</em> |
+| public | <strong>getErrors()</strong> : <em>array</em> |
+| public | <strong>getFields()</strong> : <em>array</em><br /><em>Get form fields as an array. Note: Used in form fields.</em> |
+| public | <strong>getFiles()</strong> : <em>array/\Grav\Framework\Form\Interfaces\UploadedFileInterface[]</em><br /><em>Get files which were passed to the form.</em> |
+| public | <strong>getFormName()</strong> : <em>string</em><br /><em>Get form name.</em> |
+| public | <strong>getId()</strong> : <em>string</em><br /><em>Get HTML id="..." attribute.</em> |
+| public | <strong>getName()</strong> : <em>string</em> |
+| public | <strong>getNonce()</strong> : <em>string</em><br /><em>Get the nonce value for a form</em> |
+| public | <strong>getNonceAction()</strong> : <em>string</em><br /><em>Get nonce action.</em> |
+| public | <strong>getNonceName()</strong> : <em>string</em><br /><em>Get nonce name.</em> |
+| public | <strong>getUniqueId()</strong> : <em>string</em><br /><em>Get unique id for the current form instance. By default regenerated on every page reload. This id is used to load the saved form state, if available.</em> |
+| public | <strong>getValue(</strong><em>\string</em> <strong>$name</strong>)</strong> : <em>mixed</em><br /><em>Get a value from the form. Note: Used in form fields.</em> |
+| public | <strong>handleRequest(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>)</strong> : <em>\Grav\Framework\Form\Interfaces\$this</em> |
+| public | <strong>isSubmitted()</strong> : <em>bool</em> |
+| public | <strong>isValid()</strong> : <em>bool</em> |
+| public | <strong>reset()</strong> : <em>void</em><br /><em>Reset form.</em> |
+| public | <strong>setId(</strong><em>\string</em> <strong>$id</strong>)</strong> : <em>void</em><br /><em>Sets HTML id="" attribute.</em> |
+| public | <strong>setUniqueId(</strong><em>\string</em> <strong>$uniqueId</strong>)</strong> : <em>void</em><br /><em>Sets unique form id.</em> |
+| public | <strong>submit(</strong><em>array</em> <strong>$data</strong>, <em>\Grav\Framework\Form\Interfaces\UploadedFileInterface[]</em> <strong>$files=null</strong>)</strong> : <em>\Grav\Framework\Form\Interfaces\$this</em> |
+
+*This class implements \Serializable*
+
+<hr /><a id="interface-gravframeworkmediainterfacesmediacollectioninterface"></a>
+### Interface: \Grav\Framework\Media\Interfaces\MediaCollectionInterface
+
+> Class implements media collection interface.
+
+| Visibility | Function |
+|:-----------|:---------|
+
+<hr /><a id="interface-gravframeworkmediainterfacesmediamanipulationinterface"></a>
+### Interface: \Grav\Framework\Media\Interfaces\MediaManipulationInterface
+
+> Interface MediaManipulationInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>deleteMediaFile(</strong><em>\string</em> <strong>$filename</strong>)</strong> : <em>void</em> |
+| public | <strong>uploadMediaFile(</strong><em>\Psr\Http\Message\UploadedFileInterface</em> <strong>$uploadedFile</strong>)</strong> : <em>void</em> |
+
+*This class implements [\Grav\Common\Media\Interfaces\MediaInterface](#interface-gravcommonmediainterfacesmediainterface), [\Grav\Framework\Media\Interfaces\MediaInterface](#interface-gravframeworkmediainterfacesmediainterface)*
+
+<hr /><a id="interface-gravframeworkmediainterfacesmediaobjectinterface"></a>
+### Interface: \Grav\Framework\Media\Interfaces\MediaObjectInterface
+
+> Class implements media object interface.
+
+| Visibility | Function |
+|:-----------|:---------|
+
+<hr /><a id="interface-gravframeworkmediainterfacesmediainterface"></a>
+### Interface: \Grav\Framework\Media\Interfaces\MediaInterface
+
+> Class implements media interface.
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>getMedia()</strong> : <em>MediaCollectionInterface Collection of associated media.</em><br /><em>Gets the associated media collection.</em> |
+| public | <strong>getMediaFolder()</strong> : <em>string/null Media path or null if the object doesn't have media folder.</em><br /><em>Get filesystem path to the associated media.</em> |
+| public | <strong>getMediaOrder()</strong> : <em>array Empty array means default ordering.</em><br /><em>Get display order for the associated media.</em> |
 
 <hr /><a id="class-gravframeworkobjectobjectcollection"></a>
 ### Class: \Grav\Framework\Object\ObjectCollection
 
-> Object Collection
+> Class contains a collection of objects.
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -3679,14 +5614,17 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>getProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed Property value.</em> |
 | public | <strong>getType(</strong><em>bool</em> <strong>$prefix=true</strong>)</strong> : <em>string</em> |
 | public | <strong>group(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>array</em><br /><em>Group items in the collection by a field.</em> |
+| public | <strong>hasKey()</strong> : <em>bool</em> |
 | public | <strong>hasNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>array Key/Value pairs of the properties.</em> |
 | public | <strong>hasProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
 | public | <strong>jsonSerialize()</strong> : <em>array</em><br /><em>Implements JsonSerializable interface.</em> |
+| public | <strong>limit(</strong><em>int</em> <strong>$start</strong>, <em>int/null</em> <strong>$limit=null</strong>)</strong> : <em>\Grav\Framework\Object\static</em> |
 | public | <strong>matching(</strong><em>\Doctrine\Common\Collections\Criteria</em> <strong>$criteria</strong>)</strong> : <em>void</em> |
+| public | <strong>orderBy(</strong><em>array</em> <strong>$ordering</strong>)</strong> : <em>\Grav\Framework\Object\static</em> |
 | public | <strong>serialize()</strong> : <em>string</em><br /><em>Implements Serializable interface.</em> |
 | public | <strong>setKey(</strong><em>string</em> <strong>$key</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>setNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$value</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
-| public | <strong>setProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$value</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
+| public | <strong>setProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>unserialize(</strong><em>string</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
 | public | <strong>unsetNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>unsetProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
@@ -3703,7 +5641,7 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 <hr /><a id="class-gravframeworkobjectlazyobject"></a>
 ### Class: \Grav\Framework\Object\LazyObject
 
-> Lazy Object class.
+> Lazy Objects keep their data in both protected object properties and falls back to a stored array if property does not exist or is not initialized.
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -3713,12 +5651,13 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>__set(</strong><em>mixed</em> <strong>$offset</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Assigns a value to the specified offset.</em> |
 | public | <strong>__toString()</strong> : <em>string</em><br /><em>Returns a string representation of this object.</em> |
 | public | <strong>__unset(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>void</em><br /><em>Magic method to unset the attribute</em> |
-| public | <strong>defNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$default</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
+| public | <strong>defNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>defProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>getKey()</strong> : <em>string</em> |
 | public | <strong>getNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>mixed Property value.</em> |
 | public | <strong>getProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed Property value.</em> |
 | public | <strong>getType(</strong><em>bool</em> <strong>$prefix=true</strong>)</strong> : <em>string</em> |
+| public | <strong>hasKey()</strong> : <em>bool</em> |
 | public | <strong>hasNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
 | public | <strong>hasProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
 | public | <strong>jsonSerialize()</strong> : <em>array</em><br /><em>Implements JsonSerializable interface.</em> |
@@ -3728,7 +5667,7 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>offsetUnset(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>void</em><br /><em>Unsets an offset.</em> |
 | public | <strong>serialize()</strong> : <em>string</em><br /><em>Implements Serializable interface.</em> |
 | public | <strong>setNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$value</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
-| public | <strong>setProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$value</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
+| public | <strong>setProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>unserialize(</strong><em>string</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
 | public | <strong>unsetNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>unsetProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
@@ -3751,10 +5690,44 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 
 *This class implements [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface), \Serializable, \JsonSerializable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \ArrayAccess*
 
+<hr /><a id="class-gravframeworkobjectobjectindex-abstract"></a>
+### Class: \Grav\Framework\Object\ObjectIndex (abstract)
+
+> Keeps index of objects instead of collection of objects. This class allows you to keep a list of objects and load them on demand. The class can be used seemingly instead of ObjectCollection when the objects haven't been loaded yet. This is an abstract class and has some protected abstract methods to load objects which you need to implement in order to use the class.
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>abstract __call(</strong><em>mixed</em> <strong>$name</strong>, <em>mixed</em> <strong>$arguments</strong>)</strong> : <em>void</em> |
+| public | <strong>call(</strong><em>mixed</em> <strong>$method</strong>, <em>array</em> <strong>$arguments=array()</strong>)</strong> : <em>void</em> |
+| public | <strong>collectionGroup(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>[\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface)[]</em><br /><em>Group items in the collection by a field and return them as associated array of collections.</em> |
+| public | <strong>copy()</strong> : <em>\Grav\Framework\Object\static</em><br /><em>Create a copy from this collection by cloning all objects in the collection.</em> |
+| public | <strong>defNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>[\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface)</em> |
+| public | <strong>defProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default</strong>)</strong> : <em>[\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface)</em> |
+| public | <strong>getKey()</strong> : <em>string</em> |
+| public | <strong>getNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>mixed Property value.</em> |
+| public | <strong>getObjectKeys()</strong> : <em>array</em> |
+| public | <strong>getProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed Property value.</em> |
+| public | <strong>getType(</strong><em>bool</em> <strong>$prefix=true</strong>)</strong> : <em>string</em> |
+| public | <strong>group(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>array</em><br /><em>Group items in the collection by a field and return them as associated array.</em> |
+| public | <strong>hasNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
+| public | <strong>hasProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
+| public | <strong>matching(</strong><em>\Doctrine\Common\Collections\Criteria</em> <strong>$criteria</strong>)</strong> : <em>void</em> |
+| public | <strong>orderBy(</strong><em>array</em> <strong>$ordering</strong>)</strong> : <em>[\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface)</em> |
+| public | <strong>setKey(</strong><em>string</em> <strong>$key</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
+| public | <strong>setNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$value</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>[\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface)</em> |
+| public | <strong>setProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$value</strong>)</strong> : <em>[\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface)</em> |
+| public | <strong>unsetNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$separator=null</strong>)</strong> : <em>[\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface)</em> |
+| public | <strong>unsetProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>[\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface)</em> |
+| protected | <strong>getTypePrefix()</strong> : <em>string</em> |
+
+*This class extends [\Grav\Framework\Collection\AbstractIndexCollection](#class-gravframeworkcollectionabstractindexcollection-abstract)*
+
+*This class implements \Doctrine\Common\Collections\Collection, \ArrayAccess, \Traversable, \IteratorAggregate, \Countable, \JsonSerializable, [\Grav\Framework\Collection\CollectionInterface](#interface-gravframeworkcollectioncollectioninterface), [\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface), \Serializable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \Doctrine\Common\Collections\Selectable, [\Grav\Framework\Object\Interfaces\NestedObjectInterface](#interface-gravframeworkobjectinterfacesnestedobjectinterface)*
+
 <hr /><a id="class-gravframeworkobjectarrayobject"></a>
 ### Class: \Grav\Framework\Object\ArrayObject
 
-> Array Object class.
+> Array Objects keep the data in private array property.
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -3764,12 +5737,13 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>__set(</strong><em>mixed</em> <strong>$offset</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Assigns a value to the specified offset.</em> |
 | public | <strong>__toString()</strong> : <em>string</em><br /><em>Returns a string representation of this object.</em> |
 | public | <strong>__unset(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>void</em><br /><em>Magic method to unset the attribute</em> |
-| public | <strong>defNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$default</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
+| public | <strong>defNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>defProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>getKey()</strong> : <em>string</em> |
 | public | <strong>getNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>mixed Property value.</em> |
 | public | <strong>getProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed Property value.</em> |
 | public | <strong>getType(</strong><em>bool</em> <strong>$prefix=true</strong>)</strong> : <em>string</em> |
+| public | <strong>hasKey()</strong> : <em>bool</em> |
 | public | <strong>hasNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
 | public | <strong>hasProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
 | public | <strong>jsonSerialize()</strong> : <em>array</em><br /><em>Implements JsonSerializable interface.</em> |
@@ -3779,7 +5753,7 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>offsetUnset(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>void</em><br /><em>Unsets an offset.</em> |
 | public | <strong>serialize()</strong> : <em>string</em><br /><em>Implements Serializable interface.</em> |
 | public | <strong>setNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$value</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
-| public | <strong>setProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$value</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
+| public | <strong>setProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>unserialize(</strong><em>string</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
 | public | <strong>unsetNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>unsetProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
@@ -3800,7 +5774,7 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 <hr /><a id="class-gravframeworkobjectpropertyobject"></a>
 ### Class: \Grav\Framework\Object\PropertyObject
 
-> Property Object class.
+> Property Objects keep their data in protected object properties.
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -3810,12 +5784,13 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>__set(</strong><em>mixed</em> <strong>$offset</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Assigns a value to the specified offset.</em> |
 | public | <strong>__toString()</strong> : <em>string</em><br /><em>Returns a string representation of this object.</em> |
 | public | <strong>__unset(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>void</em><br /><em>Magic method to unset the attribute</em> |
-| public | <strong>defNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$default</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
+| public | <strong>defNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>defProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>getKey()</strong> : <em>string</em> |
 | public | <strong>getNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>mixed Property value.</em> |
 | public | <strong>getProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed Property value.</em> |
 | public | <strong>getType(</strong><em>bool</em> <strong>$prefix=true</strong>)</strong> : <em>string</em> |
+| public | <strong>hasKey()</strong> : <em>bool</em> |
 | public | <strong>hasNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
 | public | <strong>hasProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>bool True if property has been defined (can be null).</em> |
 | public | <strong>jsonSerialize()</strong> : <em>array</em><br /><em>Implements JsonSerializable interface.</em> |
@@ -3825,7 +5800,7 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>offsetUnset(</strong><em>mixed</em> <strong>$offset</strong>)</strong> : <em>void</em><br /><em>Unsets an offset.</em> |
 | public | <strong>serialize()</strong> : <em>string</em><br /><em>Implements Serializable interface.</em> |
 | public | <strong>setNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$value</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
-| public | <strong>setProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$value</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
+| public | <strong>setProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>unserialize(</strong><em>string</em> <strong>$serialized</strong>)</strong> : <em>void</em> |
 | public | <strong>unsetNestedProperty(</strong><em>string</em> <strong>$property</strong>, <em>string</em> <strong>$separator=null</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
 | public | <strong>unsetProperty(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>\Grav\Framework\Object\$this</em> |
@@ -3893,6 +5868,8 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>getObjectKeys()</strong> : <em>array</em> |
 | public | <strong>getProperty(</strong><em>string</em> <strong>$property</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>array Property value.</em> |
 | public | <strong>group(</strong><em>string</em> <strong>$property</strong>)</strong> : <em>array</em><br /><em>Group items in the collection by a field and return them as associated array.</em> |
+| public | <strong>limit(</strong><em>int</em> <strong>$start</strong>, <em>int/null</em> <strong>$limit=null</strong>)</strong> : <em>[\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface)</em> |
+| public | <strong>orderBy(</strong><em>array</em> <strong>$ordering</strong>)</strong> : <em>[\Grav\Framework\Object\Interfaces\ObjectCollectionInterface](#interface-gravframeworkobjectinterfacesobjectcollectioninterface)</em> |
 | public | <strong>setKey(</strong><em>string</em> <strong>$key</strong>)</strong> : <em>\Grav\Framework\Object\Interfaces\$this</em> |
 
 *This class implements [\Grav\Framework\Collection\CollectionInterface](#interface-gravframeworkcollectioncollectioninterface), \JsonSerializable, \Countable, \IteratorAggregate, \Traversable, \ArrayAccess, \Doctrine\Common\Collections\Collection, \Doctrine\Common\Collections\Selectable, [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \Serializable*
@@ -3966,6 +5943,113 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 
 *This class implements \RocketTheme\Toolbox\ArrayTraits\ExportInterface*
 
+<hr /><a id="class-gravframeworkpaginationpagination"></a>
+### Class: \Grav\Framework\Pagination\Pagination
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>[\Grav\Framework\Route\Route](#class-gravframeworkrouteroute)</em> <strong>$route</strong>, <em>\integer</em> <strong>$total</strong>, <em>\integer</em> <strong>$pos=null</strong>, <em>\integer</em> <strong>$limit=null</strong>, <em>array</em> <strong>$options=null</strong>)</strong> : <em>void</em> |
+
+*This class extends [\Grav\Framework\Pagination\AbstractPagination](#class-gravframeworkpaginationabstractpagination)*
+
+*This class implements \Countable, \IteratorAggregate, \Traversable, [\Grav\Framework\Pagination\Interfaces\PaginationInterface](#interface-gravframeworkpaginationinterfacespaginationinterface)*
+
+<hr /><a id="class-gravframeworkpaginationabstractpagination"></a>
+### Class: \Grav\Framework\Pagination\AbstractPagination
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>count()</strong> : <em>void</em> |
+| public | <strong>getFirstPage(</strong><em>\string</em> <strong>$label=null</strong>, <em>\integer</em> <strong>$count</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getIterator()</strong> : <em>mixed</em> |
+| public | <strong>getLastPage(</strong><em>\string</em> <strong>$label=null</strong>, <em>\integer</em> <strong>$count</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getLimit()</strong> : <em>mixed</em> |
+| public | <strong>getNextNumber(</strong><em>\integer</em> <strong>$count=1</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getNextPage(</strong><em>\string</em> <strong>$label=null</strong>, <em>\integer</em> <strong>$count=1</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getOptions()</strong> : <em>mixed</em> |
+| public | <strong>getPage(</strong><em>\integer</em> <strong>$page</strong>, <em>\string</em> <strong>$label=null</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getPageNumber()</strong> : <em>mixed</em> |
+| public | <strong>getPages()</strong> : <em>mixed</em> |
+| public | <strong>getPrevNumber(</strong><em>\integer</em> <strong>$count=1</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getPrevPage(</strong><em>\string</em> <strong>$label=null</strong>, <em>\integer</em> <strong>$count=1</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getRoute()</strong> : <em>mixed</em> |
+| public | <strong>getStart()</strong> : <em>mixed</em> |
+| public | <strong>getTotal()</strong> : <em>mixed</em> |
+| public | <strong>getTotalPages()</strong> : <em>mixed</em> |
+| public | <strong>isEnabled()</strong> : <em>bool</em> |
+| protected | <strong>calculateLimits()</strong> : <em>void</em> |
+| protected | <strong>calculateRange()</strong> : <em>void</em> |
+| protected | <strong>initialize(</strong><em>[\Grav\Framework\Route\Route](#class-gravframeworkrouteroute)</em> <strong>$route</strong>, <em>\integer</em> <strong>$total</strong>, <em>\integer</em> <strong>$pos=null</strong>, <em>\integer</em> <strong>$limit=null</strong>, <em>array</em> <strong>$options=null</strong>)</strong> : <em>void</em> |
+| protected | <strong>loadItems()</strong> : <em>mixed</em> |
+| protected | <strong>setLimit(</strong><em>\integer</em> <strong>$limit=null</strong>)</strong> : <em>\Grav\Framework\Pagination\$this</em> |
+| protected | <strong>setOptions(</strong><em>array</em> <strong>$options=null</strong>)</strong> : <em>void</em> |
+| protected | <strong>setPage(</strong><em>\integer</em> <strong>$page=null</strong>)</strong> : <em>void</em> |
+| protected | <strong>setRoute(</strong><em>[\Grav\Framework\Route\Route](#class-gravframeworkrouteroute)</em> <strong>$route</strong>)</strong> : <em>void</em> |
+| protected | <strong>setStart(</strong><em>\integer</em> <strong>$start=null</strong>)</strong> : <em>\Grav\Framework\Pagination\$this</em> |
+| protected | <strong>setTotal(</strong><em>int/\integer</em> <strong>$total</strong>)</strong> : <em>\Grav\Framework\Pagination\$this</em> |
+
+*This class implements [\Grav\Framework\Pagination\Interfaces\PaginationInterface](#interface-gravframeworkpaginationinterfacespaginationinterface), \Traversable, \IteratorAggregate, \Countable*
+
+<hr /><a id="class-gravframeworkpaginationabstractpaginationpage-abstract"></a>
+### Class: \Grav\Framework\Pagination\AbstractPaginationPage (abstract)
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>getLabel()</strong> : <em>mixed</em> |
+| public | <strong>getNumber()</strong> : <em>mixed</em> |
+| public | <strong>getOptions()</strong> : <em>mixed</em> |
+| public | <strong>getUrl()</strong> : <em>mixed</em> |
+| public | <strong>isActive()</strong> : <em>bool</em> |
+| public | <strong>isEnabled()</strong> : <em>bool</em> |
+| protected | <strong>setOptions(</strong><em>array</em> <strong>$options</strong>)</strong> : <em>void</em> |
+
+*This class implements [\Grav\Framework\Pagination\Interfaces\PaginationPageInterface](#interface-gravframeworkpaginationinterfacespaginationpageinterface)*
+
+<hr /><a id="class-gravframeworkpaginationpaginationpage"></a>
+### Class: \Grav\Framework\Pagination\PaginationPage
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$options=array()</strong>)</strong> : <em>void</em> |
+
+*This class extends [\Grav\Framework\Pagination\AbstractPaginationPage](#class-gravframeworkpaginationabstractpaginationpage-abstract)*
+
+*This class implements [\Grav\Framework\Pagination\Interfaces\PaginationPageInterface](#interface-gravframeworkpaginationinterfacespaginationpageinterface)*
+
+<hr /><a id="interface-gravframeworkpaginationinterfacespaginationinterface"></a>
+### Interface: \Grav\Framework\Pagination\Interfaces\PaginationInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>count()</strong> : <em>void</em> |
+| public | <strong>getFirstPage(</strong><em>\string</em> <strong>$label=null</strong>, <em>\integer</em> <strong>$count</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getLastPage(</strong><em>\string</em> <strong>$label=null</strong>, <em>\integer</em> <strong>$count</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getLimit()</strong> : <em>mixed</em> |
+| public | <strong>getNextNumber(</strong><em>\integer</em> <strong>$count=1</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getNextPage(</strong><em>\string</em> <strong>$label=null</strong>, <em>\integer</em> <strong>$count=1</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getOptions()</strong> : <em>mixed</em> |
+| public | <strong>getPage(</strong><em>\integer</em> <strong>$page</strong>, <em>\string</em> <strong>$label=null</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getPageNumber()</strong> : <em>mixed</em> |
+| public | <strong>getPrevNumber(</strong><em>\integer</em> <strong>$count=1</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getPrevPage(</strong><em>\string</em> <strong>$label=null</strong>, <em>\integer</em> <strong>$count=1</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getStart()</strong> : <em>mixed</em> |
+| public | <strong>getTotal()</strong> : <em>mixed</em> |
+| public | <strong>getTotalPages()</strong> : <em>mixed</em> |
+
+*This class implements \Countable, \IteratorAggregate, \Traversable*
+
+<hr /><a id="interface-gravframeworkpaginationinterfacespaginationpageinterface"></a>
+### Interface: \Grav\Framework\Pagination\Interfaces\PaginationPageInterface
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>getLabel()</strong> : <em>mixed</em> |
+| public | <strong>getNumber()</strong> : <em>mixed</em> |
+| public | <strong>getOptions()</strong> : <em>mixed</em> |
+| public | <strong>getUrl()</strong> : <em>mixed</em> |
+| public | <strong>isActive()</strong> : <em>bool</em> |
+| public | <strong>isEnabled()</strong> : <em>bool</em> |
+
 <hr /><a id="class-gravframeworkpluginplugincollection"></a>
 ### Class: \Grav\Framework\Plugin\PluginCollection
 
@@ -4019,10 +6103,147 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 
 *This class implements [\Grav\Framework\Object\Interfaces\ObjectInterface](#interface-gravframeworkobjectinterfacesobjectinterface), \JsonSerializable, \Serializable*
 
-<hr /><a id="class-gravframeworkpsr7abstracturi-abstract"></a>
-### Class: \Grav\Framework\Psr7\AbstractUri (abstract)
+<hr /><a id="class-gravframeworkpsr7stream"></a>
+### Class: \Grav\Framework\Psr7\Stream
 
-> Bare minimum PSR7 implementation.
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>string</em> <strong>$body=`''`</strong>)</strong> : <em>void</em> |
+| public | <strong>__destruct()</strong> : <em>void</em> |
+| public | <strong>__toString()</strong> : <em>void</em> |
+| public | <strong>close()</strong> : <em>void</em> |
+| public | <strong>detach()</strong> : <em>void</em> |
+| public | <strong>eof()</strong> : <em>void</em> |
+| public | <strong>getContents()</strong> : <em>mixed</em> |
+| public | <strong>getMetadata(</strong><em>mixed</em> <strong>$key=null</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getSize()</strong> : <em>mixed</em> |
+| public | <strong>isReadable()</strong> : <em>bool</em> |
+| public | <strong>isSeekable()</strong> : <em>bool</em> |
+| public | <strong>isWritable()</strong> : <em>bool</em> |
+| public | <strong>read(</strong><em>mixed</em> <strong>$length</strong>)</strong> : <em>void</em> |
+| public | <strong>rewind()</strong> : <em>void</em> |
+| public | <strong>seek(</strong><em>mixed</em> <strong>$offset</strong>, <em>mixed</em> <strong>$whence</strong>)</strong> : <em>void</em> |
+| public | <strong>tell()</strong> : <em>void</em> |
+| public | <strong>write(</strong><em>mixed</em> <strong>$string</strong>)</strong> : <em>void</em> |
+
+*This class implements \Psr\Http\Message\StreamInterface*
+
+<hr /><a id="class-gravframeworkpsr7uri"></a>
+### Class: \Grav\Framework\Psr7\Uri
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\string</em> <strong>$uri=`''`</strong>)</strong> : <em>void</em> |
+| public | <strong>__toString()</strong> : <em>void</em> |
+| public | <strong>getAuthority()</strong> : <em>mixed</em> |
+| public | <strong>getFragment()</strong> : <em>mixed</em> |
+| public | <strong>getHost()</strong> : <em>mixed</em> |
+| public | <strong>getPath()</strong> : <em>mixed</em> |
+| public | <strong>getPort()</strong> : <em>mixed</em> |
+| public | <strong>getQuery()</strong> : <em>mixed</em> |
+| public | <strong>getQueryParams()</strong> : <em>array</em> |
+| public | <strong>getScheme()</strong> : <em>mixed</em> |
+| public | <strong>getUserInfo()</strong> : <em>mixed</em> |
+| public | <strong>isAbsolute()</strong> : <em>bool</em><br /><em>Whether the URI is absolute, i.e. it has a scheme. An instance of UriInterface can either be an absolute URI or a relative reference. This method returns true if it is the former. An absolute URI has a scheme. A relative reference is used to express a URI relative to another URI, the base URI. Relative references can be divided into several forms: - network-path references, e.g. '//example.com/path' - absolute-path references, e.g. '/path' - relative-path references, e.g. 'subpath'</em> |
+| public | <strong>isAbsolutePathReference()</strong> : <em>bool</em><br /><em>Whether the URI is a absolute-path reference. A relative reference that begins with a single slash character is termed an absolute-path reference.</em> |
+| public | <strong>isDefaultPort()</strong> : <em>bool</em><br /><em>Whether the URI has the default port of the current scheme. `$uri->getPort()` may return the standard port. This method can be used for some non-http/https Uri.</em> |
+| public | <strong>isNetworkPathReference()</strong> : <em>bool</em><br /><em>Whether the URI is a network-path reference. A relative reference that begins with two slash characters is termed an network-path reference.</em> |
+| public | <strong>isRelativePathReference()</strong> : <em>bool</em><br /><em>Whether the URI is a relative-path reference. A relative reference that does not begin with a slash character is termed a relative-path reference.</em> |
+| public | <strong>isSameDocumentReference(</strong><em>[\Grav\Framework\Psr7\Uri](#class-gravframeworkpsr7uri)Interface/null/\Psr\Http\Message\UriInterface</em> <strong>$base=null</strong>)</strong> : <em>bool</em><br /><em>Whether the URI is a same-document reference. A same-document reference refers to a URI that is, aside from its fragment component, identical to the base URI. When no base URI is given, only an empty URI reference (apart from its fragment) is considered a same-document reference.</em> |
+| public | <strong>withFragment(</strong><em>mixed</em> <strong>$fragment</strong>)</strong> : <em>void</em> |
+| public | <strong>withHost(</strong><em>mixed</em> <strong>$host</strong>)</strong> : <em>void</em> |
+| public | <strong>withPath(</strong><em>mixed</em> <strong>$path</strong>)</strong> : <em>void</em> |
+| public | <strong>withPort(</strong><em>mixed</em> <strong>$port</strong>)</strong> : <em>void</em> |
+| public | <strong>withQuery(</strong><em>mixed</em> <strong>$query</strong>)</strong> : <em>void</em> |
+| public | <strong>withQueryParams(</strong><em>array</em> <strong>$params</strong>)</strong> : <em>\Psr\Http\Message\UriInterface</em> |
+| public | <strong>withScheme(</strong><em>mixed</em> <strong>$scheme</strong>)</strong> : <em>void</em> |
+| public | <strong>withUserInfo(</strong><em>mixed</em> <strong>$user</strong>, <em>mixed</em> <strong>$password=null</strong>)</strong> : <em>void</em> |
+
+*This class implements \Psr\Http\Message\UriInterface*
+
+<hr /><a id="class-gravframeworkpsr7uploadedfile"></a>
+### Class: \Grav\Framework\Psr7\UploadedFile
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>[\Grav\Framework\Psr7\Stream](#class-gravframeworkpsr7stream)Interface/string/\Grav\Framework\Psr7\resource</em> <strong>$streamOrFile</strong>, <em>int</em> <strong>$size</strong>, <em>int</em> <strong>$errorStatus</strong>, <em>string/null</em> <strong>$clientFilename=null</strong>, <em>string/null</em> <strong>$clientMediaType=null</strong>)</strong> : <em>void</em> |
+| public | <strong>getClientFilename()</strong> : <em>mixed</em> |
+| public | <strong>getClientMediaType()</strong> : <em>mixed</em> |
+| public | <strong>getError()</strong> : <em>mixed</em> |
+| public | <strong>getSize()</strong> : <em>mixed</em> |
+| public | <strong>getStream()</strong> : <em>mixed</em> |
+| public | <strong>moveTo(</strong><em>mixed</em> <strong>$targetPath</strong>)</strong> : <em>void</em> |
+
+*This class implements \Psr\Http\Message\UploadedFileInterface*
+
+<hr /><a id="class-gravframeworkpsr7serverrequest"></a>
+### Class: \Grav\Framework\Psr7\ServerRequest
+
+> Class ServerRequest
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\string</em> <strong>$method</strong>, <em>string/[\Grav\Framework\Psr7\Uri](#class-gravframeworkpsr7uri)Interface</em> <strong>$uri</strong>, <em>array</em> <strong>$headers=array()</strong>, <em>string/null/\Grav\Framework\Psr7\resource/[\Grav\Framework\Psr7\Stream](#class-gravframeworkpsr7stream)Interface</em> <strong>$body=null</strong>, <em>\string</em> <strong>$version=`'1.1'`</strong>, <em>array</em> <strong>$serverParams=array()</strong>)</strong> : <em>void</em> |
+| public | <strong>getAttribute(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed</em><br /><em>Retrieve a single derived request attribute. Retrieves a single derived request attribute as described in getAttributes(). If the attribute has not been previously set, returns the default value as provided. This method obviates the need for a hasAttribute() method, as it allows specifying a default value to return if the attribute is not found.</em> |
+| public | <strong>getAttributes()</strong> : <em>array Attributes derived from the request.</em><br /><em>Retrieve attributes derived from the request. The request "attributes" may be used to allow injection of any parameters derived from the request: e.g., the results of path match operations; the results of decrypting cookies; the results of deserializing non-form-encoded message bodies; etc. Attributes will be application and request specific, and CAN be mutable.</em> |
+| public | <strong>getBody()</strong> : <em>mixed</em> |
+| public | <strong>getContentCharset()</strong> : <em>string/null</em><br /><em>Get serverRequest content character set, if known. Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>getContentLength()</strong> : <em>int/null</em><br /><em>Get serverRequest content length, if known. Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>getContentType()</strong> : <em>string/null The serverRequest content type, if known</em><br /><em>Get serverRequest content type. Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>getCookieParam(</strong><em>string</em> <strong>$key</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed</em><br /><em>Fetch cookie value from cookies sent by the client to the server. Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>getCookieParams()</strong> : <em>array</em><br /><em>Retrieve cookies. Retrieves cookies sent by the client to the server. The data MUST be compatible with the structure of the $_COOKIE superglobal.</em> |
+| public | <strong>getHeader(</strong><em>mixed</em> <strong>$header</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getHeaderLine(</strong><em>mixed</em> <strong>$header</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getHeaders()</strong> : <em>mixed</em> |
+| public | <strong>getMediaType()</strong> : <em>string/null The serverRequest media type, minus content-type params</em><br /><em>Get serverRequest media type, if known. Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>getMediaTypeParams()</strong> : <em>mixed[]</em><br /><em>Get serverRequest media type params, if known. Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>getMethod()</strong> : <em>mixed</em> |
+| public | <strong>getParam(</strong><em>string</em> <strong>$key</strong>, <em>string</em> <strong>$default=null</strong>)</strong> : <em>mixed The parameter value.</em><br /><em>Fetch serverRequest parameter value from body or query string (in that order). Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>getParams()</strong> : <em>mixed[]</em><br /><em>Fetch associative array of body and query string parameters. Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>getParsedBody()</strong> : <em>null/array/object The deserialized body parameters, if any. These will typically be an array or object.</em><br /><em>Retrieve any parameters provided in the request body. If the request Content-Type is either application/x-www-form-urlencoded or multipart/form-data, and the request method is POST, this method MUST return the contents of $_POST. Otherwise, this method may return any results of deserializing the request body content; as parsing returns structured content, the potential types MUST be arrays or objects only. A null value indicates the absence of body content.</em> |
+| public | <strong>getParsedBodyParam(</strong><em>string</em> <strong>$key</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed</em><br /><em>Fetch parameter value from serverRequest body. Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>getProtocolVersion()</strong> : <em>mixed</em> |
+| public | <strong>getQueryParam(</strong><em>string</em> <strong>$key</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed</em><br /><em>Fetch parameter value from query string. Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>getQueryParams()</strong> : <em>array</em><br /><em>Retrieve query string arguments. Retrieves the deserialized query string arguments, if any. Note: the query params might not be in sync with the URI or server params. If you need to ensure you are only getting the original values, you may need to parse the query string from `getUri()->getQuery()` or from the `QUERY_STRING` server param.</em> |
+| public | <strong>getRequest()</strong> : <em>\Psr\Http\Message\ServerRequestInterface</em><br /><em>Returns the decorated request. Since the underlying Request is immutable as well exposing it is not an issue, because it's state cannot be altered</em> |
+| public | <strong>getRequestTarget()</strong> : <em>mixed</em> |
+| public | <strong>getServerParam(</strong><em>string</em> <strong>$key</strong>, <em>mixed</em> <strong>$default=null</strong>)</strong> : <em>mixed</em><br /><em>Retrieve a server parameter. Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>getServerParams()</strong> : <em>array</em><br /><em>Retrieve server parameters. Retrieves data related to the incoming request environment, typically derived from PHP's $_SERVER superglobal. The data IS NOT REQUIRED to originate from $_SERVER.</em> |
+| public | <strong>getUploadedFiles()</strong> : <em>array An array tree of UploadedFileInterface instances; an empty array MUST be returned if no data is present.</em><br /><em>Retrieve normalized file upload data. This method returns upload metadata in a normalized tree, with each leaf an instance of Psr\Http\Message\UploadedFileInterface. These values MAY be prepared from $_FILES or the message body during instantiation, or MAY be injected via withUploadedFiles().</em> |
+| public | <strong>getUri()</strong> : <em>mixed</em> |
+| public | <strong>hasHeader(</strong><em>mixed</em> <strong>$header</strong>)</strong> : <em>bool</em> |
+| public | <strong>isDelete()</strong> : <em>bool</em><br /><em>Is this a DELETE serverRequest? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isGet()</strong> : <em>bool</em><br /><em>Is this a GET serverRequest? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isHead()</strong> : <em>bool</em><br /><em>Is this a HEAD serverRequest? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isMethod(</strong><em>string</em> <strong>$method</strong>)</strong> : <em>bool</em><br /><em>Does this serverRequest use a given method? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isOptions()</strong> : <em>bool</em><br /><em>Is this a OPTIONS serverRequest? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isPatch()</strong> : <em>bool</em><br /><em>Is this a PATCH serverRequest? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isPost()</strong> : <em>bool</em><br /><em>Is this a POST serverRequest? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isPut()</strong> : <em>bool</em><br /><em>Is this a PUT serverRequest? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isXhr()</strong> : <em>bool</em><br /><em>Is this an XHR serverRequest? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>withAddedHeader(</strong><em>mixed</em> <strong>$header</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em> |
+| public | <strong>withAttribute(</strong><em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>\Psr\Http\Message\static</em><br /><em>Return an instance with the specified derived request attribute. This method allows setting a single derived request attribute as described in getAttributes(). This method MUST be implemented in such a way as to retain the immutability of the message, and MUST return an instance that has the updated attribute.</em> |
+| public | <strong>withAttributes(</strong><em>array</em> <strong>$attributes</strong>)</strong> : <em>void</em> |
+| public | <strong>withBody(</strong><em>\Psr\Http\Message\StreamInterface</em> <strong>$body</strong>)</strong> : <em>void</em> |
+| public | <strong>withCookieParams(</strong><em>array</em> <strong>$cookies</strong>)</strong> : <em>\Psr\Http\Message\static</em><br /><em>Return an instance with the specified cookies. The data IS NOT REQUIRED to come from the $_COOKIE superglobal, but MUST be compatible with the structure of $_COOKIE. Typically, this data will be injected at instantiation. This method MUST NOT update the related Cookie header of the request instance, nor related values in the server params. This method MUST be implemented in such a way as to retain the immutability of the message, and MUST return an instance that has the updated cookie values.</em> |
+| public | <strong>withHeader(</strong><em>mixed</em> <strong>$header</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em> |
+| public | <strong>withMethod(</strong><em>mixed</em> <strong>$method</strong>)</strong> : <em>void</em> |
+| public | <strong>withParsedBody(</strong><em>null/array/object</em> <strong>$data</strong>)</strong> : <em>\Psr\Http\Message\static</em><br /><em>Return an instance with the specified body parameters. These MAY be injected during instantiation. If the request Content-Type is either application/x-www-form-urlencoded or multipart/form-data, and the request method is POST, use this method ONLY to inject the contents of $_POST. The data IS NOT REQUIRED to come from $_POST, but MUST be the results of deserializing the request body content. Deserialization/parsing returns structured data, and, as such, this method ONLY accepts arrays or objects, or a null value if nothing was available to parse. As an example, if content negotiation determines that the request data is a JSON payload, this method could be used to create a request instance with the deserialized parameters. This method MUST be implemented in such a way as to retain the immutability of the message, and MUST return an instance that has the updated body parameters. typically be in an array or object.</em> |
+| public | <strong>withProtocolVersion(</strong><em>mixed</em> <strong>$version</strong>)</strong> : <em>void</em> |
+| public | <strong>withQueryParams(</strong><em>array</em> <strong>$query</strong>)</strong> : <em>\Psr\Http\Message\static</em><br /><em>Return an instance with the specified query string arguments. These values SHOULD remain immutable over the course of the incoming request. They MAY be injected during instantiation, such as from PHP's $_GET superglobal, or MAY be derived from some other value such as the URI. In cases where the arguments are parsed from the URI, the data MUST be compatible with what PHP's parse_str() would return for purposes of how duplicate query parameters are handled, and how nested sets are handled. Setting query string arguments MUST NOT change the URI stored by the request, nor the values in the server params. This method MUST be implemented in such a way as to retain the immutability of the message, and MUST return an instance that has the updated query string arguments. $_GET.</em> |
+| public | <strong>withRequest(</strong><em>\Psr\Http\Message\RequestInterface</em> <strong>$request</strong>)</strong> : <em>\Grav\Framework\Psr7\self</em><br /><em>Exchanges the underlying request with another.</em> |
+| public | <strong>withRequestTarget(</strong><em>mixed</em> <strong>$requestTarget</strong>)</strong> : <em>void</em> |
+| public | <strong>withUploadedFiles(</strong><em>array</em> <strong>$uploadedFiles</strong>)</strong> : <em>\Psr\Http\Message\static</em><br /><em>Create a new instance with the specified uploaded files. This method MUST be implemented in such a way as to retain the immutability of the message, and MUST return an instance that has the updated body parameters.</em> |
+| public | <strong>withUri(</strong><em>\Psr\Http\Message\UriInterface</em> <strong>$uri</strong>, <em>bool</em> <strong>$preserveHost=false</strong>)</strong> : <em>void</em> |
+| public | <strong>withoutAttribute(</strong><em>string</em> <strong>$name</strong>)</strong> : <em>\Psr\Http\Message\static</em><br /><em>Return an instance that removes the specified derived request attribute. This method allows removing a single derived request attribute as described in getAttributes(). This method MUST be implemented in such a way as to retain the immutability of the message, and MUST return an instance that removes the attribute.</em> |
+| public | <strong>withoutHeader(</strong><em>mixed</em> <strong>$header</strong>)</strong> : <em>void</em> |
+
+*This class implements \Psr\Http\Message\ServerRequestInterface, \Psr\Http\Message\MessageInterface, \Psr\Http\Message\RequestInterface*
+
+<hr /><a id="class-gravframeworkpsr7abstracturi-abstract"></a>
+### <strike>Class: \Grav\Framework\Psr7\AbstractUri (abstract)</strike>
+
+> **DEPRECATED** 1.6 Using message PSR-7 decorators instead.
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -4052,6 +6273,153 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | protected | <strong>isDefaultPort()</strong> : <em>bool</em> |
 
 *This class implements \Psr\Http\Message\UriInterface*
+
+<hr /><a id="class-gravframeworkpsr7response"></a>
+### Class: \Grav\Framework\Psr7\Response
+
+> Class Response
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\integer</em> <strong>$status=200</strong>, <em>array</em> <strong>$headers=array()</strong>, <em>string/null/\Grav\Framework\Psr7\resource/[\Grav\Framework\Psr7\Stream](#class-gravframeworkpsr7stream)Interface</em> <strong>$body=null</strong>, <em>\string</em> <strong>$version=`'1.1'`</strong>, <em>\string</em> <strong>$reason=null</strong>)</strong> : <em>void</em> |
+| public | <strong>__toString()</strong> : <em>string</em><br /><em>Convert response to string. Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>getBody()</strong> : <em>mixed</em> |
+| public | <strong>getHeader(</strong><em>mixed</em> <strong>$header</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getHeaderLine(</strong><em>mixed</em> <strong>$header</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getHeaders()</strong> : <em>mixed</em> |
+| public | <strong>getProtocolVersion()</strong> : <em>mixed</em> |
+| public | <strong>getReasonPhrase()</strong> : <em>mixed</em> |
+| public | <strong>getResponse()</strong> : <em>\Psr\Http\Message\ResponseInterface</em><br /><em>Returns the decorated response. Since the underlying Response is immutable as well exposing it is not an issue, because it's state cannot be altered</em> |
+| public | <strong>getStatusCode()</strong> : <em>mixed</em> |
+| public | <strong>hasHeader(</strong><em>mixed</em> <strong>$header</strong>)</strong> : <em>bool</em> |
+| public | <strong>isClientError()</strong> : <em>bool</em><br /><em>Is this response a client error? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isEmpty()</strong> : <em>bool</em><br /><em>Is this response empty? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isForbidden()</strong> : <em>bool</em><br /><em>Is this response forbidden? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isInformational()</strong> : <em>bool</em><br /><em>Is this response informational? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isNotFound()</strong> : <em>bool</em><br /><em>Is this response not Found? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isOk()</strong> : <em>bool</em><br /><em>Is this response OK? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isRedirect()</strong> : <em>bool</em><br /><em>Is this response a redirect? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isRedirection()</strong> : <em>bool</em><br /><em>Is this response a redirection? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isServerError()</strong> : <em>bool</em><br /><em>Is this response a server error? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>isSuccessful()</strong> : <em>bool</em><br /><em>Is this response successful? Note: This method is not part of the PSR-7 standard.</em> |
+| public | <strong>withAddedHeader(</strong><em>mixed</em> <strong>$header</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em> |
+| public | <strong>withBody(</strong><em>\Psr\Http\Message\StreamInterface</em> <strong>$body</strong>)</strong> : <em>void</em> |
+| public | <strong>withHeader(</strong><em>mixed</em> <strong>$header</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em> |
+| public | <strong>withJson(</strong><em>mixed</em> <strong>$data</strong>, <em>\integer</em> <strong>$status=null</strong>, <em>int/\integer</em> <strong>$options</strong>, <em>\integer</em> <strong>$depth=512</strong>)</strong> : <em>\Grav\Framework\Psr7\static</em><br /><em>Json. Note: This method is not part of the PSR-7 standard. This method prepares the response object to return an HTTP Json response to the client.</em> |
+| public | <strong>withProtocolVersion(</strong><em>mixed</em> <strong>$version</strong>)</strong> : <em>void</em> |
+| public | <strong>withRedirect(</strong><em>\string</em> <strong>$url</strong>, <em>int/null</em> <strong>$status=null</strong>)</strong> : <em>\Grav\Framework\Psr7\static</em><br /><em>Redirect. Note: This method is not part of the PSR-7 standard. This method prepares the response object to return an HTTP Redirect response to the client.</em> |
+| public | <strong>withResponse(</strong><em>\Psr\Http\Message\ResponseInterface</em> <strong>$response</strong>)</strong> : <em>\Grav\Framework\Psr7\self</em><br /><em>Exchanges the underlying response with another.</em> |
+| public | <strong>withStatus(</strong><em>mixed</em> <strong>$code</strong>, <em>string</em> <strong>$reasonPhrase=`''`</strong>)</strong> : <em>void</em> |
+| public | <strong>withoutHeader(</strong><em>mixed</em> <strong>$header</strong>)</strong> : <em>void</em> |
+
+*This class implements \Psr\Http\Message\ResponseInterface, \Psr\Http\Message\MessageInterface*
+
+<hr /><a id="class-gravframeworkpsr7request"></a>
+### Class: \Grav\Framework\Psr7\Request
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\string</em> <strong>$method</strong>, <em>string/[\Grav\Framework\Psr7\Uri](#class-gravframeworkpsr7uri)Interface</em> <strong>$uri</strong>, <em>array</em> <strong>$headers=array()</strong>, <em>string/null/\Grav\Framework\Psr7\resource/[\Grav\Framework\Psr7\Stream](#class-gravframeworkpsr7stream)Interface</em> <strong>$body=null</strong>, <em>\string</em> <strong>$version=`'1.1'`</strong>)</strong> : <em>void</em> |
+| public | <strong>getBody()</strong> : <em>mixed</em> |
+| public | <strong>getHeader(</strong><em>mixed</em> <strong>$header</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getHeaderLine(</strong><em>mixed</em> <strong>$header</strong>)</strong> : <em>mixed</em> |
+| public | <strong>getHeaders()</strong> : <em>mixed</em> |
+| public | <strong>getMethod()</strong> : <em>mixed</em> |
+| public | <strong>getProtocolVersion()</strong> : <em>mixed</em> |
+| public | <strong>getRequest()</strong> : <em>\Psr\Http\Message\RequestInterface</em><br /><em>Returns the decorated request. Since the underlying Request is immutable as well exposing it is not an issue, because it's state cannot be altered</em> |
+| public | <strong>getRequestTarget()</strong> : <em>mixed</em> |
+| public | <strong>getUri()</strong> : <em>mixed</em> |
+| public | <strong>hasHeader(</strong><em>mixed</em> <strong>$header</strong>)</strong> : <em>bool</em> |
+| public | <strong>withAddedHeader(</strong><em>mixed</em> <strong>$header</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em> |
+| public | <strong>withBody(</strong><em>\Psr\Http\Message\StreamInterface</em> <strong>$body</strong>)</strong> : <em>void</em> |
+| public | <strong>withHeader(</strong><em>mixed</em> <strong>$header</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>void</em> |
+| public | <strong>withMethod(</strong><em>mixed</em> <strong>$method</strong>)</strong> : <em>void</em> |
+| public | <strong>withProtocolVersion(</strong><em>mixed</em> <strong>$version</strong>)</strong> : <em>void</em> |
+| public | <strong>withRequest(</strong><em>\Psr\Http\Message\RequestInterface</em> <strong>$request</strong>)</strong> : <em>\Grav\Framework\Psr7\self</em><br /><em>Exchanges the underlying request with another.</em> |
+| public | <strong>withRequestTarget(</strong><em>mixed</em> <strong>$requestTarget</strong>)</strong> : <em>void</em> |
+| public | <strong>withUri(</strong><em>\Psr\Http\Message\UriInterface</em> <strong>$uri</strong>, <em>bool</em> <strong>$preserveHost=false</strong>)</strong> : <em>void</em> |
+| public | <strong>withoutHeader(</strong><em>mixed</em> <strong>$header</strong>)</strong> : <em>void</em> |
+
+*This class implements \Psr\Http\Message\RequestInterface, \Psr\Http\Message\MessageInterface*
+
+<hr /><a id="class-gravframeworkrequesthandlerrequesthandler"></a>
+### Class: \Grav\Framework\RequestHandler\RequestHandler
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>array</em> <strong>$middleware</strong>, <em>\callable</em> <strong>$default</strong>, <em>\Grav\Framework\RequestHandler\ContainerInterface/null/\Psr\Container\ContainerInterface</em> <strong>$container=null</strong>)</strong> : <em>void</em><br /><em>Delegate constructor.</em> |
+| public | <strong>addCallable(</strong><em>\string</em> <strong>$name</strong>, <em>\callable</em> <strong>$callable</strong>)</strong> : <em>\Grav\Framework\RequestHandler\$this</em><br /><em>Add callable initializing Middleware that will be executed as soon as possible.</em> |
+| public | <strong>addMiddleware(</strong><em>\string</em> <strong>$name</strong>, <em>\Psr\Http\Server\MiddlewareInterface</em> <strong>$middleware</strong>)</strong> : <em>\Grav\Framework\RequestHandler\$this</em><br /><em>Add Middleware that will be executed as soon as possible.</em> |
+| public | <strong>handle(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>)</strong> : <em>void</em> |
+
+*This class implements \Psr\Http\Server\RequestHandlerInterface*
+
+<hr /><a id="class-gravframeworkrequesthandlerexceptioninvalidargumentexception"></a>
+### Class: \Grav\Framework\RequestHandler\Exception\InvalidArgumentException
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>string</em> <strong>$message=`''`</strong>, <em>mixed/null</em> <strong>$invalidMiddleware=null</strong>, <em>int</em> <strong>$code</strong>, <em>\Grav\Framework\RequestHandler\Exception\Throwable/null/\Throwable</em> <strong>$previous=null</strong>)</strong> : <em>void</em><br /><em>InvalidArgumentException constructor.</em> |
+| public | <strong>getInvalidMiddleware()</strong> : <em>mixed/null</em><br /><em>Return the invalid middleware</em> |
+
+*This class extends \InvalidArgumentException*
+
+*This class implements \Throwable*
+
+<hr /><a id="class-gravframeworkrequesthandlerexceptionrequestexception"></a>
+### Class: \Grav\Framework\RequestHandler\Exception\RequestException
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\string</em> <strong>$message</strong>, <em>\integer</em> <strong>$code=500</strong>, <em>\Throwable/null/\Throwable</em> <strong>$previous=null</strong>)</strong> : <em>void</em> |
+| public | <strong>getHttpCode()</strong> : <em>mixed</em> |
+| public | <strong>getHttpReason()</strong> : <em>mixed</em> |
+| public | <strong>getRequest()</strong> : <em>\Psr\Http\Message\ServerRequestInterface</em> |
+
+*This class extends \RuntimeException*
+
+*This class implements \Throwable*
+
+<hr /><a id="class-gravframeworkrequesthandlerexceptionnotfoundexception"></a>
+### Class: \Grav\Framework\RequestHandler\Exception\NotFoundException
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Throwable/null/\Throwable</em> <strong>$previous=null</strong>)</strong> : <em>void</em><br /><em>NotFoundException constructor.</em> |
+
+*This class extends [\Grav\Framework\RequestHandler\Exception\RequestException](#class-gravframeworkrequesthandlerexceptionrequestexception)*
+
+*This class implements \Throwable*
+
+<hr /><a id="class-gravframeworkrequesthandlerexceptionnothandledexception"></a>
+### Class: \Grav\Framework\RequestHandler\Exception\NotHandledException
+
+| Visibility | Function |
+|:-----------|:---------|
+
+*This class extends [\Grav\Framework\RequestHandler\Exception\NotFoundException](#class-gravframeworkrequesthandlerexceptionnotfoundexception)*
+
+*This class implements \Throwable*
+
+<hr /><a id="class-gravframeworkrequesthandlerexceptionpageexpiredexception"></a>
+### Class: \Grav\Framework\RequestHandler\Exception\PageExpiredException
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Throwable/null/\Throwable</em> <strong>$previous=null</strong>)</strong> : <em>void</em><br /><em>PageExpiredException constructor.</em> |
+
+*This class extends [\Grav\Framework\RequestHandler\Exception\RequestException](#class-gravframeworkrequesthandlerexceptionrequestexception)*
+
+*This class implements \Throwable*
+
+<hr /><a id="class-gravframeworkrequesthandlermiddlewaresexceptions"></a>
+### Class: \Grav\Framework\RequestHandler\Middlewares\Exceptions
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>process(</strong><em>\Psr\Http\Message\ServerRequestInterface</em> <strong>$request</strong>, <em>\Psr\Http\Server\RequestHandlerInterface</em> <strong>$handler</strong>)</strong> : <em>void</em> |
+
+*This class implements \Psr\Http\Server\MiddlewareInterface*
 
 <hr /><a id="class-gravframeworkrequesthandlermiddlewaresremovetrailingslash"></a>
 ### Class: \Grav\Framework\RequestHandler\Middlewares\RemoveTrailingSlash
@@ -4099,7 +6467,8 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>array</em> <strong>$parts=array()</strong>)</strong> : <em>void</em><br /><em>You can use `RouteFactory` functions to create new `Route` objects.</em> |
-| public | <strong>__toString()</strong> : <em>string</em> |
+| public | <strike><strong>__toString()</strong> : <em>string</em></strike><br /><em>DEPRECATED - 1.6 Use ->toString(true) or ->getUri() instead.</em> |
+| public | <strong>getExtension()</strong> : <em>string</em> |
 | public | <strong>getGravParam(</strong><em>string</em> <strong>$param</strong>)</strong> : <em>string/null</em> |
 | public | <strong>getGravParams()</strong> : <em>array</em> |
 | public | <strong>getLanguagePrefix()</strong> : <em>string</em> |
@@ -4112,9 +6481,14 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>getRoute(</strong><em>int</em> <strong>$offset</strong>, <em>int/null</em> <strong>$length=null</strong>)</strong> : <em>string</em> |
 | public | <strong>getRouteParts(</strong><em>int</em> <strong>$offset</strong>, <em>int/null</em> <strong>$length=null</strong>)</strong> : <em>array</em> |
 | public | <strong>getUri()</strong> : <em>[\Grav\Framework\Uri\Uri](#class-gravframeworkuriuri)</em> |
+| public | <strong>toString(</strong><em>\boolean</em> <strong>$includeRoot=false</strong>)</strong> : <em>string</em> |
+| public | <strong>withAddedPath(</strong><em>string</em> <strong>$path</strong>)</strong> : <em>[\Grav\Framework\Route\Route](#class-gravframeworkrouteroute)</em> |
+| public | <strong>withExtension(</strong><em>string</em> <strong>$extension</strong>)</strong> : <em>[\Grav\Framework\Route\Route](#class-gravframeworkrouteroute)</em> |
 | public | <strong>withGravParam(</strong><em>string</em> <strong>$param</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>[\Grav\Framework\Route\Route](#class-gravframeworkrouteroute)</em> |
 | public | <strong>withQueryParam(</strong><em>string</em> <strong>$param</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>[\Grav\Framework\Route\Route](#class-gravframeworkrouteroute)</em> |
-| protected | <strong>getUriPath()</strong> : <em>string</em> |
+| public | <strong>withRoot(</strong><em>string</em> <strong>$root</strong>)</strong> : <em>\Grav\Framework\Route\$this</em><br /><em>Allow the ability to set the root to something else</em> |
+| public | <strong>withRoute(</strong><em>string</em> <strong>$route</strong>)</strong> : <em>\Grav\Framework\Route\$this</em><br /><em>Allow the ability to set the route to something else</em> |
+| protected | <strong>getUriPath(</strong><em>bool</em> <strong>$includeRoot=false</strong>)</strong> : <em>string</em> |
 | protected | <strong>getUriQuery()</strong> : <em>string</em> |
 | protected | <strong>initParts(</strong><em>array</em> <strong>$parts</strong>)</strong> : <em>void</em> |
 | protected | <strong>withParam(</strong><em>string</em> <strong>$type</strong>, <em>string</em> <strong>$param</strong>, <em>mixed</em> <strong>$value</strong>)</strong> : <em>\Grav\Framework\Route\static</em> |
@@ -4139,7 +6513,7 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>getIterator()</strong> : <em>\ArrayIterator Return an ArrayIterator of $_SESSION</em><br /><em>Retrieve an external iterator</em> |
 | public | <strong>getName()</strong> : <em>string/null</em><br /><em>Get session name</em> |
 | public | <strong>invalidate()</strong> : <em>\Grav\Framework\Session\$this</em><br /><em>Invalidates the current session.</em> |
-| public | <strong>isStarted()</strong> : <em>Boolean</em><br /><em>Checks if the session was started.</em> |
+| public | <strong>isStarted()</strong> : <em>bool</em><br /><em>Checks if the session was started.</em> |
 | public | <strong>setId(</strong><em>string</em> <strong>$id</strong>)</strong> : <em>\Grav\Framework\Session\$this</em><br /><em>Set session ID</em> |
 | public | <strong>setName(</strong><em>string</em> <strong>$name</strong>)</strong> : <em>\Grav\Framework\Session\$this</em><br /><em>Set session name</em> |
 | public | <strong>setOptions(</strong><em>array</em> <strong>$options</strong>)</strong> : <em>void</em><br /><em>Sets session.* ini variables.</em> |
@@ -4168,13 +6542,23 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public | <strong>getIterator()</strong> : <em>\ArrayIterator Return an ArrayIterator of $_SESSION</em><br /><em>Retrieve an external iterator</em> |
 | public | <strong>getName()</strong> : <em>string/null</em><br /><em>Get session name</em> |
 | public | <strong>invalidate()</strong> : <em>\Grav\Framework\Session\$this</em><br /><em>Invalidates the current session.</em> |
-| public | <strong>isStarted()</strong> : <em>Boolean</em><br /><em>Checks if the session was started.</em> |
+| public | <strong>isStarted()</strong> : <em>bool</em><br /><em>Checks if the session was started.</em> |
 | public | <strong>setId(</strong><em>string</em> <strong>$id</strong>)</strong> : <em>\Grav\Framework\Session\$this</em><br /><em>Set session ID</em> |
 | public | <strong>setName(</strong><em>string</em> <strong>$name</strong>)</strong> : <em>\Grav\Framework\Session\$this</em><br /><em>Set session name</em> |
 | public | <strong>setOptions(</strong><em>array</em> <strong>$options</strong>)</strong> : <em>void</em><br /><em>Sets session.* ini variables.</em> |
 | public | <strong>start(</strong><em>bool</em> <strong>$readonly=false</strong>)</strong> : <em>\Grav\Framework\Session\$this</em><br /><em>Starts the session storage</em> |
 
 *This class implements \IteratorAggregate, \Traversable*
+
+<hr /><a id="class-gravframeworksessionexceptionssessionexception"></a>
+### Class: \Grav\Framework\Session\Exceptions\SessionException
+
+| Visibility | Function |
+|:-----------|:---------|
+
+*This class extends \RuntimeException*
+
+*This class implements \Throwable*
 
 <hr /><a id="class-gravframeworkuriurifactory"></a>
 ### Class: \Grav\Framework\Uri\UriFactory
@@ -4248,4 +6632,21 @@ $block->addStyle('assets/js/my.js');$block->addStyle(['href' => 'assets/js/my.js
 | public static | <strong>filterQueryOrFragment(</strong><em>string</em> <strong>$query</strong>)</strong> : <em>string The percent-encoded query string.</em><br /><em>Filters the query string or fragment of a URI.</em> |
 | public static | <strong>filterScheme(</strong><em>string</em> <strong>$scheme</strong>)</strong> : <em>string</em> |
 | public static | <strong>filterUserInfo(</strong><em>string</em> <strong>$info</strong>)</strong> : <em>string The percent-encoded user or password string.</em><br /><em>Filters the user info string.</em> |
+
+<hr /><a id="class-gravinstallerinstall"></a>
+### Class: \Grav\Installer\Install
+
+> Grav installer. NOTE: This class can be initialized during upgrade from an older version of Grav. Make sure it runs there!
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__invoke(</strong><em>\string</em> <strong>$zip</strong>)</strong> : <em>void</em> |
+| public | <strong>checkRequirements()</strong> : <em>array List of failed requirements. If the list is empty, installation can go on.</em><br /><em>NOTE: This method can only be called after $grav['plugins']->init().</em> |
+| public | <strong>finalize()</strong> : <em>void</em> |
+| public | <strong>install()</strong> : <em>void</em> |
+| public static | <strong>instance()</strong> : <em>void</em> |
+| public | <strong>prepare()</strong> : <em>void</em> |
+| public | <strong>setZip(</strong><em>\string</em> <strong>$zip</strong>)</strong> : <em>void</em> |
+| protected | <strong>checkPlugins(</strong><em>mixed</em> <strong>$results</strong>, <em>array</em> <strong>$plugins</strong>)</strong> : <em>void</em> |
+| protected | <strong>checkVersion(</strong><em>mixed</em> <strong>$results</strong>, <em>mixed</em> <strong>$type</strong>, <em>mixed</em> <strong>$name</strong>, <em>array</em> <strong>$check</strong>, <em>mixed</em> <strong>$version</strong>)</strong> : <em>void</em> |
 
