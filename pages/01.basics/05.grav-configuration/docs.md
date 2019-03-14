@@ -352,7 +352,7 @@ images:
   cache_perms: '0755'
   debug: false
   auto_fix_orientation: false
-  prettyname_prefix: true
+  seofriendly: false
 ```
 
 This section gives you the ability to set the default image quality images are resampled to, as well as to control image caching and debugging features.
@@ -362,7 +362,7 @@ This section gives you the ability to set the default image quality images are r
 * **cache_perms**: MUST BE IN QUOTES!! Default cache folder perms. Usually `'0755'` or `'0775'`
 * **debug**: Show an overlay over images indicating the pixel depth of the image when working with retina, for example. Can be set to `true` or `false`.
 * **auto_fix_orientation**: Try to automatically fix images uploaded with non-standard rotation
-* **prettyname_prefix**: Set this to `false` to use the original image name in manipulated images
+* **seofriendly**: SEO-friendly processed image names
 
 
 ### media
