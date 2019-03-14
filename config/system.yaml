@@ -34,6 +34,9 @@ assets:
   js_pipeline: true
   js_minify: true
 
+images:
+  prettyname_prefix: false
+
 debugger:
   enabled: false
   twig: true
