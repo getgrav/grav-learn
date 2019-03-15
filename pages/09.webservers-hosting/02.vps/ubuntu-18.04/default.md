@@ -138,7 +138,7 @@ server {
     index index.html index.php;
 
     ## Begin - Server Info
-    root /home/grav/www/html;
+    root /home/USER/www/html;
     server_name localhost;
     ## End - Server Info
 
@@ -164,16 +164,15 @@ server {
 
     ## Begin - PHP
     location ~ \.php$ {
-        fastcgi_index index.php;
-        include snippets/fastcgi-php.conf;
-        
         # Choose either a socket or TCP/IP address
         fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
-        
-        # legacy (e.g. PHP 5) logic
-        # fastcgi_pass unix:/var/run/php5-fpm.sock; 
+        # fastcgi_pass unix:/var/run/php5-fpm.sock; #legacy
         # fastcgi_pass 127.0.0.1:9000;
-        # fastcgi_split_path_info ^(.+\.php)(/.+)$;
+
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
     }
     ## End - PHP
 }
