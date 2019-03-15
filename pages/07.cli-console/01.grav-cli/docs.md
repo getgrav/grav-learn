@@ -101,7 +101,7 @@ Archiving 36 files [===================================================] 100% < 
  [OK] Backup Successfully Created: /users/joe/workspace/portfolio/backup/pages_backup--20190227120510.zip
 ```
 
-More information on the backup funcationality can be found in the [Advanced -> Backups](/advanced/backups) section.
+More information on the backup functionality can be found in the [Advanced -> Backups](/advanced/backups) section.
 [/version]
 
 ## Clean Grav

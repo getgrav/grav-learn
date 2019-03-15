@@ -34,6 +34,9 @@ assets:
   js_pipeline: true
   js_minify: true
 
+errors:
+  display: 1
+
 images:
   prettyname_prefix: false
 
