@@ -250,7 +250,9 @@ You can do this via twig by using the snippet below:
 
 Sometimes you need some logic in Twig that can only be done in PHP, so the best solution is to create a custom Twig Filter or Function.  A filter is usually appended to a string in the format: `"some string"|custom_filter` and a function can take a string, or any other variable type: `custom_function("some string")`, but essentially they are very similar.
 
-You can also pass extra parameters like: `"some string"|hash('md5', 10)`, where the extra parameters can be used inside the function or filter.
+You can also pass extra parameters like: `"some string"|custom_function('foo', 'bar')`, where the extra parameters can be used inside the function or filter.
+
+For this example we'll create a simple Twig filter to count the takes a string and splits it into chunks separated by a delimiter. This is particular useful for things like credit card numbers, license keys etc.
 
 ##### Solution
 
@@ -301,8 +303,7 @@ By default this skeleton framework for a new plugin will add some dummy test to 
     }
 ```
 
-
-For this example we'll create a simple filter to count the takes a string and splits it into chunks separated by a delimiter. This is particular useful for things like credit card numbers, license keys etc. First we need to register the filter in the `onTwigInitialized()` method:
+First we need to register the filter in the `onTwigInitialized()` method:
 
 ```php
     /**
