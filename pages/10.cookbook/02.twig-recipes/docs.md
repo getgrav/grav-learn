@@ -14,6 +14,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Picking a random item from a translated array](#picking-a-random-item-from-a-translated-array)
 1. [Displaying an image uploaded in a file field](#displaying-an-image-uploaded-in-a-file-field)
 1. [Displaying an image picked in a mediapicker field](#displaying-an-image-picked-in-a-mediapicker-field)
+1. [Creating a custom Twig Filter/Function](#custom-twig-filter-function)
 
 ### List the last 5 recent blog posts
 
@@ -242,3 +243,125 @@ You can do this via twig by using the snippet below:
 
 {{ image_page.media[image_basename].html() }}
 ```
+
+### Custom Twig Filter/Function
+
+##### Problem
+
+Sometimes you need some logic in Twig that can only be done in PHP, so the best solution is to create a custom Twig Filter or Function.  A filter is usually appended to a string in the format: `"some string"|custom_filter` and a function can take a string, or any other variable type: `custom_function("some string")`, but essentially they are very similar.
+
+You can also pass extra parameters like: `"some string"|hash('md5', 10)`, where the extra parameters can be used inside the function or filter.
+
+##### Solution
+
+The best way to add this extra functionality is to add the logic in your custom plugin, although adding it in your theme's php file is also an option.  We'll use a plugin in this example for simplicity.  First you need to install the devtools plugin to make creating a plugin a simple wizard-based process:
+
+```sh
+$ bin/gpm install devtools
+```
+
+Next you need to create your new custom plugin, then fill in your details when prompted.
+
+```sh
+$ bin/plugin devtools new-plugin
+
+Enter Plugin Name: ACME Twig Filters
+Enter Plugin Description: Plugin for custom Twig filters
+Enter Developer Name: ACME, Inc.
+Enter GitHub ID (can be blank):
+Enter Developer Email: hello@acme.com
+
+SUCCESS plugin ACME Twig Filters -> Created Successfully
+
+Path: /Users/joe/grav/user/plugins/acme-twig-filters
+```
+
+By default this skeleton framework for a new plugin will add some dummy test to your page via the `onPageContentRaw()` event.  You will first need to replace this functionality with code that listens to the `onTwigInitialized()` event:
+
+```php
+    public function onPluginsInitialized()
+    {
+        // Don't proceed if we are in the admin plugin
+        if ($this->isAdmin()) {
+            return;
+        }
+
+        // Enable the main event we are interested in
+        $this->enable([
+            'onTwigInitialized' => ['onTwigInitialized', 0]
+        ]);
+    }
+
+    /**
+     * @param Event $e
+     */
+    public function onTwigInitialized(Event $e)
+    {
+
+    }
+```
+
+
+For this example we'll create a simple filter to count the takes a string and splits it into chunks separated by a delimiter. This is particular useful for things like credit card numbers, license keys etc. First we need to register the filter in the `onTwigInitialized()` method:
+
+```php
+    /**
+     * @param Event $e
+     */
+    public function onTwigInitialized(Event $e)
+    {
+        $this->grav['twig']->twig()->addFilter(
+            new \Twig_SimpleFilter('chunker', [$this, 'chunkString'])
+        );
+    }
+```
+
+The first parameter to the method registers the `chunker` as the filter name, and the `chunkString` as the PHP method where the logic occurs.  So we need to create this next:
+
+```php
+    /**
+     * Break a string up into chunks
+     */
+    public function chunkString($string, $chunksize = 4, $delimiter = '-')
+    {
+        return (trim(chunk_split($string, $chunksize, $delimiter), $delimiter));
+    }
+```
+
+Now you can try it out in your Twig templates like this:
+
+```twig
+{{ "ER27XV3OCCDPRJK5IVSDME6D6OT6QHK5"|chunker }}
+```
+
+or you can pass extra params:
+
+```twig
+{{ "ER27XV3OCCDPRJK5IVSDME6D6OT6QHK5"|chunker(8, '|') }}
+```
+
+Lastly if you want this to be available via a function and not just a filter, you can simply register a Twig function with the same name in the `onTwigInitialized()` method:
+
+```php
+    /**
+     * @param Event $e
+     */
+    public function onTwigInitialized(Event $e)
+    {
+        $this->grav['twig']->twig()->addFilter(
+            new \Twig_SimpleFilter('chunker', [$this, 'chunkString'])
+        );
+        $this->grav['twig']->twig()->addFunction(
+            new \Twig_SimpleFunction('chunker', [$this, 'chunkString'])
+        );
+    }
+```
+
+And then you can use the function syntax:
+
+```twig
+{{ chunker("ER27XV3OCCDPRJK5IVSDME6D6OT6QHK5", 8, '|') }}
+```
+
+
+
