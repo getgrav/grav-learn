@@ -14,7 +14,7 @@ In Grav, the most common type of collection is a list of pages that can be defin
 
 When you define a collection in the page header, you are dynamically creating a [Grav Collection](https://github.com/getgrav/grav/blob/develop/system/src/Grav/Common/Page/Collection.php) that is available in the page's Twig.  This Collection object is **iterable** and can be treated like an **array** which allows you to do things such as:
 
-```
+```twig
 {{ dump(page.collection[page.path]) }}
 ```
 
@@ -22,7 +22,7 @@ When you define a collection in the page header, you are dynamically creating a 
 
 An example collection defined in the page's frontmatter:
 
-```
+```yaml
 content:
     items: '@self.children'
     order:
@@ -40,7 +40,7 @@ This definition creates a collection for the page that consists of the all **chi
 
 When this collection is defined in the header, Grav creates a collection **page.collection** that you can access in a twig template with:
 
-```
+```twig
 {% for p in page.collection %}
 <h2>{{ p.title }}</h2>
 {{ p.summary }}
@@ -51,7 +51,7 @@ This simply loops over the [pages](https://learn.getgrav.org/themes/theme-vars#p
 
 You can also include an order parameter to change the default ordering of pages:
 
-```
+```twig
 {% for p in page.collection.order('folder','asc') %}
 <h2>{{ p.title }}</h2>
 {{ p.summary }}
@@ -97,14 +97,14 @@ We will cover these more in detail.
 
 This can be used to retrieve the top/root level **published non-modular children** of a site. Particular useful for getting the items that make up the primary navigation for example:
 
-```ruby
+```yaml
 content:
     items: '@root'
 ```
 
 an alias is also valid:
 
-```ruby
+```yaml
 content:
     items: '@root.children'
 ```
@@ -113,7 +113,7 @@ content:
 
 This will effectively get every page in your site as it recursively navigates through all the children from the root page down, and builds a collection of **all** the **published non-modular children** of a site.
 
-```ruby
+```yaml
 content:
     items: '@root.descendants'
 ```
@@ -124,7 +124,7 @@ content:
 
 This is used to list the **published non-modular children** of the current page:
 
-```ruby
+```yaml
 content:
     items: '@self.children'
 ```
@@ -133,7 +133,7 @@ content:
 
 Similar to `.children`, the `.descendants` collection will retrieve all the **published non-modular children** but continue to recurse through all their children.
 
-```ruby
+```yaml
 content:
     items: '@self.descendants'
 ```
@@ -142,7 +142,7 @@ content:
 
 The inverse of `.children`, this method retrieves only **published modular children** of the current page (`_features`, `_showcase`, etc.)
 
-```ruby
+```yaml
 content:
     items: '@self.modular'
 ```
@@ -151,7 +151,7 @@ content:
 
 This is a special case collection because it will always return just the one **parent** of the current page
 
-```ruby
+```yaml
 content:
     items: '@self.parent'
 ```
@@ -160,7 +160,7 @@ content:
 
 This collection will collect all the **published** Pages at the same level of the current page, excluding the current page.
 
-```ruby
+```yaml
 content:
     items: '@self.siblings'
 ```
@@ -171,7 +171,7 @@ content:
 
 This collection takes a slug route of a page as an argument and will return all the **published non-modular** children of that page
 
-```ruby
+```yaml
 content:
     items:
       '@page': '/blog'
@@ -179,7 +179,7 @@ content:
 
 alternatively:
 
-```ruby
+```yaml
 content:
     items:
       '@page.children': '/blog'
@@ -189,7 +189,7 @@ content:
 
 This collection takes a slug route of a page as an argument and will return collection containing that page (if it is **published and non-modular**)
 
-```ruby
+```yaml
 content:
     items:
       '@page.self': '/blog'
@@ -199,7 +199,7 @@ content:
 
 This collection takes a slug route of a page as an argument and will return all the **published non-modular** children and all their descendants of that page
 
-```ruby
+```yaml
 content:
     items:
       '@page.descendants': '/blog'
@@ -209,7 +209,7 @@ content:
 
 This collection takes a slug route of a page as an argument and will return all the **published modular** children of that page
 
-```ruby
+```yaml
 content:
     items:
       '@page.modular': '/blog'
@@ -218,7 +218,7 @@ content:
 
 ## Taxonomy Collections
 
-```ruby
+```yaml
 content:
    items:
       '@taxonomy.tag': foo
@@ -228,7 +228,7 @@ Using the `@taxonomy` option, you can utilize Grav's powerful taxonomy functiona
 
 By setting `@taxonomy.tag: foo`, Grav will find all the **published pages** in the `/user/pages` folder that have themselves set `tag: foo` in their taxonomy variable.
 
-```ruby
+```yaml
 content:
     items:
        '@taxonomy.tag': [foo, bar]
@@ -240,7 +240,7 @@ The `content.items` variable can take an array of taxonomies and it will gather 
 
 If you have multiple variables in a single parent to set, you can do this using the inline method, but for simplicity, we recommend using the standard method. Here is an example.
 
-```ruby
+```yaml
 content:
   items:
     '@taxonomy':
@@ -254,7 +254,7 @@ Each level in the hierarchy adds two whitespaces before the variable. YAML will 
 
 You can also provide multiple complex collection definitions and the resulting collection will be the sum of all the pages found from each of the collection definitions. For example:
 
-```ruby
+```yaml
 content:
   items:
     - '@self.children'
@@ -264,7 +264,7 @@ content:
 
 Additionally, you can filter the collection by using `filter: type: value`. The type can be any of the following: `published`, `non-published`, `visible`, `non-visible`, `modular`, `non-modular`, `routable`, `non-routable`, `type`, `types`, `access`. These correspond to the [Collection-specific methods](#collection-object-methods), and you can use several to filter your collection. They are all either `true` or `false`, except for `type` which takes a single template-name, `types` which takes an array of template-names, and `access` which takes an array of access-levels. For example:
 
-```ruby
+```yaml
  content:
   items: '@self.siblings'
   filter: 
@@ -274,7 +274,7 @@ Additionally, you can filter the collection by using `filter: type: value`. The 
 
 ### Ordering Options
 
-```ruby
+```yaml
 content:
     order:
         by: date
@@ -301,7 +301,7 @@ Ordering of sub-pages follows the same rules as ordering of folders, the availab
 
 The `content.order.dir` variable controls which direction the ordering should be in. Valid values are either `desc` or `asc`.
 
-```ruby
+```yaml
 content:
     order:
         by: default
@@ -324,7 +324,7 @@ The `content.pagination` is a simple boolean flag to be used by plugins etc to k
 
 New as of **Grav 0.9.13** is the ability to filter by a date range:
 
-```
+```yaml
 content:
     items: '@self.children'
     dateRange:
@@ -338,7 +338,7 @@ You can use any string date format supported by [strtotime()](http://php.net/man
 
 When you create a collection with `content: items:` in your YAML, you are defining a single collection based on a several conditions.  However, Grav does let you create an arbitrary set of collections per page, you just need to create another one:
 
-```
+```yaml
 content:
     items: '@self.children'
     order:
@@ -354,7 +354,7 @@ fruit:
 
 This sets up **2 collections** for this page, the first uses the default `content` collection, but the second one defines a taxonomy-based collection called `fruit`.  To access these two collections via Twig you can use the following syntax:
 
-```
+```twig
 {% set default_collection = page.collection %}
 
 {% set fruit_collection = page.collection('fruit') %}
@@ -380,7 +380,7 @@ Also has several useful Collection-specific methods:
 * `Collection::key()` - Returns the current slug of the the current item
 * `Collection::remove($path)` - Removes a specific page in the collection, or current if `$path = null`
 * `Collection::order($by, $dir, $manual)` - Orders the current collection
-* `Collection::intersect` - Merge two collections, keeping items that occur in both collections (like an "AND" condition)
+* `Collection::intersect($collection2)` - Merge two collections, keeping items that occur in both collections (like an "AND" condition)
 * `Collection::isFirst($path)` - Determines if the page identified by path is first
 * `Collection::isLast($path)` - Determines if the page identified by path is last
 * `Collection::prevSibling($path)` - Returns the previous sibling page if possible
@@ -389,7 +389,7 @@ Also has several useful Collection-specific methods:
 * `Collection::dateRange($startDate, $endDate, $field)` - Filters the current collection with dates
 * `Collection::visible()` - Filters the current collection to include only visible pages
 * `Collection::nonVisible()` - Filters the current collection to include only non-visible pages
-* `Collection::merge()` - Merge two collections, keeping items that occur in either collection (like an "OR" condition)
+* `Collection::merge($collection2)` - Merge two collections, keeping items that occur in either collection (like an "OR" condition)
 * `Collection::modular()` - Filters the current collection to include only modular pages
 * `Collection::nonModular()` - Filters the current collection to include only non-modular pages
 * `Collection::published()` - Filters the current collection to include only published pages
@@ -402,7 +402,7 @@ Also has several useful Collection-specific methods:
 
 Here is an example taken from the **Learn2** theme's **docs.html.twig** that defines a collection based on taxonomy (and optionally tags if they exist) and uses the `Collection::isFirst` and `Collection::isLast` methods to conditionally add page navigation:
 
-```ruby
+```twig
 {% set tags = page.taxonomy.tag %}
 {% if tags %}
     {% set progress = page.collection({'items':{'@taxonomy':{'category': 'docs', 'tag': tags}},'order': {'by': 'default', 'dir': 'asc'}}) %}
@@ -424,6 +424,7 @@ Here is an example taken from the **Learn2** theme's **docs.html.twig** that def
 ```
 
 `nextSibling()` is up the list and `prevSibling()` is down the list, this is how it works:
+
 ```
 Assuming you have the pages:
     Project A
@@ -441,7 +442,7 @@ You can take full control of collections directly from PHP in Grav plugins, them
 
 You can perform advanced collection logic with PHP, for example:
 
-```
+```php
 $collection = new Collection($pages);
 $collection->setParams(['taxonomies' => ['tag' => ['dog', 'cat']]])->dateRange('01/01/2016', '12/31/2016')->published()->ofType('blog-item')->order('date', 'desc');
 
@@ -454,18 +455,26 @@ foreach ($collection as $page) {
 
 The `order()`-function can also, in addition to the `by`- and `dir`-parameters, take a `manual`- and `sort_flags`-parameter. These are [documented above](#ordering-options). You can also use the same `evaluate()` method that the frontmatter-based page collections make use of:
 
-```
+```php
 $page = Grav::instance()['page'];
 $collection = $page->evaluate(['@page.children' => '/blog', '@taxonomy.tag' => 'photography']);
 $ordered_collection = $collection->order('date', 'desc');
 ```
 
+And another example of custom ordering would be:
+
+```php
+$ordered_collection = $collection->order('header.price','asc',null,SORT_NUMERIC);
+```
+
 You can also do similar directly in **Twig Templates**:
 
-```
+```twig
 {% set collection = page.evaluate([{'@page.children':'/blog', '@taxonomy.tag':'photography'}]) %}
 {% set ordered_collection = collection.order('date','desc') %}
 ```
+
+
 
 #### Advanced Collections
 
@@ -473,7 +482,7 @@ By default when you call `page.collection()` in the Twig of a page that has a co
 
 If you need to programatically generate a collection, you can do so by calling `page.collection()` and passing in an array in the same format as the page header collection definition.  For example:
 
-```
+```twig
 {% set options = { items: {'@page.children': '/my/pages'}, 'limit': 5, 'order': {'by': 'date', 'dir': 'desc'}, 'pagination': true } %}
 {% set my_collection = page.collection(options) %}
 
@@ -486,14 +495,14 @@ If you need to programatically generate a collection, you can do so by calling `
 
 Generating menu for the whole site (you need to set *menu* property in the page's frontmatter):
 
-```
+```yaml
 ---
 title: Home
 menu: Home
 ---
 ```
 
-```
+```twig
 {% set options = { items: {'@root.descendants':''}, 'order': {'by': 'folder', 'dir': 'asc'}} %}
 {% set my_collection = page.collection(options) %}
 

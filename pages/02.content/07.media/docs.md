@@ -31,23 +31,47 @@ A full list of supported mimetypes can be found in the `system/config/media.yaml
 
 Usually you'll use a media file within a page, so just put the file in the page folder, and you can reference it in the Markdown of the page, for example:
 
-`![](image.jpg)`
+```markdown
+![](image.jpg)
+```
 
 If you want to put all your images in a single folder, you can put them in a `user/pages/images` folder. That way you can reach them via
 
-`page.find('/images').media['my-image.jpg']`
+```markdown
+page.find('/images').media['my-image.jpg']
+```
 
 and also you can find them easily via markdown and perform operations on them:
 
-`![](/images/my-image.jpg?cropResize=300,300)`
+```markdown
+![](/images/my-image.jpg?cropResize=300,300)
+```
 
 Alternatively you can put them in your theme, as that is easily accessible via CSS references or from a markdown file by using `theme://` stream:
 
-`![](theme://images/theme-image.jpg)`
+```markdown
+![](theme://images/theme-image.jpg)
+```
 
-And finally, there is `user/images`, where you can use `image://` stream to access them:
+Another option is `user/images`, where you can use `image://` stream to access them:
 
-`![](image://my-image.jpg)`
+```markdown
+![](image://my-image.jpg)
+```
+
+You can actually use any stream including any folder inside `user/` via the `user://` stream:
+
+```markdown
+![](user://themes/mytheme/images/my-image.jpg)
+```
+
+You can also do these same kinds of things using the Twig `Media` object:
+
+{% verbatim %}
+```twig
+{{ media['user://themes/mytheme/images/my-image.jpg'].html() }}
+```
+{% endverbatim %}
 
 !!!! Grav has a `/images` folder. Do not put your own images in that folder, as it hosts Grav auto-generated, cached images.
 

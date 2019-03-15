@@ -11,6 +11,7 @@ This page contains an assortment of problems and their respective solutions rela
 1. [Adding a search button to the SimpleSearch plugin](#adding-a-search-button-to-the-simplesearch-plugin)
 1. [Iterating through pages and media](#iterating-through-pages-and-media)
 1. [Custom Twig templates plugin](#custom-twig-templates-plugin)
+1. [Using Cache in your own plugins](#using-cache-in-your-own-plugins)
 1. [Learning by Example](#learning-by-example)
    * [How do I read from and write data to the file system?](#how-do-i-read-from-and-write-data-to-the-file-system)
    * [How do I make data from a plugin available to Twig?](#how-do-i-make-data-from-a-plugin-available-to-twig)
@@ -398,6 +399,36 @@ This allows you to drop in a Twig template called `foo.html.twig` and then any p
         array_unshift($this->grav['twig']->twig_paths, __DIR__ . '/templates');
     }
 ```
+
+### Using Cache in your own plugins
+
+#### Goal:
+
+When developing your own plugins, it's often useful to use Grav's cache to cache data to improve performance.  Luckily it's a very simple process to use cache in your own code.
+
+#### Solution:
+
+This is some basic code that shows you how caching works:
+
+```php
+    $cache = Grav::instance()['cache'];
+    $id = 'myplugin-data'
+    $list = [];
+
+    if ($data = $cache->fetch($id)) {
+        return $data;
+    } else {
+        $data = $this->gatherData();
+        $cache->save($hash, $data);
+        return $data;
+    }
+```
+
+First, we get Grav's cache object, and we then try to see if our data already exists in the cache (`$data = $cache->fetch($id)`).  If `$data` exists, simply return it with no extra work needed.
+
+However, if the cache fetch returns null, meaning it's not cached, do some _work_ and get the data (`$data = $this->gatherData()`), and then simply save the data for next time (`$cache->save($hash, $data)`).
+
+
 
 ### Learning by Example
 
