@@ -335,10 +335,22 @@ Now you can try it out in your Twig templates like this:
 {{ "ER27XV3OCCDPRJK5IVSDME6D6OT6QHK5"|chunker }}
 ```
 
+Which would produce:
+
+```
+ER27-XV3O-CCDP-RJK5-IVSD-ME6D-6OT6-QHK5
+```
+
 or you can pass extra params:
 
 ```twig
 {{ "ER27XV3OCCDPRJK5IVSDME6D6OT6QHK5"|chunker(8, '|') }}
+```
+
+which would produce:
+
+```
+ER27XV3O|CCDPRJK5|IVSDME6D|6OT6QHK5
 ```
 
 Lastly if you want this to be available via a function and not just a filter, you can simply register a Twig function with the same name in the `onTwigInitialized()` method:
