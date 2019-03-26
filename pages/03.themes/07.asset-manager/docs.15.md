@@ -212,9 +212,9 @@ You can also use the `registerCollection()` method programatically.
 
 ```
 $assets = $this->grav['assets'];
-$bootstrapper_bits = [https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css,
-                      https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css,
-                      https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js];
+$bootstrapper_bits = ['https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css',
+                      'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css',
+                      'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'];
 $assets->registerCollection('bootstrap', $bootstrap_bits);
 $assets->add('bootstrap', 100);
 ```
