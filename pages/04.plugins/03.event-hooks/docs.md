@@ -36,6 +36,7 @@ Most events within Grav fire in a specific order and it is important to understa
   1. [onPageContentRaw](../event-hooks#onPageContentRaw) _(each page not cached yet)_
   1. [onMarkdownInitialized](../event-hooks#onMarkdownInitialized)
   1. [onPageContentProcessed](../event-hooks#onPageContentProcessed) _(each page not cached yet)_
+  1. onPageContent _(called first time Page::content() is called even when cached)_
 1. [onPageNotFound](../event-hooks#onPageNotFound)
 1. onPageAction (1.6)
   1. onPageAction.{action} (1.6)

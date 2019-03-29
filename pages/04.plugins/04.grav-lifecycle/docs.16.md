@@ -210,7 +210,9 @@ Whenever a page has its `content()` method called, the following lifecycle occur
 
 <div class="level level-1" markdown="1">
 ### Page.php
-1. Fire **onPageContentRaw** event
-1. Process the page according to Markdown and Twig settings. Fire **onMarkdownInitialized** event
-1. Fire **onPageContentProcessed** event
+1. If content is **NOT** cached:
+    1. Fire **onPageContentRaw** event
+    1. Process the page according to Markdown and Twig settings. Fire **onMarkdownInitialized** event
+    1. Fire **onPageContentProcessed** event
+1. Fire **onPageContent** event
 </div>
