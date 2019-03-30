@@ -80,8 +80,10 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 
 For enabling `openssl` and (un)zip support you will need to find in the `php.ini` file of your Linux distribution for lines like:
 
-  - `;extension=openssl.so`.
-  - `;extension=zip.so`.
+```bash
+;extension=openssl.so
+;extension=zip.so
+```
 
 and remove the leading semicolon.
 
@@ -105,16 +107,20 @@ However, if you are running on a dedicated server or even your local environment
 2. Change the **group permissions** on all files and folders so that the web server's group has write access to files and folders while keeping the standard permissions. This requires a few commands to make this work.
 
 First, find out which user Apache runs with by running the following command:
-```
+
+```bash
 ps aux | grep -v root | grep apache | cut -d\  -f1 | sort | uniq
 ```
+
 Now, find out which group this user belongs to by running this command (note: adjust USERNAME with the apache username you found in the previous command)
-```
+
+```bash
 groups USERNAME
 ```
+
 (note: adjust `GROUP` to be the group your apache runs under, found in the previous command. [`www-data`, `apache`, `nobody`, etc.]):
 
-```
+```bash
 chgrp -R GROUP .
 find . -type f | xargs chmod 664
 find ./bin -type f | xargs chmod 775

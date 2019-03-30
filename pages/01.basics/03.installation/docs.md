@@ -73,7 +73,7 @@ Another method is to clone Grav from the GitHub repository, and then run a simpl
 
    This will automatically **clone** the required dependencies from GitHub directly into this Grav installation.
 
-## Webserver
+## Webservers
 
 #### Apache/IIS/Nginx
 

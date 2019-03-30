@@ -35,19 +35,22 @@ intl_enabled: true
 
 These configuration options do not appear within their own child sections. They're general options that affect the way the site operates, its timezone, and base URL. 
 
-* **absolute_urls**: Absolute or relative URLs for `base_url`.
-* **timezone**: Valid values can be found [here](http://php.net/manual/en/timezones.php).
-* **default_locale**: Default locale (defaults to system)
-* **param_sep**: This is used for Grav parameters in the URL.  Don't change this unless you know what you are doing.  Grav > `1.1.16` automatically sets this to `;` for users running Apache web server on Windows.
-* **wrapped_site**: For themes/plugins to know if Grav is wrapped by another platform. Can be `true` or `false`.
-* **reverse_proxy_setup**: Running in a reverse proxy scenario with different webserver ports than proxy. Can be `true` or `false`.
-* **force_ssl**: If enabled, Grav forces to be accessed via HTTPS (NOTE: Not an ideal solution). Can be `true` or `false`.
-* **force_lowercase_urls**:If you want to support mixed cased URLs set this to false
-* **custom_base_url**: Manually set the base_url here.
-* **username_regex**: Only lowercase chars, digits, dashes, underscores. 3 - 16 chars
-* **pwd_regex**: At least one number, one uppercase and lowercase letter, and be at least 8+ chars
-* **intl_enabled**: Special logic for PHP International Extension (mod_intl)
-
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **absolute_urls:** | Absolute or relative URLs for `base_url` |
+| **timezone:** | Valid values can be found [here](http://php.net/manual/en/timezones.php) |
+| **default_locale:** | Default locale (defaults to system) |
+| **param_sep:** | This is used for Grav parameters in the URL.  Don't change this unless you know what you are doing.  Grav > `1.1.16` automatically sets this to `;` for users running Apache web server on Windows |
+| **wrapped_site:** | For themes/plugins to know if Grav is wrapped by another platform. Can be `true` or `false` |
+| **reverse_proxy_setup:** | Running in a reverse proxy scenario with different webserver ports than proxy. Can be `true` or `false` |
+| **force_ssl:** | If enabled, Grav forces to be accessed via HTTPS (NOTE: Not an ideal solution). Can be `true` or `false` |
+| **force_lowercase_urls:** |If you want to support mixed cased URLs set this to false |
+| **custom_base_url:** | Manually set the base_url here |
+| **username_regex:** | Only lowercase chars, digits, dashes, underscores. 3 - 16 chars |
+| **pwd_regex:** | At least one number, one uppercase and lowercase letter, and be at least 8+ chars |
+| **intl_enabled:** | Special logic for PHP International Extension (mod_intl) |
+[/div]
 
 ### Languages
 
@@ -65,14 +68,18 @@ languages:
 
 The **Languages** area of the file establishes the site's language settings. This includes which language(s) are supported, designation of the default language in the URLs, and translations. Here is the breakdown for the **Languages** area of the system configuration file:
 
-* **supported**: List of languages supported. eg: `[en, fr, de]`
-* **include_default_lang**: Include the default lang prefix in all URLs. Can be `true` or `false`.
-* **pages_fallback_only**: Only fallback to find page content through supported languages. Can be `true` or `false`.
-* **translations**: Enable translations by default. Can be `true` or `false`.
-* **translations_fallback**: Fallback through supported translations if active lang doesn't exist. Can be `true` or `false`.
-* **session_store_active**: Store active language in session. Can be `true` or `false`.
-* **http_accept_language**: Attempt to set the language based on http_accept_language header in the browser. Can be `true` or `false`.
-* **override_locale**: Override the default or system locale with language specific one. Can be `true` or `false`.
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **supported:** | List of languages supported. eg: `[en, fr, de]` |
+| **include_default_lang:** | Include the default lang prefix in all URLs. Can be `true` or `false` |
+| **pages_fallback_only:** | Only fallback to find page content through supported languages. Can be `true` or `false` |
+| **translations:** | Enable translations by default. Can be `true` or `false` |
+| **translations_fallback:** | Fallback through supported translations if active lang doesn't exist. Can be `true` or `false` |
+| **session_store_active:** | Store active language in session. Can be `true` or `false` |
+| **http_accept_language:** | Attempt to set the language based on http_accept_language header in the browser. Can be `true` or `false` |
+| **override_locale:** | Override the default or system locale with language specific one. Can be `true` or `false` |
+[/div]
 
 ### Home
 
@@ -84,8 +91,12 @@ home:
 
 The **Home** section is where you set the default path for the site's homepage. You can also choose to hide the home route in URLs.
 
-* **alias**: Default path for home, ie: `/home` or `/`.
-* **hide_in_urls**: Hide the home route in URLs. Can be `true` or `false`.
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **alias:** | Default path for home, ie: `/home` or `/` |
+| **hide_in_urls:** | Hide the home route in URLs. Can be `true` or `false` |
+[/div]
 
 ### Pages
 
@@ -140,49 +151,53 @@ pages:
 
 The **Pages** section of the `system/config/system.yaml` file is where you set a lot of the main theme-related settings. For example, this is where you set the theme used to render the site, page ordering, twig and markdown processing defaults, and more. This is where most of the decisions that affect the way your pages are rendered are made.
 
-* **theme**: This is where you set the default theme. This defaults to `quark`.
-* **order**:
-    - **by**: Order pages by `default`, `alpha` or `date`.
-    - **dir**: Default ordering direction, `asc` or `desc`.
-* **list**:
-    - **count**: Default item count per page.
-* **dateformat**:
-    - **default**: The default date format Grav expects in the `date: ` field.
-    - **short**: Short date format. Example: `'jS M Y'`
-    - **long**: Long date format. Example: `'F jS \a\t g:ia'`
-* **publish_dates**: Automatically publish/unpublish based on dates. Can be set `true` or `false`.
-* **process**:
-    - **markdown**: Enable or disable the processing of markdown on the front end. Can be set `true` or `false`.
-    - **twig**: Enable or disable the processing of twig on the front end. Can be set `true` or `false`.
-* **twig_first**: Process Twig before markdown when processing both on a page. Can be set `true` or `false`.
-* **never_cache_twig**: Enabling this will allow you to add a processing logic that can change dynamically on each page load, rather than caching the results and storing it for each page load. This can be enabled/disabled site-wide in the **system.yaml**, or on a specific page. Can be set `true` or `false`.
-* **events**:
-    - **page**: Enable page-level events. Can be set `true` or `false`.
-    - **twig**: Enable Twig-level events. Can be set `true` or `false`.
-* **markdown**:
-    - **extra**: Enable support for Markdown Extra support (GitHub-flavored Markdown (GFM) by default). Can be set `true` or `false`.
-    - **auto_line_breaks**: Enable automatic line breaks. Can be set `true` or `false`.
-    - **auto_url_links**: Enable automatic HTML links. Can be set `true` or `false`.
-    - **escape_markup**: Escape markup tags into entities. Can be set `true` or `false`.
-    - **special_chars**: List of special characters to automatically convert to entities. Each character consumes a line below this variable. Example: `'>': 'gt'`.
-* **types**: List of valid page types. For example: `[txt,xml,html,htm,json,rss,atom]`
-* **append_url_extension**: Append page's extension in Page URLs (e.g. `.html` results in **/path/page.html**).
-* **expires**: Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible).
-* **cache_control**: Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value
-* **last_modified**: Set the last modified date header based on file modification timestamp. Can be set `true` or `false`.
-* **etag**: Set the etag header tag. Can be set to `true` or `false`.
-* **vary_accept_encoding**: Add `Vary: Accept-Encoding` header. Can be set to `true` or `false`.
-* **redirect_default_route**: Automatically redirect to a page's default route. Can be set to `true` or `false`.
-* **redirect_default_code**: Default code to use for redirects. For example: `302`.
-* **redirect_trailing_slash**: Handle automatically or 302 redirect a trailing / URL.
-* **ignore_files**: Files to ignore in Pages. Example: `[.DS_Store] `.
-* **ignore_folders**: Folders to ignore in Pages. Example: `[.git, .idea]`
-* **ignore_hidden**: Ignore all Hidden files and folders. Can be set to `true` or `false`.
-* **hide_empty_folders**: If folder has no .md file, should it be hidden. Can be set to `true` or `false`.
-* **url_taxonomy_filters**: Enable auto-magic URL-based taxonomy filters for page collections. Can be set to `true` or `false`.
-* **frontmatter**:
-    - **process_twig**: Should the frontmatter be processed to replace Twig variables? Can be set to `true` or `false`.
-    - **ignore_fields**: Fields that might contain Twig variables and should not be processed. Example: `['form','forms']`
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **theme:** | This is where you set the default theme. This defaults to `quark` |
+| **order:** | |
+| ... **by:** | Order pages by `default`, `alpha` or `date` |
+| ... **dir:** | Default ordering direction, `asc` or `desc` |
+| **list:** | |
+| ... **count:** | Default item count per page |
+| **dateformat:** | |
+| ... **default:** | The default date format Grav expects in the `date: ` field |
+| ... **short:** | Short date format. Example: `'jS M Y'` |
+| ... **long:** | Long date format. Example: `'F jS \a\t g:ia'` |
+| **publish_dates:** | Automatically publish/unpublish based on dates. Can be set `true` or `false` |
+| **process:** | |
+| ... **markdown:** | Enable or disable the processing of markdown on the front end. Can be set `true` or `false` |
+| ... **twig:** | Enable or disable the processing of twig on the front end. Can be set `true` or `false` |
+| **twig_first:** | Process Twig before markdown when processing both on a page. Can be set `true` or `false` |
+| **never_cache_twig:** | Enabling this will allow you to add a processing logic that can change dynamically on each page load, rather than caching the results and storing it for each page load. This can be enabled/disabled site-wide in the **system.yaml**, or on a specific page. Can be set `true` or `false` |
+| **events:** | |
+| ... **page:** | Enable page-level events. Can be set `true` or `false` |
+| ... **twig:** | Enable Twig-level events. Can be set `true` or `false` |
+| **markdown:** | |
+| ... **extra:** | Enable support for Markdown Extra support (GitHub-flavored Markdown (GFM) by default). Can be set `true` or `false` |
+| ... **auto_line_breaks:** | Enable automatic line breaks. Can be set `true` or `false` |
+| ... **auto_url_links:** | Enable automatic HTML links. Can be set `true` or `false` |
+| ... **escape_markup:** | Escape markup tags into entities. Can be set `true` or `false` |
+| ... **special_chars:** | List of special characters to automatically convert to entities. Each character consumes a line below this variable. Example: `'>': 'gt'` |
+| **types:** | List of valid page types. For example: `[txt,xml,html,htm,json,rss,atom]` |
+| **append_url_extension:** | Append page's extension in Page URLs (e.g. `.html` results in **/path/page.html**) |
+| **expires:** | Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible) |
+| **cache_control:** | Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value |
+| **last_modified:** | Set the last modified date header based on file modification timestamp. Can be set `true` or `false` |
+| **etag:** | Set the etag header tag. Can be set to `true` or `false` |
+| **vary_accept_encoding:** | Add `Vary: Accept-Encoding` header. Can be set to `true` or `false` |
+| **redirect_default_route:** | Automatically redirect to a page's default route. Can be set to `true` or `false` |
+| **redirect_default_code:** | Default code to use for redirects. For example: `302` |
+| **redirect_trailing_slash:** | Handle automatically or 302 redirect a trailing / URL |
+| **ignore_files:** | Files to ignore in Pages. Example: `[.DS_Store] ` |
+| **ignore_folders:** | Folders to ignore in Pages. Example: `[.git, .idea]` |
+| **ignore_hidden:** | Ignore all Hidden files and folders. Can be set to `true` or `false` |
+| **hide_empty_folders:** | If folder has no .md file, should it be hidden. Can be set to `true` or `false` |
+| **url_taxonomy_filters:** | Enable auto-magic URL-based taxonomy filters for page collections. Can be set to `true` or `false` |
+| **frontmatter:** | |
+| ... **process_twig:** | Should the frontmatter be processed to replace Twig variables? Can be set to `true` or `false` |
+| ... **ignore_fields:** | Fields that might contain Twig variables and should not be processed. Example: `['form','forms']` |
+[/div]
 
 ### Cache
 
@@ -227,22 +242,26 @@ cache:
 
 The **Cache** section is where you can configure the site's caching settings. You can enable, disable, choose the method, and more.
 
-* **enabled**: Set to true to enable caching. Can be set to `true` or `false`.
-* **check**:
-    - **method**: Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching)
-* **driver**: Select a cache driver. Options are: `auto`, `file`, `apcu`, `redis`, `memcache`, and `wincache`.
-* **prefix**: Cache prefix string (prevents cache conflicts). Example: `g`.
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **enabled:** | Set to true to enable caching. Can be set to `true` or `false` |
+| **check:** | |
+| ... **method:** | Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching) |
+| **driver:** | Select a cache driver. Options are: `auto`, `file`, `apcu`, `redis`, `memcache`, and `wincache` |
+| **prefix:** | Cache prefix string (prevents cache conflicts). Example: `g` |
 [version=16]
-* **purge_at**: Scheduler: How often to purge old cache using cron `at` syntax
-* **clear_at**: Scheduler: How often to clear the cache using cron `at` syntax
-* **clear_job_type**: Type to clear when processing the scheduled clear job `standard`|`all`
+| **purge_at:** | Scheduler: How often to purge old cache using cron `at` syntax |
+| **clear_at:** | Scheduler: How often to clear the cache using cron `at` syntax |
+| **clear_job_type:** | Type to clear when processing the scheduled clear job `standard`|`all` |
 [/version]
-* **clear_images_by_default**: By default grav will include processed images when cache clears, this can be disabled by setting this to `false`
-* **cli_compatibility**: Ensures only non-volatile drivers are used (file, redis, memcache, etc.)
-* **lifetime**: Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days.
-* **gzip**: GZip compress the page output. Can be set to `true` or `false`.
-* **allow_webserver_gzip**: This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete.
-* **redis.socket**: The path to the redis socket file
+| **clear_images_by_default:** | By default grav will include processed images when cache clears, this can be disabled by setting this to `false` |
+| **cli_compatibility:** | Ensures only non-volatile drivers are used (file, redis, memcache, etc.) |
+| **lifetime:** | Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days |
+| **gzip:** | GZip compress the page output. Can be set to `true` or `false` |
+| **allow_webserver_gzip:** | This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete |
+| **redis.socket:** | The path to the redis socket file |
+[/div]
 
 ### Twig
 
@@ -259,13 +278,17 @@ twig:
 
 The **Twig** section gives you a quick set of tools with which to configure Twig on your site for debugging, caching, and optimization.
 
-* **cache**: Set to true to enable Twig caching. Can be set to `true` or `false`.
-* **debug**: Enable Twig debug. Can be set to `true` or `false`.
-* **auto_reload**: Refresh cache on changes. Can be set to `true` or `false`.
-* **autoescape**: Autoescape Twig vars. Can be set to `true` or `false`.
-* **undefined_functions**: Allow undefined functions. Can be set to `true` or `false`.
-* **undefined_filters**: Allow undefined filters. Can be set to `true` or `false`.
-* **umask_fix**: By default Twig creates cached files as 755, fix switches this to 775. Can be set to `true` or `false`.
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **cache:** | Set to true to enable Twig caching. Can be set to `true` or `false` |
+| **debug:** | Enable Twig debug. Can be set to `true` or `false` |
+| **auto_reload:** | Refresh cache on changes. Can be set to `true` or `false` |
+| **autoescape:** | Autoescape Twig vars. Can be set to `true` or `false` |
+| **undefined_functions:** | Allow undefined functions. Can be set to `true` or `false` |
+| **undefined_filters:** | Allow undefined filters. Can be set to `true` or `false` |
+| **umask_fix:** | By default Twig creates cached files as 755, fix switches this to 775. Can be set to `true` or `false` |
+[/div]
 
 ### Assets
 
@@ -288,18 +311,22 @@ assets:
 
 The **Assets** section enables you to configure options related to the Assets Manager (JS, CSS).
 
-* **css_pipeline**: The CSS pipeline is the unification of multiple CSS resources into one file. Can be set to `true` or `false`.
-* **css_pipeline_include_externals**: Include external URLs in the pipeline by default. Can be set to `true` or `false`.
-* **css_pipeline_before_excludes**: Render the pipeline before any excluded files. Can be set to `true` or `false`.
-* **css_minify**: Minify the CSS during pipelining. Can be set to `true` or `false`.
-* **css_minify_windows**: Minify Override for Windows platforms. False by default due to ThreadStackSize. Can be set to `true` or `false`.
-* **css_rewrite**: Rewrite any CSS relative URLs during pipelining. Can be set to `true` or `false`.
-* **js_pipeline**: The JS pipeline is the unification of multiple JS resources into one file. Can be set to `true` or `false`.
-* **js_pipeline_include_externals**: Include external URLs in the pipeline by default. Can be set to `true` or `false`.
-* **js_pipeline_before_excludes**: Render the pipeline before any excluded files. Can be set to `true` or `false`.
-* **js_minify**: Minify the JS during pipelining. Can be set to `true` or `false`.
-* **enable_asset_timestamp**: Enable asset timestamps. Can be set to `true` or `false`.
-* **collections**: This contains collections, designated as sub-items. For example: `jquery: system://assets/jquery/jquery-2.x.min.js`
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **css_pipeline:** | The CSS pipeline is the unification of multiple CSS resources into one file. Can be set to `true` or `false` |
+| **css_pipeline_include_externals:** | Include external URLs in the pipeline by default. Can be set to `true` or `false` |
+| **css_pipeline_before_excludes:** | Render the pipeline before any excluded files. Can be set to `true` or `false` |
+| **css_minify:** | Minify the CSS during pipelining. Can be set to `true` or `false` |
+| **css_minify_windows:** | Minify Override for Windows platforms. False by default due to ThreadStackSize. Can be set to `true` or `false` |
+| **css_rewrite:** | Rewrite any CSS relative URLs during pipelining. Can be set to `true` or `false` |
+| **js_pipeline:** | The JS pipeline is the unification of multiple JS resources into one file. Can be set to `true` or `false` |
+| **js_pipeline_include_externals:** | Include external URLs in the pipeline by default. Can be set to `true` or `false` |
+| **js_pipeline_before_excludes:** | Render the pipeline before any excluded files. Can be set to `true` or `false` |
+| **js_minify:** | Minify the JS during pipelining. Can be set to `true` or `false` |
+| **enable_asset_timestamp:** | Enable asset timestamps. Can be set to `true` or `false` |
+| **collections:** | This contains collections, designated as sub-items. For example: `jquery: system://assets/jquery/jquery-3.x.min.js` |
+[/div]
 
 ### Errors
 
@@ -311,8 +338,12 @@ errors:
 
 The **Errors** section determines how Grav handles error display and logging.
 
-* **display**: Determines how errors are displayed. Enter either `1` for the full backtrace, `0` for Simple Error, or `-1` for System Error.
-* **log**: Log errors to `/logs` folder. Can be set to `true` or `false`.
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **display:** | Determines how errors are displayed. Enter either `1` for the full backtrace, `0` for Simple Error, or `-1` for System Error |
+| **log:** | Log errors to `/logs` folder. Can be set to `true` or `false` |
+[/div]
 
 ### Log
 
@@ -325,9 +356,13 @@ log:
 
 The **Log** section allows you to configure alternate logging capabilities for Grav.
 
-* **handler**: Log handler. Currently supported: `file` | `syslog`
-* **syslog**
-    - **facility**: Syslog facilities output
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **handler:** | Log handler. Currently supported: `file` \| `syslog` |
+| **syslog:** | |
+| ... **facility:** | Syslog facilities output |
+[/div]
 
 ### Debugger
 
@@ -340,9 +375,13 @@ debugger:
 
 This section gives you the ability to activate Grav's debugger. A useful tool during development.
 
-* **enabled**: Enable Grav debugger and following settings. Can be set to `true` or `false`.
-* **shutdown**:
-    - **close_connection**: Close the connection before calling `onShutdown()`. `false` for debugging.
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **enabled:** | Enable Grav debugger and following settings. Can be set to `true` or `false` |
+| **shutdown:** | |
+| ... **close_connection:** | Close the connection before calling `onShutdown()`. `false` for debugging |
+[/div]
 
 ### Images
 
@@ -358,12 +397,16 @@ images:
 
 This section gives you the ability to set the default image quality images are resampled to, as well as to control image caching and debugging features.
 
-* **default_image_quality**: Default image quality to use when resampling images. For example: `85` = 85%.
-* **cache_all**: Cache all image by default. Can be set to `true` or `false`.
-* **cache_perms**: MUST BE IN QUOTES!! Default cache folder perms. Usually `'0755'` or `'0775'`
-* **debug**: Show an overlay over images indicating the pixel depth of the image when working with retina, for example. Can be set to `true` or `false`.
-* **auto_fix_orientation**: Try to automatically fix images uploaded with non-standard rotation
-* **seofriendly**: SEO-friendly processed image names
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **default_image_quality:** | Default image quality to use when resampling images. For example: `85` = 85% |
+| **cache_all:** | Cache all image by default. Can be set to `true` or `false` |
+| **cache_perms:** | MUST BE IN QUOTES!! Default cache folder perms. Usually `'0755'` or `'0775'` |
+| **debug:** | Show an overlay over images indicating the pixel depth of the image when working with retina, for example. Can be set to `true` or `false` |
+| **auto_fix_orientation:** | Try to automatically fix images uploaded with non-standard rotation |
+| **seofriendly:** | SEO-friendly processed image names |
+[/div]
 
 
 ### Media
@@ -378,10 +421,14 @@ media:
 
 The **Media** section handles the configuration options for settings related to the handling of media files. This includes timestamp display, upload size, and more.
 
-* **enable_media_timestamp**: Enable media timetsamps.
-* **unsupported_inline_types**: Array of supported media types to try to display inline. These file types are placed within `[]` brackets.
-* **allowed_fallback_types**: Array of allowed media types of files found if accessed via Page route. These file types are placed within `[]` brackets.
-* **auto_metadata_exif**: Automatically create metadata files from Exif data where possible
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **enable_media_timestamp:** | Enable media timetsamps |
+| **unsupported_inline_types:** | Array of supported media types to try to display inline. These file types are placed within `[]` brackets |
+| **allowed_fallback_types:** | Array of allowed media types of files found if accessed via Page route. These file types are placed within `[]` \|brackets |
+| **auto_metadata_exif:** | Automatically create metadata files from Exif data where possible |
+[/div]
 
 ### Session
 
@@ -400,14 +447,18 @@ session:
 
 These options determine session properties for your site.
 
-* **enabled**: Enable Session support. Can be set to `true` or `false`.
-* **initialize**: Initialize session from Grav (if `false`, plugin needs to start the session)
-* **timeout**: Timeout in seconds. For example: `1800`.
-* **name**: Name prefix of the session cookie. Use alphanumeric, dashes or underscores only. Do not use dots in the session name. For example: `grav-site`.
-* **uniqueness**: Should sessions be `path` based or `security.salt` based
-* **secure**: Set session secure. If `true`, indicates that communication for this cookie must be over an encrypted transmission. Enable this only on sites that run exclusively on HTTPS. Can be set to `true` or `false`.
-* **httponly**: Set session HTTP only. If true, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed. Can be set to `true` or `false`.
-* **path**: The path where sessions are stored
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **enabled:** | Enable Session support. Can be set to `true` or `false` |
+| **initialize:** | Initialize session from Grav (if `false`, plugin needs to start the session) |
+| **timeout:** | Timeout in seconds. For example: `1800` |
+| **name:** | Name prefix of the session cookie. Use alphanumeric, dashes or underscores only. Do not use dots in the session name. For example: `grav-site` |
+| **uniqueness:** | Should sessions be `path` based or `security.salt` based |
+| **secure:** | Set session secure. If `true`, indicates that communication for this cookie must be over an encrypted transmission. Enable this only on sites that run exclusively on HTTPS. Can be set to `true` or `false` |
+| **httponly:** | Set session HTTP only. If true, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed. Can be set to `true` or `false` |
+| **path:** | The path where sessions are stored |
+[/div]
 
 ### GPM
 
@@ -422,11 +473,15 @@ gpm:
 
 The **GPM** section offers the user options that control how Grav's GPM sources and makes ready updates available for your site. You can choose between stable and testing releases, as well as set up a proxy URL.
 
-* **releases**: Set to either `stable` or `testing` to determine if you want to update to the latest stable or testing build.
-* **proxy_url**: Configure a manual proxy URL for GPM. For example: `127.0.0.1:3128`.
-* **method**: Either 'curl', 'fopen' or 'auto'. 'auto' will try fopen first and if not available cURL
-* **verify_peer**: On some systems (Windows mostly) GPM is unable to connect because the SSL certificate cannot be verified. Disabling this setting might help.
-* **official_gpm_only**: By default GPM direct-install will only allow URLs via the official GPM proxy to ensure security, disable this to allow other sources.
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **releases:** | Set to either `stable` or `testing` to determine if you want to update to the latest stable or testing build |
+| **proxy_url:** | Configure a manual proxy URL for GPM. For example: `127.0.0.1:3128` |
+| **method:** | Either 'curl', 'fopen' or 'auto'. 'auto' will try fopen first and if not available cURL |
+| **verify_peer:** | On some systems (Windows mostly) GPM is unable to connect because the SSL certificate cannot be verified. Disabling this setting might help |
+| **official_gpm_only:** | By default GPM direct-install will only allow URLs via the official GPM proxy to ensure security, disable this to allow other sources |
+[/div]
 
 ### Strict Mode
 
@@ -438,8 +493,12 @@ strict_mode:
 
 Strict mode allows for a cleaner migration to future versions of Grav by moving to the newer versions of YAML and Twig processors.  These may not be compatible with all 3rd party extensions.
 
-* **yaml_compat**: Enables YAML backwards compatibility
-* **twig_compat**: Enables deprecated Twig autoescape setting
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **yaml_compat:** | Enables YAML backwards compatibility |
+| **twig_compat:** | Enables deprecated Twig autoescape setting |
+[/div]
 
 [version=16]
 ### Accounts (Grav 1.6+ only)
@@ -452,8 +511,12 @@ accounts:
 
 Accounts is a new setting for 1.6 that allows you to try out the new experimental Flex Users.  This basically means that Users are stored as Flex objects allowing more power and performance.
 
-* **type**: Account type: `data` or `flex`
-* **storage**: Flex storage type: `file` or `folder`
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **type:** | Account type: `data` or `flex` |
+| **storage:** | Flex storage type: `file` or `folder` |
+[/div]
 
 !! You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
 [/version]
@@ -505,16 +568,20 @@ blog:
 
 Let's break down the elements of this sample file:
 
-| Field                | Description                                                                                                                                                                                                                                                                                                                                                              |
-| :-----               | :-----                                                                                                                                                                                                                                                                                                                                                                   |
-| **title:**           | The title is a simple string variable that can be referenced whenever you want to display the name of this site.                                                                                                                                                                                                                                                         |
-| **author: name:**    | The name of the author of the site, that can be referenced whenever you need it.                                                                                                                                                                                                                                                                                         |
-| **author: email:**   | A default email for use in your site.                                                                                                                                                                                                                                                                                                                                    |
-| **taxonomies:**      | An arbitrary list of high-level types that you can use to organize your content.  You can assign content to specific taxonomy types, for example, categories or tags. Feel free to edit, or add your own.                                                                                                                                                                |
-| **metadata:**        | Set default metadata for all your pages, see the [content page headers](../../content/headers) section for more details                                                                                                                                                                                                                                                  |
-| **summary: size:**   | A variable to override the default number of characters that can be used to set the summary size when displaying a portion of content.                                                                                                                                                                                                                                   |
-| **routes:**          | This is a basic map that can provide simple URL alias capabilities in Grav.  If you browse to `/something/else` you will actually be sent to `/blog/sample-3`. Feel free to edit, or add your own as needed. **Regex Replacements** (`(.*) - $1`) are now supported at the end of route aliases.  You should put these at the bottom of the list for optimal performance |
-| **(custom options)** | You can create any option you like in this file and a good example is the `blog: route: '/blog'` option that is accessible in your Twig templates with `system.blog.route`                                                                                                                                                                                               |
+[div class="table table-striped"]
+| Property | Description |
+| -------- | ----------- |
+| **title:** | The title is a simple string variable that can be referenced whenever you want to display the name of this site |
+| **author:** | |
+| ... **name:** | The name of the author of the site, that can be referenced whenever you need it |
+| ... **email:** | A default email for use in your site |
+| **taxonomies:** | An arbitrary list of high-level types that you can use to organize your content.  You can assign content to specific taxonomy types, for example, categories or tags. Feel free to edit, or add your own |
+| **metadata:** | Set default metadata for all your pages, see the [content page headers](../../content/headers) section for more details |
+| **summary:** | |
+| ... **size:** | A variable to override the default number of characters that can be used to set the summary size when displaying a portion of content |
+| **routes:** | This is a basic map that can provide simple URL alias capabilities in Grav.  If you browse to `/something/else` you will actually be sent to `/blog/sample-3`. Feel free to edit, or add your own as needed. **Regex Replacements** (`(.*) - $1`) are now supported at the end of route aliases.  You should put these at the bottom of the list for optimal performance |
+| **(custom options)** | You can create any option you like in this file and a good example is the `blog: route: '/blog'` option that is accessible in your Twig templates with `system.blog.route` |
+[/div]
 
 !! For most people, the most important element of this file is the `Taxonomy` list.  The taxonomies in this list **must** be defined here if you wish to use them in your content.
 
@@ -603,12 +670,14 @@ For example: An option such as `author: Frank Smith` in file `plugins/myplugin.y
 
 Some example configuration files could be structured:
 
-| Filename                              | Description                                       |
-| :-----                                | :-----                                            |
+[div class="table table-striped"]
+| File | Description |
+| -------- | ----------- |
 | **user/config/system.yaml**           | Global system configuration file                  |
 | **user/config/site.yaml**             | A site-specific configuration file                |
 | **user/config/plugins/myplugin.yaml** | Individual configuration file for myplugin plugin |
 | **user/config/themes/mytheme.yaml**   | Individual configuration file for mytheme theme   |
+[/div]
 
 !! Having a namespaced configuration file will override or mask all options having the same path in the default configuration files
 
