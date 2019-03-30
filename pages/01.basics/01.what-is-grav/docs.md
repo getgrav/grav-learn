@@ -38,4 +38,4 @@ To get a basic site up-and-running requires minimal Web development experience. 
 
 You can find a summary about Grav, including **Grav logos** and **press information**, on our [media page](https://getgrav.org/media).
 
-!!! The simplest way to navigate the documentation is to use the **Next** and **Previous** arrows (<i class="fa fa-chevron-left"></i> <i class="fa fa-chevron-right"></i>) on each page. You can see your progress represented by the check marks (<i class="fa fa-check"></i>) in the sidebar.
+!!! The simplest way to navigate the documentation is to use the **Previous** and **Next** arrows (<i class="fa fa-angle-left"></i> | <i class="fa fa-angle-right"></i>) at the top of each page. You can see your progress represented by the check marks (<i class="fa fa-check-circle"></i>) in the sidebar.

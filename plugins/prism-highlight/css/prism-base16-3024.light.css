@@ -1,0 +1,165 @@
+/*
+
+Name:       Base16 3024 Light
+Author:     Jan T. Sott (http://github.com/idleberg)
+
+Prism template by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/prism/)
+Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  font-size: 14px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  background: #f7f7f7;
+  color: #4a4543;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #d6d5d4;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #d6d5d4;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #807d7c;
+}
+
+.token.punctuation {
+  color: #4a4543;
+}
+
+.token.namespace {
+  opacity: .7;
+}
+
+.token.operator,
+.token.boolean,
+.token.number {
+  color: #e8bbd0;
+}
+
+.token.property {
+  color: #fded02;
+}
+
+.token.tag {
+  color: #01a0e4;
+}
+
+.token.string {
+  color: #b5e4f4;
+}
+
+.token.selector {
+  color: #a16a94;
+}
+
+.token.attr-name {
+  color: #e8bbd0;
+}
+
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #b5e4f4;
+}
+
+.token.attr-value,
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit {
+  color: #01a252;
+}
+
+.token.statement,
+.token.regex,
+.token.atrule {
+  color: #b5e4f4;
+}
+
+.token.placeholder,
+.token.variable {
+  color: #01a0e4;
+}
+
+.token.deleted {
+  text-decoration: line-through;
+}
+
+.token.inserted {
+  border-bottom: 1px dotted #090300;
+  text-decoration: none;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.important {
+  color: #db2d20;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+pre > code.highlight {
+  outline: 0.4em solid #db2d20;
+  outline-offset: .4em;
+}
+
+.line-numbers .line-numbers-rows {
+  border-right-color: #d6d5d4 !important;
+}
+
+.line-numbers-rows > span:before {
+  color: #a5a2a2 !important;
+}
+
+.line-highlight {
+  background: rgba(9, 3, 0, 0.2) !important;
+  background: -webkit-linear-gradient(left, rgba(9, 3, 0, 0.2) 70%, rgba(9, 3, 0, 0)) !important;
+  background: linear-gradient(to right, rgba(9, 3, 0, 0.2) 70%, rgba(9, 3, 0, 0)) !important;
+}

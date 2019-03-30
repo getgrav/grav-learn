@@ -56,7 +56,7 @@ This process will ask you a few questions that are required to create the new th
 
 ! We're going to use **pure-blank** to create a new theme, but you can create a simple **inheritance** style template that inherits from another base theme
 
-```
+```sh
 $ bin/plugin devtools new-theme
 
 Enter Theme Name: MyTheme
@@ -78,7 +78,7 @@ The DevTools command tells you where this new template was created. This created
 
 In order to see your new theme in action, you will need to change the default theme from `antimatter` to `my-theme`, so edit your `user/config/system.yaml` and change it:
 
-```
+```yaml
 ...
 pages:
     theme: my-theme
@@ -91,7 +91,7 @@ Reload your site in your browser and you should see the theme has now changed.
 
 Now we've created a new basic theme that can be modified and developed, let's break it down and have a look at what makes up a theme.  If you look in the `user/themes/my-theme` folder you will see:
 
-```
+```text
 .
 ├── CHANGELOG.md
 ├── LICENSE
@@ -145,7 +145,7 @@ As you know from the [previous chapter](../theme-basics), each item of content i
 
 Utilizing the Twig [Extends](http://twig.sensiolabs.org/doc/tags/extends.html) tag you can define a base layout with [blocks](http://twig.sensiolabs.org/doc/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.  So look at the `templates/default.html.twig` file and examine its content:
 
-```
+```twig
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
@@ -165,7 +165,7 @@ Second, the block `content` is overridden from the base template, and the page's
 
 If you look at the `templates/partials/base.html.twig` you will see the meat of the HTML layout:
 
-```
+```twig
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!DOCTYPE html>
 <html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
@@ -283,7 +283,7 @@ You might have noticed that in the `partials/base.html.twig` file we made refere
 
 1. In your `user/themes/my-theme/css` folder, view the `custom.css`:
 
-```
+```css
 /* Core Stuff */
 * {
     -webkit-box-sizing: border-box;

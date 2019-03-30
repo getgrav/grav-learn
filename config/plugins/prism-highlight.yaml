@@ -1,0 +1,3 @@
+enabled: true
+theme: prism-base16-ocean.dark.css
+linenumbers: true
