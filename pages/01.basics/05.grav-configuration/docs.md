@@ -49,7 +49,7 @@ These configuration options do not appear within their own child sections. They'
 * **intl_enabled**: Special logic for PHP International Extension (mod_intl)
 
 
-### languages
+### Languages
 
 ```yaml
 languages:
@@ -74,7 +74,7 @@ The **Languages** area of the file establishes the site's language settings. Thi
 * **http_accept_language**: Attempt to set the language based on http_accept_language header in the browser. Can be `true` or `false`.
 * **override_locale**: Override the default or system locale with language specific one. Can be `true` or `false`.
 
-### home
+### Home
 
 ```yaml
 home:
@@ -87,7 +87,7 @@ The **Home** section is where you set the default path for the site's homepage. 
 * **alias**: Default path for home, ie: `/home` or `/`.
 * **hide_in_urls**: Hide the home route in URLs. Can be `true` or `false`.
 
-### pages
+### Pages
 
 ```yaml
 pages:
@@ -184,7 +184,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
     - **process_twig**: Should the frontmatter be processed to replace Twig variables? Can be set to `true` or `false`.
     - **ignore_fields**: Fields that might contain Twig variables and should not be processed. Example: `['form','forms']`
 
-### cache
+### Cache
 
 [version=15]
 ```yaml
@@ -244,7 +244,7 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 * **allow_webserver_gzip**: This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete.
 * **redis.socket**: The path to the redis socket file
 
-### twig
+### Twig
 
 ```yaml
 twig:
@@ -267,7 +267,7 @@ The **Twig** section gives you a quick set of tools with which to configure Twig
 * **undefined_filters**: Allow undefined filters. Can be set to `true` or `false`.
 * **umask_fix**: By default Twig creates cached files as 755, fix switches this to 775. Can be set to `true` or `false`.
 
-### assets
+### Assets
 
 ```yaml
 assets:
@@ -301,7 +301,7 @@ The **Assets** section enables you to configure options related to the Assets Ma
 * **enable_asset_timestamp**: Enable asset timestamps. Can be set to `true` or `false`.
 * **collections**: This contains collections, designated as sub-items. For example: `jquery: system://assets/jquery/jquery-2.x.min.js`
 
-### errors
+### Errors
 
 ```yaml
 errors:
@@ -314,7 +314,7 @@ The **Errors** section determines how Grav handles error display and logging.
 * **display**: Determines how errors are displayed. Enter either `1` for the full backtrace, `0` for Simple Error, or `-1` for System Error.
 * **log**: Log errors to `/logs` folder. Can be set to `true` or `false`.
 
-### log
+### Log
 
 ```yaml
 log:
@@ -329,7 +329,7 @@ The **Log** section allows you to configure alternate logging capabilities for G
 * **syslog**
     - **facility**: Syslog facilities output
 
-### debugger
+### Debugger
 
 ```yaml
 debugger:
@@ -344,7 +344,7 @@ This section gives you the ability to activate Grav's debugger. A useful tool du
 * **shutdown**:
     - **close_connection**: Close the connection before calling `onShutdown()`. `false` for debugging.
 
-### images
+### Images
 
 ```yaml
 images:
@@ -366,7 +366,7 @@ This section gives you the ability to set the default image quality images are r
 * **seofriendly**: SEO-friendly processed image names
 
 
-### media
+### Media
 
 ```yaml
 media:
@@ -383,7 +383,7 @@ The **Media** section handles the configuration options for settings related to 
 * **allowed_fallback_types**: Array of allowed media types of files found if accessed via Page route. These file types are placed within `[]` brackets.
 * **auto_metadata_exif**: Automatically create metadata files from Exif data where possible
 
-### session
+### Session
 
 ```yaml
 session:
@@ -409,7 +409,7 @@ These options determine session properties for your site.
 * **httponly**: Set session HTTP only. If true, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed. Can be set to `true` or `false`.
 * **path**: The path where sessions are stored
 
-### gpm
+### GPM
 
 ```yaml
 gpm:
@@ -428,7 +428,7 @@ The **GPM** section offers the user options that control how Grav's GPM sources 
 * **verify_peer**: On some systems (Windows mostly) GPM is unable to connect because the SSL certificate cannot be verified. Disabling this setting might help.
 * **official_gpm_only**: By default GPM direct-install will only allow URLs via the official GPM proxy to ensure security, disable this to allow other sources.
 
-### strict mode
+### Strict Mode
 
 ```yaml
 strict_mode:
@@ -442,7 +442,7 @@ Strict mode allows for a cleaner migration to future versions of Grav by moving 
 * **twig_compat**: Enables deprecated Twig autoescape setting
 
 [version=16]
-### accounts (Grav 1.6+ only)
+### Accounts (Grav 1.6+ only)
 
 ```yaml
 accounts:
@@ -593,7 +593,7 @@ $count_var = Grav::instance()['config']->get('data.count');
 
 ! You can also provide a custom blueprint to enable your custom file to be editable in the admin plugin. Check out the relevant [recipe in the Admin Cookbook section](/cookbook/admin-recipes#add-a-custom-yaml-file).
 
-## Config Variable Namespacing
+### Config Variable Namespacing
 
 Paths to the configuration files will be used as a **namespace** for your configuration options.
 

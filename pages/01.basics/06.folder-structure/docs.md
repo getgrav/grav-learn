@@ -22,7 +22,7 @@ So let us dig a little deeper into each of these top-level folders and explain w
 
 ### /assets
 
-**(v0.9.0+)** The `assets` folder is used by the new asset management system within Grav to store processed `.css` and `.js` files.
+The `assets` folder is used by the new asset management system within Grav to store processed `.css` and `.js` files.
 
 !! This folder should not be used to store any user data, as it is routinely flushed of all data.
 

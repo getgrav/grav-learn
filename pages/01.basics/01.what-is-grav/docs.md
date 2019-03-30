@@ -34,7 +34,7 @@ This solution allows simple plugins to quickly and easily add powerful functiona
 
 To get a basic site up-and-running requires minimal Web development experience. If you dig a little deeper, you will discover that there is very little Grav cannot accomplish.
 
-##### Grav Logos and Press Information
+### Grav Logos and Press Information
 
 You can find a summary about Grav, including **Grav logos** and **press information**, on our [media page](https://getgrav.org/media).
 
