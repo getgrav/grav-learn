@@ -39,13 +39,13 @@ The easiest way to install Grav is to download the ZIP package and extract it:
 
 The alternative method is to install Grav with [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
 
-```
+```bash
 $ composer create-project getgrav/grav ~/webroot/grav
 ```
 
 If you want to check out the bleeding edge version of Grav, add `1.x-dev` as an additional parameter:
 
-```
+```bash
 $ composer create-project getgrav/grav ~/webroot/grav 1.x-dev
 ```
 
@@ -54,19 +54,19 @@ $ composer create-project getgrav/grav ~/webroot/grav 1.x-dev
 Another method is to clone Grav from the GitHub repository, and then run a simple dependency installation script:
 
 1. Clone the Grav repository from [GitHub](https://github.com/getgrav/grav) to a folder in the webroot of your server, e.g. `~/webroot/grav`. Launch a **terminal** or **console** and navigate to the webroot folder:
-   ```
+   ```bash
    $ cd ~/webroot
    $ git clone -b master https://github.com/getgrav/grav.git
    ```
 
 2. Install **vendor dependencies** via [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
-   ```
+   ```bash
    $ cd ~/webroot/grav
    $ composer install --no-dev -o
    ```
 
 3. Install the **plugin** and **theme dependencies** by using the [Grav CLI application](../../advanced/grav-cli) `bin/grav`:
-   ```
+   ```bash
    $ cd ~/webroot/grav
    $ bin/grav install
    ```
@@ -128,7 +128,7 @@ Please consult the [Troubleshooting](../../troubleshooting) section for help reg
 
 The preferred method for updating Grav is to use the **Grav Package Manager (GPM)**. All you need to do  is to navigate to the root of your Grav site and type:
 
-```
+```bash
 bin/gpm selfupgrade -f
 ```
 

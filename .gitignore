@@ -6,7 +6,7 @@
 data/*
 !data/.*
 plugins/*
-!plugins/.*
+!plugins/prism-highlight
 themes/learn2
 
 # OS Generated
