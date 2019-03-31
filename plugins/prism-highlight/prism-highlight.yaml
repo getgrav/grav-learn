@@ -1,3 +1,6 @@
 enabled: true
-theme: prism-base16-default.dark.css
-linenumbers: false
+theme: prism-base16-ocean.dark.css
+all-pre-blocks: true
+plugins:
+    line-numbers: false
+    command-line: false

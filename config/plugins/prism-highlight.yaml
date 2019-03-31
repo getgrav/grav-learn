@@ -1,3 +1,6 @@
 enabled: true
-theme: prism-base16-learn.light.css
-linenumbers: true
+theme: prism-base2tone-space-light.css
+all-pre-blocks: false
+plugins:
+    line-numbers: true
+    command-line: false
