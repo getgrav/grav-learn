@@ -64,28 +64,29 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 
 ### Summary of collection options
 
+[div class="table table-striped table-keycol"]
 |                   String                  |                           Result                          |
 |-------------------------------------------|-----------------------------------------------------------|
-| '@root'                                   | Get the root children                                     |
-| '@root.children'                          | Get the root children (alternative)                       |
-| '@root.descendants'                       | Get the root and recurse through ALL children             |
+| `'@root'`                                   | Get the root children                                     |
+| `'@root.children'`                          | Get the root children (alternative)                       |
+| `'@root.descendants'`                       | Get the root and recurse through ALL children             |
 |                                           |                                                           |
-| '@self.parent'                            | Get the parent of the current page                        |
-| '@self.siblings'                          | A collection of all other pages on this level             |
-| '@self.modular'                           | Get only the modular children                             |
-| '@self.children'                          | Get the non-modular children                              |
-| '@self.descendants'                       | Recurse through all the non-modular children              |
+| `'@self.parent'`                            | Get the parent of the current page                        |
+| `'@self.siblings'`                          | A collection of all other pages on this level             |
+| `'@self.modular'`                           | Get only the modular children                             |
+| `'@self.children'`                          | Get the non-modular children                              |
+| `'@self.descendants'`                       | Recurse through all the non-modular children              |
 |                                           |                                                           |
-| '@page': '/fruit'                         | Get all the children of page `/fruit`                     |
-| '@page.children': '/fruit'                | Alternative to above                                      |
-| '@page.self': '/fruit'                    | Get a collection with only the page `/fruit`              |
-| '@page.page': '/fruit'                    | Alternative to above                                      |
-| '@page.descendants': '/fruit'             | Get and recurse through all the children of page `/fruit` |
-| '@page.modular': '/fruit'                 | Get a collection of all modular subpages of `/fruit`      |
+| `'@page': '/fruit'`                         | Get all the children of page `/fruit`                     |
+| `'@page.children': '/fruit'`                | Alternative to above                                      |
+| `'@page.self': '/fruit'`                    | Get a collection with only the page `/fruit`              |
+| `'@page.page': '/fruit'`                    | Alternative to above                                      |
+| `'@page.descendants': '/fruit'`             | Get and recurse through all the children of page `/fruit` |
+| `'@page.modular': '/fruit'`                | Get a collection of all modular subpages of `/fruit`      |
 |                                           |                                                           |
-| '@taxonomy.tag': photography              | taxonomy with tag=`photography`                           |
-| '@taxonomy': {tag: birds, category: blog} | taxonomy with tag=`birds` && category=`blog`              |
-
+| `'@taxonomy.tag': photography`              | taxonomy with tag=`photography`                           |
+| `'@taxonomy': {tag: birds, category: blog}` | taxonomy with tag=`birds` && category=`blog`              |
+[/div]
 
 ! This document outlines the use of `@page`, `@taxonomy.category` etc, but a more YAML-safe alternative format is `page@`, `taxonomy@.category`.  All the `@` commands can be written in either prefix or postfix format.
 
@@ -285,19 +286,21 @@ content:
 
 Ordering of sub-pages follows the same rules as ordering of folders, the available options are:
 
+[div class="table table-striped table-keycol"]
 | Ordering     | Details                                                                                                                                            |
 | :----------  | :----------                                                                                                                                        |
-| **default**    | The order based on the file system, i.e. `01.home` before `02.advark`                                                                              |
-| **title**      | The order is based on the title as defined in each page                                                                                            |
-| **basename**   | The order is based on the alphabetic folder name after it has been processed by the `basename()` PHP function                                      |
-| **date**       | The order based on the date as defined in each page                                                                                                |
-| **modified**   | The order based on the modified timestamp of the page                                                                                              |
-| **folder**     | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                  |
-| **header.x**   | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015`    |
-| **manual**     | The order based on the `order_manual` variable                                                                                                     |
-| **random**     | The order is randomized                                                                                                                            |
-| **custom**     | The order is based on the `content.order.custom` variable                                                                                                                             |
-| **sort_flags** | Allow to override sorting flags for page header-based or default ordering. If the `intl` PHP extension is loaded, only [these flags](https://secure.php.net/manual/en/collator.asort.php) are available. Otherwise, you can use the PHP [standard sorting flags](https://secure.php.net/manual/en/array.constants.php). |
+| `default`    | The order based on the file system, i.e. `01.home` before `02.advark`                                                                              |
+| `title`      | The order is based on the title as defined in each page                                                                                            |
+| `basename`   | The order is based on the alphabetic folder name after it has been processed by the `basename()` PHP function                                      |
+| `date`       | The order based on the date as defined in each page                                                                                                |
+| `modified`   | The order based on the modified timestamp of the page                                                                                              |
+| `folder`     | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                  |
+| `header.x`   | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015`    |
+| `manual`     | The order based on the `order_manual` variable                                                                                                     |
+| `random`     | The order is randomized                                                                                                                            |
+| `custom`     | The order is based on the `content.order.custom` variable                                                                                                                             |
+| `sort_flags` | Allow to override sorting flags for page header-based or default ordering. If the `intl` PHP extension is loaded, only [these flags](https://secure.php.net/manual/en/collator.asort.php) are available. Otherwise, you can use the PHP [standard sorting flags](https://secure.php.net/manual/en/array.constants.php). |
+[/div]
 
 The `content.order.dir` variable controls which direction the ordering should be in. Valid values are either `desc` or `asc`.
 
@@ -364,41 +367,49 @@ This sets up **2 collections** for this page, the first uses the default `conten
 
 Standard methods Iterable methods include:
 
-* `Collection::append($items)` - Add another collection or array
-* `Collection::first()` - Get the first item in the collection
-* `Collection::last()` - Get the last item in the collection
-* `Collection::random($num)` - Pick `$num` random items from the collection
-* `Collection::reverse()` - Reverse the order of the collection
-* `Collection::shuffle()` - Randomize the entire collection
-* `Collection::slice($offset, $length)` - Slice the list
+[div class="table table-striped table-keycol"]
+| Property | Description |
+| -------- | ----------- |
+| `Collection::append($items)` | Add another collection or array |
+| `Collection::first()` | Get the first item in the collection |
+| `Collection::last()` | Get the last item in the collection |
+| `Collection::random($num)` | Pick `$num` random items from the collection |
+| `Collection::reverse()` | Reverse the order of the collection |
+| `Collection::shuffle()` | Randomize the entire collection |
+| `Collection::slice($offset, $length)` | Slice the list |
+[/div]
 
 Also has several useful Collection-specific methods:
 
-* `Collection::addPage($page)` - You can append another page to this collection.
-* `Collection::copy()` - Creates a copy of the current collection
-* `Collection::current()` - gets the current item in the collection
-* `Collection::key()` - Returns the current slug of the the current item
-* `Collection::remove($path)` - Removes a specific page in the collection, or current if `$path = null`
-* `Collection::order($by, $dir, $manual)` - Orders the current collection
-* `Collection::intersect($collection2)` - Merge two collections, keeping items that occur in both collections (like an "AND" condition)
-* `Collection::isFirst($path)` - Determines if the page identified by path is first
-* `Collection::isLast($path)` - Determines if the page identified by path is last
-* `Collection::prevSibling($path)` - Returns the previous sibling page if possible
-* `Collection::nextSibling($path)` - Returns the next sibling page if possible
-* `Collection::currentPosition($path)` - Returns the current index
-* `Collection::dateRange($startDate, $endDate, $field)` - Filters the current collection with dates
-* `Collection::visible()` - Filters the current collection to include only visible pages
-* `Collection::nonVisible()` - Filters the current collection to include only non-visible pages
-* `Collection::merge($collection2)` - Merge two collections, keeping items that occur in either collection (like an "OR" condition)
-* `Collection::modular()` - Filters the current collection to include only modular pages
-* `Collection::nonModular()` - Filters the current collection to include only non-modular pages
-* `Collection::published()` - Filters the current collection to include only published pages
-* `Collection::nonPublished()` - Filters the current collection to include only non-published pages
-* `Collection::routable()` - Filters the current collection to include only routable pages
-* `Collection::nonRoutable()` - Filters the current collection to include only non-routabe pages
-* `Collection::ofType($type)` - Filters the current collection to include only pages where template = `$type`.
-* `Collection::ofOneOfTheseTypes($types)` - Filters the current collection to include only pages where template is in the array `$types`.
-* `Collection::ofOneOfTheseAccessLevels($levels)` - Filters the current collection to include only pages where page access is in the array of `$levels`
+[div class="table table-striped table-keycol"]
+| Property | Description |
+| -------- | ----------- |
+| `Collection::addPage($page)` | You can append another page to this collection |
+| `Collection::copy()` | Creates a copy of the current collection |
+| `Collection::current()` | gets the current item in the collection |
+| `Collection::key()` | Returns the current slug of the the current item |
+| `Collection::remove($path)` | Removes a specific page in the collection, or current if `$path = null` |
+| `Collection::order($by, $dir, $manual)` | Orders the current collection |
+| `Collection::intersect($collection2)` | Merge two collections, keeping items that occur in both collections (like an "AND" condition) |
+| `Collection::isFirst($path)` | Determines if the page identified by path is first |
+| `Collection::isLast($path)` | Determines if the page identified by path is last |
+| `Collection::prevSibling($path)` | Returns the previous sibling page if possible |
+| `Collection::nextSibling($path)` | Returns the next sibling page if possible |
+| `Collection::currentPosition($path)` | Returns the current index |
+| `Collection::dateRange($startDate, $endDate, $field)` | Filters the current collection with dates |
+| `Collection::visible()` | Filters the current collection to include only visible pages |
+| `Collection::nonVisible()` | Filters the current collection to include only non-visible pages |
+| `Collection::merge($collection2)` | Merge two collections, keeping items that occur in either collection (like an "OR" condition) |
+| `Collection::modular()` | Filters the current collection to include only modular pages |
+| `Collection::nonModular()` | Filters the current collection to include only non-modular pages |
+| `Collection::published()` | Filters the current collection to include only published pages |
+| `Collection::nonPublished()` | Filters the current collection to include only non-published pages |
+| `Collection::routable()` | Filters the current collection to include only routable pages |
+| `Collection::nonRoutable()` | Filters the current collection to include only non-routabe pages |
+| `Collection::ofType($type)` | Filters the current collection to include only pages where template = `$type` |
+| `Collection::ofOneOfTheseTypes($types)` | Filters the current collection to include only pages where template is in the array `$types` |
+| `Collection::ofOneOfTheseAccessLevels($levels)` | Filters the current collection to include only pages where page access is in the array of `$levels` |
+[/div]
 
 Here is an example taken from the **Learn2** theme's **docs.html.twig** that defines a collection based on taxonomy (and optionally tags if they exist) and uses the `Collection::isFirst` and `Collection::isLast` methods to conditionally add page navigation:
 
@@ -425,14 +436,17 @@ Here is an example taken from the **Learn2** theme's **docs.html.twig** that def
 
 `nextSibling()` is up the list and `prevSibling()` is down the list, this is how it works:
 
-```
 Assuming you have the pages:
-    Project A
-    Project B
-    Project C
+
+```txt
+Project A
+Project B
+Project C
+```
+
 You are on Project A, the previous page is Project B.
 If you are on Project B, the previous page is Project C and next is Project A
-```
+
 
 ## Programmatic Collections
 
@@ -474,8 +488,6 @@ You can also do similar directly in **Twig Templates**:
 {% set ordered_collection = collection.order('date','desc') %}
 ```
 
-
-
 #### Advanced Collections
 
 By default when you call `page.collection()` in the Twig of a page that has a collection defined in the header, Grav looks for a collection called `content`.  This allows the ability to define [multiple collections](#multiple-collections), but you can even take this a step further.
@@ -495,13 +507,15 @@ If you need to programatically generate a collection, you can do so by calling `
 
 Generating menu for the whole site (you need to set *menu* property in the page's frontmatter):
 
+[div class="no-margin-bottom"]
 ```yaml
 ---
 title: Home
 menu: Home
 ---
 ```
-
+[/div]
+[div class="no-margin-top"]
 ```twig
 {% set options = { items: {'@root.descendants':''}, 'order': {'by': 'folder', 'dir': 'asc'}} %}
 {% set my_collection = page.collection(options) %}
@@ -518,3 +532,4 @@ menu: Home
 {% endif %}
 {% endfor %}
 ```
+[/div]

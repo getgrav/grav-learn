@@ -16,6 +16,7 @@ Grav uses a **smart-caching** system that automatically creates in-cache copies 
 
 The following media file types are supported natively by Grav. Additional support for media files and streaming embeds may be added via plugins.
 
+[div class="table table-striped table-keycol"]
 | Media Type         | File Type                                                                                                                                                             |
 | :-----             | :-----                                                                                                                                                                |
 | Image              | jpg, jpeg, png                                                                                                                                                        |
@@ -24,6 +25,7 @@ The following media file types are supported natively by Grav. Additional suppor
 | Vectorized image   | svg                                                                                                                                                                   |
 | Video              | mp4, mov, m4v, swf, flv, webm, ogv                                                                                                                                    |
 | Data / Information | txt, doc, docx, html, htm, pdf, zip, gz, 7z, tar, css, js, json, xml, xls, xlt, xlm, xlsm, xld, xla, xlc, xlw, xll, ppt, pps, rtf, bmp, tiff, mpeg, mpg, mpe, avi, wmv |
+[/div]
 
 A full list of supported mimetypes can be found in the `system/config/media.yaml` file.  If there is a mimetype that is not currently supported, you can simply create your own `user/config/media.yaml` and add it in there.  Just ensure you follow the same format as the original `system` file.  The simplest approach is to copy the whole original file and make your edits.
 
@@ -77,20 +79,23 @@ You can also do these same kinds of things using the Twig `Media` object:
 
 You may also want to put all the media files into their own folder, so that they can all be accessed at one go. For instance you might want to keep all your MP3 files in a folder `user/pages/mp3s` (not visible) and put the name of the MP3 file associated with a particular page in a header field called `thistrack`. If you then wish to access the file for a partiular page and play it using the HTML5 audio element, you will need code like this:
 
-    <audio controls>
-    <source src="{{ page.find('/mp3s').media[page.header.thistrack~'.mp3'] }}">
-    </audio>
-
+```html
+<audio controls>
+  <source src="{{ page.find('/mp3s').media[page.header.thistrack~'.mp3'] }}">
+</audio>
+```
 
 ## Display modes
 
 Grav provides a few different display modes for every kind of media object.
 
+[div class="table table-striped table-keycol"]
 | Mode      | Explanation                                                                     |
 | :-----    | :-----                                                                          |
 | source    | Visual representation of the media itself, i.e. the actual image, video or file |
 | text      | Textual representation of the media                                             |
 | thumbnail | The thumbnail image for this media object                                       |
+[/div]
 
 !!!! **Data / Information** type media do not support `source` mode, they will default to `text` mode if another mode is not explicitly chosen.
 
@@ -113,6 +118,7 @@ The display modes above can also be used in combination with links and lightboxe
 
 When you use Grav's media functionality to render a lightbox, all Grav does is output an **anchor** tag that has some attributes for the lightbox plugin to read. If you are interested in using a lightbox library that is not in our plugin repository or you want to create your own plugin, you can use the table below as a reference.
 
+[div class="table table-striped table-keycol"]
 | Attribute   | Explanation                                                                                                  |
 | :-----      | :-----                                                                                                       |
 | rel         | A simple indicator that this is not a regular link, but a lightbox link. The value will always be `lightbox` |
@@ -120,6 +126,7 @@ When you use Grav's media functionality to render a lightbox, all Grav does is o
 | data-width  | The width the user requested this lightbox to be                                                             |
 | data-height | The height the user requested this lightbox to be                                                            |
 | data-srcset | In case of image media, this contains the `srcset` string. ([more info](../media#responsive-images))         |
+[/div]
 
 ## Actions
 
@@ -138,13 +145,13 @@ This returns **raw url path** to the media.
 [ui-tabs]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].url }}
 ```
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
-```
+```html
 {{ page.media['sample-image.jpg'].url|e }}
 ```
 [/ui-tab]
@@ -159,19 +166,19 @@ The `html` action will output a valid HTML tag for the media based on the curren
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Some ALT text](sample-image.jpg "My title") {.myclass}
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].html('My title', 'Some ALT text', 'myclass') }}
 ```
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
-```
+```html
 {{ page.media['sample-image.jpg'].html('My title', 'Some ALT text', 'myclass')|e }}
 ```
 [/ui-tab]
@@ -202,19 +209,19 @@ The following example will display a textual link (`display('text')`) to a sepia
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Image link](sample-image.jpg?sepia&link&display=text)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].sepia().link().display('text').html('Image link') }}
 ```
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
-```
+```html
 {{ page.media['sample-image.jpg'].sepia().link().display('text').html('Image link')|e }}
 ```
 [/ui-tab]
@@ -232,19 +239,19 @@ If possible (currently only in the case of images), Grav will resize your media 
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?lightbox=600,400&resize=200,200)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].lightbox(600,400).resize(200,200).html('Sample Image') }}
 ```
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
-```
+```html
 {{ page.media['sample-image.jpg'].lightbox(600,400).resize(200,200).html('Sample Image')|e }}
 ```
 [/ui-tab]
@@ -260,19 +267,19 @@ Manually choose the thumbnail Grav should use. You can choose between `page` and
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?thumbnail=default&display=thumbnail)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].thumbnail('default').display('thumbnail').html('Sample Image') }}
 ```
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
-```
+```html
 {{ page.media['sample-image.jpg'].thumbnail('default').display('thumbnail').html('Sample Image')|e }}
 ```
 [/ui-tab]
@@ -290,13 +297,13 @@ Resizing does exactly what you would expect it to do.  `resize` lets you create 
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?resize=400,200)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].resize(400, 200).html() }}
 ```
 {% endverbatim %}
@@ -313,13 +320,13 @@ Resizes the image to the `width` and `height` as provided.  `forceResize` will n
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?forceResize=200,300)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].forceResize(200, 300).html() }}
 ```
 {% endverbatim %}
@@ -338,13 +345,13 @@ For example, if you have an image that is `640` x `480` and you perform a `cropR
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropResize=300,300)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropResize(300, 300).html() }}
 ```
 {% endverbatim %}
@@ -363,13 +370,13 @@ For example, an image that is `640` x `480` that has the `crop(0, 0, 400, 100)` 
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?crop=100,100,300,200)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].crop(100,100,300,200).html() }}
 ```
 {% endverbatim %}
@@ -392,13 +399,13 @@ For example if you have an image that is `640` x `480` and you perform a `cropZo
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=600,200)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(600,200).html() }}
 ```
 {% endverbatim %}
@@ -417,13 +424,13 @@ Dynamically allows the setting of a **compression percentage** `value` for the i
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&quality=25)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).quality(25).html() }}
 ```
 {% endverbatim %}
@@ -440,13 +447,13 @@ Applies a **negative filter** to the image where colors are inverted.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&negate)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).negate.html() }}
 ```
 {% endverbatim %}
@@ -463,13 +470,13 @@ Applies a **brightness filter** to the image with a `value` from `-255` to `+255
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&brightness=-100)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).brightness(-100).html() }}
 ```
 {% endverbatim %}
@@ -486,13 +493,13 @@ This applies a **contrast filter** to the image with a `value` from `-100` to `+
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&contrast=-50)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).contrast(-50).html() }}
 ```
 {% endverbatim %}
@@ -507,13 +514,13 @@ This processes the image with a **grayscale filter**.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&grayscale)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).grayscale.html() }}
 ```
 {% endverbatim %}
@@ -530,13 +537,13 @@ This processes the image with an **embossing filter**.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&emboss)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).emboss.html() }}
 ```
 {% endverbatim %}
@@ -553,13 +560,13 @@ This applies a **smoothing filter** to the image based on smooth `value` setting
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&smooth=5)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).smooth(5).html() }}
 ```
 {% endverbatim %}
@@ -576,13 +583,13 @@ This applies a **sharpening filter** on the image.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sharp)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).sharp.html() }}
 ```
 {% endverbatim %}
@@ -599,13 +606,13 @@ This applies an **edge finding filter** on the image.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&edge)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).edge.html() }}
 ```
 {% endverbatim %}
@@ -622,13 +629,13 @@ You can colorize the image based on adjusting the `red`, `green`, and `blue` val
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&colorize=100,-100,40)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).colorize(100,-100,40).html() }}
 ```
 {% endverbatim %}
@@ -645,13 +652,13 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sepia)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).sepia.html() }}
 ```
 {% endverbatim %}
@@ -668,13 +675,13 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?gaussianBlur=3)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].gaussianBlur(3).html() }}
 ```
 {% endverbatim %}
@@ -691,13 +698,13 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&rotate=-90)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).rotate(-90).html() }}
 ```
 {% endverbatim %}
@@ -714,13 +721,13 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?cropZoom=300,200&flip=0,1)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).flip(0,1).html() }}
 ```
 {% endverbatim %}
@@ -737,13 +744,13 @@ Fixes the orientation of the image when rotation is made via EXIF data (applies 
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?fixOrientation)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].fixOrientation }}
 ```
 {% endverbatim %}
@@ -759,19 +766,19 @@ Because PHP cannot handle dynamically resizing these types of media, the resize 
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![](sample-trailer.mov?resize=400,200)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-trailer.mov'].resize(400, 200).html() }}
 ```
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
-```
+```html
 {{ page.media['sample-trailer.mov'].resize(400, 200).html()|e }}
 ```
 [/ui-tab]
@@ -781,19 +788,19 @@ Some examples of this:
 
 [ui-tabs]
 [ui-tab title="Vector Image"]
-```
+```markdown
 ![](sample-vector.svg?resize=300,300)
 ```
 ![](sample-vector.svg?resize=300,300)
 [/ui-tab]
 [ui-tab title="Animated Image"]
-```
+```markdown
 ![](sample-animated.gif?resize=300,300)
 ```
 ![](sample-animated.gif?resize=300,300)
 [/ui-tab]
 [ui-tab title="Video"]
-```
+```markdown
 ![](sample-trailer.mov?resize=400,200)
 ```
 ![](sample-trailer.mov?resize=400,200)
@@ -806,13 +813,13 @@ Audio media will display an HTML5 audio link:
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['hal9000.mp3'].html() }}
 ```
 {% endverbatim %}
@@ -829,19 +836,19 @@ Allows explicitly setting or removing the HTML5 default controls. Passing `0` hi
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3?controls=0)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['hal9000.mp3'].controls(0) }}
 ```
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
-```
+```html
 {{ page.media['hal9000.mp3'].controls(0) }}
 ```
 [/ui-tab]
@@ -857,13 +864,13 @@ Allows setting of `preload` property, which defaults to `auto`. Permitted params
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3?preload=metadata)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['hal9000.mp3'].preload('metadata') }}
 ```
 {% endverbatim %}
@@ -878,13 +885,13 @@ Allows setting whether audio will `autoplay` upon page load. Defaults to `false`
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3?autoplay=1)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['hal9000.mp3'].autoplay(1) }}
 ```
 {% endverbatim %}
@@ -900,13 +907,13 @@ Allows setting of `controlsList` property, which takes one or more of three poss
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3?controlsList=nodownload-nofullscreen-noremoteplayback)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['hal9000.mp3'].controlsList('nodownload nofullscreen noremoteplayback') }}
 ```
 {% endverbatim %}
@@ -919,13 +926,13 @@ Allows setting whether audio is `muted` on load. Defaults to `false` by omission
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3?muted=1)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['hal9000.mp3'].muted(1) }}
 ```
 {% endverbatim %}
@@ -938,13 +945,13 @@ Allows setting whether audio will `loop` upon playing through completion. Defaul
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3?loop=1)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['hal9000.mp3'].loop(1) }}
 ```
 {% endverbatim %}
@@ -957,13 +964,13 @@ Grav does not provide any custom actions on files at this point in time and ther
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 [View Text File](acronyms.txt)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 <a href="{{ page.media['acronyms.txt'].url() }}">View Text File</a>
 ```
 {% endverbatim %}
@@ -980,13 +987,13 @@ As you can see: Grav provides some powerful image manipulation functionality tha
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Sample Image](sample-image.jpg?negate&lightbox&cropZoom=200,200)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['sample-image.jpg'].negate.lightbox.cropZoom(200,200) }}
 ```
 {% endverbatim %}
@@ -1004,7 +1011,7 @@ When you access the same image multiple times in a single page, actions you have
 To combat this, you can reset the actions on the images by passing `false` to the `url()` method:
 
 {% verbatim %}
-```
+```twig
 {% for item in page.header.gallery %}
     {% set image = page.media[item.src].cropZoom(800, 600).quality(70) %}
     <a href="{{ image.url(false) }}">
@@ -1030,13 +1037,13 @@ Let's assume you have a file called `retina@2x.jpg`, you would actually referenc
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![Retina Image](retina.jpg?sizes=80vw)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['retina.jpg'].sizes('80vw').html() }}
 ```
 {% endverbatim %}
@@ -1045,7 +1052,7 @@ Let's assume you have a file called `retina@2x.jpg`, you would actually referenc
 {% set code_sample %}
 ![Retina Image](retina.jpg?sizes=80vw)
 {% endset %}
-```
+```html
 {{ code_sample|e }}
 ```
 [/ui-tab]
@@ -1063,13 +1070,13 @@ Grav also has support for media queries inside the `sizes` attribute, allowing y
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['retina.jpg'].sizes('(max-width:26em) 100vw, 50vw').html() }}
 ```
 {% endverbatim %}
@@ -1078,7 +1085,7 @@ Grav also has support for media queries inside the `sizes` attribute, allowing y
 {% set code_sample %}
 ![](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 {% endset %}
-```
+```html
 {{ code_sample|e }}
 ```
 [/ui-tab]
@@ -1100,13 +1107,13 @@ In our example, we set the maximum to `1600`. This will result in increments of 
 
 [ui-tabs]
 [ui-tab title="Markdown"]
-```
+```markdown
 ![](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
-```
+```twig
 {{ page.media['retina.jpg'].derivatives(320,1600,300).sizes('(max-width:26em) 100vw, 50vw').html() }}
 ```
 {% endverbatim %}
@@ -1115,7 +1122,7 @@ In our example, we set the maximum to `1600`. This will result in increments of 
 {% set code_sample %}
 ![](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 {% endset %}
-```
+```html
 {{ code_sample|e }}
 ```
 [/ui-tab]
@@ -1132,7 +1139,7 @@ In our example, we set the maximum to `1600`. This will result in increments of 
 
 Instead of letting Grav generate the sizes in even steps between given boundaries, you may manually define which sizes Grav should generate:
 
-```
+```markdown
 ![](retina.jpg?derivatives=[360,720,1200])
 ```
 
@@ -1146,7 +1153,7 @@ You can add just about any setting or piece of metadata you would like using thi
 
 The contents of this file should be in YAML syntax, an example could be:
 
-```ruby
+```yaml
 image:
     filters:
         default:
@@ -1160,7 +1167,7 @@ If you are using this method to add file-specific styling or meta tags for a sin
 Let's say you wanted to just pull the `alt_text` value listed for the image file `sample-image.jpg`. You would then create a file called `sample-image.jpg.meta.yaml` and place it in the folder with the referenced image file. Then, insert the data used in the example above and save that YAML file. In the markdown file for the page, you can display this data by using the following line:
 
 {% verbatim %}
-```ruby
+```yaml
 {{ page.media['sample-image.jpg'].meta.alt_text }}
 ```
 {% endverbatim %}
@@ -1173,16 +1180,18 @@ In-line video control options are another capability baked into Grav. These opti
 
 Here is an example:
 
-```
+```markdown
 ![video.mov](video.mov?loop=1&controls=0&autoplay=1)
 ```
 
 The options are as follows:
 
+[div class="table table-striped table-keycol"]
 | Attribute   | Explanation                                                                               |
 | :-----      | :-----                                                                                    |
 | autoplay    | Enables (`1`) or Disables (`0`) autoplay for the video on pageload.                       |
 | controls    | Enables (`1`) or Disables (`0`) media controls for the embedded video.                    |
 | loop        | Enables (`1`) or Disables (`0`) automatic looping for the video, replaying it as it ends. |
+[/div]
 
 

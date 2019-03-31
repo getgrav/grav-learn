@@ -62,9 +62,7 @@ HTML:
 <h6>h6 Heading</h6>
 ```
 
-<br>
-<br>
-<br>
+
 
 ## Comments
 
@@ -81,9 +79,7 @@ Comment below should **NOT** be seen:
 This is a comment
 -->
 
-<br>
-<br>
-<br>
+
 
 ## Horizontal Rules
 
@@ -102,9 +98,7 @@ ___
 ***
 
 
-<br>
-<br>
-<br>
+
 
 
 ## Body Copy
@@ -125,16 +119,14 @@ renders to this HTML:
 A **line break** can be done with 2 spaces followed by 1 return.
 
 
-<br>
-<br>
-<br>
+
 
 
 ## Inline HTML
 
 If you need a certain HTML tag (with a class) you can simply use HTML:
 
-```
+```html
 Paragraph in Markdown.
 
 <div class="class">
@@ -144,9 +136,7 @@ Paragraph in Markdown.
 ```
 
 
-<br>
-<br>
-<br>
+
 
 
 ## Emphasis
@@ -205,9 +195,7 @@ HTML:
 <del>Strike through this text.</del>
 ```
 
-<br>
-<br>
-<br>
+
 
 
 ## Blockquotes
@@ -248,17 +236,13 @@ Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
 odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.
 
 
-<br>
-<br>
-<br>
+
 
 ## Notices
 
 ! The old mechanism for notices overriding the block quote syntax (`>>>`) has been deprecated.  Notices are now handled via a dedicated plugin called [Markdown Notices](https://github.com/getgrav/grav-plugin-markdown-notices)
 
-<br>
-<br>
-<br>
+
 
 ## Lists
 
@@ -391,9 +375,7 @@ Renders to:
 8. Eget porttitor lorem
 
 
-<br>
-<br>
-<br>
+
 
 
 ## Code
@@ -428,10 +410,12 @@ Or indent several lines of code by at least four spaces, as in:
 
 Renders to:
 
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
+```txt
+// Some comments
+line 1 of code
+line 2 of code
+line 3 of code
+```
 
 HTML:
 
@@ -449,23 +433,23 @@ HTML:
 
 ### Block code "fences"
 
-Use "fences"  ```` ``` ```` to block in multiple lines of code.
+Use "fences"  ```` ``` ```` to block in multiple lines of code with a language attribute
 
 <pre>
-``` markup
+```html
 Sample text here...
 ```
 </pre>
 
 
-```
+```html
 Sample text here...
 ```
 
 HTML:
 
 ```html
-<pre>
+<pre language-html>
   <code>Sample text here...</code>
 </pre>
 ```
@@ -522,9 +506,7 @@ grunt.initConfig({
 
 !!! For syntax highlighting to work, the [Highlight plugin](https://github.com/getgrav/grav-plugin-highlight) needs to be installed and enabled. It in turn utilizes a jquery plugin, so jquery needs to be loaded in your theme too.
 
-<br>
-<br>
-<br>
+
 
 
 
@@ -542,11 +524,13 @@ Tables are created by adding pipes as dividers between each cell, and by adding 
 
 Renders to:
 
+[div class="table"]
 | Option | Description |
 | ------ | ----------- |
 | data   | path to data files to supply the data that will be passed into templates. |
 | engine | engine to be used for processing templates. Handlebars is the default. |
 | ext    | extension to be used for dest files. |
+[/div]
 
 And this HTML:
 
@@ -587,16 +571,16 @@ Adding a colon on the right side of the dashes below any heading will right alig
 | ext    | extension to be used for dest files. |
 ```
 
+[div class="table"]
 | Option | Description |
 | ------:| -----------:|
 | data   | path to data files to supply the data that will be passed into templates. |
 | engine | engine to be used for processing templates. Handlebars is the default. |
 | ext    | extension to be used for dest files. |
+[/div]
 
 
-<br>
-<br>
-<br>
+
 
 
 ## Links
@@ -656,12 +640,11 @@ Content for chapter one.
 ## Chapter 3 <a id="chapter-3"></a>
 Content for chapter one.
 ```
+
 **NOTE** that specific placement of the anchor tag seems to be arbitrary. They are placed inline here since it seems to be unobtrusive, and it works.
 
 
-<br>
-<br>
-<br>
+
 
 
 ## Images

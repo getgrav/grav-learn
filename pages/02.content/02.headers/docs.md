@@ -206,13 +206,17 @@ This will always take you to the `/profile` route after a successful login.
       '<': 'lt'
 ```
 
-* `extra`: Enable support for Markdown Extra support (GFM by default)
-* `auto_line_breaks`: Enable automatic line breaks
-* `auto_url_links`: Enable automatic HTML links
-* `escape_markup`: Escape markup tags into entities
-* `special_chars`: List of special characters to automatically convert to
+[div class="table table-striped table-keycol"]
+| Property | Description |
+| -------- | ----------- |
+| **extra:** | Enable support for Markdown Extra support (GFM by default) |
+| **auto_line_breaks:** | Enable automatic line breaks |
+| **auto_url_links:** | Enable automatic HTML links |
+| **escape_markup:** | Escape markup tags into entities |
+| **special_chars:** | List of special characters to automatically convert to |
+[/div]
 
-These Markdown settings are a new feature we added in **v0.9.14**.  You can enable these globally via your `user/config/system.yaml` configuration file, or you can override this global setting _per-page_ with this `markdown` header option.
+You can enable these globally via your `user/config/system.yaml` configuration file, or you can override this global setting _per-page_ with this `markdown` header option.
 
 ### Never Cache Twig
 
@@ -287,7 +291,7 @@ routes:
     - '/can-be-any-valid-slug'
 ```
 
-With Grav **0.9.30** you can now provide a **default route** that overrides the standard route structure as defined by the folder structure.
+You can now provide a **default route** that overrides the standard route structure as defined by the folder structure.
 
 You can also specify a specific **canonical route** that can be used in themes to output a canonical link:
 
@@ -313,7 +317,7 @@ Grav automatically looks for a page with the route `/error` if another page cann
 ssl: true
 ```
 
-As of Grav **1.0.9** you can now enable a specific page to be forced with SSL **on** or **off**.  This **only works** with the `absolute_urls: true` option set in the `system.yaml` configuration.  This is because to be able to switch back and forth between SSL and non-SSL pages, you must be using full URLs with the protocol and host included.
+You can now enable a specific page to be forced with SSL **on** or **off**.  This **only works** with the `absolute_urls: true` option set in the `system.yaml` configuration.  This is because to be able to switch back and forth between SSL and non-SSL pages, you must be using full URLs with the protocol and host included.
 
 ### Summary
 
@@ -326,16 +330,28 @@ summary:
 
 The **summary** option configures what the `page.summary()` method returns.  This is most often used in a blog-listing type scenario, but can be used anytime you need a synopsis or summary of the page content.  The scenarios are as follows:
 
-1. `enabled: false` -- Switch off page summary (the summary returns the same as the page content)
-2. `enabled: true`:
-    1. `size: 0` -- No truncation of content happens except if a summary delimiter is found.
-    2. `size: int` -- Content greater than length **int** will be truncated. If a summary delimiter is found, then the content will be truncated up to the summary delimiter.
-    3. `format: long` -- Any summary delimiter of the content will be ignored.
-        1. `size: 0` -- Summary equals the entire page content.
-        2. `size: int` -- The content will be truncated after **int** chars, independent of summary delimiter position.
-    4. `format: short` -- Detect and truncate content up to summary delimiter position.
-        1. `size: 0` -- If no summary delimiter is found, the summary equals the page content, otherwise the content will be truncated up to summary delimiter position.
-        2. `size: int` -- Always truncate the content after **int** chars. If a summary delimiter was found, then truncate content up to summary delimiter position.
+[div class="table table-striped table-keycol"]
+| Property | Description |
+| -------- | ----------- |
+| **enabled:** | Switch off page summary (the summary returns the same as the page content) |
+| **format:** | <ul><li>`long` = Any summary delimiter of the content will be ignored<li>`short` = Detect and truncate content up to summary delimiter position</ul> |
+[/div]
+
+The `size` attribute has different meanings when the format is set to `short` and `long`:
+
+[div class="table table-striped table-keycol"]
+| Short Size | Description |
+| -------- | ----------- |
+| **size: 0** | If no summary delimiter is found, the summary equals the page content, otherwise the content will be truncated up to summary delimiter position |
+| **size:** `int` | Always truncate the content after **int** chars. If a summary delimiter was found, then truncate content up to summary delimiter position |
+[/div]
+
+[div class="table table-striped table-keycol"]
+| Long Size | Description |
+| -------- | ----------- |
+| **size: 0** | Summary equals the entire page content |
+| **size:** `int` | The content will be truncated after **int** chars, independent of summary delimiter position |
+[/div]
 
 ### Template
 
@@ -404,7 +420,7 @@ author:
 
 You could then access them from Twig:
 
-```
+```twig
 <section id="author-details">
     <h2>{{ page.header.author.name }}</h2>
     <p>{{ page.header.author.bio }}</p>
@@ -455,7 +471,7 @@ metadata:
 
 This will produce the HTML:
 
-```
+```html
 <meta name="og:title" property="og:title" content="The Rock" />
 <meta name="og:type" property="og:type" content="video.movie" />
 <meta name="og:url" property="og:url" content="http://www.imdb.com/title/tt0117500/" />
@@ -473,7 +489,7 @@ metadata:
 
 This will produce the HTML:
 
-```
+```html
 <meta name="fb:app_id" property="fb:app_id" content="your_facebook_app_id" />
 ```
 

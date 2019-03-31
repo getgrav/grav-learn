@@ -35,7 +35,7 @@ intl_enabled: true
 
 These configuration options do not appear within their own child sections. They're general options that affect the way the site operates, its timezone, and base URL. 
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **absolute_urls:** | Absolute or relative URLs for `base_url` |
@@ -68,7 +68,7 @@ languages:
 
 The **Languages** area of the file establishes the site's language settings. This includes which language(s) are supported, designation of the default language in the URLs, and translations. Here is the breakdown for the **Languages** area of the system configuration file:
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **supported:** | List of languages supported. eg: `[en, fr, de]` |
@@ -91,7 +91,7 @@ home:
 
 The **Home** section is where you set the default path for the site's homepage. You can also choose to hide the home route in URLs.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **alias:** | Default path for home, ie: `/home` or `/` |
@@ -151,7 +151,7 @@ pages:
 
 The **Pages** section of the `system/config/system.yaml` file is where you set a lot of the main theme-related settings. For example, this is where you set the theme used to render the site, page ordering, twig and markdown processing defaults, and more. This is where most of the decisions that affect the way your pages are rendered are made.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **theme:** | This is where you set the default theme. This defaults to `quark` |
@@ -242,7 +242,7 @@ cache:
 
 The **Cache** section is where you can configure the site's caching settings. You can enable, disable, choose the method, and more.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **enabled:** | Set to true to enable caching. Can be set to `true` or `false` |
@@ -278,7 +278,7 @@ twig:
 
 The **Twig** section gives you a quick set of tools with which to configure Twig on your site for debugging, caching, and optimization.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **cache:** | Set to true to enable Twig caching. Can be set to `true` or `false` |
@@ -311,7 +311,7 @@ assets:
 
 The **Assets** section enables you to configure options related to the Assets Manager (JS, CSS).
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **css_pipeline:** | The CSS pipeline is the unification of multiple CSS resources into one file. Can be set to `true` or `false` |
@@ -338,7 +338,7 @@ errors:
 
 The **Errors** section determines how Grav handles error display and logging.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **display:** | Determines how errors are displayed. Enter either `1` for the full backtrace, `0` for Simple Error, or `-1` for System Error |
@@ -356,7 +356,7 @@ log:
 
 The **Log** section allows you to configure alternate logging capabilities for Grav.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **handler:** | Log handler. Currently supported: `file` \| `syslog` |
@@ -375,7 +375,7 @@ debugger:
 
 This section gives you the ability to activate Grav's debugger. A useful tool during development.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **enabled:** | Enable Grav debugger and following settings. Can be set to `true` or `false` |
@@ -397,7 +397,7 @@ images:
 
 This section gives you the ability to set the default image quality images are resampled to, as well as to control image caching and debugging features.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **default_image_quality:** | Default image quality to use when resampling images. For example: `85` = 85% |
@@ -421,7 +421,7 @@ media:
 
 The **Media** section handles the configuration options for settings related to the handling of media files. This includes timestamp display, upload size, and more.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **enable_media_timestamp:** | Enable media timetsamps |
@@ -447,7 +447,7 @@ session:
 
 These options determine session properties for your site.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **enabled:** | Enable Session support. Can be set to `true` or `false` |
@@ -473,7 +473,7 @@ gpm:
 
 The **GPM** section offers the user options that control how Grav's GPM sources and makes ready updates available for your site. You can choose between stable and testing releases, as well as set up a proxy URL.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **releases:** | Set to either `stable` or `testing` to determine if you want to update to the latest stable or testing build |
@@ -493,7 +493,7 @@ strict_mode:
 
 Strict mode allows for a cleaner migration to future versions of Grav by moving to the newer versions of YAML and Twig processors.  These may not be compatible with all 3rd party extensions.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **yaml_compat:** | Enables YAML backwards compatibility |
@@ -511,7 +511,7 @@ accounts:
 
 Accounts is a new setting for 1.6 that allows you to try out the new experimental Flex Users.  This basically means that Users are stored as Flex objects allowing more power and performance.
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **type:** | Account type: `data` or `flex` |
@@ -568,7 +568,7 @@ blog:
 
 Let's break down the elements of this sample file:
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **title:** | The title is a simple string variable that can be referenced whenever you want to display the name of this site |
@@ -670,7 +670,7 @@ For example: An option such as `author: Frank Smith` in file `plugins/myplugin.y
 
 Some example configuration files could be structured:
 
-[div class="table table-striped"]
+[div class="table table-striped table-keycol"]
 | File | Description |
 | -------- | ----------- |
 | **user/config/system.yaml**           | Global system configuration file                  |
