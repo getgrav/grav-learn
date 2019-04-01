@@ -1,5 +1,7 @@
 ---
 title: Theme Tutorial
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -277,7 +279,7 @@ Please read over the code in the `base.html.twig` file to try to understand what
 1. Similar to the content block, the `{% block bottom %}{% endblock %}` is intended as a placeholder for templates to add custom JavaScript initialization or analytic codes. In this example, we output any JavaScript that was added to the `bottom` Asset Group.  Read more about this in the [Asset Manager](/themes/asset-manager) documentation.
 
 
-### Step 6 - Theme CSS
+## Step 6 - Theme CSS
 
 You might have noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via Asset Manager: `do assets.add('theme://css/custom.css', 98)`.  This file will house any custom CSS we need to fill in the gaps not provided by the Pure.css framework.  As Pure is a very minimal framework, it provides the essentials but almost no styling.
 
@@ -464,7 +466,7 @@ blockquote {
 
 This is pretty standard CSS stuff and sets some basic margins, fonts, colors, and utility classes. There is some basic content styling and some more extensive styling required to render the drop-down menu.  Feel free to modify this file as you need, or even add new CSS files (just ensure you add a reference in the `head` block by following the example for `custom.css`).
 
-### Step 7 - Testing
+## Step 7 - Testing
 
 To see your theme in action, open your browser, and point it to your Grav site.  You should see something like this:
 

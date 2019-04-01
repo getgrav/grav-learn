@@ -1,5 +1,7 @@
 ---
 title: Theme Variables
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---

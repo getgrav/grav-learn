@@ -1,5 +1,8 @@
 ---
 title: Twig Filters & Functions
+page-toc:
+  active: true
+  depth: 3  
 process:
     twig: true
 taxonomy:
@@ -11,105 +14,9 @@ Although Twig already provides an extensive list of [filters, functions, and tag
 !! For information about developing your own custom Twig Filters, check out the [Custom Twig Filter/Function](/cookbook/twig-recipes/#custom-twig-filter-function) example in the **Twig Recipes** section of the **Cookbook** chapter.
 
 
-### Grav Twig Filters
+## Grav Twig Filters
 
 Twig filters are applied to Twig variables by using the `|` character followed by the filter name.  Parameters can be passed in just like Twig functions using parenthesis.  
-
-[version=15]
-* [Absolute URL](#absolute-url)
-* [Array Unique](#array-unique)
-* [Base32 Encode](#base32-encode)
-* [Base32 Decode](#base32-decode)
-* [Base64 Encode](#base64-encode)
-* [Base64 Decode](#base64-decode)
-* [Basename](#basename)
-* [Camelize](#camelize)
-* [Contains](#contains)
-* [Defined](#defined)
-* [Dirname](#dirname)
-* [Ends-With](#ends-with)
-* [Fieldname](#fieldname)
-* [Humanize](#humanize)
-* [Hyphenize](#hyphenize)
-* [JSON Decode](#json-decode)
-* [Ksort](#ksort)
-* [Left Trim](#left-trim)
-* [Markdown](#markdown)
-* [MD5](#md5)
-* [Modulus](#modulus)
-* [Monthize](#monthize)
-* [NiceTime](#nicetime)
-* [Orinalize](#ordinalize)
-* [Pad](#pad)
-* [Pluralize](#pluralize)
-* [Randomize](#randomize)
-* [Regex Replace](#regex-replace)
-* [Right Trim](#right-trim)
-* [Singularize](#singularize)
-* [Safe Email](#safe-email)
-* [Sort by Key](#sort-by-key)
-* [Starts-With](#starts-with)
-* [Titleize](#titleize)
-* [Translate](#translate)
-* [Translate Admin](#translate-admin)
-* [Translate Array](#translate-array)
-* [Translate Language](#translate-language)
-* [Truncate a String](#truncate-a-string)
-* [Underscoreize](#underscoreize)
-[/version]
-
-[version=16]
-* [Absolute URL](#absolute-url)
-* [Array Unique](#array-unique)
-* [Base32 Encode](#base32-encode)
-* [Base32 Decode](#base32-decode)
-* [Base64 Encode](#base64-encode)
-* [Base64 Decode](#base64-decode)
-* [Basename](#basename)
-* [Camelize](#camelize)
-* [Casting Values](#casting-values)
-* [Chunk Split](#chunk-split)
-* [Contains](#contains)
-* [Defined](#defined)
-* [Dirname](#dirname)
-* [Ends-With](#ends-with)
-* [Fieldname](#fieldname)
-* [Get Type](#get-type)
-* [Humanize](#humanize)
-* [Hyphenize](#hyphenize)
-* [JSON Decode](#json-decode)
-* [Ksort](#ksort)
-* [Left Trim](#left-trim)
-* [Markdown](#markdown)
-* [MD5](#md5)
-* [Modulus](#modulus)
-* [Monthize](#monthize)
-* [NiceCron](#nicecron)
-* [NiceFile](#nicefile)
-* [NiceNumber](#nicenumber)
-* [NiceTime](#nicetime)
-* [Of Type](#of-type)
-* [Orinalize](#ordinalize)
-* [Pad](#pad)
-* [Pluralize](#pluralize)
-* [Print Variable](#print-variable)
-* [Randomize](#randomize)
-* [Regex Replace](#regex-replace)
-* [Right Trim](#right-trim)
-* [Singularize](#singularize)
-* [Safe Email](#safe-email)
-* [Sort by Key](#sort-by-key)
-* [Starts-With](#starts-with)
-* [Titleize](#titleize)
-* [Translate](#translate)
-* [Translate Admin](#translate-admin)
-* [Translate Array](#translate-array)
-* [Translate Language](#translate-language)
-* [Truncate a String](#truncate-a-string)
-* [Underscoreize](#underscoreize)
-* [Yaml Encode](#yaml-encode)
-* [Yaml Decode](#yaml-decode)
-[/version]
 
 #### Absolute URL
 
@@ -530,84 +437,9 @@ Decode/Parse a varible from YAML syntax
 [/version]
 
 
-### Twig Functions
+## Grav Twig Functions
 
 Twig functions are called directly with any parameters being passed in via parenthesis.
-
-[version=15]
-* [Array](#array)
-* [Array Key Value](#array-key-value)
-* [Array Key Exists](#array-key-exists)
-* [Array Intersect](#array-intersect)
-* [Array Unique](#array-unique)
-* [Authorize](#authorize)
-* [Dump](#dump)
-* [Debug](#debug)
-* [Evaluate](#evaluate)
-* [Evaluate Twig](#evaluate-twig)
-* [EXIF](#exif)
-* [Get Cookie](#get-cookie)
-* [Gist](#gist)
-* [Is Ajax Request](#is-ajax-request)
-* [JSON Decode Functxion](#json-decode-function)
-* [Media Directory](#media-directory)
-* [Nonce Field](#nonce-field)
-* [Path Info](#path-info)
-* [Random String Generation](#random-string-generation)
-* [Range](#range)
-* [Redirect Me](#rediret-me)
-* [Repeat](#repeat)
-* [String](#string)
-* [Translate Function](#translate-function)
-* [Translate Array Function](#translate-array-function)
-* [Url](#url)
-* [VarDump](#vardump)
-[/version]
-
-[version=16]
-* [Array](#array)
-* [Array Key Value](#array-key-value)
-* [Array Key Exists](#array-key-exists)
-* [Array Intersect](#array-intersect)
-* [Array Unique](#array-unique)
-* [Authorize](#authorize)
-* [Body Class](#body-class)
-* [Cron](#cron)
-* [Dump](#dump)
-* [Debug](#debug)
-* [Evaluate](#evaluate)
-* [Evaluate Twig](#evaluate-twig)
-* [EXIF](#exif)
-* [Get Cookie](#get-cookie)
-* [Get Type Function](#get-type-function)
-* [Gist](#gist)
-* [Header Variable](#header-variable)
-* [Is Ajax Request](#is-ajax-request)
-* [JSON Decode Functxion](#json-decode-function)
-* [Media Directory](#media-directory)
-* [NiceFile Function](#nicefile-function)
-* [NiceNumber Function](#nicenumber-function)
-* [NiceTime Function](#nicetime-function)
-* [Nonce Field](#nonce-field)
-* [Of Type Function](#of-type-function)
-* [Path Info](#path-info)
-* [Print Variable Function](#print-variable-function)
-* [Random String Generation](#random-string-generation)
-* [Range](#range)
-* [Read File](#read-file)
-* [Redirect Me](#rediret-me)
-* [Regex Filter Function](#regex-filter-function)
-* [Regex Replace Function](#regex-replace-function)
-* [Repeat](#repeat)
-* [String](#string)
-* [Theme Variable](#theme-variable)
-* [Translate Function](#translate-function)
-* [Translate Array Function](#translate-array-function)
-* [Translate Language Function](#translate-language-function)
-* [Url](#url)
-* [VarDump](#vardump)
-* [XSS](#xss)
-[/version]
 
 #### Array
 

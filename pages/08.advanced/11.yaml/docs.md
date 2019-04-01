@@ -1,5 +1,7 @@
 ---
 title: YAML Syntax
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---

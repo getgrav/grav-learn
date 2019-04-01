@@ -1,5 +1,7 @@
 ---
 title: Configuration
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---

@@ -1,5 +1,7 @@
 ---
 title: 'Reference: Form Actions'
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -181,11 +183,11 @@ process:
 
 By default, the form is not cleared after the submit. So if you don't have a `display` action and the user is sent back to the form page, it's still filled with the data entered. If you want to avoid this, add a `reset` action:
 
-````
+```
 reset: true
 ```
 
-## Add your own custom processing to a form
+## Custom Actions
 
 You can "hook" into a form processing and perform any kind of operation. Perform custom processing, add data for an online web application, even save to a database.
 
@@ -235,7 +237,7 @@ return;
 
 Sample code with form handling is available in the Form plugin, and in the Email plugin repositories.
 
-### An example of custom form handling
+#### An example of custom form handling
 
 The Form plugin offers this ability of sending emails, saving files, setting status messages and it’s really handy.
 Sometimes however you need total control. That’s for example what the Login plugin does.

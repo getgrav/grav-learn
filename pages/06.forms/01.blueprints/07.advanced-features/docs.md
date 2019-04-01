@@ -1,5 +1,7 @@
 ---
 title: Advanced Blueprint Features
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---

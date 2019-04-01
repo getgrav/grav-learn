@@ -1,5 +1,8 @@
 ---
 title: Event Hooks
+page-toc:
+  active: true
+  depth: 3
 taxonomy:
     category: docs
 ---

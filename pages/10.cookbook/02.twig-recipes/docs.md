@@ -1,22 +1,15 @@
 ---
 title: Twig Recipes
+page-toc:
+  active: true
+  depth: 1
 taxonomy:
     category: docs
 ---
 
 This page contains an assortment of problems and their respective solutions related to Twig templating.
 
-1. [List the last 5 recent blog posts](#list-the-last-5-recent-blog-posts)
-1. [List the blog posts for the year](#list-the-blog-posts-for-the-year)
-1. [Displaying a translated month](#displaying-a-translated-month)
-1. [Displaying page content without summary](#displaying-page-content-without-summary)
-1. [Hiding the email to spam bots](#hiding-the-email-to-spam-bots)
-1. [Picking a random item from a translated array](#picking-a-random-item-from-a-translated-array)
-1. [Displaying an image uploaded in a file field](#displaying-an-image-uploaded-in-a-file-field)
-1. [Displaying an image picked in a mediapicker field](#displaying-an-image-picked-in-a-mediapicker-field)
-1. [Creating a custom Twig Filter/Function](#custom-twig-filter-function)
-
-### List the last 5 recent blog posts
+## List the last 5 recent blog posts
 
 ##### Problem:
 
@@ -45,7 +38,7 @@ process:
 ```
 
 
-### List the blog posts for the year
+## List the blog posts for the year
 
 ##### Problem:
 
@@ -66,7 +59,7 @@ Simply find the `/blog` page, obtain it's children, filter by appropriate `dateR
 </ul>
 ```
 
-### Displaying a translated month
+## Displaying a translated month
 
 ##### Problem:
 
@@ -117,7 +110,7 @@ And the French:
 Un exemple d’article Juillet 2015
 ```
 
-### Displaying page content without summary
+## Displaying page content without summary
 
 ##### Problem:
 
@@ -133,7 +126,7 @@ Use the  `slice` filter to remove the summary from the page content:
 ```
 
 
-### Hiding the email to spam bots
+## Hiding the email to spam bots
 
 ##### Problem:
 
@@ -156,7 +149,7 @@ Then use the `safe_email` Twig filter:
 </a>
 ```
 
-### Picking a random item from a translated array
+## Picking a random item from a translated array
 
 ##### Problem:
 
@@ -185,7 +178,7 @@ Then you have your Twig:
 <span data-ticker="{{ fruits|join(',') }}">{{ random(fruits) }}</span>
 ```
 
-### Displaying an image uploaded in a file field
+## Displaying an image uploaded in a file field
 
 ##### Problem
 
@@ -211,7 +204,7 @@ If you allowed your user to upload multiple images, your twig could look like th
 {% endfor %}
 ```
 
-### Displaying an image picked in a mediapicker field
+## Displaying an image picked in a mediapicker field
 
 ##### Problem
 
@@ -244,7 +237,7 @@ You can do this via twig by using the snippet below:
 {{ image_page.media[image_basename].html() }}
 ```
 
-### Custom Twig Filter/Function
+## Custom Twig Filter/Function
 
 ##### Problem
 

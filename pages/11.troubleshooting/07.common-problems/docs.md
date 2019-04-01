@@ -1,18 +1,15 @@
 ---
 title: Common Problems
+page-toc:
+  active: true
+  depth: 1
 taxonomy:
     category: docs
 ---
 
 Here you can find information on problems and issues raised on [Grav forum](https://getgrav.org/forum) and in the [Discord Chat server](https://chat.getgrav.org) that occur frequently enough that we thought we would save time and list the problem and the relevant solution in one easy to find location.
 
-1. [Cannot connect to the GPM](#cannot-connect-to-the-gpm)
-1. [Admin Interface won't scroll](#admin-interface-wont-scroll)
-1. [Fetch failed](#fetch-failed)
-1. [Zend OPcache API is restricted](#zend-opcache-api-is-restricted)
-2. [Cannot Scroll in Admin on CloudFlare](#cannot-scroll-in-admin-on-cloudflare)
-
-### Cannot connect to the GPM
+## Cannot connect to the GPM
 
 **Problem:** The GPM cannot be reached, and you get this error in the Admin panel
 
@@ -31,7 +28,7 @@ If at this point it's still not working, get in touch, or report back if you wer
 
 Also, check the CLI command is working, by opening a SSH connection to the server and running `bin/gpm index` and check if it's just inside Admin that you get this error, or in the command line too.
 
-### Admin Interface won't scroll
+## Admin Interface won't scroll
 
 **Problem:** When accessing the Admin-plugin's interface, the page will not scroll
 
@@ -50,7 +47,7 @@ Also, check the CLI command is working, by opening a SSH connection to the serve
 
 If none of the above work, please check your browser's console for any reported JavaScript errors; In Chrome or Firefox either press F12 or Ctrl+Shift+I, then click the "Console"-tab. Report the errors [as an issue](https://github.com/getgrav/grav-plugin-admin/issues/).
 
-### Fetch failed
+## Fetch failed
 
 Inside Admin sometimes a "Fetch Failed" red popup might appear. If it happens once in a while, do not worry as it might simply mean a connection issue.
 
@@ -62,7 +59,7 @@ If you are running your own server, a guide on how to do this can be found in [h
 
 Related issue: [admin#951](https://github.com/getgrav/grav-plugin-admin/issues/951)
 
-### Zend OPcache API is restricted
+## Zend OPcache API is restricted
 
 If you are running PHP with Zend OPache and you receive this error, then your current OPCache configuration is [limiting access to OPcache API function to scripts only from a specified string](http://php.net/manual/en/opcache.configuration.php). The simplest solution to this is to find the location of this directive either in your `php.ini` file or in a specialized `opcache.ini` file that is being pulled in to your overall `php.ini` file and set this value to nothing:
 
@@ -72,7 +69,7 @@ opcache.restrict_api=
 
 This is an issue with any [ServerPilot](https://serverpilot.io) managed hosting with PHP 7.2 enabled.  A ticket has been submitted to resolve this on their end.
 
-### LinkedIn Sharing and Wayback Machine Indexing Not Working
+## LinkedIn Sharing and Wayback Machine Indexing Not Working
 
 **Problem:** Sharing pages with LinkedIn and having the page's data propagate is not working. The Wayback Machine is not properly indexing my website's pages.
 
@@ -80,7 +77,7 @@ This is an issue with any [ServerPilot](https://serverpilot.io) managed hosting 
 
 This [issue](https://github.com/getgrav/grav/issues/1639) has popped up for users on specific server environments. In particular, with AWS cloud-based servers, users were experiencing issues sharing web pages from their Grav sites on LinkedIn or having them properly indexed by the Wayback Machine. This problem was resolved by turning on either WebServer Gzip or Gzip compression.
 
-### Cannot Scroll in Admin on CloudFlare
+## Cannot Scroll in Admin on CloudFlare
 
 For CloudFlare users, the ability to scroll in the Admin can be interrupted. There are solutions to this, as follows:
 

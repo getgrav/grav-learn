@@ -1,12 +1,10 @@
 ---
 title: Blueprints
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
-
-1. [What is a Blueprint?](#what-is-a-blueprint)
-1. [Types of Blueprints](#types-of-blueprints)
-1. [Components of a Blueprint](#components-of-a-blueprint)
 
 ## What is a Blueprint?
 

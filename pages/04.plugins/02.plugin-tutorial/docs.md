@@ -1,5 +1,7 @@
 ---
 title: Plugin Tutorial
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -71,7 +73,7 @@ Path: /www/user/plugins/randomizer
 
 The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not automatically have the logic to perform the function we wish.  We will have to modify it to suite our needs.
 
-## Step 2 - Plugin basics
+## Step 3 - Plugin basics
 
 Now we've created a new plugin that can be modified and developed. Let's break it down and have a look at what makes up a plugin.  If you look in the `user/plugins/randomizer` folder you will see:
 
@@ -103,7 +105,7 @@ This items are required if you wish to release your plugin via GPM.
 * **`LICENSE`** - a license file, should probably be MIT unless you have a specific need for something else.
 * **`README.md`** - A 'Readme' that should contain any documentation for the plugin.  How to install it, configure it, and use it.
 
-## Step 3 - Plugin configuration
+## Step 4 - Plugin configuration
 
 As we described in the **Plugin Overview**, we need to have a few configuration options for our plugin, so the `randomizer.yaml` file should look something like this:
 
@@ -126,7 +128,7 @@ page frontmatter by using `mergeConfig`, detailed below.
 
 Of course, as with all other configurations in Grav, it is advised not to touch this default configuration for day-to-day control. Rather, you should create an override in a file called `/user/config/plugins/randomizer.yaml` to house any custom settings.  This plugin-provided `randomizer.yaml` is really intended to set some sensible defaults for your plugin.
 
-## Step 4 - Base plugin structure
+## Step 5 - Base plugin structure
 
 The base plugin class structure will already look something like this:
 
@@ -163,7 +165,7 @@ The two key parts of this class structure are:
 1. Plugins need to have `namespace Grav\Plugin` at the top of the PHP file.
 2. Plugins should be named in **titlecase** based on the name of the plugin with the string `Plugin` appended to the end, and should extend `Plugin`, hence the class name `RandomizerPlugin`.
 
-## Step 5 - Subscribed events
+## Step 6 - Subscribed events
 
 Grav uses a sophisticated event system, and to ensure optimal performance, all plugins are inspected by Grav to determine which events the plugin is subscribed to.
 
@@ -178,7 +180,7 @@ public static function getSubscribedEvents()
 
 In this plugin we are going to tell Grav we're subscribing to the `onPluginsInitialized` event.  This way we can use that event (which is the first event available to plugins) to determine if we should subscribe to other events.
 
-## Step 6 - Determine if the plugin should run
+## Step 7 - Determine if the plugin should run
 
 The next step is to add a method to our `RandomizerPlugin` class to handle the `onPluginsInitialized` event so it only activates when a user tries to go to the route we have configured in our `randomizer.yaml` file.  Replace the current 'sample' plugin logic with the following:
 
@@ -210,7 +212,7 @@ Next, we compare the configured route to the current URI path. If they are equal
 
 By using this approach, we ensure we do not run through any extra code if we do not need to.  Practices like these will ensure your site runs as fast as possible.
 
-## Step 7 - Display the random page
+## Step 8 - Display the random page
 
 The last step of our plugin is to display the random page, and we can do that by adding the following method:
 
@@ -251,11 +253,11 @@ This method is a bit more complicated, so we'll go over what's going on:
 6. Set the current `page` to a random item in the collection.
 
 
-## Step 8 - Cleanup
+## Step 9 - Cleanup
 
 The example plugin that was created with the **DevTools** plugin, used an event called `onPageContentRaw()`. This event is not used in our new plugin, so we can safely remove the entire function.
 
-## Step 9 - Final plugin class
+## Step 10 - Final plugin class
 
 And that is all there is to it! The plugin is now complete.  Your complete plugin class should look something like this:
 

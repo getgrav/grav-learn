@@ -1,5 +1,7 @@
 ---
 title: Plugin Command
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -69,7 +71,7 @@ Repeat the password: *********
 Success! User joeuser created.
 ```
 
-### Developers: Integrate the CLI in Plugin
+## Developers: Integrate the CLI in Plugin
 
 As a Developer, you might want to create CLI commands for admins or users to run. It is extremely easy to add such functionality in a Plugin.
 

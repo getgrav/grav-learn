@@ -1,5 +1,7 @@
 ---
 title: Markdown Syntax
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---

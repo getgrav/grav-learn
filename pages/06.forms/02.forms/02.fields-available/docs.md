@@ -1,5 +1,7 @@
 ---
 title: 'Reference: Form Field Index'
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -89,7 +91,7 @@ Other values are interpreted as negative.
 
 ---
 
-### The Captcha Field
+### Captcha Field
 
 The `captcha` field type is used to add a Google reCAPTCHA element to your form. Unlike other elements, it can be used once in the form.
 
@@ -135,7 +137,7 @@ The above code will validate the Captcha in the frontend and prevent form submis
 
 ---
 
-### The Checkbox Field
+### Checkbox Field
 
 ![Checkbox Field](checkbox_field.gif)
 
@@ -170,7 +172,7 @@ agree_to_terms:
 
 ---
 
-### The Checkboxes Field
+### Checkboxes Field
 
 ![Checkboxes Field](checkboxes_field.gif)
 
@@ -230,7 +232,7 @@ my_field:
 
 
 ---
-### The Conditional Field
+### Conditional Field
 
 
 The `conditional` field type is used to conditionally display some other fields base on a condition.
@@ -276,7 +278,7 @@ header.field_condition:
 
 ---
 
-### The Date Field
+### Date Field
 
 ![Date Field](date_field.gif)
 
@@ -319,7 +321,7 @@ Example:
 
 ---
 
-### The Display Field
+### Display Field
 
 ![Display Field](display_field.jpg)
 
@@ -355,7 +357,7 @@ test:
 
 ---
 
-### The Email Field
+### Email Field
 
 ![Email Field](email_field.gif)
 
@@ -391,7 +393,7 @@ header.email:
 
 ---
 
-### The File Field
+### File Field
 
 With the `file` field type, you can let users upload files through the form. The field by default allows **one file** only, of type **image** and will get uploaded to the **current** page where the form has been declared.
 
@@ -425,7 +427,7 @@ By default, in Admin the `file` field will overwrite an uploaded file that has t
 
 ---
 
-### The Hidden Field
+### Hidden Field
 
 The `hidden` field type is used to add a hidden element to a form.
 
@@ -446,7 +448,7 @@ header.some_field:
 
 ---
 
-### The Honeypot Field
+### Honeypot Field
 
 The `honeypot` field type creates a hidden field that, when filled out, will return with an error. This is a useful way to prevent bots from filling out and submitting a form.
 
@@ -464,7 +466,7 @@ A honeypot field is a popular alternative to captcha fields.
 
 ---
 
-### The Ignore Field
+### Ignore Field
 
 The `ignore` field type can be used to remove unused fields when extending from another blueprint
 
@@ -479,7 +481,7 @@ content:
 
 ---
 
-### The Password Field
+### Password Field
 
 The `password` field type is used to present a password text input field.
 
@@ -512,7 +514,7 @@ password:
 
 ---
 
-### The Radio Field
+### Radio Field
 
 ![Radio Field](radio_field.gif)
 
@@ -548,7 +550,7 @@ my_choice:
 
 ---
 
-### The Range Field
+### Range Field
 
 ![Range Field](range_field.gif)
 
@@ -586,7 +588,7 @@ header.choose_a_number_in_range:
 
 ---
 
-### The Select Field
+### Select Field
 
 ![Select Field](select_field.gif)
 
@@ -632,7 +634,7 @@ pages.order.by:
 
 ---
 
-### The Select Optgroup Field
+### Select Optgroup Field
 
 ![Select Optgroup Field](select_optgroup_field.gif)
 
@@ -677,7 +679,7 @@ header.newField:
 
 ---
 
-### The Spacer Field
+### Spacer Field
 
 The `spacer` field type is used to add some text, a headline or a hr tag
 
@@ -700,7 +702,7 @@ test:
 
 ---
 
-### The Tabs / Tab Fields
+### Tabs / Tab Fields
 
 ![Tabs](tabs_field_bp.gif)
 
@@ -738,7 +740,7 @@ tabs:
 
 ---
 
-### The Text Field
+### Text Field
 
 ![Text Field](text_field.gif)
 
@@ -779,7 +781,7 @@ header.title:
 
 ---
 
-### The Textarea Field
+### Textarea Field
 
 ![Textarea Field](textarea_field.gif)
 
@@ -820,7 +822,7 @@ header.content:
 
 ---
 
-### The Toggle Field
+### Toggle Field
 
 ![Toggle Field](toggle_field_bp.gif)
 

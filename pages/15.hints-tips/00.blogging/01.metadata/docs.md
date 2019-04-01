@@ -1,6 +1,5 @@
 ---
-title: Metadata
-menu: Blogging
+title: Blogging Metadata
 visible: true
 twig_first: true
 process:

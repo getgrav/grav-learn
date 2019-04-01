@@ -1,35 +1,14 @@
 ---
 title: Multi-Language
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
 
-Multi-Language support was added to Grav in version **0.9.30** as a result of a great [community discussion](https://github.com/getgrav/grav/issues/170) on the subject. Multi-language support in Grav consists of several key parts:
+Multi-Language support in Grav is a direct result of a great [community discussion](https://github.com/getgrav/grav/issues/170) on the subject. We will now break these down and provide examples on how you can setup your Grav site with multiple languages.
 
-1. [Single language different than English](#single-language-different-than-english)
-1. [Multiple concurrent languages](#multi-language-basics) for a given Grav site
-1. [Language fall-back](#language-configuration) based on language order
-1. Language code (`en`) or Locale-based codes (`en-GB`)
-1. [Multiple language-based markdown files](#multiple-language-pages) providing custom header/contents
-1. Auto-detected [active language based on URL](#active-language-via-url)
-1. Auto-detected [active language based on browser](#active-language-via-browser)
-1. [Set locale to active language](#set-locale-to-the-active-language)
-1. [Default Language Prefix](#default-language-prefix)
-1. [Custom routes based on language](#multi-language-routing)
-1. [Language-based home page aliases](#language-based-homepage)
-1. Active language-based [Twig template overrides](#language-based-twig-templates)
-1. [Translation support](#translation-support) in `.yaml` format via Twig filters, functions and PHP function
-1. [Plugin and Theme language translations](#plugin-and-theme-language-translations)
-1. [Environment-based language handling](#environment-based-language-handling)
-1. [Language alias routes](#language-alias-routes) and switching between language versions of a page
-1. [Session-based active language](#session-based-active-language)
-1. [Language Switcher plugin](#language-switcher)
-1. [Language logic in Twig templates](#language-logic-in-twig-templates)
-
-
-We will now break these down and provide examples on how you can setup your Grav site with multiple languages.
-
-### Single language different than English
+## Single language different than English
 
 If you just use one language, enable translations and add your language code in the `user/config/system.yaml` file:
 
@@ -47,11 +26,11 @@ or in the System configuration in the Admin:
 This will make sure Grav uses the correct language strings in the frontend.
 Also, if the theme supports it, it will add your language code to the HTML tag.
 
-### Multi-Language Basics
+## Multi-Language Basics
 
 As you should already be familiar with how Grav uses markdown files in folders to define architectural structure as well as setting important page options as well as content, we won't go into those mechanics directly.  However, be aware that by default Grav looks for a **single** `.md` file in a folder to represent the page.  With multi-language support enabled, Grav will look for the appropriate language based file, for example `default.en.md` or `default.fr.md`.
 
-#### Language Configuration
+### Language Configuration
 
 For Grav do to this you must first setup some basic language configuration in your `user/config/system.yaml` file.
 
@@ -70,7 +49,7 @@ If no language is explicitly asked for (via the URL or by code), Grav will use t
 
 !! You can of course provide as many languages as you like and you may even use locale type codes such as `en-GB`, `en-US` and `fr-FR`.  If you use this locale based naming, you will have to replace all the short language codes with the locale versions.
 
-#### Multiple Language Pages
+### Multiple Language Pages
 
 By default in Grav, each page is represented by a markdown file, for example `default.md`. When you enable multi-language support, Grav will look for the appropriately named markdown file.  For example as English is our default language, it will first look for `default.en.md`.
 
@@ -98,7 +77,7 @@ Ceci est ma page d'accueil générée par Grav !
 
 Now you have defined two pages for your current homepage in multiple languages.
 
-#### Active Language via URL
+### Active Language via URL
 
 As English is the default language, if you were to point your browser without specifying a language you would get the content as described in the `default.en.md` file, but you could also explicitly request English by pointing your browser to
 
@@ -112,7 +91,7 @@ To access the French version, you would of course, use
 http://yoursite.com/fr
 [/prism]
 
-#### Active Language via Browser
+### Active Language via Browser
 
 Most browsers allow you to configure which languages you prefer to see content in. Grav has the ability to read this `http_accept_language` values and compare them to the current supported languages for the site, and if no specific language has been detected, show you content in your preferred language.
 
@@ -123,7 +102,7 @@ languages:
   http_accept_language: false
 [/prism]
 
-#### Set Locale to the Active Language
+### Set Locale to the Active Language
 
 The boolean setting will set the PHP `setlocale()` method that controls things such as monetary values, dates, string comparisons, character classifications and other locale-specific settings to that of the active language.  This defaults to `false`, and then it will use the system locale, if you set this value to `true` it will override the locale with the current active language.
 
@@ -132,7 +111,7 @@ languages:
    override_locale: false
 [/prism]
 
-#### Default Language Prefix
+### Default Language Prefix
 
 By default, the default language code is prefixed in all URLs.  For example if you have support for English and French (`en` and `fr`), and the default is English.  A page route might look like `/en/my-page` in English and `/fr/ma-page` in French. However it's often preferrable to have the default language without the prefix, so you can just set this option to `false` and the English page would appear as `/my-page`.
 
@@ -141,7 +120,7 @@ languages:
     include_default_lang: false
 [/prism]
 
-#### Multi-Language Routing
+### Multi-Language Routing
 
 Grav typically uses the names of the folders to produce a URL route for a particular page.  This allows for the site architecture to be easily understood and implemented as a nested set of folders.  However with a multi-language site you may wish to use a URL that makes more sense in that particular language.
 
@@ -175,7 +154,7 @@ This combined with appropriate **slug-overrides** in the other files should resu
 
 Another option is to make use of the new [page-level routes](../headers#routes) support and provide a full route alias for the page.
 
-#### Language-Based Homepage
+### Language-Based Homepage
 
 If you override the route/slug for the homepage, Grav won't be able to find the homepage as defined by your `home.alias` option in your `system.yaml`. It will be looking for `/homepage` and your French homepage might have a route of `/page-d-accueil`.
 
@@ -190,7 +169,7 @@ home:
 
 This way Grav knows how to route your to the homepage if the active language is English or French.
 
-#### Language-Based Twig Templates
+### Language-Based Twig Templates
 
 By default, Grav uses the markdown filename to determine the Twig template to use to render.  This works with multi-language the same way.  For example, `default.fr.md` would look for a Twig file called `default.html.twig` in the appropriate Twig template paths of the current theme and any plugins that register Twig template paths.  With multi-language, Grav also adds the current active language to the path structure.  What this means is that if you need to have a language-specific Twig file, you can just put those into a root level language folder.  For example if your current theme is using a template located at `templates/default.html.twig` you can create an `templates/fr/` folder, and put your French-specific Twig file in there: `templates/fr/default.html.twig`.
 
@@ -208,7 +187,7 @@ This provides you with two options for providing language specific Twig override
 
 
 
-#### Translation via Twig
+### Translation via Twig
 
 The simplest way to use these translation strings in your Twig templates is to use the `|t` Twig filter.  You can also use the `t()` Twig function, but frankly the filter is cleaner and does the same thing:
 
@@ -245,7 +224,7 @@ You could get the appropriate translation for a post's month with the following:
 
 You can also use this as a Twig function with `ta()`.
 
-#### Translations with Variables
+### Translations with Variables
 
 You can also use variables in your Twig translations by using [PHP's sprintf](http://php.net/sprintf) syntax:
 
@@ -265,7 +244,7 @@ resulting in the translation:
 There are 12 monkeys in the London Zoo
 [/prism]
 
-#### Complex Translations
+### Complex Translations
 
 Sometimes it's required to perform complex translations with replacement in specific languages.  You can utilize the full power of the Language objects `translate()` method with the `tl` filter/function.  For example:
 
@@ -280,7 +259,7 @@ Will translate the `SIMPLE_TEXT` string and replace the placeholders with `12` a
 Il y a 12 singes dans le Zoo de Londres
 [/prism]
 
-#### PHP Translations
+### PHP Translations
 
 As well as the Twig filter and functions you can use the same approach within your Grav plugin:
 
@@ -300,7 +279,7 @@ To translate a specific item in an array use:
 $translation = $grav['language']->translateArray('MONTHS_OF_THE_YEAR', 3);
 [/prism]
 
-#### Plugin and Theme Language Translations
+### Plugin and Theme Language Translations
 
 You can also provide your own translations in plugins and themes.  This is done by creating a `languages.yaml` file in the root of your plugin or theme (e.g. `/user/plugins/error/languages.yaml`, or `user/themes/antimatter/languages.yaml`), and should contain all the supported languages prefixed by the language or locale code:
 
@@ -317,7 +296,7 @@ fr:
 
 ! The convention for plugins is to use PLUGIN_PLUGINNAME.* as a prefix for all language strings, to avoid any name conflict. Themes are less likely to introduce language strings conflicts, but it's a good idea to prefix with THEME_THEMENAME.* strings added in themes.
 
-#### Translation Overrides
+### Translation Overrides
 
 If you wish to override a particular translation, simply put the modified key/value pair in an appropriate language file in your `user/languages/` folder.  For example a file called `user/languages/en.yaml` could contain:
 
@@ -328,9 +307,9 @@ PLUGIN_ERROR:
 
 This will ensure that you can always override a translation string without messing around with the plugins or themes themselves, and also will avoid overwriting a custom translation when updating them.
 
-### Advanced
+## Advanced
 
-#### Environment-Based Language Handling
+### Environment-Based Language Handling
 
 You can take advantage of [Grav's Environment Configuration](../../advanced/environment-config) to automatically route users to the correct version of your site based on URL.  For example, if you had a URL such as `http://french.mysite.com` that was an alias for your standard `http://www.mysite.com`, you could setup an environment configuration:
 
@@ -345,7 +324,7 @@ languages:
 
 This uses an **inverted language order** so the default language is now `fr` so the French language will show by default.
 
-#### Language Alias Routes
+### Language Alias Routes
 
 Because each page can have its own custom route, it would be hard to switch between different language versions of the same page.  However, there is a new **Page.rawRoute()** method on the Page object that will get the same raw route for any of the various language translations of a single page.  All you would need to do is to put the lang code in front to get the proper route to a specific language version of a page.
 
@@ -375,7 +354,7 @@ Then just add the language you want and that is your new URL;
 
 This will retrieve the same page as `/ma-page-francaise-personnalisee`.
 
-### Translation Support
+## Translation Support
 
 Grav provides a simple yet powerful mechanism for providing translations in Twig and also via PHP for use in themes and plugins. This is enabled by default, and will use `en` language if no languages are defined.  To manually enable or disable translations, there is a setting in your `system.yaml`:
 
@@ -408,7 +387,7 @@ languages:
 
 !!! Help Grav reach a wider community of users by providing translations in **your language**. We use the [Crowdin Translation Platform](https://crowdin.com/) to facilitate translating the [Grav Core](https://crowdin.com/project/grav-core) and [Grav Admin Plugin](https://crowdin.com/project/grav-admin). [Sign-up](https://crowdin.com/join) and get started translating today!
 
-#### Session-Based Active Language
+### Session-Based Active Language
 
 If you wish to remember the active language independently from the URL, you can activate **session-based** storage of the active language.  To enable this, you must ensure you have `session: enabled: true` in [the system.yaml](../../basics/grav-configuration).  Then you need to enable the language setting:
 
@@ -419,7 +398,7 @@ languages:
 
 This will then store the active language in the session.
 
-#### Language Switcher
+### Language Switcher
 
 You can download a simple **Language Switching** plugin via the Admin plugin, or through the GPM with:
 
@@ -430,7 +409,7 @@ bin/gpm install langswitcher
 The [documentation for configuration and implementation can be found on GitHub](https://github.com/getgrav/grav-plugin-langswitcher).
 
 
-#### Setup with language specific domains
+### Setup with language specific domains
 
 configure your site with [Environment-based language handling](#environment-based-language-handling) to assign default languages (the first language) to domains.
 
@@ -462,7 +441,7 @@ RewriteRule ^de/(.*)$ "http://grav-site.de/$1" [R=302,L]
 
 if you know how to simplify the rewrite rules, please edit this page through the Github link in the upper left corner
 
-#### Language Logic in Twig Templates
+### Language Logic in Twig Templates
 
 There is often a need to access Language state and logic from Twig templates.  For example if you need to access a certain image file that is different for a particular language and is named differently (`myimage.en.jpg` and `myimage.fr.jpg`).
 

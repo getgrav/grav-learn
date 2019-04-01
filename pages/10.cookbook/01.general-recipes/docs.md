@@ -1,29 +1,15 @@
 ---
 title: General Recipes
+page-toc:
+  active: true
+  depth: 1
 taxonomy:
     category: docs
 ---
 
 This page contains an assortment of problems and their respective solutions related to Grav in general.
 
-1. [Change the PHP CLI version](#change-the-php-cli-version)
-1. [Creating a simple gallery](#creating-a-simple-gallery)
-1. [Render content in blocks or columns](#render-content-in-columns)
-1. [Really simple css image slider](#really-simple-css-image-slider)
-1. [Wrapping Markdown into html](#wrapping-markdown-into-html)
-1. [Add a recent post widget to your sidebar](#add-a-recent-post-widget-to-your-sidebar)
-1. [Create a private area](#create-a-private-area)
-1. [Add JavaScript to the footer](#add-javascript-to-the-footer)
-1. [Override the default logs folder location](#override-the-default-logs-folder-location)
-1. [Split vertical menu system](#split-vertical-menu-system)
-1. [Dynamically style one or more pages](#dynamically-style-one-or-more-pages)
-1. [Migrate an HTML theme to Grav](#migrate-an-html-theme-to-grav)
-1. [Add an asset to a specific page](#add-an-asset-to-a-specific-page)
-1. [Reuse page or modular content on another page](#reuse-page-or-modular-content-on-another-page)
-1. [Make a custom anti-spam field for your contact form](#make-a-custom-anti-spam-field-for-your-contact-form)
-1. [Display different robots.txt contents for different environments](#display-different-robots-txt-contents-for-different-environments)
-
-### Change the PHP CLI version
+## Change the PHP CLI version
 
 Sometimes on the terminal, the PHP version is different than the PHP version used by the web server.
 
@@ -62,7 +48,7 @@ The exact path of course depends on how your system is set up, where it stores t
 
 You could also try looking in the `php-something` files or folders under the `/usr/local/bin` or `/usr/local/lib` folders, with `ls -la /usr/local/lib/ |grep -i php`.
 
-### Creating a simple gallery
+## Creating a simple gallery
 
 ##### Problem:
 
@@ -140,7 +126,7 @@ The next section simply loops over all the media of the page that are **images**
 
 You could make a more advanced gallery-implementation by using creating filters for camera-data, with the [EXIF](/themes/twig-filters-functions#exif)-function.
 
-### Render content in columns
+## Render content in columns
 
 ##### Problem:
 
@@ -184,7 +170,7 @@ Then we simply need to render this content with a `columns.html.twig` template (
 
 You can see how the content is being **split** by the `<hr />` tag and converted into an array of 3 columns which we loop over and render.  In this example we are using a simple HTML table tag, but you could use anything you wish.
 
-### Really simple css image slider
+## Really simple css image slider
 
 ##### Problem:
 
@@ -259,7 +245,7 @@ div#slider figure {
 
 That's all.
 
-### Wrapping markdown into html
+## Wrapping markdown into html
 
 On some pages you might want to wrap parts of the markdown content into some custom html code instead of creating a new Twig template.
 
@@ -285,7 +271,7 @@ this content is wrapped into a div with class "myWrapper"
 
 done.
 
-### Add a recent post widget to your sidebar
+## Add a recent post widget to your sidebar
 
 #### Problem:
 
@@ -365,7 +351,7 @@ Adjust the spacing between recent post items, font-family, font-size and font-we
 Grav makes it very easy to create a private area on a website.
 It all works thanks to the Login Plugin.
 
-### Require users to login prior to access a part of the site
+## Require users to login prior to access a part of the site
 
 If you don’t have it already, install it through the Admin Panel or using the GPM command line utility.
 
@@ -382,7 +368,7 @@ Notice that the permission does not extend by default to subpages. To do so, fro
 
 This option allows you to create extended private areas without worrying further about access level. Just put all under a page which has a restriction on access.
 
-### Require special permissions to view one or more pages
+## Require special permissions to view one or more pages
 
 Similarly to the above process, you can assign any permission you want to a page. You can even come up with your own permission names.
 
@@ -400,7 +386,7 @@ access:
     site.onlybob: true
 ```
 
-### Use group-based permissions
+## Use group-based permissions
 
 You can also assign users to a group, and assign permissions to the group instead of to individual users. Users will inherit the group permissions.
 
@@ -433,7 +419,7 @@ to their yaml user file, under `user/accounts`
 
 Now users belonging to the `premium` group will be allowed to access pages with a `site.paid` permission.
 
-### Add JavaScript to the footer
+## Add JavaScript to the footer
 
 In many cases you'd want "some" javascript to be added to the footer instead of the page header, to be loaded after the content has been rendered.
 
@@ -455,7 +441,7 @@ or in PHP by calling
 
 `$this->grav['assets']->addJs($this->grav['base_url'] . '/user/plugins/yourplugin/js/somefile.js', ['group' => 'bottom']);`
 
-### Override the default logs folder location
+## Override the default logs folder location
 
 The default location for the logs output of Grav is simply called `logs/`.  Unfortunately, there are instances where that `logs/` folder is already used or is off-limits.  Grav's flexible stream system allows the ability to customize the locations of these folders.
 
@@ -482,7 +468,7 @@ return [
 
 This basically overrides the `log` stream with the `grav-logs/` folder rather than the default `logs/` folder as defined in `system/src/Grav/Common/Config/Setup.php`.
 
-### Split vertical menu system
+## Split vertical menu system
 
 To create a vertical, collapsible, hierarchical menu of pages you need a Twig-loop, a bit of CSS, and a bit of JavaScript. The final result will, when using the Antimatter-theme, look like this:
 
@@ -575,7 +561,7 @@ for(var i = 0; i < tree.length; i++){
 
 This should always be placed **after** the Twig-structure, also ideally in the [Asset Manager](/themes/asset-manager).
 
-### Dynamically style one or more pages
+## Dynamically style one or more pages
 You can dynamically style different pages/posts in your Grav site (independent of template file assignment) by customizing a Theme's Twig file to apply a CSS class passed as a variable in a page's FrontMatter.
 
 You can style different posts/pages in your Grav site by two methods:
@@ -599,7 +585,7 @@ body_classes: featurepost
 
 Note: This is how the Antimatter theme applies page-specific classes, and so it's a good standard to follow.
 
-### Migrate an HTML theme to Grav
+## Migrate an HTML theme to Grav
 
 Migrating an HTML theme to Grav is a common task. Here is a hands-on step-by-step process that can be used to achieve this goal.
 
@@ -659,7 +645,7 @@ Identify the common parts of the pages (header and footer), and move them to the
 
 Each page template then needs to extend `partials/base.html.twig` (https://github.com/getgrav/grav-theme-antimatter/blob/develop/templates/default.html.twig#L1) and just add their unique content. 
 
-### Add an asset to a specific page
+## Add an asset to a specific page
 
 #### Problem
 
@@ -687,7 +673,7 @@ Edit your template and add your asset with the `{{ parent() }}`.
 {% endblock %}
 ```
 
-### Reuse page or modular content on another page
+## Reuse page or modular content on another page
 
 #### Problem:
 You have many pages or modules and would like to share the same content block on more than one page without having to maintain multiple separate instances of the same text.
@@ -732,7 +718,7 @@ title: 'Modular Reuse Example'
 
 Now "amazing offers" can be displayed in multiple places but only needs to be updated once.
 
-### Make a custom anti-spam field for your contact form
+## Make a custom anti-spam field for your contact form
 
 #### Problem:
 
@@ -760,7 +746,7 @@ The question should be something simple, but with multiple simple wrong answers 
 Bots get smarter all the time, but they tend to forego trying to answer the same question several times if the first attempt fails. Also, even the smartest of them rely on dictionaries of known data to guess at an answer. We ask a simple question, "What is five times eight?", and give three options, "32", "40", and "48". The right answer is obviously "40", but instead of checking the bot's math-skills, we're assigning the values "alaska", "oklahoma", and "california" to these numbers, respectively. Because bots look at the possible values, rather than their label, the answers bears no relation to the question. You could even add an answer "Pineapple" with the value "mississippi" and validate against that, and just tell your users to choose that as their answer. The point is to personalize the randomization of data.
 
 
-### Display different robots.txt contents for different environments
+## Display different robots.txt contents for different environments
 
 #### Problem:
 

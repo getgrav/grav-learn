@@ -1,5 +1,7 @@
 ---
 title: Page Collections
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---

@@ -1,5 +1,9 @@
 ---
 title: Twig Tags
+page-toc:
+  active: true
+  start: 3
+
 process:
     twig: false
 taxonomy:
@@ -8,7 +12,7 @@ taxonomy:
 
 Grav also provides a variety of custom Twig Tags that extend the already very capable Twig templating capabilities with some new tags that we've found useful.
 
-#### Markdown
+### Markdown
 
 The Markdown tag provides a powerful new way to embedding markdown in Twig template.  You could use a variable and render that variable with the `|markdown` filter, but the `{% markdown %}` syntax makes creating blocks of markdown text even simpler.
 
@@ -21,17 +25,17 @@ This is **bold** and this _underlined_
 {% endmarkdown %}
 ```
 
-#### Scripts
+### Scripts
 
 The Scripts tag is really a convenience tag that keeps your Twig more readable compared to the usual `{% do assets...%}` approach.  It's purely an alternative way of writing things.
 
-##### File
+#### File
 
 ```
 {% script 'theme://js/something.js' in 'bottom' priority: 20 with { defer: true, async: true } %}
 ```
 
-##### Inline
+#### Inline
 
 ```
 {% script in 'bottom' priority: 20 %}
@@ -39,15 +43,15 @@ The Scripts tag is really a convenience tag that keeps your Twig more readable c
 {% endscript %}
 ```
 
-#### CSS Styles
+### CSS Styles
 
-##### File
+#### File
 
 ```
 {% style 'theme://css/foo.css' priority: 20 %}
 ```
 
-##### Inline
+#### Inline
 
 ```
 {% style priority: 20 with { media: 'screen' } %}
@@ -55,7 +59,7 @@ The Scripts tag is really a convenience tag that keeps your Twig more readable c
 {% endstyle %}
 ```
 
-#### Switch
+### Switch
 
 In most programming language, using a `switch` statement is a common way to make a bunch of `is else` statements cleaner and more readabile.  Also they may prove to be marginally faster.  We just provide a simple way of creating these as they were missing in the base Twig functionality.
 
@@ -70,7 +74,7 @@ In most programming language, using a `switch` statement is a common way to make
 {% endswitch %}
 ```
 
-#### Deferred Blocks
+### Deferred Blocks
 
 A great new feature of Grav 1.6 is the power of deferred blocks.  With traditional blocks, once the block has been rendered, it cannot be manipulated.  Take the example of a `{% block scripts %}` that might hold some entries for JavaScript includes.  If you have a child Twig template, and you extend a base template where this block is defined, you can extend the block, and add your own custom JavaScript entries.  however, partial twig templates that are included from this page, cannot reach or interact with the block.
 
@@ -83,7 +87,7 @@ The deferred attribute on the block which is powered by the [Deferred Extension]
 ```
 
 
-#### Throw an Exception
+### Throw an Exception
 
 There are certain situations where you need to manually throw an exception, so we have a tag for that too.
 
@@ -91,7 +95,7 @@ There are certain situations where you need to manually throw an exception, so w
 {% throw 404 'Not Found' %}
 ```
 
-#### Try / Catch Exceptions
+### Try / Catch Exceptions
 
 Also it's useful to have more powerful PHP-style error handling in your Twig templates so we have a new `try/catch` tag.
 
@@ -103,7 +107,7 @@ Also it's useful to have more powerful PHP-style error handling in your Twig tem
 {% endcatch %}
 ```
  
-#### Render Object (Flex only)
+### Render Object (Flex only)
 
 Flex Objects are slowly making their way into more and more elements of Grav.  These are self-aware objects that have an associated Twig template structure, so they know how to render themselves.  In order to use these, we have implemented a new `render` tag that takes an optional layout which in turn controls which of the template layouts the object should be rendered with.
  

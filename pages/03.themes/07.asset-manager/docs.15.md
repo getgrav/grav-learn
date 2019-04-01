@@ -1,5 +1,7 @@
 ---
 title: Asset Manager
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---

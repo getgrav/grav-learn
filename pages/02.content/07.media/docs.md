@@ -1,5 +1,8 @@
 ---
 title: Media
+page-toc:
+  active: true
+  depth: 3
 markdown:
   extra: true
 taxonomy:
@@ -140,7 +143,7 @@ Grav employs a **builder-pattern** when handling media, so you can perform **mul
 
 These actions are available for all media types.
 
-#### url()
+#### url
 
 !! This method is only intended to be used in **Twig** templates, hence the lack of Markdown syntax.
 
@@ -162,7 +165,7 @@ This returns **raw url path** to the media.
 [/ui-tabs]
 
 
-#### html([title][, alt][, classes])
+#### html
 
 !! In Markdown this method is implicitly called when using the `![]` syntax.
 
@@ -195,7 +198,7 @@ The `html` action will output a valid HTML tag for the media based on the curren
 !! To use classes in Markdown, you need to enable Markdown Extra.
 
 
-#### display(mode)
+#### display
 
 Use this action to switch between the various display modes that Grav provides. Once you switch display mode, all previous actions will be reset. The exceptions to this rule are the `lightbox` and `link` actions and any actions that have been used before those two.
 
@@ -203,7 +206,7 @@ For example, the thumbnail that results from calling `page.media['sample-image.j
 
 ! Once you switch to thumbnail mode, you will be manipulating an image. This means that even if your current media is a video, you can use all the image-type actions on the thumbnail.
 
-#### link()
+#### link
 
 Turn your media object into a link. All actions that you call before `link()` will be applied to the target of the link, while any actions called after will apply to what's displayed on your page.
 
@@ -235,7 +238,7 @@ The following example will display a textual link (`display('text')`) to a sepia
 
 {{ page.media['sample-image.jpg'].sepia().link().display('text').html('Image link') }}
 
-#### lightbox([width, height])
+#### lightbox
 
 The lightbox action is essentially the same as the link action but with a few extras. Like explained above, the lightbox action will not do anything more than create a link with some extra attributes. It differs from the link action in that it adds a `rel="lightbox"` attribute and accepts a `width` and `height` attribute.
 
@@ -295,7 +298,7 @@ Manually choose the thumbnail Grav should use. You can choose between `page` and
 
 ## Image Actions
 
-#### resize(width, height, [background])
+#### resize
 
 Resizing does exactly what you would expect it to do.  `resize` lets you create a new image based on the `width` and the `height`.  The aspect ratio is maintained and the new image will contain blank areas in the color of the **optional** background color provided as a `hex value`, e.g. `0xffffff`. The background parameter is optional, and if not provided will default to **transparent** if the image is a PNG, or **white** if it is a JPEG.
 
@@ -318,7 +321,7 @@ Resizing does exactly what you would expect it to do.  `resize` lets you create 
 
 ![Sample Image](sample-image.jpg?resize=400,200)
 
-#### forceResize(width, height)
+#### forceResize
 
 Resizes the image to the `width` and `height` as provided.  `forceResize` will not respect original aspect-ratio and will stretch the image as needed to fit the new image size.
 
@@ -341,7 +344,7 @@ Resizes the image to the `width` and `height` as provided.  `forceResize` will n
 
 ![Sample Image](sample-image.jpg?forceResize=200,300)
 
-#### cropResize(width, height)
+#### cropResize
 
 `cropResize` resizes an image to a smaller or larger size based on the `width` and the `height`.  The aspect ratio is maintained and the new image will be resized to fit in the bounding-box as described by the `width` and `height` provided. In other words, any background area you would see in a regular `resize` is cropped.
 
@@ -366,7 +369,7 @@ For example, if you have an image that is `640` x `480` and you perform a `cropR
 
 ![Sample Image](sample-image.jpg?cropResize=300,300)
 
-#### crop(x, y, width, height)
+#### crop
 
 `crop` will not resize the image at all, it will merely crop the original image so that only the portion of the bounding box as described by the `width` and the `height` originating from the `x` and `y` location is used to create the new image.
 
@@ -391,7 +394,7 @@ For example, an image that is `640` x `480` that has the `crop(0, 0, 400, 100)` 
 
 ![Sample Image](sample-image.jpg?crop=100,100,300,200)
 
-#### cropZoom(width, height)
+#### cropZoom
 
 Similar to regular `cropResize`, `cropZoom` also takes a `width` and a `height` but will **resize and crop** the image to ensure the resulting image is the exact size you requested.  The aspect ratio is maintained but parts of the image may be cropped, however the resulting image is centered.
 
@@ -422,7 +425,7 @@ For example if you have an image that is `640` x `480` and you perform a `cropZo
 
 ![Sample Image](sample-image.jpg?cropZoom=600,200)
 
-#### quality(value)
+#### quality
 
 Dynamically allows the setting of a **compression percentage** `value` for the image between `0` and `100`. A lower number means less quality, where `100` means maximum quality.
 
@@ -445,7 +448,7 @@ Dynamically allows the setting of a **compression percentage** `value` for the i
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&quality=25)
 
-#### negate()
+#### negate
 
 Applies a **negative filter** to the image where colors are inverted.
 
@@ -468,7 +471,7 @@ Applies a **negative filter** to the image where colors are inverted.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&negate)
 
-#### brightness(value)
+#### brightness
 
 Applies a **brightness filter** to the image with a `value` from `-255` to `+255`. Larger negative numbers will make the image darker, while larger positive numbers will make the image brighter.
 
@@ -491,7 +494,7 @@ Applies a **brightness filter** to the image with a `value` from `-255` to `+255
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&brightness=-100)
 
-#### contrast(value)
+#### contrast
 
 This applies a **contrast filter** to the image with a `value` from `-100` to `+100`. Larger negative numbers will increase the contrast, while larger positive numbers will reduce the contrast.
 
@@ -512,7 +515,7 @@ This applies a **contrast filter** to the image with a `value` from `-100` to `+
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&contrast=-50)
 
-#### grayscale()
+#### grayscale
 
 This processes the image with a **grayscale filter**.
 
@@ -535,7 +538,7 @@ This processes the image with a **grayscale filter**.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&grayscale)
 
-#### emboss()
+#### emboss
 
 This processes the image with an **embossing filter**.
 
@@ -558,7 +561,7 @@ This processes the image with an **embossing filter**.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&emboss)
 
-#### smooth(value)
+#### smooth
 
 This applies a **smoothing filter** to the image based on smooth `value` setting from `-10` to `10`.
 
@@ -581,7 +584,7 @@ This applies a **smoothing filter** to the image based on smooth `value` setting
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&smooth=5)
 
-#### sharp()
+#### sharp
 
 This applies a **sharpening filter** on the image.
 
@@ -604,7 +607,7 @@ This applies a **sharpening filter** on the image.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sharp)
 
-#### edge()
+#### edge
 
 This applies an **edge finding filter** on the image.
 
@@ -627,7 +630,7 @@ This applies an **edge finding filter** on the image.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&edge)
 
-#### colorize(red, green, blue)
+#### colorize
 
 You can colorize the image based on adjusting the `red`, `green`, and `blue` values for the image from `-255` to `+255` for each color.
 
@@ -650,7 +653,7 @@ You can colorize the image based on adjusting the `red`, `green`, and `blue` val
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&colorize=100,-100,40)
 
-#### sepia()
+#### sepia
 
 This applies a **sepia filter** on the image to produce a vintage look.
 
@@ -673,7 +676,7 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sepia)
 
-#### gaussianBlur(factor)
+#### gaussianBlur
 
 **blurs** the image by an Factor, that defines how often the blur filter is applied to the image. Default is 1 time.
 
@@ -696,7 +699,7 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 ![Sample Image](sample-image.jpg?gaussianBlur=3)
 
-#### rotate(angle)
+#### rotate
 
 **rotates** the image by `angle` degrees counterclockwise, negative values rotate clockwise.
 
@@ -719,7 +722,7 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&rotate=-90)
 
-#### flip(flipVertical, flipHorizontal)
+#### flip
 
 **flips** the image in the given directions. Both params can be `0|1`.  Both `0` is equivalent to no flipping in either direction.
 
@@ -742,7 +745,7 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&flip=0,1)
 
-#### fixOrientation()
+#### fixOrientation
 
 Fixes the orientation of the image when rotation is made via EXIF data (applies to jpeg images taken with phones and cameras).
 
@@ -764,7 +767,7 @@ Fixes the orientation of the image when rotation is made via EXIF data (applies 
 
 ## Animated / Vectorized Actions
 
-#### resize(width, height)
+#### resize
 
 Because PHP cannot handle dynamically resizing these types of media, the resize action will only make sure that a `width` and `height` or `data-width` and `data-height` attribute are set on your `<img>`/`<video>` or `<a>` tag respectively. This means your image or video will be displayed in the requested size, but the actual image or video file will not be converted in any way.
 
@@ -787,6 +790,9 @@ Because PHP cannot handle dynamically resizing these types of media, the resize 
 ```
 [/ui-tab]
 [/ui-tabs]
+
+
+#### examples
 
 Some examples of this:
 
@@ -834,7 +840,7 @@ Audio media will display an HTML5 audio link:
 
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3)
 
-#### controls(value)
+#### controls
 
 Allows explicitly setting or removing the HTML5 default controls. Passing `0` hides browser's controls for playback, volume, etc..
 
@@ -858,7 +864,7 @@ Allows explicitly setting or removing the HTML5 default controls. Passing `0` hi
 [/ui-tab]
 [/ui-tabs]
 
-#### preload(value)
+#### preload
 
 Allows setting of `preload` property, which defaults to `auto`. Permitted params are `auto`, `metadata`, and `none`.
 
@@ -881,7 +887,7 @@ Allows setting of `preload` property, which defaults to `auto`. Permitted params
 [/ui-tab]
 [/ui-tabs]
 
-#### autoplay(value)
+#### autoplay
 
 Allows setting whether audio will `autoplay` upon page load. Defaults to `false` by omission if not set.
 
@@ -903,7 +909,7 @@ Allows setting whether audio will `autoplay` upon page load. Defaults to `false`
 [/ui-tabs]
 
 
-#### controlsList(value1-[value2]-[value3])
+#### controlsList
 
 Allows setting of `controlsList` property, which takes one or more of three possible values: `nodownload`, `nofullscreen`, and `noremoteplayback`.
 
@@ -924,7 +930,7 @@ Allows setting of `controlsList` property, which takes one or more of three poss
 [/ui-tab]
 [/ui-tabs]
 
-#### muted(value)
+#### muted
 
 Allows setting whether audio is `muted` on load. Defaults to `false` by omission if not set.
 
@@ -943,7 +949,7 @@ Allows setting whether audio is `muted` on load. Defaults to `false` by omission
 [/ui-tab]
 [/ui-tabs]
 
-#### loop(value)
+#### loop
 
 Allows setting whether audio will `loop` upon playing through completion. Defaults to `false` by omission if not set.
 

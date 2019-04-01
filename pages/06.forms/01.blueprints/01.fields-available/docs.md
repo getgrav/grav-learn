@@ -1,5 +1,7 @@
 ---
 title: 'Reference: Blueprint Form Fields'
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -219,7 +221,7 @@ folder:
 
 ---
 
-### The Array Field
+### Array Field
 
 ![Array](array_field_bp.gif)
 
@@ -257,7 +259,7 @@ metadata:
 
 ---
 
-### The Colorpicker Field
+### Colorpicker Field
 
 ![Colorpicker](colorpicker_field.png)
 
@@ -293,7 +295,7 @@ color:
 
 ---
 
-### The Columns / column Fields
+### Columns / column Fields
 
 ![Columns](columns_field_bp.gif)
 
@@ -327,7 +329,7 @@ columns:
 
 ---
 
-### The Dateformat Field
+### Dateformat Field
 
 ![DateFormat](dateformat_field_bp.gif)
 
@@ -376,7 +378,7 @@ pages.dateformat.short:
 
 ---
 
-### The Datetime Field
+### Datetime Field
 
 ![DateTime](datetime_field.gif)
 
@@ -412,7 +414,7 @@ header.date:
 
 ---
 
-### The Editor Field
+### Editor Field
 
 ![Editor Field](editor_field_bp.gif)
 
@@ -463,7 +465,7 @@ frontmatter:
 
 ---
 
-### The Fieldset Field
+### Fieldset Field
 
 ![Fieldset Field](fieldset-gif.gif)
 The `fieldset` groups a set of fields inside a collapsible box.
@@ -511,7 +513,7 @@ header.fieldset:
 
 ---
 
-### The File Field
+### File Field
 
 ![File Field](file_field_bp.gif)
 
@@ -568,7 +570,7 @@ custom_file:
 
 ---
 
-### The Filepicker Field
+### Filepicker Field
 
 ![Filepicker Field](filepicker_field.png)
 
@@ -615,7 +617,7 @@ header.a_file:
 
 ---
 
-### The Honeypot Field
+### Honeypot Field
 
 The `honeypot` field type creates a hidden field that, when filled out, will return with an error. This is a useful way to prevent bots from filling out and submitting a form.
 
@@ -633,7 +635,7 @@ A honeypot field is a popular alternative to captcha fields.
 
 ---
 
-### The List Field
+### List Field
 
 ![List Field](list_field_bp.gif)
 
@@ -741,7 +743,7 @@ Accessing and displaying the data of a `list` field is done with a simple twig f
 
 ---
 
-### The PageMediaSelect Field
+### PageMediaSelect Field
 
 The `pagemediaselect` field type is used to allow the users to choose a media from one of the page media already uploaded through FTP or using the page media manager.
 
@@ -777,7 +779,7 @@ header.img_link:
 
 ---
 
-### The Pages Field
+### Pages Field
 
 ![Pages Field](pages_field_bp.gif)
 
@@ -827,7 +829,7 @@ If you set `multiple` to true, you need to add `validate.type: array`. Otherwise
 
 ---
 
-### The Section Field
+### Section Field
 
 The `Section` field type is used to divide a setting page into sections.
 
@@ -854,7 +856,7 @@ content:
 
 ---
 
-### The Selectize Field
+### Selectize Field
 
 ![Selectize](selectize_field_bp.gif)
 
@@ -902,7 +904,7 @@ taxonomies:
 
 ---
 
-### The Taxonomy Field
+### Taxonomy Field
 
 ![Taxonomy](taxonomy_field_bp.gif)
 

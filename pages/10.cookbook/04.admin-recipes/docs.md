@@ -1,16 +1,15 @@
 ---
 title: Admin Recipes
+page-toc:
+  active: true
+  depth: 1
 taxonomy:
     category: docs
 ---
 
 This page contains an assortment of problems and their respective solutions related to Grav Admin modifications.
 
-1. [Add a custom YAML file](#add-a-custom-yaml-file)
-2. [Add a custom page creation modal](#add-a-custom-page-creation-modal)
-3. [Add a custom select field](#add-a-custom-select-field)
-
-### Add a custom YAML file
+## Add a custom YAML file
 
 #### Problem:
 
@@ -99,7 +98,7 @@ form:
 
 The use of the `array` field type will let you add arbitrary email and phone fields as you need them.
 
-### Add a custom page creation modal
+## Add a custom page creation modal
 
 #### Problem:
 
@@ -167,7 +166,7 @@ Configuration keys/values available for `add_modals`:
 - `link_classes` - classes to add to the link element
 - `modal_classes` - classes to add to the modal element
 
-### Add a custom select field
+## Add a custom select field
 
 #### Problem:
 

@@ -1,5 +1,7 @@
 ---
 title: GPM Command
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---

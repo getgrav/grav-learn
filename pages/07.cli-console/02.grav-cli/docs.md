@@ -1,5 +1,7 @@
 ---
 title: Grav command
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -58,7 +60,7 @@ To get help for a specific command, you can prepend help to the command:
 $ bin/grav help install
 ```
 
-## Creating a Backup
+## Backup
 
 [version=15]
 Backing up your project is nothing more than creating an archive of the _ROOT_ of Grav. No Database, no complications.
@@ -104,7 +106,7 @@ Archiving 36 files [===================================================] 100% < 
 More information on the backup functionality can be found in the [Advanced -> Backups](/advanced/backups) section.
 [/version]
 
-## Clean Grav
+## Clean
 
 This CLI command is primarily used during the package building process, as it removes extraneous files and folders from Grav.  It is strongly recommended you **do not use this** yourself unless you are using it build your own Grav packages.
 
@@ -112,7 +114,7 @@ This CLI command is primarily used during the package building process, as it re
 $ bin/grav clean
 ```
 
-## Clearing Grav Cache
+## Clear-Cache
 
 You can clear the cache by deleting all the files and folders under `cache/`.
 
@@ -157,7 +159,7 @@ The default option is the standard cache clearing process however, you can contr
 ```
 [/version]
 
-## Composer Update
+## Composer
 
 If you installed Grav via GitHub and have manually installed composer-based vendor packages, you can easily update with:
 
@@ -179,7 +181,7 @@ $ bin/grav composer --update
 
 !! These all use the `--no-dev` composer option, so to be able to perform testing you should use composer directly: `bin/composer.phar`
 
-## Installing Grav Dependencies
+## Install
 
 To install the dependencies Grav relies on (**error** plugin, **problems** plugin, **antimatter** theme), launch a **terminal** or **console** and navigate to the grav folder where you want to install the dependencies and run the CLI command.
 
@@ -257,7 +259,7 @@ viewing last 20 entries in grav.log
 ...
 ```
 
-## Creating a new Project
+## New Project
 
 Every time you want to start a new project with Grav, you need to start with a clean Grav instance. Through the CLI, this process is super easy and takes only a few seconds.
 
@@ -275,7 +277,7 @@ $ bin/grav new-project ~/webroot/portfolio
 
 This will create a new Grav instance and download all the dependencies required.
 
-## Sandbox - Create a symlinked Grav Project
+## Sandbox
 
 Grav has a nifty utility called `sandbox`, which can quickly create a [symlinked](/cli-console/command-line-intro#symbolic-links) copy of the Grav-installation. Simply put, running `bin/grav sandbox -s DESTINATION` - where "DESTINATION" is the path to the folder where you want the copied installation - recreates the Grav-installation in another folder.
 
