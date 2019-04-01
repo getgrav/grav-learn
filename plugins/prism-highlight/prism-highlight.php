@@ -2,8 +2,8 @@
 
 namespace Grav\Plugin;
 
+use Grav\Common\Inflector;
 use \Grav\Common\Plugin;
-use \Grav\Common\Grav;
 use \Grav\Common\Page\Page;
 
 class PrismHighlightPlugin extends Plugin
@@ -14,7 +14,9 @@ class PrismHighlightPlugin extends Plugin
     public static function getSubscribedEvents()
     {
         return [
-            'onPageInitialized' => ['onPageInitialized', 0]
+            'onPageInitialized' => ['onPageInitialized', 0],
+            'onShortcodeHandlers' => ['onShortcodeHandlers', 0],
+            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
         ];
     }
 
@@ -41,6 +43,22 @@ class PrismHighlightPlugin extends Plugin
             ]);
         }
 
+    }
+
+    /**
+     * Initialize configuration
+     */
+    public function onShortcodeHandlers()
+    {
+        $this->grav['shortcode']->registerAllShortcodes(__DIR__.'/shortcodes');
+    }
+
+    /**
+     * Add current directory to twig lookup paths.
+     */
+    public function onTwigTemplatePaths()
+    {
+        $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
     /**
@@ -74,5 +92,18 @@ class PrismHighlightPlugin extends Plugin
             $this->grav['assets']->addInlineJs($inline, null, 'bottom');
         }
 
+    }
+
+    public static function themeOptions()
+    {
+        $options = [];
+
+        $theme_files = glob(__dir__ . '/css/themes/*.css');
+        foreach ($theme_files as $theme_file) {
+            $theme = basename($theme_file);
+            $options[$theme] = Inflector::titleize($theme);
+        }
+
+        return $options;
     }
 }

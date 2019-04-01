@@ -4,3 +4,4 @@ all-pre-blocks: true
 plugins:
     line-numbers: false
     command-line: false
+    command-line-prompt: '$'
