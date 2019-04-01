@@ -15,7 +15,7 @@ languages:
     pages_fallback_only: true
 
 cache:
-  enabled: true
+  enabled: false
   check:
     method: folder
   driver: auto
