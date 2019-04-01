@@ -33,38 +33,40 @@ A full list of supported mimetypes can be found in the `system/config/media.yaml
 
 Usually you'll use a media file within a page, so just put the file in the page folder, and you can reference it in the Markdown of the page, for example:
 
-```markdown
-![](image.jpg)
-```
+[prism classes="language-markdown"]
+![my image](image.jpg)
+[/prism]
 
-If you want to put all your images in a single folder, you can put them in a `user/pages/images` folder. That way you can reach them via
+If you want to put all your images in a single folder, you can put them in a `user/pages/images` folder. That way, in Twig, you can reach them via
 
-```markdown
-page.find('/images').media['my-image.jpg']
+{% verbatim %}
+```twig
+{% set my_image = page.find('/images').media['my-image.jpg'] %}
 ```
+{% endverbatim %}
 
 and also you can find them easily via markdown and perform operations on them:
 
 ```markdown
-![](/images/my-image.jpg?cropResize=300,300)
+![my image](/images/my-image.jpg?cropResize=300,300)
 ```
 
 Alternatively you can put them in your theme, as that is easily accessible via CSS references or from a markdown file by using `theme://` stream:
 
 ```markdown
-![](theme://images/theme-image.jpg)
+![my image](theme://images/theme-image.jpg)
 ```
 
 Another option is `user/images`, where you can use `image://` stream to access them:
 
 ```markdown
-![](image://my-image.jpg)
+![my image](image://my-image.jpg)
 ```
 
 You can actually use any stream including any folder inside `user/` via the `user://` stream:
 
 ```markdown
-![](user://themes/mytheme/images/my-image.jpg)
+![my image](user://themes/mytheme/images/my-image.jpg)
 ```
 
 You can also do these same kinds of things using the Twig `Media` object:
@@ -79,11 +81,13 @@ You can also do these same kinds of things using the Twig `Media` object:
 
 You may also want to put all the media files into their own folder, so that they can all be accessed at one go. For instance you might want to keep all your MP3 files in a folder `user/pages/mp3s` (not visible) and put the name of the MP3 file associated with a particular page in a header field called `thistrack`. If you then wish to access the file for a partiular page and play it using the HTML5 audio element, you will need code like this:
 
-```html
+{% verbatim %}
+[prism classes="language-twig line-numbers"]
 <audio controls>
   <source src="{{ page.find('/mp3s').media[page.header.thistrack~'.mp3'] }}">
 </audio>
-```
+[/prism]
+{% endverbatim %}
 
 ## Display modes
 
@@ -767,19 +771,19 @@ Because PHP cannot handle dynamically resizing these types of media, the resize 
 [ui-tabs]
 [ui-tab title="Markdown"]
 ```markdown
-![](sample-trailer.mov?resize=400,200)
+![Sample Trailer](sample-trailer.mov?resize=400,200)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
 ```twig
-{{ page.media['sample-trailer.mov'].resize(400, 200).html() }}
+{{ page.media['sample-trailer.mov'].resize(400, 200).html('Sample Trailer') }}
 ```
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
-{{ page.media['sample-trailer.mov'].resize(400, 200).html()|e }}
+{{ page.media['sample-trailer.mov'].resize(400, 200).html('Sample Trailer')|e }}
 ```
 [/ui-tab]
 [/ui-tabs]
@@ -789,21 +793,21 @@ Some examples of this:
 [ui-tabs]
 [ui-tab title="Vector Image"]
 ```markdown
-![](sample-vector.svg?resize=300,300)
+![Sample Vector](sample-vector.svg?resize=300,300)
 ```
-![](sample-vector.svg?resize=300,300)
+![Sample Vector](sample-vector.svg?resize=300,300)
 [/ui-tab]
 [ui-tab title="Animated Image"]
 ```markdown
-![](sample-animated.gif?resize=300,300)
+![Animated Gif](sample-animated.gif?resize=300,300)
 ```
-![](sample-animated.gif?resize=300,300)
+![Animated Gif](sample-animated.gif?resize=300,300)
 [/ui-tab]
 [ui-tab title="Video"]
 ```markdown
-![](sample-trailer.mov?resize=400,200)
+![Sample Trailer](sample-trailer.mov?resize=400,200)
 ```
-![](sample-trailer.mov?resize=400,200)
+![Sample Trailer](sample-trailer.mov?resize=400,200)
 [/ui-tab]
 [/ui-tabs]
 
@@ -1071,19 +1075,19 @@ Grav also has support for media queries inside the `sizes` attribute, allowing y
 [ui-tabs]
 [ui-tab title="Markdown"]
 ```markdown
-![](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+![Retina Image](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
 ```twig
-{{ page.media['retina.jpg'].sizes('(max-width:26em) 100vw, 50vw').html() }}
+{{ page.media['retina.jpg'].sizes('(max-width:26em) 100vw, 50vw').html('Retina Image') }}
 ```
 {% endverbatim %}
 [/ui-tab]
 [ui-tab title="HTML Code"]
 {% set code_sample %}
-![](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+![Retina Image](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 {% endset %}
 ```html
 {{ code_sample|e }}
@@ -1093,7 +1097,7 @@ Grav also has support for media queries inside the `sizes` attribute, allowing y
 
 ##### Result:
 
-![](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+![Retina Image](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 
 !!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
 
@@ -1108,7 +1112,7 @@ In our example, we set the maximum to `1600`. This will result in increments of 
 [ui-tabs]
 [ui-tab title="Markdown"]
 ```markdown
-![](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+![Retina Image](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
@@ -1120,7 +1124,7 @@ In our example, we set the maximum to `1600`. This will result in increments of 
 [/ui-tab]
 [ui-tab title="HTML Code"]
 {% set code_sample %}
-![](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+![Retina Image](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 {% endset %}
 ```html
 {{ code_sample|e }}
@@ -1130,7 +1134,7 @@ In our example, we set the maximum to `1600`. This will result in increments of 
 
 ##### Result:
 
-![](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
+![Retina Image](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 
 !!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
 
@@ -1140,7 +1144,7 @@ In our example, we set the maximum to `1600`. This will result in increments of 
 Instead of letting Grav generate the sizes in even steps between given boundaries, you may manually define which sizes Grav should generate:
 
 ```markdown
-![](retina.jpg?derivatives=[360,720,1200])
+![Retina Image](retina.jpg?derivatives=[360,720,1200])
 ```
 
 This will generate downsizes versions of the `retina.jpg` image in three widths: 360, 720 and 1200px.

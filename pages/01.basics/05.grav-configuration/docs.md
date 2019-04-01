@@ -18,7 +18,7 @@ Here are the variables found in the default `system/config/system.yaml` file:
 
 ### Basic Options
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 absolute_urls: false
 timezone: ''
 default_locale:
@@ -31,7 +31,7 @@ custom_base_url: ''
 username_regex: '^[a-z0-9_-]{3,16}$'
 pwd_regex: '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
 intl_enabled: true
-```
+[/prism]
 
 These configuration options do not appear within their own child sections. They're general options that affect the way the site operates, its timezone, and base URL. 
 
@@ -54,7 +54,7 @@ These configuration options do not appear within their own child sections. They'
 
 ### Languages
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 languages:
   supported: []
   include_default_lang: true
@@ -64,7 +64,7 @@ languages:
   session_store_active: false
   http_accept_language: false
   override_locale: false
-```
+[/prism]
 
 The **Languages** area of the file establishes the site's language settings. This includes which language(s) are supported, designation of the default language in the URLs, and translations. Here is the breakdown for the **Languages** area of the system configuration file:
 
@@ -83,11 +83,11 @@ The **Languages** area of the file establishes the site's language settings. Thi
 
 ### Home
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 home:
   alias: '/home'
   hide_in_urls: false
-```
+[/prism]
 
 The **Home** section is where you set the default path for the site's homepage. You can also choose to hide the home route in URLs.
 
@@ -100,7 +100,7 @@ The **Home** section is where you set the default path for the site's homepage. 
 
 ### Pages
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 pages:
   theme: quark
   order:
@@ -147,7 +147,7 @@ pages:
   frontmatter:
     process_twig: false
     ignore_fields: ['form','forms']
-```
+[/prism]
 
 The **Pages** section of the `system/config/system.yaml` file is where you set a lot of the main theme-related settings. For example, this is where you set the theme used to render the site, page ordering, twig and markdown processing defaults, and more. This is where most of the decisions that affect the way your pages are rendered are made.
 
@@ -202,7 +202,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 ### Cache
 
 [version=15]
-```yaml
+[prism classes="language-yaml line-numbers"]
 cache:
   enabled: true
   check:
@@ -216,11 +216,11 @@ cache:
   allow_webserver_gzip: false
   redis:
     socket: false
-```
+[/prism]
 [/version]
 
 [version=16]
-```yaml
+[prism classes="language-yaml line-numbers"]
 cache:
   enabled: true
   check:
@@ -237,11 +237,12 @@ cache:
   allow_webserver_gzip: false
   redis:
     socket: false
-```
+[/prism]
 [/version]
 
 The **Cache** section is where you can configure the site's caching settings. You can enable, disable, choose the method, and more.
 
+[version=15]
 [div class="table table-striped table-keycol"]
 | Property | Description |
 | -------- | ----------- |
@@ -250,11 +251,6 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 | ... **method:** | Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching) |
 | **driver:** | Select a cache driver. Options are: `auto`, `file`, `apcu`, `redis`, `memcache`, and `wincache` |
 | **prefix:** | Cache prefix string (prevents cache conflicts). Example: `g` |
-[version=16]
-| **purge_at:** | Scheduler: How often to purge old cache using cron `at` syntax |
-| **clear_at:** | Scheduler: How often to clear the cache using cron `at` syntax |
-| **clear_job_type:** | Type to clear when processing the scheduled clear job `standard`|`all` |
-[/version]
 | **clear_images_by_default:** | By default grav will include processed images when cache clears, this can be disabled by setting this to `false` |
 | **cli_compatibility:** | Ensures only non-volatile drivers are used (file, redis, memcache, etc.) |
 | **lifetime:** | Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days |
@@ -262,10 +258,32 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 | **allow_webserver_gzip:** | This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete |
 | **redis.socket:** | The path to the redis socket file |
 [/div]
+[/version]
+
+[version=16]
+[div class="table table-striped table-keycol"]
+| Property | Description |
+| -------- | ----------- |
+| **enabled:** | Set to true to enable caching. Can be set to `true` or `false` |
+| **check:** | |
+| ... **method:** | Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching) |
+| **driver:** | Select a cache driver. Options are: `auto`, `file`, `apcu`, `redis`, `memcache`, and `wincache` |
+| **prefix:** | Cache prefix string (prevents cache conflicts). Example: `g` |
+| **purge_at:** | Scheduler: How often to purge old cache using cron `at` syntax |
+| **clear_at:** | Scheduler: How often to clear the cache using cron `at` syntax |
+| **clear_job_type:** | Type to clear when processing the scheduled clear job `standard`|`all` |
+| **clear_images_by_default:** | By default grav will include processed images when cache clears, this can be disabled by setting this to `false` |
+| **cli_compatibility:** | Ensures only non-volatile drivers are used (file, redis, memcache, etc.) |
+| **lifetime:** | Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days |
+| **gzip:** | GZip compress the page output. Can be set to `true` or `false` |
+| **allow_webserver_gzip:** | This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete |
+| **redis.socket:** | The path to the redis socket file |
+[/div]
+[/version]
 
 ### Twig
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 twig:
   cache: true
   debug: true
@@ -274,7 +292,7 @@ twig:
   undefined_functions: true
   undefined_filters: true
   umask_fix: false
-```
+[/prism]
 
 The **Twig** section gives you a quick set of tools with which to configure Twig on your site for debugging, caching, and optimization.
 
@@ -292,7 +310,7 @@ The **Twig** section gives you a quick set of tools with which to configure Twig
 
 ### Assets
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 assets:
   css_pipeline: false
   css_pipeline_include_externals: true
@@ -307,7 +325,7 @@ assets:
   enable_asset_timestamp: false
   collections:
     jquery: system://assets/jquery/jquery-2.x.min.js
-```
+[/prism]
 
 The **Assets** section enables you to configure options related to the Assets Manager (JS, CSS).
 
@@ -330,11 +348,11 @@ The **Assets** section enables you to configure options related to the Assets Ma
 
 ### Errors
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 errors:
   display: 0
   log: true
-```
+[/prism]
 
 The **Errors** section determines how Grav handles error display and logging.
 
@@ -347,12 +365,12 @@ The **Errors** section determines how Grav handles error display and logging.
 
 ### Log
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 log:
   handler: file
   syslog:
     facility: local6
-```
+[/prism]
 
 The **Log** section allows you to configure alternate logging capabilities for Grav.
 
@@ -366,12 +384,12 @@ The **Log** section allows you to configure alternate logging capabilities for G
 
 ### Debugger
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 debugger:
   enabled: false
   shutdown:
     close_connection: true
-```
+[/prism]
 
 This section gives you the ability to activate Grav's debugger. A useful tool during development.
 
@@ -385,7 +403,7 @@ This section gives you the ability to activate Grav's debugger. A useful tool du
 
 ### Images
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 images:
   default_image_quality: 85
   cache_all: false
@@ -393,7 +411,7 @@ images:
   debug: false
   auto_fix_orientation: false
   seofriendly: false
-```
+[/prism]
 
 This section gives you the ability to set the default image quality images are resampled to, as well as to control image caching and debugging features.
 
@@ -411,13 +429,13 @@ This section gives you the ability to set the default image quality images are r
 
 ### Media
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 media:
   enable_media_timestamp: false
   unsupported_inline_types: []
   allowed_fallback_types: []
   auto_metadata_exif: false
-```
+[/prism]
 
 The **Media** section handles the configuration options for settings related to the handling of media files. This includes timestamp display, upload size, and more.
 
@@ -432,7 +450,7 @@ The **Media** section handles the configuration options for settings related to 
 
 ### Session
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 session:
   enabled: true
   initialize: true
@@ -443,7 +461,7 @@ session:
   httponly: true
   split: true
   path:
-```
+[/prism]
 
 These options determine session properties for your site.
 
@@ -462,14 +480,14 @@ These options determine session properties for your site.
 
 ### GPM
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 gpm:
   releases: stable
   proxy_url:
   method: 'auto'
   verify_peer: true
   official_gpm_only: true
-```
+[/prism]
 
 The **GPM** section offers the user options that control how Grav's GPM sources and makes ready updates available for your site. You can choose between stable and testing releases, as well as set up a proxy URL.
 
@@ -485,11 +503,11 @@ The **GPM** section offers the user options that control how Grav's GPM sources 
 
 ### Strict Mode
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 strict_mode:
   yaml_compat: true
   twig_compat: true
-```
+[/prism]
 
 Strict mode allows for a cleaner migration to future versions of Grav by moving to the newer versions of YAML and Twig processors.  These may not be compatible with all 3rd party extensions.
 
@@ -501,13 +519,13 @@ Strict mode allows for a cleaner migration to future versions of Grav by moving 
 [/div]
 
 [version=16]
-### Accounts (Grav 1.6+ only)
+### Accounts
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 accounts:
   type: data
   storage: file
-```
+[/prism]
 
 Accounts is a new setting for 1.6 that allows you to try out the new experimental Flex Users.  This basically means that Users are stored as Flex objects allowing more power and performance.
 
@@ -527,7 +545,7 @@ As well as the `system.yaml` file, Grav also provides a default `site.yaml` conf
 
 The default `system/config/site.yaml` file that ships with Grav looks something like this:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 title: Grav                                 # Name of the site
 default_lang: en                            # Default language for site (potentially used by theme)
 
@@ -563,8 +581,7 @@ blog:
 #      url: https://github.com/getgrav/grav
 #    - icon: twitter
 #      url: http://twitter.com/getgrav
-
-```
+[/prism]
 
 Let's break down the elements of this sample file:
 
@@ -591,7 +608,7 @@ In Grav 1.5 we introduced a new `system/config/security.yaml` file that sets som
 
 The default configuration looks like this:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 xss_whitelist: [admin.super]
 xss_enabled:
     on_events: true
@@ -630,7 +647,7 @@ uploads_dangerous_extensions:
     - htm
     - js
     - exe
-```
+[/prism]
 
 If you wish to make any changes to these settings, you should copy this file to `user/config/security.yaml` and make edits there.
 

@@ -397,11 +397,11 @@ By default, a page is **visible** in the **navigation** if the surrounding folde
 
 Of course, you can create your own custom page headers using any valid YAML syntax.  These would be page-specific and be available for any plugin, or theme to make use of. A good example of this would be to set some variable specific to a sitemap plugin, such as:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 sitemap:
     changefreq: monthly
     priority: 1.03
-```
+[/prism]
 
 The significance of these headers is that Grav does not use them by default. They are only read by the **sitemap plugin** to determine how often this particular page is modified and what its priority should be.
 
@@ -411,22 +411,22 @@ Another example would be to store page-specific data that could then be used by 
 
 For example, you might have want to associate some author reference for the page. If you added these YAML settings to the page header:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 author:
     name: Sandy Johnson
     twitter: @sandyjohnson
     bio: Sandy is a freelance journalist and author of several publications on open source CMS platforms.
-```
+[/prism]
 
 You could then access them from Twig:
 
-```twig
+[prism classes="language-twig line-numbers"]
 <section id="author-details">
     <h2>{{ page.header.author.name }}</h2>
     <p>{{ page.header.author.bio }}</p>
     <span>Contact: <a href="https://twitter.com/{{ page.header.author.twitter }}"><i class="fa fa-twitter"></i></a></span>
 </section>
-```
+[/prism]
 
 ## Meta Page Headers
 
@@ -434,7 +434,7 @@ Meta headers allow you to set the [standard set of HTML **<meta> tags**](http://
 
 #### Standard Metatag examples
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 metadata:
     refresh: 30
     generator: 'Grav'
@@ -443,11 +443,11 @@ metadata:
     author: 'John Smith'
     robots: 'noindex, nofollow'
     my_key: 'my_value'
-```
+[/prism]
 
 This will produce the HTML:
 
-```html
+[prism classes="language-twig line-numbers"]
 <meta name="generator" content="Grav" />
 <meta name="description" content="Your page description goes here" />
 <meta http-equiv="refresh" content="30" />
@@ -455,66 +455,66 @@ This will produce the HTML:
 <meta name="author" content="John Smith" />
 <meta name="robots" content="noindex, nofollow" />
 <meta name="my_key" content="my_value" />
-```
+[/prism]
 
 All HTML5 metatags are supported.
 
 #### OpenGraph Metatag examples
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 metadata:
     'og:title': The Rock
     'og:type': video.movie
     'og:url': http://www.imdb.com/title/tt0117500/
     'og:image': http://ia.media-imdb.com/images/rock.jpg
-```
+[/prism]
 
 This will produce the HTML:
 
-```html
+[prism classes="language-html line-numbers"]
 <meta name="og:title" property="og:title" content="The Rock" />
 <meta name="og:type" property="og:type" content="video.movie" />
 <meta name="og:url" property="og:url" content="http://www.imdb.com/title/tt0117500/" />
 <meta name="og:image" property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
-```
+[/prism]
 
 For a full outline of all OpenGraph metatags that can be used, please consult the [official documentation](http://ogp.me/).
 
 #### Facebook Metatag examples
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 metadata:
     'fb:app_id': your_facebook_app_id
-```
+[/prism]
 
 This will produce the HTML:
 
-```html
+[prism classes="language-html line-numbers"]
 <meta name="fb:app_id" property="fb:app_id" content="your_facebook_app_id" />
-```
+[/prism]
 
 Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific tags and these are support automatically by Grav.
 
 #### Twitter Metatag examples
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 metadata:
     'twitter:card' : summary
     'twitter:site' : @flickr
     'twitter:title' : Your Page Title
     'twitter:description' : Your page description can contain summary information
     'twitter:image' : https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg
-```
+[/prism]
 
 This will produce the HTML:
 
-```html
+[prism classes="language-twig line-numbers"]
 <meta name="twitter:card" property="twitter:card" content="summary" />
 <meta name="twitter:site" property="twitter:site" content="@flickr" />
 <meta name="twitter:title" property="twitter:title" content="Your Page Title" />
 <meta name="twitter:description" property="twitter:description" content="Your page description can contain summary information" />
 <meta name="twitter:image" property="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" />
-```
+[/prism]
 
 For a full outline of all Twitter metatags that can be used, please consult the [official documentation](https://dev.twitter.com/cards/overview).
 
@@ -530,10 +530,10 @@ An advanced feature that can come in handy for some power users is the ability t
 
 To take advantage of this, simply create a `frontmatter.yaml` file alongside your page's `.md` file and add any valid frontmatter values.  For example:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 metadata:
     generator: 'Super Grav'
     description: Give your page a powerup with Grav!
-```
+[/prism]
 
 !!!! Utilizing frontmatter.yaml is a file-side feature and is **not supported** by the admin plugin.
