@@ -68,7 +68,7 @@ class PrismHighlightPlugin extends Plugin
     {
         $theme = $this->config->get('plugins.prism-highlight.theme') ?: 'prism-default.css';
         $this->grav['assets']->addCss('plugin://prism-highlight/css/prism.css');
-        $this->grav['assets']->addCss('plugin://prism-highlight/css/' . $theme);
+        $this->grav['assets']->addCss('plugin://prism-highlight/css/themes/' . $theme);
         $this->grav['assets']->addJs('plugin://prism-highlight/js/prism.js', null, true, null, 'bottom');
 
         $inline = '';
