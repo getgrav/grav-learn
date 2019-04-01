@@ -25,7 +25,7 @@ class PrismShortcode extends Shortcode
             $cl_output = $sc->getParameter('cl-output');
 
             $output = $this->twig->processTemplate('shortcodes/prism-highlight.html.twig', [
-                'content' => trim($content, "\n "),
+                'content' => trim($content),
                 'classes' => $classes,
                 'enable_line_numbers' => $enable_line_numbers,
                 'enable_command_line' => $enable_command_line,

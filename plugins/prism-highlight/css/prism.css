@@ -1,6 +1,10 @@
 /* PrismJS 1.16.0
 https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+apacheconf+bash+coffeescript+ruby+css-extras+diff+markup-templating+docker+git+go+less+java+php+json+json5+markdown+lua+php-extras+sql+scss+python+sass+twig+yaml+regex&plugins=line-highlight+line-numbers+toolbar+command-line+copy-to-clipboard */
 
+.prism-wrapper {
+    overflow: hidden;
+}
+
 /** Custom plugins **/
 pre[data-line] {
 	position: relative;
