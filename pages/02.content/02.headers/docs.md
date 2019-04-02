@@ -208,7 +208,7 @@ This will always take you to the `/profile` route after a successful login.
       '<': 'lt'
 ```
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **extra:** | Enable support for Markdown Extra support (GFM by default) |
@@ -332,7 +332,7 @@ summary:
 
 The **summary** option configures what the `page.summary()` method returns.  This is most often used in a blog-listing type scenario, but can be used anytime you need a synopsis or summary of the page content.  The scenarios are as follows:
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **enabled:** | Switch off page summary (the summary returns the same as the page content) |
@@ -341,14 +341,14 @@ The **summary** option configures what the `page.summary()` method returns.  Thi
 
 The `size` attribute has different meanings when the format is set to `short` and `long`:
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | Short Size | Description |
 | -------- | ----------- |
 | **size: 0** | If no summary delimiter is found, the summary equals the page content, otherwise the content will be truncated up to summary delimiter position |
 | **size:** `int` | Always truncate the content after **int** chars. If a summary delimiter was found, then truncate content up to summary delimiter position |
 [/div]
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | Long Size | Description |
 | -------- | ----------- |
 | **size: 0** | Summary equals the entire page content |

@@ -18,7 +18,7 @@ To get us started, here is a quick look at some of the common components of a Gr
 [Linked Content](../path/slug/page)
 ```
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | String | Description |
 | :----- | :----- |
 | `[]`   | The square bracket is used to wrap the text or alternate content that becomes linked. In HTML, this would be the content placed between `<a href="">` and `</a>` |

@@ -85,7 +85,7 @@ If no number is provided as a prefix of the folder name, the page is considered 
 
 When dealing with collections, there are several options available to control how folders are ordered. The most important option is set in the `content.order.by` of the page configuration settings. The options are:
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **default**  | The order based on the file system, i.e. `01.home` before `02.advark`|

@@ -19,7 +19,7 @@ Grav uses a **smart-caching** system that automatically creates in-cache copies 
 
 The following media file types are supported natively by Grav. Additional support for media files and streaming embeds may be added via plugins.
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | Media Type         | File Type                                                                                                                                                             |
 | :-----             | :-----                                                                                                                                                                |
 | Image              | jpg, jpeg, png                                                                                                                                                        |
@@ -96,7 +96,7 @@ You may also want to put all the media files into their own folder, so that they
 
 Grav provides a few different display modes for every kind of media object.
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | Mode      | Explanation                                                                     |
 | :-----    | :-----                                                                          |
 | source    | Visual representation of the media itself, i.e. the actual image, video or file |
@@ -125,7 +125,7 @@ The display modes above can also be used in combination with links and lightboxe
 
 When you use Grav's media functionality to render a lightbox, all Grav does is output an **anchor** tag that has some attributes for the lightbox plugin to read. If you are interested in using a lightbox library that is not in our plugin repository or you want to create your own plugin, you can use the table below as a reference.
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | Attribute   | Explanation                                                                                                  |
 | :-----      | :-----                                                                                                       |
 | rel         | A simple indicator that this is not a regular link, but a lightbox link. The value will always be `lightbox` |
@@ -1196,7 +1196,7 @@ Here is an example:
 
 The options are as follows:
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | Attribute   | Explanation                                                                               |
 | :-----      | :-----                                                                                    |
 | autoplay    | Enables (`1`) or Disables (`0`) autoplay for the video on pageload.                       |

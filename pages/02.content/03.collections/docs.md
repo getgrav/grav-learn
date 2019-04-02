@@ -66,7 +66,7 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 
 ### Summary of collection options
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 |                   String                  |                           Result                          |
 |-------------------------------------------|-----------------------------------------------------------|
 | `'@root'`                                   | Get the root children                                     |
@@ -288,7 +288,7 @@ content:
 
 Ordering of sub-pages follows the same rules as ordering of folders, the available options are:
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | Ordering     | Details                                                                                                                                            |
 | :----------  | :----------                                                                                                                                        |
 | `default`    | The order based on the file system, i.e. `01.home` before `02.advark`                                                                              |
@@ -368,7 +368,7 @@ This sets up **2 collections** for this page, the first uses the default `conten
 
 Standard methods Iterable methods include:
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | `Collection::append($items)` | Add another collection or array |
@@ -382,7 +382,7 @@ Standard methods Iterable methods include:
 
 Also has several useful Collection-specific methods:
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | `Collection::addPage($page)` | You can append another page to this collection |

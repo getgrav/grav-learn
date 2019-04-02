@@ -22,7 +22,7 @@ To get us started, here is a quick look at some of the standard components of a 
 ![Alt Text](../path/image.ext)
 ```
 
-[div class="table table-striped table-keycol"]
+[div class="table-keycol"]
 | String | Description                                                                                                              |
 | :----- | :-----                                                                                                                   |
 | `!`    | When placed at the beginning of a traditional markdown link tag, it indicates this is an image tag.                      |
