@@ -511,13 +511,13 @@ Authorizes an authenticated user to see a resource. Accepts a single permission 
 
 Takes an array of classes, and if they are not set on `body_classes` look to see if they are set in current theme configuration.
 
-`{% set body_classes = body_class(['header-fixed', 'header-animated', 'header-dark', 'header-transparent', 'sticky-footer']) %}`
+`set body_classes = body_class(['header-fixed', 'header-animated', 'header-dark', 'header-transparent', 'sticky-footer'])`
 
 #### Cron
 
 Create a "Cron" object from cron syntax
 
-`{{ cron("3 * * * *").getNextRunDate()|date(config.date_format.default) }}`
+`cron("3 * * * *").getNextRunDate()|date(config.date_format.default)`
 
 [/version]
 
