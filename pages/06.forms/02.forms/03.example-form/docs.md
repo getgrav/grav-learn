@@ -24,7 +24,7 @@ You can put a form inside any page of your site. All you need to do is rename th
 
 The form fields and processing instructions are defined in the YAML frontmatter of the page, so just open the page markdown file with your favorite editor, and put the following code in it:
 
-```
+[prism classes="language-yaml line-numbers"]
 ---
 title: Contact Form
 
@@ -86,7 +86,7 @@ form:
 # Contact form
 
 Some sample page content
-```
+[/prism]
 
 !!! Make sure you configured the "Email from" and "Email to" email addresses in the Email plugin with your email address
 
@@ -94,7 +94,7 @@ Make sure you add your own `recaptcha_site_key` reCAPTCHA parameter ([see the re
 
 Now inside the page folder create a subfolder named `thankyou/`, create a new file named `formdata.md`. And paste the following code into the file:
 
-```
+[prism classes="language-yaml line-numbers"]
 ---
 title: Email sent
 cache_enable: false
@@ -103,7 +103,7 @@ process:
 ---
 
 ## Email sent!
-```
+[/prism]
 
 That's it!
 
