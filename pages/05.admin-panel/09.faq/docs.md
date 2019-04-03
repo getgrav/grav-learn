@@ -27,9 +27,9 @@ When you first install the Admin plugin, you will be prompted to create an admin
 
 You can easily add other users but it requires a bit of work in the terminal/command prompt to do. From your terminal, access the root of the Grav site you'd like to add users to, and type the following command:
 
-```text
+[prism classes="language-bash command-line"]
 bin/plugin login newuser
-```
+[/prism]
 
 ![Admin FAQ](faq_1.png?width=1009&classes=shadow)
 
@@ -39,17 +39,19 @@ This will initiate a series of prompts to guide you through the creation of a ne
 
 At one point during the creation process you will be asked to choose a set of permissions for the new user. There are currently three options:
 
+[div class="table table-keycol"]
 | Role(s)        | Description                                                                                                       |
 | :-----         | :-----                                                                                                            |
 | Admin          | Gives the user access to the Admin back end. This role does not include front end access to protected pages. |
 | Site           | Gives user access to all pages in the front end. This is the equivalent of a logged-in user.                      |
 | Admin and Site | Gives user access to the entire site, front and back end.                                                         |
+[/div]
 
 User data is stored in `SITE_ROOT/user/accounts/` and each user is given a **YAML** file containing that user's login information and other details. Here is an example of the data contained within a user account file. For example this could be the content of `SITE_ROOT/user/accounts/tester.yaml`.
 
 !! The filename `tester.yaml` dictates the username is `tester`
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 email: test@rockettheme.com
 access:
   admin:
@@ -60,7 +62,7 @@ access:
 fullname: 'Tester McTesting'
 title: Admin
 hashed_password: $2y$10$5RAUI6ZCISWR.4f0D6FILu3efYq3078ZX/.9vtAnZbjxS/4PXN/WW
-```
+[/prism]
 
 You can edit this information directly to the user's YAML file, or by selecting your user avatar from the sidebar of the admin. This will take you to a page where you can easily manage user information.
 
@@ -90,15 +92,18 @@ Here are the currently supported access levels explained:
 ### Custom Admin URL
 
 One way to help keep your admin panel secure is to hide its location. To do this would be to change the URL from
-```
+
+[prism classes="language-text"]
 http://yourwebsite.com/admin
-```
+[/prism]
+
 to something more ambiguous that is going to be harder for someone to guess.  To do this you need to locate `admin.yaml` which can be found in `user/plugins/admin/` folder and **copy this** to `user/config/plugins/admin.yaml`.
 
 Then change the line `route: '/admin'` to something more ambiguous, for example `route: '/myspecialplace'`, this way if you need to access the admin panel for your grav site you will enter
-```
+
+[prism classes="language-text"]
 http://yourwebsite.com/myspecialplace
-```
+[/prism]
 
 ### Offline Mode
 

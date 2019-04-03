@@ -73,11 +73,13 @@ Misc events:
 There are several core Grav event hooks that are triggered during the processing of a page:
 
 <a name="onFatalException"></a>
+
 #### onFatalException
 
 This is an event that can be fired at any time if PHP throws a fatal exception. This is currently used by the `problems` plugin to handle displaying a list of potential reasons why Grav throws the fatal exception.
 
 <a name="onPluginsInitialized"></a>
+
 #### onPluginsInitialized
 
 This is the first plugin event available. At this point the following objects have been initiated:
@@ -136,7 +138,7 @@ This event enables plugins to provide their own templates in addition to the one
 
 **Example**
 
-```twig
+[prism classes="language-twig line-numbers"]
 /**
  * Add page template types.
  */
@@ -146,7 +148,7 @@ public function onGetPageTemplates(Event $event)
     $types = $event->types;
     $types->register('downloads');
 }
-```
+[/prism]
 
 This allows a plugin to register a template (that it might provide) so that it shows up in the dropdown list of page template types (like when editing a page). In the example above, a template type of `downloads` is added as there is a `downloads.html.twig` file in the `downloads` directory.
 
@@ -158,7 +160,7 @@ This event, like `onGetPageTemplates` enables the plugin to provide its own reso
 
 **Example**
 
-```twig
+[prism classes="language-twig line-numbers"]
 $scanBlueprintsAndTemplates = function () use ($grav) {
     // Scan blueprints
     $event = new Event();
@@ -174,7 +176,7 @@ $scanBlueprintsAndTemplates = function () use ($grav) {
 
     self::$types->scanTemplates('theme://templates/');
 };
-```
+[/prism]
 
 In this example, we are using both the `onGetPageTemplates` and `onGetPageBlueprints` hooks to make these plugin-provided resources (templates and blueprints) available to Grav for inheritance and other uses.
 

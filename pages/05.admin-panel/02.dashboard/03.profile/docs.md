@@ -49,20 +49,22 @@ Administrators will find the permissions area especially useful. This is where y
 
 Here is a quick breakdown of the permissions options and what they enable someone to do.
 
-| Option                     | Description                                                                                                      |
-| :-----                     | :-----                                                                                                           |
-| admin.super                | Designates the user as a super admin, giving them the ability to see and configure all areas of the site.        |
-| admin.login                | Enables the user to log in to the admin. This must be set to **Yes** to enable the user to log in.               |
-| admin.cache                | Gives the user access to the cache reset buttons.                                                                |
-| admin.configuration        | Gives the user access to the **Configuration** area of the admin. This does not include any tabs or subsections. |
-| admin.configuration_system | Gives the user access to the **System** tab in the **Configuration** area of the admin.                          |
-| admin.configuration_site   | Gives the user access to the **Site** tab in the **Configuration** area of the admin.                            |
-| admin.configuration_media  | Gives the user access to the **Media** tab in the **Configuration** area of the admin.                           |
-| admin.configuration_info   | Gives the user access to the **Info** tab in the **Configuration** area of the admin.                            |
-| admin.pages                | Gives the user access to the **Pages** area of the admin.                                                        |
-| admin.maintenance          | Gives the user the ability to access the **Maintenance** area of the **Dashboard**.                              |
-| admin.statistics           | Gives the user the ability to access the **Statistics** area of the **Dashboard**.                               |
-| admin.plugins              | Gives the user access to the **Plugins** area of the admin.                                                      |
-| admin.themes               | Gives the user access to the **Themes** area of the admin.                                                       |
-| admin.users                | Enables the user to access and edit other users' profile information. This does not include permissions.         |
-| site.login                 | Enables the user to log in to the front end.                                                                     |
+[div class="table table-striped table-keycol"]
+| Option                         | Description                                                                                                      |
+| :-----                         | :-----                                                                                                           |
+| **admin.super**                | Designates the user as a super admin, giving them the ability to see and configure all areas of the site.        |
+| **admin.login**                | Enables the user to log in to the admin. This must be set to **Yes** to enable the user to log in.               |
+| **admin.cache**                | Gives the user access to the cache reset buttons.                                                                |
+| **admin.configuration**        | Gives the user access to the **Configuration** area of the admin. This does not include any tabs or subsections. |
+| **admin.configuration_system** | Gives the user access to the **System** tab in the **Configuration** area of the admin.                          |
+| **admin.configuration_site**   | Gives the user access to the **Site** tab in the **Configuration** area of the admin.                            |
+| **admin.configuration_media**  | Gives the user access to the **Media** tab in the **Configuration** area of the admin.                           |
+| **admin.configuration_info**   | Gives the user access to the **Info** tab in the **Configuration** area of the admin.                            |
+| **admin.pages**                | Gives the user access to the **Pages** area of the admin.                                                        |
+| **admin.maintenance**          | Gives the user the ability to access the **Maintenance** area of the **Dashboard**.                              |
+| **admin.statistics**           | Gives the user the ability to access the **Statistics** area of the **Dashboard**.                               |
+| **admin.plugins**              | Gives the user access to the **Plugins** area of the admin.                                                      |
+| **admin.themes**               | Gives the user access to the **Themes** area of the admin.                                                       |
+| **admin.users**                | Enables the user to access and edit other users' profile information. This does not include permissions.         |
+| **site.login**                 | Enables the user to log in to the front end.                                                                     |
+[/div]

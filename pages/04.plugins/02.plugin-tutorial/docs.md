@@ -37,9 +37,9 @@ The first step in creating a new plugin is to **install the DevTools Plugin**.  
 
 * Navigate in the command line to the root of your Grav installation
 
-```
-$ bin/gpm install devtools
-```
+[prism classes="language-bash command-line"]
+bin/gpm install devtools
+[/prism]
 
 #### Install via Admin plugin
 
@@ -53,14 +53,14 @@ For this next step you really do need to be in the [command line](/cli-console/c
 
 From the root of your Grav installation enter the following command:
 
-```
-$ bin/plugin devtools new-plugin
-```
+[prism classes="language-bash command-line"]
+bin/plugin devtools new-plugin
+[/prism]
 
 This process will ask you a few questions that are required to create the new plugin:
 
-```
-$ bin/plugin devtools new-plugin
+[prism classes="language-bash command-line" cl-output="2-9"]
+bin/plugin devtools new-plugin
 Enter Plugin Name: Randomizer
 Enter Plugin Description: Sends the user to a random page
 Enter Developer Name: Acme Corp
@@ -69,7 +69,7 @@ Enter Developer Email: contact@acme.co
 SUCCESS plugin Randomizer -> Created Successfully
 
 Path: /www/user/plugins/randomizer
-```
+[/prism]
 
 The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not automatically have the logic to perform the function we wish.  We will have to modify it to suite our needs.
 
@@ -77,7 +77,7 @@ The DevTools command tells you where this new plugin was created. This created p
 
 Now we've created a new plugin that can be modified and developed. Let's break it down and have a look at what makes up a plugin.  If you look in the `user/plugins/randomizer` folder you will see:
 
-```
+[prism classes="language-text"]
 .
 ├── CHANGELOG.md
 ├── LICENSE
@@ -85,7 +85,7 @@ Now we've created a new plugin that can be modified and developed. Let's break i
 ├── blueprints.yaml
 ├── randomizer.php
 └── randomizer.yaml
-```
+[/prism]
 
 This is a sample structure but some things are required:
 
@@ -109,13 +109,13 @@ This items are required if you wish to release your plugin via GPM.
 
 As we described in the **Plugin Overview**, we need to have a few configuration options for our plugin, so the `randomizer.yaml` file should look something like this:
 
-```
+[prism classes="language-yaml line-numbers"]
 enabled: true
 active: true
 route: /random
 filters:
     category: blog
-```
+[/prism]
 
 This allows us to have multiple filters if we wish, but for now, we just want all content with the taxonomy `category: blog` to be eligible for the random selection.
 
@@ -132,7 +132,7 @@ Of course, as with all other configurations in Grav, it is advised not to touch 
 
 The base plugin class structure will already look something like this:
 
-```
+[prism classes="language-php line-numbers"]
 <?php
 namespace Grav\Plugin;
 
@@ -147,18 +147,18 @@ class RandomizerPlugin extends Plugin
 {
  ...
 }
-```
+[/prism]
 
 We need to add a few `use` statements because we are going to use these classes in our plugin, and it saves space and makes the code more readable if we don't have to put the full namespace for each class inline.
 
 Modify the `use` statements to look like this:
 
-```
+[prism classes="language-php line-numbers"]
 use Grav\Common\Plugin;
 use Grav\Common\Page\Collection;
 use Grav\Common\Uri;
 use Grav\Common\Taxonomy;
-```
+[/prism]
 
 The two key parts of this class structure are:
 
@@ -169,14 +169,14 @@ The two key parts of this class structure are:
 
 Grav uses a sophisticated event system, and to ensure optimal performance, all plugins are inspected by Grav to determine which events the plugin is subscribed to.
 
-```
+[prism classes="language-php line-numbers"]
 public static function getSubscribedEvents()
 {
     return [
         'onPluginsInitialized' => ['onPluginsInitialized', 0]
     ];
 }
-```
+[/prism]
 
 In this plugin we are going to tell Grav we're subscribing to the `onPluginsInitialized` event.  This way we can use that event (which is the first event available to plugins) to determine if we should subscribe to other events.
 
@@ -185,7 +185,7 @@ In this plugin we are going to tell Grav we're subscribing to the `onPluginsInit
 The next step is to add a method to our `RandomizerPlugin` class to handle the `onPluginsInitialized` event so it only activates when a user tries to go to the route we have configured in our `randomizer.yaml` file.  Replace the current 'sample' plugin logic with the following:
 
 
-```
+[prism classes="language-twig line-numbers"]
 public function onPluginsInitialized()
 {
     // Don't proceed if we are in the admin plugin
@@ -202,7 +202,7 @@ public function onPluginsInitialized()
         ]);
     }
 }
-```
+[/prism]
 
 First, we get the **Uri object** from the **Dependency Injection Container**.  This contains all the information about the current URI, including the route information.
 
@@ -216,7 +216,7 @@ By using this approach, we ensure we do not run through any extra code if we do 
 
 The last step of our plugin is to display the random page, and we can do that by adding the following method:
 
-```
+[prism classes="language-php line-numbers"]
 /**
  * Send user to a random page
  */
@@ -236,7 +236,7 @@ public function onPageInitialized()
         }
     }
 }
-```
+[/prism]
 
 This method is a bit more complicated, so we'll go over what's going on:
 
@@ -261,7 +261,7 @@ The example plugin that was created with the **DevTools** plugin, used an event 
 
 And that is all there is to it! The plugin is now complete.  Your complete plugin class should look something like this:
 
-```
+[prism classes="language-php line-numbers"]
 <?php
 namespace Grav\Plugin;
 
@@ -333,7 +333,7 @@ class RandomizerPlugin extends Plugin
         }
     }
 }
-```
+[/prism]
 
 If you followed along, you should have a fully functional **Randomizer** plugin enabled for your site.  Just point your browser to the `http://yoursite.com/random`, and you should see a random page.  You can also download the original **Random**  plugin directly from the [Plugins Download](https://getgrav.org/downloads/plugins) section of the [getgrav.org](https://getgrav.org/downloads/plugins) site.
 
@@ -343,7 +343,7 @@ One popular technique that is used in a variety of plugins is the concept of mer
 
 In recent versions of Grav, a helper method was added to perform this functionality automatically rather than you having to code that logic yourself.  The **SmartyPants** plugin provides a good example of this functionality in action:
 
-```
+[prism classes="language-php line-numbers"]
 public function onPageContentProcessed(Event $event)
 {
     $page = $event['page'];
@@ -356,7 +356,7 @@ public function onPageContentProcessed(Event $event)
         ));
     }
 }
-```
+[/prism]
 
 ## Implementing CLI in your Plugin
 

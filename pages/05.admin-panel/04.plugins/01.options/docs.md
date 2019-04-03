@@ -29,6 +29,7 @@ The **Basics** section of this page gives you a set of options to help you defin
 
 We've broken down these options, and what they do, below.
 
+[div class="table table-keycol"]
 | Option                          | Description                                                                                                                                 |
 | :-----                          | :-----                                                                                                                                      |
 | Enable Admin Caching            | Caching in the admin can be **Enabled** or **Disabled** here. This allows you to disable admin caching without affecting front end caching. |
@@ -44,6 +45,7 @@ We've broken down these options, and what they do, below.
 | Automatically Check for Updates | Choose to automatically check for updates to the **Admin Panel** plugin.                                                                    |
 | Session Timeout                 | Set the session timeout (in seconds) here.                                                                                                  |
 | Warn on Page Delete             | **Enable** or **Disable** a warning that asks you to confirm an action that results in a page's deletion.                                   |
+[/div]
 
 ### Dashboard
 
@@ -51,6 +53,7 @@ We've broken down these options, and what they do, below.
 
 This section of the page lets you customize the items that appear in the main dashboard of the admin. Not a fan of the News Feed and want to get rid of it? Want to streamline your dashboard down to one or two sections you love? This is where you can do that.
 
+[div class="table table-keycol"]
 | Option                    | Description                                                                                                  |
 | :-----                    | :-----                                                                                                       |
 | Maintenance Widget        | **Enable** or **Disable** the display of the **Maintenance** area of the main Dashboard page in the Admin.   |
@@ -58,6 +61,7 @@ This section of the page lets you customize the items that appear in the main da
 | Notifications Feed Widget | **Enable** or **Disable** the display of the **Notifications** area of the main Dashboard page in the Admin. |
 | News Feed Widget          | **Enable** or **Disable** the display of the **News Feed** area of the main Dashboard page in the Admin.     |
 | Latest Pages Widget       | **Enable** or **Disable** the display of the **Latest Pages** area of the main Dashboard page in the Admin.  |
+[/div]
 
 ### Notifications
 
@@ -65,12 +69,14 @@ This section of the page lets you customize the items that appear in the main da
 
 You can enable or disable specific types of notifications from this section. You can turn off feed update notifications, as well as notifications for plugins and/or themes.
 
+[div class="table table-keycol"]
 | Option                  | Description                                                           |
 | :-----                  | :-----                                                                |
 | Feed Notifications      | **Enable** or **Disable** feed-based notifications in the admin.      |
 | Dashboard Notifications | **Enable** or **Disable** dashboard-based notifications in the admin. |
 | Plugins Notifications   | **Enable** or **Disable** plugins-based notifications in the admin.   |
 | Themes Notifications    | **Enable** or **Disable** themes-based notifications in the admin.    |
+[/div]
 
 ### Popularity
 
@@ -78,8 +84,10 @@ You can enable or disable specific types of notifications from this section. You
 
 One of the Admin's great features is its ability to track and display traffic information from the Admin's dashboard. This section of the Admin plugin's options gives you the ability to enable or disable traffic tracking, and configure how that data is displayed.
 
+[div class="table table-keycol"]
 | Option           | Description                                                                                        |
 | :-----           | :-----                                                                                             |
 | Visitor tracking | You can **Enable** or **Disable** the visitor tracking feature here.                               |
 | Days of stats    | This field lets you set the number of days of visitor data kept in the graph before being dropped. |
 | Ignore           | Ignore traffic to specific URLs in your site. For example `/test` or `/modular`                    |
+[/div]
