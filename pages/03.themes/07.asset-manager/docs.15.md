@@ -14,7 +14,7 @@ The Asset Manager is just a class that is available throughout Grav via the plug
 
 The Grav Asset Manager has a simple set of configuration options.  The default values are located in the system `system.yaml` file, but you can override any or all of them in your `user/config/system.yaml` file:
 
-```
+[prism classes="language-yaml line-numbers"]
 assets:                                # Configuration for Assets Manager (JS, CSS)
   css_pipeline: false                  # If true, enables the CSS pipeline, combining multiple CSS resources into one
   css_pipeline_include_externals: true # Include external CSS resources from the pipeline
@@ -27,7 +27,7 @@ assets:                                # Configuration for Assets Manager (JS, C
   js_pipeline_before_excludes: true    # Renders pipelined JS resources before non-pipelined JS resources
   js_minify: true                      # Minify the JS during pipelining
   enable_asset_timestamp: false        # If true, adds a URL query parameter to each asset link for cache invalidation
-```
+[/prism]
 
 ## Assets in Themes
 
@@ -45,7 +45,7 @@ The Asset Manager also supports
 
 An example of how you can add CSS files in your theme can be found in the default **antimatter** theme that comes bundled with Grav. If you have a look at the `base.html.twig` partial and specifically the [stylesheets block](https://github.com/getgrav/grav-theme-antimatter/blob/develop/templates/partials/base.html.twig#L12-L28) you will see the following:
 
-```
+[prism classes="language-twig line-numbers"]
 {% block stylesheets %}
     {% do assets.addCss('theme://css/pure-0.5.0/grids-min.css', 103) %}
     {% do assets.addCss('theme://css-compiled/nucleus.css',102) %}
@@ -63,7 +63,7 @@ An example of how you can add CSS files in your theme can be found in the defaul
     {% endif %}
 {% endblock %}
 {{ assets.css() }}
-```
+[/prism]
 
 The `block` twig tag just defines a region that can be replaced or appended to in templates that extend the one. Within the block, you will see a number of `do assets.addCss()` calls.
 
@@ -75,7 +75,7 @@ The `assets.css()` call renders the CSS assets out as HTML tags.
 
 JavaScript assets are very similar:
 
-```
+[prism classes="language-js line-numbers"]
 {% block javascripts %}
     {% do assets.addJs('jquery',101) %}
     {% do assets.addJs('theme://js/modernizr.custom.71422.js',100) %}
@@ -84,7 +84,7 @@ JavaScript assets are very similar:
     {% do assets.addInlineJs('alert(\'This is inline!\')') %}
 {% endblock %}
 {{ assets.js() }}
-```
+[/prism]
 
 ## Adding Assets
 
@@ -152,9 +152,9 @@ Where appropriate, you can pass in an array of asset options. Those options are
 
 for example:
 
-```
+[prism classes="language-twig"]
 {% do assets.addJs('theme://js/example.js', {'priority':102, 'pipeline':false, 'loading':'async', 'group':'bottom'}) %}
-```
+[/prism]
 
 ## Rendering Assets
 
@@ -200,7 +200,7 @@ JavaScript added by addInlineJs() is always rendered last.
 
 Grav now has a powerful feature called **named assets** that allows you to register a collection of CSS and JavaScript assets with a name.  Then you can simply **add** those assets to the Asset Manager via the name you registered the collection with.  Grav comes preconfigured with **jQuery** but has the ability to define custom collections in the `system.yaml` to be used by any theme or plugin:
 
-```
+[prism classes="language-yaml line-numbers"]
 assets:
   collections:
     jquery: system://assets/jquery/jquery-2.1.3.min.js
@@ -208,18 +208,18 @@ assets:
         - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css
         - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css
         - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js
-```
+[/prism]
 
 You can also use the `registerCollection()` method programatically.
 
-```
+[prism classes="language-yaml line-numbers"]
 $assets = $this->grav['assets'];
 $bootstrapper_bits = ['https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css',
                       'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css',
                       'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'];
 $assets->registerCollection('bootstrap', $bootstrap_bits);
 $assets->add('bootstrap', 100);
-```
+[/prism]
 
 An example of this action can be found in the [**bootstrapper** plugin](https://github.com/getgrav/grav-plugin-bootstrapper/blob/develop/bootstrapper.php#L51-L71).
 
@@ -229,30 +229,30 @@ A new feature was added in Grav **0.9.43** that lets you pass an optional `group
 
 To take advantage of this capability you must specify the group when adding the asset, and should use the options syntax:
 
-```
+[prism classes="language-twig line-numbers"]
 {% do assets.addJs('theme://js/example.js', {'priority':102, 'group':'bottom'}) %}
-```
+[/prism]
 
 Then for these assets in the bottom group to render, you must add the following to your theme:
 
-```
+[prism classes="language-twig"]
 {{ assets.js('bottom') }}
-```
+[/prism]
 
 If no group is defined for an asset, then `head` is the default group.  If no group is set for rendering, the `head` group will be rendered. This ensures the new functionality is 100% backwards compatible with existing themes.
 
 The same goes for CSS files:
 
-```
+[prism classes="language-twig"]
 {% do assets.addCss('theme://css/ie8.css', {'group':'ie'}) %}
-```
+[/prism]
 
 and to render:
 
 
-```
+[prism classes="language-twig"]
 {{ assets.css('ie') }}
-```
+[/prism]
 
 ## Change attribute of the rendered CSS/JS assets
 
@@ -262,11 +262,11 @@ To change the defaults, or to add new attributes, you need to create a new group
 
 Example of editing the `rel` attribute on a group of assets:
 
-```
+[prism classes="language-twig"]
 {% do assets.addCSS('theme://whatever.css', {'group':'my-alternate-group'}) %}
 ...
 {{ assets.css('my-alternate-group', {'rel': 'alternate'}) }}
-```
+[/prism]
 
 ## Inlining Assets
 
@@ -278,7 +278,7 @@ To inline an asset file's content, use the option `{'loading': 'inline'}` with `
 
 Example of using `system.yaml` to define asset collections named according to asset loading requirements, with `app.css` being a [Sass](http://sass-lang.com/)-generated CSS file:
 
-```
+[prism classes="language-yaml line-numbers"]
 assets:
   collections:
     css-inline:
@@ -289,11 +289,11 @@ assets:
     js-async:
       - 'theme://foundation/dist/assets/js/app.js'
       - 'theme://js/header-display.js'
-```
+[/prism]
 
 The template inserts each collection into its corresponding group, namely `head` and `head-link` for CSS, `head` and `head-async` for JS. The default group `head` is used for inline loading in each case:
 
-```
+[prism classes="language-twig line-numbers"]
         {% block stylesheets %}
             {% do assets.addCss('css-inline') %}
             {% do assets.addCss('css-link', {'group': 'head-link'}) %}
@@ -306,18 +306,18 @@ The template inserts each collection into its corresponding group, namely `head`
         {% endblock %}
         {{ assets.js('head-async', {'loading': 'async'}) }}
         {{ assets.js('head', {'loading': 'inline'}) }}
-```
+[/prism]
 
 ## Static Assets
 
 Sometimes there is a need to reference assets without using the Asset Manager.  There is a `url()` helper method available to achieve this.  An example of this could be if you wanted to reference an image from the theme. The syntax for this is:
 
-```
+[prism classes="language-twig"]
 <img src="{{ url("theme://" ~ widget.image) }}" alt="{{ widget.text|e }}" />
-```
+[/prism]
 
 The `url()` method takes an optional second parameter of `true` or `false` to enable the URL to include the schema and domain. By default this value is assumed `false` resulting in just the relative URL.  For example:
 
-```
+[prism classes="language-twig"]
 url("theme://some/extra.css", true)
-```
+[/prism]
