@@ -8,7 +8,7 @@ A Plugin's blueprint gives Grav insight into what a plugin is, its source, suppo
 
 As an example, here's the Blueprint for a plugin:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 name: Assets
 version: 1.0.4
 description: "This plugin provides a convenient way to add CSS and JS assets directly from your pages."
@@ -27,10 +27,11 @@ dependencies:
   - { name: afterburner2 }
   - { name: github }
   - { name: email, version: '~2.0' }
-```
+[/prism]
 
 There are different properties that you can use to give your resource an identity. Some are **required**, others are _optional_.
 
+[div class="table table-keycol"]
 |      property     |                                                                                                                                                                                description                                                                                                                                                                                |
 | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | __name*__         | This is the name of the resource. Avoid appending Plugin or Theme, there is no need for that.                                                                                                                                                                                                                                                                              |
@@ -49,10 +50,11 @@ There are different properties that you can use to give your resource an identit
 | _bugs_            | _(optional)_ The URL where bugs can be reported, usually this would be the [GitHub issues](https://guides.github.com/features/issues/) link.                                                                                                                                                                                                                              |
 | _license_         | _(optional)_ The type of license your resource is (MIT, GPL, etc). It is adviced that you always provide a `LICENSE` file with your resource.                                                                                                                                                                                                                             |
 | _dependencies_    | _(optional)_ A list of dependencies that the plugin/theme requires.  The default process is to use GPM to install them, however, if an optional GIT repository URL is provided, installing direct from the repository will be an option also. Also if you use an array, you can define a name and a version explicitly using [Composer-style package versions](https://getcomposer.org/doc/articles/versions.md) |
+[/div]
 
 Here is an example of the identity portion of the [GitHub plugin](https://github.com/getgrav/grav-plugin-github) blueprints:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 name: GitHub
 version: 1.0.1
 description: "This plugin wraps the [GitHub v3 API](https://developer.github.com/v3/) and uses the [php-github-api](https://github.com/KnpLabs/php-github-api/) library to add a nice GitHub touch to your Grav pages."
@@ -65,6 +67,6 @@ homepage: https://github.com/getgrav/grav-plugin-github
 keywords: github, plugin, api
 bugs: https://github.com/getgrav/grav-plugin-github/issues
 license: MIT
-```
+[/prism]
 
 Theme blueprints work in very much the same way as plugins.
