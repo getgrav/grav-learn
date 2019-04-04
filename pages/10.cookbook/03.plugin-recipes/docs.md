@@ -32,7 +32,7 @@ The overview is over, let's see the actual code:
 
 `example.php`:
 
-```php
+[prism classes="language-php line-numbers"]
 <?php
 namespace Grav\Plugin;
 use \Grav\Common\Plugin;
@@ -50,11 +50,11 @@ class ExamplePlugin extends Plugin
         $this->grav['twig']->twig->addExtension(new ExampleTwigExtension());
     }
 }
-```
+[/prism]
 
 `ExampleTwigExtension.php`:
 
-```
+[prism classes="language-php line-numbers"]
 <?php
 namespace Grav\Plugin;
 class ExampleTwigExtension extends \Twig_Extension
@@ -74,13 +74,13 @@ class ExampleTwigExtension extends \Twig_Extension
         return 'something';
     }
 }
-```
+[/prism]
 
 `example.yaml`:
 
-```
+[prism classes="language-yaml"]
 enabled: true
-```
+[/prism]
 
 The plugin is now installed and enabled, and it should all just work.
 
@@ -102,19 +102,19 @@ In order to make this work, we are going to introduce three new variables: `filt
 
 The next step will be to make a call to `taxonomylist.html.twig` within the template in which we wish to list the top items in our taxonomy. As usual, we will do this using `{% include %}` as seen in the following snippet example:
 
-```
+[prism classes="language-twig line-numbers"]
 {% if config.plugins.taxonomylist.enabled %}
 <div class="sidebar-content">
     <h4>Popular Tags</h4>
     {% include 'partials/taxonomylist.html.twig' with {'taxonomy':'tag', filter: true, filterstart: 0, filterend: 5} %}
 </div>
 {% endif %}
-```
+[/prism]
 In this example, we are going to list the top five tags.
 
 Now, let's turn our attention to `taxonomylist.html.twig`. For reference, here is the default code for this file when you initially install it:
 
-```
+[prism classes="language-twig line-numbers"]
 {% set taxlist = taxonomylist.get() %}
 
 {% if taxlist %}
@@ -127,10 +127,10 @@ Now, let's turn our attention to `taxonomylist.html.twig`. For reference, here i
     {% endfor %}
 </span>
 {% endif %}
-```
+[/prism]
 In order to make this work with our new variables (i.e. `filter`, `filterstart` and `filterend`), we will need to include them within this file like so:
 
-```
+[prism classes="language-twig line-numbers"]
 {% set taxlist = taxonomylist.get %}
     {% if taxlist %}
         <span class="tags">
@@ -144,7 +144,7 @@ In order to make this work with our new variables (i.e. `filter`, `filterstart` 
                 {% endfor %}
             {% endif %}
         </span>
-```
+[/prism]
 Here, the file is first checking if `filter` has been set to `true`. If so, the for loop is run just as it was in the original `taxonomylist.html.twig`, but this time it is making use of the `slice` Twig filter. This filter will, in our case, extract a subset of an array from the beginning index (in our case, `filterstart`) to the ending index (in our case `filterend-1`).
 
 If, on the other hand, the `filter` variable is set to `false` or is not found, all of the items in your taxonomy will be listed.
@@ -160,7 +160,7 @@ You really like the [Grav SimpleSearch plugin](https://github.com/getgrav/grav-p
 First, make sure that you have installed the [Grav SimpleSearch plugin](https://github.com/getgrav/grav-plugin-simplesearch). Next, make sure that you copy `/yoursite/user/plugins/simplesearch/templates/partials/simplesearch-searchbox.html.twig` to `/yoursite/user/themes/yourtheme/templates/partials/simplesearch-searchbox.html.twig` as we will need to make modifications to this file.
 
 Before we go any further, let's review what this file does:
-```
+[prism classes="language-twig line-numbers"]
 <input type="text" placeholder="Search..." value="{{ query }}" data-search-input="{{ base_url }}{{ config.plugins.simplesearch.route}}/query" />
 <script>
 jQuery(document).ready(function($){
@@ -173,7 +173,7 @@ jQuery(document).ready(function($){
     });
 });
 </script>
-```
+[/prism]
 The first line simply embeds a text input field into your Twig template. The `data-search-input` attribute stores the base URL of the resulting query page. The default is `http://yoursite/search/query`.
 
 Let's now move onto the jQuery below that. Here, the tag containing the `data-search-input` attribute is assigned to a variable `input`. Next, the jQuery `.on()` method is applied to `input`. The `.on()` method applies event handlers to selected elements (in this case, the `<input>` text field). So, when the user presses (`keypress`) a key to initiate the search, the `if` statement checks that the following items are `true`:
@@ -189,7 +189,7 @@ No back to our solution! If we wish to add a search button, we must:
 2. Make sure to apply the `.on()` method to the button, but this time, using `click` instead of `keypress`
 
 This is achieved with the following code using the [Turret CSS Framework](http://bigfishtv.github.io/turret/docs/index.html). Code snippets for other frameworks will be listed at the end.
-```
+[prism classes="language-html line-numbers"]
 <div class="input-group input-group-search">
 	<input type="search" placeholder="Search" value="{{ query }}" data-search-input="{{ base_url }}{{ config.plugins.simplesearch.route}}/query" >
 	<span class="input-group-button">
@@ -217,44 +217,44 @@ jQuery(document).ready(function($){
     });
 });
 </script>
-```
+[/prism]
 The HTML and class attributes are specific to Turret, but the end result will be [something like this](http://bigfishtv.github.io/turret/docs/index.html#input-group). We can also see that the `.on()` method has also been assigned to the search button, but it only checks that the number of characters entered into the search box is greater than three before executing the code within the `if` statement.
 
 Here is the default HTML for the text field plus a search button for a few other frameworks:
 
 [**Bootstrap**](http://getbootstrap.com/)
-```
+[prism classes="language-html line-numbers"]
 <div class="input-group">
     <input type="text" class="form-control" placeholder="Search for...">
     <span class="input-group-btn">
         <button class="btn btn-default" type="button">Go!</button>
     </span>
 </div>
-```
+[/prism]
 
 [**Materialize**](http://materializecss.com/)
-```
+[prism classes="language-html line-numbers"]
 <div class="input-field">
     <input id="search" type="search" required>
     <label for="search"><i class="material-icons">search</i></label>
 </div>
-```
+[/prism]
 
 [**Pure CSS**](http://purecss.io)
-```
+[prism classes="language-html line-numbers"]
 <form class="pure-form">
     <input type="text" class="pure-input-rounded">
     <button type="submit" class="pure-button">Search</button>
 </form>
-```
+[/prism]
 
 [**Semantic UI**](http://semantic-ui.com/)
-```
+[prism classes="language-html line-numbers"]
 <div class="ui action input">
   <input type="text" placeholder="Search...">
   <button class="ui button">Search</button>
 </div>
-```
+[/prism]
 
 ## Iterating through pages and media
 
@@ -272,7 +272,7 @@ Now we iterate over the pages, adding depth, title, and route (also kept as a va
 
 The returned data is a tree-structure, or multidimensional-array in PHP's parlance, containing all pages and their media. This can be passed into Twig, or used within the plugin itself. Note that with very large folder-structures PHP might time out or fail because of recursion-limits, eg. folders 100 or more levels deep.
 
-```php
+[prism classes="language-php line-numbers"]
 /**
  * Creates page-structure recursively
  * @param string $route Route to page
@@ -314,7 +314,7 @@ public function buildTree($route, $mode = false, $depth = 0)
         return null;
     }
 }
-```
+[/prism]
 
 ## Custom Twig templates plugin
 
@@ -326,19 +326,19 @@ Rather than using theme inheritance, it's possible to create a very simple plugi
 
 The only thing you need in this plugin is an event to provide a location for your templates.  The simplest way to create the plugin is to use the `devtools` plugin.  So install that with:
 
-```
+[prism classes="language-bash command-line"]
 $ bin/gpm install devtools
-```
+[/prism]
 
 After that's installed, create a new plugin with the command:
 
-```
+[prism classes="language-bash command-line"]
 $ bin/plugin devtools newplugin
-```
+[/prism]
 
 Fill in the details for the name, author, etc.  Say we call it `Custom Templates`, and the plugin will be created in `/user/plugins/custom-templates`.  All you need to do now is edit the `custom-templates.php` file and put this code:
 
-```
+[prism classes="language-php line-numbers"]
 <?php
 namespace Grav\Plugin;
 
@@ -366,7 +366,7 @@ class CustomTemplatesPlugin extends Plugin
         $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 }
-```
+[/prism]
 
 This plugin simple subscribes to the `onTwigTemplatePaths()` event, and then in that event method, it adds the `user/plugins/custom-templates/templates` folder to this of paths that Twig will check.
 
@@ -374,7 +374,7 @@ This allows you to drop in a Twig template called `foo.html.twig` and then any p
 
 ! NOTE: This will add the plugin's custom template path to the **end** of the Twig template path array. This means the theme (which is always first), will have precedence over the plugin's templates of the same name.  To resolve this, simply put the plugin's template path in the front of the array by modifying the event method:
 
-```
+[prism classes="language-twig line-numbers"]
     /**
      * Add current directory to twig lookup paths.
      */
@@ -382,7 +382,7 @@ This allows you to drop in a Twig template called `foo.html.twig` and then any p
     {
         array_unshift($this->grav['twig']->twig_paths, __DIR__ . '/templates');
     }
-```
+[/prism]
 
 ## Using Cache in your own plugins
 
@@ -394,7 +394,7 @@ When developing your own plugins, it's often useful to use Grav's cache to cache
 
 This is some basic code that shows you how caching works:
 
-```php
+[prism classes="language-php line-numbers"]
     $cache = Grav::instance()['cache'];
     $id = 'myplugin-data'
     $list = [];
@@ -406,7 +406,7 @@ This is some basic code that shows you how caching works:
         $cache->save($hash, $data);
         return $data;
     }
-```
+[/prism]
 
 First, we get Grav's cache object, and we then try to see if our data already exists in the cache (`$data = $cache->fetch($id)`).  If `$data` exists, simply return it with no extra work needed.
 

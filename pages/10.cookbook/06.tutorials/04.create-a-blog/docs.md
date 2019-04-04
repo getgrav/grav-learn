@@ -27,12 +27,12 @@ Create one or more child pages of type `Item`. Those are the blog posts.
 Go in your pages/ folder, create a `01.blog` page (change the number to reflect your menu structure), add a `blog.md` file in it.
 In this file, add this content:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 ---
 content:
     items: '@self.children'
 ---
-```
+[/prism]
 
 This tells Grav to iterate over the subpages (the blog posts).
 
@@ -50,24 +50,24 @@ You might want to know how this works. The Blog template, the content of the `bl
 
 In its simplest way:
 
-```twig
+[prism classes="language-twig line-numbers"]
 {% set collection = page.collection() %}`
 
 {% for child in collection %}
         {% include 'partials/blog_item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
 {% endfor %}
-```
+[/prism]
 
 page.collection() by default picks the `content.items` property of the page YAML frontmatter, and returns an array containing the elements that match that definition.
 
 If the page contains:
 
-```
+[prism classes="language-yaml line-numbers"]
 ---
 content:
     items: '@self.children'
 ---
-```
+[/prism]
 
 then `collection` will be the array of the subpages of the current page.
 
