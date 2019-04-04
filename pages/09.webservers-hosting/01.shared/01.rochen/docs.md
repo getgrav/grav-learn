@@ -33,9 +33,9 @@ There are two options at this point.  **Generate a New Key**, or **Import Key**.
 
 Fire up a terminal window and type:
 
-```
-$ ssh-keygen -t dsa
-```
+[prism classes="language-bash command-line"]
+ssh-keygen -t dsa
+[/prism]
 
 This key generation script will prompt you to fill in some values, or you can just hit `[return]` to accept the default values.  This will create an `id_dsa` (private key), and an `id_dsa.pub` (public key) in a folder called `.ssh/` in your home directory. It is important to ensure you **NEVER** give out your private key, nor upload it anywhere, **only your public key**.
 
@@ -51,9 +51,9 @@ To **enable SSH** access for your account, simply navigate to the **Managed Serv
 
 This means you are ready to test ssh'ing to your server.
 
-```
-$ ssh rochen_username@rochen_servername
-```
+[prism classes="language-bash command-line"]
+ssh rochen_username@rochen_servername
+[/prism]
 
 Obviously, you will need to put in your Rochen-provided username for `rochen_username`, and the rochen-provided servername for `rochen_servername`.
 
@@ -73,9 +73,9 @@ One optimization that you should make is to **disable** the `xdebug` extension w
 
 To test that you have the **correct version of PHP**, **Zend OPcache**, and **APCu** running, you can create a temporary file: `public_html/info.php` and put this in the contents:
 
-```
+[prism classes="language-php"]
 <?php phpinfo();
-```
+[/prism]
 
 Save the file and point your browser to this info.php file on your site, and you should be greeted with PHP information reflecting the version you selected earlier:
 
@@ -91,19 +91,19 @@ Using your new found SSH capabilities, let's SSH to your Rochen server (if you a
 
 We will extract Grav into a `/grav` subfolder, but you could unzip directly into the root of your `~/www/` folder to ensure Grav is accessible directly.
 
-```
-$ cd ~/www
-[~/www]$ wget https://getgrav.org/download/core/grav/latest
-[~/www]$ unzip grav-v{{ grav_version }}.zip
- ```
+[prism classes="language-bash command-line"]
+cd ~/www
+wget https://getgrav.org/download/core/grav/latest
+unzip grav-v{{ grav_version }}.zip
+[/prism]
 
 You should now be able to point your browser to `http://myrochenserver.com/grav` using the appropriate URL of course.
 
 Because you have followed these instructions diligently, you will also be able to use the [Grav CLI](../../advanced/grav-cli) and [Grav GPM](../../advanced/grav-gpm) commands such as:
 
-```
-$ cd ~/public_html/grav
-$ bin/grav clear-cache
+[prism classes="language-bash command-line" cl-output="3-13"]
+cd ~/public_html/grav
+bin/grav clear-cache
 
 Clearing cache
 
@@ -115,4 +115,4 @@ Cleared:  images/*
 Cleared:  assets/*
 
 Touched: /home/your_user/public_html/grav/user/config/system.yaml
-```
+[/prism]

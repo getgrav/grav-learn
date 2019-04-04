@@ -29,26 +29,32 @@ This step may be skipped if you have already initialized the Ubuntu distro in th
 
 ## Installing Apache
 Use the following command in the bash shell to install Apache:
-```
-$ sudo apt install apache2
-```
+
+[prism classes="language-bash command-line"]
+sudo apt install apache2
+[/prism]
+
 !!! The terminal used by WSL does not support the pasting of text as you are used to. Use **right-click** for pasting.
 
 Create a project folder for your websites. For reasons mentioned above, this folder needs to be outside of the WSL filesystem. You could use for example: `C:/Users/<Username>/Documents/Development/Web/webroot`, or simply `C:/webroot`.
 
 In Ubunto, create a symbolic link to the `webroot` folder.
-```
-$ sudo ln -s /mnt/c/your/path/to/webroot /var/www/webroot
-```
+
+[prism classes="language-bash command-line"]
+sudo ln -s /mnt/c/your/path/to/webroot /var/www/webroot
+[/prism]
 
 Open the Apache default virtual host configuration file:
-```
-$ sudo nano /etc/apache2/sites-available/000-default.conf
-```
+
+[prism classes="language-bash command-line"]
+sudo nano /etc/apache2/sites-available/000-default.conf
+[/prism]
+
 !!! Remove existing content by keeping the `Shift`-key pressed and scroll down using the `↓`-key. Then press `Ctrl`<small>+</small>`K` to cut the selection.
 
 Insert the following VirtualHost configuration:
-```
+
+[prism classes="language-apacheconf line-numbers"]
 <VirtualHost *:80>
 
     ServerName localhost
@@ -66,12 +72,14 @@ Insert the following VirtualHost configuration:
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
-```
+[/prism]
+
 !!! Save the file by pressing `Ctrl`<small>+</small>`O`, and hit `Enter` to confirm. Exit with `Ctrl`<small>+</small>`X`.<br>
 !!! (In the command bar: `^` meants `Ctrl` and `M` means `Alt`)
 
 Open your favorite Windows editor/IDE, and create an `index.html` file in your webroot folder with the following content:
-```
+
+[prism classes="language-html line-numbers"]
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,46 +90,56 @@ Open your favorite Windows editor/IDE, and create an `index.html` file in your w
   <h1>It works!</h1>
 </body>
 </html>
-```
+[/prism]
 
 Start the Apache service:
-```
-$ sudo service apache2 start
-```
+
+[prism classes="language-bash command-line"]
+sudo service apache2 start
+[/prism]
+
 !! You will probably get the following known error message [which you can ignore](https://github.com/Microsoft/WSL/issues/1953?target=_blank):<br>
 !! *(92)Protocol not available: AH00076: Failed to enable APR_TCP_DEFER_ACCEPT*
 
 Open [http://localhost](http://localhost?target=_blank) in your browser and you should see the text 'It works!'.
 
 For your future Grav sites to work properly, the Apache module `rewrite` needs to be enabled.
-```
-$ sudo a2enmod rewrite
-```
+
+[prism classes="language-bash command-line"]
+sudo a2enmod rewrite
+[/prism]
 
 ## Installing PHP
 Use the following command to install the latest PHP version:
-```
-$ sudo apt install php
-```
+
+[prism classes="language-bash command-line"]
+sudo apt install php
+[/prism]
 
 To verify that PHP is installed and checking its version, run the following command:
-```
-$ php -v
-```
+
+[prism classes="language-bash command-line"]
+php -v
+[/prism]
 You should get a response similar to this:
-```
+
+[prism classes="language-bash"]
 PHP 7.2.7-0ubuntu0.18.04.2 (cli) (built: Jul  4 2018 16:55:24) ( NTS )
 Copyright (c) 1997-2018 The PHP Group
 Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
-```
+[/prism]
+
 To meet Grav's PHP requirements, a few extra PHP extensions need to be installed:
-```
-$ sudo apt install php-mbstring php-gd php-curl php-xml php-zip
-```
+
+[prism classes="language-bash command-line"]
+sudo apt install php-mbstring php-gd php-curl php-xml php-zip
+[/prism]
+
 Restart Apache to pick up the changes:
-```
-$ sudo service apache2 restart
-```
+
+[prism classes="language-bash command-line"]
+sudo service apache2 restart
+[/prism]
 
 ## Installing Grav
 You can install Grav either from within Windows or from within Ubuntu.
@@ -135,12 +153,14 @@ Install Grav by downloading the ZIP package and extracting it:
 
 #### Option 2: Ubuntu
 Run the following commands to install Grav inside the default webroot of Apache:
-```
-$ wget -O grav.zip https://getgrav.org/download/core/grav/latest
-$ sudo apt install unzip  # unzip is not installed by default on WSL/Ubuntu
-$ unzip grav.zip -d /var/www/webroot
-$ mv /var/www/webroot/grav /var/www/webroot/mysite
-```
+
+[prism classes="language-bash command-line"]
+wget -O grav.zip https://getgrav.org/download/core/grav/latest
+sudo apt install unzip  # unzip is not installed by default on WSL/Ubuntu
+unzip grav.zip -d /var/www/webroot
+mv /var/www/webroot/grav /var/www/webroot/mysite
+[/prism]
+
 Open [http://localhost/mysite](http://localhost/mysite?target=_blank) in the browser and you should have a working Grav installation.
 
 For other installation options, visit Grav's [Installation](https://learn.getgrav.org/basics/installation?target=_blank) documentation.
@@ -149,26 +169,32 @@ For other installation options, visit Grav's [Installation](https://learn.getgra
 If you are a developer and want to develop your own plugins and themes, you ~~probably~~ inevitably need to debug your code at some point...
 
 Install XDebug using the following command:
-```
-$ sudo apt install php-xdebug
-```
+
+[prism classes="language-bash command-line"]
+sudo apt install php-xdebug
+[/prism]
 
 XDebug needs to be enabled in `php.ini`.<br>
 Open the editor:
-```
-$ sudo nano /etc/php/7.2/apache2/php.ini
-```
+
+[prism classes="language-bash command-line"]
+sudo nano /etc/php/7.2/apache2/php.ini
+[/prism]
+
 And add the following lines to the end of the file:
-```
+
+[prism classes="language-text"]
 [XDebug]
 xdebug.remote_enable = 1
-```
+[/prism]
+
 !!! In Nano, you can use `Alt`<small>+</small>`/` to jump to the bottom of the file.
 
 Restart Apache again:
-```
-$ sudo service apache2 restart
-```
+
+[prism classes="language-bash command-line"]
+sudo service apache2 restart
+[/prism]
 
 #### Activating debugger
 In order to start debugging, you first need to activate the debugger on the server. For this, you need to set a special GET/POST or COOKIE parameter. You can do that [manually](https://xdebug.org/docs/remote?target=_blank#starting), but it is much more convenient to use a browser extension. It allows you to enable the debugger with the click of a button. When the extension is active, it sends the XDEBUG_SESSION cookie directly, instead of going through XDEBUG_SESSION_START. Below you can find a table with the link to the relevant extension for your browser.
@@ -186,7 +212,8 @@ When you want to switch on/off debugging for a website, just toggle 'Debug' in t
 When using Vistual Studio Code, the default PHP debug launchers won't work when Apache/PHP is running in WSL, because of the file mappings.
 
 Insert the following configuration into an already created PHP [launch configuration](https://code.visualstudio.com/docs/editor/debugging?target=_blank#_launch-configurations) in `.vscode/launch.json`:
-```
+
+[prism classes="language-json line-numbers"]
 {
     "name": "LSW Listen for XDebug",
     "type": "php",
@@ -196,23 +223,25 @@ Insert the following configuration into an already created PHP [launch configura
         "/mnt/c": "c:/",
     }
 }
-```
+[/prism]
 
 ## Adding extra virtual hosts (optional)
 During the different stages in the lifecycle of our site (development, testing, production) different Grav configurations may be needed. Take for example caching or asset pipelines. You might want to switch them off during development and switch them on when testing performance. For more information see the documentation on [Automatic Environment Configuration](https://learn.getgrav.org/advanced/environment-config?target=_blank#automatic-environment-configuration).
 - Start an editor as Administrator and open file `C:/Windows/System32/drivers/etc/hosts`.
 You could, for example, add the following hosts:
-    ```
+
+    [prism classes="language-bash"]
     127.0.0.1 mysite-dev
     127.0.0.1 mysite-prod
-    ```
+    [/prism]
+
     Hosts defined in Windows hosts file will automatically be available in `/etc/hosts` in WSL/Ubuntu.
 - Create new VirtualHost config files in folder `/etc/apache2/sites-available`.
-    ```
-    $ sudo nano /etc/apache2/sites-available/mysite-dev.conf
-    ```
+    [prism classes="language-bash command-line"]
+    sudo nano /etc/apache2/sites-available/mysite-dev.conf
+    [/prism]
     Past the following into the editor:
-    ```
+    [prism classes="language-apacheconf line-numbers"]
     <VirtualHost *:80>
 
         ServerName mysite-dev
@@ -230,54 +259,54 @@ You could, for example, add the following hosts:
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 
     </VirtualHost>
-    ```
+    [/prism]
 Repeat the above commands for `mysite-prod.conf` and use `ServerName mysite-prod` as server.
 
 Enable the new VirtualHosts in the Apache configuration:
-```
-$ sudo a2ensite mysite-*
-$ sudo service apache2 reload
-$ sudo service apache2 restart
-```
+[prism classes="language-bash command-line"]
+sudo a2ensite mysite-*
+sudo service apache2 reload
+sudo service apache2 restart
+[/prism]
 Now you can point the browser to [http://mysite-dev](http://mysite-dev?target=_blank) and it will open the Grav installation at `C:/your/path/to/webroot/mysite` using the config files in folder `/user/mysite-dev/config/`.
 
 ## Automatically start Apache (optional)
 For starting and stopping Apache, elevated privileges are required. And to be granted the elevated privileges, a password is requested. To prevent Ubuntu asking for a password you can grant yourself permanent elevated privileges for certain services.
 
 Start the [visudo](http://manpages.ubuntu.com/manpages/trusty/man8/visudo.8.html?target=_blank) editor to edit the sudoer file:
-```
-$ sudo visudo -f /etc/sudoers.d/services
-```
+[prism classes="language-bash command-line"]
+sudo visudo -f /etc/sudoers.d/services
+[/prism]
 Copy the following lines into the editor:
-```
+[prism classes="language-bash"]
 %sudo ALL=(root) NOPASSWD: /usr/sbin/service *
 %wheel ALL=(root) NOPASSWD: /usr/sbin/service *
-```
+[/prism]
 
 Apache can now be started with elevated privileges without providing a password.
 
 To start Apache whenever an Ubuntu shell is started, the `sudo service apache2 start` command needs to be added to the `.bashrc` startup script. This script is run whenever you start a WSL terminal.
-```
-$ nano .bashrc
-```
+[prism classes="language-bash command-line"]
+nano .bashrc
+[/prism]
 Add the following script to the end of the file:
-```
+[prism classes="language-apacheconf line-numbers"]
 ## Start apache2 if not running
 status=`service apache2 status`
 if [[ $status == *"apache2 is not running" ]]
 then
   sudo service apache2 start
 fi
-```
+[/prism]
 And add the following to `.bash_logout` to stop Apache when closing the bash shell.
-```
+[prism classes="language-apacheconf line-numbers"]
 ## Stop apache2 if running
 status=`service apache2 status`
 if [[ $status == *"apache2 is running" ]]
 then
   sudo service apache2 stop
 fi
-```
+[/prism]
 
 ## Tips and Tricks
 
