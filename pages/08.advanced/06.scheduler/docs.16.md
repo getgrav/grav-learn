@@ -6,14 +6,14 @@ taxonomy:
 
 The Grav scheduler is a new feature that was added in Grav 1.6 that allows jobs to be run on a periodic basis.  The underlying processing relies on the server's **cron** scheduler, but once a single entry has been added to the cron service, all jobs and specific schedules can be configured via Grav.
 
-One of the main advantages of utilizing the scheduler to handle tasks, is that they can be performed without any user interaction and independtly of the front end.  Tasks such as periodic cache clearing, backups, sycronization, search indexing, etc, are all prime candidates for scheduled tasks.
+One of the main advantages of utilizing the scheduler to handle tasks is that they can be performed without any user interaction and independently of the front end.  Tasks such as periodic cache clearing, backups, synchronization, search indexing, etc., are all prime candidates for scheduled jobs.
 
 ## Installation
 
 The first step in getting the scheduler setup and ready for tasks, is to add the `bin/grav scheduler` command to the cron service.  The simplest approach is to utilize the CLI command itself to output the appropriate command to run for installation:
 
-[prism classes="language-bash command-line" cl-output="2-10"]
-$ bin/grav scheduler -i                                                                        [9:24:45]
+[prism classes="language-bash command-line" highlight="10" cl-output="2-10"]
+$ bin/grav scheduler -i
 
 Install Scheduler
 =================
@@ -34,7 +34,7 @@ On my mac system, the full command required is displayed, so all you need to do 
  You won't get a response, but you should not get any errors either.  After that you can confirm things look good by re-running the `bin/grav scheduler -i` command:
 
 [prism classes="language-bash command-line" cl-output="2-10"]
-bin/grav scheduler -i                                                                        [9:27:42]
+bin/grav scheduler -i
 
 Install Scheduler
 =================
@@ -77,7 +77,7 @@ Advanced options:
 You can see which jobs are currently availble to the Scheduler  by running the `bin/grav scheduler -j` command:
 
 [prism classes="language-bash command-line" cl-output="2-16"]
-bin/grav scheduler -j                                                                       [11:23:02]
+bin/grav scheduler -j
 
 Scheduler Jobs Listing
 ======================
@@ -111,7 +111,7 @@ status:
 To see more details about any potential **errors** or to see the next time the job will run you can use the `/bin/grav scheduler -d` command:
 
 [prism classes="language-bash command-line" cl-output="2-14"]
-bin/grav scheduler -d                                                                                     [11:23:11]
+bin/grav scheduler -d
 
 Job Details
 ===========
