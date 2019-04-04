@@ -1,3 +1,3 @@
 enabled: true
-production-mode: false
+production-mode: true
 grid-size: grid-xl
