@@ -12,7 +12,7 @@ One of the main advantages of utilizing the scheduler to handle tasks, is that t
 
 The first step in getting the scheduler setup and ready for tasks, is to add the `bin/grav scheduler` command to the cron service.  The simplest approach is to utilize the CLI command itself to output the appropriate command to run for installation:
 
-```bash
+[prism classes="language-bash command-line" cl-output="2-10"]
 $ bin/grav scheduler -i                                                                        [9:24:45]
 
 Install Scheduler
@@ -23,24 +23,24 @@ Install Scheduler
  ! [NOTE] To install, run the following command from your terminal:
 
  (crontab -l; echo "* * * * * cd /Users/andym/grav;/usr/local/bin/php bin/grav scheduler 1>> /dev/null 2>&1") | crontab -
-```
+[/prism]
 
 On my mac system, the full command required is displayed, so all you need to do is to copy and paste the entire then into your terminal and hit return.
 
-```bash
- $ (crontab -l; echo "* * * * * cd /Users/andym/grav;/usr/local/bin/php bin/grav scheduler 1>> /dev/null 2>&1") | crontab -
- ```
+[prism classes="language-bash command-line"]
+(crontab -l; echo "* * * * * cd /Users/andym/grav;/usr/local/bin/php bin/grav scheduler 1>> /dev/null 2>&1") | crontab -
+[/prism]
 
  You won't get a response, but you should not get any errors either.  After that you can confirm things look good by re-running the `bin/grav scheduler -i` command:
 
- ```bash
-$ bin/grav scheduler -i                                                                        [9:27:42]
+[prism classes="language-bash command-line" cl-output="2-10"]
+bin/grav scheduler -i                                                                        [9:27:42]
 
 Install Scheduler
 =================
 
  [OK] All Ready! You have already set up Grav's Scheduler in your crontab
-```
+[/prism]
 
 You can also get the needed command from the admin plugin by simply navigating to **Tools** → **Scheduler**.
 
@@ -48,7 +48,7 @@ You can also get the needed command from the admin plugin by simply navigating t
 
 In order to schedule a job the frequency is controlled by a flexible format.
 
-```
+[prism classes="language-text"]
 * * * * * *
 | | | | | |
 | | | | | +-- Year              (range: 1900-3000)
@@ -57,7 +57,7 @@ In order to schedule a job the frequency is controlled by a flexible format.
 | | +-------- Day of the Month  (range: 1-31)
 | +---------- Hour              (range: 0-23)
 +------------ Minute            (range: 0-59)
-```
+[/prism]
 
 Some examples:
 
@@ -76,8 +76,8 @@ Advanced options:
 
 You can see which jobs are currently availble to the Scheduler  by running the `bin/grav scheduler -j` command:
 
-```bash
- $ bin/grav scheduler -j                                                                       [11:23:02]
+[prism classes="language-bash command-line" cl-output="2-16"]
+bin/grav scheduler -j                                                                       [11:23:02]
 
 Scheduler Jobs Listing
 ======================
@@ -93,25 +93,25 @@ Scheduler Jobs Listing
 └─────────────────────┴────────────────────────────────────┴───────────┴─────────┴──────────────────┴─────────┘
 
  ! [NOTE] For error details run "bin/grav scheduler -d"
- ```
+[/prism]
 
 The Grav scheduler is controlled by a primary configuration file.  This is located in `user/config/scheduler.yaml` and is required to have any job `enabled` in order to run.
 
 Below the configruation shows the jobs that are avialable and if they are enabled to run or not.  Simply set an entry to `disabled` to stop it from running.
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 status:
   ls-job: enabled
   cache-purge: enabled
   cache-clear: enabled
   default-site-backup: enabled
   pages-backup: enabled
-```
+[/prism]
 
 To see more details about any potential **errors** or to see the next time the job will run you can use the `/bin/grav scheduler -d` command:
 
-```bash
- $ bin/grav scheduler -d                                                                                     [11:23:11]
+[prism classes="language-bash command-line" cl-output="2-14"]
+bin/grav scheduler -d                                                                                     [11:23:11]
 
 Job Details
 ===========
@@ -125,21 +125,21 @@ Job Details
 │ pages-backup        │ 2018-09-20 09:55 │ 2019-02-22 03:00 │ None   │
 │ ls-job              │ 2019-02-21 11:29 │ 2019-02-21 11:31 │ None   │
 └─────────────────────┴──────────────────┴──────────────────┴────────┘
-```
+[/prism]
 
 ## Manually Running Jobs
 
 The CLI command provides an simple way to manually run any jobs.  In fact this is what the scheduler is doing when it runs periodically.
 
-```bash
-$ bin/grav scheduler
-```
+[prism classes="language-bash command-line"]
+bin/grav scheduler
+[/prism]
 
 This will silently run the jobs, but you can also see details of what run using:
 
-```bash
-$ bin/grav scheduler -v
-```
+[prism classes="language-bash command-line"]
+bin/grav scheduler -v
+[/prism]
 
 ## Grav System Jobs
 
@@ -155,7 +155,7 @@ The Grav core provides a few jobs out-of-the-box.  These include some useful mai
 
 The Grav Scheduler can be manually configured with any number of custom jobs.  These can be setup in the same `scheduler.yaml` configuration file referenced above.  For example, the `ls-job` referenced above would be configured:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 custom_jobs:
   ls-job:
     command: ls
@@ -164,7 +164,7 @@ custom_jobs:
     output: logs/cron-ls.out
     output_mode: overwrite
     email: user@email.com
-```
+[/prism]
 
 The command should be any local script that can be run from the command line/terminal.  Only the `command` and the `at` attributes are required.
 
@@ -174,7 +174,7 @@ One of the most powerful feature of the Grav Scheduler, is the ability for 3rd p
 
 The first step is for your plugin to subscribe to the `onSchedulerInitialized()` event.  And then create a method in your plugin file that can add a custom job when called:
 
-```php
+[prism classes="language-bash line-numbers"]
 public function onSchedulerInitialized(Event $e)
 {
     if ($this->config->get('plugins.tntsearch.scheduled_index.enabled')) {
@@ -187,7 +187,7 @@ public function onSchedulerInitialized(Event $e)
         $job->backlink('/plugins/tntsearch');
     }
 }
-```
+[/prism]
 
 Here, you can see how some relevant scheduler configuration is obtained from the TNTSearch plugin's configuration settings, and then a new `Job` is created with a **static** function called `indexJob()`.
 

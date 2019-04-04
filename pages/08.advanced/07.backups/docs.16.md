@@ -19,7 +19,7 @@ For backwards compatibility, the default configuration mimics the system prior t
 
 The default configuration is as follows:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 purge:
     trigger: space
     max_backups_count: 25
@@ -34,7 +34,7 @@ profiles:
     schedule_at: '0 3 * * *'
     exclude_paths: "/backup\r\n/cache\r\n/images\r\n/logs\r\n/tmp"
     exclude_files: ".DS_Store\r\n.git\r\n.svn\r\n.hg\r\n.idea\r\n.vscode\r\nnode_modules"
-```
+[/prism]
 
 #### Purge
 
@@ -48,7 +48,7 @@ An array of profiles can be configured.  The `Default Site Backup` profile is co
 
 An example of a more complex set of profiles could be:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 profiles:
   -
     name: 'Default Site Backup'
@@ -63,15 +63,15 @@ profiles:
     exclude_files: .git
     schedule: true
     schedule_at: '* 3 * * *'
-```
+[/prism]
 
 ## CLI Command
 
 This is covered in more details in the [Cli Console -> Grav Command](/cli-console/grav-cli) section, but here's an example of running the backup manually:
 
-```bash
-$ cd ~/workspace/portfolio
-$ bin/grav backup
+[prism classes="language-bash command-line" cl-output="3-13"]
+cd ~/workspace/portfolio
+bin/grav backup
 
 Grav Backup
 ===========
@@ -83,5 +83,5 @@ Choose a backup?
 Archiving 36 files [===================================================] 100% < 1 sec Done...
 
  [OK] Backup Successfully Created: /users/joe/workspace/portfolio/backup/pages_backup--20190227120510.zip
-```
+[/prism]
 
