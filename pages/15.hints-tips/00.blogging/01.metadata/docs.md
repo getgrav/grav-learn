@@ -16,7 +16,8 @@ Within the documentation there is reference to the meta data that you need to ad
 
 At the start of each of your blog posts you will want to have the following: 
 
-```---
+[prism classes="language-yaml line-numbers"]
+---
 title: Blog Post Title
 publish_date: Date the blog post will go live
 date: Date the blog post was written
@@ -39,7 +40,7 @@ taxonomy:
     tag: [Tag 1, Tag 2, Tag 3, Tag 4]
     author: Author's name
 ---
-```
+[/prism]
 
 Read more about [Twitter Cards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html)
 
