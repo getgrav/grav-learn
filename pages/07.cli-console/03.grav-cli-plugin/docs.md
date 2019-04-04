@@ -22,11 +22,14 @@ Based on the plugin implementation there could be other following options and yo
 
 There are some reserved _commands_ and _options_ that are always available from any plugin. These are also particularly important to keep in mind if you are a developer and want to implement your own tasks, because you won't be able to use any of the reserved commands and options.
 
-| **Commands**               |                                                                                                    |
-|----------------------------|----------------------------------------------------------------------------------------------------|
-| `help`                     | Displays help for a command                                                                        |
-| `list`                     | Lists commands                                                                                     |
+[div class="table table-keycol"]
+| **Commands** |                             |
+|--------------|-----------------------------|
+| `help`       | Displays help for a command |
+| `list`       | Lists commands              |
+[/div]
 
+[div class="table table-keycol"]
 | **Options**                |                                                                                                    |
 |----------------------------|----------------------------------------------------------------------------------------------------|
 | `-h`, `--help`             | Display help message                                                                               |
@@ -35,8 +38,8 @@ There are some reserved _commands_ and _options_ that are always available from 
 | `--ansi`                   | Force ANSI output                                                                                  |
 | `--no-ansi`                | Disable ANSI output                                                                                |
 | `-n`, `--no-interaction`   | Do not ask any interactive question                                                                |
-| `-v|vv|vvv`, `--verbose` | Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug |
-
+| `-v|vv|vvv`, `--verbose`   | Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug |
+[/div]
 
 ## How to Use the CLI for Plugins
 
@@ -61,15 +64,15 @@ Now that we know the login plugin comes with a `new-user` command, we only need 
 Now we have a complete understanding of the `new-user` command and we know how to use it.
 Let's try creating a new user. Because all the options are optional by definition, we will omit the password on purpose (we will be asked about it in a prompt later).
 
-```
-$ bin/plugin login newuser -u joeuser -e joeuser@grav.org -P b -N "Joe User" -t "Site Administrator"
+[prism classes="language-bash command-line" cl-output="2-7"]
+bin/plugin login newuser -u joeuser -e joeuser@grav.org -P b -N "Joe User" -t "Site Administrator"
 Creating new user
 
 Enter a password: *********
 Repeat the password: *********
 
 Success! User joeuser created.
-```
+[/prism]
 
 ## Developers: Integrate the CLI in Plugin
 
@@ -89,7 +92,7 @@ Grav's CLI is based on the great [Symfony Console Component](http://symfony.com/
 
 Below is a simple example to get you started. You can test it, as is, by saving it as `HelloCommand.php` and by placing it under your plugin's root `cli/` folder (**user/plugins/my_plugin/cli/HelloCommand.php**).
 
-```php
+[prism classes="language-php line-numbers"]
 <?php
 namespace Grav\Plugin\Console;
 
@@ -157,7 +160,7 @@ class HelloCommand extends ConsoleCommand
         $this->output->writeln($greetings);
     }
 }
-```
+[/prism]
 
 ![](grav-plugin-hello.png)
 

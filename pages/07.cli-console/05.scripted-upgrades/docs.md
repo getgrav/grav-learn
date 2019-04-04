@@ -10,7 +10,7 @@ This is a guide to make upgrading multiple Grav-installations easier, using [Dep
 
 A benefit of a task-runner like Deployer is that as it runs through its tasks, it will let you know exactly what it is doing along the way. It will also show you any output from the server from the commands being run. For example, this is an output from Deployer:
 
-```
+[prism classes="language-text"]
 Executing task packages
 
 GPM Releases Configuration: Stable
@@ -34,7 +34,7 @@ Cleared:  /home/username/public_html/deployer/grav/cache/doctrine/*
 Cleared:  /home/username/public_html/deployer/grav/cache/compiled/*
 
 Touched: /home/username/public_html/deployer/grav/user/config/system.yaml
-```
+[/prism]
 
 And as simple as that, Deployer told Grav to upgrade all packages, which upgraded the Email-plugin to its newest version.
 
@@ -59,28 +59,28 @@ In your servers public root (like **public_html** or **www**), create a folder n
 
 You need to have a working installation of Grav, as well as [Composer](https://getcomposer.org/). Some hosts have Composer installed already, which you can check by running `composer -v`. If it is not installed you can install it through SSH -- from the root directory -- with the following:
 
-```
+[prism classes="language-bash command-line"]
 export COMPOSERDIR=~/bin;mkdir bin
 curl -sS https://getcomposer.org/installer | php -- --install-dir=$COMPOSERDIR --filename=composer
-```
+[/prism]
 
 Or, if you prefer a [local installation](https://getcomposer.org/download/), run the following in the `public_html/deployer/`-folder:
 
-```
+[prism classes="language-bash command-line"]
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
-```
+[/prism]
 
 With a local installation, composer is ran through `composer.phar` rather than just `composer`. Now, while still in the `public_html/deployer/`-folder, run the following to install [Deployer](https://deployer.org/docs/installation):
 
-```
+[prism classes="language-bash command-line"]
 composer require deployer/deployer
-```
+[/prism]
 
 Now, still in the same folder, create a file named `deploy.php`. We'll use this to run each task with Deployer. Copy and paste the following into the file:
 
-```
+[prism classes="language-php line-numbers"]
 <?php
 namespace Deployer;
 require 'vendor/autoload.php';
@@ -110,17 +110,17 @@ task('packages', function () {
 	writeln($upgrade);
 });
 ?>
-```
+[/prism]
 
 ## Configuration
 
 Because Deployer needs an explicit staging-environment, we set it to `production`. Further, to allow for specific php version we set a default executable to be used. This can be a named executable or the path to a specific version of PHP. Our configuration now looks like this:
 
-```
+[prism classes="language-php line-numbers"]
 // Configuration
 set('default_stage', 'production');
 set(php, 'php56');
-```
+[/prism]
 
 If your default PHP CLI version is **5.6\*** or higher, you change this to `set(php, 'php');`.
 
@@ -128,7 +128,7 @@ If your default PHP CLI version is **5.6\*** or higher, you change this to `set(
 
 We can set up as many servers/sites as needed, the script will be ran for each of them in order. They can be local installations or on external servers, but since this is a local setup we use `localServer` (see [Deployer/servers](https://deployer.org/docs/servers) for more configurations). Here's an example with multiple sites:
 
-```
+[prism classes="language-php line-numbers"]
 // Servers
 localServer('site1')
 	->stage('production')
@@ -142,13 +142,13 @@ localServer('site3')
 localServer('site4')
 	->stage('production')
 	->set('deploy_path', 'C:\caddy\grav2');
-```
+[/prism]
 
 Note that we use absolute paths to the installations, but they are relative to how the path is interpreted by SSH. This means that on the server, we want the full path because Deployer interprets this correctly, but we could also use the tilde-key if a HOMEDIR is set, like this: `~/public_html/deployer/grav1`.
 
 ### Tasks
 
-Three tasks are currently set up: `backup`, `core`, and `packages`. Running `php vendor/bin/dep backup` creates a backup of each installation, available in **deploy_path/backup/BACKUP.zip**, where **deploy_path** is the paths you configured for the servers.
+Three tasks are currently set up: `backup`, `core`, and `packages`. Running `php vendor/bin/dep backup` creates a backup of each installation, available in **deploy_path/backup/BACKUP.zip**, where `deploy_path` is the paths you configured for the servers.
 
 Running `php vendor/bin/dep core` upgrades Grav itself, and does this with the `--all-yes` option to skip all Yes/No questions asked. The same applies when running `php vendor/bin/dep packages`, which upgrades all plugins and themes.
 
@@ -156,10 +156,10 @@ Running `php vendor/bin/dep core` upgrades Grav itself, and does this with the `
 
 We can now upgrade all your defined sites easily by running the tasks in order. First we enter the `public_html/deployer/`-folder, and then we run each command as needed:
 
-```
+[prism classes="language-bash command-line"]
 php vendor/bin/dep backup
 php vendor/bin/dep core
 php vendor/bin/dep packages
-```
+[/prism]
 
 We will now have made a backup of each site, upgraded Grav itself, as well as upgraded all plugins and themes.

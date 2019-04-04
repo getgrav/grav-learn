@@ -57,6 +57,7 @@ One of the coolest things about Grav is that you have a host of powerful command
 All of the commands listed below are compatible with <strong>any operating system.</strong>
 
 [version=15]
+[div class="table table-keycol"]
 | Command                           | Description                                                                                                                        |
 | :----------------                 | :--------------------------------------                                                                                            |
 | `bin/grav list`                   | Lists all commands available in Grav (excluding the GPM).                                                                          |
@@ -75,9 +76,12 @@ All of the commands listed below are compatible with <strong>any operating syste
 | `bin/gpm uninstall`               | Removes an installed theme or plugin and clears the cache.                                                                         |
 | `bin/gpm self-upgrade`            | Enables you to update Grav to the latest version.                                                                                  |
 | `bin/gpm security`                | Runs through the configured XSS security checks on all Grav pages                                                                  |
+[/div]
 [/version]
 
+
 [version=16]
+[div class="table table-keycol"]
 | Command                           | Description                                                                                                                        |
 | :----------------                 | :--------------------------------------                                                                                            |
 | `bin/grav list`                   | Lists all commands available in Grav (excluding the GPM).                                                                          |
@@ -98,15 +102,19 @@ All of the commands listed below are compatible with <strong>any operating syste
 | `bin/gpm security`                | Runs through the configured XSS security checks on all Grav pages                                                                  |
 | `bin/gpm logviewer`               | Easily view Grav logs with configuration options to pick log file, number of lines, and verbosity                                  |
 | `bin/gpm scheduler`               | Manage the scheduled jobs and manually run the scheduler process if required                                                       |
+[/div]
 [/version]
+
 
 !! These commands are explained in greater detail within the [Grav CLI](../grav-cli) and [Grav GPM](../grav-cli-gpm) documentation.
 
 The commands listed below, are compatible with <strong>mac or unix systems.</strong>
 
-| Command                               | Description                                                                                                               |
-| :----------------                     | :--------------------------------------                                                                                   |
-|  ``` bin/gpm index \| grep '\| installed' ```  | Lists all plugins and themes you currently have installed.
+[div class="table table-keycol"]
+| Command                                  | Description                                                                                                               |
+| :----------------                        | :--------------------------------------                                                                                   |
+|  `bin/gpm index \| grep '\| installed'`  | Lists all plugins and themes you currently have installed. |
+[/div]
 
 ## Symbolic Links
 
@@ -141,24 +149,30 @@ Basically, you state the command that initiates the symlink, what you're symboli
 
 ##### Link Contents of One Folder to Another
 
-| MacOS and Linux              | Windows                           |
+[div class="table"]
+| MacOS and Linux             | Windows                           |
 | :-----                      | :-----                            |
 | `ln -s ~/folder1 ~/folder2` | `mklink /J C:\folder2 C:\folder1` |
+[/div]
 
 This command creates a symlink that takes contents originally placed in **folder1** and puts a symbolically linked copy of them in **folder2**. If **folder2** does not already exist, it is created with this command.
 
 ##### Link Entire Folders from One Place to Another
 
-| MacOS and Linux               | Windows                            |
+[div class="table"]
+| MacOS and Linux              | Windows                            |
 | :-----                       | :-----                             |
 | `ln -s ~/folder1 ~/folder2/` | `mklink /J C:\folder2\ C:\folder1` |
+[/div]
 
 This command copies the entire **folder1** directory and places it in the target location (in this case **folder2**). In this case, **folder2** would need to already exist as it will not be created with this command.
 
 ##### Link Individual File(s) from One Place to Another
 
-| MacOS and Linux                       | Windows                                     |
+[div class="table"]
+| MacOS and Linux                      | Windows                                     |
 | :-----                               | :-----                                      |
 | `ln -s ~/folder1/file.jpg ~/folder2` | `mklink /H C:\folder2\ C:\folder1\file.jpg` |
+[/div]
 
 This is a useful command for symbolically linking individual files. This is especially useful if you have files that are shared between multiple directories and you want to have them update everywhere at the same time. Keep in mind that the original file is the only actual copy, so it must remain where it is for all of the symbolic links to work.

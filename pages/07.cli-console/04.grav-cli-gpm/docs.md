@@ -12,15 +12,15 @@ Like the [Grav CLI](../grav-cli), the _GPM_ is a command-line tool which require
 
 To get started with _GPM_, you can run the following command to receive a list of all presently available commands:
 
-```bash
-$ bin/gpm list
-```
+[prism classes="language-bash command-line"]
+bin/gpm list
+[/prism]
 
 To receive help for a specific command, you can add help to the line before the command:
 
-```bash
-$ bin/gpm help install
-```
+[prism classes="language-bash command-line"]
+bin/gpm help install
+[/prism]
 
 !! To be able to perform **install**, **upgrade**, and **selfupgrade**, PHP must have the `php_openssl` extension enabled.  If you get a fatal error while downloading, this is probably the cause.
 
@@ -28,13 +28,13 @@ $ bin/gpm help install
 
 To determine if your server is running `cgi-fcgi` on the command line, type the following:
 
-```bash
-$ php -v
+[prism classes="language-bash command-line" cl-output="2-5"]
+php -v
 PHP 5.5.17 (cgi-fcgi) (built: Sep 19 2014 09:49:55)
 Copyright (c) 1997-2014 The PHP Group
 Zend Engine v2.5.0, Copyright (c) 1998-2014 Zend Technologies
     with the ionCube PHP Loader v4.6.1, Copyright (c) 2002-2014, by ionCube Ltd.
-```
+[/prism]
 
 If you see a reference to `(cgi-fcgi)` you will need to prefix all `bin/gpm` commands with `php-cli`. Alternatively, you can set up an alias in your shell with something like: `alias php="php-cli"` which will ensure the **CLI** version of PHP runs from the command line.
 
@@ -137,6 +137,7 @@ Grav repository refreshes every hour and automatically detects when there are ne
 On your end all you have to do is ensure you have updated the blueprints with the new version, and that you tagged and released the new version. The Grav repository will do the rest for you and as soon as your release is picked up, it will be available to everyone via Grav website or through _GPM_.
 
 #### Add your resource to the repository
+
 advanced/grav-development#themeplugin-release-process
 Follow the instructions in the [Theme/Plugin Release Process](../../advanced/grav-development#themeplugin-release-process) section.
 
