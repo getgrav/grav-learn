@@ -54,14 +54,14 @@ Find and open `httpd.conf` or `apache.conf` file in a text editor. In Windows, t
 
 Next, you'll want to look for the `Directory` area of the file. There should be a block of text like this:
 
-```text
+[prism classes="language-text line-numbers"]
     #
     # AllowOverride controls what directives may be placed in .htaccess files.
     # It can be "All", "None", or any combination of the keywords:
     #   Options FileInfo AuthConfig Limit
     #
     AllowOverride All
-```
+[/prism]
 
 If `AllowOverride` is set to `None` or anything other than `All`, you will need to change it to `All` and save. This change will require a reset of your Apache server to register.
 

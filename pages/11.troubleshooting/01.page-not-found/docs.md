@@ -34,7 +34,7 @@ The default `.htaccess` that comes bundled with Grav works fine out-of-the-box i
 
 There is a short explanation of this in the `.htaccess` file itself:
 
-```
+[prism classes="language-apacheconf line-numbers"]
 ##
 # If you are getting 404 errors on subpages, you may have to uncomment the RewriteBase entry
 # You should change the '/' to your appropriate subfolder. For example if you have
@@ -43,7 +43,7 @@ There is a short explanation of this in the `.htaccess` file itself:
 ##
 
 # RewriteBase /
-```
+[/prism]
 
 Simply remove the `#` before the `RewriteBase /` directive to uncomment it, and adjust the path to match your server environment.
 
@@ -53,9 +53,9 @@ We've included additional information to help you locate and troubleshoot your `
 
 Some webserver packages (I'm looking at your EasyPHP and WAMP!) do not come with the Apache **rewrite** module enabled by default. They usually can be enabled from the configuration settings for Apache, or you can do so manually via the `httpd.conf` by uncommenting this line (or something similar) so they are loaded by Apache:
 
-```
+[prism classes="language-apacheconf"]
 #LoadModule rewrite_module modules/mod_rewrite.so
-```
+[/prism]
 
 Then restart your Apache server.
 
@@ -69,27 +69,27 @@ Then point your browser to `http://yoursite.com/htaccess_tester.php`.  You shoul
 
 Next you can test if rewrites are working by backing up the existing .htaccess file:
 
-```
-$ mv .htaccess .htaccess-backup
-```
+[prism classes="language-bash command-line"]
+mv .htaccess .htaccess-backup
+[/prism]
 
 And then try this simple `.htaccess` file:
 
-```
+[prism classes="language-apacheconf line-numbers"]
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteRule ^.*$ htaccess_tester.php
 </IfModule>
-```
+[/prism]
 
 Then try this URL: `http://yoursite.com/test`.  Actually any path you use should display a success message telling you that `mod_rewrite` is working.
 
 After you have finished testing, you should delete the test file and restore your `.htaccess` file:
 
-```
-$ rm htaccess_tester.php
-$ mv .htaccess-backup .htaccess
-```
+[prism classes="language-bash command-line"]
+rm htaccess_tester.php
+mv .htaccess-backup .htaccess
+[/prism]
 
 ### Grav Error 404 Page
 
