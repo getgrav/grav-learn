@@ -1,8 +1,0 @@
-<div class="prism-wrapper">
-<pre class="{{ classes }}"
-    {% if cl_output %}data-output="{{ cl_output }}"{% endif %}
-    {% if cl_prompt %}data-prompt="{{ cl_prompt }}"{% endif %}
-    {% if ln_start %}data-start="{{ ln_start }}"{% endif %}
-    {% if highlight_lines %}data-line=" {{ highlight_lines }}"{% endif %}
-><code>{{- content|e('html') -}}</code></pre>
-</div>
