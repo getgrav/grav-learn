@@ -1,5 +1,7 @@
 ---
 title: Theme Tutorial
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -32,9 +34,9 @@ The first step in creating a new theme is to **install the DevTools Plugin**.  T
 
 * Navigate in the command line to the root of your Grav installation
 
-```
-$ bin/gpm install devtools
-```
+[prism classes="language-bash command-line"]
+bin/gpm install devtools
+[/prism]
 
 #### Install via Admin Plugin
 
@@ -48,16 +50,16 @@ For this next step you really do need to be in the [command line](/cli-console/c
 
 From the root of your Grav installation enter the following command:
 
-```
-$ bin/plugin devtools new-theme
-```
+[prism classes="language-bash command-line"]
+bin/plugin devtools new-theme
+[/prism]
 
 This process will ask you a few questions that are required to create the new theme:
 
 ! We're going to use **pure-blank** to create a new theme, but you can create a simple **inheritance** style template that inherits from another base theme
 
-```
-$ bin/plugin devtools new-theme
+[prism classes="language-bash command-line" cl-output="2-15"]
+bin/plugin devtools new-theme
 
 Enter Theme Name: MyTheme
 Enter Theme Description: My New Theme
@@ -72,18 +74,18 @@ Please choose a template type
 SUCCESS theme mytheme -> Created Successfully
 
 Path: /www/user/themes/my-theme
-```
+[/prism]
 
 The DevTools command tells you where this new template was created. This created template is fully functional but also very simple.  You will want to modify this to suite your needs.
 
 In order to see your new theme in action, you will need to change the default theme from `antimatter` to `my-theme`, so edit your `user/config/system.yaml` and change it:
 
-```
+[prism classes="language-yaml line-numbers"]
 ...
 pages:
     theme: my-theme
 ...
-```
+[/prism]
 
 Reload your site in your browser and you should see the theme has now changed.
 
@@ -91,7 +93,7 @@ Reload your site in your browser and you should see the theme has now changed.
 
 Now we've created a new basic theme that can be modified and developed, let's break it down and have a look at what makes up a theme.  If you look in the `user/themes/my-theme` folder you will see:
 
-```
+[prism classes="language-text"]
 .
 ├── CHANGELOG.md
 ├── LICENSE
@@ -115,7 +117,7 @@ Now we've created a new basic theme that can be modified and developed, let's br
 │       ├── metadata.html.twig
 │       └── navigation.html.twig
 └── thumbnail.jpg
-```
+[/prism]
 
 This is a sample structure but some things are required:
 
@@ -145,13 +147,13 @@ As you know from the [previous chapter](../theme-basics), each item of content i
 
 Utilizing the Twig [Extends](http://twig.sensiolabs.org/doc/tags/extends.html) tag you can define a base layout with [blocks](http://twig.sensiolabs.org/doc/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.  So look at the `templates/default.html.twig` file and examine its content:
 
-```
+[prism classes="language-twig line-numbers"]
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
     {{ page.content }}
 {% endblock %}
-```
+[/prism]
 
 There are really two things going on here.
 
@@ -165,7 +167,7 @@ Second, the block `content` is overridden from the base template, and the page's
 
 If you look at the `templates/partials/base.html.twig` you will see the meat of the HTML layout:
 
-```
+[prism classes="language-twig line-numbers"]
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!DOCTYPE html>
 <html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
@@ -234,7 +236,7 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 {% endblock %}
 
 </body>
-```
+[/prism]
 
 ## Step 5 - Breaking it Down
 
@@ -277,13 +279,13 @@ Please read over the code in the `base.html.twig` file to try to understand what
 1. Similar to the content block, the `{% block bottom %}{% endblock %}` is intended as a placeholder for templates to add custom JavaScript initialization or analytic codes. In this example, we output any JavaScript that was added to the `bottom` Asset Group.  Read more about this in the [Asset Manager](/themes/asset-manager) documentation.
 
 
-### Step 6 - Theme CSS
+## Step 6 - Theme CSS
 
 You might have noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via Asset Manager: `do assets.add('theme://css/custom.css', 98)`.  This file will house any custom CSS we need to fill in the gaps not provided by the Pure.css framework.  As Pure is a very minimal framework, it provides the essentials but almost no styling.
 
 1. In your `user/themes/my-theme/css` folder, view the `custom.css`:
 
-```
+[prism classes="language-css line-numbers"]
 /* Core Stuff */
 * {
     -webkit-box-sizing: border-box;
@@ -460,11 +462,11 @@ blockquote {
     content: '\f105';
 }
 
-```
+[/prism]
 
 This is pretty standard CSS stuff and sets some basic margins, fonts, colors, and utility classes. There is some basic content styling and some more extensive styling required to render the drop-down menu.  Feel free to modify this file as you need, or even add new CSS files (just ensure you add a reference in the `head` block by following the example for `custom.css`).
 
-### Step 7 - Testing
+## Step 7 - Testing
 
 To see your theme in action, open your browser, and point it to your Grav site.  You should see something like this:
 

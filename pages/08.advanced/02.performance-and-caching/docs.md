@@ -56,14 +56,14 @@ The YAML configuration caching is not configurable, and will always compile and 
 
 Core Grav caching has the following configuration options as configured in your `user/config/system.yaml` file:
 
-```
+[prism classes="language-yaml line-numbers"]
 cache:
   enabled: true                        # Set to true to enable caching
   check:
     method: file                       # Method to check for updates in pages: file|folder|hash|none
   driver: auto                         # One of: auto|file|apc|xcache|memcache|wincache
   prefix: 'g'                          # Cache prefix string (prevents cache conflicts)
-```
+[/prism]
 
 As you can see, the options are documented in the configuration file itself.  During development sometimes it is useful to disable caching to ensure you always have the latest page edits.
 
@@ -79,56 +79,56 @@ If automatic re-caching of changed pages is not critical to you (or if your site
 
 There are some extra configuration options that are required if you are connecting to a **memcache** server via the `memcache` driver option.  These options should go under the `cache:` group in your `user/config/system.yaml`:
 
-```
+[prism classes="language-yaml line-numbers"]
 cache:
   ...
   memcache:
     server: localhost
     port: 11211
-```
+[/prism]
 
 #### Memcached Specific Options
 
 Similar to memcache, memcached has some extra configuration options that are required if you are connecting to a **memcached** server via the `memcached` driver option.  These options should go under the `cache:` group in your `user/config/system.yaml`:
 
-```
+[prism classes="language-yaml line-numbers"]
 cache:
   ...
   memcached:
     server: localhost
     port: 11211
-```
+[/prism]
 
 
 #### Redis Specific Options
 
 There are some extra configuration options that are required if you are connecting to a **redis** server via the `redis` driver option.  These options should go under the `cache:` group in your `user/config/system.yaml`:
 
-```
+[prism classes="language-yaml line-numbers"]
 cache:
   ...
   redis:
     server: localhost
     port: 6379
-```
+[/prism]
 
 Alternatively, you can use a socket connection:
 
-```
+[prism classes="language-yaml line-numbers"]
 cache:
   ...
   redis:
     socket: '/tmp/redis.sock'
-```
+[/prism]
 
 If your redis server has a password or secret set you can also set that in this configuration:
 
-```
+[prism classes="language-yaml line-numbers"]
 cache:
   ...
   redis:
     password: your-secret
-```
+[/prism]
 
 !!!! Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
 
@@ -140,13 +140,13 @@ The `cache: check: pages:` option can provide some slight performance improvemen
 
 The Twig templating engine uses its own file based cache system, and there are a few options associated with it.
 
-```
+[prism classes="language-yaml line-numbers"]
 twig:
   cache: false                          # Set to true to enable twig caching
   debug: true                           # Enable Twig debug
   auto_reload: true                     # Refresh cache on changes
   autoescape: false                     # Autoescape Twig vars
-```
+[/prism]
 
 For slight performance gains, you can disable the `debug` extension, and also disable `auto_reload` which performs a similar function to `cache: check: pages` as it will not look for changes in `.html.twig` files to trigger cache refreshes.
 

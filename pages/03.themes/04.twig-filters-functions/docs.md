@@ -1,5 +1,8 @@
 ---
 title: Twig Filters & Functions
+page-toc:
+  active: true
+  depth: 3  
 process:
     twig: true
 taxonomy:
@@ -11,105 +14,9 @@ Although Twig already provides an extensive list of [filters, functions, and tag
 !! For information about developing your own custom Twig Filters, check out the [Custom Twig Filter/Function](/cookbook/twig-recipes/#custom-twig-filter-function) example in the **Twig Recipes** section of the **Cookbook** chapter.
 
 
-### Grav Twig Filters
+## Grav Twig Filters
 
 Twig filters are applied to Twig variables by using the `|` character followed by the filter name.  Parameters can be passed in just like Twig functions using parenthesis.  
-
-[version=15]
-* [Absolute URL](#absolute-url)
-* [Array Unique](#array-unique)
-* [Base32 Encode](#base32-encode)
-* [Base32 Decode](#base32-decode)
-* [Base64 Encode](#base64-encode)
-* [Base64 Decode](#base64-decode)
-* [Basename](#basename)
-* [Camelize](#camelize)
-* [Contains](#contains)
-* [Defined](#defined)
-* [Dirname](#dirname)
-* [Ends-With](#ends-with)
-* [Fieldname](#fieldname)
-* [Humanize](#humanize)
-* [Hyphenize](#hyphenize)
-* [JSON Decode](#json-decode)
-* [Ksort](#ksort)
-* [Left Trim](#left-trim)
-* [Markdown](#markdown)
-* [MD5](#md5)
-* [Modulus](#modulus)
-* [Monthize](#monthize)
-* [NiceTime](#nicetime)
-* [Orinalize](#ordinalize)
-* [Pad](#pad)
-* [Pluralize](#pluralize)
-* [Randomize](#randomize)
-* [Regex Replace](#regex-replace)
-* [Right Trim](#right-trim)
-* [Singularize](#singularize)
-* [Safe Email](#safe-email)
-* [Sort by Key](#sort-by-key)
-* [Starts-With](#starts-with)
-* [Titleize](#titleize)
-* [Translate](#translate)
-* [Translate Admin](#translate-admin)
-* [Translate Array](#translate-array)
-* [Translate Language](#translate-language)
-* [Truncate a String](#truncate-a-string)
-* [Underscoreize](#underscoreize)
-[/version]
-
-[version=16]
-* [Absolute URL](#absolute-url)
-* [Array Unique](#array-unique)
-* [Base32 Encode](#base32-encode)
-* [Base32 Decode](#base32-decode)
-* [Base64 Encode](#base64-encode)
-* [Base64 Decode](#base64-decode)
-* [Basename](#basename)
-* [Camelize](#camelize)
-* [Casting Values](#casting-values)
-* [Chunk Split](#chunk-split)
-* [Contains](#contains)
-* [Defined](#defined)
-* [Dirname](#dirname)
-* [Ends-With](#ends-with)
-* [Fieldname](#fieldname)
-* [Get Type](#get-type)
-* [Humanize](#humanize)
-* [Hyphenize](#hyphenize)
-* [JSON Decode](#json-decode)
-* [Ksort](#ksort)
-* [Left Trim](#left-trim)
-* [Markdown](#markdown)
-* [MD5](#md5)
-* [Modulus](#modulus)
-* [Monthize](#monthize)
-* [NiceCron](#nicecron)
-* [NiceFile](#nicefile)
-* [NiceNumber](#nicenumber)
-* [NiceTime](#nicetime)
-* [Of Type](#of-type)
-* [Orinalize](#ordinalize)
-* [Pad](#pad)
-* [Pluralize](#pluralize)
-* [Print Variable](#print-variable)
-* [Randomize](#randomize)
-* [Regex Replace](#regex-replace)
-* [Right Trim](#right-trim)
-* [Singularize](#singularize)
-* [Safe Email](#safe-email)
-* [Sort by Key](#sort-by-key)
-* [Starts-With](#starts-with)
-* [Titleize](#titleize)
-* [Translate](#translate)
-* [Translate Admin](#translate-admin)
-* [Translate Array](#translate-array)
-* [Translate Language](#translate-language)
-* [Truncate a String](#truncate-a-string)
-* [Underscoreize](#underscoreize)
-* [Yaml Encode](#yaml-encode)
-* [Yaml Decode](#yaml-decode)
-[/version]
 
 #### Absolute URL
 
@@ -254,16 +161,16 @@ You can decode JSON by simply applying this filter:
 Sort an array map by each key
 
 `array|ksort` {% verbatim %}
-```
+[prism classes="language-twig line-numbers"]
 {% set ritems = {'orange':1, 'apple':2, 'peach':3}|ksort %}
 {% for key, value in ritems %}{{ key }}:{{ value }}, {% endfor %}
-```
+[/prism]
 {% endverbatim %}
 
 {% set ritems = {'orange':1, 'apple':2, 'peach':3}|ksort %}
-```
+[prism classes="language-twig line-numbers"]
 {% for key, value in ritems %}{{ key }}:{{ value }}, {% endfor %}
-```
+[/prism]
 
 #### Left Trim
 
@@ -354,9 +261,9 @@ Prints human-readable information about a variable
 
 `page.header|print_r`
 
-```html
+[prism classes="language-text"]
 {{ page.header|print_r }}
-```
+[/prism]
 [/version]
 
 #### Randomize
@@ -364,10 +271,10 @@ Prints human-readable information about a variable
 Randomizes the list provided.  If a value is provided as a parameter, it will skip those values and keep them in order.
 
 `array|randomize` {% verbatim %}
-```
+[prism classes="language-twig line-numbers"]
 {% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
 {% for ritem in ritems %}{{ ritem }}, {% endfor %}
-```
+[/prism]
 {% endverbatim %}
 
 <strong>
@@ -401,11 +308,11 @@ The safe email filter converts an email address into ASCII characters to make it
 
 Usage example with a mailto link:
 
-```
+[prism classes="language-html line-numbers"]
 <a href="mailto:{{'your.email@server.com'|safe_email}}">
   Email me
 </a>
-```
+[/prism]
 
 You might not notice a difference at first, but examining the page source (not using the Browser Developer Tools, the actual page source) will reveal the underlying characters encoding.
 
@@ -414,10 +321,10 @@ You might not notice a difference at first, but examining the page source (not u
 Sort an array map by a particular key
 
 `array|sort_by_key` {% verbatim %}
-```
+[prism classes="language-twig line-numbers"]
 {% set people = [{'email':'fred@yahoo.com', 'id':34}, {'email':'tim@exchange.com', 'id':21}, {'email':'john@apple.com', 'id':2}]|sort_by_key('id') %}
 {% for person in people %}{{ person.email }}:{{ person.id }}, {% endfor %}
-```
+[/prism]
 {% endverbatim %}
 
 <strong>
@@ -509,9 +416,9 @@ Dump/Encode a variable into YAML syntax
 
 `{foo: [0,1,2,3], baz: 'qux' }|yaml_encode` 
 
-```
+[prism classes="language-twig"]
 {{ {foo: [0,1,2,3], baz: 'qux' }|yaml_encode }}
-```
+[/prism]
 
 #### Yaml Decode
 
@@ -524,90 +431,15 @@ Decode/Parse a varible from YAML syntax
 {% endverbatim %}
 
 {% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}
-```
+[prism classes="language-twig"]
 {{ yaml|yaml_decode|var_dump}}
-```
+[/prism]
 [/version]
 
 
-### Twig Functions
+## Grav Twig Functions
 
 Twig functions are called directly with any parameters being passed in via parenthesis.
-
-[version=15]
-* [Array](#array)
-* [Array Key Value](#array-key-value)
-* [Array Key Exists](#array-key-exists)
-* [Array Intersect](#array-intersect)
-* [Array Unique](#array-unique)
-* [Authorize](#authorize)
-* [Dump](#dump)
-* [Debug](#debug)
-* [Evaluate](#evaluate)
-* [Evaluate Twig](#evaluate-twig)
-* [EXIF](#exif)
-* [Get Cookie](#get-cookie)
-* [Gist](#gist)
-* [Is Ajax Request](#is-ajax-request)
-* [JSON Decode Functxion](#json-decode-function)
-* [Media Directory](#media-directory)
-* [Nonce Field](#nonce-field)
-* [Path Info](#path-info)
-* [Random String Generation](#random-string-generation)
-* [Range](#range)
-* [Redirect Me](#rediret-me)
-* [Repeat](#repeat)
-* [String](#string)
-* [Translate Function](#translate-function)
-* [Translate Array Function](#translate-array-function)
-* [Url](#url)
-* [VarDump](#vardump)
-[/version]
-
-[version=16]
-* [Array](#array)
-* [Array Key Value](#array-key-value)
-* [Array Key Exists](#array-key-exists)
-* [Array Intersect](#array-intersect)
-* [Array Unique](#array-unique)
-* [Authorize](#authorize)
-* [Body Class](#body-class)
-* [Cron](#cron)
-* [Dump](#dump)
-* [Debug](#debug)
-* [Evaluate](#evaluate)
-* [Evaluate Twig](#evaluate-twig)
-* [EXIF](#exif)
-* [Get Cookie](#get-cookie)
-* [Get Type Function](#get-type-function)
-* [Gist](#gist)
-* [Header Variable](#header-variable)
-* [Is Ajax Request](#is-ajax-request)
-* [JSON Decode Functxion](#json-decode-function)
-* [Media Directory](#media-directory)
-* [NiceFile Function](#nicefile-function)
-* [NiceNumber Function](#nicenumber-function)
-* [NiceTime Function](#nicetime-function)
-* [Nonce Field](#nonce-field)
-* [Of Type Function](#of-type-function)
-* [Path Info](#path-info)
-* [Print Variable Function](#print-variable-function)
-* [Random String Generation](#random-string-generation)
-* [Range](#range)
-* [Read File](#read-file)
-* [Redirect Me](#rediret-me)
-* [Regex Filter Function](#regex-filter-function)
-* [Regex Replace Function](#regex-replace-function)
-* [Repeat](#repeat)
-* [String](#string)
-* [Theme Variable](#theme-variable)
-* [Translate Function](#translate-function)
-* [Translate Array Function](#translate-array-function)
-* [Translate Language Function](#translate-language-function)
-* [Url](#url)
-* [VarDump](#vardump)
-* [XSS](#xss)
-[/version]
 
 #### Array
 
@@ -619,13 +451,13 @@ Cast a value to array
 
 The `array_key_value` function allows you to add a key/value pair to an associate array
 
-```twig
 {% verbatim %}
+[prism classes="language-twig line-numbers"]
 {% set my_array = {fruit: 'apple'} %}
 {% set my_array = array_key_value('meat','steak', my_array) %}
 {{ print_r(my_array)}}
+[/prism]
 {% endverbatim %}
-```
 
 {% set my_array = {fruit: 'apple'} %}
 {% set my_array = array_key_value('meat','steak', my_array) %}
@@ -635,12 +467,12 @@ outputs: ** {{ print_r(my_array) }} **
 
 Wrapper for PHP's `array_key_exists` function that returns whether or not a key exists in an associative array.
 
-```twig
 {% verbatim %}
+[prism classes="language-twig line-numbers"]
 {% set my_array = {fruit: 'apple', meat: 'steak'} %}
 {{ array_key_exists('meat', my_array) }}
+[/prism]
 {% endverbatim %}
-```
 
 {% set my_array = {fruit: 'apple', meat: 'steak'} %}
 outputs: **{{ array_key_exists('meat', my_array) }}**
@@ -649,13 +481,13 @@ outputs: **{{ array_key_exists('meat', my_array) }}**
 
 The `array_intersect` function provides the intersection of two arrays or Grav collections.
 
-```twig
 {% verbatim %}
+[prism classes="language-twig line-numbers"]
 {% set array_1 = {fruit: 'apple', meat: 'steak'} %}
 {% set array_2 = {fish: 'tuna', meat: 'steak'} %}
 {{ print_r(array_intersect(array_1, array_2)) }}
+[/prism]
 {% endverbatim %}
-```
 
 {% set array_1 = {fruit: 'apple', meat: 'steak'} %}
 {% set array_2 = {fish: 'tuna', meat: 'steak'} %}
@@ -718,13 +550,13 @@ Similar to evaluate, but will evaluate and process with Twig
 
 Output the EXIF data from an image based on its filepath. This requires that `media: auto_metadata_exif: true` is set in `system.yaml`. For example, in a Twig-template:
 
-```
 {% verbatim %}
+[prism classes="language-twig line-numbers"]
 {% set image = page.media['sample-image.jpg'] %}
 {% set exif = exif(image.filepath, true) %}
 {{ exif.MaxApertureValue }}
+[/prism]
 {% endverbatim %}
-```
 
 This would write the `MaxApertureValue`-value set in the camera, for example "40/10". You can always use `{% verbatim %}{{ dump(exif)}}{% endverbatim %}` to show all the available data in the debugger.
 
@@ -812,12 +644,12 @@ Checks the type of a variable to the param:
 
 Parses a path into an array.
 
-```
 {% verbatim %}
+[prism classes="language-twig"]
 {% set parts = pathinfo('/www/htdocs/inc/lib.inc.php') %}
 {{ print_r(parts) }}
+[/prism]
 {% endverbatim %}
-```
 
 {% set parts = pathinfo('/www/htdocs/inc/lib.inc.php') %}
 
@@ -830,9 +662,9 @@ Prints a variable in a readable format
 
 `print_r(page.header)`
 
-```html
+[prism classes="language-twig"]
 {{ print_r(page.header) }}
-```
+[/prism]
 
 [/version]
 
@@ -855,11 +687,11 @@ Simple function to read a file based on a filepath and output it.
 
 `read_file('plugins://admin/README.md')|markdown`
 
-```
+[prism classes="language-markdown line-numbers"]
 # Grav Standard Administration Panel Plugin
 
 This **admin plugin** for [Grav](http://github.com/getgrav/grav) is an HTML user interface that provides a convenient way to configure Grav and easily create and modify pages...
-```
+[/prism]
 
 [/version]
 
@@ -876,9 +708,9 @@ Performs a `preg_grep` on an array with a regex pattern
 
 `regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/")` 
 
-```
+[prism classes="language-twig"]
 {{ var_dump(regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/")) }}
-```
+[/prism]
 
 #### Regex Replace Function
 
@@ -886,9 +718,9 @@ A helpful wrapper for the PHP [preg_replace()](http://php.net/manual/en/function
 
 `regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])` 
 
-```
+[prism classes="language-twig"]
 {{ regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) }}
-```
+[/prism]
 
 [/version]
 
@@ -944,12 +776,12 @@ Will create a URL and convert any PHP URL streams into a valid HTML resources. A
 
 The `vardump()` function outputs the current variable to the screen (rather than in the debugger as with `dump()`)
 
-```
 {% verbatim %}
+[prism classes="language-twig line-numbers"]
 {% set my_array = {foo: 'bar', baz: 'qux'} %}
 {{ vardump(my_array)}}
+[/prism]
 {% endverbatim %}
-```
 
 {% set my_array = {foo: 'bar', baz: 'qux'} %}
 {{ vardump(my_array)}}

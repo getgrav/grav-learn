@@ -25,16 +25,16 @@ Say you wanted the **frontmatter** and **content** of a particular page in JSON 
 
 The contents of this `item.json.twig` file could look something like:
 
-```
+[prism classes="language-twig line-numbers"]
 {% set payload = {frontmatter: page.header, content: page.content}  %}
 {{ payload|json_encode|raw }}
-```
+[/prism]
 
 All this Twig file does is create an array with the page header as **frontmatter** and page **content**, then uses the Twig `json_encode` filter to encode it.
 
 When a user requests the url: `/blog/new-macbook-pros-soon.json` this new Twig file would be used and the output sent would be in the format:
 
-```
+[prism classes="language-json line-numbers"]
 {
    "frontmatter":{
       "title":"New Macbook Pros Arriving Soon",
@@ -52,7 +52,7 @@ When a user requests the url: `/blog/new-macbook-pros-soon.json` this new Twig f
    },
    "content":"<p>this has an -&gt; arrow here and <strong>bold</strong> here</p>\n<blockquote>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies tristique nulla et mattis. Phasellus id massa eget nisl congue blandit sit amet id ligula. Praesent et nulla eu augue tempus sagittis. Mauris faucibus nibh et nibh cursus in vestibulum sapien egestas. Curabitur ut lectus tortor. Sed ipsum eros, egestas ut eleifend non, elementum vitae eros.\n-- <cite> Ronald Wade</cite></p>\n</blockquote>\n<p>Mauris felis diam, pellentesque vel lacinia ac, dictum a nunc. Mauris mattis nunc sed mi sagittis et facilisis tortor volutpat. Etiam tincidunt urna mattis erat placerat placerat ac eu tellus.</p>\n<p>This is a new paragraph</p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies tristique nulla et mattis.</p>"
 }
-```
+[/prism]
 
 This is valid JSON that can easily be parsed and processed by JavaScript.  Easy Peasy!
 
@@ -62,11 +62,11 @@ In order to send the data with the appropriate content type, Grav needs to know 
 
 For example, if you wish to be able to render iCal calendar events, you would need to add this media type to the `media.yaml`:
 
-```
+[prism classes="language-yaml line-numbers"]
   ics:
     type: iCal
     thumb: media/thumb.png
     mime: text/calendar
-```
+[/prism]
 
 This defines the `.ics` file extension as an `iCal` file with mime type: `text/calendar`.  Then all you need to do is provide the appropriate `.ical.twig` template to render any file you request of this type.

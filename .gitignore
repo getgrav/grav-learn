@@ -20,3 +20,4 @@ Thumbs.db
 localhost/config/security.yaml
 config/security.yaml
 learn.dev/config/security.yaml
+/accounts/admin.yaml

@@ -26,7 +26,7 @@ If you were to have a page file called `blog.md`, Grav would try to render it wi
 
 Each theme should have a definition file called `blueprints.yaml` which has some information about the theme.  It can optionally provide **form** definitions to be used in the [**Administration Panel**](../../admin-panel/introduction) to allow for editing of theme options.  The **Antimatter** theme has the following `blueprints.yaml` file:
 
-```ruby
+[prism classes="language-yaml line-numbers"]
 name: Antimatter
 version: 1.6.7
 description: "Antimatter is the default theme included with **Grav**"
@@ -54,14 +54,14 @@ form:
           0: Disabled
         validate:
           type: bool
-```
+[/prism]
 
 If you want to use theme configuration options you should provide default settings in a file called `<your_theme>.yaml`.  For example:
 
-```ruby
+[prism classes="language-yaml line-numbers"]
 enabled: true
 color: blue
-```
+[/prism]
 
 !! The `color: blue` configuration option does not actually do anything. It is merely used as an example of how to override a setting.
 
@@ -100,44 +100,46 @@ The `blueprints/` folder is used to define forms for options and configuration f
 
 Another powerful feature that is purely optional is the ability for a theme to interact with Grav via the **plugins** architecture. In short, during the initialization sequence of grav, there are several points in the sequence where you can "hook" your own piece of code. This can be useful, for example, to define extra path shortcuts in your theme when twig is initializing, so that you can use them in your twig templates. These hooks are available to you through a set of "empty" functions with names predefined by the Grav system, which you can fill at your convenience. [Chapter 4. Plugins](../../plugins) has more information about the plugin system and the available event hooks. To make use of this hooks in your theme, simply create a file called `mytheme.php` and use the following format:
 
-	<?php
-	namespace Grav\Theme;
+[prism classes="language-php line-numbers"]
+<?php
+namespace Grav\Theme;
 
-	use Grav\Common\Theme;
+use Grav\Common\Theme;
 
-	class MyTheme extends Theme
-	{
+class MyTheme extends Theme
+{
 
-        public static function getSubscribedEvents()
-        {
-            return [
-                'onThemeInitialized' => ['onThemeInitialized', 0]
-            ];
+    public static function getSubscribedEvents()
+    {
+        return [
+            'onThemeInitialized' => ['onThemeInitialized', 0]
+        ];
+    }
+
+    public function onThemeInitialized()
+    {
+        if ($this->isAdmin()) {
+            $this->active = false;
+            return;
         }
 
-        public function onThemeInitialized()
-        {
-            if ($this->isAdmin()) {
-                $this->active = false;
-                return;
-            }
+        $this->enable([
+            'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
+        ]);
+    }
 
-            $this->enable([
-                'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
-            ]);
-        }
+    public function onTwigSiteVariables()
+    {
+        $this->grav['assets']
+            ->addCss('plugin://css/mytheme-core.css')
+            ->addCss('plugin://css/mytheme-custom.css');
 
-        public function onTwigSiteVariables()
-        {
-            $this->grav['assets']
-                ->addCss('plugin://css/mytheme-core.css')
-                ->addCss('plugin://css/mytheme-custom.css');
-
-            $this->grav['assets']
-                ->add('jquery', 101)
-                ->addJs('theme://js/jquery.myscript.min.js');
-        }
-	}
+        $this->grav['assets']
+            ->add('jquery', 101)
+            ->addJs('theme://js/jquery.myscript.min.js');
+    }
+}
+[/prism]
 
 As you can observe, in order to use the event hooks you first need to register them in a list with the `getSubscribedEvents` function and then define them with your own code. If you subscribe an event for use, define it aswell. Otherwise you will get an error.
 

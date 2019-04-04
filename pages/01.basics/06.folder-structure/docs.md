@@ -6,7 +6,7 @@ taxonomy:
 
 Because Grav is a **flat-file based CMS**, meaning no database underpins it, the folder structure of your site is very important.  At the **top level** of your Grav installation the folder structure looks like:
 
-```bash
+[prism classes="language-bash line-numbers"]
 /assets
 /backup
 /bin
@@ -16,13 +16,13 @@ Because Grav is a **flat-file based CMS**, meaning no database underpins it, the
 /system
 /user
 /vendor
-```
+[/prism]
 
 So let us dig a little deeper into each of these top-level folders and explain what they are for:
 
 ### /assets
 
-**(v0.9.0+)** The `assets` folder is used by the new asset management system within Grav to store processed `.css` and `.js` files.
+The `assets` folder is used by the new asset management system within Grav to store processed `.css` and `.js` files.
 
 !! This folder should not be used to store any user data, as it is routinely flushed of all data.
 
@@ -68,7 +68,7 @@ The `vendor` folder contains important libraries that Grav relies on.  This fold
 
 This is the most important folder for the majority of Grav users. This folder is where you will spend your time creating content, using plugins and editing your themes. Let us burrow a little further into this folder:
 
-```bash
+[prism classes="language-bash line-numbers"]
 /user/accounts
 /user/blueprints
 /user/config
@@ -78,7 +78,7 @@ This is the most important folder for the majority of Grav users. This folder is
 /user/pages
 /user/plugins
 /user/themes
-```
+[/prism]
 
 ### /user/accounts
 

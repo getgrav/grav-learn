@@ -1,16 +1,15 @@
 ---
 title: Admin Recipes
+page-toc:
+  active: true
+  depth: 1
 taxonomy:
     category: docs
 ---
 
 This page contains an assortment of problems and their respective solutions related to Grav Admin modifications.
 
-1. [Add a custom YAML file](#add-a-custom-yaml-file)
-2. [Add a custom page creation modal](#add-a-custom-page-creation-modal)
-3. [Add a custom select field](#add-a-custom-select-field)
-
-### Add a custom YAML file
+## Add a custom YAML file
 
 #### Problem:
 
@@ -20,7 +19,7 @@ You want to provide a site-wide group of user-editable company fields akin to `s
 
 As outlined in the [Basics / Configuration](/basics/grav-configuration#other-configuration-settings-and-files) section, the first step is to provide your new YAML data file, for example: `user/config/details.yaml`:
 
-```
+[prism classes="language-yaml line-numbers"]
 name: 'ABC Company Limited'
 address: '8732 North Cumbria Street, Golden, CO, 80401'
 email:
@@ -29,13 +28,13 @@ email:
   sales: 'sales@abc-company.com'
 phone:
   default: '555-123-1111'
-```
+[/prism]
 
 Now you need to provide the appropriate blueprint file to define the form.  The blueprint can be provided by a plugin, but the simplest approach is to simply put the blueprint in a file: `user/blueprints/config/details.yaml`
 
 If you wanted to provide the blueprint via a plugin, you would first need to add this code to your plugin right after the class definition:
 
-```
+[prism classes="language-twig line-numbers"]
 class MyPlugin extends Plugin
 {
     public $features = [
@@ -43,11 +42,11 @@ class MyPlugin extends Plugin
     ];
     protected $version;
     ...
-```
+[/prism]
 
 Then add this code to your `onPluginsInitialized()` method:
 
-```
+[prism classes="language-twig line-numbers"]
 if ($this->isAdmin()) {
     // Store this version and prefer newer method
     if (method_exists($this, 'getBlueprint')) {
@@ -56,13 +55,13 @@ if ($this->isAdmin()) {
         $this->version = $this->grav['plugins']->get('admin')->blueprints()->version;
     }
 }
-```
+[/prism]
 
 Then create a file called `user/plugins/myplugin/blueprints/config/details.yaml`
 
 The actual blueprint file should contain a form definition that matches the configuration data:
 
-```
+[prism classes="language-yaml line-numbers"]
 title: Company Details
 form:
     validation: loose
@@ -95,11 +94,11 @@ form:
             label: 'Phone Numbers'
             placeholder_key: Key
             placeholder_value: Phone Number
-```
+[/prism]
 
 The use of the `array` field type will let you add arbitrary email and phone fields as you need them.
 
-### Add a custom page creation modal
+## Add a custom page creation modal
 
 #### Problem:
 
@@ -109,7 +108,7 @@ You want to provide an easy way to create a new blog post or gallery image page.
 
 First of all, create the form for our modal. Create a new file: `user/blueprints/admin/pages/new_post.yaml`.
 
-```yaml
+[prism classes="language-twig line-numbers"]
 form:
   validation: loose
   fields:
@@ -141,7 +140,7 @@ form:
 
     blueprint:
       type: blueprint
-```
+[/prism]
 
 This form mimics the default `Add Page` modal's form. For the **folder** as you can see we have a special value: `@slugify-title`. This means that the **folder** will default to the slugified version of the **title** form input. **route** is `/posts` so it will put it into the `/posts` folder.
 
@@ -149,13 +148,13 @@ This form mimics the default `Add Page` modal's form. For the **folder** as you 
 
 Second step is to edit the configuration of the Admin plugin. To add custom code to the configuration file `admin.yaml` of the Admin Plugin, create the file `user/config/plugins/admin.yaml`and add this snippet:
 
-```yaml
+[prism classes="language-twig line-numbers"]
 add_modals:
   -
     label: Add Post
     blueprint: admin/pages/new_post
     show_in: bar
-```
+[/prism]
 
 Configuration keys/values available for `add_modals`:
 
@@ -167,7 +166,7 @@ Configuration keys/values available for `add_modals`:
 - `link_classes` - classes to add to the link element
 - `modal_classes` - classes to add to the modal element
 
-### Add a custom select field
+## Add a custom select field
 
 #### Problem:
 
@@ -179,7 +178,7 @@ You can create a static function and call the array from within your blueprint. 
 
 In this example, we will add the function to the Antimatter theme, we will thus edit the `antimatter.php` file which is in the `user/themes/antimatter` folder.
 
-```php
+[prism classes="language-php line-numbers"]
 <?php
 namespace Grav\Theme;
 
@@ -220,19 +219,20 @@ class Antimatter extends Theme
         );
     }
 }
-```
+[/prism]
 
 
 
 ! This is a trimmed-down list for easy viewing but you can copy/paste the full country list from [<i class="fa fa-github"></i>umpirsky/count-list](https://github.com/umpirsky/country-list/blob/master/data/en_US/country.php)
 
 Then, we call the function from a blueprint or a frontend form definition like this:
-```
+
+[prism classes="language-yaml line-numbers"]
 country:
   type: select
   label: Country
   data-options@: '\Grav\Theme\Antimatter::countryCodes'
-```
+[/prism]
 
 Here is how it will look in the admin
 

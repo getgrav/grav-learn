@@ -28,13 +28,13 @@ Once created, the `setup.php` is called every time a user requests a page. In or
 
 The provided snippets below setup your Grav installation in such a way that a request like
 
-```
+[prism classes="language-text"]
 http://<subsite>.example.com   -->   user/sites/<subsite>.example.com
-```
+[/prism]
 or
-```
+[prism classes="language-text"]
 http://example.com/<subsite>   -->   user/sites/<subsite>
-```
+[/prism]
 
 will use the `user/sites` directory as the base "user" path instead of the `user` directory.
 
@@ -51,7 +51,7 @@ For subsites accessible via sub-domains copy the `setup_subdomain.php` file, oth
 !!! The `setup.php` file must be put in the Grav root folder, the same folder where you can find `index.php`, `README.md` and the other Grav files.
 
 **setup_subdomain.php**:
-```php
+[prism classes="language-php line-numbers"]
 <?php
 /**
  * Multisite setup for subsites accessible via sub-domains.
@@ -86,10 +86,10 @@ return [
         ]
     ]
 ];
-```
+[/prism]
 
 **setup_subdirectory.php**:
-```php
+[prism classes="language-php line-numbers"]
 <?php
 /**
  * Multisite setup for sub-directories or path based
@@ -130,7 +130,7 @@ return [
         ]
     ]
 ];
-```
+[/prism]
 
 #### Advanced configuration (for Experts)
 
@@ -141,7 +141,7 @@ Inside this script, you can do anything, but please be aware that the `setup.php
 In the end, the `setup.php` has to return an associative array with the optional environment name **environment** and a stream collection **streams**
 (for more informations and in order to set them up correctly, see the section [Streams](#streams)):
 
-```php
+[prism classes="language-php line-numbers"]
 return [
   'environment' => '<name>',            // A name for the environment
   'streams' => [
@@ -165,7 +165,7 @@ return [
   ]
 ]
 
-```
+[/prism]
 
 !!!! Please be aware that a this very early stage you neither have access to the configuration nor to the URI instance and thus any call to a non-initialized class might end in a freeze of the system, in unexpected errors or in (complete) data loss.
 
@@ -175,7 +175,7 @@ In Grav streams are objects, mapping a set of physical directories of the system
 
 Mapping physical directories to a logical device can be done in two ways, either by setting up `paths` or `prefixes`. The former can be understood as a 1-to-1 mapping, whereas the latter (as the name suggests) allows you to combine several physical paths into one logical stream. Let's say you want to register a stream with the name "image". You can then with the stream `images://` list with
 
-```php
+[prism classes="language-php line-numbers"]
 'image' => [
     'type' => 'ReadOnlyStream',
     'paths' => [
@@ -183,11 +183,11 @@ Mapping physical directories to a logical device can be done in two ways, either
         'system/images'
     ]
 ];
-```
+[/prism]
 
 all images located in the folders `user/images` and `system/images`. For **prefixes** consider the example
 
-```php
+[prism classes="language-php line-numbers"]
 'cache' => [
     'type' => 'Stream',
     'prefixes' => [
@@ -195,13 +195,13 @@ all images located in the folders `user/images` and `system/images`. For **prefi
         'images' => ['images']
     ]
 ];
-```
+[/prism]
 
 In this case `cache://` resolves to `cache`, but `cache://images` resolves to `images`.
 
 Last but not least, streams can be used in other streams. For example, provided a stream `user` and a stream `system` exists, the above "image" stream can also be written as
 
-```php
+[prism classes="language-php line-numbers"]
 'image' => [
     'type' => 'ReadOnlyStream',
     'paths' => [
@@ -210,4 +210,4 @@ Last but not least, streams can be used in other streams. For example, provided 
     ]
 ];
 
-```
+[/prism]

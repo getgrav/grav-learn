@@ -2,7 +2,7 @@ home:
   alias: '/basics'
 
 pages:
-  theme: learn3
+  theme: learn4
   markdown:
     extra: true
   process:
@@ -33,6 +33,8 @@ assets:
   css_rewrite: true
   js_pipeline: true
   js_minify: true
+  collections:
+      jquery: system://assets/jquery/jquery-3.x.min.js
 
 errors:
   display: 1

@@ -20,14 +20,14 @@ There are many other use cases where you may wish to have the Grav site respond 
 
 As outlined in the [Headers -> Routes section](../headers#routes), you can provide explicit routing options for the **default route** as well as an array of **route aliases**:
 
-```
+[prism classes="language-yaml line-numbers"]
 routes:
   default: '/my/example/page'
   canonical: '/canonical/url/alias'
   aliases:
     - '/some/other/route'
     - '/can-be-any-valid-slug'
-```
+[/prism]
 
 These are processed and cached per-page, and are available along with what we call the **raw route** which is the route based on the **slugs** of the page hierarchy (which is how Grav works out a route by default).  So even if you provide custom page routes, the **raw route** is still always valid too.
 
@@ -48,10 +48,10 @@ The most basic kind of alias is a direct one-to-one mapping. In the `routes:` se
 
 !! It's important to note that these aliases are only used if no valid page is found with the route provided
 
-```
+[prism classes="language-yaml line-numbers"]
 routes:
   /something/else: '/blog/focus-and-blur'
-```
+[/prism]
 
 If you requested a URL `http://mysite.com/something/else` and that was not a valid page, the routes definition would actually serve you the page located at `/blog/focus-and-blur`, assuming it exists. This does not actually **redirect** the user to the provided page, it simply displays the page when you request the alias.
 
@@ -59,35 +59,35 @@ If you requested a URL `http://mysite.com/something/else` and that was not a val
 
 A more advanced type of alias redirect allows the use of a simple **regex** to map part of an alias to a route.  For example, if you had:
 
-```
+[prism classes="language-yaml line-numbers"]
 routes:
    /another/(.*): '/blog/$1'
-```
+[/prism]
 
 This would route the wildcard from the alias to the route, so `http://mysite.com/another/focus-and-blur` would actually display the page found at the `/blog/focus-and-blur` route. This is a powerful way to map one set of URLs to another. Great for moving your site from WordPress to Grav :)
 
 You can also perform the match to capture any alias, and map that to a specific route:
 
-```
+[prism classes="language-yaml line-numbers"]
 routes:
   /one-ring/(.*): '/blog/sunshine-in-the-hills'
-```
+[/prism]
 
 With this route alias, any URL that confirms to the wildcard: `/one-ring/to-rule-them-all` or `/one-ring/is-mine.html` will both show the content from the page with the route `/blog/sunshine-in-the-hills`.
 
 You can even get much more creative and map multiple items or use any regex syntax:
 
-```
+[prism classes="language-yaml line-numbers"]
 routes:
   /complex/(category|section)/(.*): /blog/$1/folder/$2
-```
+[/prism]
 
 This would match and rewrite the following:
 
-```
+[prism classes="language-text line-numbers"]
 /complex/category/article-1      -> /blog/category/folder/article-1
 /complex/section/article-2.html  -> /blog/section/folder/article-2.html
-```
+[/prism]
 
 This route would not match anything that doesn't start with `complex/category` or `complex/section`.  For more information, [Regexr.com](http://regexr.com/) is a fantastic resource to learn about and test regular expressions.
 
@@ -97,12 +97,12 @@ The other corollary option to **route aliases** is provided by **redirects**. Th
 
 There are three system-level configuration options that affect Redirects:
 
-```
+[prism classes="language-yaml line-numbers"]
 pages:
   redirect_default_route: false
   redirect_default_code: 302
   redirect_trailing_slash: true
-```
+[/prism]
 
 * `redirect_default_route` enables Grav to automatically redirect to the page's default route.
 * `redirect_default_code` allows you to set the default HTTP redirect codes:
@@ -114,27 +114,27 @@ pages:
 
 For example:
 
-```
+[prism classes="language-yaml line-numbers"]
 redirects:
     /jungle: '/blog/the-urban-jungle'
-```
+[/prism]
 
 You can also explicitly pass the redirect code between square brackets `[]` as part of the URL:
 
-```
+[prism classes="language-yaml line-numbers"]
 redirects:
     /jungle: '/blog/the-urban-jungle[303]'
-```
+[/prism]
 
 If you were to point your browser to `http://mysite.com/jungle`, you would actually get redirected and end up on the page: `http://mysite.com/blog/the-urban-jungle`.
 
 The same regular expression capabilities that exist for Route Aliases, also exist for Redirects.  For example:
 
-```
+[prism classes="language-yaml line-numbers"]
 redirects:
     /redirect-test/(.*): /$1
     /complex/(category|section)/(.*): /blog/$1/folder/$2
-```
+[/prism]
 
 These look almost identical to the Route Alias version, but instead of transparently showing the new page, Grav actually redirects the browser and loads the new page specifically.
 
@@ -142,10 +142,10 @@ These look almost identical to the Route Alias version, but instead of transpare
 
 When you set a certain page to be your site's home via the `system.yaml` file:
 
-```
+[prism classes="language-yaml line-numbers"]
 home:
   alias: '/home'
-```
+[/prism]
 
 You are effectively telling Grav to add a route of `/` as an alias for that page.  This means that when Grav is requesting the page for the `/` URL, it finds the page you have set.
 
@@ -153,7 +153,7 @@ However, Grav really doesn't do anything special for pages that are beneath this
 
 You can enable this behavior by toggling the following value:
 
-```
+[prism classes="language-yaml line-numbers"]
 home:
   hide_in_urls: true
-```
+[/prism]

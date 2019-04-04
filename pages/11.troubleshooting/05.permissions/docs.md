@@ -33,12 +33,14 @@ Being a file-based CMS, Grav needs to write to the file-system in order to creat
 
 A simple **permissions-fixing** shell script can be used to do this:
 
-    #!/bin/sh
-    chown -R joeblow:staff .
-    find . -type f | xargs chmod 664
-    find ./bin -type f | xargs chmod 775
-    find . -type d | xargs chmod 775
-    find . -type d | xargs chmod +s
+[prism classes="language-bash line-numbers"]
+#!/bin/sh
+chown -R joeblow:staff .
+find . -type f | xargs chmod 664
+find ./bin -type f | xargs chmod 775
+find . -type d | xargs chmod 775
+find . -type d | xargs chmod +s
+[/prism]
 
 You can use this file and edit as needed for the appropriate user and group that works for your setup.  What this script basically does, is:
 
@@ -51,19 +53,19 @@ You can use this file and edit as needed for the appropriate user and group that
 
 If image files in the cache folder are written with the wrong permissions, try setting in your `user/config/system.yaml` file,
 
-```
+[prism classes="language-yaml line-numbers"]
 images:
   cache_perms: '0775'
-```
+[/prism]
 
 if the `images` property is already present, just add `cache_perms: '0775'` at the end of it.
 
 If this does still not work, create a `setup.php` file in the root Grav folder (the one with `index.php`), and add
 
-```
+[prism classes="language-php line-numbers"]
 <?php
 umask(0002);
-```
+[/prism]
 
 into it.
 

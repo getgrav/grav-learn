@@ -1,5 +1,7 @@
 ---
 title: Headers / Frontmatter
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -206,13 +208,17 @@ This will always take you to the `/profile` route after a successful login.
       '<': 'lt'
 ```
 
-* `extra`: Enable support for Markdown Extra support (GFM by default)
-* `auto_line_breaks`: Enable automatic line breaks
-* `auto_url_links`: Enable automatic HTML links
-* `escape_markup`: Escape markup tags into entities
-* `special_chars`: List of special characters to automatically convert to
+[div class="table-keycol"]
+| Property | Description |
+| -------- | ----------- |
+| **extra:** | Enable support for Markdown Extra support (GFM by default) |
+| **auto_line_breaks:** | Enable automatic line breaks |
+| **auto_url_links:** | Enable automatic HTML links |
+| **escape_markup:** | Escape markup tags into entities |
+| **special_chars:** | List of special characters to automatically convert to |
+[/div]
 
-These Markdown settings are a new feature we added in **v0.9.14**.  You can enable these globally via your `user/config/system.yaml` configuration file, or you can override this global setting _per-page_ with this `markdown` header option.
+You can enable these globally via your `user/config/system.yaml` configuration file, or you can override this global setting _per-page_ with this `markdown` header option.
 
 ### Never Cache Twig
 
@@ -287,7 +293,7 @@ routes:
     - '/can-be-any-valid-slug'
 ```
 
-With Grav **0.9.30** you can now provide a **default route** that overrides the standard route structure as defined by the folder structure.
+You can now provide a **default route** that overrides the standard route structure as defined by the folder structure.
 
 You can also specify a specific **canonical route** that can be used in themes to output a canonical link:
 
@@ -313,7 +319,7 @@ Grav automatically looks for a page with the route `/error` if another page cann
 ssl: true
 ```
 
-As of Grav **1.0.9** you can now enable a specific page to be forced with SSL **on** or **off**.  This **only works** with the `absolute_urls: true` option set in the `system.yaml` configuration.  This is because to be able to switch back and forth between SSL and non-SSL pages, you must be using full URLs with the protocol and host included.
+You can now enable a specific page to be forced with SSL **on** or **off**.  This **only works** with the `absolute_urls: true` option set in the `system.yaml` configuration.  This is because to be able to switch back and forth between SSL and non-SSL pages, you must be using full URLs with the protocol and host included.
 
 ### Summary
 
@@ -326,16 +332,28 @@ summary:
 
 The **summary** option configures what the `page.summary()` method returns.  This is most often used in a blog-listing type scenario, but can be used anytime you need a synopsis or summary of the page content.  The scenarios are as follows:
 
-1. `enabled: false` -- Switch off page summary (the summary returns the same as the page content)
-2. `enabled: true`:
-    1. `size: 0` -- No truncation of content happens except if a summary delimiter is found.
-    2. `size: int` -- Content greater than length **int** will be truncated. If a summary delimiter is found, then the content will be truncated up to the summary delimiter.
-    3. `format: long` -- Any summary delimiter of the content will be ignored.
-        1. `size: 0` -- Summary equals the entire page content.
-        2. `size: int` -- The content will be truncated after **int** chars, independent of summary delimiter position.
-    4. `format: short` -- Detect and truncate content up to summary delimiter position.
-        1. `size: 0` -- If no summary delimiter is found, the summary equals the page content, otherwise the content will be truncated up to summary delimiter position.
-        2. `size: int` -- Always truncate the content after **int** chars. If a summary delimiter was found, then truncate content up to summary delimiter position.
+[div class="table-keycol"]
+| Property | Description |
+| -------- | ----------- |
+| **enabled:** | Switch off page summary (the summary returns the same as the page content) |
+| **format:** | <ul><li>`long` = Any summary delimiter of the content will be ignored<li>`short` = Detect and truncate content up to summary delimiter position</ul> |
+[/div]
+
+The `size` attribute has different meanings when the format is set to `short` and `long`:
+
+[div class="table-keycol"]
+| Short Size | Description |
+| -------- | ----------- |
+| **size: 0** | If no summary delimiter is found, the summary equals the page content, otherwise the content will be truncated up to summary delimiter position |
+| **size:** `int` | Always truncate the content after **int** chars. If a summary delimiter was found, then truncate content up to summary delimiter position |
+[/div]
+
+[div class="table-keycol"]
+| Long Size | Description |
+| -------- | ----------- |
+| **size: 0** | Summary equals the entire page content |
+| **size:** `int` | The content will be truncated after **int** chars, independent of summary delimiter position |
+[/div]
 
 ### Template
 
@@ -381,11 +399,11 @@ By default, a page is **visible** in the **navigation** if the surrounding folde
 
 Of course, you can create your own custom page headers using any valid YAML syntax.  These would be page-specific and be available for any plugin, or theme to make use of. A good example of this would be to set some variable specific to a sitemap plugin, such as:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 sitemap:
     changefreq: monthly
     priority: 1.03
-```
+[/prism]
 
 The significance of these headers is that Grav does not use them by default. They are only read by the **sitemap plugin** to determine how often this particular page is modified and what its priority should be.
 
@@ -395,22 +413,22 @@ Another example would be to store page-specific data that could then be used by 
 
 For example, you might have want to associate some author reference for the page. If you added these YAML settings to the page header:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 author:
     name: Sandy Johnson
     twitter: @sandyjohnson
     bio: Sandy is a freelance journalist and author of several publications on open source CMS platforms.
-```
+[/prism]
 
 You could then access them from Twig:
 
-```
+[prism classes="language-twig line-numbers"]
 <section id="author-details">
     <h2>{{ page.header.author.name }}</h2>
     <p>{{ page.header.author.bio }}</p>
     <span>Contact: <a href="https://twitter.com/{{ page.header.author.twitter }}"><i class="fa fa-twitter"></i></a></span>
 </section>
-```
+[/prism]
 
 ## Meta Page Headers
 
@@ -418,7 +436,7 @@ Meta headers allow you to set the [standard set of HTML **<meta> tags**](http://
 
 #### Standard Metatag examples
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 metadata:
     refresh: 30
     generator: 'Grav'
@@ -427,11 +445,11 @@ metadata:
     author: 'John Smith'
     robots: 'noindex, nofollow'
     my_key: 'my_value'
-```
+[/prism]
 
 This will produce the HTML:
 
-```html
+[prism classes="language-twig line-numbers"]
 <meta name="generator" content="Grav" />
 <meta name="description" content="Your page description goes here" />
 <meta http-equiv="refresh" content="30" />
@@ -439,66 +457,66 @@ This will produce the HTML:
 <meta name="author" content="John Smith" />
 <meta name="robots" content="noindex, nofollow" />
 <meta name="my_key" content="my_value" />
-```
+[/prism]
 
 All HTML5 metatags are supported.
 
 #### OpenGraph Metatag examples
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 metadata:
     'og:title': The Rock
     'og:type': video.movie
     'og:url': http://www.imdb.com/title/tt0117500/
     'og:image': http://ia.media-imdb.com/images/rock.jpg
-```
+[/prism]
 
 This will produce the HTML:
 
-```
+[prism classes="language-html line-numbers"]
 <meta name="og:title" property="og:title" content="The Rock" />
 <meta name="og:type" property="og:type" content="video.movie" />
 <meta name="og:url" property="og:url" content="http://www.imdb.com/title/tt0117500/" />
 <meta name="og:image" property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
-```
+[/prism]
 
 For a full outline of all OpenGraph metatags that can be used, please consult the [official documentation](http://ogp.me/).
 
 #### Facebook Metatag examples
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 metadata:
     'fb:app_id': your_facebook_app_id
-```
+[/prism]
 
 This will produce the HTML:
 
-```
+[prism classes="language-html line-numbers"]
 <meta name="fb:app_id" property="fb:app_id" content="your_facebook_app_id" />
-```
+[/prism]
 
 Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific tags and these are support automatically by Grav.
 
 #### Twitter Metatag examples
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 metadata:
     'twitter:card' : summary
     'twitter:site' : @flickr
     'twitter:title' : Your Page Title
     'twitter:description' : Your page description can contain summary information
     'twitter:image' : https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg
-```
+[/prism]
 
 This will produce the HTML:
 
-```html
+[prism classes="language-twig line-numbers"]
 <meta name="twitter:card" property="twitter:card" content="summary" />
 <meta name="twitter:site" property="twitter:site" content="@flickr" />
 <meta name="twitter:title" property="twitter:title" content="Your Page Title" />
 <meta name="twitter:description" property="twitter:description" content="Your page description can contain summary information" />
 <meta name="twitter:image" property="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" />
-```
+[/prism]
 
 For a full outline of all Twitter metatags that can be used, please consult the [official documentation](https://dev.twitter.com/cards/overview).
 
@@ -514,10 +532,10 @@ An advanced feature that can come in handy for some power users is the ability t
 
 To take advantage of this, simply create a `frontmatter.yaml` file alongside your page's `.md` file and add any valid frontmatter values.  For example:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 metadata:
     generator: 'Super Grav'
     description: Give your page a powerup with Grav!
-```
+[/prism]
 
 !!!! Utilizing frontmatter.yaml is a file-side feature and is **not supported** by the admin plugin.

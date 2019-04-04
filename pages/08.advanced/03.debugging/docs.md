@@ -12,12 +12,12 @@ When developing themes and plugins, there is often a need to display **debugging
 
 Grav comes with a great tool to make this effort easier called via a **Debug Bar**.  This feature is **disabled** by default, but can be turned on either globally or for your [development environment](../environment-config) only via the `system.yaml` configuration file:
 
-```
+[prism classes="language-yaml line-numbers"]
 debugger:
   enabled: true                        # Enable Grav debugger and following settings
   shutdown:
     close_connection: true             # Close the connection before calling onShutdown(). false for debugging
-```
+[/prism]
 
 ![](config.png)
 
@@ -37,9 +37,9 @@ If you are trying to debug some PHP, for example a custom plugin you are develop
 
 For example, you can easily dump a PHP variable or object:
 
-```
+[prism classes="language-php"]
 dump($this);
-```
+[/prism]
 
 and see the results in your browser:
 
@@ -47,25 +47,25 @@ and see the results in your browser:
 
 You can also dump variables into the **Messages** tab of the Debug Bar by using the syntax:
 
-```
+[prism classes="language-php"]
 $grav['debugger']->addMessage($this)
-```
+[/prism]
 
 ### Dump command for Twig
 
 You can also display Twig variables from your Twig templates.  This is done in a similar fashion, but the results are displayed in the **Messages** panel of the Debug Bar. This feature is **disabled** by default, but can be turned on either globally or for your [development environment](../environment-config) only via the `system.yaml` configuration file:
 
-```
+[prism classes="language-yaml line-numbers"]
 twig:
   debug: true                        # Enable Twig debugger
-````
+[/prism]
 
 For example, you can easily dump a Twig variable or object:
 
 {% verbatim %}
-```
+[prism classes="language-twig line-numbers"]
 {{ dump(page.header) }}
-```
+[/prism]
 {% endverbatim %}
 
 and see the results in the Debugbar:
@@ -76,20 +76,20 @@ and see the results in the Debugbar:
 
 Our new error display page provides detailed information, backtraces, and even relevant code blocks.  This helps to more quickly isolate, identify and resolve critical errors. By default in Grav 1.0+, these are turned off by default, so you will need to enable them to take advantage of this helpful error handling for development:
 
-```
+[prism classes="language-yaml line-numbers"]
 errors:
   display: true
-```
+[/prism]
 
 ![](error.png)
 
 For production environments you can disable the detailed error page with something more subtle by configuring the errors options in your `user/config/system.yaml` file and rely on errors being logged to file:
 
-```
+[prism classes="language-yaml line-numbers"]
 errors:
   display: false
   log: true
-```
+[/prism]
 
 ![](error2.png)
 
@@ -97,7 +97,7 @@ errors:
 
 The ability to log information is often useful, and once again, Grav provides us with a simple put powerful logging feature.  Use one of the following syntaxes:
 
-```
+[prism classes="language-twig line-numbers"]
 $grav['log']->info('My informational message');
 $grav['log']->notice('My notice message');
 $grav['log']->debug('My debug message');
@@ -107,6 +107,6 @@ $grav['log']->critical('My critical message');
 $grav['log']->alert('My alert message');
 $grav['log']->emergency('Emergency, emergency, there is an emergency here!');
 
-```
+[/prism]
 
 All your message will be appended to the `/logs/grav.log` file.

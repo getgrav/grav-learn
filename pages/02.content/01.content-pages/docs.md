@@ -54,7 +54,7 @@ All content pages are located in the `/user/pages` folder. Each **Page** should 
 
 Grav understands that any integer value followed by a period will be solely for ordering, and is removed internally in the system. For example, if you have a folder named `01.home`, Grav will treat this folder as `home`, but will ensure that with default ordering, it comes before `02.blog`.
 
-```txt
+[prism classes="language-txt line-numbers"]
 /user
 └── /pages
     ├── /01.home
@@ -69,7 +69,7 @@ Grav understands that any integer value followed by a period will be solely for 
     │   └── /blog-item-5
     ├── /03.about-us
     └── /error
-```
+[/prism]
 
 Your site must have an entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://yoursite.com` in your browser, by default Grav expects an alias `home/`, but you can override the home-location by changing the `home.alias` option in the [Grav configuration file](/basics/grav-configuration).
 
@@ -85,17 +85,19 @@ If no number is provided as a prefix of the folder name, the page is considered 
 
 When dealing with collections, there are several options available to control how folders are ordered. The most important option is set in the `content.order.by` of the page configuration settings. The options are:
 
-| Ordering     | Details                                                                                                                                              |
-| :----------  | :----------                                                                                                                                          |
-| **default**  | The order based on the file system, i.e. `01.home` before `02.advark`                                                                                |
-| **title**    | The order is based on the title as defined in each page                                                                                              |
-| **basename** | The order is based on the alphabetic folder without numeric order                                                                                    |
-| **date**     | The order based on the date as defined in each page                                                                                                  |
-| **modified** | The order based on the modified timestamp of the page                                                                                                |
-| **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                    |
+[div class="table-keycol"]
+| Property | Description |
+| -------- | ----------- |
+| **default**  | The order based on the file system, i.e. `01.home` before `02.advark`|
+| **title**    | The order is based on the title as defined in each page |
+| **basename** | The order is based on the alphabetic folder without numeric order |
+| **date**     | The order based on the date as defined in each page|
+| **modified** | The order based on the modified timestamp of the page |
+| **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed |
 | **header.x** | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015` |
-| **manual**   | The order based on the `order_manual` variable                                                                                                       |
-| **random**   | The order is randomized                                                                                                                              |
+| **manual**   | The order based on the `order_manual` variable |
+| **random**   | The order is randomized |
+[/div]
 
 You can specifically define a manual order by providing a list of options to the `content.order.custom` configuration setting. This will work in conjunction with the `content.order.by` because it first tries to order the pages manually, but any pages not specified in the manual order, will fall through and be ordered by the ordering provided.
 
@@ -113,12 +115,17 @@ You can, of course, name your file whatever you like, for example: `document.md`
 
 An example page file could look like this:
 
-```
+[div class="no-margin-bottom"]
+[prism classes="language-yaml line-numbers"]
 ---
 title: Page Title
 taxonomy:
     category: blog
 ---
+[/prism]
+[/div]
+[div class="no-margin-top"]
+[prism classes="language-markdown line-numbers" ln-start="6"]
 # Page Title
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor eu
@@ -128,7 +135,8 @@ ultricies nisl. Suspendisse tincidunt euismod risus, _quis feugiat_ arcu tincidu
 eget. Nulla eros mi, commodo vel ipsum vel, aliquet congue odio. Class aptent taciti
 sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque
 velit orci, laoreet at adipiscing eu, interdum quis nibh. Nunc a accumsan purus.
-```
+[/prism]
+[/div]
 
 The settings between the pair of `---` markers are known as the YAML FrontMatter, and it is comprised of basic YAML settings for the page.
 
@@ -144,7 +152,7 @@ By default, this value is `300` characters. You can override this in your `user/
 
 You need to ensure you put this in your content with blank lines **above** and **below**. For example:
 
-```
+[prism classes="language-markdown line-numbers"]
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -160,7 +168,7 @@ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-```
+[/prism]
 
 This will use the text above the separator when referenced by `page.summary()` and the full page content when referenced by `page.content()`.
 
@@ -173,14 +181,14 @@ Grav has a useful feature that allows you to find another page and perform actio
 This allows you to perform a wide variety of functionality from any page on your Grav site. For example, you may want to provide a list of all current projects on a particular project detail page:
 
 {% verbatim %}
-```
+[prism classes="language-twig line-numbers"]
 # All Projects
 <ul>
 {% for p in page.find('/projects').children if p != page %}
 <li><a href="{{p.url}}">{{ p.title }}</a></li>
 {% endfor %}
 </ul>
-```
+[/prism]
 {% endverbatim %}
 
 In the next section, we will continue to dig into the specifics of a Page in detail.
@@ -194,9 +202,9 @@ When Grav reads page content, it stores this content in cache. That way, the nex
 This is where `contentMeta()` comes in. We use ContentMeta in our [Shortcode](https://github.com/getgrav/grav-plugin-shortcode-core)-plugin to [retrieve sections from other pages](https://github.com/getgrav/grav-plugin-shortcode-core#sections-from-other-pages) using shortcodes. For example:
 
 {% verbatim %}
-```
+[prism classes="language-twig line-numbers"]
 <div id="author">{{ page.find('/my/custom/page').contentMeta.shortcodeMeta.shortcode.section.author }}</div>
-```
+[/prism]
 {% endverbatim %}
 
 We used this in Shortcode Core to store CSS and JS assets that the shortcode on the page requires, however this feature can be used to store just about any data structure you need.

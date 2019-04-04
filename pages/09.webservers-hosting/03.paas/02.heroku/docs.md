@@ -21,35 +21,49 @@ Download the Heroku Toolbelt, which is a command-line utility needed to deploy c
 
 Once installed, type
 
-`heroku login`
+
+[prism classes="language-bash command-line"]
+heroku login
+[/prism]
+
 
 Enter your credentials.
 
 Now checkout the PHP "Getting Started" example they provide in your local web root, so you can test locally the site prior to deploying it.
 
-`git clone https://github.com/heroku/php-getting-started.git your-folder`
+[prism classes="language-bash command-line"]
+git clone https://github.com/heroku/php-getting-started.git your-folder
+[/prism]
 
-`cd your-folder`
-
+[prism classes="language-bash command-line"]
+cd your-folder
+[/prism]
 
 Now deploy your app with
 
-`heroku create`
+[prism classes="language-bash command-line"]
+heroku create
+[/prism]
 
 and
 
-`git push heroku master`
-
+[prism classes="language-bash command-line"]
+git push heroku master
+[/prism]
 
 Ensure that at least one instance of the app is running:
 
-
-`heroku ps:scale web=1`
-
+[prism classes="language-bash command-line"]
+heroku ps:scale web=1
+[/prism]
 
 and open the site in the browser:
 
-`heroku open`
+
+[prism classes="language-bash command-line"]
+heroku open
+[/prism]
+
 
 
 You should now see the sample PHP project. Now that all is set, you're ready to go on and run Grav instead of the sample site.
@@ -60,9 +74,9 @@ Copy your Grav site files there, making sure you're also copying the `.htaccess`
 
 Now open the `Procfile` file. This is a Heroku-specific file. Change the line to
 
-```
+[prism classes="language-text"]
 web: vendor/bin/heroku-php-apache2 ./
-```
+[/prism]
 
 You should make sure the site works locally, prior to uploading it to Heroku, just to ensure the are no errors.
 
@@ -72,28 +86,32 @@ Now commit to the repository with
 
 Then edit `composer.json` and add post deploy command to the `scripts` section as in
 
-```
+[prism classes="language-json line-numbers"]
 "scripts": {
   "compile": [
     "bin/grav install",
     "bin/gpm install quark -y"
   ]
 }
-```
+[/prism]
 
 and commit that to the repository with 
 
-`git add . ; git commit -am 'Add post deploy bin/grav install'`
+[prism classes="language-bash command-line"]
+git add . ; git commit -am 'Add post deploy bin/grav install'
+[/prism]
 
 Then run
 
-`git push heroku master`
+[prism classes="language-bash command-line"]
+git push heroku master
+[/prism]
 
 and the site should be good to go!
 
 Due to the ephemeral nature of Heroku's filesystem, all needed plugins or themes must be added to `composer.json` just like above and kept there so they are installed every time the site is pushed to Heroku. For example, if you need the `admin` plugin and a theme, add them in composer like in
 
-```
+[prism classes="language-json line-numbers"]
 "scripts": {
   "compile": [
     "bin/grav install",
@@ -101,4 +119,4 @@ Due to the ephemeral nature of Heroku's filesystem, all needed plugins or themes
     "bin/gpm install awesome-theme-name-here -y"
   ]
 }
-```
+[/prism]

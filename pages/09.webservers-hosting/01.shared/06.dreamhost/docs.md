@@ -32,24 +32,32 @@ When you add a new domain, Dreamhost creates a folder for it under your account 
 
 Access the server using SSH and go into that folder, then download Grav into it:
 
-`wget https://github.com/getgrav/grav/releases/download/{{ grav_version }}/grav-v{{ grav_version}}.zip`
+[prism classes="language-bash command-line"]
+wget https://github.com/getgrav/grav/releases/download/{{ grav_version }}/grav-v{{ grav_version}}.zip
+[/prism]
 
 (Please check on [](https://github.com/getgrav/grav/releases/) the latest version available)
 
 Unzip with `unzip grav-v{{ grav_version }}.zip`. This will create a `grav` folder, so we need to move the files up to the current folder.
 Just type:
 
-`mv grav/* grav/.htaccess ./; rmdir grav`
+[prism classes="language-bash command-line"]
+mv grav/* grav/.htaccess ./; rmdir grav
+[/prism]
 
 You can now also delete the zip file:
 
-`rm grav-v{{ grav_version }}.zip`
+[prism classes="language-bash command-line"]
+rm grav-v{{ grav_version }}.zip
+[/prism]
 
 Grav has now been successfully installed. Try accessing the site from the browser, you should see a Grav welcome message.
 
 You can now install plugins and themes, for example type this to install the Grav Admin plugin:
 
-`bin/gpm install admin`
+[prism classes="language-bash command-line"]
+bin/gpm install admin
+[/prism]
 
 ![](install-plugin.png)
 
@@ -57,8 +65,8 @@ You can now install plugins and themes, for example type this to install the Gra
 
 OPCache is supported but not enabled by default. You need to manually activate it by creating a phprc file under your user folder, under `.php/5.6/phprc` (change the number according to your PHP version). In this file, put the following code:
 
-```
+[prism classes="language-text"]
 zend_extension=opcache.so
-```
+[/prism]
 
 You can further customize OPCache in that file according to your needs.

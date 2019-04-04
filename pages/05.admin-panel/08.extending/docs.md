@@ -21,7 +21,7 @@ In your plugin, the path to templates should be: `user/plugins/myadminplugin/adm
 
 Thus we are overriding the path to the template, but non-destructively. We target only the relevant template, in a way that does not override any unnecessary templates or hinder other admin themes from registering their alternate templates for the same use. To do this, we register the path in our plugin like this:
 
-```
+[prism classes="language-twig line-numbers"]
 public static function getSubscribedEvents()
 {
     return [
@@ -33,7 +33,7 @@ public function onAdminTwigTemplatePaths($event)
 {
     $event['paths'] = [__DIR__ . '/admin/themes/grav/templates'];
 }
-```
+[/prism]
 
 It is important to remember that the theme used in the Admin plugin is sensitive to the templates available. As a general rule, you should only modify templates with *low impact*, that is, make changes that will not break the interface for any user who installs your plugin. In this sense it is better to override `nav-user-avatar.html.twig` than `nav.html.twig`, as the latter contains much more functionality but uses `{% include 'partials/nav-user-details.html.twig' %}` to include the former.
 
@@ -41,7 +41,7 @@ It is important to remember that the theme used in the Admin plugin is sensitive
 
 To create a custom field, we will add it to `PLUGIN_TEMPLATES/forms/fields/myfield`. In the *myfield*-folder we need a Twig-template which declares how the field will operate. The easiest way to add a field is to find a similar field in `ADMIN_TEMPLATES/forms/fields` and copy that, to see how they are structured. For example, to add a HTML range-slider we create `PLUGIN_TEMPLATES/forms/fields/range/range.html.twig`. In this file, we add:
 
-```
+[prism classes="language-twig line-numbers"]
 {% extends "forms/field.html.twig" %}
 
 {% block input_attributes %}
@@ -51,11 +51,11 @@ To create a custom field, we will add it to `PLUGIN_TEMPLATES/forms/fields/myfie
     {% if field.validate.step %}step="{{ field.validate.step }}"{% endif %}
     {{ parent() }}
 {% endblock %}
-```
+[/prism]
 
 This adds a field-type called "range", with the type *range*, that allows the user to select a value by [sliding a button](http://www.html5tutorial.info/html5-range.php). To use the new field in a blueprint, we would simply add this in [*blueprints.yaml*](/plugins/plugin-tutorial#required-items-to-function):
 
-```
+[prism classes="language-yaml line-numbers"]
 form:
   fields:
     radius:
@@ -67,13 +67,13 @@ form:
         min: 0
         max: 100
         step: 10
-```
+[/prism]
 
 Which gives us a slider with a default value of 100, where accepted values are between 0 and 100, and each value increments by 10 as we slide it.
 
 We could extend this further by using the `prepend` or `append` blocks available, by for example adding a visual indicator of the selected value. We change `range.html.twig` to contain this:
 
-```
+[prism classes="language-twig line-numbers"]
 {% extends "forms/field.html.twig" %}
 
 {% block input_attributes %}
@@ -98,7 +98,7 @@ We could extend this further by using the `prepend` or `append` blocks available
     </output>
   {% endif %}
 {% endblock append %}
-```
+[/prism]
 
 Thus we append an `<output>`-tag which will hold the selected value, and add to it and the field itself simple styling to align them properly. We also add an `oninput`-attribute to the field, so that changing values automatically updates the `<output>`-tag with the value. This requires that each field using the range-slider has an unique `id`-property, like the `id: radius` we declared above, which should be something like `id: myadminplugin_radius` to avoid conflicts.
 
@@ -111,19 +111,21 @@ To create a custom page template, you will need a blueprint file to define the f
 In the root of the theme/ plugin folder, create a folder named `templates`.  Inside this folder, create a new mypage.html.twig file.  This will be the Twig template for the new page template "mypage".
 
 Example mypage.html.twig:
-```
+
+[prism classes="language-twig line-numbers"]
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
     {{ page.header.newTextField }}
     {{ page.content}}
 {% endblock %}
-```
+[/prism]
+
 There is more information about Twig theming in the [Twig Primer](/themes/twig-primer) section.
 
 Themes automatically find template files within the theme's `templates` folder.  If the template is being added via a plugin, you'll need to add the template via the event `onTwigTemplatePaths`:
 
-```
+[prism classes="language-twig line-numbers"]
     public function onPluginsInitialized()
     {
         // If in an Admin page.
@@ -144,7 +146,7 @@ Themes automatically find template files within the theme's `templates` folder. 
         $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
-```
+[/prism]
 
 
 #### Adding a custom page blueprint to a theme/ plugin
@@ -153,7 +155,7 @@ In order for the Admin plugin to provide a new `mypage` page option, create a fo
 
 The example blueprint `mypage.yaml` below extends the default page template, and then adds header.newTextField under the content tab.:
 
-```
+[prism classes="language-yaml line-numbers"]
 title: My Page Blueprint
 '@extends':
     type: default
@@ -172,11 +174,11 @@ form:
               type: text
               label: 'New Text Field'
 
-```
+[/prism]
 
 Similarly to the `templates` folder, a theme will automatically add any blueprint yaml files found within the `blueprints` folder.  If the blueprint is being added via a plugin, you'll need to add the blueprint via the event `onGetPageTemplates`:
 
-```
+[prism classes="language-twig line-numbers"]
     public function onPluginsInitialized()
     {
         // If in an Admin page.
@@ -198,7 +200,7 @@ Similarly to the `templates` folder, a theme will automatically add any blueprin
         $types->scanTemplates($locator->findResource('plugin://' . $this->name . '/templates'));
     }
 
-```
+[/prism]
 
 #### Creating a new page
 

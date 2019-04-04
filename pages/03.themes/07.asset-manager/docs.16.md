@@ -1,5 +1,7 @@
 ---
 title: Asset Manager
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -16,7 +18,7 @@ It's much more flexible and more reliable than before. Also it's considerably 'c
 
 The Grav Asset Manager has a simple set of configuration options.  The default values are located in the system `system.yaml` file, but you can override any or all of them in your `user/config/system.yaml` file:
 
-```
+[prism classes="language-yaml line-numbers"]
 assets:                                # Configuration for Assets Manager (JS, CSS)
   css_pipeline: false                  # The CSS pipeline is the unification of multiple CSS resources into one file
   css_pipeline_include_externals: true # Include external URLs in the pipeline by default
@@ -31,7 +33,7 @@ assets:                                # Configuration for Assets Manager (JS, C
   enable_asset_timestamp: false        # Enable asset timestamps
   collections:
     jquery: system://assets/jquery/jquery-2.x.min.js
-```
+[/prism]
 
 ## Structure
 
@@ -41,7 +43,7 @@ There are multiple levels of positioning control as outlined in the diagram belo
 * **Position** - `before`, `pipeline`(default), and `after`.  Basically this allows you to specify where in the group the asset should be loaded.  
 * **Priority** - This controls the **order**, where larger integers (e.g. `100`) will be output before lower integers. `10` is default.
 
-```bash
+[prism classes="language-text"]
  CSS
 ┌───────────────────────┐
 │ Group (top)           │
@@ -84,7 +86,7 @@ There are multiple levels of positioning control as outlined in the diagram belo
 ││└───────────────────┘││
 │└─────────────────────┘│
 └───────────────────────┘
-```
+[/prism]
 
 By defaults, `CSS` and `JS` default to display in the `pipeline` position when they are output.  While `InlineCSS` and `InlineJS` default to be in the `after` position.  This is configurable though, and you can set any asset to be in any position.
 
@@ -105,7 +107,7 @@ The Asset Manager also supports:
 
 An example of how you can add CSS files in your theme can be found in the default **quark** theme that comes bundled with Grav. If you have a look at the [`templates/partials/base.html.twig`](https://github.com/getgrav/grav-theme-quark/blob/develop/templates/partials/base.html.twig) partial, you will see something similar to the following:
 
-```html
+[prism classes="language-twig line-numbers"]
 <!DOCTYPE html>
 <html>
     <head>
@@ -138,7 +140,7 @@ An example of how you can add CSS files in your theme can be found in the defaul
     {% endblock %}
     </body>
 </html>
-```
+[/prism]
 
 The `block stylesheets` twig tag just defines a region that can be replaced or appended to in templates that extend the one. Within the block, you will see a number of `do assets.addCss()` calls.
 
@@ -212,32 +214,32 @@ You can also pass anything else you like in the options array, and if they are n
 
 For example:
 
-```twig
+[prism classes="language-twig"]
 {% do assets.addCss('page://01.blog/assets-test/example.css?foo=bar', { priority: 20, loading: 'inline', position: 'before'}) %}
-```
+[/prism]
 
 Will render as:
 
-```html
+[prism classes="language-html line-numbers"]
 <style>
 h1.blinking {
     text-decoration: underline;
 }
 </style>
 <link.....
-```
+[/prism]
 
 Another example:
 
-```twig
+[prism classes="language-twig"]
 {% do assets.addJs('page://01.blog/assets-test/example.js', {loading: 'async', id: 'custom-css'}) %}
-```
+[/prism]
 
 Will render as:
 
-```html
+[prism classes="language-html"]
 <script src="/grav/user/pages/01.blog/assets-test/example.js" async id="custom-css"></script>
-```
+[/prism]
 
 ## Rendering Assets
 
@@ -275,7 +277,7 @@ Each asset is rendered either as a script link or inline, depending on the asset
 
 Grav now has a powerful feature called **named assets** that allows you to register a collection of CSS and JavaScript assets with a name.  Then you can simply **add** those assets to the Asset Manager via the name you registered the collection with.  Grav comes preconfigured with **jQuery** but has the ability to define custom collections in the `system.yaml` to be used by any theme or plugin:
 
-```
+[prism classes="language-yaml line-numbers"]
 assets:
   collections:
     jquery: system://assets/jquery/jquery-2.1.3.min.js
@@ -283,18 +285,18 @@ assets:
         - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css
         - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css
         - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js
-```
+[/prism]
 
 You can also use the `registerCollection()` method programatically.
 
-```
+[prism classes="language-yaml line-numbers"]
 $assets = $this->grav['assets'];
 $bootstrapper_bits = [https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css,
                       https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css,
                       https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js];
 $assets->registerCollection('bootstrap', $bootstrap_bits);
 $assets->add('bootstrap', 100);
-```
+[/prism]
 
 An example of this action can be found in the [**bootstrapper** plugin](https://github.com/getgrav/grav-plugin-bootstrapper/blob/develop/bootstrapper.php#L51-L71).
 
@@ -304,30 +306,30 @@ The Asset manager lets you pass an optional `group` as part of an options array 
 
 To take advantage of this capability you must specify the group when adding the asset, and should use the options syntax:
 
-```
+[prism classes="language-twig"]
 {% do assets.addJs('theme://js/example.js', {'priority':102, 'group':'bottom'}) %}
-```
+[/prism]
 
 Then for these assets in the bottom group to render, you must add the following to your theme:
 
-```
+[prism classes="language-twig"]
 {{ assets.js('bottom') }}
-```
+[/prism]
 
 If no group is defined for an asset, then `head` is the default group.  If no group is set for rendering, the `head` group will be rendered. This ensures the new functionality is 100% backwards compatible with existing themes.
 
 The same goes for CSS files:
 
-```
+[prism classes="language-twig"]
 {% do assets.addCss('theme://css/ie8.css', {'group':'ie'}) %}
-```
+[/prism]
 
 and to render:
 
 
-```
+[prism classes="language-twig"]
 {{ assets.css('ie') }}
-```
+[/prism]
 
 ## Change attribute of the rendered CSS/JS assets
 
@@ -337,11 +339,11 @@ To change the defaults, or to add new attributes, you need to create a new group
 
 Example of editing the `rel` attribute on a group of assets:
 
-```
+[prism classes="language-twig line-numbers"]
 {% do assets.addCSS('theme://whatever.css', {'group':'my-alternate-group'}) %}
 ...
 {{ assets.css('my-alternate-group', {'rel': 'alternate'}) }}
-```
+[/prism]
 
 ## Inlining Assets
 
@@ -353,7 +355,7 @@ To inline an asset file's content, use the option `{'loading': 'inline'}` with `
 
 Example of using `system.yaml` to define asset collections named according to asset loading requirements, with `app.css` being a [Sass](http://sass-lang.com/)-generated CSS file:
 
-```
+[prism classes="language-yaml line-numbers"]
 assets:
   collections:
     css-inline:
@@ -364,11 +366,11 @@ assets:
     js-async:
       - 'theme://foundation/dist/assets/js/app.js'
       - 'theme://js/header-display.js'
-```
+[/prism]
 
 The template inserts each collection into its corresponding group, namely `head` and `head-link` for CSS, `head` and `head-async` for JS. The default group `head` is used for inline loading in each case:
 
-```
+[prism classes="language-twig line-numbers"]
         {% block stylesheets %}
             {% do assets.addCss('css-inline') %}
             {% do assets.addCss('css-link', {'group': 'head-link'}) %}
@@ -381,19 +383,19 @@ The template inserts each collection into its corresponding group, namely `head`
         {% endblock %}
         {{ assets.js('head-async', {'loading': 'async'}) }}
         {{ assets.js('head', {'loading': 'inline'}) }}
-```
+[/prism]
 
 
 ## Static Assets
 
 Sometimes there is a need to reference assets without using the Asset Manager.  There is a `url()` helper method available to achieve this.  An example of this could be if you wanted to reference an image from the theme. The syntax for this is:
 
-```
+[prism classes="language-twig"]
 <img src="{{ url("theme://" ~ widget.image) }}" alt="{{ widget.text|e }}" />
-```
+[/prism]
 
 The `url()` method takes an optional second parameter of `true` or `false` to enable the URL to include the schema and domain. By default this value is assumed `false` resulting in just the relative URL.  For example:
 
-```
+[prism classes="language-twig"]
 url("theme://some/extra.css", true)
-```
+[/prism]

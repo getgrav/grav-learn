@@ -1,5 +1,7 @@
 ---
 title: Theme Variables
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -63,9 +65,9 @@ The `{{ language_codes }}` returns list of available languages of the site.
 
 You can access any Grav configuration setting via the config object as set in the `configuration.yaml` file.  For example:
 
-```
+[prism classes="language-twig"]
 {{ config.system.pages.theme }}{# returns the currently configured theme #}
-```
+[/prism]
 
 ### site object
 
@@ -91,15 +93,15 @@ The **page object** is probably _the_ most important object you will work with a
 
 This returns a truncated or shortened version of your content.  You can provide an optional `size` parameter to specify the maximum length of the summary, in characters.  Alternatively, if no size is provided, the value can be obtained via the site-wide variable `summary.size` from your `site.yaml` configuration.
 
-```
+[prism classes="language-twig"]
 {{ page.summary }}
-```
+[/prism]
 
 or
 
-```
+[prism classes="language-twig"]
 {{ page.summary(50) }}
-```
+[/prism]
 
 A third option is to use a manual delimiter of `===` in your content.  Anything before the delimiter will be used for the summary.
 
@@ -107,80 +109,83 @@ A third option is to use a manual delimiter of `===` in your content.  Anything 
 
 This returns the entire HTML content of your page.
 
-```
+[prism classes="language-twig"]
 {{ page.content }}
-```
+[/prism]
 
 ##### header()
 
 This returns the page headers as defined in the YAML front-matter of the page.  For example a page with the following headers:
 
-```
+[prism classes="language-yaml line-numbers"]
 title: My Page
 author: Joe Bloggs
-```
+[/prism]
 
 could be used:
 
-```
+[prism classes="language-twig"]
 The author of this page is: {{ page.header.author }}
-```
+[/prism]
 
 ##### media()
 
 This returns an array containing all the media associated with a page. These include **images**, **videos**, and other **files**.  You can access media methods as described in the [media documentation](../../content/media) for content. Because it is an array, Twig filters and functions can be used. Note: .svg are treated as files, not images, because they can not be manipulated using twig image filters.
 
 Get a specific file or image:
-```
+
+[prism classes="language-twig"]
 {% set my_pdf = page.media['myfile.pdf'] %}
-```
+[/prism]
 
 Get the first image:
-```
+
+[prism classes="language-twig"]
 {% set first_image = page.media.images|first %}
-```
+[/prism]
 
 Loop over all images and output the HTML tag to display it:
-```
+
+[prism classes="language-twig"]
 {% for image in page.media.images %}
    {{ image.html }}
 {% endfor %}
-```
+[/prism]
 
 ##### title()
 
 This returns the title of the page as set in the `title` variable of the YAML headers for the page itself.
 
-```
+[prism classes="language-yaml"]
 title: My Page
-```
+[/prism]
 
 ##### menu()
 
 This returns the value of the `menu` variable of the YAML headers of the page.  If none is provided, it defaults to the `title`.
 
-```
+[prism classes="language-yaml line-numbers"]
 title: My Page
 menu: my-page
-```
+[/prism]
 
 ##### visible()
 
 This returns whether or not the page is visible.  By default pages with numeric value followed by a period are visible by default (`01.somefolder1`) while those without (`subfolder2`) are not considered visible. This can be overridden in the page headers:
 
-```
+[prism classes="language-yaml line-numbers"]
 title: My Page
 visible: true
-```
+[/prism]
 
 ##### routable()
 
 This returns whether or not a page is routable by Grav.  This means if you can point your browser to the page and receive content back.  Non-routable pages can be used in templates, plugins, etc, but cannot be reached directly. This can be set in the page headers:
 
-```
+[prism classes="language-yaml line-numbers"]
 title: My Page
 routable: true
-```
+[/prism]
 
 ##### slug()
 
@@ -190,15 +195,15 @@ This returns the direct name as displayed in the URL for this page, for example 
 
 This returns the URL to the page, for example:
 
-```
+[prism classes="language-twig"]
 {{ page.url }} {# could return /my-section/my-category/my-blog-post #}
-```
+[/prism]
 
 or
 
-```
+[prism classes="language-twig"]
 {{ page.url(true) }} {# could return http://mysite.com/my-section/my-category/my-blog-post #}
-```
+[/prism]
 
 ##### permalink()
 
@@ -237,19 +242,19 @@ This returns whether or not this URI's URL contains the URL of the active page. 
 
 This returns a page object as specified by a route URL.
 
-```
+[prism classes="language-twig"]
 {% include 'modular/author-detail.html.twig' with {'page': page.find('/authors/billy-bloggs')} %}
-```
+[/prism]
 
 ##### collection()
 
 This returns the collection of pages for this context as determined by the [collection page headers](../../content/collections).
 
-```
+[prism classes="language-twig line-numbers"]
 {% for child in page.collection %}
     {% include 'partials/blog_item.html.twig' with {'page':child, 'truncate':true} %}
 {% endfor %}
-```
+[/prism]
 
 ##### currentPosition()
 
@@ -367,11 +372,11 @@ This returns the name of the folder for the page.  For example `01.home`
 
 This returns an array of the taxonomy associated with a page.  These can be iterated over. This is particularly useful for displaying items such as tags:
 
-```
+[prism classes="language-twig line-numbers"]
 {% for tag in page.taxonomy.tag %}
     <a href="search/tag:{{ tag }}">{{ tag }}</a>
 {% endfor %}
-```
+[/prism]
 
 ### pages object
 
@@ -384,7 +389,8 @@ The **pages object** represents a nested tree of every **page object** that Grav
 This returns the immediate child pages as an array of **page objects**. As the pages object represents the entire tree, you can fully recurse over every page in the Grav pages/ folder.
 
 Get the top-level pages for a simple menu:
-```
+
+[prism classes="language-twig line-numbers"]
 <ul class="navigation">
     {% for page in pages.children %}
         {% if page.visible %}
@@ -392,7 +398,7 @@ Get the top-level pages for a simple menu:
         {% endif %}
     {% endfor %}
 </ul>
-```
+[/prism]
 
 ### media object
 
@@ -476,43 +482,43 @@ The global Taxonomy object that contains all the taxonomy information for the si
 
 Grav has built-in support for programmatically determining the platform, browser, and version of the user.
 
-```
+[prism classes="language-twig"]
 {{ browser.platform}}   # macintosh
 {{ browser.browser}}    # chrome
 {{ browser.version}}    # 41
-```
+[/prism]
 
 ### user object
 
 You can access the current logged in user object indirectly via the Grav object.  This allows you to access such data as `username`, `fullname`, `title`, and `email`:
 
-```ruby
+[prism classes="language-twig"]
 {{ grav.user.username }}  # admin
 {{ grav.user.fullname }}  # Billy Bloggs
 {{ grav.user.title }}     # Administrator
 {{ grav.user.email }}     # billy@bloggs.com
-```
+[/prism]
 
 ## Adding Custom Variables
 
 You can easily add custom variables in a variety of ways.  If the variable is a site-wide variable, you can put the variable in your `user/config/site.yaml` file and then access it via:
 
-```
+[prism classes="language-twig"]
 {{ site.my_variable }}
-```
+[/prism]
 
 Alternatively, if the variable is only needed for a particular page, you can add the variable to your page's YAML front-matter, and access it via the `page.header` object.  For example:
 
-```
+[prism classes="language-twig"]
 title: My Page
 author: Joe Bloggs
-```
+[/prism]
 
 could be used as:
 
-```
+[prism classes="language-twig"]
 The author of this page is: {{ page.header.author }}
-```
+[/prism]
 
 ## Adding Custom Objects
 

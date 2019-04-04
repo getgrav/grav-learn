@@ -1,5 +1,7 @@
 ---
 title: YAML Syntax
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -37,26 +39,26 @@ Scalars are often called variables in programming. If you were making a list of 
 
 Most scalars are unquoted, but if you are typing a string that uses punctuation and other elements that can be confused with YAML syntax (dashes, colons, etc.) you may want to quote this data using single `'` or double `"` quotation marks. Double quotation marks allow you to use escapings to represent ASCII and Unicode characters.
 
-~~~ yaml
+[prism classes="language-yaml line-numbers"]
 integer: 25
 string: "25"
 float: 25.0
 boolean: Yes
-~~~
+[/prism]
 
 ## Sequences
 
 Here is a simple sequence you might find in Grav. It is a basic list with each item in the list placed in its own line with an opening dash.
 
-~~~ yaml
+[prism classes="language-yaml line-numbers"]
 - Cat
 - Dog
 - Goldfish
-~~~
+[/prism]
 
 This sequence places each item in the list at the same level. If you want to create a nested sequence with items and sub-items, you can do so by placing a single space before each dash in the sub-items. YAML uses spaces, **NOT** tabs, for indentation. You can see an example of this below.
 
-~~~ yaml
+[prism classes="language-yaml line-numbers"]
 -
  - Cat
  - Dog
@@ -65,17 +67,17 @@ This sequence places each item in the list at the same level. If you want to cre
  - Python
  - Lion
  - Tiger
-~~~
+[/prism]
 
 If you wish to nest your sequences even deeper, you just need to add more levels.
 
-~~~ yaml
+[prism classes="language-yaml line-numbers"]
 -
  -
   - Cat
   - Dog
   - Goldfish
-~~~
+[/prism]
 
 Sequences can be added to other data structure types, such as mappings or scalars.
 
@@ -83,18 +85,18 @@ Sequences can be added to other data structure types, such as mappings or scalar
 
 Mapping gives you the ability to list keys with values. This is useful in cases where you are assigning a name or a property to a specific element.
 
-~~~ yaml
+[prism classes="language-yaml line-numbers"]
 animal: pets
-~~~
+[/prism]
 
 This example maps the value of `pets` to the `animal` key. When used in conjunction with a sequence, you can see that you are starting to build a list of `pets`. In the following example, the dash used to label each item counts as indentation, making the line items the child and the mapping line `pets` the parent.
 
-~~~ yaml
+[prism classes="language-yaml line-numbers"]
 pets:
  - Cat
  - Dog
  - Goldfish
-~~~
+[/prism]
 
 Resources and Further Documentation
 -----

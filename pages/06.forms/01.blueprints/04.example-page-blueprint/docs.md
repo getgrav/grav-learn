@@ -12,7 +12,7 @@ If you want to use the default page form, and just add a couple of select boxes 
 
 This will use the default page form, and append a text field to the **Advanced** tab, under the **Overrides** section:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 title: Gallery
 '@extends':
     type: default
@@ -36,11 +36,11 @@ form:
                   validate:
                     required: true
                     type: int
-```
+[/prism]
 
 This will instead add a new tab, called **Gallery**, with some fields in it.
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 title: Gallery
 '@extends':
     type: default
@@ -74,7 +74,7 @@ form:
                 one: One
                 two: Two
                 three: Three
-```
+[/prism]
 
 The fields types you can add are listed in [Available form fields for use in the admin](../fields-available)
 
@@ -88,7 +88,7 @@ You can avoid extending from the default form, and create a page form that is co
 
 For example:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 title: Gallery
 
 form:
@@ -129,7 +129,7 @@ form:
               options:
                 '/': PLUGIN_ADMIN.DEFAULT_OPTION_ROOT
 
-```
+[/prism]
 
 ### A note for Expert mode
 
@@ -157,7 +157,7 @@ Put them in `user/plugins/YOURPLUGIN/blueprints/`. This is the place where to pu
 
 Then subscribe to the `onGetPageTemplates` event and add them to Grav. The following example adds the blueprints from the `blueprints/` folder and also the page templates from the `templates/` folder.
 
-```php
+[prism classes="language-php line-numbers"]
 public static function getSubscribedEvents()
 {
   return [
@@ -173,4 +173,4 @@ public function onGetPageTemplates($event)
   $types->scanBlueprints($locator->findResource('plugin://' . $this->name . '/blueprints'));
   $types->scanTemplates($locator->findResource('plugin://' . $this->name . '/templates'));
 }
-```
+[/prism]

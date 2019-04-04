@@ -35,50 +35,49 @@ Open the home page in your text editor. The file that controls the homepage is l
 When you edit the page in a text editor, the content will look something like this:
 
 [div class="no-margin-bottom"]
-```yaml
+[prism classes="language-yaml line-numbers"]
 ---
 title: Home
 body_classes: title-center title-h1h2
 ---
-```
+[/prism]
 [/div]
 [div class="no-margin-top"]
-```markdown
-
+[prism classes="language-markdown line-numbers" ln-start="5"]
 # Say Hello to Grav!
 ## installation successful...
 
 Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **Quark** theme to get you started.
 
 !! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
-```
+[/prism]
 [/div]
 
 Let us break this down a little so you can see how easy it is to write in Markdown. The stuff between the `---` indicators are the [Page Headers](../../content/headers), and these are written in a straightforward format called [YAML](../../advanced/yaml). This configuration block that sits in the `.md` file is commonly known as **YAML Front Matter**.
 
-```yaml
+[prism classes="language-bash line-numbers"]
 title: Home
 body_classes: title-center title-h1h2
-```
+[/prism]
 
 This block sets the HTML title tag for the page (the text you see in the browser tab).  You can also access this from your themes via the `page.title` attribute.  There are a [few standard headers](../../content/headers) that let you configure a variety of options for this page. Another example is `menu: Something` that lets you override the text used to display the name of the page in a menu.  By default, Grav will use the title for the menu value.
 
-```markdown
+[prism classes="language-markdown line-numbers"]
 # Say Hello to Grav!
 ## installation successful...
-```
+[/prism]
 
 The `#` or `hashes` syntax in markdown indicates a title.  A single `#` with a space and then text converts into an `<h1>` header in HTML. `##` or double hash would convert into an `<h2>` tag.  Of course, this goes all the way up to the HTML valid `<h6>` tag which of course, would be six hashes: `###### My H6 Level Header`.
 
-```markdown
+[prism classes="language-markdown line-numbers"]
 Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **Quark** theme to get you started.
-```
+[/prism]
 
 This is a simple paragraph that would have been wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicate bold text or `<b>` in HTML.  Italic text is indicated by wrapping text in `_` markers.
 
-```markdown
+[prism classes="language-markdown line-numbers"]
 !! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
-```
+[/prism]
 
 This section uses a custom markdown feature that is provided by the included `markdown-notices` plugin.  This allows you to create simple notices by prefix a paragraph of text with a number of `!` (apostrophe) symbols, from `!` to `!!!!`.
 
@@ -94,18 +93,18 @@ Creating a new page is a simple affair in **Grav**.  Just follow these simple st
 2. Launch your text editor, create a new file, and paste in the following sample code:
 
 [div class="no-margin-bottom"]
-```yaml
+[prism classes="language-yaml line-numbers"]
 ---
 title: My New Page
 ---
-```
+[/prism]
 [/div]
 [div class="no-margin-top"]
-```markdown
+[prism classes="language-markdown line-numbers" ln-start="4"]
 # My New Page!
 
 This is the body of **my new page** and I can easily use _Markdown_ syntax here.
-```
+[/prism]
 [/div]
 
 3. Save this file in the `user/pages/03.mypage/` folder as `default.md`. This will tell **Grav** to render the page using the **default** template in the current theme: `user/themes/quark/templates/default.html.twig`.

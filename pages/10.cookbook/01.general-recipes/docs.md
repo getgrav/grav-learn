@@ -1,29 +1,15 @@
 ---
 title: General Recipes
+page-toc:
+  active: true
+  depth: 1
 taxonomy:
     category: docs
 ---
 
 This page contains an assortment of problems and their respective solutions related to Grav in general.
 
-1. [Change the PHP CLI version](#change-the-php-cli-version)
-1. [Creating a simple gallery](#creating-a-simple-gallery)
-1. [Render content in blocks or columns](#render-content-in-columns)
-1. [Really simple css image slider](#really-simple-css-image-slider)
-1. [Wrapping Markdown into html](#wrapping-markdown-into-html)
-1. [Add a recent post widget to your sidebar](#add-a-recent-post-widget-to-your-sidebar)
-1. [Create a private area](#create-a-private-area)
-1. [Add JavaScript to the footer](#add-javascript-to-the-footer)
-1. [Override the default logs folder location](#override-the-default-logs-folder-location)
-1. [Split vertical menu system](#split-vertical-menu-system)
-1. [Dynamically style one or more pages](#dynamically-style-one-or-more-pages)
-1. [Migrate an HTML theme to Grav](#migrate-an-html-theme-to-grav)
-1. [Add an asset to a specific page](#add-an-asset-to-a-specific-page)
-1. [Reuse page or modular content on another page](#reuse-page-or-modular-content-on-another-page)
-1. [Make a custom anti-spam field for your contact form](#make-a-custom-anti-spam-field-for-your-contact-form)
-1. [Display different robots.txt contents for different environments](#display-different-robots-txt-contents-for-different-environments)
-
-### Change the PHP CLI version
+## Change the PHP CLI version
 
 Sometimes on the terminal, the PHP version is different than the PHP version used by the web server.
 
@@ -36,14 +22,14 @@ You need to enter some configuration to `.bashrc`, or to `.bash_profile` in your
 
 An example configuration could be:
 
-```
+[prism classes="language-bash command-line"]
 alias php="/usr/local/bin/php53"
 export PHP_PATH = "/usr/local/bin/php53"
-```
+[/prism]
 
 An alternative way is to add:
 
-```
+[prism classes="language-bash line-numbers"]
 # .bash_profile
 
 # Get the aliases and functions
@@ -56,13 +42,13 @@ fi
 PATH=/usr/local/lib/php-5.5/bin:$PATH:$HOME/bin
 
 export PATH
-```
+[/prism]
 
 The exact path of course depends on how your system is set up, where it stores the more recent PHP version binaries. That might be something you find in the Hosting documentation, or you can ask your hosting setup if you do not find it anywhere.
 
 You could also try looking in the `php-something` files or folders under the `/usr/local/bin` or `/usr/local/lib` folders, with `ls -la /usr/local/lib/ |grep -i php`.
 
-### Creating a simple gallery
+## Creating a simple gallery
 
 ##### Problem:
 
@@ -74,7 +60,7 @@ The simplest way to provide a solution for this problem is to make use of Grav's
 
 Let's assume you have a page you've called `gallery.md` and also you have a variety of images in the same directory. The filenames themselves are not important as we will just iterate over each of the images.  Because we want to have extra data associated with each image, we will include a `meta.yaml` file for each image.  For example, we have a few images:
 
-```
+[prism classes="language-yaml line-numbers"]
 - fido-playing.jpg
 - fido-playing.jpg.meta.yaml
 - fido-sleeping.jpg
@@ -83,20 +69,20 @@ Let's assume you have a page you've called `gallery.md` and also you have a vari
 - fido-eating.jpg.meta.yaml
 - fido-growling.jpg
 - fido-growling.jpg.meta.yaml
-```
+[/prism]
 
 Each of the `.jpg` files are a relatively good size that is appropriate for a full-size version, 1280px x 720px in size. Each of the `meta.yaml` files contain a few key entries, let's look at `fido-playing.jpg.meta.yaml`:
 
-```
+[prism classes="language-yaml line-numbers"]
 title: Fido Playing with his Bone
 description: The other day, Fido got a new bone, and he became really captivated by it.
-```
+[/prism]
 
 You have **complete control** over what you put in these meta files, they can be absolutely anything you need.
 
 Now we need to display these images in reverse chronological order so the newest images are shown first and display them.  Because our page is called `gallery.md` we should create an appropriate `templates/gallery.html.twig` to contain the rendering logic we need:
 
-```
+[prism classes="language-twig line-numbers"]
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
@@ -117,22 +103,22 @@ Now we need to display these images in reverse chronological order so the newest
     </ul>
 
 {% endblock %}
-```
+[/prism]
 
 For a modular gallery to be displayed inside another page, remove the following code from the Twig file in order to make it work:
 
-```
+[prism classes="language-twig line-numbers"]
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
     {{ page.content }}
-```
+[/prism]
 
 and
 
-```
+[prism classes="language-twig"]
 {% endblock %}
-```
+[/prism]
 
 Basically, this extends the standard `partials/base.html.twig` (assuming your theme has this file), it then defines the `content` block and provides the content for it.  The first thing we do is echo out any `page.content`.  This would be the content of the `gallery.md` file, so it could contain a title, and a description of this page.
 
@@ -140,7 +126,7 @@ The next section simply loops over all the media of the page that are **images**
 
 You could make a more advanced gallery-implementation by using creating filters for camera-data, with the [EXIF](/themes/twig-filters-functions#exif)-function.
 
-### Render content in columns
+## Render content in columns
 
 ##### Problem:
 
@@ -151,24 +137,24 @@ A question that has come up several times is how to quickly render a single page
 There are many potential solutions, but one simple solution is to divide up your content into logical sections using a delimiter such as the HTML `<hr />` or *thematic break* tag.  In markdown, this is represented by 3 or more dashes or `---`.  We simply create our content and separate our sections of content with these dashes:
 
 **columns.md**
+[prism classes="language-md line-numbers"]
+---
+title: 'Columns Page Test'
+---
 
-    ---
-    title: 'Columns Page Test'
-    ---
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas arcu leo, hendrerit ut rhoncus eu, dictum vitae ligula. Suspendisse interdum at purus eget congue. Aliquam erat volutpat. Proin ultrices ligula vitae nisi congue sagittis. Nulla mollis, libero id maximus elementum, ante dolor auctor sem, sed volutpat mauris nisl non quam.
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas arcu leo, hendrerit ut rhoncus eu, dictum vitae ligula. Suspendisse interdum at purus eget congue. Aliquam erat volutpat. Proin ultrices ligula vitae nisi congue sagittis. Nulla mollis, libero id maximus elementum, ante dolor auctor sem, sed volutpat mauris nisl non quam.
+---
+Phasellus id eleifend risus. In dui tellus, dignissim id viverra non, convallis sed ante. Suspendisse dignissim, felis vitae faucibus dictum, dui mi tempor lectus, non porta elit libero quis orci. Morbi porta neque quis magna imperdiet hendrerit.
 
-    ---
-    Phasellus id eleifend risus. In dui tellus, dignissim id viverra non, convallis sed ante. Suspendisse dignissim, felis vitae faucibus dictum, dui mi tempor lectus, non porta elit libero quis orci. Morbi porta neque quis magna imperdiet hendrerit.
-
-    ---
-    Praesent eleifend commodo purus, sit amet viverra nunc dictum nec. Mauris vehicula, purus sed convallis blandit, massa sem egestas ex, a congue odio lacus non quam. Donec vitae metus vitae enim imperdiet tempus vitae sit amet quam. Nam sed aliquam justo, in semper eros. Suspendisse magna turpis, mollis quis dictum sit amet, luctus id tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eu rutrum mi.
-
+---
+Praesent eleifend commodo purus, sit amet viverra nunc dictum nec. Mauris vehicula, purus sed convallis blandit, massa sem egestas ex, a congue odio lacus non quam. Donec vitae metus vitae enim imperdiet tempus vitae sit amet quam. Nam sed aliquam justo, in semper eros. Suspendisse magna turpis, mollis quis dictum sit amet, luctus id tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eu rutrum mi.
+[/prism]
 !! Note: the extra line after the column and before the `---`.  This is because if you put a triple dash right underneath text, it's actually interpreted as a header.
 
 Then we simply need to render this content with a `columns.html.twig` template (as the page file was named `columns.md`):
 
-```
+[prism classes="language-twig line-numbers"]
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
@@ -180,11 +166,11 @@ Then we simply need to render this content with a `columns.html.twig` template (
         </tr>
     </table>
 {% endblock %}
-```
+[/prism]
 
 You can see how the content is being **split** by the `<hr />` tag and converted into an array of 3 columns which we loop over and render.  In this example we are using a simple HTML table tag, but you could use anything you wish.
 
-### Really simple css image slider
+## Really simple css image slider
 
 ##### Problem:
 
@@ -195,7 +181,7 @@ You need an image slider without any overhead.
 This recipe is for 4 images and a page called `slider.md`! Simply put the images where the .md file is. Next, create a new Twig template and extend `base.html.twig`.
 
 
-```
+[prism classes="language-twig line-numbers"]
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
@@ -210,26 +196,26 @@ This recipe is for 4 images and a page called `slider.md`! Simply put the images
 
     {{ page.content }}
 {% endblock %}
-```
+[/prism]
 
 For modular slider, please remove the
-```
+[prism classes="language-twig line-numbers"]
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-```
+[/prism]
 
 and
 
-```
+[prism classes="language-twig"]
 {% endblock %}
-```
+[/prism]
 
 from the previous Twig file.
 
 Time for css stuff. Add this to your _custom.scss
 
-```
+[prism classes="language-scss line-numbers"]
 @keyframes slidy {
     0% { left: 0%; }
     20% { left: 0%; }
@@ -255,11 +241,11 @@ div#slider figure {
     left: 0;
     animation: 30s slidy infinite;
 }
-```
+[/prism]
 
 That's all.
 
-### Wrapping markdown into html
+## Wrapping markdown into html
 
 On some pages you might want to wrap parts of the markdown content into some custom html code instead of creating a new Twig template.
 
@@ -267,25 +253,25 @@ To achieve this you follow these steps:
 
 in your system configuration file `user/config/system.yaml` make sure to activate the markdown extra option:
 
-```
+[prism classes="language-yaml line-numbers"]
 pages:
   markdown:
     extra: true
-```
+[/prism]
 
 in your wrapper tag make sure to add the parameter `markdown="1"` to activate processing of markdown content:
 
-```
+[prism classes="language-md line-numbers"]
 <div class="myWrapper" markdown="1">
 # my markdown content
 
 this content is wrapped into a div with class "myWrapper"
 </div>
-```
+[/prism]
 
 done.
 
-### Add a recent post widget to your sidebar
+## Add a recent post widget to your sidebar
 
 #### Problem:
 
@@ -295,7 +281,7 @@ You want to create a recent post widget on the sidebar
 
 It's always possible to create a partial template extending `partials/base.html.twig` (see other solutions on this page), but here you're going to create a full template instead. The final code for your Twig template is shown below: 
 
-```
+[prism classes="language-twig line-numbers"]
 <div class="sidebar-content recent-posts">
     <h3>Recent Posts</h3>
     {% for p in page.find('/blog').children.order('date', 'desc').slice(0, 5) %}
@@ -313,13 +299,13 @@ It's always possible to create a partial template extending `partials/base.html.
         </div>
     {% endfor %}
 </div>
-```
+[/prism]
 
 All this code does is sort the children (blog posts) of the `/blog` page by decending date order. It then takes the first five blog posts using the `slice` Twig filter. By the way, `slice(n,m)` takes elements from `n` to `m-1`. In this example, any blog posts that have a banner image have been named `banner.jpg`. This is set in a variable `bannerimage`. If `bannerimage` exists, it is shrunk down to a `60px x 60px` box and will appear to the left of the post title text and date. If it does not exist, the website logo is resized to `60px x 60px` and placed to the left of the title and date text instead.
 
 The CSS for this widget is listed below:
 
-```
+[prism classes="language-css line-numbers"]
 .sidebar-content .recent-post {
     margin-bottom: 25px;
     padding-bottom: 25px;
@@ -357,7 +343,7 @@ The CSS for this widget is listed below:
     color: #737373;
     margin: 0;
 }
-```
+[/prism]
 Adjust the spacing between recent post items, font-family, font-size and font-weight to taste.
 
 ## Create a private area
@@ -365,16 +351,16 @@ Adjust the spacing between recent post items, font-family, font-size and font-we
 Grav makes it very easy to create a private area on a website.
 It all works thanks to the Login Plugin.
 
-### Require users to login prior to access a part of the site
+## Require users to login prior to access a part of the site
 
 If you don’t have it already, install it through the Admin Panel or using the GPM command line utility.
 
 Next, open a page in Admin, switch to expert mode and in the FrontMatter section add
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 access:
     site.login: true
-```
+[/prism]
 
 Users accessing the page will need to login prior to see the page content.
 
@@ -382,31 +368,31 @@ Notice that the permission does not extend by default to subpages. To do so, fro
 
 This option allows you to create extended private areas without worrying further about access level. Just put all under a page which has a restriction on access.
 
-### Require special permissions to view one or more pages
+## Require special permissions to view one or more pages
 
 Similarly to the above process, you can assign any permission you want to a page. You can even come up with your own permission names.
 
 For example:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 access:
     site.onlybob: true
-```
+[/prism]
 
 Next, add the `site.onlybob` permission to Bob, in its `bob.yaml` user file under the `user/accounts` folder:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 access:
     site.onlybob: true
-```
+[/prism]
 
-### Use group-based permissions
+## Use group-based permissions
 
 You can also assign users to a group, and assign permissions to the group instead of to individual users. Users will inherit the group permissions.
 
 Add a `user/config/groups.yaml` file, for example with this content:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 registered:
   readableName: 'Registered Users'
   description: 'The group of registered users'
@@ -420,20 +406,20 @@ premium:
     site:
       login: true
       paid: true
-```
+[/prism]
 
 Now assign users to a group by adding
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 groups:
       - premium
-```
+[/prism]
 
 to their yaml user file, under `user/accounts`
 
 Now users belonging to the `premium` group will be allowed to access pages with a `site.paid` permission.
 
-### Add JavaScript to the footer
+## Add JavaScript to the footer
 
 In many cases you'd want "some" javascript to be added to the footer instead of the page header, to be loaded after the content has been rendered.
 
@@ -441,11 +427,11 @@ A good example of doing this is to check the Antimatter theme.
 
 Antimatter's `templates/partials/base.html.twig` defines a bottom block for js by calling `{{ assets.js('bottom') }}`
 
-```twig
+[prism classes="language-twig line-numbers"]
 {% block bottom %}
     {{ assets.js('bottom') }}
 {% endblock %}
-```
+[/prism]
 
 You can add assets in that block in Twig for example by calling
 
@@ -455,13 +441,13 @@ or in PHP by calling
 
 `$this->grav['assets']->addJs($this->grav['base_url'] . '/user/plugins/yourplugin/js/somefile.js', ['group' => 'bottom']);`
 
-### Override the default logs folder location
+## Override the default logs folder location
 
 The default location for the logs output of Grav is simply called `logs/`.  Unfortunately, there are instances where that `logs/` folder is already used or is off-limits.  Grav's flexible stream system allows the ability to customize the locations of these folders.
 
 First, you need to create your new folder.  In this example, we'll create a new folder in the root of your Grav install called `grav-logs/`.  Then create a new root-level file called `setup.php` and paste the following code:
 
-```
+[prism classes="language-php line-numbers"]
 <?php
 use Grav\Common\Utils;
 
@@ -478,11 +464,11 @@ return [
         ]
     ]
 ];
-```
+[/prism]
 
 This basically overrides the `log` stream with the `grav-logs/` folder rather than the default `logs/` folder as defined in `system/src/Grav/Common/Config/Setup.php`.
 
-### Split vertical menu system
+## Split vertical menu system
 
 To create a vertical, collapsible, hierarchical menu of pages you need a Twig-loop, a bit of CSS, and a bit of JavaScript. The final result will, when using the Antimatter-theme, look like this:
 
@@ -490,7 +476,7 @@ To create a vertical, collapsible, hierarchical menu of pages you need a Twig-lo
 
 Let's start with Twig:
 
-```
+[prism classes="language-twig line-numbers"]
 <ol class="tree">
     {% for page in pages.children.visible %}
         {% if page.children.visible is empty %}
@@ -520,7 +506,7 @@ Let's start with Twig:
         </li>
     {% endfor %}
 </ol>
-```
+[/prism]
 
 This creates an ordered list which iterates over all visible pages within Grav, going three levels deep to create a structure for each level. The list wrapped around the entire structure has the class *tree*, and each list-item has the class *parent* if it contains children or *item* if it does not.
 
@@ -528,7 +514,7 @@ Clicking on a parent opens the list, whilst regular items link to the page itsel
 
 To add some style, we add some CSS:
 
-```
+[prism classes="language-css line-numbers"]
 <style>
 ol.tree li {
     position: relative;
@@ -546,13 +532,13 @@ ol.tree li.parent.open:after {
     content: '';
 }
 </style>
-```
+[/prism]
 
 This should generally be placed before the Twig-structure, or ideally be streamed into the [Asset Manager](/themes/asset-manager) in your theme. The effect is to add **[+]** after each parent-item, indicating that it can be opened, which disappears when opened.
 
 Finally, let's add a bit of JavaScript to [handle toggling](http://stackoverflow.com/a/36297446/603387) the *open*-class:
 
-```
+[prism classes="language-js line-numbers"]
 <script type="text/javascript">
 var tree = document.querySelectorAll('ol.tree a:not(:last-child)');
 for(var i = 0; i < tree.length; i++){
@@ -571,11 +557,11 @@ for(var i = 0; i < tree.length; i++){
     });
 }
 </script>
-```
+[/prism]
 
 This should always be placed **after** the Twig-structure, also ideally in the [Asset Manager](/themes/asset-manager).
 
-### Dynamically style one or more pages
+## Dynamically style one or more pages
 You can dynamically style different pages/posts in your Grav site (independent of template file assignment) by customizing a Theme's Twig file to apply a CSS class passed as a variable in a page's FrontMatter.
 
 You can style different posts/pages in your Grav site by two methods:
@@ -585,21 +571,21 @@ You can style different posts/pages in your Grav site by two methods:
 
 For example, in your theme's `base.html.twig` file or a more specific template such as `page.html.twig` file you could add a class to the display of page content, such as:
 
-```
+[prism classes="language-html line-numbers"]
 <div class="{{ page.header.body_classes }}">
 ...
 </div>
-```
+[/prism]
 
 Then, for each page you wish to have a unique style, you would add the following header property (assuming you have defined a CSS class for `featurepost`):
 
-```
+[prism classes="language-yaml line-numbers"]
 body_classes: featurepost
-```
+[/prism]
 
 Note: This is how the Antimatter theme applies page-specific classes, and so it's a good standard to follow.
 
-### Migrate an HTML theme to Grav
+## Migrate an HTML theme to Grav
 
 Migrating an HTML theme to Grav is a common task. Here is a hands-on step-by-step process that can be used to achieve this goal.
 
@@ -624,23 +610,23 @@ Search within the page for assets and change the images references from `img/*.*
 Stylesheets require a bit more thought as there’s an asset pipeline we’ll want to enable at some point, so we move them to a stylesheets block within the `<head>` tag.
 
 Example:
-```
+[prism classes="language-twig line-numbers"]
     {% block stylesheets %}
         {% do assets.addCss('theme://css/styles.min.css', 100) %}
     {% endblock %}
     {{ assets.css() }}
-```
+[/prism]
 
 The same applies to JavaScript files, with the additional requirement that some JS is loaded in the footer.
 
 Example:
-```
+[prism classes="language-twig line-numbers"]
     {% block javascripts %}
         {% do assets.addJs('theme://js/custom.js') %}
         {% do assets.addJs('jquery', 101) %}
     {% endblock %}
     {{ assets.js() }}
-```
+[/prism]
 
 The page changes should now be shown in your Browser. If not, make sure that the pages cache and the twig cache are disabled in the Grav system configuration settings.
 
@@ -659,7 +645,7 @@ Identify the common parts of the pages (header and footer), and move them to the
 
 Each page template then needs to extend `partials/base.html.twig` (https://github.com/getgrav/grav-theme-antimatter/blob/develop/templates/default.html.twig#L1) and just add their unique content. 
 
-### Add an asset to a specific page
+## Add an asset to a specific page
 
 #### Problem
 
@@ -669,25 +655,25 @@ You need to add an asset to a specific template on your theme.
 
 Most of the time, your assets will be added inside a twig block in your base template like below. 
 
-```
+[prism classes="language-twig line-numbers"]
 {% block javascripts %}
 {% do assets.addJs('theme://js/jquery.js', 91) %}
 {% endblock %}
 {{ assets.js() }}
-```
+[/prism]
 
 In order to add your asset, you have to extend this block in your template and call `{{ parent() }}` which will get the assets already added in your base template.
 Let's say you want to add a "gallery.js" file on your "Portfolio Gallery" page. 
 Edit your template and add your asset with the `{{ parent() }}`.
 
-```
+[prism classes="language-twig line-numbers"]
 {% block javascripts %}
      {% do assets.addJs('theme://js/gallery.js', 100) %}
      {{ parent() }}
 {% endblock %}
-```
+[/prism]
 
-### Reuse page or modular content on another page
+## Reuse page or modular content on another page
 
 #### Problem:
 You have many pages or modules and would like to share the same content block on more than one page without having to maintain multiple separate instances of the same text.
@@ -702,37 +688,37 @@ First, create a new template file to act as a placeholder for the content - it c
  
 
 `modular_reuse.html.twig` contains only one line:
-```
+[prism classes="language-twig line-numbers"]
 {{ page.content }}
-```
+[/prism]
 Next, create a new modular page in the admin panel where this content should be displayed using this new "modular reuse" template. The new page name can be anything you like as it will not be displayed - the original page title will be output.
 
 The content of the page is just one line: 
 Page:
-```
+[prism classes="language-twig line-numbers"]
 {% include 'modular_reuse.html.twig' with {'page': page.find('/test-page/amazing-offers')} %}
-```
+[/prism]
 Modular:
-```
+[prism classes="language-twig line-numbers"]
 {% include 'modular/modular_reuse.html.twig' with {'page': page.find('/test-page/_amazing-offers')} %}
-```
+[/prism]
 
 What comes after "include" is where the template from step one is stored, probably in the `templates` folder for pages in the `templates/modular` folder for modulars.
 
 After page.find should come the actual link to the original content that you want to reuse. Modular content starts with an _ but pages do not. The easiest way to find the correct link is to open the page in the admin panel and copy the url after the word admin.
 
 The final page should look like this:
-```
+[prism classes="language-twig line-numbers"]
 ---
 title: 'Modular Reuse Example'
 ---
 
 {% include 'modular/modular_reuse.html.twig' with {'page': page.find('/test-page/_amazing-offers')} %}
-```
+[/prism]
 
 Now "amazing offers" can be displayed in multiple places but only needs to be updated once.
 
-### Make a custom anti-spam field for your contact form
+## Make a custom anti-spam field for your contact form
 
 #### Problem:
 
@@ -740,9 +726,9 @@ Normal methods of spam-prevention, like the honeypot-field, is bypassed by certa
 
 #### Solution:
 
-Make it harder for the bot to guess what it can and can't fill it in, when filling out the contact form. Put simply, ask a question the user won't fail to answer, but whose answers are hard for a bot to understand the significance of. In your Markdown-file with [Form-data
-](https://learn.getgrav.org/forms/forms/example-form), add this field:
+Make it harder for the bot to guess what it can and can't fill it in, when filling out the contact form. Put simply, ask a question the user won't fail to answer, but whose answers are hard for a bot to understand the significance of. In your Markdown-file with [Form-data](https://learn.getgrav.org/forms/forms/example-form), add this field:
 
+[prism classes="language-yaml line-numbers"]
     - name: personality
       type: radio
       label: What is five times eight?
@@ -754,13 +740,14 @@ Make it harder for the bot to guess what it can and can't fill it in, when filli
         required: true
         pattern: "^oklahoma$"
         message: Not quite, try that math again.
+[/prism]
 
 The question should be something simple, but with multiple simple wrong answers accompanying it. What matters is the order of the answers. The right answer should never be the first one; aim for somewhere in the middle. It's important to randomize the values behind the answers (labels) yourself, so a database of associated values and answers won't help in answering.
 
 Bots get smarter all the time, but they tend to forego trying to answer the same question several times if the first attempt fails. Also, even the smartest of them rely on dictionaries of known data to guess at an answer. We ask a simple question, "What is five times eight?", and give three options, "32", "40", and "48". The right answer is obviously "40", but instead of checking the bot's math-skills, we're assigning the values "alaska", "oklahoma", and "california" to these numbers, respectively. Because bots look at the possible values, rather than their label, the answers bears no relation to the question. You could even add an answer "Pineapple" with the value "mississippi" and validate against that, and just tell your users to choose that as their answer. The point is to personalize the randomization of data.
 
 
-### Display different robots.txt contents for different environments
+## Display different robots.txt contents for different environments
 
 #### Problem:
 
@@ -781,7 +768,7 @@ Then, create a `robots.txt.twig` page template that checks if Grav is currently 
 
 `/user/themes/[yourtheme]/templates/robots.txt.twig`:
 
-```
+[prism classes="language-twig line-numbers"]
 {% if config.site.environment == 'dev' %}
 {% for rule in page.header.dev %}
 {{ rule }}
@@ -791,13 +778,13 @@ Then, create a `robots.txt.twig` page template that checks if Grav is currently 
 {{ page.content }}
 
 {% endif %}
-```
+[/prism]
 
 Finally, create a page routed at `/robots.txt` with the default `robots.txt` rules in the page content, and our alternative development version rules in the page frontmatter. To render the page contents as raw text instead of html, we'll also disable markdown rendering.
 
 `/user/pages/robots/robots.md`:
 
-```
+[prism classes="language-md line-numbers"]
 ---
 routes:
   default: /robots.txt
@@ -823,7 +810,7 @@ Allow: /user/themes/
 Allow: /user/images/
 Allow: /user/plugins/*.css$
 Allow: /user/plugins/*.js$
-```
+[/prism]
 
 Now you should have a `robots.txt` file placed at your site's root with dynamic contents, also editable with the Admin plugin. 
 

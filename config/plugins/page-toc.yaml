@@ -1,0 +1,4 @@
+enabled: true     # Plugin enabled
+active: false     # TOC processed by default for all page
+start: 2          # Start header tag level (1 = h1)
+depth: 2          # Depth from start (2 = 2 levels deep)

@@ -12,24 +12,24 @@ Grav is installed in `http://localhost:8080/grav-develop` but you want it to res
 
 In system.yaml, set
 
-```
+[prism classes="language-yaml"]
 custom_base_url: 'http://localhost:8080'
-```
+[/prism]
 
 and set the session path to the new Grav site path,
 
-```
+[prism classes="language-yaml line-numbers"]
 session:
   path: /
-```
+[/prism]
 
 And in the domain root, set the redirect, e.g. with .htaccess:
 
-```
+[prism classes="language-text line-numbers"]
 RewriteEngine On
 RewriteCond %{REQUEST_URI} !^/grav-develop/
 RewriteRule ^(.*)$ /grav-develop/$1
-```
+[/prism]
 
 where `grav-develop` is the subfolder where Grav is.
 
@@ -39,23 +39,23 @@ Grav is installed in `http://localhost:8080/grav-develop` but you want it to res
 
 In system.yaml, set
 
-```
+[prism classes="language-yaml"]
 custom_base_url: 'http://localhost:8080/xxxxx'
-```
+[/prism]
 
 and set the session path to the new Grav site path,
 
-```
+[prism classes="language-yaml line-numbers"]
 session:
   path: /xxxxx
-```
+[/prism]
 
 And in the new root folder, /xxxxx, set the redirect, e.g. with .htaccess:
 
-```
+[prism classes="language-text line-numbers"]
 RewriteEngine On
 RewriteCond %{REQUEST_URI} !^/grav-develop/
 RewriteRule ^(.*)$ /grav-develop/$1
-```
+[/prism]
 
 where `grav-develop` is the sister subfolder where Grav is.

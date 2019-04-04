@@ -8,20 +8,16 @@ Installation of Grav is a trivial process. In fact, there is no real installatio
 
 ## Check for PHP version
 
-Grav is incredibly easy to set up and get running. Be sure you have at least PHP version 5.6.3 by going to the terminal and typing:
+Grav is incredibly easy to set up and get running. Be sure you have at least PHP version 5.6.3 by going to the terminal and typing `php -v`:
 
-```bash
-$ php -v
-```
-
-This should report the version and build information. For example:
-
-```bash
+[prism classes="language-bash command-line" cl-output="2-10"]
+php -v
 PHP 7.2.15 (cli) (built: Feb  7 2019 20:10:03) ( NTS )
 Copyright (c) 1997-2018 The PHP Group
 Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
     with Zend OPcache v7.2.15, Copyright (c) 1999-2018, by Zend Technologies
-```
+[/prism]
+
 
 ## Option 1: Install from ZIP package
 
@@ -39,41 +35,44 @@ The easiest way to install Grav is to download the ZIP package and extract it:
 
 The alternative method is to install Grav with [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
 
-```
-$ composer create-project getgrav/grav ~/webroot/grav
-```
+[prism classes="language-bash command-line"]
+composer create-project getgrav/grav ~/webroot/grav
+[/prism]
 
 If you want to check out the bleeding edge version of Grav, add `1.x-dev` as an additional parameter:
 
-```
-$ composer create-project getgrav/grav ~/webroot/grav 1.x-dev
-```
+[prism classes="language-bash command-line"]
+composer create-project getgrav/grav ~/webroot/grav 1.x-dev
+[/prism]
 
 ## Option 3: Install from GitHub
 
 Another method is to clone Grav from the GitHub repository, and then run a simple dependency installation script:
 
 1. Clone the Grav repository from [GitHub](https://github.com/getgrav/grav) to a folder in the webroot of your server, e.g. `~/webroot/grav`. Launch a **terminal** or **console** and navigate to the webroot folder:
-   ```
-   $ cd ~/webroot
-   $ git clone -b master https://github.com/getgrav/grav.git
-   ```
+
+   [prism classes="language-bash command-line"]
+   cd ~/webroot
+   git clone -b master https://github.com/getgrav/grav.git
+   [/prism]
 
 2. Install **vendor dependencies** via [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
-   ```
-   $ cd ~/webroot/grav
-   $ composer install --no-dev -o
-   ```
+   
+   [prism classes="language-bash command-line"]
+   cd ~/webroot/grav
+   composer install --no-dev -o
+   [/prism]
 
 3. Install the **plugin** and **theme dependencies** by using the [Grav CLI application](../../advanced/grav-cli) `bin/grav`:
-   ```
-   $ cd ~/webroot/grav
-   $ bin/grav install
-   ```
+   
+   [prism classes="language-bash command-line"]
+   cd ~/webroot/grav
+   bin/grav install
+   [/prism]
 
    This will automatically **clone** the required dependencies from GitHub directly into this Grav installation.
 
-## Webserver
+## Webservers
 
 #### Apache/IIS/Nginx
 
@@ -89,18 +88,17 @@ You can run Grav using a simple command from Terminal / Command Prompt using the
 
 Entering this command will present you with output similar to the following:
 
-```bash
-$ php -S localhost:8000 system/router.php
+[prism classes="language-bash command-line" cl-output="2-10"]
+php -S localhost:8000 system/router.php
 PHP 7.2.15 Development Server started at Sun Feb 17 21:02:14 2019
 Listening on http://localhost:8000
 Document root is /Users/rhuk/Projects/grav/grav
 Press Ctrl-C to quit.
-```
+[/prism]
 
 Your terminal will also give you real-time updates of any activity on this ad hoc-style server. You can copy the URL provided in the `Listening on` line and paste that into your browser of choice to access your site, including the administrator.
 
 !!!! This is a useful tool for quick development, and should **not** be used in place of a dedicated web server such as Apache.
-
 
 ## Successful Installation
 
@@ -128,8 +126,8 @@ Please consult the [Troubleshooting](../../troubleshooting) section for help reg
 
 The preferred method for updating Grav is to use the **Grav Package Manager (GPM)**. All you need to do  is to navigate to the root of your Grav site and type:
 
-```
+[prism classes="language-bash command-line"]
 bin/gpm selfupgrade -f
-```
+[/prism]
 
 Full information can be found in the [Grav GPM Documentation](../../advanced/grav-gpm). We also have GPM integrated into our [Admin Panel](../../admin-panel) plugin which will check, prompt, and automatically install any updates.

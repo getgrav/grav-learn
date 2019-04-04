@@ -80,8 +80,10 @@ Most hosting providers and even local LAMP setups have PHP pre-configured with e
 
 For enabling `openssl` and (un)zip support you will need to find in the `php.ini` file of your Linux distribution for lines like:
 
-  - `;extension=openssl.so`.
-  - `;extension=zip.so`.
+[prism classes="language-bash line-numbers"]
+;extension=openssl.so
+;extension=zip.so
+[/prism]
 
 and remove the leading semicolon.
 
@@ -105,23 +107,27 @@ However, if you are running on a dedicated server or even your local environment
 2. Change the **group permissions** on all files and folders so that the web server's group has write access to files and folders while keeping the standard permissions. This requires a few commands to make this work.
 
 First, find out which user Apache runs with by running the following command:
-```
+
+[prism classes="language-bash command-line"]
 ps aux | grep -v root | grep apache | cut -d\  -f1 | sort | uniq
-```
+[/prism]
+
 Now, find out which group this user belongs to by running this command (note: adjust USERNAME with the apache username you found in the previous command)
-```
+
+[prism classes="language-bash command-line"]
 groups USERNAME
-```
+[/prism]
+
 (note: adjust `GROUP` to be the group your apache runs under, found in the previous command. [`www-data`, `apache`, `nobody`, etc.]):
 
-```
+[prism classes="language-bash line-numbers"]
 chgrp -R GROUP .
 find . -type f | xargs chmod 664
 find ./bin -type f | xargs chmod 775
 find . -type d | xargs chmod 775
 find . -type d | xargs chmod +s
 umask 0002
-```
+[/prism]
 
 If you need to invoke superuser permissions, you would run `find … | sudo xargs chmod …` instead.
 

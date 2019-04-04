@@ -53,10 +53,10 @@ Don't worry! All is not lost.
 
 Your 2FA status and hashed key are stored in your site's file system on your user YAML file. For example, if your user account is `admin`, navigate to **ROOT/user/accounts/admin.yaml** and look for these two lines:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 twofa_enabled: true
 twofa_secret: RQX46XTTBK7QMMB6VR4RAUNWOYVXXTSR
-```
+[/prism]
 
 Simply set **twofa_enabled** to `false` and save. You should now be able to access your site using just your username and password. Alternatively, you can use the **twofa_secret** to register your account on your authenticator app of choice.
 

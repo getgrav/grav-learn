@@ -29,11 +29,13 @@ Every plugin in the `user/plugins` folder should have a unique name, and that na
 ## Accessing Plugin Configuration Values via Twig
 
 To access plugin configuration settings via Twig (i.e. within a Theme), the general format is:
-```
+
+[prism classes="language-twig"]
 config.plugins.pluginname.pluginproperty
-```
+[/prism]
 
 If plugin name contains dashes you should refer to its properties using :
-```
+
+[prism classes="language-twig"]
 config.plugins['plugin-name'].pluginproperty
-```
+[/prism]
