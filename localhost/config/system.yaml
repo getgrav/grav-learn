@@ -1,7 +1,8 @@
 cache:
-  enabled: false
+  enabled: true
   check:
-    method: file
+    method: hash
+  gzip: false
 
 assets:
   css_pipeline: false
@@ -13,3 +14,7 @@ twig:
 
 debugger:
   enabled: true
+
+strict_mode:
+    yaml_compat: false
+    twig_compat: false

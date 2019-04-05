@@ -17,7 +17,7 @@ languages:
 cache:
   enabled: true
   check:
-    method: folder
+    method: hash
   driver: auto
   prefix: 'g'
 
@@ -47,3 +47,7 @@ debugger:
   twig: true
   shutdown:
     close_connection: true
+
+strict_mode:
+    yaml_compat: false
+    twig_compat: false

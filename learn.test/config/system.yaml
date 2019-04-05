@@ -1,0 +1,15 @@
+cache:
+  enabled: false
+  check:
+    method: file
+
+assets:
+  css_pipeline: true
+  js_pipeline: false
+
+twig:
+  cache: true
+  debug: true
+
+debugger:
+  enabled: true
