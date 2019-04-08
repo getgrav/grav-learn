@@ -159,7 +159,7 @@ Allows the dynamic setting of an HTTP Response Code.
 language: fr
 ```
 
-This allows you to override the language for a paritcular page
+This allows you to override the language for a particular page
 
 ### LastModified
 
