@@ -12,6 +12,7 @@ pages:
 
 languages:
     supported: [15,16]
+    default_lang: 16
     pages_fallback_only: true
 
 cache:

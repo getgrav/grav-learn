@@ -86,7 +86,7 @@ The deferred attribute on the block which is powered by the [Deferred Extension]
 {% endblock %}
 [/prism]
 
-
+[version=16]
 ### Throw an Exception
 
 There are certain situations where you need to manually throw an exception, so we have a tag for that too.
@@ -114,3 +114,4 @@ Flex Objects are slowly making their way into more and more elements of Grav.  T
 [prism classes="language-twig line-numbers"]
 {% render object layout: 'default' with { variable: 'value' } %}
 [/prism]
+[/version]

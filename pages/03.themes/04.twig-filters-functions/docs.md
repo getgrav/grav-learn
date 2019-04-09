@@ -76,7 +76,6 @@ Determine if a particular string contains another string
 
 `'some string with things in it'|contains('things')` <i class="fa fa-long-arrow-right"></i> **{{ 'some string with things in it'|contains('things') }}**
 
-[version=16]
 #### Casting Values
 
 PHP 7 is getting more strict type checks, which means that passing a value of wrong type may now throw an exception. To avoid this, you should use filters which ensure that the value passed to a method is valid:  
@@ -100,7 +99,6 @@ Cast value to floating point number.
 **|array**
 
 Cast value to an array.
-[/version]
 
 #### Defined
 
