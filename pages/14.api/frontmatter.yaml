@@ -1,3 +1,6 @@
 title: Grav API
+metadata:
+    description: All the Grav classes in one location for easy reference
+    keywords: "grav api, api, classes"
 shortcode-core:
   active: false
