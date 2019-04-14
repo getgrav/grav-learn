@@ -824,7 +824,7 @@ home.alias:
 
 If you set `multiple` to true, you need to add `validate.type: array`. Otherwise the array of selected pages will not be saved correctly.
 
-[div class="table]
+[div class="table"]
 | Common Attributes Allowed                      |
 | :-----                                         |
 | [default](#common-fields-attributes)           |
