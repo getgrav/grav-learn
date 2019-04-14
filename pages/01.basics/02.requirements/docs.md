@@ -140,8 +140,9 @@ Although you can get away with Notepad, Textedit, Vi, or whatever default text e
 1. [Visual Studio Code](https://code.visualstudio.com/) - Similar to Atom, it's built using Electron, Node, as well as HTML/CSS.  It's quite lightweight and has many plugins available, including very good support for PHP and JavaScript.  This is the current recommended editor for developing for Grav.
 2. [Atom](http://atom.io) - MacOS/Windows/Linux - A new editor developed by Github. It's free and open source. It is similar to Sublime, but does not have the sheer depth of plugins available yet.
 3. [SublimeText](http://www.sublimetext.com/) - MacOS/Windows/Linux - A commercial developer's editor, but well worth the price. Very powerful especially combined with plugins such as [Markdown Extended](https://sublime.wbond.net/packages/Markdown%20Extended), [Pretty YAML](https://sublime.wbond.net/packages/Pretty%20YAML), and [PHP-Twig](https://sublime.wbond.net/packages/PHP-Twig).
-4. [Notepad++](http://notepad-plus-plus.org/) - Windows - A free and very popular developer's editor for Windows.
-5. [Bluefish](http://bluefish.openoffice.nl/index.html) - MacOS/Windows/Linux - A free, open source text editor geared towards programmers and web developers.
+4. [CudaText](http://uvviewsoft.com/cudatext/) - MacOS/Windows/Linux/FreeBSD - free and open source cross-platform SublimeText clone whith support for Sublime plug-ins.
+5. [Notepad++](http://notepad-plus-plus.org/) - Windows - A free and very popular developer's editor for Windows.
+6. [Bluefish](http://bluefish.openoffice.nl/index.html) - MacOS/Windows/Linux - A free, open source text editor geared towards programmers and web developers.
 
 ### Markdown Editors
 
