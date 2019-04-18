@@ -138,7 +138,7 @@ server {
     index index.html index.php;
 
     ## Begin - Server Info
-    root /home/USER/www/html;
+    root /home/grav/www/html;
     server_name localhost;
     ## End - Server Info
 

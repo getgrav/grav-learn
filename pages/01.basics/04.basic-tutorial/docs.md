@@ -26,7 +26,7 @@ If you examine this configuration file in your install, you will see that it alr
 
 ## Page Editing
 
-Pages in **Grav** are composed in **Markdown** syntax.  Markdown is a formatting syntax that is written in plain text and then converted automatically to HTML. It uses elementary text symbols to indicate key HTML tags making it very easy to write without having to know the complexities of HTML. There are numerous other benefits of using Markdown including less-errors, valid markup, very readable, simple to learn, transferable, etc.
+Pages in **Grav** are composed in **Markdown** syntax.  Markdown is a plain text formatting syntax that a computer can readily parse and convert to HTML. It uses basic text symbols to indicate presentation (e.g. **bold**, _italics_, headings, lists, etc.), making it easy to write without needing to know the complexities of HTML. Benefits of Markdown include lower error rate, readability, ease of learning and use, etc.
 
 You can read an [extensive write-up of available syntax](../../content/markdown) with examples in the documentation, but for now, follow along.
 
@@ -110,7 +110,7 @@ This is the body of **my new page** and I can easily use _Markdown_ syntax here.
 3. Save this file in the `user/pages/03.mypage/` folder as `default.md`. This will tell **Grav** to render the page using the **default** template in the current theme: `user/themes/quark/templates/default.html.twig`.
 4. That's it! Reload your browser to see your new page in the menu at the top.
 
-The page will automatically show up in the Menu after the **"Home"** menu item. If you wish to change the name that shows up in the Menu, add: `menu: My Page` between the dashes in the page content.
+The page will automatically show up in the Menu after the **"Typography"** menu item. If you wish to change the name that shows up in the Menu, add: `menu: My Page` between the dashes in the page content.
 
 **Congratulations**, you have now successfully created a new page in Grav.  There is much more you can do with Grav, so please continue reading to find out about more advanced capabilities and in-depth features.
 

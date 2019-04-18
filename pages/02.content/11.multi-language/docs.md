@@ -264,19 +264,19 @@ Il y a 12 singes dans le Zoo de Londres
 As well as the Twig filter and functions you can use the same approach within your Grav plugin:
 
 [prism classes="language-php line-numbers"]
-$translation = $grav['language']->translate(['HEADER.MAIN_TEXT']);
+$translation = $this->grav['language']->translate(['HEADER.MAIN_TEXT']);
 [/prism]
 
 You can also specify a language:
 
 [prism classes="language-php line-numbers"]
-$translation = $grav['language']->translate(['HEADER.MAIN_TEXT'], 'fr');
+$translation = $this->grav['language']->translate(['HEADER.MAIN_TEXT'], 'fr');
 [/prism]
 
 To translate a specific item in an array use:
 
 [prism classes="language-php line-numbers"]
-$translation = $grav['language']->translateArray('MONTHS_OF_THE_YEAR', 3);
+$translation = $this->grav['language']->translateArray('MONTHS_OF_THE_YEAR', 3);
 [/prism]
 
 ### Plugin and Theme Language Translations
