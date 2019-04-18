@@ -26,7 +26,7 @@ If you examine this configuration file in your install, you will see that it alr
 
 ## Page Editing
 
-Pages in **Grav** are composed in **Markdown** syntax.  Markdown is a formatting syntax that is written in plain text and then converted automatically to HTML. It uses elementary text symbols to indicate key HTML tags making it very easy to write without having to know the complexities of HTML. There are numerous other benefits of using Markdown including less-errors, valid markup, very readable, simple to learn, transferable, etc.
+Pages in **Grav** are composed in **Markdown** syntax.  Markdown is a plain text formatting syntax that a computer can readily parse and convert to HTML. It uses basic text symbols to indicate presentation (e.g. **bold**, _italics_, headings, lists, etc.), making it easy to write without needing to know the complexities of HTML. Benefits of Markdown include lower error rate, readability, ease of learning and use, etc.
 
 You can read an [extensive write-up of available syntax](../../content/markdown) with examples in the documentation, but for now, follow along.
 
