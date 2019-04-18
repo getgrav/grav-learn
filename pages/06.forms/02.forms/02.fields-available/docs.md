@@ -6,57 +6,7 @@ taxonomy:
     category: docs
 ---
 
-## Which fields you can use
-
-The Forms plugin provides the following fields, which you can use to build your forms.
-
-[div class="table table-keycol"]
-| Field                                             | Description                                                               |
-| :-----                                            | :-----                                                                    |
-| **Array**                                         |                                                                           |
-| **Avatar**                                        |                                                                           |
-| **[Captcha](#the-captcha-field)**                 | A captcha antispam field, using reCAPTCHA                                 |
-| **[Checkbox](#the-checkbox-field)**               | A simple checkbox                                                         |
-| **[Checkboxes](#the-checkboxes-field)**           | A series of checkboxes                                                    |
-| **Color**                                         |                                                                           |
-| **Columns**                                       |                                                                           |
-| **Column**                                        |                                                                           |
-| **[Conditional](#the-conditional-field)**         | A conditional field that will display or hide fields based on a condition |
-| **[Date](#the-date-field)**                       | A date selection field                                                    |
-| **Datetime**                                      |                                                                           |
-| **[Display](#the-display-field)**                 | A text or instructions field (not an input field)                         |
-| **[Email](#the-email-field)**                     | An email field, with validation                                           |
-| **Fieldset**                                      |                                                                           |
-| **[File](#the-file-field)**                       | A file field for uploading                                                |
-| **Formname**                                      |                                                                           |
-| **[Hidden](#the-hidden-field)**                   | An hidden field                                                           |
-| **[Honeypot](#the-honeypot-field)**               | A hidden field which returns an error when filled                         |
-| **[Ignore](#the-ignore-field)**                   | used to remove unused fields when extending from another blueprint        |
-| **Key**                                           |                                                                           |
-| **Month**                                         |                                                                           |
-| **Number**                                        |                                                                           |
-| **[Password](#the-password-field)**               | A password field                                                          |
-| **[Radio](#the-radio-field)**                     | A radio input type                                                        |
-| **[Range](#the-range-field)**                     | A range input type                                                        |
-| **[Select](#the-select-field)**                   | A select field                                                            |
-| **[Select OptGroup](#the-select-optgroup-field)** | A grouping of options used within a select field                          |
-| **Signature**                                     |                                                                           |
-| **[Spacer](#the-spacer-field)**                   | Used to add a title, text or a horizontal line to the form                |
-| **Switch**                                        |                                                                           |
-| **[Tabs](#the-tabs-tab-fields)**                  | divides the settings in a list of tabs                                    |
-| **[Tab](#the-tabs-tab-fields)**                   | used by the `Tabs` field to render a tab                                  |
-| **Tel**                                           |                                                                           |
-| **[Text](#the-text-field)**                       | A simple text field                                                       |
-| **[Textarea](#the-textarea-field)**               | A textarea                                                                |
-| **Time**                                          |                                                                           |
-| **[Toggle](#the-toggle-field)**                   | a on/off kind of input, with configurable labels                          |
-| **Unique Id**                                     |                                                                           |
-| **Url**                                           |                                                                           |
-| **Value**                                         |                                                                           |
-| **Week**                                          |                                                                           |
-[/div]
-
-### Common Field Attributes
+## Common Field Attributes
 
 Every field accepts a list of attributes you can use. Each field could share these common attributes, but particular fields might ignore them. The best way to check which attributes are allowed on a field is to check the field description in this page and see which attributes are mentioned.
 
@@ -89,36 +39,66 @@ nd so there's no need to repeat the description of a common field.
 | `validate.message`  | sets the message shown if the validation fails                                                                                                                                                                 |
 [/div]
 
-### Positive values
-
-You can set positive values in multiple ways: `'on'`, `true`, `1`.
-Other values are interpreted as negative.
+!!! NOTE: You can set positive values in multiple ways: `'on'`, `true`, `1`. Other values are interpreted as negative.
 
 ---
 
+## Available Fields
+
 ### Captcha Field
 
-The `captcha` field type is used to add a Google reCAPTCHA element to your form. Unlike other elements, it can be used once in the form.
+The `captcha` field type is used to add a Google reCAPTCHA element to your form. Unlike other elements, it can only be used once in a form.
 
-Also, the `name` attribute of the captcha field must be `g-recaptcha-response`. The reason is that Google reCAPTCHA stores the Captcha confirmation code in a field named `g-recaptcha-response`.
+! You should configure your Google reCAPTCHA configurations in the [reCAPTCHA Admin Console](https://www.google.com/recaptcha/admin?target=_blank)
+
+As of version 3.0, the field supports 3 variations of reCAPTCHA.  The overall configuration of reCAPTCHA is best set in your global form configuration file (typically `user/config/plugins/form.yaml`).  The default options are:
+
+[prism classes="language-yaml line-numbers"]
+recaptcha:
+  version: 2-checkbox
+  theme: light
+  site_key:
+  secret_key:
+[/prism]
+
+These options should be set based on the following:
+
+[div class="table table-keycol"]
+| Key | Values |
+|-----|--------|
+| version | Defaults to `2-checkbox`, but can also be `2-invisible` or `3` |
+| theme | Defaults to `light`, but can also be `dark` (currently only works for version `2-x` versions) |
+| site_key | Your Google Site Key  |
+| secret_key | Your Google Secret Key |
+[/div]
+
+!! Please ensure the domain of the site is listed in Google's reCAPTCHA configuration
+
+In the form definition, the `name` attribute of the captcha field must be `g-recaptcha-response`. The reason is that Google reCAPTCHA stores the Captcha confirmation code in a field named `g-recaptcha-response`.
 
 Example:
 
 [prism classes="language-yaml line-numbers"]
--
-  name: g-recaptcha-response
-  label: Captcha
+g-recaptcha-response:
   type: captcha
-  recaptcha_site_key: j3jeoi3jeroi23jrio234jro32nrkj43njrn32rn3
+  label: Captcha  
+
+[/prism]
+
+You can also provide a custom failure `recaptcha_not_validated` message, but if you don't the default one is provided by the Form plugin.  If you want to set a form-specific `recaptcha_site_key` rather than setting it globally in the form configuration, you can set that also.
+
+[prism classes="language-yaml line-numbers"]
+g-recaptcha-response:
+  type: captcha
+  label: Captcha 
+  recaptcha_site_key: ENTER_YOUR_CAPTCHA_PUBLIC_KEY 
   recaptcha_not_validated: 'Captcha not valid!'
-  validate:
-    required: true
 [/prism]
 
 [div class="table table-keycol"]
 | Attribute                 | Description                                     |
 | :-----                    | :-----                                          |
-| `recaptcha_site_key`      | The Google reCAPTCHA Site Key                   |
+| `recaptcha_site_key`      | The Google reCAPTCHA Site Key (optional)                   |
 | `recaptcha_not_validated` | The message to show if the captcha is not valid |
 [/div]
 
@@ -138,9 +118,17 @@ Example:
 The above code will validate the Captcha in the frontend and prevent form submission if not correct. To also validate the captcha server-side, add the captcha process action to your forms:
 
 [prism classes="language-yaml line-numbers"]
-    process:
-        - captcha:
-            recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
+  process:
+    captcha: true
+[/prism]
+
+You can also provide an optional success `message`, but if you don't no specific message will be displayed on success.  If you want to set a form-specific `recaptcha_secret` rather than setting it globally in the form configuration, you can set that also.
+
+[prism classes="language-yaml line-numbers"]
+  process:
+    captcha:
+      recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
+      message: 'Successfully passed reCAPTCHA!'
 [/prism]
 
 [See the Contact Form example](/forms/forms/example-form) to see it in action.
@@ -491,7 +479,7 @@ Example:
 
 [prism classes="language-yaml line-numbers"]
 fields:
-    - name: honeypot
+    honeypot:
       type: honeypot
 [/prism]
 
@@ -922,3 +910,30 @@ summary.enabled:
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes)     |
 | [disabled](#common-fields-attributes)          |
+
+## Currently Undocumented Fields
+
+
+[div class="table table-keycol"]
+| Field                                             | Description                                                               |
+| :-----                                            | :-----                                                                    |
+| **Array**                                         |                                                                           |
+| **Avatar**                                        |                                                                           |
+| **Color**                                         |                                                                           |
+| **Columns**                                       |                                                                           |
+| **Column**                                        |                                                                           |
+| **Datetime**                                      |                                                                           |
+| **Fieldset**                                      |                                                                           |
+| **Formname**                                      |                                                                           |
+| **Key**                                           |                                                                           |
+| **Month**                                         |                                                                           |
+| **Number**                                        |                                                                           |
+| **Signature**                                     |                                                                           |
+| **Switch**                                        |                                                                           |
+| **Tel**                                           |                                                                           |
+| **Time**                                          |                                                                           |
+| **Unique Id**                                     |                                                                           |
+| **Url**                                           |                                                                           |
+| **Value**                                         |                                                                           |
+| **Week**                                          |                                                                           |
+[/div]
