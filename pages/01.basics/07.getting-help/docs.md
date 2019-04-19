@@ -24,7 +24,7 @@ If you find a bug, have a general question or even want to contribute to the Gra
 
 ## Chat on Discord
 
-You can **chat with us live** on [Discord](https://chat.getgrav.org). We've recently [moved from Slack to Discord](https://getgrav.org/blog/chat-moving-to-discord) for our community chat platform, and have now hanging out there for all your Grav needs!  So [join us there](https://chat.getgrav.org) and get involved with the growing Grav community!
+You can **chat with us live** on [Discord](https://chat.getgrav.org). We recently [moved from Slack to Discord](https://getgrav.org/blog/chat-moving-to-discord) for our community chat platform, and now hang out there.  So [join us there](https://chat.getgrav.org) and get involved with the growing Grav community!
 
 
 
