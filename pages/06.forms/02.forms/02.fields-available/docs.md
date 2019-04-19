@@ -13,7 +13,7 @@ Every field accepts a list of attributes you can use. Each field could share the
 This list provides a common grou
 nd so there's no need to repeat the description of a common field.
 
-[div class="table table-keycol"]
+[div class="table"]
 | Attribute           | Description                                                                                                                                                                                                    |
 | :-----              | :-----                                                                                                                                                                                                         |
 | `autocomplete`      | Accepts `on` or `off`                                                                                                                                                                                          |
