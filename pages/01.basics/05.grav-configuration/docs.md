@@ -491,7 +491,7 @@ gpm:
   official_gpm_only: true
 [/prism]
 
-The **GPM** section offers the user options that control how Grav's GPM sources and makes ready updates available for your site. You can choose between stable and testing releases, as well as set up a proxy URL.
+Options in the **GPM** section control Grav's GPM (Grav Package Manager). For example, you can restrict GPM to using official sources and select the method GPM uses to retrieve packages. You can also choose between stable and testing releases, as well as set up a proxy URL.
 
 [div class="table-keycol"]
 | Property | Description |
