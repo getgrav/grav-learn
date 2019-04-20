@@ -200,6 +200,7 @@ In its main PHP file, register for the event `onFormProcessed`
 [prism classes="language-php line-numbers"]
 namespace Grav\Plugin;
 use Grav\Common\Plugin;
+use RocketTheme\Toolbox\Event\Event;
 
 class EmailPlugin extends Plugin
 {
