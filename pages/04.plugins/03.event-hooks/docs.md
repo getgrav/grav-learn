@@ -9,7 +9,7 @@ taxonomy:
 
 In the previous [Plugin Tutorial](../plugin-tutorial) chapter, you might have noticed that our plugin logic was encompassed in two methods.  Each of these methods `onPluginsInitialized` and `onPageInitialized` correspond to **event hooks** that are available throughout the Grav life cycle.
 
-To fully harness the power of Grav plugins you need to know which event hooks are available, in what order are these hooks called, and what is available during these calls.  The **event hooks** have a direct relationship to the overall [Grav Lifecycle](../../advanced/grav-lifecycle) that we cover in the [Advanced](../../advanced) section later on.
+To fully harness the power of Grav plugins you need to know which event hooks are available, in what order are these hooks called, and what is available during these calls. The **event hooks** have a direct relationship to the overall [Grav Lifecycle](../../plugins/grav-lifecycle).
 
 ## Event Order
 
