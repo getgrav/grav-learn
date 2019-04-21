@@ -125,7 +125,7 @@ This is a sample structure but some things are required:
 
 These items are critical and your theme will not function reliably unless you include these in your theme.
 
-* **`blueprints.yaml`** - The configuration file used by Grav to get information on your theme. It can also define a form that the admin can display when viewing the theme details.  This form will let you save settings for the theme. [This file is documented in the Forms section](/forms/blueprints).
+* **`blueprints.yaml`** - The configuration file used by Grav to get information on your theme. It can also define a form that the admin can display when viewing the theme details.  This form will let you save settings for the theme. [This file is documented in the Forms chapter](/forms/blueprints).
 * **`my-theme.php`** - This file will be named according to your theme, but can be used to house any logic your theme needs.  You can use any [plugin event hook](/plugins/event-hooks) except `onPluginsInitialized()`, however there is a theme specific `onThemeInitialized()` hook specific for themes that you can use instead.
 * **`my-theme.yaml`** - This is the configuration used by the plugin to set options the theme might use.
 * **`templates/`** - This is a folder that contains the Twig templates to render your pages.
