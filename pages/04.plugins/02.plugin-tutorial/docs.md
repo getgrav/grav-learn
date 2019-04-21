@@ -93,7 +93,7 @@ This is a sample structure but some things are required:
 
 These items are critical and your plugin will not function reliably unless you include these in your plugin.
 
-* **`blueprints.yaml`** - The configuration file used by Grav to get information on your plugin. It can also define a form that the admin can display when viewing the plugin details.  This form will let you save settings for the plugin. [This file is documented in the Forms section](/forms/blueprints).
+* **`blueprints.yaml`** - The configuration file used by Grav to get information on your plugin. It can also define a form that the admin can display when viewing the plugin details.  This form will let you save settings for the plugin. [This file is documented in the Forms chapter](/forms/blueprints).
 * **`randomizer.php`** - This file will be named according to your plugin, but can be used to house any logic your plugin needs.  You can use any [plugin event hook](/plugins/event-hooks) to perform logic at pretty much any point in [Grav's lifecycle](/plugins/grav-lifecycle).
 * **`randomizer.yaml`** - This is the configuration used by the plugin to set options the plugin might use. This should be named in the same way as the `.php` file.
 
