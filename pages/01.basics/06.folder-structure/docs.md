@@ -109,7 +109,7 @@ The `languages` folder contains [Translation Overrides](../../content/multi-lang
 
 ### /user/pages
 
-This is the heart of Grav. The `pages` folder is where you create and edit your content.  We will go into much more depth in the [next section](../../content).
+This is the heart of Grav. The `pages` folder is where you create and edit your content.  We will go into much more depth in the [next chapter](../../content).
 
 ### /user/plugins
 
@@ -117,4 +117,4 @@ A plugin can extend the fast core of Grav with particular features you may need 
 
 ### /user/themes
 
-A theme turns your content into a true website.  It converts the content you have constructed into the HTML that a browser understands and displays to your audience.  There is a base theme that is provided with Grav, but you can also download others from [GetGrav.org/downloads/themes](https://getgrav.org/downloads/themes) or even create your own.  The [Themes](../../themes) section will outline this in further detail.
+A theme turns your content into a true website.  It converts the content you have constructed into the HTML that a browser understands and displays to your audience.  There is a base theme that is provided with Grav, but you can also download others from [GetGrav.org/downloads/themes](https://getgrav.org/downloads/themes) or even create your own.  The [Themes](../../themes) chapter will outline this in further detail.
