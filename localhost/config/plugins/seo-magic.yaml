@@ -1,0 +1,3 @@
+webshot:
+    enabled: true
+    url: http://localhost/webshot
