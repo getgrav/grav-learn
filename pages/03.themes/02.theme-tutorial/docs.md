@@ -8,11 +8,13 @@ taxonomy:
 
 Often, the best way to learn a new thing is to use an example, and then try to build your own creation from it. We are going to use this same methodology for creating a new Grav theme.
 
-## Antimatter
+## Quark
 
-Grav comes with a clean and modern theme called **Antimatter** which uses a simple base set of CSS styling that we call **Nucleus**.
+Grav comes with a clean and modern theme called **Quark** which uses the [Spectre.css framework](https://picturepan2.github.io/spectre/).
 
-Nucleus is a lightweight CSS framework that contains the essential CSS resets and styling for layout and HTML markup without any over-bearing design.  Antimatter has some custom styling on top of the Nucleus framework to give it a unique look and feel.
+Spectre.css is a lightweight, responsive and modern CSS framework for faster and extensible development.
+
+Spectre provides basic styles for typography and elements, flexbox based responsive layout system, pure CSS components and utilities with best practice coding and consistent design language.
 
 However, it's often better to start from something even simpler.
 
@@ -78,7 +80,7 @@ Path: /www/user/themes/my-theme
 
 The DevTools command tells you where this new template was created. This created template is fully functional but also very simple.  You will want to modify this to suite your needs.
 
-In order to see your new theme in action, you will need to change the default theme from `antimatter` to `my-theme`, so edit your `user/config/system.yaml` and change it:
+In order to see your new theme in action, you will need to change the default theme from `quark` to `my-theme`, so edit your `user/config/system.yaml` and change it:
 
 [prism classes="language-yaml line-numbers"]
 ...
