@@ -93,7 +93,7 @@ Then you have your Twig:
 
 [prism classes="language-html line-numbers"]
 <li>
-    <a href='{{ post.url }}'><aside class="dates">{{ 'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }} {{ post.date|date('d') }}</aside></a>
+    <a href='{{ post.url }}'><aside class="dates">{{ 'GRAV.MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }} {{ post.date|date('d') }}</aside></a>
     <a href='{{ post.url }}'>{{ post.title }}</a>
 </li>
 [/prism]
