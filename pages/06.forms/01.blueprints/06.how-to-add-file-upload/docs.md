@@ -130,7 +130,7 @@ The `accept` setting allows an array of MIME type as well as extensions definiti
 In addition you can also allow any file by simply using the __*__ (star) notation `accept: ['*']`.
 
 ##### Examples
-
+    
 1. To only allow `yaml` and `json` files:
    [prism classes="language-yaml line-numbers"]
      accept:
@@ -154,4 +154,41 @@ In addition you can also allow any file by simply using the __*__ (star) notatio
    [prism classes="language-yaml line-numbers"]
      accept:
        - '*'
+   [/prism]
+
+#### `filesize`
+
+The max file size is limited by: 
+
+1. field level  `filesize:`, then ...
+
+2. Form plugin level configuration `user/plugins/form.yaml` setting `files: filesize:`, then if neither of those are limiting... 
+
+3. PHP level configuration for `upload_max_filesize` for individual files that are uploaded, and `post_max_size` for the max form post total size.
+
+##### Examples
+
+1. To limit a specific field to `5M`
+   [prism classes="language-yaml line-numbers]
+   custom_file:
+     name: myfile
+     type: file
+     label: A Label
+     destination: 'user/plugins/my-plugin/assets'
+     filesize: 5
+     accept:
+       - image/*
+   [/prism]
+
+2. To limit all file fields to `5M`, edit your `user/config/form.yaml` file:
+   [prism classes="language-yaml line-numbers]
+   files:
+     multiple: false
+     limit: 10
+     destination: '@self'
+     avoid_overwriting: false
+     random_name: false
+     filesize: 5
+     accept:
+       - 'image/*
    [/prism]
