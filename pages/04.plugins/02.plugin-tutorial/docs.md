@@ -185,7 +185,7 @@ In this plugin we are going to tell Grav we're subscribing to the `onPluginsInit
 The next step is to add a method to our `RandomizerPlugin` class to handle the `onPluginsInitialized` event so it only activates when a user tries to go to the route we have configured in our `randomizer.yaml` file.  Replace the current 'sample' plugin logic with the following:
 
 
-[prism classes="language-twig line-numbers"]
+[prism classes="language-php line-numbers"]
 public function onPluginsInitialized()
 {
     // Don't proceed if we are in the admin plugin
