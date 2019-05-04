@@ -63,7 +63,7 @@ The `{{ language_codes }}` returns list of available languages of the site.
 
 ### config object
 
-You can access any Grav configuration setting via the config object as set in the `configuration.yaml` file.  For example:
+You can access any Grav configuration setting set in the YAML-files in `/user/config` via the `config`-object. For example:
 
 [prism classes="language-twig"]
 {{ config.system.pages.theme }}{# returns the currently configured theme #}
@@ -75,11 +75,11 @@ An alias to the `config.site` object. This represents the configuration as set i
 
 ### system object
 
-An alias to the `config.system` object.  This represents the configuration in the main `system.yaml` file.
+An alias to the `config.system` object. This represents the configuration in the main `system.yaml` file.
 
 ### theme object
 
-An alias to the `config.theme` object.  This represents the configuration for the current active theme.
+An alias to the `config.theme` object. This represents the configuration for the current active theme. Plugin settings are available through `config.plugins`.
 
 ### page object
 
