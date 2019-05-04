@@ -169,7 +169,7 @@ The max file size is limited by:
 ##### Examples
 
 1. To limit a specific field to `5M`
-   [prism classes="language-yaml line-numbers]
+   [prism classes="language-yaml line-numbers"]
    custom_file:
      name: myfile
      type: file
@@ -181,7 +181,7 @@ The max file size is limited by:
    [/prism]
 
 2. To limit all file fields to `5M`, edit your `user/config/form.yaml` file:
-   [prism classes="language-yaml line-numbers]
+   [prism classes="language-yaml line-numbers"]
    files:
      multiple: false
      limit: 10
