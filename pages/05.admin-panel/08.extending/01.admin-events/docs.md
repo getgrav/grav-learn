@@ -6,7 +6,7 @@ process:
     twig: true
 ---
 
-The Admin plugin has multiple event hooks that can be used during the [Grav Lifecycle](/plugins/grav-lifecycle).  See the general plugin documentation for using event hooks in the [Plugins](/plugins) section.
+The Admin plugin has multiple event hooks that can be used during the [Grav Lifecycle](/plugins/grav-lifecycle).  See the general plugin documentation for using event hooks in the [Plugins](/plugins) chapter.
 
 ## Available Admin Event Hooks
 * [onAdminTaskExecute](../admin-events#onAdminTaskExecute)
