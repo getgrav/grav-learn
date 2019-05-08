@@ -19,20 +19,20 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 [div class="table table-keycol"]
 | Field                                             | Description                                                                                                                                                                                                 |
 | :-----                                            | :-----                                                                                                                                                                                                      |
-| **[Array](#the-array-field)**                     | used to create key-value arrays                                                                                                                                                                             |
+| **[Array](#array-field)**                         | used to create key-value arrays                                                                                                                                                                             |
 | **BackupHistory**                                 |                                                                                                                                                                                                             |
 | **Blueprint**                                     |                                                                                                                                                                                                             |
-| **[Colorpicker](#the-colorpicker-field)**         | show a color picker                                                                                                                                                                                         |
-| **[Columns](#the-columns-column-fields)**         | used to break the form into multiple columns                                                                                                                                                                |
-| **[Column](#the-columns-column-fields)**          | used to show a single column (used with the `Columns` field)                                                                                                                                                |
+| **[Colorpicker](#colorpicker-field)**             | show a color picker                                                                                                                                                                                         |
+| **[Columns](#columns-column-fields)**             | used to break the form into multiple columns                                                                                                                                                                |
+| **[Column](#columns-column-fields)**              | used to show a single column (used with the `Columns` field)                                                                                                                                                |
 | **Cron**                                          |                                                                                                                                                                                                             |
 | **CronStatus**                                    |                                                                                                                                                                                                             |
-| **[Dateformat](#the-dateformat-field)**           | a special select that renders the current date/time in the passed formats                                                                                                                                   |
-| **[Datetime](#the-datetime-field)**               | a date and time selection field                                                                                                                                                                             |
-| **[Editor](#the-editor-field)**                   | show a markdown editor                                                                                                                                                                                      |
-| **[Fieldset](#the-fieldset-field)**               | group a set of fields inside a collapsible accordion                                                                                                                                                        |
-| **[File](#the-file-field)**                       | in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
-| **[Filepicker](#the-filepicker-field)**           | **Filepicker** allows to choose files from a location in the web server filesystem.                                                                                                                         |
+| **[Dateformat](#dateformat-field)**               | a special select that renders the current date/time in the passed formats                                                                                                                                   |
+| **[Datetime](#datetime-field)**                   | a date and time selection field                                                                                                                                                                             |
+| **[Editor](#editor-field)**                       | show a markdown editor                                                                                                                                                                                      |
+| **[Fieldset](#fieldset-field)**                   | group a set of fields inside a collapsible accordion                                                                                                                                                        |
+| **[File](#file-field)**                           | in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
+| **[Filepicker](#filepicker-field)**               | **Filepicker** allows to choose files from a location in the web server filesystem.                                                                                                                         |
 | **Frontmatter**                                   |                                                                                                                                                                                                             |
 | **IconPicker**                                    |                                                                                                                                                                                                             |
 | **[List](#list-field)**                           | used to create collections of fields                                                                                                                                                                        |
@@ -41,15 +41,15 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 | **Multilevel**                                    |                                                                                                                                                                                                             |
 | **Order**                                         |                                                                                                                                                                                                             |
 | **PageMedia**                                     |                                                                                                                                                                                                             |
-| **[PageMediaSelect](#the-pagemediaselect-field)** | shows a select with all the page media. Used in Pages blueprints to let the user choose a media file to be assigned to a field.                                                                             |
-| **[Pages](#the-pages-field)**                     | shows a list of the site pages                                                                                                                                                                              |
+| **[PageMediaSelect](#pagemediaselect-field)**     | shows a select with all the page media. Used in Pages blueprints to let the user choose a media file to be assigned to a field.                                                                             |
+| **[Pages](#pages-field)**                         | shows a list of the site pages                                                                                                                                                                              |
 | **Parents**                                       |                                                                                                                                                                                                             |
 | **Permissions**                                   |                                                                                                                                                                                                             |
 | **Range**                                         |                                                                                                                                                                                                             |
-| **[Section](#the-section-field)**                 | used to divide a setting page into sections; each section comes with a title                                                                                                                                |
-| **[Selectize](#the-selectize-field)**             | a hybrid of a text box and a select box. Mostly useful for tagging and other element picking fields.                                                                                                        |
+| **[Section](#section-field)**                     | used to divide a setting page into sections; each section comes with a title                                                                                                                                |
+| **[Selectize](#selectize-field)**                 | a hybrid of a text box and a select box. Mostly useful for tagging and other element picking fields.                                                                                                        |
 | **SelectUnique**                                  |                                                                                                                                                                                                             |
-| **[Taxonomy](#the-taxonomy-field)**               | a special select preconfigured to select one or more taxonomies                                                                                                                                             |
+| **[Taxonomy](#taxonomy-field)**                   | a special select preconfigured to select one or more taxonomies                                                                                                                                             |
 | **ThemeSelect**                                   |                                                                                                                                                                                                             |
 | **UserInfo**                                      |                                                                                                                                                                                                             |
 | **Xss**                                           |                                                                                                                                                                                                             |
@@ -475,7 +475,7 @@ frontmatter:
 
 ![Fieldset Field](fieldset-gif.gif)
 The `fieldset` groups a set of fields inside a collapsible box.
-                    
+
 
 Example:
 
@@ -488,7 +488,7 @@ header.fieldset:
   text: Text inside fieldset and before other fields
   icon: comments
   collapsed: true     # Initial state of fieldset (see collapsible option)
-  collapsible: true    # Whether one can expand the fieldset or not 
+  collapsible: true    # Whether one can expand the fieldset or not
   fields:
     header.fieldset.an_example_text:
       type: text
@@ -501,7 +501,7 @@ header.fieldset:
 [div class="table table-keycol"]
 | Attribute     | Description                                                                                                |
 | :-----        | :-----                                                                                                     |
-| `icon`        | An icon for the box                                                                                        |         
+| `icon`        | An icon for the box                                                                                        |
 | `collapsed`   | If `true`, the list is opened collapsed. By default it's expanded                                          |
 | `collapsible` | Whether one can expand the fieldset or not                                                                 |
 [/div]
