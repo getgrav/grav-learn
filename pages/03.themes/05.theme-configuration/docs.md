@@ -8,7 +8,7 @@ As of Grav 1.1, you can easily access theme configuration and blueprint informat
 
 ## Accessing Theme Blueprint Information
 
-Information from the currently active theme's `blueprints.yaml` file can be had from the `grav.theme` object. Let's use the following `blueprints.yaml` file as an example:
+Information from the currently active theme's `blueprints.yaml` file can be had from the `theme` object. Let's use the following `blueprints.yaml` file as an example:
 
 [prism classes="language-yaml line-numbers"]
 name: Antimatter
@@ -26,11 +26,11 @@ bugs: https://github.com/getgrav/grav-theme-antimatter/issues
 license: MIT
 [/prism]
 
-You can reach any of these items via `grav.theme` by using the standard **dot-syntax**:
+You can reach any of these items via `theme` by using the standard **dot-syntax**:
 
 [prism classes="language-twig line-numbers"]
-Author Email: {{ grav.theme.author.email }}
-Theme License: {{ grav.theme.license }}
+Author Email: {{ theme.author.email }}
+Theme License: {{ theme.license }}
 [/prism]
 
 You can also reach these same values from a Grav plugin with PHP syntax:
@@ -88,8 +88,6 @@ The following aliases also work:
 
 [prism classes="language-twig line-numbers"]
 Theme Color Option: {{ config.theme.color_option }}
-   or
-Theme Color Option: {{ theme.color_option }}
    or
 Theme Color Option: {{ theme_var(color_option) }}
    or
