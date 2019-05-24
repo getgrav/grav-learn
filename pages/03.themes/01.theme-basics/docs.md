@@ -98,7 +98,7 @@ The `blueprints/` folder is used to define forms for options and configuration f
 
 ### Theme and Plugin Events
 
-Another powerful feature that is purely optional is the ability for a theme to interact with Grav via the **plugins** architecture. In short, during the initialization sequence of grav, there are several points in the sequence where you can "hook" your own piece of code. This can be useful, for example, to define extra path shortcuts in your theme when twig is initializing, so that you can use them in your twig templates. These hooks are available to you through a set of "empty" functions with names predefined by the Grav system, which you can fill at your convenience. [Chapter 4. Plugins](../../plugins) has more information about the plugin system and the available event hooks. To make use of this hooks in your theme, simply create a file called `mytheme.php` and use the following format:
+Another powerful feature that is purely optional is the ability for a theme to interact with Grav via the **plugins** architecture. In short, during the initialization sequence of grav, there are several points in the sequence where you can "hook" your own piece of code. This can be useful, for example, to define extra path shortcuts in your theme when twig is initializing, so that you can use them in your twig templates. These hooks are available to you through a set of "empty" functions with names predefined by the Grav system, which you can fill at your convenience. [Chapter 4. Plugins](../../plugins) has more information about the plugin system and the available event hooks. To make use of these hooks in your theme, simply create a file called `mytheme.php` and use the following format:
 
 [prism classes="language-php line-numbers"]
 <?php
