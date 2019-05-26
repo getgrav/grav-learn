@@ -38,7 +38,7 @@ If you are trying to debug some PHP, for example a custom plugin you are develop
 For example, you can easily dump a PHP variable or object:
 
 [prism classes="language-php"]
-dump($this);
+dump($myvariable);
 [/prism]
 
 and see the results in your browser:
@@ -48,7 +48,7 @@ and see the results in your browser:
 You can also dump variables into the **Messages** tab of the Debug Bar by using the syntax:
 
 [prism classes="language-php"]
-$grav['debugger']->addMessage($this)
+$this->grav['debugger']->addMessage($myvariable)
 [/prism]
 
 ### Dump command for Twig
@@ -98,14 +98,14 @@ errors:
 The ability to log information is often useful, and once again, Grav provides us with a simple put powerful logging feature.  Use one of the following syntaxes:
 
 [prism classes="language-twig line-numbers"]
-$grav['log']->info('My informational message');
-$grav['log']->notice('My notice message');
-$grav['log']->debug('My debug message');
-$grav['log']->warning('My warning message');
-$grav['log']->error('My error message');
-$grav['log']->critical('My critical message');
-$grav['log']->alert('My alert message');
-$grav['log']->emergency('Emergency, emergency, there is an emergency here!');
+$this->grav['log']->info('My informational message');
+$this->grav['log']->notice('My notice message');
+$this->grav['log']->debug('My debug message');
+$this->grav['log']->warning('My warning message');
+$this->grav['log']->error('My error message');
+$this->grav['log']->critical('My critical message');
+$this->grav['log']->alert('My alert message');
+$this->grav['log']->emergency('Emergency, emergency, there is an emergency here!');
 
 [/prism]
 
