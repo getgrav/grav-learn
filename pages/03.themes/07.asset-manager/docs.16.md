@@ -96,7 +96,7 @@ By defaults, `CSS` and `JS` default to display in the `pipeline` position when t
 
 In general, you add CSS assets one by one using `assets.addCss()` or `assets.addInlineCss()` calls, then render those assets via `assets.css()`. Options controlling priority, pipelining or inlining can be specified per asset when adding it, or at rendering time for a group of assets.
 
-JS assets are handled similarly with `assets.addJs()` and `assetes.addInlineJs()` calls. There is also a generic `assets.add()` method that tries to guess the type of asset you are adding, but it is recommended to use the more specific method calls.
+JS assets are handled similarly with `assets.addJs()` and `assets.addInlineJs()` calls. There is also a generic `assets.add()` method that tries to guess the type of asset you are adding, but it is recommended to use the more specific method calls.
 
 The Asset Manager also supports:
 
