@@ -79,5 +79,5 @@ user/config/themes/antimatter.yaml
 Can be overridden for any environment, say some production site (`http://www.mysite.com`):
 
 [prism classes="language-bash command-line"]
-www.mysite.com/config/themes/antimatter.yaml
+user/www.mysite.com/config/themes/antimatter.yaml
 [/prism]
