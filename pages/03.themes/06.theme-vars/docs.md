@@ -438,7 +438,7 @@ This returns the query portion of the URL: (e.g. `uri.query` = `query1=bar&query
 
 ##### query(id)
 
-You can also retrieve specfic query items: (e.g. `uri.query('query1')` = `bar`)
+You can also retrieve specific query items: (e.g. `uri.query('query1')` = `bar`)
 
 ##### url([include_host = true])
 
