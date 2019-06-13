@@ -406,7 +406,7 @@ Also has several useful Collection-specific methods:
 | `Collection::published()` | Filters the current collection to include only published pages |
 | `Collection::nonPublished()` | Filters the current collection to include only non-published pages |
 | `Collection::routable()` | Filters the current collection to include only routable pages |
-| `Collection::nonRoutable()` | Filters the current collection to include only non-routabe pages |
+| `Collection::nonRoutable()` | Filters the current collection to include only non-routable pages |
 | `Collection::ofType($type)` | Filters the current collection to include only pages where template = `$type` |
 | `Collection::ofOneOfTheseTypes($types)` | Filters the current collection to include only pages where template is in the array `$types` |
 | `Collection::ofOneOfTheseAccessLevels($levels)` | Filters the current collection to include only pages where page access is in the array of `$levels` |
