@@ -97,7 +97,7 @@ Scheduler Jobs Listing
 
 The Grav scheduler is controlled by a primary configuration file.  This is located in `user/config/scheduler.yaml` and is required to have any job `enabled` in order to run.
 
-Below the configruation shows the jobs that are avialable and if they are enabled to run or not.  Simply set an entry to `disabled` to stop it from running.
+Below the configruation shows the jobs that are available and if they are enabled to run or not.  Simply set an entry to `disabled` to stop it from running.
 
 [prism classes="language-yaml line-numbers"]
 status:
