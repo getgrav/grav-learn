@@ -210,7 +210,7 @@ assets:
         - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js
 [/prism]
 
-You can also use the `registerCollection()` method programatically.
+You can also use the `registerCollection()` method programmatically.
 
 [prism classes="language-yaml line-numbers"]
 $assets = $this->grav['assets'];
