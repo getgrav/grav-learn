@@ -146,7 +146,7 @@ Selecting the download icon will take you to the product page for Grav.
 ![](soft_2.png)
 [/ui-callout]
 
-At this point, you can select the **Downlaod** icon to progress to the main product page for Grav. This page includes additional information, as well as the link where you can install Grav directly to your server.
+At this point, you can select the **Download** icon to progress to the main product page for Grav. This page includes additional information, as well as the link where you can install Grav directly to your server.
 
 [ui-callout]
 [ui-callout-item title="Download" position="28%, 5%, se"]
