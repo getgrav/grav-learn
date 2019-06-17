@@ -94,7 +94,7 @@ These are still important but less commonly used. They can be used to provide ad
 append_url_extension: '.json'
 ```
 
-Allows the page to override the default extension and set one programatically.  It will also set the appropriate header attributes for the response.
+Allows the page to override the default extension and set one programmatically.  It will also set the appropriate header attributes for the response.
 
 ### Cache-control
 

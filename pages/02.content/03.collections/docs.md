@@ -406,7 +406,7 @@ Also has several useful Collection-specific methods:
 | `Collection::published()` | Filters the current collection to include only published pages |
 | `Collection::nonPublished()` | Filters the current collection to include only non-published pages |
 | `Collection::routable()` | Filters the current collection to include only routable pages |
-| `Collection::nonRoutable()` | Filters the current collection to include only non-routabe pages |
+| `Collection::nonRoutable()` | Filters the current collection to include only non-routable pages |
 | `Collection::ofType($type)` | Filters the current collection to include only pages where template = `$type` |
 | `Collection::ofOneOfTheseTypes($types)` | Filters the current collection to include only pages where template is in the array `$types` |
 | `Collection::ofOneOfTheseAccessLevels($levels)` | Filters the current collection to include only pages where page access is in the array of `$levels` |
@@ -493,7 +493,7 @@ You can also do similar directly in **Twig Templates**:
 
 By default when you call `page.collection()` in the Twig of a page that has a collection defined in the header, Grav looks for a collection called `content`.  This allows the ability to define [multiple collections](#multiple-collections), but you can even take this a step further.
 
-If you need to programatically generate a collection, you can do so by calling `page.collection()` and passing in an array in the same format as the page header collection definition.  For example:
+If you need to programmatically generate a collection, you can do so by calling `page.collection()` and passing in an array in the same format as the page header collection definition.  For example:
 
 [prism classes="language-twig line-numbers"]
 {% set options = { items: {'@page.children': '/my/pages'}, 'limit': 5, 'order': {'by': 'date', 'dir': 'desc'}, 'pagination': true } %}

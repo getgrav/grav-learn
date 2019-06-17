@@ -420,7 +420,7 @@ Dump/Encode a variable into YAML syntax
 
 #### Yaml Decode
 
-Decode/Parse a varible from YAML syntax
+Decode/Parse a variable from YAML syntax
 
 {% verbatim %}
 `{% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}`
