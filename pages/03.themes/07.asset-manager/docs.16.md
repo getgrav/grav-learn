@@ -347,7 +347,7 @@ Example of editing the `rel` attribute on a group of assets:
 
 ## Inlining Assets
 
-Inlinging allows the placing critical CSS (and JS) code directly into the HTML document enables the browser to render a page immediately without waiting for external stylesheet or script downloads. This can improve site performance noticeably for users, particularly over mobile networks. Details can be found in [this article on optimizing CSS delivery](https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery).
+Inlining allows the placing critical CSS (and JS) code directly into the HTML document enables the browser to render a page immediately without waiting for external stylesheet or script downloads. This can improve site performance noticeably for users, particularly over mobile networks. Details can be found in [this article on optimizing CSS delivery](https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery).
 
 However, directly inserting CSS or JavaScript code into a page template is not always feasible, for example, where Sass-complied CSS is used. Keeping CSS and JS assets in separate files also simplifies maintenance. Using the Asset Manager's inline capability enables you to optimize for speed without changing the way your assets are stored. Even entire pipelines can be inlined.
 
