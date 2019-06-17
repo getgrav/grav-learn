@@ -44,7 +44,7 @@ profiles:
 
 #### Profiles
 
-An array of profiles can be configured.  The `Default Site Backup` profile is configured similarly to the default Grav backup in previous versions.  By default, the backup is not automatically processed by teh scheduler, but you can set `schedule: true` and configure teh `schedule_at:` option with a preferred [cron expression](https://crontab.guru/).
+An array of profiles can be configured.  The `Default Site Backup` profile is configured similarly to the default Grav backup in previous versions.  By default, the backup is not automatically processed by the scheduler, but you can set `schedule: true` and configure the `schedule_at:` option with a preferred [cron expression](https://crontab.guru/).
 
 An example of a more complex set of profiles could be:
 
