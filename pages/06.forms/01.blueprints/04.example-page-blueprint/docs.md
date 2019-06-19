@@ -155,22 +155,20 @@ If you are using a Gantry5 based theme, the best location is `user/data/gantry5/
 
 Put them in `user/plugins/YOURPLUGIN/blueprints/`. This is the place where to put them if you define and add custom pages in the plugin.
 
-Then subscribe to the `onGetPageTemplates` event and add them to Grav. The following example adds the blueprints from the `blueprints/` folder and also the page templates from the `templates/` folder.
+Then subscribe to the `onGetPageBlueprints event and add them to Grav. The following example adds the blueprints from the `blueprints/` folder and also the page templates from the `templates/` folder.
 
 [prism classes="language-php line-numbers"]
 public static function getSubscribedEvents()
 {
   return [
-    'onGetPageTemplates' => ['onGetPageTemplates', 0]
+    'onGetPageBlueprints' => ['onGetPageBlueprints', 0]
 
   ];
 }
 
-public function onGetPageTemplates($event)
+public function onGetPageBlueprints($event)
 {
   $types = $event->types;
-  $locator = Grav::instance()['locator'];
-  $types->scanBlueprints($locator->findResource('plugin://' . $this->name . '/blueprints'));
-  $types->scanTemplates($locator->findResource('plugin://' . $this->name . '/templates'));
+  $types->scanBlueprints('plugins://' . $this->name . '/blueprints');
 }
 [/prism]
