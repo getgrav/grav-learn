@@ -184,20 +184,28 @@ Similarly to the `templates` folder, a theme will automatically add any blueprin
         // If in an Admin page.
         if ($this->isAdmin()) {
             $this->enable([
+                'onGetPageBlueprints' => ['onGetPageBlueprints', 0],
                 'onGetPageTemplates' => ['onGetPageTemplates', 0],
             ]);
             return;
         }
 
     /**
-     * Add blueprint directory to page templates.
+     * Add blueprint directory.
      */
+    public function onGetPageBlueprints(Event $event)
+    {
+        $types = $event->types;
+        $types->scanBlueprints('plugin://' . $this->name . '/blueprints');
+    } 
+     
+    /**
+     * Add templates directory.
+     */ 
     public function onGetPageTemplates(Event $event)
     {
         $types = $event->types;
-        $locator = Grav::instance()['locator'];
-        $types->scanBlueprints($locator->findResource('plugin://' . $this->name . '/blueprints'));
-        $types->scanTemplates($locator->findResource('plugin://' . $this->name . '/templates'));
+        $types->scanTemplates('plugin://' . $this->name . '/templates');
     }
 
 [/prism]
