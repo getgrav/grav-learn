@@ -112,7 +112,7 @@ Provide a strong password, and leave the other values as default. We need to nex
 # su - grav
 $ mkdir -p www/html
 $ cd www/html
-[/prism[
+[/prism]
 
 Create a simple `index.html` with the contents of:
 
