@@ -244,7 +244,7 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 
 Please read over the code in the `base.html.twig` file to try to understand what is going on.  There are several key things to note:
 
-1. A `theme_config` variable is set with the theme configuration.  Because Twig doesn't work well with dashes retrieve variables with dashes (e.g. `config.themes.my-theme`), we use the `attribute()` Twig function to dynamically retrieve the `my-theme` data from `config.themes`.
+1. A `theme_config` variable is set with the theme configuration.  Because Twig doesn't work well with dashes, to retrieve variables with dashes (e.g. `config.themes.my-theme`), we use the `attribute()` Twig function to dynamically retrieve the `my-theme` data from `config.themes`.
 
 1. The `<html lang=...` item is set based on Grav's active language if enabled, else it uses the `default_lang` as set in the `theme_config`.
 
