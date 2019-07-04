@@ -73,7 +73,7 @@ The `#` or `hashes` syntax in markdown indicates a title.  A single `#` with a s
 Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **Quark** theme to get you started.
 [/prism]
 
-This is a simple paragraph that would have been wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicate bold text or `<b>` in HTML.  Italic text is indicated by wrapping text in `_` markers.
+This is a simple paragraph that would have been wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicate bold text or `<strong>`, formerly `<b>`, in HTML.  Italic text is indicated by wrapping text in `_` markers.
 
 [prism classes="language-markdown line-numbers"]
 !! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
