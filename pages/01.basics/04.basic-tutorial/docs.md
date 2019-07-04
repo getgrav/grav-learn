@@ -12,7 +12,7 @@ Because Grav does not require a database, it is pretty easy to work with, withou
 
 First, let us familiarize ourselves with where Grav stores content.  We will go into more depth in a [future chapter](../folder-structure), but for the time being, you need to be aware that all our user content, is stored in the `user/pages/` folder of your Grav install.
 
-Currently, there are two folders in the pages folder, the first one is called `01.home` and the second is `02.Typography`.  The `01.` portion of the folder is optional but provides a couple of things that can be handy.
+Currently, there are two folders in the pages folder, the first one is called `01.home` and the second is `02.typography`.  The `01.` portion of the folder is optional but provides a couple of things that can be handy.
 
 Firstly, it lets you expressly define the order of your pages.  For example, `01` will come before `02`, but `00` will come before `01`.
 
