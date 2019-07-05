@@ -395,7 +395,7 @@ debugger:
     close_connection: true
 [/prism]
 
-This section gives you the ability to activate Grav's debugger. A useful tool during development.
+The **Debugger** section gives you the ability to activate Grav's debugger. A useful tool during development.
 
 [div class="table-keycol"]
 | Property | Description |
@@ -417,7 +417,7 @@ images:
   seofriendly: false
 [/prism]
 
-This section gives you the ability to set the default image quality images are resampled to, as well as to control image caching and debugging features.
+The **Images** section gives you the ability to set the default image quality images are resampled to, as well as to control image caching and debugging features.
 
 [div class="table-keycol"]
 | Property | Description |
