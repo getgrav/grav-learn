@@ -274,7 +274,7 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 | **prefix:** | Cache prefix string (prevents cache conflicts). Example: `g` |
 | **purge_at:** | Scheduler: How often to purge old cache using cron `at` syntax |
 | **clear_at:** | Scheduler: How often to clear the cache using cron `at` syntax |
-| **clear_job_type:** | Type to clear when processing the scheduled clear job. Options: `standard` and `all` |
+| **clear_job_type:** | Type to clear when processing the scheduled clear job. Options: `standard` \| `all` |
 | **clear_images_by_default:** | By default grav will include processed images when cache clears, this can be disabled by setting this to `false` |
 | **cli_compatibility:** | Ensures only non-volatile drivers are used (file, redis, memcache, etc.) |
 | **lifetime:** | Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days |
