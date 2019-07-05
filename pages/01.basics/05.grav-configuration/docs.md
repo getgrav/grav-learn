@@ -423,7 +423,7 @@ The **Images** section gives you the ability to set the default image quality im
 | Property | Description |
 | -------- | ----------- |
 | **default_image_quality:** | Default image quality to use when resampling images. For example: `85` = 85% |
-| **cache_all:** | Cache all image by default. Can be set to `true` or `false` |
+| **cache_all:** | Cache all images by default. Can be set to `true` or `false` |
 | **cache_perms:** | MUST BE IN QUOTES!! Default cache folder perms. Usually `'0755'` or `'0775'` |
 | **debug:** | Show an overlay over images indicating the pixel depth of the image when working with retina, for example. Can be set to `true` or `false` |
 | **auto_fix_orientation:** | Try to automatically fix images uploaded with non-standard rotation |
