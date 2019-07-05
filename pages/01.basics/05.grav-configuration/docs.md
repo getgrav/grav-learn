@@ -258,7 +258,8 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 | **lifetime:** | Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days |
 | **gzip:** | GZip compress the page output. Can be set to `true` or `false` |
 | **allow_webserver_gzip:** | This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete |
-| **redis.socket:** | The path to the redis socket file |
+| **redis:** | |
+| **... socket:** | The path to the redis socket file |
 [/div]
 [/version]
 
@@ -279,7 +280,8 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 | **lifetime:** | Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days |
 | **gzip:** | GZip compress the page output. Can be set to `true` or `false` |
 | **allow_webserver_gzip:** | This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete |
-| **redis.socket:** | The path to the redis socket file |
+| **redis:** | |
+| **... socket:** | The path to the redis socket file |
 [/div]
 [/version]
 
