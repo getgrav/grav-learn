@@ -36,7 +36,7 @@ content:
 
 The `content.items` value in the page's frontmatter tells Grav to gather up a collection of items and information passed to this defines how the collection is to be built.
 
-This definition creates a collection for the page that consists of the all **child pages** sorted by **date** in **descending** order with **pagination** showing **10 items** per-page.
+This definition creates a collection for the page that consists of all **child pages** sorted by **date** in **descending** order with **pagination** showing **10 items** per-page.
 
 ## Accessing Collections in Twig
 
