@@ -102,7 +102,7 @@ Allows the page to override the default extension and set one programmatically. 
 cache_control: max-age=604800
 ```
 
-Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value
+Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value.
 
 ### Date Format
 
@@ -159,7 +159,7 @@ Allows the dynamic setting of an HTTP Response Code.
 language: fr
 ```
 
-This allows you to override the language for a particular page
+This allows you to override the language for a particular page.
 
 ### LastModified
 
