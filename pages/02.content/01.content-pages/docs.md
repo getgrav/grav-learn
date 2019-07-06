@@ -88,14 +88,14 @@ When dealing with collections, there are several options available to control ho
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
-| **default**  | The order based on the file system, i.e. `01.home` before `02.advark`|
+| **default**  | The order is based on the file system, i.e. `01.home` before `02.advark` |
 | **title**    | The order is based on the title as defined in each page |
 | **basename** | The order is based on the alphabetic folder without numeric order |
-| **date**     | The order based on the date as defined in each page|
-| **modified** | The order based on the modified timestamp of the page |
-| **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed |
-| **header.x** | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015` |
-| **manual**   | The order based on the `order_manual` variable |
+| **date**     | The order is based on the date as defined in each page |
+| **modified** | The order is based on the modified timestamp of the page |
+| **folder**   | The order is based on the folder name with any numerical prefix, i.e. `01.`, removed |
+| **header.x** | The order is based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015` |
+| **manual**   | The order is based on the `order_manual` variable |
 | **random**   | The order is randomized |
 [/div]
 
