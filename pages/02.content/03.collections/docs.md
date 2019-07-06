@@ -341,7 +341,7 @@ You can use any string date format supported by [strtotime()](http://php.net/man
 
 ### Multiple Collections
 
-When you create a collection with `content: items:` in your YAML, you are defining a single collection based on a several conditions.  However, Grav does let you create an arbitrary set of collections per page, you just need to create another one:
+When you create a collection with `content: items:` in your YAML, you are defining a single collection based on several conditions.  However, Grav does let you create an arbitrary set of collections per page, you just need to create another one:
 
 [prism classes="language-yaml line-numbers"]
 content:
