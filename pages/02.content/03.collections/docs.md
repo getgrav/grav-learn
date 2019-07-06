@@ -387,11 +387,12 @@ Also has several useful Collection-specific methods:
 | -------- | ----------- |
 | `Collection::addPage($page)` | You can append another page to this collection |
 | `Collection::copy()` | Creates a copy of the current collection |
-| `Collection::current()` | gets the current item in the collection |
-| `Collection::key()` | Returns the current slug of the the current item |
+| `Collection::current()` | Gets the current item in the collection |
+| `Collection::key()` | Returns the slug of the current item |
 | `Collection::remove($path)` | Removes a specific page in the collection, or current if `$path = null` |
 | `Collection::order($by, $dir, $manual)` | Orders the current collection |
 | `Collection::intersect($collection2)` | Merge two collections, keeping items that occur in both collections (like an "AND" condition) |
+| `Collection::merge($collection2)` | Merge two collections, keeping items that occur in either collection (like an "OR" condition) |
 | `Collection::isFirst($path)` | Determines if the page identified by path is first |
 | `Collection::isLast($path)` | Determines if the page identified by path is last |
 | `Collection::prevSibling($path)` | Returns the previous sibling page if possible |
@@ -400,7 +401,6 @@ Also has several useful Collection-specific methods:
 | `Collection::dateRange($startDate, $endDate, $field)` | Filters the current collection with dates |
 | `Collection::visible()` | Filters the current collection to include only visible pages |
 | `Collection::nonVisible()` | Filters the current collection to include only non-visible pages |
-| `Collection::merge($collection2)` | Merge two collections, keeping items that occur in either collection (like an "OR" condition) |
 | `Collection::modular()` | Filters the current collection to include only modular pages |
 | `Collection::nonModular()` | Filters the current collection to include only non-modular pages |
 | `Collection::published()` | Filters the current collection to include only published pages |
