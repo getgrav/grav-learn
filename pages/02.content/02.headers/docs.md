@@ -211,7 +211,7 @@ This will always take you to the `/profile` route after a successful login.
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
-| **extra:** | Enable support for Markdown Extra support (GFM by default) |
+| **extra:** | Enable support for Markdown Extra (GFM by default) |
 | **auto_line_breaks:** | Enable automatic line breaks |
 | **auto_url_links:** | Enable automatic HTML links |
 | **escape_markup:** | Escape markup tags into entities |
