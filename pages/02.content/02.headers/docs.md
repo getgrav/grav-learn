@@ -126,7 +126,7 @@ debugger: false
 etag: true
 ```
 
-Enable or disable on a page level whether or not to display an ETag header variable with a unique value. False by default unless overridden in your `system.yaml`.
+Enable or disable on a page level whether or not to display an ETag header variable with a unique value. `false` by default unless overridden in your `system.yaml`.
 
 ### Expires
 
@@ -167,7 +167,7 @@ This allows you to override the language for a particular page.
 last_modified: true
 ```
 
-Enable or disable on a page level whether or not to display a Last Modified header variable with modified date. False by default unless overridden in your `system.yaml`.
+Enable or disable on a page level whether or not to display a Last Modified header variable with modified date. `false` by default unless overridden in your `system.yaml`.
 
 ### Lightbox
 
