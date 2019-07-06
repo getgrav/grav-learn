@@ -366,7 +366,7 @@ This sets up **2 collections** for this page, the first uses the default `conten
 
 ## Collection Object Methods
 
-Standard methods Iterable methods include:
+Iterable methods include:
 
 [div class="table-keycol"]
 | Property | Description |
