@@ -114,7 +114,7 @@ content:
 
 ##### @root - Top level children + all descendants
 
-This will effectively get every page in your site as it recursively navigates through all the children from the root page down, and builds a collection of **all** the **published non-modular children** of a site.
+This will effectively get every page in your site as it recursively navigates through all the children from the root page down, and builds a collection of **all** the **published non-modular children** of a site:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -134,7 +134,7 @@ content:
 
 ##### @self.descendants - Non-modular children + all descendants of the current page
 
-Similar to `.children`, the `.descendants` collection will retrieve all the **published non-modular children** but continue to recurse through all their children.
+Similar to `.children`, the `.descendants` collection will retrieve all the **published non-modular children** but continue to recurse through all their children:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -143,7 +143,7 @@ content:
 
 ##### @self.modular - Modular children of the current page
 
-The inverse of `.children`, this method retrieves only **published modular children** of the current page (`_features`, `_showcase`, etc.)
+The inverse of `.children`, this method retrieves only **published modular children** of the current page (`_features`, `_showcase`, etc.):
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -152,7 +152,7 @@ content:
 
 ##### @self.parent - The parent page of the current page
 
-This is a special case collection because it will always return just the one **parent** of the current page
+This is a special case collection because it will always return just the one **parent** of the current page:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -161,7 +161,7 @@ content:
 
 ##### @self.siblings - All the sibling pages
 
-This collection will collect all the **published** Pages at the same level of the current page, excluding the current page.
+This collection will collect all the **published** Pages at the same level of the current page, excluding the current page:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -172,7 +172,7 @@ content:
 
 ##### @page or @page.children - Collection of children of a specific page
 
-This collection takes a slug route of a page as an argument and will return all the **published non-modular** children of that page
+This collection takes a slug route of a page as an argument and will return all the **published non-modular** children of that page:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -190,7 +190,7 @@ content:
 
 ##### @page.self or @page.page - Collection of just the specific page
 
-This collection takes a slug route of a page as an argument and will return collection containing that page (if it is **published and non-modular**)
+This collection takes a slug route of a page as an argument and will return collection containing that page (if it is **published and non-modular**):
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -200,7 +200,7 @@ content:
 
 ##### @page.descendants - Collection of children + all descendants of a specific page
 
-This collection takes a slug route of a page as an argument and will return all the **published non-modular** children and all their descendants of that page
+This collection takes a slug route of a page as an argument and will return all the **published non-modular** children and all their descendants of that page:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -210,7 +210,7 @@ content:
 
 ##### @page.modular - Collection of modular children of a specific page
 
-This collection takes a slug route of a page as an argument and will return all the **published modular** children of that page
+This collection takes a slug route of a page as an argument and will return all the **published modular** children of that page:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -229,7 +229,7 @@ content:
 
 Using the `@taxonomy` option, you can utilize Grav's powerful taxonomy functionality.  This is where the `taxonomy` variable in the [Site Configuration](../../basics/grav-configuration#site-configuration) file comes into play. There **must** be a definition for the taxonomy defined in that configuration file for Grav to interpret a page reference to it as valid.
 
-By setting `@taxonomy.tag: foo`, Grav will find all the **published pages** in the `/user/pages` folder that have themselves set `tag: foo` in their taxonomy variable.
+By setting `@taxonomy.tag: foo`, Grav will find all the **published pages** in the `/user/pages` folder that have themselves set `tag: foo` in their taxonomy variable:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -241,7 +241,7 @@ The `content.items` variable can take an array of taxonomies and it will gather 
 
 !! If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `'@taxonomy': {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the hierarchy, each with listed values placed within `[]` brackets. Pages must meet **all** these requirements to be found.
 
-If you have multiple variables in a single parent to set, you can do this using the inline method, but for simplicity, we recommend using the standard method. Here is an example.
+If you have multiple variables in a single parent to set, you can do this using the inline method, but for simplicity, we recommend using the standard method. Here is an example:
 
 [prism classes="language-yaml line-numbers"]
 content:
