@@ -12,7 +12,7 @@ With **Grav**, the ability to group or tag pages is baked right into the system 
 
 There are a couple of key parts to using taxonomy in your site:
 
-1. Define a list of Taxonomy types in your [`site.yaml`](../../basics/grav-configuration)
+1. Define a list of Taxonomy types in your [`site.yaml`](../../basics/grav-configuration).
 2. Assign your pages to the appropriate `taxonomy` types with values.
 
 ## Taxonomy Example
