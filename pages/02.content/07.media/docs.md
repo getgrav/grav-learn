@@ -174,7 +174,7 @@ The `html` action will output a valid HTML tag for the media based on the curren
 [ui-tabs]
 [ui-tab title="Markdown"]
 ```markdown
-![Some ALT text](sample-image.jpg "My title") {.myclass}
+![Some ALT text](sample-image.jpg?classes=myclass "My title")
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
@@ -190,12 +190,6 @@ The `html` action will output a valid HTML tag for the media based on the curren
 ```
 [/ui-tab]
 [/ui-tabs]
-
-##### Result:
-
-{{ page.media['sample-image.jpg'].html('My title', 'some ALT text', 'myclass') }}
-
-!! To use classes in Markdown, you need to enable Markdown Extra.
 
 
 #### display
