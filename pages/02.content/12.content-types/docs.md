@@ -32,7 +32,7 @@ The contents of this `item.json.twig` file could look something like:
 
 All this Twig file does is create an array with the page header as **frontmatter** and page **content**, then uses the Twig `json_encode` filter to encode it.
 
-When a user requests the url: `/blog/new-macbook-pros-soon.json` this new Twig file would be used and the output sent would be in the format:
+When a user requests the url `/blog/new-macbook-pros-soon.json`, this new Twig file would be used and the output sent would be in the format:
 
 [prism classes="language-json line-numbers"]
 {
