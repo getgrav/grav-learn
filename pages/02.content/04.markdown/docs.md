@@ -182,7 +182,7 @@ and this HTML:
 [/prism]
 
 
-### strikethrough
+### Strikethrough
 In GFM (GitHub flavored Markdown) you can do strikethroughs.
 
 [prism classes="language-markdown"]
