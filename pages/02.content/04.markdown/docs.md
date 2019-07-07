@@ -156,7 +156,7 @@ renders to:
 
 **rendered as bold text**
 
-and this HTML
+and this HTML:
 
 [prism classes="language-html"]
 <strong>rendered as bold text</strong>
