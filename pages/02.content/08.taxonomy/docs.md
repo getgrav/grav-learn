@@ -33,7 +33,7 @@ taxonomies: [category,tag,author]
 
 This will override the taxonomies that Grav knows about so that pages can be assigned to any of these three taxonomies.
 
-The next step is to create some pages that makes use of these taxonomy types. For example, you could have a page that looks like this:
+The next step is to create some pages that make use of these taxonomy types. For example, you could have a page that looks like this:
 
 [prism classes="language-markdown line-numbers"]
 ---
