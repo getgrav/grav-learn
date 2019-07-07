@@ -655,14 +655,14 @@ Images have a similar syntax to links but include a preceding exclamation point.
 [/prism]
 ![Minion](http://octodex.github.com/images/minion.png)
 
-or
+or:
 
 [prism classes="language-markdown"]
 ![Alt text](http://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 [/prism]
 ![Alt text](http://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 
-Like links, Images also have a footnote style syntax
+Like links, Images also have a footnote style syntax:
 
 [prism classes="language-markdown"]
 ![Alt text][id]
