@@ -36,7 +36,7 @@ Directory names also have numbers assigned which helps with ordering. You don't 
 
 Here are a few examples of slug-relative links.
 
-In this example, we're moving up a directory and loading the default page located in the `pages/01.blue/02.water/item.md` directory from `pages/01.blue/01.sky/item.md` The file, `item.md`, has no assigned slug, so Grav uses the directory name.
+In this example, we're moving up a directory and loading the default page located in the `pages/01.blue/02.water/item.md` directory from `pages/01.blue/01.sky/item.md`. The file, `item.md`, has no assigned slug, so Grav uses the directory name.
 
 ```markdown
 [link](../water)
