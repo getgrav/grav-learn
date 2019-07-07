@@ -662,7 +662,7 @@ or:
 [/prism]
 ![Alt text](http://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 
-Like links, Images also have a footnote style syntax:
+Like links, images also have a footnote style syntax:
 
 [prism classes="language-markdown"]
 ![Alt text][id]
