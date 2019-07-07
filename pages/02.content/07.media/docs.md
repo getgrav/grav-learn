@@ -80,7 +80,7 @@ You can also do these same kinds of things using the Twig `Media` object:
 ```
 {% endverbatim %}
 
-!!!! Grav has a `/images` folder. Do not put your own images in that folder, as it hosts Grav auto-generated, cached images.
+!!!! Grav has an `/images` folder. Do not put your own images in that folder, as it hosts Grav auto-generated, cached images.
 
 You may also want to put all the media files into their own folder, so that they can all be accessed at one go. For instance you might want to keep all your MP3 files in a folder `user/pages/mp3s` (not visible) and put the name of the MP3 file associated with a particular page in a header field called `thistrack`. If you then wish to access the file for a partiular page and play it using the HTML5 audio element, you will need code like this:
 
