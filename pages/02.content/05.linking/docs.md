@@ -21,7 +21,7 @@ To get us started, here is a quick look at some of the common components of a Gr
 [div class="table-keycol"]
 | String | Description |
 | :----- | :----- |
-| `[]`   | The square bracket is used to wrap the text or alternate content that becomes linked. In HTML, this would be the content placed between `<a href="">` and `</a>` |
+| `[]`   | The square bracket is used to wrap the text or alternate content that becomes linked. In HTML, this would be the content placed between `<a href="">` and `</a>`. |
 | `()`   | The parenthesis is used to surround the link itself. This is placed directly after the square bracket. |
 | `../`  | When used in the link, it indicates a move up a directory. |
 [/div]
