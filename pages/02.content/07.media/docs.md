@@ -228,10 +228,6 @@ The following example will display a textual link (`display('text')`) to a sepia
 [/ui-tab]
 [/ui-tabs]
 
-##### Result:
-
-{{ page.media['sample-image.jpg'].sepia().link().display('text').html('Image link') }}
-
 #### lightbox
 
 The lightbox action is essentially the same as the link action but with a few extras. Like explained above, the lightbox action will not do anything more than create a link with some extra attributes. It differs from the link action in that it adds a `rel="lightbox"` attribute and accepts a `width` and `height` attribute.
