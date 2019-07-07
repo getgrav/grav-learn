@@ -128,10 +128,10 @@ When you use Grav's media functionality to render a lightbox, all Grav does is o
 [div class="table-keycol"]
 | Attribute   | Explanation                                                                                                  |
 | :-----      | :-----                                                                                                       |
-| rel         | A simple indicator that this is not a regular link, but a lightbox link. The value will always be `lightbox` |
-| href        | A URL to the media object itself                                                                             |
-| data-width  | The width the user requested this lightbox to be                                                             |
-| data-height | The height the user requested this lightbox to be                                                            |
+| rel         | A simple indicator that this is not a regular link, but a lightbox link. The value will always be `lightbox`. |
+| href        | A URL to the media object itself.                                                                             |
+| data-width  | The width the user requested this lightbox to be.                                                             |
+| data-height | The height the user requested this lightbox to be.                                                            |
 | data-srcset | In case of image media, this contains the `srcset` string. ([more info](../media#responsive-images))         |
 [/div]
 
