@@ -32,7 +32,7 @@ As you should already be familiar with how Grav uses markdown files in folders t
 
 ### Language Configuration
 
-For Grav do to this you must first setup some basic language configuration in your `user/config/system.yaml` file.
+For Grav to do this you must first setup some basic language configuration in your `user/config/system.yaml` file.
 
 [prism classes="language-yaml line-numbers"]
 languages:
