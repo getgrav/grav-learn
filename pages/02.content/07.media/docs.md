@@ -1143,7 +1143,7 @@ Instead of letting Grav generate the sizes in even steps between given boundarie
 ![Retina Image](retina.jpg?derivatives=[360,720,1200])
 ```
 
-This will generate downsizes versions of the `retina.jpg` image in three widths: 360, 720 and 1200px.
+This will generate downsized versions of the `retina.jpg` image in three widths: 360, 720 and 1200px.
 
 ## Metafiles
 
