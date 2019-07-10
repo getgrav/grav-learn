@@ -197,7 +197,7 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
     {% endblock %}
     {{ assets.js() }}
 
-{% endblock head%}
+{% endblock head %}
 </head>
 <body id="top" class="{{ page.header.body_classes }}">
 
