@@ -10,8 +10,7 @@ taxonomy:
 
 Every field accepts a list of attributes you can use. Each field could share these common attributes, but particular fields might ignore them. The best way to check which attributes are allowed on a field is to check the field description in this page and see which attributes are mentioned.
 
-This list provides a common grou
-nd so there's no need to repeat the description of a common field.
+This list provides a common ground so there's no need to repeat the description of a common field.
 
 [div class="table table-keycol"]
 | Attribute           | Description                                                                                                                                                                                                    |
