@@ -495,7 +495,7 @@ This will produce the HTML:
 <meta name="fb:app_id" property="fb:app_id" content="your_facebook_app_id" />
 [/prism]
 
-Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific tags and these are support automatically by Grav.
+Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific tags and these are supported automatically by Grav.
 
 #### Twitter Metatag examples
 
