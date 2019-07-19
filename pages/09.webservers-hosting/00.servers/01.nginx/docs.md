@@ -28,7 +28,7 @@ It is assumed that your Nginx configuration is located in `/etc/nginx/` and your
 
 ### File Permissions
 
-The `/var/www` directory and all contained files and folders should be owned by `$USER:www-data` (or whatever you name the Nginx user/group). The section <troubleshooting/permissions> explains how to setup file and directory permissions for Grav, in this case using a shared group. Basically what you want is `775` for directories and `664` for files in the Grav directory, so Grav is allowed to modify content and upgrade itself. You should add your user to the `www-data` group so you can access files that are created by Grav/Nginx.
+The `/var/www` directory and all contained files and folders should be owned by `$USER:www-data` (or whatever you name the Nginx user/group). The section [Troubleshooting/Permissions](https://learn.getgrav.org/16/troubleshooting/permissions) explains how to setup file and directory permissions for Grav, in this case using a shared group. Basically what you want is `775` for directories and `664` for files in the Grav directory, so Grav is allowed to modify content and upgrade itself. You should add your user to the `www-data` group so you can access files that are created by Grav/Nginx.
 
 
 ### Example nginx.conf
