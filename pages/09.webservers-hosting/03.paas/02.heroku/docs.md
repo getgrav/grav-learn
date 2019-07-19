@@ -17,7 +17,7 @@ Let's see how to install Grav on Heroku.
 
 First, sign up for Heroku.
 
-Download the Heroku Toolbelt, which is a command-line utility needed to deploy create and deploy your site.
+Download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), which is a command-line utility needed to deploy create and deploy your site.
 
 Once installed, type
 
