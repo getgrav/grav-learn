@@ -204,7 +204,7 @@ This is where `contentMeta()` comes in. We use ContentMeta in our [Shortcode](ht
 {% verbatim %}
 [prism classes="language-twig line-numbers"]
 <div id="author">{{ page.find('/my/custom/page').contentMeta.shortcodeMeta.shortcode.section.author }}</div>
-[/prism]
+[/prism] 
 {% endverbatim %}
 
 We used this in Shortcode Core to store CSS and JS assets that the shortcode on the page requires, however this feature can be used to store just about any data structure you need.
