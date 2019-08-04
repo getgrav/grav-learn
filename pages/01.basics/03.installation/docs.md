@@ -8,7 +8,7 @@ Installation of Grav is a trivial process. In fact, there is no real installatio
 
 ## Check for PHP version
 
-Grav is incredibly easy to set up and get running. Be sure you have at least PHP version 5.6.3 by going to the terminal and typing `php -v`:
+Grav is incredibly easy to set up and get running. Be sure you have at least PHP version 7.1.3 by going to the terminal and typing `php -v`:
 
 [prism classes="language-bash command-line" cl-output="2-10"]
 php -v
