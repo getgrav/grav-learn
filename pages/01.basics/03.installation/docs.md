@@ -8,7 +8,7 @@ Installation of Grav is a trivial process. In fact, there is no real installatio
 
 ## Check for PHP version
 
-Grav is incredibly easy to set up and get running. Be sure you have at least PHP version 7.1.3 by going to the terminal and typing `php -v`:
+Grav is incredibly easy to set up and get running. Be sure you have at least PHP version [version=15]5.6.3+[/version][version=16]7.1.3+[/version] by going to the terminal and typing `php -v`:
 
 [prism classes="language-bash command-line" cl-output="2-10"]
 php -v
@@ -57,14 +57,14 @@ Another method is to clone Grav from the GitHub repository, and then run a simpl
    [/prism]
 
 2. Install **vendor dependencies** via [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
-   
+
    [prism classes="language-bash command-line"]
    cd ~/webroot/grav
    composer install --no-dev -o
    [/prism]
 
 3. Install the **plugin** and **theme dependencies** by using the [Grav CLI application](../../advanced/grav-cli) `bin/grav`:
-   
+
    [prism classes="language-bash command-line"]
    cd ~/webroot/grav
    bin/grav install
