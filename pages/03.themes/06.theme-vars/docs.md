@@ -456,7 +456,7 @@ This returns the host portion of the URL. (e.g. `uri.host` = `mysite.com`)
 
 This returns the base portion of the URL. (e.g. `uri.base` = `http://mysite.com`)
 
-##### rootUrl([include_host = true])
+##### rootUrl([include_host = false])
 
 This returns the root url to the grav instance.  (e.g. `uri.rootUrl()` = `http://mysite.com/grav`)
 
