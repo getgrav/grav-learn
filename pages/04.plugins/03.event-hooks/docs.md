@@ -189,6 +189,18 @@ Twig has its own set of event hooks.
 
 The base locations for template paths have been set on the **Twig object**.  If you need to add other locations where Twig will search for template paths, this is the event to use.
 
+**Example**
+
+[prism classes="language-twig line-numbers"]
+/**
+ * Add template directory to twig lookup path.
+ */
+ public function onTwigTemplatePaths()
+ {
+     $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
+ }
+[/prism]
+
 <a name="onTwigInitialized"></a>
 #### onTwigInitialized
 
