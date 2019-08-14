@@ -174,7 +174,7 @@ The `html` action will output a valid HTML tag for the media based on the curren
 [ui-tabs]
 [ui-tab title="Markdown"]
 ```markdown
-![Some ALT text](sample-image.jpg "My title") {.myclass}
+![Some ALT text](sample-image.jpg?classes=myclass "My title")
 ```
 [/ui-tab]
 [ui-tab title="Twig"]

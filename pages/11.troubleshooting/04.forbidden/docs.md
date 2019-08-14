@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-![](forbidden-403.png)  {.border .shadow}
+![](forbidden-403.png?classes=border,shadow)
 
 There is an obscure but persistent issue with **Apache** on **Windows** causing a 403 forbidden error.
 
