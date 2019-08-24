@@ -404,6 +404,7 @@ header.date:
 | `format`       | A datetime format value, you may use any of the [PHP date formats](http://php.net/manual/en/datetime.formats.date.php) avaliable. |
 | `validate.min` | A minimum valid value |
 | `validate.max` | A maximum valid value |
+[/div]
 
 [div class="table table-keycol"]
 | Common Attributes Allowed                      |
