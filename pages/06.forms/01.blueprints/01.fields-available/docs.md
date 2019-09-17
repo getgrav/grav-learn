@@ -908,6 +908,14 @@ Example:
 [prism classes="language-yaml line-numbers"]
 taxonomies:
     type: selectize
+    selectize:
+        options:
+            - text: "test"
+              value: "real value 1"
+            - text: "test-2"
+              value: "real value 2"
+            - text: "test-3"
+              value: "real value 3"
     size: large
     label: PLUGIN_ADMIN.TAXONOMY_TYPES
     classes: fancy
