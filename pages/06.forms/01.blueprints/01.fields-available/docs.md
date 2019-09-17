@@ -487,8 +487,8 @@ header.fieldset:
   help: Help text
   info: Info text
   text: Text inside fieldset and before other fields
-  icon: comments
-  collapsed: true     # Initial state of fieldset (see collapsible option)
+  icon: comments       # Fork Awesome icons system (see : forkaweso.me).
+  collapsed: true      # Initial state of fieldset (see collapsible option)
   collapsible: true    # Whether one can expand the fieldset or not
   fields:
     header.fieldset.an_example_text:
@@ -498,6 +498,32 @@ header.fieldset:
       type: textarea
       label: textarea
 [/prism]
+
+!Fieldsets have to be saved in the frontmatter too, with `header.`, in order for their sub-field states to be correctly remembered!
+
+!!**Known issue :** if fields in a fieldset use a `toggleable:`, their state won't be memorized if the fieldset named isn't prefixed with `header.`. Here's an example of a valid structure with a modification of the *pagination* option : 
+
+[prism classes="language-yaml line-numbers"]
+header.fieldset:
+  type: fieldset
+  ... etc...
+  fields:
+    header.content.pagination:
+      type: toggle
+      toggleable: true
+      label: "Activate Pagination ?"
+      highlight: 1
+      default: 0
+      options:
+        1: Yes
+        0: No
+      validate:
+        type: bool
+[/prism]
+
+#### Icon of the fieldset
+
+You can use an icon to place in the header of the fieldset. The icon system used is [Fork Awesome](https://forkaweso.me). 
 
 [div class="table table-keycol"]
 | Attribute     | Description                                                                                                |
