@@ -6,43 +6,45 @@ taxonomy:
     category: docs
 ---
 
-Dokku is a Docker based, self hosted "mini Heroku" that you can run out of any virtual machine, local or remote. The main advantages of using it would be:
+Dokku is a Docker-based, self-hosted "mini-Heroku" that you can run out of any Virtual Machine (VM), local or remote. The main advantages of using it would be:
 
-* Ability to use Heroku buildpacks, Procfiles and other architectural elements
-* Ability to use Docker compose files
-* Self hosted, so you can control the cost of the VMs or run locally at no cost
-* Using Git as the deploy mechanism
-* Free SSL certificates via the integrated Let's encrypt mechanism
+* Ability to use Heroku buildpacks, [Procfiles](https://devcenter.heroku.com/articles/procfile) and other architectural elements
+* Ability to use Docker compose-files
+* Self-hosted, so you can control the cost of the VMs or run locally at no cost
+* Use Git as the deploy mechanism
+* Free SSL certificates via the integrated Let's Encrypt mechanism
 * Run multiple Grav sites in one VM with Dokku
 
-The first step is to install it inside a fresh virtual machine, running one of this distros:
+The first step is to install it inside a fresh VM, running one of these Operating System distributions:
 
 * Ubuntu x64 - Any currently supported release
 * Debian 8.2+ x64
 * CentOS 7 x64 (experimental)
 * Arch Linux x64 (experimental)
 
-To install the latest stable release, connect via SSH to your virtual machine and run the following commands as a user who has access to sudo:
+To install the latest stable release, connect via Secure Shell (SSH) to your VM and run the following commands as a user who has access to root (sudo):
 
 [prism classes="language-bash command-line"]
 wget https://raw.githubusercontent.com/dokku/dokku/v0.17.9/bootstrap.sh
 sudo DOKKU_TAG=v0.17.9 bash bootstrap.sh
 [/prism]
 
-After the installation script ends, you need to visit your VMs IP address or DNS name on a web browser to complete the instalation. The screen will promtt you for:
+After the installation-script ends, you need to visit your VMs IP-address or domain-name in a web browser to complete the installation. The screen will prompt you for:
 
 * A public SSH key - This is used as the authentication token for deploys (same as Github or Gitlab does)
 
-_Pro trick: If you are trying on **Vultr** or **Digital Ocean**, you can add the SHH key to the VM form their dashboard and it would be auto-added by Dokku._
+_Pro trick: If you are using **Vultr** or **Digital Ocean**, you can add the SSH key to the VM from the dashboard and it would be auto-added by Dokku._
 
 * Hostname - must match the VM's hostname
-* The option to use virtualhost naming or sub-folders for apps. I prefer the virtual host naming but you could use either.
+* Slect between the option to use virtualhost-naming or sub-folders for apps
 
- If you go down the virtualhost naming path, you need to assing a domain or subdomain to your VM, via a DNS provider like **Cloudflare** and also add a wildcard sub-domain of that domain or subdomain. 
+_Virtual host naming is typically preferred, but you could use either._
 
- For simplicity, you can use the sub-folder structure and the VM's ip address as hostname
+If you go down the virtualhost-naming path, you need to add a domain or subdomain to your VM, via a Domain Name Service provider like **Cloudflare** and also add a wildcard sub-domain of that domain or subdomain.
 
-Once the installation is complete, in your virtual machine's terminal, create a new app for your Grav web site:
+For simplicity, you can use the sub-folder structure and the VM's IP-address as hostname
+
+Once the installation is complete, in your VM's terminal, create a new app for your Grav web site:
 
 [prism classes="language-bash command-line"]
 dokku apps:create my-grav-site
@@ -50,7 +52,7 @@ dokku apps:create my-grav-site
 
 Let's go back to your local computer now.
 
-Now checkout the PHP "Getting Started" example Heroku provides in your local machine's web root, so you can test locally the site prior to deploying it.
+Checkout the PHP "Getting Started" example Heroku provides with Git, in your local machine's web root, so you can test the site locally prior to deploying it.
 
 [prism classes="language-bash command-line"]
 git clone https://github.com/heroku/php-getting-started.git your-folder
@@ -72,7 +74,7 @@ and
 git push dokku master
 [/prism]
 
-After deploying you should see an output similar to this one (this is from a Rails app so it's a bit different but works as an example)
+After deploying you should see an output similar to this one (this is from a Rails app so it's a bit different but works as an example):
 
 [prism classes="language-bash command-line"]
 Counting objects: 231, done.
@@ -105,9 +107,9 @@ You should now see the sample PHP project. Now that all is set, you're ready to 
 
 First, delete the web/ folder in your current site folder.
 
-Copy your Grav site files there, making sure you're also copying the `.htaccess` hidden file. Overwrite all the files that were existing.
+Copy your Grav site files there, making sure you're also copying the `.htaccess` hidden file. Overwrite all the files that were there already.
 
-Now open the `Procfile` file. This is a Heroku-specific file. Change the line to
+Now open the `Procfile`. This is a Heroku-specific file. Change the line to
 
 [prism classes="language-text"]
 web: vendor/bin/heroku-php-apache2 ./
@@ -115,11 +117,9 @@ web: vendor/bin/heroku-php-apache2 ./
 
 You should make sure the site works locally, prior to uploading it to Heroku, just to ensure the are no errors.
 
-Now commit to the repository with
+Now commit to the repository with: `git add . ; git commit -am 'Added Grav'`
 
-`git add . ; git commit -am 'Added Grav'`
-
-Then edit `composer.json` and add post deploy command to the `scripts` section as in
+Then edit `composer.json` and add a post deploy command to the `scripts` section:
 
 [prism classes="language-json line-numbers"]
 "scripts": {
@@ -130,7 +130,7 @@ Then edit `composer.json` and add post deploy command to the `scripts` section a
 }
 [/prism]
 
-and commit that to the repository with 
+and commit that to the repository with:
 
 [prism classes="language-bash command-line"]
 git add . ; git commit -am 'Add post deploy bin/grav install'
@@ -144,16 +144,16 @@ git push dokku master
 
 and the site should be good to go!
 
-Due to the ephemeral nature of Dokku's filesystem (you can make it persisten, but it's not a good idea for scaling the app in the future), all needed plugins or themes must be added to `composer.json` just like above and kept there so they are installed every time the site is pushed to Heroku. For example, if you need the `admin` plugin and a theme, add them in composer like in
+Due to the ephemeral nature of Dokku's filesystem, all needed plugins or themes must be added to `composer.json` just like above and kept there so they are installed every time the site is pushed to Heroku. You can make the Heroku-instance persistent, but it's not a good idea for scaling the app in the future. For example, if you need the Admin-plugin and a theme, add them in composer:
 
 [prism classes="language-json line-numbers"]
 "scripts": {
   "compile": [
     "bin/grav install",
-    "bin/gpm install admin -y",
-    "bin/gpm install awesome-theme-name-here -y"
-  ]
+    "bin/gpm install admin -y",
+    "bin/gpm install awesome-theme-name-here -y"
+  ]
 }
 [/prism]
 
-**Note:** Speacial thanks to the author of the Heroku guide as it was used as a base for this one due to the similarities of Dokku and Heroku
+**Note:** Special thanks to the author of the Heroku guide, as it was used as a base for this one due to the similarities of Dokku and Heroku.
