@@ -24,7 +24,7 @@ An example configuration could be:
 
 [prism classes="language-bash command-line"]
 alias php="/usr/local/bin/php53"
-export PHP_PATH = "/usr/local/bin/php53"
+export PHP_PATH = /usr/local/bin/php53
 [/prism]
 
 An alternative way is to add:
