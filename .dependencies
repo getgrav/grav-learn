@@ -44,7 +44,7 @@ git:
         path: user/plugins/youtube
         branch: develop
     prism-highlight:
-        url: https://github.com/trilbymedia/grav-prism-highlight
+        url: https://github.com/trilbymedia/grav-plugin-prism-highlight
         path: user/plugins/prism-highlight
         branch: develop
     learn4:
