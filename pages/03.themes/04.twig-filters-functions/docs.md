@@ -203,7 +203,7 @@ Converts an integer number of days into the number of months
 [version=16]
 #### NiceCron
 
-Gets a human readable output for cron sytnax
+Gets a human readable output for cron syntax
 
 `"2 * * * *"|nicecron` <i class="fa fa-long-arrow-right"></i> **{{ '2 * * * *'|nicecron }}**
 
