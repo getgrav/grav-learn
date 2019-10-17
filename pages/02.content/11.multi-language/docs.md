@@ -139,7 +139,7 @@ If we had the following folder structure:
   - 05.Aquatic
 [/prism]
 
-This would produce URLs such as `http://yoursite.com/animals/mammals/bears`.  This is great for an English site, but if you wished to have a French version you would prefer these to be translated appropriately. The easiest way to achieve this is would be to add a custom [slug](../headers#slug) for each of the `fr.md` page files.  for example, the mammal page might look something like:
+This would produce URLs such as `http://yoursite.com/animals/mammals/bears`.  This is great for an English site, but if you wished to have a French version you would prefer these to be translated appropriately. The easiest way to achieve this is to add a custom [slug](../headers#slug) for each of the `fr.md` page files.  for example, the mammal page might look something like:
 
 [prism classes="language-markdown line-numbers"]
 ---
