@@ -501,7 +501,7 @@ header.fieldset:
 
 !Fieldsets have to be saved in the frontmatter too, with `header.`, in order for their sub-field states to be correctly remembered!
 
-!!**Known issue :** if fields in a fieldset use a `toggleable:`, their state won't be memorized if the fieldset named isn't prefixed with `header.`. Here's an example of a valid structure with a modification of the *pagination* option : 
+!! **Known issue :** if fields in a fieldset use a `toggleable:`, their state won't be memorized if the fieldset named isn't prefixed with `header.`. Here's an example of a valid structure with a modification of the *pagination* option : 
 
 [prism classes="language-yaml line-numbers"]
 header.fieldset:
