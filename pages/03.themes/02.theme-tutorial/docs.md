@@ -26,7 +26,7 @@ Pure is a small, fast, and responsive CSS framework that contains the basics to 
 
 You can read up on all the features Pure brings to the table on the [Pure.css project site](http://purecss.io/).
 
-Also, you should read the [Important Theme Updates](https://getgrav.org/blog/important-theme-updates) blog article that oulines some key changes in Grav themes to provide the best plugin support going forward.
+Also, you should read the [Important Theme Updates](https://getgrav.org/blog/important-theme-updates) blog article that outlines some key changes in Grav themes to provide the best plugin support going forward.
 
 ## Step 1 - Install DevTools Plugin
 
