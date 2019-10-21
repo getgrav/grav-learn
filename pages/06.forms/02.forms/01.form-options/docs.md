@@ -147,4 +147,4 @@ The above form outputs as follows:
 </form>
 [/prism]
 
-In the above example, the fields appear within the `my-fieldset` fieldset. You'll also notice that the `<legend></legend>` tags are supporting through the `legend:` option.
+In the above example, the fields appear within the `my-fieldset` fieldset. You'll also notice that the `<legend></legend>` tags are supported through the `legend:` option.
