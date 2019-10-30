@@ -46,7 +46,7 @@ There are multiple levels of positioning control as outlined in the diagram belo
 [prism classes="language-text"]
  CSS
 ┌───────────────────────┐
-│ Group (top)           │
+│ Group (head)          │
 │┌─────────────────────┐│        ┌──────────────────┐
 ││ Position            ││        │   priority 100   │─────┐     ┌──────────────────┐
 ││┌───────────────────┐││        ├──────────────────┤     ├────▶│       CSS        │
@@ -68,7 +68,7 @@ There are multiple levels of positioning control as outlined in the diagram belo
 
   JS
 ┌───────────────────────┐
-│ Group (top)           │
+│ Group (head)          │
 │┌─────────────────────┐│        ┌──────────────────┐
 ││ Position            ││        │   priority 100   │─────┐     ┌──────────────────┐
 ││┌───────────────────┐││        ├──────────────────┤     ├────▶│        JS        │
