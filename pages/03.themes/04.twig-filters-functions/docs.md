@@ -174,7 +174,7 @@ Sort an array map by each key
 
 `'/strip/leading/slash/'|ltrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/leading/slash/'|ltrim('/') }}
 
-Removes trailing spaces at the beginning of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.ltrim.php](http://php.net/manual/en/function.ltrim.php))
+Removes trailing spaces at the beginning of a string. It can also remove other characters by setting the character mask (see [https://php.net/manual/en/function.ltrim.php](https://php.net/manual/en/function.ltrim.php))
 
 #### Markdown
 
@@ -242,7 +242,7 @@ Adds an ordinal to the integer (such as 1st, 2nd, 3rd, 4th)
 
 #### Pad
 
-Pads a string to a certain length with another character. This is a wrapper for the PHP [str_pad()](http://php.net/manual/en/function.str-pad.php) function.
+Pads a string to a certain length with another character. This is a wrapper for the PHP [str_pad()](https://php.net/manual/en/function.str-pad.php) function.
 
 `'foobar'|pad(10, '-')` <i class="fa fa-long-arrow-right"></i> **{{ 'foobar'|pad(10, '-') }}**
 
@@ -282,7 +282,7 @@ Randomizes the list provided.  If a value is provided as a parameter, it will sk
 
 #### Regex Replace
 
-A helpful wrapper for the PHP [preg_replace()](http://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
+A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
 
 `'The quick brown fox jumps over the lazy dog.'|regex_replace(['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])` <i class="fa fa-long-arrow-right"></i> **{{ 'The quick brown fox jumps over the lazy dog.'|regex_replace(['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) }}**
 
@@ -290,7 +290,7 @@ A helpful wrapper for the PHP [preg_replace()](http://php.net/manual/en/function
 
 `'/strip/trailing/slash/'|rtrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/trailing/slash/'|rtrim('/') }}
 
-Removes trailing spaces at the end of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.rtrim.php](http://php.net/manual/en/function.rtrim.php))
+Removes trailing spaces at the end of a string. It can also remove other characters by setting the character mask (see [https://php.net/manual/en/function.rtrim.php](https://php.net/manual/en/function.rtrim.php))
 
 #### Singularize
 
@@ -688,7 +688,7 @@ Simple function to read a file based on a filepath and output it.
 [prism classes="language-markdown line-numbers"]
 # Grav Standard Administration Panel Plugin
 
-This **admin plugin** for [Grav](http://github.com/getgrav/grav) is an HTML user interface that provides a convenient way to configure Grav and easily create and modify pages...
+This **admin plugin** for [Grav](https://github.com/getgrav/grav) is an HTML user interface that provides a convenient way to configure Grav and easily create and modify pages...
 [/prism]
 
 [/version]
@@ -712,7 +712,7 @@ Performs a `preg_grep` on an array with a regex pattern
 
 #### Regex Replace Function
 
-A helpful wrapper for the PHP [preg_replace()](http://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
+A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
 
 `regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])` 
 

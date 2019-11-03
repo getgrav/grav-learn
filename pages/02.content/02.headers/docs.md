@@ -110,7 +110,7 @@ Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/do
 dateformat: 'Y-m-d H:i:s'
 ```
 
-Overrides the default Grav configuration for date formats and lets it be set at the page level. You can use any of the [PHP date formats](http://php.net/manual/en/datetime.formats.date.php) available.
+Overrides the default Grav configuration for date formats and lets it be set at the page level. You can use any of the [PHP date formats](https://php.net/manual/en/datetime.formats.date.php) available.
 
 ### Debugger
 
@@ -260,7 +260,7 @@ If set to `true` Twig processing will occur before any Markdown processing. This
 publish_date: 01/23/2015 13:00
 ```
 
-Optional field, but can provide a date to automatically trigger publication. Valid values are any string date values that [strtotime()](http://php.net/manual/en/function.strtotime.php) supports.
+Optional field, but can provide a date to automatically trigger publication. Valid values are any string date values that [strtotime()](https://php.net/manual/en/function.strtotime.php) supports.
 
 ### Redirect
 
@@ -385,7 +385,7 @@ We [used this method](https://github.com/getgrav/grav-plugin-sitemap/commit/00c2
 unpublish_date: 05/17/2015 00:32
 ```
 
-Optional field, but can provide a date to automatically trigger un-publication. Valid values are any string date values that [strtotime()](http://php.net/manual/en/function.strtotime.php) supports.
+Optional field, but can provide a date to automatically trigger un-publication. Valid values are any string date values that [strtotime()](https://php.net/manual/en/function.strtotime.php) supports.
 
 ### Visible
 

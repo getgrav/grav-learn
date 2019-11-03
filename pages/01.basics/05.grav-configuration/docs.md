@@ -41,7 +41,7 @@ These configuration options do not appear within their own child sections. They'
 | Property | Description |
 | -------- | ----------- |
 | **absolute_urls:** | Absolute or relative URLs for `base_url` |
-| **timezone:** | Valid values can be found [here](http://php.net/manual/en/timezones.php) |
+| **timezone:** | Valid values can be found [here](https://php.net/manual/en/timezones.php) |
 | **default_locale:** | Default locale (defaults to system) |
 | **param_sep:** | This is used for Grav parameters in the URL.  Don't change this unless you know what you are doing.  Grav > `1.1.16` automatically sets this to `;` for users running Apache web server on Windows |
 | **wrapped_site:** | For themes/plugins to know if Grav is wrapped by another platform. Can be `true` or `false` |
