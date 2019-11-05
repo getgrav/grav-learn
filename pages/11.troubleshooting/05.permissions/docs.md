@@ -36,10 +36,10 @@ A simple **permissions-fixing** shell script can be used to do this:
 [prism classes="language-bash line-numbers"]
 #!/bin/sh
 chown -R joeblow:staff .
-find . -type f | xargs chmod 664
-find ./bin -type f | xargs chmod 775
-find . -type d | xargs chmod 775
-find . -type d | xargs chmod +s
+find . -type f -exec chmod 664 {} \;
+find ./bin -type f -exec chmod 775 {} \;
+find . -type d -exec chmod 775 {} \;
+find . -type d -exec chmod +s {} \;
 [/prism]
 
 You can use this file and edit as needed for the appropriate user and group that works for your setup.  What this script basically does, is:
