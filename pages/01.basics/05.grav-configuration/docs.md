@@ -47,7 +47,7 @@ These configuration options do not appear within their own child sections. They'
 | **wrapped_site:** | For themes/plugins to know if Grav is wrapped by another platform. Can be `true` or `false` |
 | **reverse_proxy_setup:** | Running in a reverse proxy scenario with different webserver ports than proxy. Can be `true` or `false` |
 | **force_ssl:** | If enabled, Grav forces to be accessed via HTTPS (NOTE: Not an ideal solution). Can be `true` or `false` |
-| **force_lowercase_urls:** |If you want to support mixed cased URLs set this to false |
+| **force_lowercase_urls:** |If you want to support mixed cased URLs set this to `false` |
 | **custom_base_url:** | Manually set the base_url here |
 | **username_regex:** | Only lowercase chars, digits, dashes, underscores. 3 - 16 chars |
 | **pwd_regex:** | At least one number, one uppercase and lowercase letter, and be at least 8+ chars |
@@ -248,7 +248,7 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
-| **enabled:** | Set to true to enable caching. Can be set to `true` or `false` |
+| **enabled:** | Set to `true` to enable caching. Can be set to `true` or `false` |
 | **check:** | |
 | ... **method:** | Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching) |
 | **driver:** | Select a cache driver. Options are: `auto`, `file`, `apcu`, `redis`, `memcache`, and `wincache` |
@@ -258,7 +258,8 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 | **lifetime:** | Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days |
 | **gzip:** | GZip compress the page output. Can be set to `true` or `false` |
 | **allow_webserver_gzip:** | This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete |
-| **redis.socket:** | The path to the redis socket file |
+| **redis:** | |
+| **... socket:** | The path to the redis socket file |
 [/div]
 [/version]
 
@@ -266,20 +267,21 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
-| **enabled:** | Set to true to enable caching. Can be set to `true` or `false` |
+| **enabled:** | Set to `true` to enable caching. Can be set to `true` or `false` |
 | **check:** | |
 | ... **method:** | Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching) |
 | **driver:** | Select a cache driver. Options are: `auto`, `file`, `apcu`, `redis`, `memcache`, and `wincache` |
 | **prefix:** | Cache prefix string (prevents cache conflicts). Example: `g` |
 | **purge_at:** | Scheduler: How often to purge old cache using cron `at` syntax |
 | **clear_at:** | Scheduler: How often to clear the cache using cron `at` syntax |
-| **clear_job_type:** | Type to clear when processing the scheduled clear job `standard`|`all` |
+| **clear_job_type:** | Type to clear when processing the scheduled clear job. Options: `standard` \| `all` |
 | **clear_images_by_default:** | By default grav will include processed images when cache clears, this can be disabled by setting this to `false` |
 | **cli_compatibility:** | Ensures only non-volatile drivers are used (file, redis, memcache, etc.) |
 | **lifetime:** | Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days |
 | **gzip:** | GZip compress the page output. Can be set to `true` or `false` |
 | **allow_webserver_gzip:** | This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete |
-| **redis.socket:** | The path to the redis socket file |
+| **redis:** | |
+| **... socket:** | The path to the redis socket file |
 [/div]
 [/version]
 
@@ -301,7 +303,7 @@ The **Twig** section gives you a quick set of tools with which to configure Twig
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
-| **cache:** | Set to true to enable Twig caching. Can be set to `true` or `false` |
+| **cache:** | Set to `true` to enable Twig caching. Can be set to `true` or `false` |
 | **debug:** | Enable Twig debug. Can be set to `true` or `false` |
 | **auto_reload:** | Refresh cache on changes. Can be set to `true` or `false` |
 | **autoescape:** | Autoescape Twig vars. Can be set to `true` or `false` |
@@ -338,7 +340,7 @@ The **Assets** section enables you to configure options related to the Assets Ma
 | **css_pipeline_include_externals:** | Include external URLs in the pipeline by default. Can be set to `true` or `false` |
 | **css_pipeline_before_excludes:** | Render the pipeline before any excluded files. Can be set to `true` or `false` |
 | **css_minify:** | Minify the CSS during pipelining. Can be set to `true` or `false` |
-| **css_minify_windows:** | Minify Override for Windows platforms. False by default due to ThreadStackSize. Can be set to `true` or `false` |
+| **css_minify_windows:** | Minify Override for Windows platforms. `false` by default due to ThreadStackSize. Can be set to `true` or `false` |
 | **css_rewrite:** | Rewrite any CSS relative URLs during pipelining. Can be set to `true` or `false` |
 | **js_pipeline:** | The JS pipeline is the unification of multiple JS resources into one file. Can be set to `true` or `false` |
 | **js_pipeline_include_externals:** | Include external URLs in the pipeline by default. Can be set to `true` or `false` |
@@ -393,7 +395,7 @@ debugger:
     close_connection: true
 [/prism]
 
-This section gives you the ability to activate Grav's debugger. A useful tool during development.
+The **Debugger** section gives you the ability to activate Grav's debugger. A useful tool during development.
 
 [div class="table-keycol"]
 | Property | Description |
@@ -415,14 +417,14 @@ images:
   seofriendly: false
 [/prism]
 
-This section gives you the ability to set the default image quality images are resampled to, as well as to control image caching and debugging features.
+The **Images** section gives you the ability to set the default image quality images are resampled to, as well as to control image caching and debugging features.
 
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **default_image_quality:** | Default image quality to use when resampling images. For example: `85` = 85% |
-| **cache_all:** | Cache all image by default. Can be set to `true` or `false` |
-| **cache_perms:** | MUST BE IN QUOTES!! Default cache folder perms. Usually `'0755'` or `'0775'` |
+| **cache_all:** | Cache all images by default. Can be set to `true` or `false` |
+| **cache_perms:** | **Must be in quotes!** Default cache folder perms. Usually `'0755'` or `'0775'` |
 | **debug:** | Show an overlay over images indicating the pixel depth of the image when working with retina, for example. Can be set to `true` or `false` |
 | **auto_fix_orientation:** | Try to automatically fix images uploaded with non-standard rotation |
 | **seofriendly:** | SEO-friendly processed image names |
@@ -446,7 +448,7 @@ The **Media** section handles the configuration options for settings related to 
 | -------- | ----------- |
 | **enable_media_timestamp:** | Enable media timetsamps |
 | **unsupported_inline_types:** | Array of supported media types to try to display inline. These file types are placed within `[]` brackets |
-| **allowed_fallback_types:** | Array of allowed media types of files found if accessed via Page route. These file types are placed within `[]` \|brackets |
+| **allowed_fallback_types:** | Array of allowed media types of files found if accessed via Page route. These file types are placed within `[]` brackets |
 | **auto_metadata_exif:** | Automatically create metadata files from Exif data where possible |
 [/div]
 
@@ -476,7 +478,7 @@ These options determine session properties for your site.
 | **name:** | Name prefix of the session cookie. Use alphanumeric, dashes or underscores only. Do not use dots in the session name. For example: `grav-site` |
 | **uniqueness:** | Should sessions be `path` based or `security.salt` based |
 | **secure:** | Set session secure. If `true`, indicates that communication for this cookie must be over an encrypted transmission. Enable this only on sites that run exclusively on HTTPS. Can be set to `true` or `false` |
-| **httponly:** | Set session HTTP only. If true, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed. Can be set to `true` or `false` |
+| **httponly:** | Set session HTTP only. If `true`, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed. Can be set to `true` or `false` |
 | **path:** | The path where sessions are stored |
 [/div]
 
@@ -498,7 +500,7 @@ Options in the **GPM** section control Grav's GPM (Grav Package Manager). For ex
 | -------- | ----------- |
 | **releases:** | Set to either `stable` or `testing` to determine if you want to update to the latest stable or testing build |
 | **proxy_url:** | Configure a manual proxy URL for GPM. For example: `127.0.0.1:3128` |
-| **method:** | Either 'curl', 'fopen' or 'auto'. 'auto' will try fopen first and if not available cURL |
+| **method:** | Either `'curl'`, `'fopen'` or `'auto'`. `'auto'` will try fopen first and if not available cURL |
 | **verify_peer:** | On some systems (Windows mostly) GPM is unable to connect because the SSL certificate cannot be verified. Disabling this setting might help |
 | **official_gpm_only:** | By default GPM direct-install will only allow URLs via the official GPM proxy to ensure security, disable this to allow other sources |
 [/div]

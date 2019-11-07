@@ -128,7 +128,7 @@ or:
 
 ### Remote
 
-Remote image links enable you to directly display pretty much any media file via its URL. This doesn't have to include your own site's content, but it can. Here is an example of how you would display to a remote image file.
+Remote image links enable you to directly display pretty much any media file via its URL. This doesn't have to include your own site's content, but it can. Here is an example of how you would display a remote image file.
 
 ```markdown
 ![Remote Image 1](https://getgrav.org/images/testimage.png)

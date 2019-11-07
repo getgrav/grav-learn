@@ -80,9 +80,9 @@ You can also do these same kinds of things using the Twig `Media` object:
 ```
 {% endverbatim %}
 
-!!!! Grav has a `/images` folder. Do not put your own images in that folder, as it hosts Grav auto-generated, cached images.
+!!!! Grav has an `/images` folder. Do not put your own images in that folder, as it hosts Grav auto-generated, cached images.
 
-You may also want to put all the media files into their own folder, so that they can all be accessed at one go. For instance you might want to keep all your MP3 files in a folder `user/pages/mp3s` (not visible) and put the name of the MP3 file associated with a particular page in a header field called `thistrack`. If you then wish to access the file for a partiular page and play it using the HTML5 audio element, you will need code like this:
+You may also want to put all the media files into their own folder, so that they can all be accessed at one go. For instance you might want to keep all your MP3 files in a folder `user/pages/mp3s` (not visible) and put the name of the MP3 file associated with a particular page in a header field called `thistrack`. If you then wish to access the file for a particular page and play it using the HTML5 audio element, you will need code like this:
 
 {% verbatim %}
 [prism classes="language-twig line-numbers"]
@@ -128,10 +128,10 @@ When you use Grav's media functionality to render a lightbox, all Grav does is o
 [div class="table-keycol"]
 | Attribute   | Explanation                                                                                                  |
 | :-----      | :-----                                                                                                       |
-| rel         | A simple indicator that this is not a regular link, but a lightbox link. The value will always be `lightbox` |
-| href        | A URL to the media object itself                                                                             |
-| data-width  | The width the user requested this lightbox to be                                                             |
-| data-height | The height the user requested this lightbox to be                                                            |
+| rel         | A simple indicator that this is not a regular link, but a lightbox link. The value will always be `lightbox`. |
+| href        | A URL to the media object itself.                                                                             |
+| data-width  | The width the user requested this lightbox to be.                                                             |
+| data-height | The height the user requested this lightbox to be.                                                            |
 | data-srcset | In case of image media, this contains the `srcset` string. ([more info](../media#responsive-images))         |
 [/div]
 
@@ -191,12 +191,6 @@ The `html` action will output a valid HTML tag for the media based on the curren
 [/ui-tab]
 [/ui-tabs]
 
-##### Result:
-
-{{ page.media['sample-image.jpg'].html('My title', 'some ALT text', 'myclass') }}
-
-!! To use classes in Markdown, you need to enable Markdown Extra.
-
 
 #### display
 
@@ -233,10 +227,6 @@ The following example will display a textual link (`display('text')`) to a sepia
 ```
 [/ui-tab]
 [/ui-tabs]
-
-##### Result:
-
-{{ page.media['sample-image.jpg'].sepia().link().display('text').html('Image link') }}
 
 #### lightbox
 
@@ -1153,7 +1143,7 @@ Instead of letting Grav generate the sizes in even steps between given boundarie
 ![Retina Image](retina.jpg?derivatives=[360,720,1200])
 ```
 
-This will generate downsizes versions of the `retina.jpg` image in three widths: 360, 720 and 1200px.
+This will generate downsized versions of the `retina.jpg` image in three widths: 360, 720 and 1200px.
 
 ## Metafiles
 

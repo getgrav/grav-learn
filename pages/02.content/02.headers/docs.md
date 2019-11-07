@@ -102,7 +102,7 @@ Allows the page to override the default extension and set one programmatically. 
 cache_control: max-age=604800
 ```
 
-Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value
+Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value.
 
 ### Date Format
 
@@ -126,7 +126,7 @@ debugger: false
 etag: true
 ```
 
-Enable or disable on a page level whether or not to display an ETag header variable with a unique value. False by default unless overridden in your `system.yaml`.
+Enable or disable on a page level whether or not to display an ETag header variable with a unique value. `false` by default unless overridden in your `system.yaml`.
 
 ### Expires
 
@@ -159,7 +159,7 @@ Allows the dynamic setting of an HTTP Response Code.
 language: fr
 ```
 
-This allows you to override the language for a particular page
+This allows you to override the language for a particular page.
 
 ### LastModified
 
@@ -167,7 +167,7 @@ This allows you to override the language for a particular page
 last_modified: true
 ```
 
-Enable or disable on a page level whether or not to display a Last Modified header variable with modified date. False by default unless overridden in your `system.yaml`.
+Enable or disable on a page level whether or not to display a Last Modified header variable with modified date. `false` by default unless overridden in your `system.yaml`.
 
 ### Lightbox
 
@@ -211,7 +211,7 @@ This will always take you to the `/profile` route after a successful login.
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
-| **extra:** | Enable support for Markdown Extra support (GFM by default) |
+| **extra:** | Enable support for Markdown Extra (GFM by default) |
 | **auto_line_breaks:** | Enable automatic line breaks |
 | **auto_url_links:** | Enable automatic HTML links |
 | **escape_markup:** | Escape markup tags into entities |

@@ -36,7 +36,7 @@ The first step in creating a new theme is to **install the DevTools Plugin**.  T
 
 #### Install via CLI GPM
 
-* Navigate in the command line to the root of your Grav installation
+* Navigate in the command line to the root of your Grav installation.
 
 [prism classes="language-bash command-line"]
 bin/gpm install devtools

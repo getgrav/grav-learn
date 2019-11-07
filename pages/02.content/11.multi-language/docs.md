@@ -32,7 +32,7 @@ As you should already be familiar with how Grav uses markdown files in folders t
 
 ### Language Configuration
 
-For Grav do to this you must first setup some basic language configuration in your `user/config/system.yaml` file.
+For Grav to do this you must first setup some basic language configuration in your `user/config/system.yaml` file.
 
 [prism classes="language-yaml line-numbers"]
 languages:
@@ -294,7 +294,7 @@ fr:
     DESCRIPTION: Le plugin d'erreur fournit un mécanisme simple de manipulation des pages d'erreur au sein de Grav.
 [/prism]
 
-! The convention for plugins is to use PLUGIN_PLUGINNAME.* as a prefix for all language strings, to avoid any name conflict. Themes are less likely to introduce language strings conflicts, but it's a good idea to prefix with THEME_THEMENAME.* strings added in themes.
+! The convention for plugins is to use PLUGIN_PLUGINNAME.* as a prefix for all language strings, to avoid any name conflict. Themes are less likely to introduce language strings conflicts, but it's a good idea to prefix strings added in themes with THEME_THEMENAME.*
 
 ### Translation Overrides
 
@@ -409,20 +409,20 @@ bin/gpm install langswitcher
 The [documentation for configuration and implementation can be found on GitHub](https://github.com/getgrav/grav-plugin-langswitcher).
 
 
-### Setup with language specific domains
+### Setup with Language Specific Domains
 
-configure your site with [Environment-based language handling](#environment-based-language-handling) to assign default languages (the first language) to domains.
+Configure your site with [Environment-Based Language Handling](#environment-based-language-handling) to assign default languages (the first language) to domains.
 
 
-make sure the option
+Make sure the option
 
 [prism classes="language-yaml line-numbers"]
 pages.redirect_default_route: true
 [/prism]
 
-is set to true in your system.yaml.
+is set to `true` in your `system.yaml`.
 
-Add following to your .htaccess file and adopt the language slugs and domain names to your needs:
+Add the following to your **.htaccess** file and adopt the language slugs and domain names to your needs:
 
 [prism classes="language-htaccess line-numbers"]
 # http://www.cheat-sheets.org/saved-copy/mod_rewrite_cheat_sheet.pdf
@@ -439,7 +439,7 @@ RewriteCond %{REQUEST_URI} !(admin) [NC]
 RewriteRule ^de/(.*)$ "http://grav-site.de/$1" [R=302,L]
 [/prism]
 
-if you know how to simplify the rewrite rules, please edit this page through the Github link in the upper left corner
+If you know how to simplify the rewrite rules, please edit this page on GitHub by clicking the **Edit** link at the top of the page.
 
 ### Language Logic in Twig Templates
 

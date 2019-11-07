@@ -156,7 +156,7 @@ renders to:
 
 **rendered as bold text**
 
-and this HTML
+and this HTML:
 
 [prism classes="language-html"]
 <strong>rendered as bold text</strong>
@@ -182,7 +182,7 @@ and this HTML:
 [/prism]
 
 
-### strikethrough
+### Strikethrough
 In GFM (GitHub flavored Markdown) you can do strikethroughs.
 
 [prism classes="language-markdown"]
@@ -655,14 +655,14 @@ Images have a similar syntax to links but include a preceding exclamation point.
 [/prism]
 ![Minion](https://octodex.github.com/images/minion.png)
 
-or
+or:
 
 [prism classes="language-markdown"]
 ![Alt text](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 [/prism]
 ![Alt text](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 
-Like links, Images also have a footnote style syntax
+Like links, images also have a footnote style syntax:
 
 [prism classes="language-markdown"]
 ![Alt text][id]
