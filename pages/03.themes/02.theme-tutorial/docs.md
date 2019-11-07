@@ -26,6 +26,8 @@ Pure is a small, fast, and responsive CSS framework that contains the basics to 
 
 You can read up on all the features Pure brings to the table on the [Pure.css project site](http://purecss.io/).
 
+Also, you should read the [Important Theme Updates](https://getgrav.org/blog/important-theme-updates) blog article that outlines some key changes in Grav themes to provide the best plugin support going forward.
+
 ## Step 1 - Install DevTools Plugin
 
 !! Previous versions of this tutorial required creating a base theme by default.  This whole process can be skipped thanks to our new **DevTools Plugin**
@@ -78,7 +80,7 @@ SUCCESS theme mytheme -> Created Successfully
 Path: /www/user/themes/my-theme
 [/prism]
 
-The DevTools command tells you where this new template was created. This created template is fully functional but also very simple.  You will want to modify this to suite your needs.
+The DevTools command tells you where this new template was created. This created template is fully functional but also very simple.  You will want to modify this to suit your needs.
 
 In order to see your new theme in action, you will need to change the default theme from `quark` to `my-theme`, so edit your `user/config/system.yaml` and change it:
 
@@ -184,20 +186,23 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 
     <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
     <link rel="canonical" href="{{ page.url(true, true) }}" />
-
-    {% block stylesheets %}
-        {% do assets.addCss('http://yui.yahooapis.com/pure/0.6.0/pure-min.css', 100) %}
-        {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', 99) %}
-        {% do assets.addCss('theme://css/custom.css', 98) %}
-    {% endblock %}
-    {{ assets.css() }}
-
-    {% block javascripts %}
-        {% do assets.addJs('jquery', 100) %}
-    {% endblock %}
-    {{ assets.js() }}
-
 {% endblock head %}
+
+{% block stylesheets %}
+    {% do assets.addCss('http://yui.yahooapis.com/pure/0.6.0/pure-min.css', 100) %}
+    {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', 99) %}
+    {% do assets.addCss('theme://css/custom.css', 98) %}
+{% endblock %}
+
+{% block javascripts %}
+    {% do assets.addJs('jquery', 100) %}
+{% endblock %}
+
+{% block assets deferred %}
+    {{ assets.css()|raw }}
+    {{ assets.js()|raw }}
+{% endblock %}
+
 </head>
 <body id="top" class="{{ page.header.body_classes }}">
 
@@ -234,7 +239,7 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 {% endblock %}
 
 {% block bottom %}
-    {{ assets.js('bottom') }}
+    {{ assets.js('bottom')|raw }}
 {% endblock %}
 
 </body>
@@ -244,7 +249,7 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 
 Please read over the code in the `base.html.twig` file to try to understand what is going on.  There are several key things to note:
 
-1. A `theme_config` variable is set with the theme configuration.  Because Twig doesn't work well with dashes retrieve variables with dashes (e.g. `config.themes.my-theme`), we use the `attribute()` Twig function to dynamically retrieve the `my-theme` data from `config.themes`.
+1. A `theme_config` variable is set with the theme configuration.  Because Twig doesn't work well with dashes, to retrieve variables with dashes (e.g. `config.themes.my-theme`), we use the `attribute()` Twig function to dynamically retrieve the `my-theme` data from `config.themes`.
 
 1. The `<html lang=...` item is set based on Grav's active language if enabled, else it uses the `default_lang` as set in the `theme_config`.
 
@@ -260,11 +265,11 @@ Please read over the code in the `base.html.twig` file to try to understand what
 
 1. Now we define a block called `stylesheets`, and in here we use the [Asset Manager](/themes/asset-manager) to add several assets.  The first one loads the Pure.css framework.  The second one loads [FontAwesome](http://fontawesome.io/) to provide useful icons.  The last entry points to a `custom.css` file in the theme's `css/` folder.  In here are a few useful styles to get you started, but you can add more here.  Also you can add other CSS file entries as needed.
 
-1. The `{{ assets.css() }}` call is what triggers the template to render all the CSS link tags.
+1. The `{{ assets.css()|raw }}` call is what triggers the template to render all the CSS link tags.
 
 1. The `javascripts` block, like the `stylesheets` block is a good place to put your JavaScript files.  In this example, we only add the 'jquery' library which is already bundled with Grav, so you don't need to provide a path to it.
 
-1. The `{{ assets.js() }}` will render all the JavaScript tags.
+1. The `{{ assets.js()|raw }}` will render all the JavaScript tags.
 
 1. The `<body>` tag has a class attribute that will output anything you set in the `body_classes` variable of the page's frontmatter.
 

@@ -157,6 +157,16 @@ The body is taken from the theme's `templates/forms/data.html.twig` file, provid
 
 ! the `operation` can be either `create` (default) to create a new file per-form-submission or `add` to append to a single file.
 
+! note that the `add` operation now requires a static filename: to be defined see the example below.
+
+[prism classes="language-yaml line-numbers"]
+process:
+    - save:
+        filename: feedback.txt
+        body: "{% include 'forms/data.txt.twig' %}"
+        operation: add
+[/prism]
+
 ### Captcha
 
 To also validate the captcha server-side, add the captcha process action.
@@ -184,7 +194,8 @@ process:
 By default, the form is not cleared after the submit. So if you don't have a `display` action and the user is sent back to the form page, it's still filled with the data entered. If you want to avoid this, add a `reset` action:
 
 [prism classes="language-yaml"]
-reset: true
+process:
+    - reset: true
 [/prism]
 
 ## Custom Actions

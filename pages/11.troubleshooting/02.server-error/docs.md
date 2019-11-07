@@ -1,11 +1,10 @@
 ---
 title: Grav Server Error
-markdown_extra: true
 taxonomy:
     category: docs
 ---
 
-![](grav-server-error.png)   {.center}
+![](grav-server-error.png?classes=center)
 
 Server errors are almost always caused by misconfiguration of Grav. Something unexpected happened and because of that Grav is unable to recover and serve the page.
 

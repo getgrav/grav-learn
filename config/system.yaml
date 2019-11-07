@@ -4,7 +4,7 @@ home:
 pages:
   theme: learn4
   markdown:
-    extra: true
+    extra: false
   process:
     markdown: true
     twig: false

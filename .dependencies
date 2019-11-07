@@ -43,9 +43,13 @@ git:
         url: https://github.com/getgrav/grav-plugin-youtube
         path: user/plugins/youtube
         branch: develop
-    learn2:
-        url: https://github.com/getgrav/grav-theme-learn2
-        path: user/themes/learn2
+    prism-highlight:
+        url: https://github.com/trilbymedia/grav-plugin-prism-highlight
+        path: user/plugins/prism-highlight
+        branch: develop
+    learn4:
+        url: https://github.com/getgrav/grav-theme-learn4
+        path: user/themes/learn4
         branch: develop
 links:
     anchors:
@@ -92,7 +96,11 @@ links:
         src: grav-plugin-youtube
         path: user/plugins/youtube
         scm: github
-    learn2:
-        src: grav-theme-learn2
-        path: user/themes/learn2
+    prism-highlight:
+        url: grav-prism-highlight
+        path: user/plugins/prism-highlight
+        scm: github
+    learn4:
+        src: grav-theme-learn4
+        path: user/themes/learn4
         scm: github

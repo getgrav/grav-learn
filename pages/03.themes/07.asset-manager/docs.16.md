@@ -46,7 +46,7 @@ There are multiple levels of positioning control as outlined in the diagram belo
 [prism classes="language-text"]
  CSS
 ┌───────────────────────┐
-│ Group (top)           │
+│ Group (head)          │
 │┌─────────────────────┐│        ┌──────────────────┐
 ││ Position            ││        │   priority 100   │─────┐     ┌──────────────────┐
 ││┌───────────────────┐││        ├──────────────────┤     ├────▶│       CSS        │
@@ -68,7 +68,7 @@ There are multiple levels of positioning control as outlined in the diagram belo
 
   JS
 ┌───────────────────────┐
-│ Group (top)           │
+│ Group (head)          │
 │┌─────────────────────┐│        ┌──────────────────┐
 ││ Position            ││        │   priority 100   │─────┐     ┌──────────────────┐
 ││┌───────────────────┐││        ├──────────────────┤     ├────▶│        JS        │
@@ -192,7 +192,7 @@ Where appropriate, you can pass in an array of asset options. The core options a
 
 * **position**: `pipeline` is default but can also be `before` or `after` the assets in `pipeline` position.  
 
-* **loading**: `inline` if this asset should be output inline rather (default: referenced via a link to the stylesheet). Should be used in conjunction with `position: before` or `postion: after` as it will have no effect with `position: pipeline` (default).
+* **loading**: `inline` if this asset should be output inline rather (default: referenced via a link to the stylesheet). Should be used in conjunction with `position: before` or `position: after` as it will have no effect with `position: pipeline` (default).
 
 * **group**: string to specify a unique group name for asset (default is `head`)
 
@@ -202,7 +202,7 @@ Where appropriate, you can pass in an array of asset options. The core options a
 
 * **position**: `pipeline` is default but can also be `before` or `after` the assets in `pipeline` position.
 
-* **loading**: supports any loading type such as, `async`, `defer`, `async defer` or `inline`. Should be used in conjunction with `position: before` or `postion: after` as it will have no effect with `position: pipeline` (default).
+* **loading**: supports any loading type such as, `async`, `defer`, `async defer` or `inline`. Should be used in conjunction with `position: before` or `position: after` as it will have no effect with `position: pipeline` (default).
 
 * **group**: string to specify a unique group name for asset (default is `head`)
 

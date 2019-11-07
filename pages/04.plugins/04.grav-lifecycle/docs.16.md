@@ -3,7 +3,8 @@ title: Grav Lifecycle
 body_classes: lifecycle
 taxonomy:
     category: docs
-markdown_extra: true
+markdown:
+    extra: true
 ---
 
 It is often useful to know how Grav processes in order to fully understand how best to extend Grav via plugins. This is the Grav lifecycle:

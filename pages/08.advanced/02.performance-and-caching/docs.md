@@ -32,11 +32,11 @@ Grav uses the established and well-respected [Doctrine Cache](https://www.doctri
 
 * **Auto** _(Default)_ - Finds the best option automatically
 * **File** - Stores in cache files in the `cache/` folder
-* **APC** - [http://php.net/manual/en/book.apc.php](http://php.net/manual/en/book.apc.php)
+* **APC** - [https://php.net/manual/en/book.apc.php](https://php.net/manual/en/book.apc.php)
 * **XCache** - [http://xcache.lighttpd.net/](http://xcache.lighttpd.net/)
-* **Memcache** - [http://php.net/manual/en/book.memcache.php](http://php.net/manual/en/book.memcache.php)
-* **Redis** - [http://redis.io](http://redis.io)
-* **WinCache** - [http://www.iis.net/downloads/microsoft/wincache-extension](http://www.iis.net/downloads/microsoft/wincache-extension)
+* **Memcache** - [https://php.net/manual/en/book.memcache.php](https://php.net/manual/en/book.memcache.php)
+* **Redis** - [https://redis.io](https://redis.io)
+* **WinCache** - [https://www.iis.net/downloads/microsoft/wincache-extension](https://www.iis.net/downloads/microsoft/wincache-extension)
 
 By default, Grav comes preconfigured to use the `auto` setting.  This will try **APC**, then **WinCache**, then **XCache**, and lastly **File**.  You can, of course, explicitly configure the cache in your `user/config/system.yaml` file, which could make things ever so slightly faster.
 

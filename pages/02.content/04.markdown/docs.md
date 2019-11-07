@@ -25,7 +25,7 @@ John Gruber, the author of Markdown, puts it like this:
 > -- <cite>John Gruber</cite>
 
 
-Grav ships with built-in support for [Markdown](http://daringfireball.net/projects/markdown/) and [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/). You must enable **Markdown Extra** in your `system.yaml` configuration file.
+Grav ships with built-in support for [Markdown](https://daringfireball.net/projects/markdown/) and [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/). You must enable **Markdown Extra** in your `system.yaml` configuration file.
 
 Without further delay, let us go over the main elements of Markdown and what the resulting HTML looks like:
 
@@ -588,17 +588,17 @@ Adding a colon on the right side of the dashes below any heading will right alig
 ### Basic link
 
 [prism classes="language-markdown"]
-[Assemble](http://assemble.io)
+[Assemble](https://assemble.io)
 [/prism]
 
 Renders to (hover over the link, there is no tooltip):
 
-[Assemble](http://assemble.io)
+[Assemble](https://assemble.io)
 
 HTML:
 
 [prism classes="language-html"]
-<a href="http://assemble.io">Assemble</a>
+<a href="https://assemble.io">Assemble</a>
 [/prism]
 
 
@@ -651,16 +651,16 @@ Content for chapter one.
 Images have a similar syntax to links but include a preceding exclamation point.
 
 [prism classes="language-markdown"]
-![Minion](http://octodex.github.com/images/minion.png)
+![Minion](https://octodex.github.com/images/minion.png)
 [/prism]
-![Minion](http://octodex.github.com/images/minion.png)
+![Minion](https://octodex.github.com/images/minion.png)
 
 or:
 
 [prism classes="language-markdown"]
-![Alt text](http://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+![Alt text](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 [/prism]
-![Alt text](http://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+![Alt text](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 
 Like links, images also have a footnote style syntax:
 
@@ -671,7 +671,7 @@ Like links, images also have a footnote style syntax:
 
 With a reference later in the document defining the URL location:
 
-[id]: http://octodex.github.com/images/dojocat.jpg  "The Dojocat"
+[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
 
 
-    [id]: http://octodex.github.com/images/dojocat.jpg  "The Dojocat"
+    [id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
