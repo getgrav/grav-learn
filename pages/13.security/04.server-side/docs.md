@@ -18,7 +18,7 @@ Generally, PHP's configuration is changed through `php.ini`. You can find the lo
 
 Some general recommendations:
 
-- **Always keep your PHP-version up to date**: Use a [supported version](http://php.net/supported-versions.php) of PHP, preferably one that is in active, stable development. For instance, PHP 5.6 and PHP 7.0 will only have security-fixes implemented until December 2018, whilst PHP 7.1 remains in active development alongside PHP 7.2.
+- **Always keep your PHP-version up to date**: Use a [supported version](https://php.net/supported-versions.php) of PHP, preferably one that is in active, stable development. For instance, PHP 5.6 and PHP 7.0 will only have security-fixes implemented until December 2018, whilst PHP 7.1 remains in active development alongside PHP 7.2.
 - Consider disabling the display of errors and PHP-version publicly: [PHP.earth article](https://php.earth/doc/security/intro#php-configuration).
 - Use a separate user with restricted permissions to execute PHP for Grav: [Permissions in Docs](https://learn.getgrav.org/troubleshooting/permissions).
 - Use Suhosin for [advanced protection of PHP](https://suhosin.org/stories/feature-list.html).

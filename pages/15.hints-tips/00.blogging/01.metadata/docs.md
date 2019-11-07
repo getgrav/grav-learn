@@ -44,4 +44,4 @@ taxonomy:
 
 Read more about [Twitter Cards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html)
 
-Read more about [The Open Graph Protocol](http://ogp.me/)
+Read more about [The Open Graph Protocol](https://ogp.me/)

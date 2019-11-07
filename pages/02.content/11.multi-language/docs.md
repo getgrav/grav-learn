@@ -226,7 +226,7 @@ You can also use this as a Twig function with `ta()`.
 
 ### Translations with Variables
 
-You can also use variables in your Twig translations by using [PHP's sprintf](http://php.net/sprintf) syntax:
+You can also use variables in your Twig translations by using [PHP's sprintf](https://php.net/sprintf) syntax:
 
 [prism classes="language-yaml line-numbers"]
 SIMPLE_TEXT: There are %d monkeys in the %s
