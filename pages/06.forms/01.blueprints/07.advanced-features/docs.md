@@ -6,9 +6,7 @@ taxonomy:
     category: docs
 ---
 
-!!!! These advanced features are only available in **Grav 1.1.x**.  They will not work in Grav 1.0.x
-
-There are some advanced features in the blueprints which allow you to extend them and to have dynamic fields.
+There are advanced features in the blueprints which allow you to extend them and to have dynamic fields.
 
 ## Defining Validation Rules
 
@@ -33,13 +31,13 @@ Above example creates rule `slug`, which is then used in the folder field of the
 
 ## Extending Base Type (extends@)
 
-You can extend existing blueprints. Basically extending allows you to add new fields as well as modify existing ones from the base blueprint.
+You can extend existing blueprint, which allows you to add new fields as well as modify existing ones from the base blueprint.
 
 [prism classes="language-yaml line-numbers"]
 extends@: default
 [/prism]
 
-In long format you can specify lookup context for your base file:
+In the extended format you can specify a lookup context for your base file:
 
 [prism classes="language-yaml line-numbers"]
 extends@:
@@ -61,6 +59,14 @@ extends@:
   - type: default
     context: blueprints://pages
 [/prism]
+
+### Understanding the type- and context-properties
+
+In the examples above, `type` is referencing a file and `context` a path. The `context`-property uses [Streams](https://learn.getgrav.org/advanced/multisite-setup#streams), which means that it resolves to a physical location.
+
+`context: blueprints://` by default will yield `/user/plugins/admin/blueprints`, Admin's blueprints-folder. `type: default` will yield `default.yaml`, when looking up files. Because these two properties are used together, they yield a full path that Grav can understand: `/user/plugins/admin/blueprints/default.yaml`.
+
+Whenever you see the `://`-syntax in these docs, you can be pretty sure it's referring to a stream. And when using `context`, this stream must resolve to an existing folder to work.
 
 ## Embedding Form (import@)
 
