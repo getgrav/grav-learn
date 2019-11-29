@@ -65,8 +65,7 @@ We have seen reports that simply commenting out this line in Grav's `.htaccess` 
 [/prism]
 
 ### RewriteBase problems
-
-Have had some reports of 500 Internal Server Errors without setting the RewriteBase, on 1&1 hosting (but can apply to others too). Try changing
+If you installed Grav not into the document root and mapped a domain to it, you have to change the `.htaccess` file from:
 
 [prism classes="language-apacheconf line-numbers"]
 # RewriteBase /
@@ -77,8 +76,6 @@ to
 [prism classes="language-apacheconf line-numbers"]
 RewriteBase /
 [/prism]
-
-(Credit: [http://ahcox.com/webdev/1and1-internal-server-error-grav/](http://ahcox.com/webdev/1and1-internal-server-error-grav/))
 
 ### Admin Panel Navigation
 
