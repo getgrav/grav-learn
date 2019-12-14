@@ -541,7 +541,7 @@ The evaluate function can be used to evaluate a string as Twig:
 Similar to evaluate, but will evaluate and process with Twig
 
 {% verbatim %}
-`evaluate_twig('This is a twig variable: {{ foo }}')`)  <i class="fa fa-long-arrow-right"></i> **This is a twig variable: bar**
+`evaluate_twig('This is a twig variable: {{ foo }}', {foo: 'bar'})`)  <i class="fa fa-long-arrow-right"></i> **This is a twig variable: bar**
 {% endverbatim %}
 
 #### EXIF
