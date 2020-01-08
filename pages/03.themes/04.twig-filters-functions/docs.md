@@ -261,7 +261,7 @@ Wrapper for PHP [preg_split()](https://www.php.net/manual/en/function.preg-split
 [version=17]
 #### Preg Match
 
-Wrapper for PHP [preg_match()](https://www.php.net/manual/en/function.preg-match.php) that matches a text by a pattern given as expression pattern. Returns the matches if there is at least one or false if not.
+Wrapper for PHP [preg_match()](https://www.php.net/manual/en/function.preg-match.php) that matches a text by a pattern given as expression pattern. Returns the matche(s) if there is at least one accordance or `false` if not.
 [/version]
 
 [version=16]
