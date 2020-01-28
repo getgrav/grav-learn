@@ -28,7 +28,7 @@ The `assets` folder is used by the new asset management system within Grav to st
 
 ### /bin
 
-The `bin` folder contains the [Grav CLI application](../../advanced/grav-cli) that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers so we'll set this topic aside for later discussion.
+The `bin` folder contains the [Grav CLI application](../grav-cli) that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers so we'll set this topic aside for later discussion.
 
 ### /backup
 
