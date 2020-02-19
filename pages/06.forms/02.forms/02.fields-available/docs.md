@@ -80,7 +80,7 @@ Example:
 [prism classes="language-yaml line-numbers"]
 g-recaptcha-response:
   type: captcha
-  label: Captcha  
+  label: Captcha
 
 [/prism]
 
@@ -89,8 +89,8 @@ You can also provide a custom failure `recaptcha_not_validated` message, but if 
 [prism classes="language-yaml line-numbers"]
 g-recaptcha-response:
   type: captcha
-  label: Captcha 
-  recaptcha_site_key: ENTER_YOUR_CAPTCHA_PUBLIC_KEY 
+  label: Captcha
+  recaptcha_site_key: ENTER_YOUR_CAPTCHA_PUBLIC_KEY
   recaptcha_not_validated: 'Captcha not valid!'
 [/prism]
 
@@ -503,6 +503,52 @@ content:
 
 ---
 
+### Number Field
+
+The `number` field type is used to present a text input field that accepts numbers only, using the [number HTML5 input](http://html5doctor.com/html5-forms-input-types/#input-number).
+
+Example:
+[prism classes="language-yaml line-numbers"]
+header.count:
+  type: number
+  label: 'How Much?'
+  min: 10
+  max: 360
+  step: 10
+[/prism]
+
+[div class="table table-keycol"]
+| Attribute | Description                                       |
+| :-----    | :-----                                            |
+| `min` | minimum value |
+| `max`  | maximum value  |
+| `step`  | which increpemts to step up  |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [autofocus](#common-fields-attributes)         |
+| [classes](#common-fields-attributes)           |
+| [default](#common-fields-attributes)           |
+| [disabled](#common-fields-attributes)          |
+| [help](#common-fields-attributes)              |
+| [id](#common-fields-attributes)                |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [novalidate](#common-fields-attributes)        |
+| [outerclasses](#common-fields-attributes)      |
+| [readonly](#common-fields-attributes)          |
+| [size](#common-fields-attributes)              |
+| [style](#common-fields-attributes)             |
+| [title](#common-fields-attributes)             |
+| [validate.required](#common-fields-attributes) |
+| [validate.pattern](#common-fields-attributes)  |
+| [validate.message](#common-fields-attributes)  |
+[/div]
+
+---
+
 ### Password Field
 
 The `password` field type is used to present a password text input field.
@@ -630,19 +676,19 @@ pages.order.by:
     type: select
     size: long
     classes: fancy
-    label: PLUGIN_ADMIN.DEFAULT_ORDERING
-    help: PLUGIN_ADMIN.DEFAULT_ORDERING_HELP
+    label: 'Default Ordering'
+    help: 'Pages in a list will render using this order unless it is overridden'
     options:
-        default: PLUGIN_ADMIN.DEFAULT_ORDERING_DEFAULT
-        folder: PLUGIN_ADMIN.DEFAULT_ORDERING_FOLDER
-        title: PLUGIN_ADMIN.DEFAULT_ORDERING_TITLE
-        date: PLUGIN_ADMIN.DEFAULT_ORDERING_DATE
+        default: 'Default - based on folder name'
+        folder: 'Folder - based on prefix-less folder name'
+        title: 'Title - based on title field in header'
+        date: 'Date - based on date field in header'
 [/prism]
 
 [div class="table table-keycol"]
 | Attribute  | Description                                         |
 | :-----     | :-----                                              |
-| `options`  | An array of key-value options that will be allowed. |
+| `options`  | An array of key-value options that will be allowed. The key will be submittedt by the form. |
 | `multiple` | Allow the form to accept multiple values.           |
 [/div]
 
@@ -782,6 +828,41 @@ tabs:
 
 ---
 
+### Tel Field
+
+The `tel` field type is used to present a text input field that accepts a phone number, using the [tel HTML5 input](http://html5doctor.com/html5-forms-input-types/#input-tel).
+
+Example:
+[prism classes="language-yaml line-numbers"]
+header.phone:
+  type: tel
+  label: 'Your Phone Number'
+[/prism]
+
+[div class="table"]
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [autofocus](#common-fields-attributes)         |
+| [classes](#common-fields-attributes)           |
+| [default](#common-fields-attributes)           |
+| [disabled](#common-fields-attributes)          |
+| [help](#common-fields-attributes)              |
+| [id](#common-fields-attributes)                |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [novalidate](#common-fields-attributes)        |
+| [outerclasses](#common-fields-attributes)      |
+| [readonly](#common-fields-attributes)          |
+| [size](#common-fields-attributes)              |
+| [style](#common-fields-attributes)             |
+| [title](#common-fields-attributes)             |
+| [validate.required](#common-fields-attributes) |
+| [validate.pattern](#common-fields-attributes)  |
+| [validate.message](#common-fields-attributes)  |
+[/div]
+
+---
+
 ### Text Field
 
 ![Text Field](text_field.gif)
@@ -910,6 +991,42 @@ summary.enabled:
 | [validate.type](#common-fields-attributes)     |
 | [disabled](#common-fields-attributes)          |
 
+---
+
+### Url Field
+
+The `url` field type is used to present a text input field that accepts an URL, using the [url HTML5 input](http://html5doctor.com/html5-forms-input-types/#input-url).
+
+Example:
+[prism classes="language-yaml line-numbers"]
+header.phone:
+  type: url
+  label: 'Your Phone Number'
+[/prism]
+
+[div class="table"]
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [autofocus](#common-fields-attributes)         |
+| [classes](#common-fields-attributes)           |
+| [default](#common-fields-attributes)           |
+| [disabled](#common-fields-attributes)          |
+| [help](#common-fields-attributes)              |
+| [id](#common-fields-attributes)                |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [novalidate](#common-fields-attributes)        |
+| [outerclasses](#common-fields-attributes)      |
+| [readonly](#common-fields-attributes)          |
+| [size](#common-fields-attributes)              |
+| [style](#common-fields-attributes)             |
+| [title](#common-fields-attributes)             |
+| [validate.required](#common-fields-attributes) |
+| [validate.pattern](#common-fields-attributes)  |
+| [validate.message](#common-fields-attributes)  |
+[/div]
+
+
 ## Currently Undocumented Fields
 
 
@@ -926,13 +1043,10 @@ summary.enabled:
 | **Formname**                                      |                                                                           |
 | **Key**                                           |                                                                           |
 | **Month**                                         |                                                                           |
-| **Number**                                        |                                                                           |
 | **Signature**                                     |                                                                           |
 | **Switch**                                        |                                                                           |
-| **Tel**                                           |                                                                           |
 | **Time**                                          |                                                                           |
 | **Unique Id**                                     |                                                                           |
-| **Url**                                           |                                                                           |
 | **Value**                                         |                                                                           |
 | **Week**                                          |                                                                           |
 [/div]
