@@ -94,3 +94,5 @@ You can fine-tune the permissions on a user level too, as usual. With groups, yo
 [/prism]
 
 to a user’s yaml file.
+
+!! See the [Grav Admin FAQs](https://learn.getgrav.org/16/admin-panel/faq#managing-acl) to learn more about available Access Levels
