@@ -213,13 +213,14 @@ Another new Twig filter/function allows you to translate from an array.  This is
 
 [prism classes="language-yaml line-numbers"]
 en:
-  MONTHS_OF_THE_YEAR: [January, February, March, April, May, June, July, August, September, October, November, December]
+  GRAV:
+    MONTHS_OF_THE_YEAR: [January, February, March, April, May, June, July, August, September, October, November, December]
 [/prism]
 
 You could get the appropriate translation for a post's month with the following:
 
 [prism classes="language-twig line-numbers"]
-{{ 'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }}
+{{ 'GRAV.MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }}
 [/prism]
 
 You can also use this as a Twig function with `ta()`.
@@ -276,7 +277,7 @@ $translation = $this->grav['language']->translate(['HEADER.MAIN_TEXT'], 'fr');
 To translate a specific item in an array use:
 
 [prism classes="language-php line-numbers"]
-$translation = $this->grav['language']->translateArray('MONTHS_OF_THE_YEAR', 3);
+$translation = $this->grav['language']->translateArray('GRAV.MONTHS_OF_THE_YEAR', 3);
 [/prism]
 
 ### Plugin and Theme Language Translations
