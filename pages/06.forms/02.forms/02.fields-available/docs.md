@@ -512,17 +512,18 @@ Example:
 header.count:
   type: number
   label: 'How Much?'
-  min: 10
-  max: 360
-  step: 10
+  validate:
+    min: 10
+    max: 360
+    step: 10
 [/prism]
 
 [div class="table table-keycol"]
 | Attribute | Description                                       |
 | :-----    | :-----                                            |
-| `min` | minimum value |
-| `max`  | maximum value  |
-| `step`  | which increpemts to step up  |
+| `validate.min` | minimum value |
+| `validate.max`  | maximum value  |
+| `validate.step`  | which increpemts to step up  |
 [/div]
 
 [div class="table"]
