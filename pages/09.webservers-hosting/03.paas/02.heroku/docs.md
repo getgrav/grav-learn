@@ -114,9 +114,9 @@ Due to the ephemeral nature of Heroku's filesystem, all needed plugins or themes
 [prism classes="language-json line-numbers"]
 "scripts": {
   "compile": [
-    "bin/grav install",
-    "bin/gpm install admin -y",
-    "bin/gpm install awesome-theme-name-here -y"
+    "php bin/grav install",
+    "php bin/gpm install admin -y",
+    "php bin/gpm install awesome-theme-name-here -y"
   ]
 }
 [/prism]
