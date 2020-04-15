@@ -252,6 +252,18 @@ Converts a string to the English plural version
 
 `'person'|pluralize` <i class="fa fa-long-arrow-right"></i> **{{ 'person'|pluralize }}**
 
+[version=17]
+#### Preg Match
+
+Wrapper for PHP [preg_match()](https://www.php.net/manual/en/function.preg-match.php) that matches a text by a pattern given as regular expression. Returns the matche(s) if there is at least one accordance or `false` if not.
+[/version]
+
+[version=17]
+#### Preg Split
+
+Wrapper for PHP [preg_split()](https://www.php.net/manual/en/function.preg-split.php) that splits a text by a pattern given as regular expression.
+[/version]
+
 [version=16]
 #### Print Variable
 
@@ -541,7 +553,7 @@ The evaluate function can be used to evaluate a string as Twig:
 Similar to evaluate, but will evaluate and process with Twig
 
 {% verbatim %}
-`evaluate_twig({foo: 'bar'}, 'This is a twig variable: {{ foo }}')`)  <i class="fa fa-long-arrow-right"></i> **This is a twig variable: bar**
+`evaluate_twig('This is a twig variable: {{ foo }}', {foo: 'bar'})`)  <i class="fa fa-long-arrow-right"></i> **This is a twig variable: bar**
 {% endverbatim %}
 
 #### EXIF

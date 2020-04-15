@@ -31,7 +31,9 @@ public static function getSubscribedEvents()
 
 public function onAdminTwigTemplatePaths($event)
 {
-    $event['paths'] = [__DIR__ . '/admin/themes/grav/templates'];
+    $paths = $event['paths'];
+    $paths[] = __DIR__ . '/admin/themes/grav/templates';
+    $event['paths'] = $paths;
 }
 [/prism]
 
@@ -197,11 +199,11 @@ Similarly to the `templates` folder, a theme will automatically add any blueprin
     {
         $types = $event->types;
         $types->scanBlueprints('plugin://' . $this->name . '/blueprints');
-    } 
-     
+    }
+
     /**
      * Add templates directory.
-     */ 
+     */
     public function onGetPageTemplates(Event $event)
     {
         $types = $event->types;

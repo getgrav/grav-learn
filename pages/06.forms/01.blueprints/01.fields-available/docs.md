@@ -637,6 +637,7 @@ header.a_file:
 | `folder` | The folder where the files will be looked up, relative to the Grav root. Accepts any value in the [file field destination format](/forms/blueprints/how-to-add-file-upload#destination). |
 | `accept` | A list of accepted file extensions                                                          |
 | `preview_images` | If enabled, image files will have a little preview |
+| `on_demand` | If enabled, will only load the files and images when the filepicker is focused. This is useful for reducing admin edit page load times when there is large media or many filepicker fields |
 [/div]
 
 [div class="table table-keycol"]
