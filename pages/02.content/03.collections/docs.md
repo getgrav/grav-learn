@@ -92,7 +92,7 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 
 ! This document outlines the use of `@page`, `@taxonomy.category` etc, but a more YAML-safe alternative format is `page@`, `taxonomy@.category`.  All the `@` commands can be written in either prefix or postfix format.
 
-We will cover these more in detail. 
+We will cover these more in detail.
 
 ## Root Collections
 
@@ -270,7 +270,7 @@ Additionally, you can filter the collection by using `filter: type: value`. The 
 [prism classes="language-yaml line-numbers"]
  content:
   items: '@self.siblings'
-  filter: 
+  filter:
     published: true
     type: 'blog'
 [/prism]
@@ -532,3 +532,81 @@ menu: Home
 {% endif %}
 {% endfor %}
 [/prism]
+
+
+[version=16]
+#### Custom Collection Handling with `onCollectionProcessed()` Event
+
+There are times when the event options are just not enough.  Times when you want to get a collection but then further manipulate the collection based on something very custom.  Imagine if you will, a use case where you have what seems like a rather bog-standard blog listing, but your client wants to have fine grain control over what displays in the listing.  They want to have a custom toggle on every blog item that lets them remove it from the listing, but still have it published and available via a direct link.
+
+To make this happen, we can simply add a custom `display_in_listing: false` option in the page header for the item:
+
+[prism classes="language-yaml line-numbers"]
+---
+title: 'My Story'
+date: '13:34 04/14/2020'
+taxonomy:
+    tag:
+        - journal
+display_in_listing: false
+---
+...
+[/prism]
+
+The problem is that there is no way to define or include this filter when defining a collection in the listing page.  It probably is defined something like this:
+
+[prism classes="language-yaml line-numbers"]
+---
+menu: News
+title: 'My Blog'
+content:
+    items:
+        - self@.children
+    order:
+        by: date
+        dir: desc
+    limit: 8
+    pagination: true
+    url_taxonomy_filters: true
+---
+...
+[/prism]
+
+So the collection is simply defined by the `self@.chidren` directive to get all the published children of the current page. So what about those pages that have the `display_in_listing: false` set? We need to do some extra work on that collection before it is returned to ensure we remove any items that we don't want to see.  To do this we can use the `onCollectionProcessed()` event in a custom plugin.  We need to add the listener:
+
+[prism classes="language-php line-numbers"]
+    public static function getSubscribedEvents()
+    {
+        return [
+            ['autoload', 100000],
+            'onPluginsInitialized' => ['onPluginsInitialized', 0],
+            'onCollectionProcessed' => ['onCollectionProcessed', 10]
+        ];
+    }
+[/prism]
+
+Then, we need to define the method and loop over the collection items, looking for any pages with that `display_in_listing:` field set, then remove it if it is `false`:
+
+[prism classes="language-php line-numbers"]
+    /**
+     * Remove any page from collection with display_in_listing: false|0
+     *
+     * @param Event $event
+     */
+    public function onCollectionProcessed(Event $event)
+    {
+        /** @var Collection $collection */
+        $collection = $event['collection'];
+
+        foreach ($collection as $item) {
+            $display_in_listing = $item->header()->display_in_listing ?? true;
+            if ((bool) $display_in_listing === false) {
+                $collection->remove($item->path());
+            }
+        }
+
+    }
+[/prism]
+
+Now your collection has the correct items, and all other plugins or Twig templates that rely on that collection will see this modified collection so things like pagination will work as expected.
+[/version]
