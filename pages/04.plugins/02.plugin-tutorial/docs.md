@@ -71,7 +71,7 @@ SUCCESS plugin Randomizer -> Created Successfully
 Path: /www/user/plugins/randomizer
 [/prism]
 
-The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not automatically have the logic to perform the function we wish.  We will have to modify it to suite our needs.
+The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not automatically have the logic to perform the function we wish.  We will have to modify it to suit our needs.
 
 ## Step 3 - Plugin basics
 
