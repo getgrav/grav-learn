@@ -80,6 +80,8 @@ Here is an example of the metadata portion of a **blueprints.yaml** file:
 
 ```yaml
 name: GitHub
+slug: github
+type: plugin
 version: 1.0.1
 description: "This plugin wraps the [GitHub v3 API](https://developer.github.com/v3/) and uses the [php-github-api](https://github.com/KnpLabs/php-github-api/) library to add a nice GitHub touch to your Grav pages."
 icon: github
