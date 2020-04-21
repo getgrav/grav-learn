@@ -10,6 +10,8 @@ As an example, here's the Blueprint for a plugin:
 
 [prism classes="language-yaml line-numbers"]
 name: Assets
+slug: assets
+type: plugin
 version: 1.0.4
 description: "This plugin provides a convenient way to add CSS and JS assets directly from your pages."
 icon: list-alt
