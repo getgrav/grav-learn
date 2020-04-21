@@ -12,6 +12,8 @@ Information from the currently active theme's `blueprints.yaml` file can be had 
 
 [prism classes="language-yaml line-numbers"]
 name: Antimatter
+slug: antimatter
+type: theme
 version: 1.7.0
 description: "Antimatter is the default theme included with **Grav**"
 icon: empire
