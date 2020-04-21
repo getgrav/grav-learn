@@ -28,6 +28,8 @@ Each theme should have a definition file called `blueprints.yaml` which has some
 
 [prism classes="language-yaml line-numbers"]
 name: Antimatter
+slug: antimatter
+type: theme
 version: 1.6.7
 description: "Antimatter is the default theme included with **Grav**"
 icon: empire
