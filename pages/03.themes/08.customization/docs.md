@@ -83,7 +83,7 @@ To achieve this you need to follow these steps:
              - user/themes/mytheme
              - user/themes/quark
    [/prism]
-3. Copy the `/user/themes/quark/blueprints.yaml` file into `/user/themes/mytheme/blueprints.yaml` in order to include the customizable elements of the theme in the admin.
+3. Copy the `/user/themes/quark/blueprints.yaml` file into `/user/themes/mytheme/blueprints.yaml` in order to include the customizable elements of the theme in the admin. Open that file and edit the first 13 lines to match your newly created theme, i.e. rename `Quark` to `MyTheme` and provide description, info and URLs.
 
 4. Change your default theme to use your new **mytheme** by editing the `pages: theme:` option in your `user/config/system.yaml` configuration file:
    [prism classes="language-yaml line-numbers"]
