@@ -1181,7 +1181,7 @@ In-line video control options are another capability baked into Grav. These opti
 Here is an example:
 
 ```markdown
-![video.mov](video.mov?loop=1&controls=0&autoplay=1)
+![video.mov](video.mov?loop=1&controls=0&autoplay=1&muted)
 ```
 
 The options are as follows:
@@ -1192,6 +1192,7 @@ The options are as follows:
 | autoplay    | Enables (`1`) or Disables (`0`) autoplay for the video on pageload.                       |
 | controls    | Enables (`1`) or Disables (`0`) media controls for the embedded video.                    |
 | loop        | Enables (`1`) or Disables (`0`) automatic looping for the video, replaying it as it ends. |
+| muted       | Mute video and generally allow it to autoplay.                                            |
 [/div]
 
 
