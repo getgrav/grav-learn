@@ -63,6 +63,12 @@ bin/gpm install admin
 
 ## Enable OPCache
 
+### On Dreamhost Shared Hosting Plans
+
+OPCache is enabled by default.
+
+### On Dreamhost VPS Plans
+
 OPCache is supported but not enabled by default. You need to manually activate it by creating a phprc file under your user folder, under `.php/5.6/phprc` (change the number according to your PHP version). In this file, put the following code:
 
 [prism classes="language-text"]
