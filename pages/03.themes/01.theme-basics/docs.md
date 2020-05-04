@@ -90,7 +90,7 @@ How you organize your files here is completely up to you.  Feel free to follow o
 To install Sass on your computer, simply [follow the instructions on the sass-lang.com](http://sass-lang.com/install) website.
 
 1. Execute the simple provided scss shell script by typing `$ ./scss.sh` from the root of the theme.
-2. Running the command directly `$ scss --sourcemap --watch scss:css-compiled` which is the same thing.
+2. Running the command directly `$ scss --source-map --watch scss:css-compiled` which is the same thing.
 
 By default, this will compile your scss files into the `css-compiled/` folder.  You can then reference the resulting css file in your theme.
 
