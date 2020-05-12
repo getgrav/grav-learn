@@ -574,7 +574,7 @@ content:
 ...
 [/prism]
 
-So the collection is simply defined by the `self@.chidren` directive to get all the published children of the current page. So what about those pages that have the `display_in_listing: false` set? We need to do some extra work on that collection before it is returned to ensure we remove any items that we don't want to see.  To do this we can use the `onCollectionProcessed()` event in a custom plugin.  We need to add the listener:
+So the collection is simply defined by the `self@.children` directive to get all the published children of the current page. So what about those pages that have the `display_in_listing: false` set? We need to do some extra work on that collection before it is returned to ensure we remove any items that we don't want to see.  To do this we can use the `onCollectionProcessed()` event in a custom plugin.  We need to add the listener:
 
 [prism classes="language-php line-numbers"]
     public static function getSubscribedEvents()
