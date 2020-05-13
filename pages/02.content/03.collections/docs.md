@@ -535,6 +535,30 @@ menu: Home
 {% endfor %}
 [/prism]
 
+#### Pagination with Advanced Collections
+
+A common question we hear is regarding how to enable pagiation for custom collections.  Pagination is a plugin that can be installed via GPM with the name `pagination`.  Once installed it works "out-of-the-box" with page configured collections, but knows nothing about custom collections created in Twig.  To make this process easier, pagination comes with it's own Twig function called `paginate()` that will provide the pagination functionality we meed.
+
+After we pass the collection and the limit to the `paginate()` function, we also need to pass the pagination information directly to the `partials/pagination.html.twig` template to render properly.
+
+[prism classes="language-twig line-numbers"]
+{% set options = { items: {'@root.descendants':''}, 'order': {'by': 'folder', 'dir': 'asc'}} %}
+{% set my_collection = page.collection(options) %}
+{% do paginate( my_collection, 5 ) %}
+
+{% for p in my_collection %}
+    <ul>
+        {% if page.slug == p.slug %}
+            <li class="{{ p.slug }} active"><span>{{ p.menu }}</span></li>
+        {% else %}
+            <li class="{{ p.slug }}"><a href="{{ p.url }}">{{ p.menu }}</a></li>
+        {% endif %}
+    </ul>
+{% endfor %}
+
+{% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':my_collection.params.pagination} %}
+[/prism]
+
 
 [version=16]
 #### Custom Collection Handling with `onCollectionProcessed()` Event
