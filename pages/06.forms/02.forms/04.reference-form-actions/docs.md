@@ -139,7 +139,7 @@ You could use any page type you want, as a destination page. Just create your ow
 
 ### Save
 
-Saves the form data to a file. The file is saved to the `user/data` folder, in a subfolder named as the `form.name` parameter. For example:
+Saves the form data to a file. The file is saved to the `user/data` folder, in a subfolder named as the `form.name` parameter. The form **must** have a name for this action to succeed, and the subfolder must be created with appropriate permissions before data can be saved in it, as a new directory will not be created if one does not exist. For example:
 
 !! The `fileprefix` and `body` can contain Twig markup.
 

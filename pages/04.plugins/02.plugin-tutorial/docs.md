@@ -71,7 +71,7 @@ SUCCESS plugin Randomizer -> Created Successfully
 Path: /www/user/plugins/randomizer
 [/prism]
 
-The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not automatically have the logic to perform the function we wish.  We will have to modify it to suite our needs.
+The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not automatically have the logic to perform the function we wish.  We will have to modify it to suit our needs.
 
 ## Step 3 - Plugin basics
 
@@ -99,7 +99,7 @@ These items are critical and your plugin will not function reliably unless you i
 
 ### Required items for release
 
-This items are required if you wish to release your plugin via GPM.
+These items are required if you wish to release your plugin via GPM.
 
 * **`CHANGELOG.md`** - A file that follows the [Grav Changelog Format](/advanced/grav-development#changelog-format) to show changes in releases.
 * **`LICENSE`** - a license file, should probably be MIT unless you have a specific need for something else.

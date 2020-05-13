@@ -73,11 +73,11 @@ mailer:
 You can override themes in much the same way:
 
 [prism classes="language-bash command-line"]
-user/config/themes/antimatter.yaml
+user/config/themes/antimatter/antimatter.yaml
 [/prism]
 
 Can be overridden for any environment, say some production site (`http://www.mysite.com`):
 
 [prism classes="language-bash command-line"]
-user/www.mysite.com/config/themes/antimatter.yaml
+user/www.mysite.com/config/themes/antimatter/antimatter.yaml
 [/prism]
