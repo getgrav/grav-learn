@@ -192,6 +192,20 @@ which will result in HTML similar to:
 <a href="/your/pages/some-page#element-id" target="_blank" class="button">Element Anchor</a>
 ```
 
+##### Anchor Links on the Same Page
+
+```markdown
+[Element Anchor](?classes=button#element-id)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="#element-id" class="button">
+```
+
+Note that the anchor should come _after_ the query as discussed in [Issue 1324](https://github.com/getgrav/grav/issues/1324#issuecomment-282587549)
+
 ##### Pass-through of Non-Supported Attributes
 
 ```markdown
