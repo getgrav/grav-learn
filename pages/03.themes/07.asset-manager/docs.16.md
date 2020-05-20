@@ -152,7 +152,7 @@ The `addCss()` method adds CSS assets to the Asset Manager. If you specify a sec
 
 The `assets.css()|raw` call renders the CSS assets as HTML tags. As there is no parameter supplied to this method, the group is by default set to `head`. Note how this is wrapped in an `assets deferred` block.  This is a new feature in Grav 1.6 that allows you to add assets from other Twig templates that are included further down the page (or anywhere really), and still ensure that they can render in this `head` block if required.
 
-The `bottom` block at the very end of your theme output, renders JavaScript that has been assigned to the `bottom` block
+The `bottom` block at the very end of your theme output, renders JavaScript that has been assigned to the `bottom` group.
 
 ## Adding Assets
 
