@@ -51,7 +51,7 @@ You might want to know how this works. The Blog template, the content of the `bl
 In its simplest way:
 
 [prism classes="language-twig line-numbers"]
-{% set collection = page.collection() %}`
+{% set collection = page.collection() %}
 
 {% for child in collection %}
         {% include 'partials/blog_item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
