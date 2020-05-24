@@ -18,7 +18,7 @@ shortcode-core:
 This page explains how to run Grav with *Nginx* as the HTTP server and *PHP-FPM* (FastCGI Process Manager) to process PHP scripts, so these packages need to be installed on your server:
 
 * `nginx`
-* `php5-fpm`
+* `php-fpm`
 
 ## Configuration
 
@@ -61,7 +61,7 @@ http {
     server_tokens off;
 
     # maximum file upload size
-    # update 'upload_max_filesize' & 'post_max_size' in /etc/php5/fpm/php.ini accordingly
+    # update 'upload_max_filesize' & 'post_max_size' in /etc/php/fpm/php.ini accordingly
     client_max_body_size 32m;
     # client_body_timeout 60s; # increase for very long file uploads
 
