@@ -69,6 +69,27 @@ This is the preferred approach to modifying or customizing a theme, but it does 
 
 The basic concept is that you define a theme as the **base-theme** that you are inheriting from, and provide **only the bits you wish to modify** and let the base theme handle the rest. The great benefit to this is that you can more easily keep the base theme updated and current without directly impacting your customized inherited theme.
 
+There are two ways to inherit from an existing theme:
+
+1. Using the Command Line Interface (CLI) with the DevTools plugin.
+2. Manually.
+
+### Inheriting using the CLI
+
+As discussed in the [Theme Turotial](https://learn.getgrav.org/16/themes/theme-tutorial), you can create a new theme using the DevTools plugin. But you can also inherit from an existing theme. The procedure is simple.
+
+1. [Install the DevTools plugin](https://learn.getgrav.org/16/themes/theme-tutorial#step-1-install-devtools-plugin) if it is not already done.
+2. The follow the [Create Base Theme](https://learn.getgrav.org/16/themes/theme-tutorial#step-2-create-base-theme) procedure, but when asked to `Please choose a template type`, type `inheritance`. If Quark in the only theme, it will be displayed as option 0. So type `0` to inherit from Quark. Your new inherited theme will be created.
+4. Copy all the options from the theme YAML file you are inheriting from (or from the `user/config/themes` folder if you have customized it) at the top of the newly created YAML configuration file of your theme: `/user/themes/mytheme/mytheme.yaml`.
+5. Copy the “form” section from `/user/themes/quark/blueprints.yaml` file into `/user/themes/mytheme/blueprints.yaml` in order to include the customizable elements of the theme in the admin. (Or simply replace the file and edit its content.)
+6. Change your default theme to use your new **mytheme** by editing the `pages: theme:` option in your `user/config/system.yaml` configuration file:
+   [prism classes="language-yaml line-numbers"]
+   pages:
+     theme: mytheme
+   [/prism]
+
+### Inheriting manually
+
 To achieve this you need to follow these steps:
 
 1. Create a new folder: `user/themes/mytheme` to house your new theme.
@@ -106,6 +127,9 @@ To achieve this you need to follow these steps:
 You have now created a new theme called **mytheme** and set up the streams so that it will first look in the **mytheme** theme first, then try **quark**.  So in essence, Quark is the base-theme for this new theme.
 
 You can then provide just the files you need, including **JS**, **CSS**, or even modifications to **Twig template files** if you wish.
+
+### Using SCSS
+
 In order to modify specific **SCSS** files, we need to use a little configuration so it knows to look in your new `mytheme` location first, then `quark` second. This requires a couple of things.
 
 1. First, you need to copy over the main SCSS file from quark that contains all the `@import` calls for various sub files. So, copy the `theme.scss` file from `quark/scss/` to `mytheme/scss/` folder.
