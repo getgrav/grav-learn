@@ -537,7 +537,7 @@ menu: Home
 
 #### Pagination with Advanced Collections
 
-A common question we hear is regarding how to enable pagiation for custom collections.  Pagination is a plugin that can be installed via GPM with the name `pagination`.  Once installed it works "out-of-the-box" with page configured collections, but knows nothing about custom collections created in Twig.  To make this process easier, pagination comes with it's own Twig function called `paginate()` that will provide the pagination functionality we meed.
+A common question we hear is regarding how to enable pagiation for custom collections.  Pagination is a plugin that can be installed via GPM with the name `pagination`.  Once installed it works "out-of-the-box" with page configured collections, but knows nothing about custom collections created in Twig.  To make this process easier, pagination comes with it's own Twig function called `paginate()` that will provide the pagination functionality we need.
 
 After we pass the collection and the limit to the `paginate()` function, we also need to pass the pagination information directly to the `partials/pagination.html.twig` template to render properly.
 
