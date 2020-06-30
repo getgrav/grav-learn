@@ -253,7 +253,7 @@ content:
 
 Each level in the hierarchy adds two whitespaces before the variable. YAML will allow you to use as many spaces as you want here, but two is standard practice. In the above example, both the `category` and `tag` variables are set under `@taxonomy`.
 
-Page collections will automatically by filtered by taxonomy when one has been set in the URL (e.g. /archive/category:news). This enables you to build a single blog archive template but filter the collection dynamically using the URL. If your page collection should ignore the taxonomy set in the URL use the flag `url_taxonomy_filters:false` to disable this feature.
+Page collections will automatically be filtered by taxonomy when one has been set in the URL (e.g. /archive/category:news). This enables you to build a single blog archive template but filter the collection dynamically using the URL. If your page collection should ignore the taxonomy set in the URL use the flag `url_taxonomy_filters:false` to disable this feature.
 
 ### Complex Collections
 
