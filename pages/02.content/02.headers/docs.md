@@ -538,6 +538,6 @@ metadata:
     description: Give your page a powerup with Grav!
 [/prism]
 
-! If a header is defined in both frontmatter.yaml and in page frontmatter, the page values is used, frontmatter.yaml values are overrided.
+! If a header is defined in both frontmatter.yaml and in page frontmatter, the page values is used, frontmatter.yaml values are overridden.
 
 !!!! Utilizing frontmatter.yaml is a file-side feature and is **not supported** by the admin plugin.
