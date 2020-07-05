@@ -72,6 +72,20 @@ and see the results in the Debugbar:
 
 ![](twig-dump.png)
 
+### Dump to browser console from Twig
+
+To display variables before a page is returned by Grav or in case no page refresh occurs such as when using AJAX there is another alternative. By using a single line of Javascript any variable can be displayed in your browser's developer console, for example:
+
+{% verbatim %}
+[prism classes="language-html"]
+<script> console.log({{ page.header | json_encode | raw }}) </script>
+[/prism]
+{% endverbatim %}
+
+Then examine the value in the browser console:
+
+![](console-dump.png)
+
 ## Error Display
 
 Our new error display page provides detailed information, backtraces, and even relevant code blocks.  This helps to more quickly isolate, identify and resolve critical errors. By default in Grav 1.0+, these are turned off by default, so you will need to enable them to take advantage of this helpful error handling for development:
