@@ -693,6 +693,8 @@ pages.order.by:
 | `multiple` | Allow the form to accept multiple values.           |
 [/div]
 
+If you set `multiple` to true, you need to add `validate.type: array`. Otherwise the array of selected values will not be saved correctly.
+
 [div class="table"]
 | Common Attributes Allowed                      |
 | :-----                                         |
