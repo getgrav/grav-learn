@@ -218,15 +218,28 @@ which will result in HTML similar to:
 <a href="/your/pages/some-page?cat=black" class="underline">Pass-through of 'cat' attribute</a>
 ```
 
-##### Pass-through Supported Attributes
+##### Skip All Attributes
 
 ```markdown
-[Pass-through all attributes](../some-page?classes=underline&rel=nofollow&noprocess)
+[Skip all attributes](../some-page?classes=underline&rel=nofollow&noprocess)
 ```
 
 which will result in HTML similar to:
 
 ```html
-<a href="/your/pages/some-page?rel=nofollow&classes=underline">Pass-through all attributes</a>
+<a href="/your/pages/some-page?rel=nofollow&classes=underline">Skip All attributes</a>
 ```
 
+##### Skip Certain Attributes
+
+```markdown
+[Skip Certain attributes](../some-page?id=myvariable&classes=underline&target=_blank&noprocess=id,classes)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="/your/pages/some-page?id=myvariable&classes=underline" target="_blank">Skip Certain attributes</a>
+```
+
+This is useful when trying to skip 1 or more specific attributes without affecting the others.
