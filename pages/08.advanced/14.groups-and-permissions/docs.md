@@ -1,7 +1,7 @@
 ---
 title: Groups and Permissions
 taxonomy:
-    category: docs
+  category: docs
 ---
 
 !! See the [Grav Admin FAQ](https://learn.getgrav.org/admin-panel/faq#adding-and-managing-users), to learn how to manage users
@@ -72,9 +72,9 @@ You can also edit a user’s group information through the Admin Plugin.
 Users assigned to a group inherit the group permissions. You can for example define a group that has permission `site.paid` by adding:
 
 [prism classes="language-yaml line-numbers"]
-  access:
-    site:
-      paid: true
+access:
+  site:
+    paid: true
 [/prism]
 
 to the group definition in `user/config/groups.yaml`.
@@ -88,9 +88,9 @@ When a user belongs to multiple groups, it's enough that a group provides a perm
 You can fine-tune the permissions on a user level too, as usual. With groups, you can define a global permission and deny it on a user level, by adding
 
 [prism classes="language-yaml line-numbers"]
-  access:
-    site:
-      paid: false
+access:
+  site:
+    paid: false
 [/prism]
 
 to a user’s yaml file.
