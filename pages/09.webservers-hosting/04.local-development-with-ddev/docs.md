@@ -2,12 +2,12 @@
 title: 'Local Development with ddev'
 ---
 
-[ddev](https://ddev.readthedocs.io) is an open-source, PHP development tool, built upon Docker.  It can easliy create local hosting environments, and its server configurations can be version controlled.  Originally meant for Drupal development, ddev easily can host Drupal, Wordpress, and GravCMS sites.  Since it is based on Docker, ddev is compatible with Windows, Mac, and Linux.
+[ddev](https://ddev.readthedocs.io) is an open-source, PHP development tool, built upon Docker.  It can easily create local hosting environments, and its server configurations can be version controlled.  Originally meant for Drupal development, ddev easily can host Drupal, WordPress, and GravCMS sites.  Since it is based on Docker, ddev is compatible with Windows, Mac, and Linux.
 
 
 ## Installing ddev
 
-Please see the [official ddev documentation](https://ddev.readthedocs.io/en/latest/) for the most up to date instructions for installing ddev.  
+Please see the [official ddev documentation](https://ddev.readthedocs.io/en/latest/) for the most up to date instructions for installing ddev. 
 
 ## Configuration
 
@@ -28,12 +28,13 @@ Run these commands from the \[GRAV_ROOT] on the host machine:
 * `ddev ssh` - Connects a shell to the webserver at the docroot.
 * `ddev exec params` - Executes params at the docroot (e.g. `ddev exec bin/grav clear` to clear the cache)
 
-_I need to intall \[insert plugin/ theme here].  How do I access `bin/gpm`?_
+> I need to install \[insert plugin/ theme here].  How do I access `bin/gpm`?
 
-  From the \[GRAV_ROOT], type `ddev ssh` and you'll be connected to the web server at the docroot. From here, you can run any php command (composer, bin/gpm, bin/grav, etc).
+From the \[GRAV_ROOT], type `ddev ssh` and you'll be connected to the web server at the docroot. From here, you can run any php command (composer, bin/gpm, bin/grav, etc).
 
-_Where do I edit my files?_
+> Where do I edit my files?
 
-  An editor on the host machine can edit the files at  \[GRAV_ROOT].  Changes will reflect into the ddev container automatically.  Changes performed in the container (i.e. `bin/gpm install admin`) will reflect to the host machine.
+An editor on the host machine can edit the files at  \[GRAV_ROOT].  Changes will reflect into the ddev container automatically.  Changes performed in the container (i.e. `bin/gpm install admin`) will reflect to the host machine.
+
 
 
