@@ -7,7 +7,7 @@ title: 'Local Development with ddev'
 
 ## Installing ddev
 
-Please see the [official ddev documentation](https://ddev.readthedocs.io/en/latest/) for the most up to date instructions for installing ddev. 
+Please see the [official ddev documentation](https://ddev.readthedocs.io/en/latest/) for the most up to date instructions for installing ddev.  
 
 ## Configuration
 
