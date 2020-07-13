@@ -110,7 +110,7 @@ This is the body of **my new page** and I can easily use _Markdown_ syntax here.
 3. Save this file in the `user/pages/03.mypage/` folder as `default.md`. This will tell **Grav** to render the page using the **default** template in the current theme: `user/themes/quark/templates/default.html.twig`.
 4. That's it! Reload your browser to see your new page in the menu at the top.
 
-The page will automatically show up in the menu after the **"Typography"** menu item. If you wish to change the name that shows up in the menu, add: `menu: My Page` between the dashes in the page content.
+The page will automatically show up in the menu after the **"Typography"** menu item. If you wish to change the name that shows up in the menu, add: `menu: My Page` between the dashes in the page frontmatter.
 
 **Congratulations**, you have now successfully created a new page in Grav.  There is much more you can do with Grav, so please continue reading to find out about more advanced capabilities and in-depth features.
 
