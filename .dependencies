@@ -19,6 +19,10 @@ git:
         url: https://github.com/getgrav/grav-plugin-highlight
         path: user/plugins/highlight
         branch: develop
+    langswitcher:
+        url: https://github.com/getgrav/grav-plugin-langswitcher
+        path: user/plugins/langswitcher
+        branch: develop
     markdown-notices:
         url: https://github.com/getgrav/grav-plugin-markdown-notices
         path: user/plugins/markdown-notices
@@ -26,6 +30,10 @@ git:
     page-inject:
         url: https://github.com/getgrav/grav-plugin-page-inject
         path: user/plugins/page-inject
+        branch: develop
+    page-toc:
+        url: https://github.com/trilbymedia/grav-plugin-page-toc
+        path: user/plugins/page-toc
         branch: develop
     tntsearch:
         url: https://github.com/trilbymedia/grav-plugin-tntsearch
@@ -72,6 +80,10 @@ links:
         src: grav-plugin-highlight
         path: user/plugins/highlight
         scm: github
+    langswitcher:
+        src: grav-plugin-langswitcher
+        path: user/plugins/langswitcher
+        scm: github
     markdown-notices:
         src: grav-plugin-markdown-notices
         path: user/plugins/markdown-notices
@@ -79,6 +91,10 @@ links:
     page-inject:
         src: grav-plugin-page-inject
         path: user/plugins/page-inject
+        scm: github
+    page-toc:
+        src: grav-plugin-page-toc
+        path: user/plugins/page-toc
         scm: github
     tntsearch:
         src: grav-plugin-tntsearch
