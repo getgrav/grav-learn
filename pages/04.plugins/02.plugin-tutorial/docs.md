@@ -69,7 +69,11 @@ Enter Developer Email: contact@acme.co
 SUCCESS plugin Randomizer -> Created Successfully
 
 Path: /www/user/plugins/randomizer
+
+Make sure to run `composer update` to initialize the autoloader
 [/prism]
+
+You need to run composer update in the newly created plugin folder.
 
 The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not automatically have the logic to perform the function we wish.  We will have to modify it to suit our needs.
 
