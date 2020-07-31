@@ -835,6 +835,7 @@ home.alias:
     size: medium
     classes: fancy
     label: PLUGIN_ADMIN.HOME_PAGE
+    start_route: '/some_page'
     show_all: false
     show_modular: false
     show_root: false
@@ -844,6 +845,7 @@ home.alias:
 [div class="table table-keycol"]
 | Attribute      | Description                            |
 | :-----         | :-----                                 |
+| `start_route`  | Choose a root route for the list       |
 | `show_all`     | Shows all pages                        |
 | `show_modular` | Shows all pages                        |
 | `show_root`    | Shows all pages                        |
