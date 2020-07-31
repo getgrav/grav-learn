@@ -844,6 +844,7 @@ home.alias:
 [div class="table table-keycol"]
 | Attribute      | Description                            |
 | :-----         | :-----                                 |
+| `start_page`   | Choose a root page for the list        |
 | `show_all`     | Shows all pages                        |
 | `show_modular` | Shows all pages                        |
 | `show_root`    | Shows all pages                        |
