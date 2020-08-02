@@ -2,7 +2,7 @@
 title: Twig Filters & Functions
 page-toc:
   active: true
-  depth: 3  
+  depth: 3
 process:
     twig: true
 taxonomy:
@@ -16,7 +16,7 @@ Although Twig already provides an extensive list of [filters, functions, and tag
 
 ## Grav Twig Filters
 
-Twig filters are applied to Twig variables by using the `|` character followed by the filter name.  Parameters can be passed in just like Twig functions using parenthesis.  
+Twig filters are applied to Twig variables by using the `|` character followed by the filter name.  Parameters can be passed in just like Twig functions using parenthesis.
 
 #### Absolute URL
 
@@ -78,7 +78,7 @@ Determine if a particular string contains another string
 
 #### Casting Values
 
-PHP 7 is getting more strict type checks, which means that passing a value of wrong type may now throw an exception. To avoid this, you should use filters which ensure that the value passed to a method is valid:  
+PHP 7 is getting more strict type checks, which means that passing a value of wrong type may now throw an exception. To avoid this, you should use filters which ensure that the value passed to a method is valid:
 
 **|string**
 
@@ -180,20 +180,28 @@ Removes trailing spaces at the beginning of a string. It can also remove other c
 
 Take an arbitrary string containing markdown and convert it to HTML using the markdown parser of Grav. Optional `boolean` parameter:
 
--   `true` (default): process as block (text mode, content will be wrapped in `<p>` tags)
--   `false`: process as line (content will not be wrapped)
+* `true` (default): process as block (text mode, content will be wrapped in `<p>` tags)
+* `false`: process as line (content will not be wrapped)
 
-`string|markdown($is_block)` {% verbatim %}
+```
+string|markdown($is_block)
+```
+
+{% verbatim %}
 [prism classes="language-twig line-numbers"]
-{% 'A paragraph with **markdown** and [a link](http://www.cnn.com)'|markdown %}
-{% 'A line with **markdown** and [a link](http://www.cnn.com)'|markdown(false) %}
+<div class="div">
+{{ 'A paragraph with **markdown** and [a link](http://www.cnn.com)'|markdown }}
+</div>
+
+<p class="paragraph">{{'A line with **markdown** and [a link](http://www.cnn.com)'|markdown(false) }}</p>
 [/prism]
 {% endverbatim %}
 
-<strong>
-{% 'A paragraph with **markdown** and [a link](http://www.cnn.com)'|markdown %}
-{% 'A line with **markdown** and [a link](http://www.cnn.com)'|markdown(false) %}
-</strong>
+<div class="div">
+{{ 'A paragraph with **markdown** and [a link](http://www.cnn.com)'|markdown }}
+</div>
+
+<p class="paragraph">{{'A line with **markdown** and [a link](http://www.cnn.com)'|markdown(false) }}</p>
 
 #### MD5
 
@@ -439,7 +447,7 @@ Converts a string into "under_scored" format
 
 Dump/Encode a variable into YAML syntax
 
-`{foo: [0,1,2,3], baz: 'qux' }|yaml_encode` 
+`{foo: [0,1,2,3], baz: 'qux' }|yaml_encode`
 
 [prism classes="language-twig"]
 {{ {foo: [0,1,2,3], baz: 'qux' }|yaml_encode }}
@@ -452,7 +460,7 @@ Decode/Parse a variable from YAML syntax
 {% verbatim %}
 `{% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}`
 
-`yaml|yaml_decode` 
+`yaml|yaml_decode`
 {% endverbatim %}
 
 {% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}
@@ -731,7 +739,7 @@ Redirects to a URL of your choosing
 
 Performs a `preg_grep` on an array with a regex pattern
 
-`regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/")` 
+`regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/")`
 
 [prism classes="language-twig"]
 {{ var_dump(regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/")) }}
@@ -741,7 +749,7 @@ Performs a `preg_grep` on an array with a regex pattern
 
 A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
 
-`regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])` 
+`regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])`
 
 [prism classes="language-twig"]
 {{ regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) }}
