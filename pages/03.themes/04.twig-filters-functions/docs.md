@@ -178,9 +178,22 @@ Removes trailing spaces at the beginning of a string. It can also remove other c
 
 #### Markdown
 
-Take an arbitrary string containing markdown and convert it to HTML using the markdown parser of Grav
+Take an arbitrary string containing markdown and convert it to HTML using the markdown parser of Grav. Optional `boolean` parameter:
 
-`'something with **markdown** and [a link](http://www.cnn.com)'|markdown` <i class="fa fa-long-arrow-right"></i> something with **markdown** and [a link](http://www.cnn.com)
+-   `true` (default): process as block (text mode, content will be wrapped in `<p>` tags)
+-   `false`: process as line (content will not be wrapped)
+
+`string|markdown($is_block)` {% verbatim %}
+[prism classes="language-twig line-numbers"]
+{% 'A paragraph with **markdown** and [a link](http://www.cnn.com)'|markdown %}
+{% 'A line with **markdown** and [a link](http://www.cnn.com)'|markdown(false) %}
+[/prism]
+{% endverbatim %}
+
+<strong>
+{% 'A paragraph with **markdown** and [a link](http://www.cnn.com)'|markdown %}
+{% 'A line with **markdown** and [a link](http://www.cnn.com)'|markdown(false) %}
+</strong>
 
 #### MD5
 
