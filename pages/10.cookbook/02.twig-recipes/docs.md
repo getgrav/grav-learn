@@ -38,6 +38,27 @@ process:
 [/prism]
 
 
+## Add non modular navigation links
+
+##### Problem:
+
+You want to display navigation links from non modular pages. 
+
+##### Solution
+
+[prism classes="language-twig line-numbers"]
+<div class="desktop-nav__navigation">
+    {% for page in pages.children %}
+        {% if page.visible %}
+            {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+            <a class="desktop-nav__nav-link {{ current_page }}" href="{{ page.url }}">
+                {{ page.menu }}
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
+[/prism]
+
 ## List the blog posts for the year
 
 ##### Problem:
