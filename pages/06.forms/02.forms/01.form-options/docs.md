@@ -93,7 +93,7 @@ form:
 
 ### Keep Alive
 
-You can ensure your forms do fail to submit when your session expires, by enabling the `keep_alive` option on the form.  By enabling this, an AJAX request will be made to Grav before your session expires to keep it 'fresh':
+You can ensure your forms do not fail to submit when your session expires, by enabling the `keep_alive` option on the form.  By enabling this, an AJAX request will be made to Grav before your session expires to keep it 'fresh':
 
 [prism classes="language-yaml line-numbers"]
 form:    
