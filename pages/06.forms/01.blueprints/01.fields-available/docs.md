@@ -401,7 +401,7 @@ header.date:
 [div class="table table-keycol"]
 | Attribute      | Description           |
 | :-----         | :-----                |
-| `format`       | A datetime format value, you may use any of the [PHP date formats](https://php.net/manual/en/datetime.formats.date.php) avaliable. |
+| `format`       | A datetime format value, you may use any of the [PHP datetime formats](https://www.php.net/manual/en/datetime.format.php) avaliable. |
 | `validate.min` | A minimum valid value |
 | `validate.max` | A maximum valid value |
 [/div]
