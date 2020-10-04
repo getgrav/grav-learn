@@ -152,7 +152,7 @@ Another option if you primarily work with just creating content, is to use a ded
 2. [LightPaper](http://lightpaper.42squares.in/) - MacOS - $9.99, clean, powerful. Our markdown editor of choice on the Mac. **Get 25% OFF with Discount Code: GET_GRAV_25**
 3. [MarkDrop](http://culturezoo.com/markdrop/) - MacOS - $5, but super clean and Droplr support built-in.
 4. [MarkdownPad](http://markdownpad.com/) - Windows - Free and Pro versions. Even has YAML front-matter support. An excellent solution for Windows users.
-5. [Mark Text](https://marktext.github.io/website/) - Free, open source Markdown editor for Windows / Linux / MacOS.
+5. [Mark Text](https://marktext.app/) - Free, open source Markdown editor for Windows / Linux / MacOS.
 
 ### FTP Clients
 
