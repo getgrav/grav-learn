@@ -28,7 +28,9 @@ Also, if the theme supports it, it will add your language code to the HTML tag.
 
 ## Multi-Language Basics
 
-As you should already be familiar with how Grav uses markdown files in folders to define architectural structure as well as setting important page options as well as content, we won't go into those mechanics directly.  However, be aware that by default Grav looks for a **single** `.md` file in a folder to represent the page.  With multi-language support enabled, Grav will look for the appropriate language based file, for example `default.en.md` or `default.fr.md`.
+As you should already be familiar with how Grav uses markdown files in folders to define architectural structure as well as setting important page options as well as content, we won't go into those mechanics directly.  However, be aware that by default Grav looks for a **single** `.md` file in a folder to represent the page.  
+If you are uncertain of being sufficiently familiar with this principle, please refer to section [Basic Tutorial](../../basics/basic-tutorial) before proceeding.
+With multi-language support enabled, Grav will look for the appropriate language based file, for example `default.en.md` or `default.fr.md`.
 
 ### Language Configuration
 
@@ -236,7 +238,7 @@ SIMPLE_TEXT: There are %d monkeys in the %s
 And then you can populate those variables with the Twig:
 
 [prism classes="language-twig line-numbers"]
-{{ "SIMPLE_TEXT"|t(12, "London Zoo") }} 
+{{ "SIMPLE_TEXT"|t(12, "London Zoo") }}
 [/prism]
 
 resulting in the translation:
@@ -459,5 +461,4 @@ The `getActive` call in the Twig is effectively calling `Language->getActive()` 
 * `getActive()` - Returns current active language
 * `getDefault()` - Returns the default (first) language
 
-For a complete list of available methods, you can look in the `\Grav\Common\Language\Language.php` file.
-
+For a complete list of available methods, you can look in the `<grav root>/system/src/Grav/Common/Language/Language.php` file.
