@@ -4,3 +4,5 @@ metadata:
     keywords: "grav api, api, classes"
 shortcode-core:
   active: false
+algolia-search:
+  process: false
