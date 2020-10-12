@@ -48,6 +48,52 @@ As you can see this is a very basic form that simply asks for your name and prov
 
 In this same page, we need to put a little HTML and JavaScript:
 
+[ui-tabs]
+
+[ui-tab title="Vanilla JS"]
+[prism classes="language-twig line-numbers"]
+<div id="form-result"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('#ajax-test-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const result = document.querySelector('#form-result');
+        const action = form.getAttribute('action');
+        const method = form.getAttribute('method');
+        
+        fetch(action, {
+            method: method,
+            body: new FormData(form)
+        })
+        .then(function(response) {
+            if (response.ok) {
+                return response.text();
+            } else {
+                return response.json();
+            }
+        })
+        .then(function(output) {
+            if (result) {
+                result.innerHTML = output;
+            }
+        })
+        .catch(function(error) {
+            if (result) {
+                result.innerHTML = 'Error: ' + error;
+            }
+                
+            throw new Error(error);
+        });
+    });
+});
+</script>
+[/prism]
+[/ui-tab]
+
+[ui-tab title="jQuery"]
 [prism classes="language-twig line-numbers"]
 <div id="form-result"></div>
 
@@ -74,6 +120,9 @@ $(document).ready(function(){
 });
 </script>
 [/prism]
+[/ui-tab]
+
+[/ui-tabs]
 
 First we define a div placeholder with the ID `#form-result` to use as a location to inject the form results.
 
