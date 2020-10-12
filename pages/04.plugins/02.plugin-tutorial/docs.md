@@ -69,7 +69,11 @@ Enter Developer Email: contact@acme.co
 SUCCESS plugin Randomizer -> Created Successfully
 
 Path: /www/user/plugins/randomizer
+
+Make sure to run `composer update` to initialize the autoloader
 [/prism]
+
+You need to run composer update in the newly created plugin folder.
 
 The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not automatically have the logic to perform the function we wish.  We will have to modify it to suit our needs.
 
@@ -360,4 +364,4 @@ public function onPageContentProcessed(Event $event)
 
 ## Implementing CLI in your Plugin
 
-Plugins have also the capability of integrating with the `bin/plugin` command line to execute tasks. You can follow the [advanced tutorial](/advanced/grav-cli-plugin) if you desire to implement such functionality.
+Plugins have also the capability of integrating with the `bin/plugin` command line to execute tasks. You can follow the [plugin CLI documentation](/cli-console/grav-cli-plugin#developers-integrate-the-cli-in-plugin) if you desire to implement such functionality.

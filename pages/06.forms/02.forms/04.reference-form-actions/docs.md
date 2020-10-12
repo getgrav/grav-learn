@@ -189,6 +189,16 @@ process:
         label: User IP Address
 [/prism]
 
+### Timestamp
+
+Add a form submission timestamp to the output. Put it above email / save processes in the 'form.md' to ensure it is used by the output process(es).
+
+[prism classes="language-yaml line-numbers"]
+process:
+    - timestamp:
+        label: Submission Timestamp
+[/prism]
+
 ### Reset the form after submit
 
 By default, the form is not cleared after the submit. So if you don't have a `display` action and the user is sent back to the form page, it's still filled with the data entered. If you want to avoid this, add a `reset` action:

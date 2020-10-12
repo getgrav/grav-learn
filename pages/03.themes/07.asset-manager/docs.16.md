@@ -24,7 +24,7 @@ assets:                                # Configuration for Assets Manager (JS, C
   css_pipeline_include_externals: true # Include external URLs in the pipeline by default
   css_pipeline_before_excludes: true   # Render the pipeline before any excluded files
   css_minify: true                     # Minify the CSS during pipelining
-  css_minify_windows: false            # Minify Override for Windows platforms. False by default due to ThreadStackSize
+  css_minify_windows: false            # Minify Override for Windows platforms, also applies to js. False by default due to ThreadStackSize
   css_rewrite: true                    # Rewrite any CSS relative URLs during pipelining
   js_pipeline: false                   # The JS pipeline is the unification of multiple JS resources into one file
   js_pipeline_include_externals: true  # Include external URLs in the pipeline by default

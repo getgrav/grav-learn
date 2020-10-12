@@ -401,7 +401,7 @@ header.date:
 [div class="table table-keycol"]
 | Attribute      | Description           |
 | :-----         | :-----                |
-| `format`       | A datetime format value, you may use any of the [PHP date formats](https://php.net/manual/en/datetime.formats.date.php) avaliable. |
+| `format`       | A datetime format value, you may use any of the [PHP datetime formats](https://www.php.net/manual/en/datetime.format.php) avaliable. |
 | `validate.min` | A minimum valid value |
 | `validate.max` | A maximum valid value |
 [/div]
@@ -549,11 +549,11 @@ You can use an icon to place in the header of the fieldset. The icon system used
 
 ![File Field](file_field_bp.gif)
 
-The `file` field type can be used in pages, plugin and theme configurations (blueprints). Handles uploading a file to a location as well as removing it from the page headers or theme / plugin configuration.
-
 !! The `file` field is intended to be used by **configuration**, **theme**, and **plugins** blueprints, **NOT page blueprints**.  For pages, you should use the existing `pagemedia` field and then utilize the [filepicker](#filepicker-field) field to select the files. 
 
-! More details can be found in the dedicated [How To: Add a File Upload](../how-to-add-file-upload) section. Also note that displaying an image uploaded in a file field is not done the same way than with a filepicker field. More details about how to access images uploaded in a file field can be found on this [cookbook entry](https://learn.getgrav.org/cookbook/twig-recipes#displaying-an-image-uploaded-in-a-file-field).
+!! The `file` field does not currently work as expected in a list field. Use a single `pagemedia` field separate from the list with one or more `filepicker` fields in the list.
+
+! More details can be found in the dedicated [How To: Add a File Upload](../how-to-add-file-upload) section. Also note that displaying an image uploaded in a file field is not done the same way as with a filepicker field. More details about how to access images uploaded in a file field can be found on this [cookbook entry](https://learn.getgrav.org/cookbook/twig-recipes#displaying-an-image-uploaded-in-a-file-field).
 
 Example:
 

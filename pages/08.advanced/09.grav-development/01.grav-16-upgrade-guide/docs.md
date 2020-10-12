@@ -50,7 +50,7 @@ The Debug Bar can be used to spot any deprecated YAML. Just open the Debug Bar a
 
 ##### Look for these YAML errors:
 
-- Do not use `@`, `\``, `|`, `%` and `>` at the beginning of an unquoted string: do not use `@data-options: []`, use `data-options@: []` instead.
+- Do not use `@`, `\`, `|`, `%` and `>` at the beginning of an unquoted string: do not use `@data-options: []`, use `data-options@: []` instead.
 - Always add whitespace after a colon `:` for the keys: do not use `key:value`, use `key: value` instead.
 - Always quote `null`, `true`, `false`, `2.0` (floats) in keys; keys can only be either integers or strings.
 - Also quote `null`, `true`, `false`, `2` and `2.0` in values if they are meant to be strings.

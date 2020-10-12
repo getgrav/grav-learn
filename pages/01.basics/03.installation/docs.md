@@ -71,6 +71,14 @@ Another method is to clone Grav from the GitHub repository, and then run a simpl
    [/prism]
 
    This will automatically **clone** the required dependencies from GitHub directly into this Grav installation.
+   
+## Option 4: Install on Cloudron
+
+Cloudron is a complete solution for running apps on your server and keeping them up-to-date and secure. On your Cloudron you can install Grav with a few clicks. If you host multiple sites, you can install them completely isolated from one another on the same server.
+
+[![Install](https://cloudron.io/img/button.svg)](https://cloudron.io/store/org.getgrav.cloudronapp.html)
+
+The source code for the package can be found [here](https://git.cloudron.io/cloudron/grav-app).
 
 ## Webservers
 

@@ -209,7 +209,7 @@ The Twig templating engine is now initialized at this point.
 <a name="onTwigExtensions"></a>
 #### onTwigExtensions
 
-The core Twig extensions have been loaded, but if you need to add your own Twig extension, you can do so with this event hook.
+The core Twig extensions have been loaded, but if you need to add [your own Twig extension](https://twig.symfony.com/doc/3.x/advanced.html#id2), you can do so with this event hook.
 
 <a name="onTwigPageVariables"></a>
 #### onTwigPageVariables

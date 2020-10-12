@@ -118,36 +118,37 @@ Now, let's turn our attention to `taxonomylist.html.twig`. For reference, here i
 {% set taxlist = taxonomylist.get() %}
 
 {% if taxlist %}
-
-<span class="tags">
-    {% for tax,value in taxlist[taxonomy] %}
-
-        <a href="{{ base_url }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax|e('url') }}">{{ tax }}</a>
-
-    {% endfor %}
-</span>
+    <span class="tags">
+        {% for tax,value in taxlist[taxonomy] %}
+            <a href="{{ base_url }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax|e('url') }}">{{ tax }}</a>
+        {% endfor %}
+    </span>
 {% endif %}
 [/prism]
 In order to make this work with our new variables (i.e. `filter`, `filterstart` and `filterend`), we will need to include them within this file like so:
 
 [prism classes="language-twig line-numbers"]
 {% set taxlist = taxonomylist.get %}
-    {% if taxlist %}
-        <span class="tags">
-            {% if filter %}
-                {% for tax,value in taxlist[taxonomy]|slice(filterstart,filterend) %}
-                    <a href="{{ base_url }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax|e('url') }}">{{ tax }}</a>
-                {% endfor %}
-            {% else %}
-                {% for tax,value in taxlist[taxonomy] %}
-                    <a href="{{ base_url }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax|e('url') }}">{{ tax }}</a>
-                {% endfor %}
-            {% endif %}
-        </span>
-[/prism]
-Here, the file is first checking if `filter` has been set to `true`. If so, the for loop is run just as it was in the original `taxonomylist.html.twig`, but this time it is making use of the `slice` Twig filter. This filter will, in our case, extract a subset of an array from the beginning index (in our case, `filterstart`) to the ending index (in our case `filterend-1`).
 
-If, on the other hand, the `filter` variable is set to `false` or is not found, all of the items in your taxonomy will be listed.
+{% if taxlist %}
+    {% set taxlist_taxonomy = taxlist[taxonomy] %}
+
+    {% if filter %}
+        {% set taxlist_taxonomy = taxlist_taxonomy|slice(filterstart,filterend) %}
+    {% endif %}
+
+    <span class="tags">
+        {% for tax,value in taxlist_taxonomy %}
+            <a href="{{ base_url }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax|e('url') }}">{{ tax }}</a>
+        {% endfor %}
+    </span>
+{% endif %}
+[/prism]
+Here, the file is gathering all the items in the taxonomy by default, in a variable called `taxlist_taxonomy`.
+
+If `filter` has been set, the taxonomy is making use of the `slice` Twig filter. This filter will, in our case, extract a subset of an array from the beginning index (in our case, `filterstart`) to the ending index (in our case, `filterend`).
+
+The `for` loop is ran just as it was in the original `taxonomylist.html.twig` with the content of `taxlist_taxonomy`, filtered or not.
 
 ## Adding a search button to the SimpleSearch plugin
 

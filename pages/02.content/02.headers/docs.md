@@ -110,7 +110,7 @@ Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/do
 dateformat: 'Y-m-d H:i:s'
 ```
 
-Overrides the default Grav configuration for date formats and lets it be set at the page level. You can use any of the [PHP date formats](https://php.net/manual/en/datetime.formats.date.php) available.
+Overrides the default Grav configuration for date formats and lets it be set at the page level. You can use any of the [PHP date formats](https://www.php.net/manual/en/function.date.php) available.
 
 ### Debugger
 
