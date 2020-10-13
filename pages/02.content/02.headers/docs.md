@@ -6,7 +6,7 @@ taxonomy:
     category: docs
 ---
 
-The headers (alternatively known as frontmatter) at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers.
+The page headers (alternatively known as frontmatter) at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers.
 
 ! Headers are also known as **Page Frontmatter** and are commonly referred to as such so as not to be confused with HTTP Headers.
 
@@ -27,12 +27,12 @@ An example of this is when you are using dynamic Twig variables in your content.
 ### Date
 
 ```yaml
-date: 01/01/2014 3:14pm
+date: 01/01/2020 3:14pm
 ```
 
 The `date` variable allows you to specifically set a date associated with this page.  This is often used to indicate when a post was created and can be used for display or sort-order purposes.  If not set, this defaults to the last **modified time** of the page.
 
-! Dates in the `m/d/y` or `d-m-y` formats are disambiguated by looking at the separator between the various components: if the separator is a slash (`/`), then the **American** `m/d/y` is assumed; whereas if the separator is a dash (`-`) or a dot (`.`), then the **European** `d-m-y` format is assumed.
+! Dates in the `m/d/y` or `d-m-y` formats are disambiguated by looking at the separator between the various components: if the separator is a slash (`/`), then the **American** `m/d/y` is assumed; whereas if the separator is a dash (`-`) or a dot (`.`), then the **European** `d.m.y` format is assumed.
 
 ### Menu
 
@@ -96,13 +96,15 @@ append_url_extension: '.json'
 
 Allows the page to override the default extension and set one programmatically.  It will also set the appropriate header attributes for the response.
 
-### Cache-control
+### Cache-Control
 
 ```yaml
 cache_control: max-age=604800
 ```
 
 Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value.
+
+! Make sure you're using `no-cache` if the page contains information that can change based on the user. Otherwise the content can leak to other users. [Expires](/content/headers#expires) setting if set to `expires: 0` has the same effect.
 
 ### Date Format
 
@@ -134,7 +136,9 @@ Enable or disable on a page level whether or not to display an ETag header varia
 expires: 604800
 ```
 
-Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible).
+Page expires time in seconds (604800 seconds = 7 days).
+
+! Make sure you're using `expires: 0` if the page contains information that can change based on the user. Otherwise the content can leak to other users. See also [Cache-Control](/content/headers#Cache-Control) setting.
 
 ### External Url
 
@@ -257,7 +261,7 @@ If set to `true` Twig processing will occur before any Markdown processing. This
 ### Publish Date
 
 ```yaml
-publish_date: 01/23/2015 13:00
+publish_date: 01/23/2020 13:00
 ```
 
 Optional field, but can provide a date to automatically trigger publication. Valid values are any string date values that [strtotime()](https://php.net/manual/en/function.strtotime.php) supports.
@@ -382,7 +386,7 @@ We [used this method](https://github.com/getgrav/grav-plugin-sitemap/commit/00c2
 ### Unpublish Date
 
 ```yaml
-unpublish_date: 05/17/2015 00:32
+unpublish_date: 05/17/2020 00:32
 ```
 
 Optional field, but can provide a date to automatically trigger un-publication. Valid values are any string date values that [strtotime()](https://php.net/manual/en/function.strtotime.php) supports.
@@ -521,10 +525,6 @@ This will produce the HTML:
 For a full outline of all Twitter metatags that can be used, please consult the [official documentation](https://dev.twitter.com/cards/overview).
 
 This really provides a lot of flexibility and power.
-
-## Collection Headers
-
-Collections have grown up! All [Collection Header information](../collections) is now broken out into [their own separate section](../collections).
 
 ## Frontmatter.yaml
 
