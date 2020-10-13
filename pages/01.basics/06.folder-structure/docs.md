@@ -62,7 +62,7 @@ The `system` folder is where the files that make Grav actually function live.  Y
 
 The `vendor` folder contains important libraries that Grav relies on.  This folder is similar to the `system` folder in that its contents should not be edited unless you are absolutely certain of what you're doing.
 
-**(v0.9.2+)**  If you [installed](../installation) Grav from GitHub, the `vendor` folder won't have been installed with it. In order to create and populate the vendor folder, you will have to run `bin/grav install` or `composer install` from the root of your Grav instance. More details can be found in the [installation](../installation) section.
+If you [installed](../installation) Grav from GitHub, the `vendor` folder won't have been installed with it. In order to create and populate the vendor folder, you will have to run `bin/grav install` or `composer install` from the root of your Grav instance. More details can be found in the [installation](../installation) section.
 
 ### /user
 
@@ -100,12 +100,12 @@ The `data` folder can be used by plugins to store data that you can reference la
 
 ### /user/images
 
-The `images` folder can be used for storing your images. It can be accessed by using `image://` stream. 
+The `images` folder can be used for storing your images. It can be accessed by using `image://` stream.
 
 
 ### /user/languages
 
-The `languages` folder contains [Translation Overrides](../../content/multi-language#translation-overrides). 
+The `languages` folder contains [Translation Overrides](../../content/multi-language#translation-overrides).
 
 ### /user/pages
 

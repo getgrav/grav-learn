@@ -4,6 +4,7 @@ page-toc:
   active: true
 taxonomy:
     category: docs
+twig_first: true
 ---
 
 All Grav configuration files are written in [YAML syntax](../../advanced/yaml) with a `.yaml` file extension.  YAML is very intuitive which makes it very easy to both read and write, however, you can check out the [YAML page in the Advanced chapter](../../advanced/yaml) to get a complete understanding of the syntax available.
@@ -33,6 +34,11 @@ custom_base_url: ''
 username_regex: '^[a-z0-9_-]{3,16}$'
 pwd_regex: '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
 intl_enabled: true
+http_x_forwarded:
+  protocol: true
+  host: false
+  port: true
+  ip: true
 [/prism]
 
 These configuration options do not appear within their own child sections. They're general options that affect the way the site operates, its timezone, and base URL.
@@ -43,7 +49,7 @@ These configuration options do not appear within their own child sections. They'
 | **absolute_urls:** | Absolute or relative URLs for `base_url` |
 | **timezone:** | Valid values can be found [here](https://php.net/manual/en/timezones.php) |
 | **default_locale:** | Default locale (defaults to system) |
-| **param_sep:** | This is used for Grav parameters in the URL.  Don't change this unless you know what you are doing.  Grav > `1.1.16` automatically sets this to `;` for users running Apache web server on Windows |
+| **param_sep:** | This is used for Grav parameters in the URL.  Don't change this unless you know what you are doing.  Grav automatically sets this to `;` for users running Apache web server on Windows |
 | **wrapped_site:** | For themes/plugins to know if Grav is wrapped by another platform. Can be `true` or `false` |
 | **reverse_proxy_setup:** | Running in a reverse proxy scenario with different webserver ports than proxy. Can be `true` or `false` |
 | **force_ssl:** | If enabled, Grav forces to be accessed via HTTPS (NOTE: Not an ideal solution). Can be `true` or `false` |
@@ -52,6 +58,7 @@ These configuration options do not appear within their own child sections. They'
 | **username_regex:** | Only lowercase chars, digits, dashes, underscores. 3 - 16 chars |
 | **pwd_regex:** | At least one number, one uppercase and lowercase letter, and be at least 8+ chars |
 | **intl_enabled:** | Special logic for PHP International Extension (mod_intl) |
+| **http_x_forwarded:** | Configuration options for the various HTTP_X_FORWARD headers (**Grav 1.7.0+**) |
 [/div]
 
 ### Languages
@@ -60,12 +67,15 @@ These configuration options do not appear within their own child sections. They'
 languages:
   supported: []
   include_default_lang: true
+  include_default_lang_file_extension: true
   pages_fallback_only: false
   translations: true
   translations_fallback: true
   session_store_active: false
   http_accept_language: false
   override_locale: false
+  content_fallback:
+    - ['en', '']
 [/prism]
 
 The **Languages** area of the file establishes the site's language settings. This includes which language(s) are supported, designation of the default language in the URLs, and translations. Here is the breakdown for the **Languages** area of the system configuration file:
@@ -75,12 +85,14 @@ The **Languages** area of the file establishes the site's language settings. Thi
 | -------- | ----------- |
 | **supported:** | List of languages supported. eg: `[en, fr, de]` |
 | **include_default_lang:** | Include the default lang prefix in all URLs. Can be `true` or `false` |
+| **include_default_lang_file_extension:** | If enabled, saving a page will prepend the default language to the file extension (eg. `.en.md`). Disable it to keep the default language using `.md` file extension. Can be `true` or `false` (**Grav 1.7.0+**) |
 | **pages_fallback_only:** | Only fallback to find page content through supported languages. Can be `true` or `false` |
 | **translations:** | Enable translations by default. Can be `true` or `false` |
 | **translations_fallback:** | Fallback through supported translations if active lang doesn't exist. Can be `true` or `false` |
 | **session_store_active:** | Store active language in session. Can be `true` or `false` |
 | **http_accept_language:** | Attempt to set the language based on http_accept_language header in the browser. Can be `true` or `false` |
 | **override_locale:** | Override the default or system locale with language specific one. Can be `true` or `false` |
+| **content_fallback:** | By default if the content isn't translated, Grav will display the content in the default language. Use this setting to override that behavior per language basis. (**Grav 1.7.0+**) |
 [/div]
 
 ### Home
@@ -104,6 +116,7 @@ The **Home** section is where you set the default path for the site's homepage. 
 
 [prism classes="language-yaml line-numbers"]
 pages:
+  type: regular
   theme: quark
   order:
     by: default
@@ -131,7 +144,13 @@ pages:
     special_chars:
       '>': 'gt'
       '<': 'lt'
-  types: [txt,xml,html,htm,json,rss,atom]
+    valid_link_attributes:
+      - rel
+      - target
+      - id
+      - class
+      - classes
+  types: [html,htm,xml,txt,json,rss,atom]
   append_url_extension: ''
   expires: 604800
   cache_control:
@@ -156,6 +175,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
+| **type:** | Experimental setting to enable **Flex Pages** in frontend. Use `flex` to enable, `regular` otherwise. This defaults to `regular` (**Grav 1.7+**) |
 | **theme:** | This is where you set the default theme. This defaults to `quark` |
 | **order:** | |
 | ... **by:** | Order pages by `default`, `alpha` or `date` |
@@ -181,6 +201,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 | ... **auto_url_links:** | Enable automatic HTML links. Can be set `true` or `false` |
 | ... **escape_markup:** | Escape markup tags into entities. Can be set `true` or `false` |
 | ... **special_chars:** | List of special characters to automatically convert to entities. Each character consumes a line below this variable. Example: `'>': 'gt'` |
+| ... **valid_link_attributes:** | Valid attributes to pass through via markdown links (**Grav 1.7+**) |
 | **types:** | List of valid page types. For example: `[txt,xml,html,htm,json,rss,atom]` |
 | **append_url_extension:** | Append page's extension in Page URLs (e.g. `.html` results in **/path/page.html**) |
 | **expires:** | Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible) |
@@ -203,25 +224,6 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 
 ### Cache
 
-[version=15]
-[prism classes="language-yaml line-numbers"]
-cache:
-  enabled: true
-  check:
-    method: file
-  driver: auto
-  prefix: 'g'
-  clear_images_by_default: true
-  cli_compatibility: false
-  lifetime: 604800
-  gzip: false
-  allow_webserver_gzip: false
-  redis:
-    socket: false
-[/prism]
-[/version]
-
-[version=16]
 [prism classes="language-yaml line-numbers"]
 cache:
   enabled: true
@@ -240,30 +242,9 @@ cache:
   redis:
     socket: false
 [/prism]
-[/version]
 
 The **Cache** section is where you can configure the site's caching settings. You can enable, disable, choose the method, and more.
 
-[version=15]
-[div class="table-keycol"]
-| Property | Description |
-| -------- | ----------- |
-| **enabled:** | Set to `true` to enable caching. Can be set to `true` or `false` |
-| **check:** | |
-| ... **method:** | Method to check for updates in pages. Options: `file`, `folder`, `hash` and `none`. [more details](../../advanced/performance-and-caching#grav-core-caching) |
-| **driver:** | Select a cache driver. Options are: `auto`, `file`, `apcu`, `redis`, `memcache`, and `wincache` |
-| **prefix:** | Cache prefix string (prevents cache conflicts). Example: `g` |
-| **clear_images_by_default:** | By default grav will include processed images when cache clears, this can be disabled by setting this to `false` |
-| **cli_compatibility:** | Ensures only non-volatile drivers are used (file, redis, memcache, etc.) |
-| **lifetime:** | Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days |
-| **gzip:** | GZip compress the page output. Can be set to `true` or `false` |
-| **allow_webserver_gzip:** | This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete |
-| **redis:** | |
-| **... socket:** | The path to the redis socket file |
-[/div]
-[/version]
-
-[version=16]
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
@@ -283,7 +264,6 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 | **redis:** | |
 | **... socket:** | The path to the redis socket file |
 [/div]
-[/version]
 
 ### Twig
 
@@ -391,6 +371,8 @@ The **Log** section allows you to configure alternate logging capabilities for G
 [prism classes="language-yaml line-numbers"]
 debugger:
   enabled: false
+  provider: clockwork
+  censored: false
   shutdown:
     close_connection: true
 [/prism]
@@ -401,6 +383,8 @@ The **Debugger** section gives you the ability to activate Grav's debugger. A us
 | Property | Description |
 | -------- | ----------- |
 | **enabled:** | Enable Grav debugger and following settings. Can be set to `true` or `false` |
+| **provider:** | Debugger provider: Can be set to `debugbar` or `clockwork` (**Grav 1.7+**) |
+| **censored:** | Censor potentially sensitive information (POST parameters, cookies, files, configuration and most array/object data in log messages). Can be set to `true` or `false` (**Grav 1.7+**) |
 | **shutdown:** | |
 | ... **close_connection:** | Close the connection before calling `onShutdown()`. `false` for debugging |
 [/div]
@@ -415,6 +399,8 @@ images:
   debug: false
   auto_fix_orientation: false
   seofriendly: false
+  defaults:
+    loading: auto
 [/prism]
 
 The **Images** section gives you the ability to set the default image quality images are resampled to, as well as to control image caching and debugging features.
@@ -428,6 +414,8 @@ The **Images** section gives you the ability to set the default image quality im
 | **debug:** | Show an overlay over images indicating the pixel depth of the image when working with retina, for example. Can be set to `true` or `false` |
 | **auto_fix_orientation:** | Try to automatically fix images uploaded with non-standard rotation |
 | **seofriendly:** | SEO-friendly processed image names |
+| **defaults:** | (**Grav 1.7+**) |
+| **... loading:** | Let browser pick: `auto`, `lazy` or `eager` (**Grav 1.7+**) |
 [/div]
 
 
@@ -505,7 +493,6 @@ Options in the **GPM** section control Grav's GPM (Grav Package Manager). For ex
 | **official_gpm_only:** | By default GPM direct-install will only allow URLs via the official GPM proxy to ensure security, disable this to allow other sources |
 [/div]
 
-[version=16]
 ### Accounts
 
 [prism classes="language-yaml line-numbers"]
@@ -514,13 +501,46 @@ accounts:
   storage: file
 [/prism]
 
-Accounts is a new setting for 1.6 that allows you to try out the new experimental Flex Users.  This basically means that Users are stored as Flex objects allowing more power and performance.
+Accounts settings allows you to try out the new experimental Flex Users.  This basically means that Users are stored as Flex objects allowing more power and performance.
 
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
 | **type:** | Account type: `data` or `flex` |
 | **storage:** | Flex storage type: `file` or `folder` |
+[/div]
+
+### Flex
+
+[prism classes="language-yaml line-numbers"]
+flex:
+  cache:
+    index:
+      enabled: true
+      lifetime: 60
+    object:
+      enabled: true
+      lifetime: 600
+    render:
+      enabled: true
+      lifetime: 600
+[/prism]
+
+Flex Objects cache configuration settings are new in **Grav 1.7**. These are default settings for all Flex types, but they can be overridden for each `Flex Directory`.
+
+[div class="table-keycol"]
+| Property | Description |
+| -------- | ----------- |
+| **cache:** | (**Grav 1.7+**) |
+| **... index:** | (**Grav 1.7+**) |
+| **... ... enabled:** | Set to true to enable Flex index caching. Is used to cache timestamps in files (**Grav 1.7+**) |
+| **... ... lifetime:** | Lifetime of cached index in seconds (0 = infinite) (**Grav 1.7+**) |
+| **... object:** | (**Grav 1.7+**) |
+| **... ... enabled:** | Set to true to enable Flex object caching. Is used to cache object data (**Grav 1.7+**) |
+| **... ... lifetime:** | Lifetime of cached objects in seconds (0 = infinite) (**Grav 1.7+**) |
+| **... render:** | (**Grav 1.7+**) |
+| **... ... enabled:** | Set to true to enable Flex render caching. Is used to cache rendered output (**Grav 1.7+**) |
+| **... ... lifetime:** | Lifetime of cached HTML in seconds (0 = infinite) (**Grav 1.7+**) |
 [/div]
 
 ### Strict Mode
@@ -539,7 +559,6 @@ Strict mode allows for a cleaner migration to future versions of Grav by moving 
 | **yaml_compat:** | Enables YAML backwards compatibility |
 | **twig_compat:** | Enables deprecated Twig autoescape setting |
 [/div]
-[/version]
 
 !! You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
 
@@ -608,7 +627,7 @@ Let's break down the elements of this sample file:
 
 ## Security
 
-In Grav 1.5 we introduced a new `system/config/security.yaml` file that sets some sensible defaults and is used by the Admin plugin when **Saving** content[version=16], as well in the new **Reports** section of **Tools**[/version].
+For increased security there is `system/config/security.yaml` file that sets some sensible defaults and is used by the Admin plugin when **Saving** content, as well in the new **Reports** section of **Tools**.
 
 The default configuration looks like this:
 
@@ -651,6 +670,7 @@ uploads_dangerous_extensions:
     - htm
     - js
     - exe
+sanitize_svg: true
 [/prism]
 
 If you wish to make any changes to these settings, you should copy this file to `user/config/security.yaml` and make edits there.
