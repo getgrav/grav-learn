@@ -74,8 +74,7 @@ languages:
   session_store_active: false
   http_accept_language: false
   override_locale: false
-  content_fallback:
-    - ['en', '']
+  content_fallback: {}
 [/prism]
 
 The **Languages** area of the file establishes the site's language settings. This includes which language(s) are supported, designation of the default language in the URLs, and translations. Here is the breakdown for the **Languages** area of the system configuration file:
