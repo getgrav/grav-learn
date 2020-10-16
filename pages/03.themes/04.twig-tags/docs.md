@@ -82,11 +82,11 @@ The deferred attribute on the block which is powered by the [Deferred Extension]
 
 [prism classes="language-twig line-numbers"]
 {% block myblock deferred %}
-    This will be rendered after everything else. 
+    This will be rendered after everything else.
 {% endblock %}
 [/prism]
 
-[version=16]
+[version=16,17]
 ### Throw an Exception
 
 There are certain situations where you need to manually throw an exception, so we have a tag for that too.
@@ -106,11 +106,11 @@ Also it's useful to have more powerful PHP-style error handling in your Twig tem
    User Error: {{ e.message }}
 {% endcatch %}
 [/prism]
- 
+
 ### Render Object (Flex only)
 
 Flex Objects are slowly making their way into more and more elements of Grav.  These are self-aware objects that have an associated Twig template structure, so they know how to render themselves.  In order to use these, we have implemented a new `render` tag that takes an optional layout which in turn controls which of the template layouts the object should be rendered with.
- 
+
 [prism classes="language-twig line-numbers"]
 {% render object layout: 'default' with { variable: 'value' } %}
 [/prism]

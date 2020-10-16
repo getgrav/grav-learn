@@ -45,7 +45,7 @@ Like with Grav, you need PHP **v5.6.4** or above. This also applies for the comm
 
 On shared environments, check with your host which command to use for CLI. In my case, this is `php56` which with `-v` returns **PHP 5.6.28**. This also means prepending every path like this: `php56 vendor/bin/dep list`.
 [/version]
-[version=16]
+[version=16,17]
 Like with Grav, you need PHP **v7.1.3** or above. This also applies for the command line (CLI), so if you have multiple versions installed use the one which refers to the right version. Use the command `php -v` to check your default version, mine is **PHP 5.4.45**.
 
 On shared environments, check with your host which command to use for CLI. In my case, this is `php71` which with `-v` returns **PHP 7.1.26**. This also means prepending every path like this: `php71 vendor/bin/dep list`.

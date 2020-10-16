@@ -560,7 +560,7 @@ After we pass the collection and the limit to the `paginate()` function, we also
 [/prism]
 
 
-[version=16]
+[version=16,17]
 #### Custom Collection Handling with `onCollectionProcessed()` Event
 
 There are times when the event options are just not enough.  Times when you want to get a collection but then further manipulate the collection based on something very custom.  Imagine if you will, a use case where you have what seems like a rather bog-standard blog listing, but your client wants to have fine grain control over what displays in the listing.  They want to have a custom toggle on every blog item that lets them remove it from the listing, but still have it published and available via a direct link.

@@ -62,7 +62,7 @@ Converts a string into "CamelCase" format
 
 `'send_email'|camelize` <i class="fa fa-long-arrow-right"></i> **{{ 'send_email'|camelize }}**
 
-[version=16]
+[version=16,17]
 #### Chunk Split
 
 Splits a string into smaller chunks of a certain sizeOf
@@ -128,7 +128,7 @@ Filters field name by changing dot notation into array notation
 `'field.name|fieldName`
 
 
-[version=16]
+[version=16,17]
 #### Get Type
 
 Gets the type of a variable:
@@ -221,7 +221,7 @@ Converts an integer number of days into the number of months
 
 `'181'|monthize` <i class="fa fa-long-arrow-right"></i> **{{ '181'|monthize }}**
 
-[version=16]
+[version=16,17]
 #### NiceCron
 
 Gets a human readable output for cron syntax
@@ -247,7 +247,7 @@ Output a date in a human readable nice time format
 
 `page.date|nicetime(false)` <i class="fa fa-long-arrow-right"></i> **{{ page.date|nicetime(false) }}**
 
-[version=16]
+[version=16,17]
 #### Of Type
 
 Checks the type of a variable to the param:
@@ -285,7 +285,7 @@ Wrapper for PHP [preg_match()](https://www.php.net/manual/en/function.preg-match
 Wrapper for PHP [preg_split()](https://www.php.net/manual/en/function.preg-split.php) that splits a text by a pattern given as regular expression.
 [/version]
 
-[version=16]
+[version=16,17]
 #### Print Variable
 
 Prints human-readable information about a variable
@@ -341,11 +341,13 @@ The safe email filter converts an email address into ASCII characters to make it
 
 Usage example with a mailto link:
 
+{% verbatim %}
 [prism classes="language-html line-numbers"]
 <a href="mailto:{{'your.email@server.com'|safe_email}}">
   Email me
 </a>
 [/prism]
+{% endverbatim %}
 
 You might not notice a difference at first, but examining the page source (not using the Browser Developer Tools, the actual page source) will reveal the underlying characters encoding.
 
@@ -442,12 +444,14 @@ Converts a string into "under_scored" format
 
 `'CamelCased'|underscorize` <i class="fa fa-long-arrow-right"></i> **{{ 'CamelCased'|underscorize }}**
 
-[version=16]
+[version=16,17]
 #### Yaml Encode
 
 Dump/Encode a variable into YAML syntax
 
+{% verbatim %}
 `{foo: [0,1,2,3], baz: 'qux' }|yaml_encode`
+{% endverbatim %}
 
 [prism classes="language-twig"]
 {{ {foo: [0,1,2,3], baz: 'qux' }|yaml_encode }}
@@ -468,7 +472,6 @@ Decode/Parse a variable from YAML syntax
 {{ yaml|yaml_decode|var_dump}}
 [/prism]
 [/version]
-
 
 ## Grav Twig Functions
 
@@ -539,7 +542,7 @@ Authorizes an authenticated user to see a resource. Accepts a single permission 
 
 `authorize(['admin.statistics', 'admin.super'])`
 
-[version=16]
+[version=16,17]
 #### Body Class
 
 Takes an array of classes, and if they are not set on `body_classes` look to see if they are set in current theme configuration.
@@ -599,7 +602,7 @@ Retrieve the value of a cookie with this function:
 
 `get_cookie('your_cookie_key')`
 
-[version=16]
+[version=16,17]
 #### Get Type Function
 
 Gets the type of a variable:
@@ -613,7 +616,7 @@ Takes a Github Gist ID and creates appropriate Gist embed code
 
 `gist('bc448ff158df4bc56217')` <i class="fa fa-long-arrow-right"></i> {{ gist('bc448ff158df4bc56217')}}
 
-[version=16]
+[version=16,17]
 #### HTTP Response Code
 
 If response_code is provided, then the previous status code will be returned. If response_code is not provided, then the current status code will be returned. Both of these values will default to a 200 status code if used in a web server environment.
@@ -639,7 +642,7 @@ Returns a media object for an arbitrary directory.  Once obtained you can manipu
 
 `media_directory('theme://images')['some-image.jpg'].cropResize(200,200).html`
 
-[version=16]
+[version=16,17]
 #### NiceFilesize Function
 
 Output a file size in a human readable nice size format
@@ -665,7 +668,7 @@ Generate a Grav security nonce field for a form with a required `action`:
 
 `nonce_field('action')` <i class="fa fa-long-arrow-right"></i> **{{ nonce_field('action')|e }}**
 
-[version=16]
+[version=16,17]
 #### Of Type Function
 
 Checks the type of a variable to the param:
@@ -688,7 +691,7 @@ Parses a path into an array.
 
 outputs: **{{ print_r(parts) }}**
 
-[version=16]
+[version=16,17]
 #### Print Variable Function
 
 Prints a variable in a readable format
@@ -713,7 +716,7 @@ Generates an array containing a range of elements, optionally stepped
 
 `range(25, 300, 50)` <i class="fa fa-long-arrow-right"></i> **{{ print_r(range(25, 300, 50)) }}**
 
-[version=16]
+[version=16,17]
 #### Read File
 
 Simple function to read a file based on a filepath and output it.
@@ -734,7 +737,7 @@ Redirects to a URL of your choosing
 
 `redirect_me('http://google.com', 304)`
 
-[version=16]
+[version=16,17]
 #### Regex Filter Function
 
 Performs a `preg_grep` on an array with a regex pattern
@@ -770,7 +773,7 @@ Returns a string from a value. If the value is array, return it json encoded
 `string(23)` => `"23"`
 `string(['test' => 'x'])` => `{"test":"x"}`
 
-[version=16]
+[version=16,17]
 #### Theme Variable
 
 Get a theme variable from the page header if it exists, else use the theme config:
@@ -780,7 +783,6 @@ Get a theme variable from the page header if it exists, else use the theme confi
 This will first try `page.header.grid-size`, if that is not set, it will try `theme.grid-size` from the theme configuration file.  it can optionally take a default:
 
 `theme_var('grid-size', 1024)`
-
 [/version]
 
 #### Translate Function
@@ -819,7 +821,7 @@ The `vardump()` function outputs the current variable to the screen (rather than
 {% set my_array = {foo: 'bar', baz: 'qux'} %}
 {{ vardump(my_array)}}
 
-[version=16]
+[version=16,17]
 #### XSS
 
 Allow a manual check of a string for XSS vulnerabilities

@@ -36,7 +36,7 @@ Available commands:
 [/prism]
 [/version]
 
-[version=16]
+[version=16,17]
 [prism classes="language-text"]
 Available commands:
   backup       Creates a backup of the Grav instance
@@ -75,7 +75,7 @@ bin/grav backup
 A new backup `portfolio-20140812174352.zip` file has been created at the `backup/` folder of the project. The long number after the name is just the date in the format of _year month day hour minute second_.
 
 [/version]
-[version=16]
+[version=16,17]
 The Grav backup system has been completely revamped in Grav 1.6 to support multiple backup profiles.  These profiles are configures in the `user/config/backups.yaml`.  If you don't have a custom configuration file, Grav will use the default one provided in `system/config/backups.yaml`.
 
 If Grav detects multiple backup profiles, the CLI command will prompt you to choose the one you wish to backup with the CLI command.
@@ -139,7 +139,7 @@ The default option is the standard cache clearing process however, you can contr
 [/prism]
 [/version]
 
-[version=16]
+[version=16,17]
 [prism classes="language-bash command-line"]
 $ cd ~/webroot/my-grav-project
 bin/grav cache
@@ -195,7 +195,7 @@ You should now have the dependencies installed under:
 * `~/webroot/my-grav-project/user/plugins/problems`
 * `~/webroot/my-grav-project/user/themes/antimatter`
 
-[version=16]
+[version=16,17]
 ## Log Viewer
 
 As part of Grav 1.6, a new logviewer CLI command was created to allow for quick viewing of Grav logs.
@@ -289,7 +289,7 @@ bin/grav sandbox -s ../copy
 
 From your current Grav-folder creates a sibling-folder named `copy`, where the following folders are virtual copies: `/bin, /system, /vendor, /webserver-configs`, as well as standard files that typically reside in Grav's root-folder. All content in /user will be carbon copies, not virtual, so you can easily get started with customizing the new installation without having created overhead from core files.
 
-[version=16]
+[version=16,17]
 ## Scheduler
 
 As outlined in the [Advanced -> Scheduler](/advanced/scheduler) section, The scheduler can be monitored via the CLI command.

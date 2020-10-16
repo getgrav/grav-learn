@@ -8,7 +8,7 @@ Installation of Grav is a trivial process. In fact, there is no real installatio
 
 ## Check for PHP version
 
-Grav is incredibly easy to set up and get running. Be sure you have at least PHP version [version=15]5.6.3+[/version][version=16]7.1.3+[/version][version=17]7.1.3+[/version] by going to the terminal and typing `php -v`:
+Grav is incredibly easy to set up and get running. Be sure you have at least PHP version [version=15]5.6.3+[/version][version=16,17]7.1.3+[/version] by going to the terminal and typing `php -v`:
 
 [prism classes="language-bash command-line" cl-output="2-10"]
 php -v
@@ -84,7 +84,7 @@ The source code for the package can be found [here](https://git.cloudron.io/clou
 
 #### Apache/IIS/Nginx
 
-Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is [version=15]PHP 5.6.3[/version][version=16]PHP 7.1.3[/version][version=17]PHP 7.1.3[/version] or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](../requirements) chapter of this guide.
+Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is [version=15]PHP 5.6.3[/version][version=16,17]PHP 7.1.3[/version] or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](../requirements) chapter of this guide.
 
 If your web root is, for example, `~/public_html` then you could extract it into this folder and reach it via `http://localhost`. If you extracted it into `~/public_html/grav` you would reach it via `http://localhost/grav`.
 
@@ -92,7 +92,7 @@ If your web root is, for example, `~/public_html` then you could extract it into
 
 #### Running Grav with the Built-in PHP Webserver Using `router.php`
 
-You can run Grav using a simple command from Terminal / Command Prompt using the built-in PHP server available to any system with [version=15]PHP 5.6.3+[/version][version=16]PHP 7.1.3+[/version][version=17]PHP 7.1.3+[/version] installed. All you need to do is navigate to the root of your Grav install using the Terminal or Command Prompt and enter `php -S localhost:8000 system/router.php`. You can replace the port number (in our example it's `8000`) with any port you prefer.
+You can run Grav using a simple command from Terminal / Command Prompt using the built-in PHP server available to any system with [version=15]PHP 5.6.3+[/version][version=16,17]PHP 7.1.3+[/version] installed. All you need to do is navigate to the root of your Grav install using the Terminal or Command Prompt and enter `php -S localhost:8000 system/router.php`. You can replace the port number (in our example it's `8000`) with any port you prefer.
 
 Entering this command will present you with output similar to the following:
 

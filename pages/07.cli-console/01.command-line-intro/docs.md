@@ -80,7 +80,7 @@ All of the commands listed below are compatible with <strong>any operating syste
 [/version]
 
 
-[version=16]
+[version=16,17]
 [div class="table table-keycol"]
 | Command                           | Description                                                                                                                        |
 | :----------------                 | :--------------------------------------                                                                                            |
