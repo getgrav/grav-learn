@@ -43,6 +43,9 @@ keywords: antimatter, theme, core, modern, fast, responsive, html5, css3
 bugs: https://github.com/getgrav/grav-theme-antimatter/issues
 license: MIT
 
+dependencies:
+    - { name: grav, version: '>=1.6.0' }
+
 form:
   validation: loose
   fields:
@@ -111,14 +114,14 @@ use Grav\Common\Theme;
 class MyTheme extends Theme
 {
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             'onThemeInitialized' => ['onThemeInitialized', 0]
         ];
     }
 
-    public function onThemeInitialized()
+    public function onThemeInitialized(): void
     {
         if ($this->isAdmin()) {
             $this->active = false;
@@ -130,7 +133,7 @@ class MyTheme extends Theme
         ]);
     }
 
-    public function onTwigSiteVariables()
+    public function onTwigSiteVariables(): void
     {
         $this->grav['assets']
             ->addCss('plugin://css/mytheme-core.css')
