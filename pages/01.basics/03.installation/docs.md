@@ -130,12 +130,4 @@ Please consult the [Troubleshooting](../../troubleshooting) section for help reg
 
 ## Grav Updates
 
-### Automatic Updates
-
-The preferred method for updating Grav is to use the **Grav Package Manager (GPM)**. All you need to do  is to navigate to the root of your Grav site and type:
-
-[prism classes="language-bash command-line"]
-bin/gpm selfupgrade -f
-[/prism]
-
-Full information can be found in the [Grav GPM Documentation](../../advanced/grav-gpm). We also have GPM integrated into our [Admin Panel](../../admin-panel) plugin which will check, prompt, and automatically install any updates.
+To keep your site up to date, please read [Updating Grav & Plugins](/basics/updates).
