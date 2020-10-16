@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Grav 1.6 is the largest update since the initial release of Grav. It introduces a few new features, improvements, bug fixes and provides many architectural changes which pave the road towards Grav 2.0. 
+Grav 1.6 is the largest update since the initial release of Grav. It introduces a few new features, improvements, bug fixes and provides many architectural changes which pave the road towards Grav 2.0.
 
 !!!! **IMPORTANT:** For most people, Grav 1.6 should be a simple upgrade without any issues, but like any upgrade, it is recommended to **take a backup** of your site and **test the upgrade in a testing environment** before upgrading your live site.
 
@@ -28,7 +28,7 @@ When you open up the deprecation message, the content may first feel overwhelmin
 
 There are a few types of deprecation issues:
 
-* `yaml`: YAML or Markdown file uses deprecated YAML syntax. 
+* `yaml`: YAML or Markdown file uses deprecated YAML syntax.
 * `twig`: Twig file contains deprecated Twig syntax or there was another Twig related issue.
 * `grav`: Something is calling deprecated Grav method or using deprecated property.
 * `vendor`: Something is using deprecated 3rd party library code.
@@ -38,15 +38,13 @@ There are a few types of deprecation issues:
 
 ! **NOTE:** In Grav 1.6 YAML has stricter parsing with a fallback for backwards compatibility
 
-Grav 1.6 uses a **Symfony 4.2 YAML parser**, which follows the [YAML standard specification](https://yaml.org/spec?target=_blank) much more closely than the previously parser from Symfony **3.4**. This means that YAML files which previously worked just fine, may cause errors resulting from being invalid YAML. However, if the file fails to load with the new **4.2** version of the parser, Grav will by default still fall back to the older **3.4** version of the parser to keep your site up and running. However this will decrease the performance of the site and you should catch and fix the issues to ensure optimal performance. 
+Grav 1.6 uses a **Symfony 4.2 YAML parser**, which follows the [YAML standard specification](https://yaml.org/spec?target=_blank) much more closely than the previously parser from Symfony **3.4**. This means that YAML files which previously worked just fine, may cause errors resulting from being invalid YAML. However, if the file fails to load with the new **4.2** version of the parser, Grav will by default still fall back to the older **3.4** version of the parser to keep your site up and running. However this will decrease the performance of the site and you should catch and fix the issues to ensure optimal performance.
 
 ! **NOTE:** This backwards compatibility fallback mechanism will be removed in Grav 2.0
 
-The Debug Bar can be used to spot any deprecated YAML. Just open the Debug Bar and look at the **Deprecated** tab. If the tab cannot be found, no issues were detected.
+**Grav 1.6.7** and all later versions have a new CLI command to detect YAML parsing issues, please run `bin/grav yamllinter` to find and fix any YAML parsing errors in your site. It is recommended to run this command right after upgrading to Grav 1.6 or later version.
 
-!!! **TIP:** You can filter any **YAML** issues by looking at the **badges in the bottom-right corner** of the Debug Bar. Simply filter to only show **YAML** issues by clicking the other buttons to disable them.
-
-! **NOTE:** YAML errors require you to clear cache the errors will only be picked up when the YAML files are decoded.
+**Admin 1.9.3** and all later versions have **YAML Linter** integrated to **Tools** > **Reports**, if you prefer using it instead of the CLI command.
 
 ##### Look for these YAML errors:
 
@@ -55,6 +53,12 @@ The Debug Bar can be used to spot any deprecated YAML. Just open the Debug Bar a
 - Always quote `null`, `true`, `false`, `2.0` (floats) in keys; keys can only be either integers or strings.
 - Also quote `null`, `true`, `false`, `2` and `2.0` in values if they are meant to be strings.
 - When surrounding strings with double-quotes, you must now escape `\` characters.
+
+Also the Debug Bar can be used to spot any deprecated YAML. Just open the Debug Bar and look at the **Deprecated** tab. If the tab cannot be found, no issues were detected.
+
+!!! **TIP:** You can filter any **YAML** issues by looking at the **badges in the bottom-right corner** of the Debug Bar. Simply filter to only show **YAML** issues by clicking the other buttons to disable them.
+
+! **NOTE:** YAML errors require you to clear cache the errors will only be picked up when the YAML files are decoded.
 
 ### YAML Compatibility Mode
 
@@ -77,7 +81,7 @@ You should update your theme to version that add support for deferred asset bloc
 
 ### Deprecated Twig
 
-Grav 2.0 will be using **Twig 2** instead of Twig 1 that is currently used in the Grav 1.x releases. There are a few deprecated features which have been removed in Twig 2, which is why you should make sure that you catch and fix all of those issues before upgrading to Grav 2.0 down the road. 
+Grav 2.0 will be using **Twig 2** instead of Twig 1 that is currently used in the Grav 1.x releases. There are a few deprecated features which have been removed in Twig 2, which is why you should make sure that you catch and fix all of those issues before upgrading to Grav 2.0 down the road.
 
 The Debug Bar can be used to spot any deprecated Twig issues. Just open the Debug Bar and click on the **Deprecated** tab.
 
@@ -125,4 +129,4 @@ This setting forces `auto-escaping` to be turned on in all Twig template files a
 
 The transition to use auto-escaping will not be easy. During the transition all the template files should either contain both `|e` and `|raw` filters on every variable to make sure that the template file is safe to be used in both modes, or you can surround all the template code with `{% autoescape %}` Twig tags.
 
-See https://twig.symfony.com/doc/1.x/tags/autoescape.html for more information.
+See [Twig Manual](https://twig.symfony.com/doc/1.x/tags/autoescape.html) for more information.
