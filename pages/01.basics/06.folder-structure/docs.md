@@ -14,8 +14,9 @@ Because Grav is a **flat-file based CMS**, meaning no database underpins it, the
 /images
 /logs
 /system
-/user
+/tmp
 /vendor
+/user
 [/prism]
 
 So let us dig a little deeper into each of these top-level folders and explain what they are for:
@@ -26,13 +27,13 @@ The `assets` folder is used by the new asset management system within Grav to st
 
 !! This folder should not be used to store any user data, as it is routinely flushed of all data.
 
-### /bin
-
-The `bin` folder contains the [Grav CLI application](../../cli-console/grav-cli) that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers so we'll set this topic aside for later discussion.
-
 ### /backup
 
 The `backup` folder is the default location for Grav backups.
+
+### /bin
+
+The `bin` folder contains the [Grav CLI application](../../cli-console/grav-cli) that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers so we'll set this topic aside for later discussion.
 
 ### /cache
 
@@ -57,6 +58,12 @@ When Grav detects an error, or if you have extra logging or profiling turned on,
 ### /system
 
 The `system` folder is where the files that make Grav actually function live.  You should not edit anything in this folder because an update to Grav could overwrite your changes.  If you need to change something related to how Grav works, you can use plugins as discussed in later chapters.
+
+### /tmp
+
+The `tmp` folder is used by Grav and plugins to store temporary files.
+
+!! This folder should not be used to store any user data, as it is routinely flushed of all data.
 
 ### /vendor
 
