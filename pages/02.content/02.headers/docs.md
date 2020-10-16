@@ -428,9 +428,9 @@ You could then access them from Twig:
 
 [prism classes="language-twig line-numbers"]
 <section id="author-details">
-    <h2>{{ page.header.author.name }}</h2>
-    <p>{{ page.header.author.bio }}</p>
-    <span>Contact: <a href="https://twitter.com/{{ page.header.author.twitter }}"><i class="fa fa-twitter"></i></a></span>
+    <h2>{{ page.header.author.name|e }}</h2>
+    <p>{{ page.header.author.bio|e }}</p>
+    <span>Contact: <a href="https://twitter.com/{{ page.header.author.twitter|e }}"><i class="fa fa-twitter"></i></a></span>
 </section>
 [/prism]
 

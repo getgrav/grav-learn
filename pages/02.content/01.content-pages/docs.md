@@ -185,7 +185,7 @@ This allows you to perform a wide variety of functionality from any page on your
 # All Projects
 <ul>
 {% for p in pages.find('/projects').children if p != page %}
-<li><a href="{{p.url}}">{{ p.title }}</a></li>
+<li><a href="{{ p.url|e }}">{{ p.title|e }}</a></li>
 {% endfor %}
 </ul>
 [/prism]
@@ -203,7 +203,7 @@ This is where `contentMeta()` comes in. We use ContentMeta in our [Shortcode](ht
 
 {% verbatim %}
 [prism classes="language-twig line-numbers"]
-<div id="author">{{ page.find('/my/custom/page').contentMeta.shortcodeMeta.shortcode.section.author }}</div>
+<div id="author">{{ page.find('/my/custom/page').contentMeta.shortcodeMeta.shortcode.section.author|e }}</div>
 [/prism]
 {% endverbatim %}
 

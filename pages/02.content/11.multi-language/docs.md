@@ -243,20 +243,20 @@ This provides you with two options for providing language specific Twig override
 The simplest way to use these translation strings in your Twig templates is to use the `|t` Twig filter.  You can also use the `t()` Twig function, but frankly the filter is cleaner and does the same thing:
 
 [prism classes="language-twig line-numbers"]
-<h1 id="site-name">{{ "SITE_NAME"|t }}</h1>
+<h1 id="site-name">{{ "SITE_NAME"|t|e }}</h1>
 <section id="header">
-    <h2>{{ "HEADER.MAIN_TEXT"|t }}</h2>
-    <h3>{{ "HEADER.SUB_TEXT"|t }}</h3>
+    <h2>{{ "HEADER.MAIN_TEXT"|t|e }}</h2>
+    <h3>{{ "HEADER.SUB_TEXT"|t|e }}</h3>
 </section>
 [/prism]
 
 Using the Twig function `t()` the solution is similar:
 
 [prism classes="language-twig line-numbers"]
-<h1 id="site-name">{{ t("SITE_NAME") }}</h1>
+<h1 id="site-name">{{ t("SITE_NAME")|e }}</h1>
 <section id="header">
-    <h2>{{ t("HEADER.MAIN_TEXT") }}</h2>
-    <h3>{{ t("HEADER.SUB_TEXT") }}</h3>
+    <h2>{{ t("HEADER.MAIN_TEXT")|e }}</h2>
+    <h3>{{ t("HEADER.SUB_TEXT")|e }}</h3>
 </section>
 [/prism]
 
@@ -271,7 +271,7 @@ en:
 You could get the appropriate translation for a post's month with the following:
 
 [prism classes="language-twig line-numbers"]
-{{ 'GRAV.MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }}
+{{ 'GRAV.MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1)|e }}
 [/prism]
 
 You can also use this as a Twig function with `ta()`.
@@ -287,7 +287,7 @@ SIMPLE_TEXT: There are %d monkeys in the %s
 And then you can populate those variables with the Twig:
 
 [prism classes="language-twig line-numbers"]
-{{ "SIMPLE_TEXT"|t(12, "London Zoo") }}
+{{ "SIMPLE_TEXT"|t(12, "London Zoo")|e }}
 [/prism]
 
 resulting in the translation:
@@ -301,7 +301,7 @@ There are 12 monkeys in the London Zoo
 Sometimes it's required to perform complex translations with replacement in specific languages.  You can utilize the full power of the Language objects `translate()` method with the `tl` filter/function.  For example:
 
 [prism classes="language-twig line-numbers"]
-{{ ["SIMPLE_TEXT", 12, 'London Zoo']|tl(['fr']) }}
+{{ ["SIMPLE_TEXT", 12, 'London Zoo']|tl(['fr'])|e }}
 [/prism]
 
 Will translate the `SIMPLE_TEXT` string and replace the placeholders with `12` and `London Zoo` respectively.  Also there's an array passed with language translations to try in first-find-first-used order.  This will output the result in french:
@@ -489,7 +489,7 @@ There is often a need to access Language state and logic from Twig templates.  F
 To display the correct version of the image you would need to know the current active language.  This is possible in Grav by accessing the `Language` object via the `Grav` object, and calling the appropriate method. In the example above this could be achieved with the following Twig code:
 
 [prism classes="language-twig line-numbers"]
-{{ page.media.images['myimage.'~grav.language.getActive~'.jpg'].html }}
+{{ page.media.images['myimage.'~grav.language.getActive~'.jpg'].html()|raw }}
 [/prism]
 
 The `getActive` call in the Twig is effectively calling `Language->getActive()` to return the current active language code.  A few useful Language methods include:

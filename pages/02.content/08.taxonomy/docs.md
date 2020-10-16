@@ -80,7 +80,7 @@ In your theme, you can easily display a list of pages that are written by `ksmit
 <h2>Kevin Smith's Posts</h2>
 <ul>
 {% for post in taxonomy.findTaxonomy({'author':'ksmith'}) %}
-    <li>{{ post.title }}</li>
+    <li>{{ post.title|e }}</li>
 {% endfor %}
 </ul>
 [/prism]

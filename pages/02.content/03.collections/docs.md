@@ -44,8 +44,8 @@ When this collection is defined in the header, Grav creates a collection **page.
 
 [prism classes="language-twig line-numbers"]
 {% for p in page.collection %}
-<h2>{{ p.title }}</h2>
-{{ p.summary }}
+<h2>{{ p.title|e }}</h2>
+{{ p.summary|raw }}
 {% endfor %}
 [/prism]
 
@@ -55,8 +55,8 @@ You can also include an order parameter to change the default ordering of pages:
 
 [prism classes="language-twig line-numbers"]
 {% for p in page.collection.order('folder','asc') %}
-<h2>{{ p.title }}</h2>
-{{ p.summary }}
+<h2>{{ p.title|e }}</h2>
+{{ p.summary|raw }}
 {% endfor %}
 [/prism]
 
@@ -427,11 +427,11 @@ Here is an example taken from the **Learn2** theme's **docs.html.twig** that def
 {% block navigation %}
         <div id="navigation">
         {% if not progress.isFirst(page.path) %}
-            <a class="nav nav-prev" href="{{ progress.nextSibling(page.path).url }}"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="{{ progress.nextSibling(page.path).url|e }}"> <i class="fa fa-chevron-left"></i></a>
         {% endif %}
 
         {% if not progress.isLast(page.path) %}
-            <a class="nav nav-next" href="{{ progress.prevSibling(page.path).url }}"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="{{ progress.prevSibling(page.path).url|e }}"><i class="fa fa-chevron-right"></i></a>
         {% endif %}
         </div>
 {% endblock %}
@@ -503,7 +503,7 @@ If you need to programmatically generate a collection, you can do so by calling 
 
 <ul>
 {% for p in my_collection %}
-<li>{{ p.title }}</li>
+<li>{{ p.title|e }}</li>
 {% endfor %}
 </ul>
 [/prism]
@@ -526,9 +526,9 @@ menu: Home
 {% if p.header.menu %}
 	<ul>
 	{% if page.slug == p.slug %}
-		<li class="{{ p.slug }} active"><span>{{ p.menu }}</span></li>
+		<li class="{{ p.slug|e }} active"><span>{{ p.menu|e }}</span></li>
 	{% else %}
-		<li class="{{ p.slug }}"><a href="{{ p.url }}">{{ p.menu }}</a></li>
+		<li class="{{ p.slug|e }}"><a href="{{ p.url|e }}">{{ p.menu|e }}</a></li>
 	{% endif %}
 	</ul>
 {% endif %}
@@ -549,9 +549,9 @@ After we pass the collection and the limit to the `paginate()` function, we also
 {% for p in my_collection %}
     <ul>
         {% if page.slug == p.slug %}
-            <li class="{{ p.slug }} active"><span>{{ p.menu }}</span></li>
+            <li class="{{ p.slug|e }} active"><span>{{ p.menu|e }}</span></li>
         {% else %}
-            <li class="{{ p.slug }}"><a href="{{ p.url }}">{{ p.menu }}</a></li>
+            <li class="{{ p.slug|e }}"><a href="{{ p.url|e }}">{{ p.menu|e }}</a></li>
         {% endif %}
     </ul>
 {% endfor %}
@@ -560,7 +560,7 @@ After we pass the collection and the limit to the `paginate()` function, we also
 [/prism]
 
 
-[version=16,17]
+[version=16]
 #### Custom Collection Handling with `onCollectionProcessed()` Event
 
 There are times when the event options are just not enough.  Times when you want to get a collection but then further manipulate the collection based on something very custom.  Imagine if you will, a use case where you have what seems like a rather bog-standard blog listing, but your client wants to have fine grain control over what displays in the listing.  They want to have a custom toggle on every blog item that lets them remove it from the listing, but still have it published and available via a direct link.
