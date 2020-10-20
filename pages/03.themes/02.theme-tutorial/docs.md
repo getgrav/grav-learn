@@ -174,18 +174,18 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 [prism classes="language-twig line-numbers"]
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!DOCTYPE html>
-<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<html lang="{{ (grav.language.getActive ?: theme_config.default_lang)|e }}">
 <head>
 {% block head %}
     <meta charset="utf-8" />
-    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+    <title>{% if header.title %}{{ header.title|e }} | {% endif %}{{ site.title|e }}</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% include 'partials/metadata.html.twig' %}
 
-    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
-    <link rel="canonical" href="{{ page.url(true, true) }}" />
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png')|e }}" />
+    <link rel="canonical" href="{{ page.url(true, true)|e }}" />
 {% endblock head %}
 
 {% block stylesheets %}
@@ -204,14 +204,14 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 {% endblock %}
 
 </head>
-<body id="top" class="{{ page.header.body_classes }}">
+<body id="top" class="{{ page.header.body_classes|e }}">
 
 {% block header %}
     <div class="header">
         <div class="wrapper padding">
-            <a class="logo left" href="{{ base_url == '' ? '/' : base_url }}">
+            <a class="logo left" href="{{ (base_url == '' ? '/' : base_url)|e }}">
                 <i class="fa fa-rebel"></i>
-                {{ config.site.title }}
+                {{ config.site.title|e }}
             </a>
             {% block header_navigation %}
             <nav class="main-nav">
@@ -244,6 +244,10 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 
 </body>
 [/prism]
+
+! **TIP:** If variable is safe to render and contains HTML, always use `|raw` filter to make the template to work with `autoescape` turned on.
+
+!! It is very important to either turn on `autoescape` setting from your [System Configuration](/basics/grav-configuration#twig) or to remember to escape every single variable in template files to make your site safe against XSS attacks.
 
 ## Step 5 - Breaking it Down
 

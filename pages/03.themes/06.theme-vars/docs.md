@@ -50,6 +50,8 @@ The `{{ theme_dir }}` variable returns the file directory folder of the current 
 
 The `{{ theme_url }}` returns the relative URL to the current theme.
 
+!! When linking to assets like images or JavaScript and CSS files, it's recommended to use the `url()` function in combination with the `theme://` stream as described on the [Twig Filters & Functions](/themes/twig-filters-functions#url) page. For JavaScript and CSS, the [Asset Manager](/themes/asset-manager) is even easier to use but in some cases like dynamic or conditional loading of assets, it will not work.
+
 ### html_lang variable
 
 The `{{ html_lang }}` returns the active language.
@@ -58,8 +60,22 @@ The `{{ html_lang }}` returns the active language.
 
 The `{{ language_codes }}` returns list of available languages of the site.
 
+[version=16,17]
+### assets object
 
-!! When linking to assets like images or JavaScript and CSS files, it's recommended to use the `url()` function in combination with the `theme://` stream as described on the [Twig Filters & Functions](/themes/twig-filters-functions#url) page. For JavaScript and CSS, the [Asset Manager](/themes/asset-manager) is even easier to use but in some cases like dynamic or conditional loading of assets, it will not work.
+**Asset Manager** adds an easy way to manage CSS and JavaScript in your site.
+
+[prism classes="language-twig"]
+{% do assets.addCss('theme://css/foo.css') %}
+{% do assets.addInlineCss('a { color: red; }') %}
+{% do assets.addJs('theme://js/something.js') %}
+{% do assets.addInlineJs('alert("Warming!");') %}
+[/prism]
+
+Read more about [Asset Manager](/themes/asset-manager).
+
+! **TIP:** It is recommended to use **[styles tag](/themes/twig-tags#css-styles)** and **[script tag](/themes/twig-tags#scripts)** instead.
+[/version]
 
 ### config object
 
@@ -94,13 +110,13 @@ The **page object** is probably _the_ most important object you will work with a
 This returns a truncated or shortened version of your content.  You can provide an optional `size` parameter to specify the maximum length of the summary, in characters.  Alternatively, if no size is provided, the value can be obtained via the site-wide variable `summary.size` from your `site.yaml` configuration.
 
 [prism classes="language-twig"]
-{{ page.summary }}
+{{ page.summary|raw }}
 [/prism]
 
 or
 
 [prism classes="language-twig"]
-{{ page.summary(50) }}
+{{ page.summary(50)|raw }}
 [/prism]
 
 A third option is to use a manual delimiter of `===` in your content.  Anything before the delimiter will be used for the summary.
@@ -110,7 +126,7 @@ A third option is to use a manual delimiter of `===` in your content.  Anything 
 This returns the entire HTML content of your page.
 
 [prism classes="language-twig"]
-{{ page.content }}
+{{ page.content|raw }}
 [/prism]
 
 ##### header()
@@ -125,12 +141,12 @@ author: Joe Bloggs
 could be used:
 
 [prism classes="language-twig"]
-The author of this page is: {{ page.header.author }}
+The author of this page is: {{ page.header.author|e }}
 [/prism]
 
 ##### media()
 
-This returns an array containing all the media associated with a page. These include **images**, **videos**, and other **files**.  You can access media methods as described in the [media documentation](../../content/media) for content. Because it is an array, Twig filters and functions can be used. Note: .svg are treated as files, not images, because they can not be manipulated using twig image filters.
+This returns a **Media** object containing all the media associated with a page. These include **images**, **videos**, and other **files**.  You can access media methods as described in the [media documentation](../../content/media) for content. Because it acts as an array, Twig filters and functions can be used. Note: SVG images are treated as files, not images, because they can not be manipulated using twig image filters.
 
 Get a specific file or image:
 
@@ -148,7 +164,7 @@ Loop over all images and output the HTML tag to display it:
 
 [prism classes="language-twig"]
 {% for image in page.media.images %}
-   {{ image.html }}
+   {{ image.html|raw }}
 {% endfor %}
 [/prism]
 
@@ -196,13 +212,13 @@ This returns the direct name as displayed in the URL for this page, for example 
 This returns the URL to the page, for example:
 
 [prism classes="language-twig"]
-{{ page.url }} {# could return /my-section/my-category/my-blog-post #}
+{{ page.url|e }} {# could return /my-section/my-category/my-blog-post #}
 [/prism]
 
 or
 
 [prism classes="language-twig"]
-{{ page.url(true) }} {# could return http://mysite.com/my-section/my-category/my-blog-post #}
+{{ page.url(true)|e }} {# could return http://mysite.com/my-section/my-category/my-blog-post #}
 [/prism]
 
 ##### permalink()
@@ -224,7 +240,6 @@ This returns `true` or `false` based on whether or not this page is configured a
 ##### root()
 
 This returns `true` or `false` based on whether or not this page is the root page of the tree hierarchy.
-Using: {{ page.parent.root() }}
 
 ##### active()
 
@@ -404,7 +419,9 @@ Get the top-level pages for a simple menu:
 
 There is a new object that allows you to access [media](../../content/media) that is outside of Page objects via PHP streams from Twig. This works in a similar manner to [image linking in content](../../content/image-linking#php-streams) by using streams to access images, and media processing to manipulate theme.
 
-`media['user://media/bird.png'].resize(50, 50).rotate(90).html()`
+[prism classes="language-twig"]
+{{ media['user://media/bird.png'].resize(50, 50).rotate(90).html()|raw }}
+[/prism]
 
 ### uri object
 
@@ -468,13 +485,19 @@ This returns the referrer information for this page.
 
 The header object is an alias for `page.header()` of the original page.  It's a convenient way to access the original page headers when you are looping through other `page` objects of child pages or collections.
 
-### content object
+### content string
 
 The content object is an alias for the `page.content()` of the original page.
 
+To display page content you should:
+
+[prism classes="language-twig"]
+{{ content|raw }}
+[/prism]
+
 ### taxonomy object
 
-The global Taxonomy object that contains all the taxonomy information for the site.
+The global Taxonomy object that contains all the taxonomy information for the site. For more information, see [Taxonomy](/content/taxonomy).
 
 ### browser object
 
@@ -483,9 +506,9 @@ The global Taxonomy object that contains all the taxonomy information for the si
 Grav has built-in support for programmatically determining the platform, browser, and version of the user.
 
 [prism classes="language-twig"]
-{{ browser.platform}}   # macintosh
-{{ browser.browser}}    # chrome
-{{ browser.version}}    # 41
+{{ browser.platform|e }}   # macintosh
+{{ browser.browser|e }}    # chrome
+{{ browser.version|e }}    # 41
 [/prism]
 
 ### user object
@@ -493,10 +516,10 @@ Grav has built-in support for programmatically determining the platform, browser
 You can access the current logged in user object indirectly via the Grav object.  This allows you to access such data as `username`, `fullname`, `title`, and `email`:
 
 [prism classes="language-twig"]
-{{ grav.user.username }}  # admin
-{{ grav.user.fullname }}  # Billy Bloggs
-{{ grav.user.title }}     # Administrator
-{{ grav.user.email }}     # billy@bloggs.com
+{{ grav.user.username|e }}  # admin
+{{ grav.user.fullname|e }}  # Billy Bloggs
+{{ grav.user.title|e }}     # Administrator
+{{ grav.user.email|e }}     # billy@bloggs.com
 [/prism]
 
 ## Adding Custom Variables
@@ -504,7 +527,7 @@ You can access the current logged in user object indirectly via the Grav object.
 You can easily add custom variables in a variety of ways.  If the variable is a site-wide variable, you can put the variable in your `user/config/site.yaml` file and then access it via:
 
 [prism classes="language-twig"]
-{{ site.my_variable }}
+{{ site.my_variable|e }}
 [/prism]
 
 Alternatively, if the variable is only needed for a particular page, you can add the variable to your page's YAML front-matter, and access it via the `page.header` object.  For example:
@@ -517,7 +540,7 @@ author: Joe Bloggs
 could be used as:
 
 [prism classes="language-twig"]
-The author of this page is: {{ page.header.author }}
+The author of this page is: {{ page.header.author|e }}
 [/prism]
 
 ## Adding Custom Objects

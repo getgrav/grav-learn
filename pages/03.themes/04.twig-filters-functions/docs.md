@@ -22,7 +22,7 @@ Twig filters are applied to Twig variables by using the `|` character followed b
 
 Take a relative path and convert it to an absolute URL format including hostname
 
-`'<img src="/some/path/to/image.jpg" />'|absolute_url` <i class="fa fa-long-arrow-right"></i> `{{ '<img src="/some/path/to/image.jpg" />'|absolute_url }}`
+`'<img src="/some/path/to/image.jpg" />'|absolute_url` <i class="fa fa-long-arrow-right"></i> `{{ '<img src="/some/path/to/image.jpg" />'|absolute_url|raw }}`
 
 #### Array Unique
 
@@ -125,7 +125,7 @@ Takes a needle and a haystack and determines if the haystack ends with the needl
 
 Filters field name by changing dot notation into array notation
 
-`'field.name|fieldName`
+`'field.name'|fieldName` <i class="fa fa-long-arrow-right"></i> **{{ 'field.name'|fieldName }}**
 
 
 [version=16,17]
@@ -152,7 +152,17 @@ Converts a string into a hyphenated version.
 
 You can decode JSON by simply applying this filter:
 
-`{"first_name": "Guido", "last_name":"Rossum"}|json_decode`
+`array|json_decode` {% verbatim %}
+[prism classes="language-twig line-numbers"]
+{% set array = '{"first_name": "Guido", "last_name":"Rossum"}'|json_decode %}
+{{ print_r(array) }}
+[/prism]
+{% endverbatim %}
+
+{% set array = '{"first_name": "Guido", "last_name":"Rossum"}'|json_decode %}
+[prism classes="language-text"]
+{{ print_r(array) }}
+[/prism]
 
 #### Ksort
 
@@ -160,16 +170,15 @@ Sort an array map by each key
 
 `array|ksort` {% verbatim %}
 [prism classes="language-twig line-numbers"]
-{% set ritems = {'orange':1, 'apple':2, 'peach':3}|ksort %}
-{% for key, value in ritems %}{{ key }}:{{ value }}, {% endfor %}
+{% set items = {'orange':1, 'apple':2, 'peach':3}|ksort %}
+{{ print_r(items) }}
 [/prism]
 {% endverbatim %}
 
-{% set ritems = {'orange':1, 'apple':2, 'peach':3}|ksort %}
-[prism classes="language-twig line-numbers"]
-{% for key, value in ritems %}{{ key }}:{{ value }}, {% endfor %}
+{% set items = {'orange':1, 'apple':2, 'peach':3}|ksort %}
+[prism classes="language-text"]
+{{ print_r(items) }}
 [/prism]
-
 #### Left Trim
 
 `'/strip/leading/slash/'|ltrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/leading/slash/'|ltrim('/') }}
@@ -197,11 +206,16 @@ string|markdown($is_block)
 [/prism]
 {% endverbatim %}
 
+{% set var %}
 <div class="div">
 {{ 'A paragraph with **markdown** and [a link](http://www.cnn.com)'|markdown }}
 </div>
 
 <p class="paragraph">{{'A line with **markdown** and [a link](http://www.cnn.com)'|markdown(false) }}</p>
+{% endset %}
+[prism classes="language-text"]
+{{ var|e }}
+[/prism]
 
 #### MD5
 
@@ -299,19 +313,19 @@ Prints human-readable information about a variable
 
 #### Randomize
 
-Randomizes the list provided.  If a value is provided as a parameter, it will skip those values and keep them in order.
+Randomizes the list provided.  If a value is provided as a parameter, it will skip first n values and keep them in order.
 
 `array|randomize` {% verbatim %}
 [prism classes="language-twig line-numbers"]
 {% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
-{% for ritem in ritems %}{{ ritem }}, {% endfor %}
+{{ print_r(ritems) }}
 [/prism]
 {% endverbatim %}
 
-<strong>
 {% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
-{% for ritem in ritems %}{{ ritem }}, {% endfor %}
-</strong>
+[prism classes="language-text"]
+{{ print_r(ritems) }}
+[/prism]
 
 #### Regex Replace
 
@@ -337,13 +351,13 @@ Converts a string to the English singular version
 
 The safe email filter converts an email address into ASCII characters to make it harder for email spam bots to recognize and capture.
 
-`"someone@domain.com"|safe_email` <i class="fa fa-long-arrow-right"></i> {{ "someone@domain.com"|safe_email }}
+`"someone@domain.com"|safe_email` <i class="fa fa-long-arrow-right"></i> **{{ "someone@domain.com"|safe_email }}**
 
 Usage example with a mailto link:
 
 {% verbatim %}
 [prism classes="language-html line-numbers"]
-<a href="mailto:{{'your.email@server.com'|safe_email}}">
+<a href="mailto:{{ 'your.email@server.com'|safe_email }}">
   Email me
 </a>
 [/prism]
@@ -371,7 +385,7 @@ Sort an array map by a particular key
 
 Takes a needle and a haystack and determines if the haystack starts with the needle.  Also now works with an array of needles and will return `true` if **any** haystack starts with the needle.
 
-`'the quick brown fox'|starts_with('the')` <i class="fa fa-long-arrow-right"></i> {{  'the quick brown fox'|starts_with('the') ? 'true' : 'false' }}
+`'the quick brown fox'|starts_with('the')` <i class="fa fa-long-arrow-right"></i> **{{ 'the quick brown fox'|starts_with('the') ? 'true' : 'false' }}**
 
 #### Titleize
 
@@ -384,7 +398,7 @@ Converts a string to "Title Case" format
 
 Translate a string into the current language
 
-`'MY_LANGUAGE_KEY_STRING'|t` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
+`'MY_LANGUAGE_KEY_STRING'|t` <i class="fa fa-long-arrow-right"></i> **'Some Text in English'**
 
 This assumes you have these language strings translated in your site and have enabled multi-language support.  Please refer to the [multi-language documentation](../../content/multi-language) for more detailed information.
 
@@ -392,7 +406,7 @@ This assumes you have these language strings translated in your site and have en
 
 Translate a string into the current language set in the admin interface user preferences
 
-`'MY_LANGUAGE_KEY_STRING'|tu` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
+`'MY_LANGUAGE_KEY_STRING'|tu` <i class="fa fa-long-arrow-right"></i> **'Some Text in English'**
 
 This uses the language field set in the user yaml.
 
@@ -412,17 +426,17 @@ Translates a string in a specific language. For more details check out the [mult
 
 You can easily generate a shortened, truncated, version of a string by using this filter.  It takes a number of characters as the only required field, but has some other options:
 
-`'one sentence. two sentences'|truncate(5)` <i class="fa fa-long-arrow-right"></i> {{ 'one sentence. two sentences'|truncate(5) }}
+`'one sentence. two sentences'|truncate(5)` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5) }}**
 
 Simply truncates to 5 characters.
 
-`'one sentence. two sentences'|truncate(5, true)` <i class="fa fa-long-arrow-right"></i> {{ 'one sentence. two sentences'|truncate(5, true) }}
+`'one sentence. two sentences'|truncate(5, true)` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5, true) }}**
 
 Truncates to closest sentence-end after 5 characters.
 
 You can also truncate HTML text, but should first use the `striptags` filter to remove any HTML formatting that could get broken if you end between tags:
 
-`'<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5)` <i class="fa fa-long-arrow-right"></i> {{ '<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5) }}
+`'<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5)` <i class="fa fa-long-arrow-right"></i> **{{ '<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5) }}**
 
 ##### Specialized versions:
 
@@ -450,11 +464,15 @@ Converts a string into "under_scored" format
 Dump/Encode a variable into YAML syntax
 
 {% verbatim %}
-`{foo: [0,1,2,3], baz: 'qux' }|yaml_encode`
+[prism classes="language-twig line-numbers"]
+{% set array = {foo: [0, 1, 2, 3], baz: 'qux' } %}
+{{ array|yaml_encode }}
+[/prism]
 {% endverbatim %}
 
-[prism classes="language-twig"]
-{{ {foo: [0,1,2,3], baz: 'qux' }|yaml_encode }}
+{% set array = {foo: [0, 1, 2, 3], baz: 'qux' } %}
+[prism classes="language-yaml"]
+{{ array|yaml_encode|e }}
 [/prism]
 
 #### Yaml Decode
@@ -462,14 +480,15 @@ Dump/Encode a variable into YAML syntax
 Decode/Parse a variable from YAML syntax
 
 {% verbatim %}
-`{% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}`
-
-`yaml|yaml_decode`
+[prism classes="language-twig line-numbers"]
+{% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}
+{{ yaml|yaml_decode|var_dump }}
+[/prism]
 {% endverbatim %}
 
 {% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}
-[prism classes="language-twig"]
-{{ yaml|yaml_decode|var_dump}}
+[prism]
+{{ yaml|yaml_decode|var_dump }}
 [/prism]
 [/version]
 
@@ -481,7 +500,21 @@ Twig functions are called directly with any parameters being passed in via paren
 
 Cast a value to array
 
-`array(value)`
+{% verbatim %}
+[prism classes="language-twig line-numbers"]
+{% set value = array(value) %}
+[/prism]
+{% endverbatim %}
+
+#### Array Difference
+
+Computes the difference of arrays.
+
+{% verbatim %}
+[prism classes="language-twig line-numbers"]
+{% set diff = array_diff(array1, array2...) %}
+[/prism]
+{% endverbatim %}
 
 #### Array Key Value
 
@@ -614,7 +647,7 @@ Gets the type of a variable:
 
 Takes a Github Gist ID and creates appropriate Gist embed code
 
-`gist('bc448ff158df4bc56217')` <i class="fa fa-long-arrow-right"></i> {{ gist('bc448ff158df4bc56217')}}
+`gist('bc448ff158df4bc56217')` <i class="fa fa-long-arrow-right"></i> **{{ gist('bc448ff158df4bc56217')|e }}**
 
 [version=16,17]
 #### HTTP Response Code
@@ -622,7 +655,6 @@ Takes a Github Gist ID and creates appropriate Gist embed code
 If response_code is provided, then the previous status code will be returned. If response_code is not provided, then the current status code will be returned. Both of these values will default to a 200 status code if used in a web server environment.
 
 `http_response_code(404)`
-
 [/version]
 
 #### Is Ajax Request
@@ -653,7 +685,7 @@ Output a file size in a human readable nice size format
 
 Output a number in a human readable nice number format
 
-`nicenumnber(12430)` <i class="fa fa-long-arrow-right"></i> **{{ nicenumber(12430)}}**
+`nicenumber(12430)` <i class="fa fa-long-arrow-right"></i> **{{ nicenumber(12430)}}**
 
 #### NiceTime Function
 
@@ -698,7 +730,7 @@ Prints a variable in a readable format
 
 `print_r(page.header)`
 
-[prism classes="language-twig"]
+[prism classes="language-text"]
 {{ print_r(page.header) }}
 [/prism]
 
@@ -744,18 +776,22 @@ Performs a `preg_grep` on an array with a regex pattern
 
 `regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/")`
 
-[prism classes="language-twig"]
-{{ var_dump(regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/")) }}
+{% set var = regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/") %}
+[prism classes="language-text"]
+{{ print_r(var) }}
 [/prism]
 
 #### Regex Replace Function
 
 A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
 
+{% verbatim %}
 `regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])`
+{% endverbatim %}
 
-[prism classes="language-twig"]
-{{ regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) }}
+{% set var = regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) %}
+[prism classes="language-text"]
+{{var }}
 [/prism]
 
 [/version]
@@ -770,8 +806,19 @@ Will repeat whatever is passed in a certain amount of times.
 
 Returns a string from a value. If the value is array, return it json encoded
 
-`string(23)` => `"23"`
-`string(['test' => 'x'])` => `{"test":"x"}`
+`string(23)` => **"23"**
+
+`string(['test' => 'x'])` => **{"test":"x"}**
+
+[version=17]
+#### SVG Image
+
+Returns the content of an SVG image and adds extra classes as needed.
+
+{% verbatim %}
+`{{ svg_image(path, classes, strip_style) }}`
+{% endverbatim %}
+[/version]
 
 [version=16,17]
 #### Theme Variable
@@ -814,12 +861,15 @@ The `vardump()` function outputs the current variable to the screen (rather than
 {% verbatim %}
 [prism classes="language-twig line-numbers"]
 {% set my_array = {foo: 'bar', baz: 'qux'} %}
-{{ vardump(my_array)}}
+{{ vardump(my_array) }}
 [/prism]
 {% endverbatim %}
 
 {% set my_array = {foo: 'bar', baz: 'qux'} %}
-{{ vardump(my_array)}}
+
+[prism classes="language-twig"]
+{{ vardump(my_array) }}
+[/prism]
 
 [version=16,17]
 #### XSS
