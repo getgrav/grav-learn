@@ -123,10 +123,10 @@ filters:
 
 This allows us to have multiple filters if we wish, but for now, we just want all content with the taxonomy `category: blog` to be eligible for the random selection.
 
-All plugins must have the `enabled` option. If this is `false` in the site-wide configuration, your plugin 
-will never be initialized by Grav. All plugins also have the `active` option. If this is `false` in the site-wide 
+All plugins must have the `enabled` option. If this is `false` in the site-wide configuration, your plugin
+will never be initialized by Grav. All plugins also have the `active` option. If this is `false` in the site-wide
 configuration, each page will need to activate your plugin. Note that multiple plugins also support `enabled`/`active` in
-page frontmatter by using `mergeConfig`, detailed below. 
+page frontmatter by using `mergeConfig`, detailed below.
 
 !!!! The Grav default install has taxonomy defined for `category` and `tag` by default.  This configuration can be modified in your `user/config/site.yaml` file.
 
@@ -140,6 +140,7 @@ The base plugin class structure will already look something like this:
 <?php
 namespace Grav\Plugin;
 
+use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
 use RocketTheme\Toolbox\Event\Event;
 
@@ -149,7 +150,15 @@ use RocketTheme\Toolbox\Event\Event;
  */
 class RandomizerPlugin extends Plugin
 {
- ...
+    /**
+     * Composer autoload.
+     *
+     * @return ClassLoader
+     */
+    public function autoload(): ClassLoader
+    {
+        return require __DIR__ . '/vendor/autoload.php';
+    }
 }
 [/prism]
 
@@ -158,6 +167,7 @@ We need to add a few `use` statements because we are going to use these classes 
 Modify the `use` statements to look like this:
 
 [prism classes="language-php line-numbers"]
+use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
 use Grav\Common\Page\Collection;
 use Grav\Common\Uri;
@@ -174,15 +184,20 @@ The two key parts of this class structure are:
 Grav uses a sophisticated event system, and to ensure optimal performance, all plugins are inspected by Grav to determine which events the plugin is subscribed to.
 
 [prism classes="language-php line-numbers"]
-public static function getSubscribedEvents()
+public static function getSubscribedEvents(): array
 {
     return [
-        'onPluginsInitialized' => ['onPluginsInitialized', 0]
+        'onPluginsInitialized' => [
+            ['autoload', 100000], // TODO: Remove when plugin requires Grav >=1.7
+            ['onPluginsInitialized', 0]
+        ]
     ];
 }
 [/prism]
 
 In this plugin we are going to tell Grav we're subscribing to the `onPluginsInitialized` event.  This way we can use that event (which is the first event available to plugins) to determine if we should subscribe to other events.
+
+!!! **Note:** The first `autoload` event listener is only needed in Grav 1.6. Grav 1.7 automatically calls the method.
 
 ## Step 7 - Determine if the plugin should run
 
@@ -190,16 +205,18 @@ The next step is to add a method to our `RandomizerPlugin` class to handle the `
 
 
 [prism classes="language-php line-numbers"]
-public function onPluginsInitialized()
+public function onPluginsInitialized(): void
 {
     // Don't proceed if we are in the admin plugin
     if ($this->isAdmin()) {
         return;
     }
 
+    /** @var Uri $uri */
     $uri = $this->grav['uri'];
-    $route = $this->config->get('plugins.randomizer.route');
+    $config = $this->config();
 
+    $route = $config['route'] ?? null;
     if ($route && $route == $uri->path()) {
         $this->enable([
             'onPageInitialized' => ['onPageInitialized', 0]
@@ -210,7 +227,7 @@ public function onPluginsInitialized()
 
 First, we get the **Uri object** from the **Dependency Injection Container**.  This contains all the information about the current URI, including the route information.
 
-The **config object** is already part of the base **Plugin**, so we can simply use it to get the configuration value for our configured `route`.
+The **config() method** is already part of the base **Plugin**, so we can simply use it to get the configuration value for our configured `route`.
 
 Next, we compare the configured route to the current URI path. If they are equal, we instruct the dispatcher that our plugin will also listen to a new event: `onPageInitialized`.
 
@@ -224,17 +241,19 @@ The last step of our plugin is to display the random page, and we can do that by
 /**
  * Send user to a random page
  */
-public function onPageInitialized()
+public function onPageInitialized(): void
 {
+    /** @var Taxonomy $uri */
     $taxonomy_map = $this->grav['taxonomy'];
+    $config = $this->config();
 
-    $filters = (array) $this->config->get('plugins.randomizer.filters');
-    $operator = $this->config->get('plugins.randomizer.filter_combinator', 'and');
+    $filters = (array)($config['filters'] ?? []);
+    $operator = $config['filter_combinator'] ?? 'and';
 
-    if (count($filters)) {
+    if (count($filters) > 0) {
         $collection = new Collection();
         $collection->append($taxonomy_map->findTaxonomy($filters, $operator)->toArray());
-        if (count($collection)) {
+        if (count($collection) > 0) {
             unset($this->grav['page']);
             $this->grav['page'] = $collection->random()->current();
         }
@@ -269,6 +288,7 @@ And that is all there is to it! The plugin is now complete.  Your complete plugi
 <?php
 namespace Grav\Plugin;
 
+use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
 use Grav\Common\Page\Collection;
 use Grav\Common\Uri;
@@ -290,26 +310,38 @@ class RandomizerPlugin extends Plugin
      *     callable (or function) as well as the priority. The
      *     higher the number the higher the priority.
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
-        return [
-            'onPluginsInitialized' => ['onPluginsInitialized', 0]
-        ];
+    return [
+        'onPluginsInitialized' => [
+            ['autoload', 100000], // TODO: Remove when plugin requires Grav >=1.7
+            ['onPluginsInitialized', 0]
+        ]
+    ];
     }
 
     /**
-     * Initialize the plugin
+     * Composer autoload.
+     *
+     * @return ClassLoader
      */
-    public function onPluginsInitialized()
+    public function autoload(): ClassLoader
+    {
+        return require __DIR__ . '/vendor/autoload.php';
+    }
+
+    public function onPluginsInitialized(): void
     {
         // Don't proceed if we are in the admin plugin
         if ($this->isAdmin()) {
             return;
         }
 
+        /** @var Uri $uri */
         $uri = $this->grav['uri'];
-        $route = $this->config->get('plugins.randomizer.route');
+        $config = $this->config();
 
+        $route = $config['route'] ?? null;
         if ($route && $route == $uri->path()) {
             $this->enable([
                 'onPageInitialized' => ['onPageInitialized', 0]
@@ -320,17 +352,19 @@ class RandomizerPlugin extends Plugin
     /**
      * Send user to a random page
      */
-    public function onPageInitialized()
+    public function onPageInitialized(): void
     {
+        /** @var Taxonomy $uri */
         $taxonomy_map = $this->grav['taxonomy'];
+        $config = $this->config();
 
-        $filters = (array) $this->config->get('plugins.randomizer.filters');
-        $operator = $this->config->get('plugins.randomizer.filter_combinator', 'and');
+        $filters = (array)($config['filters'] ?? []);
+        $operator = $config['filter_combinator'] ?? 'and';
 
-        if (count($filters)) {
+        if (count($filters) > 0) {
             $collection = new Collection();
             $collection->append($taxonomy_map->findTaxonomy($filters, $operator)->toArray());
-            if (count($collection)) {
+            if (count($collection) > 0) {
                 unset($this->grav['page']);
                 $this->grav['page'] = $collection->random()->current();
             }
@@ -348,7 +382,7 @@ One popular technique that is used in a variety of plugins is the concept of mer
 In recent versions of Grav, a helper method was added to perform this functionality automatically rather than you having to code that logic yourself.  The **SmartyPants** plugin provides a good example of this functionality in action:
 
 [prism classes="language-php line-numbers"]
-public function onPageContentProcessed(Event $event)
+public function onPageContentProcessed(Event $event): void
 {
     $page = $event['page'];
     $config = $this->mergeConfig($page);
