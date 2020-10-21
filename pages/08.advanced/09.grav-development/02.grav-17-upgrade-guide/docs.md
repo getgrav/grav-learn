@@ -56,19 +56,19 @@ Because of this, we added new configuration option `system.strict_mode.blueprint
 
 ### User Accounts
 
-Admin has now new user administration using **Flex Users**:
+Admin has now new [Accounts Administration](/admin-panel/accounts) using **Flex Users**:
 
-* User Accounts Manager
-* User Groups Manager
+* [User Accounts Manager](/admin-panel/accounts/users)
+* [User Groups Manager](/admin-panel/accounts/groups)
 
 !!! **NOTE:** Flex Users feature is not yet used in the frontend of your site.
 
 ### Pages
 
-Pages administration has been greatly improved with **Flex Pages**:
+The existing [Pages Administration](/admin-panel/page) has been greatly improved with **Flex Pages**:
 
 * Reworked list view: Far better support for large sites
-* Better access control: CRUD ACL support with page owners
+* Better access control: [CRUD ACL](/admin-panel/page/permissions) support with page owners
 * Better multi-language support
 
 !! **BACKWARDS COMPATIBILITY BREAK**: We fixed 404 error page when you go to non-routable page with routable child pages under it. Now you get redirected to the first routable child page instead. This is probably what you wanted in the first place.
