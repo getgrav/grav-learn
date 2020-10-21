@@ -174,13 +174,15 @@ One of the most powerful feature of the Grav Scheduler, is the ability for 3rd p
 
 The first step is for your plugin to subscribe to the `onSchedulerInitialized()` event.  And then create a method in your plugin file that can add a custom job when called:
 
-[prism classes="language-bash line-numbers"]
-public function onSchedulerInitialized(Event $e)
+[prism classes="language-php line-numbers"]
+public function onSchedulerInitialized(Event $e): void
 {
-    if ($this->config->get('plugins.tntsearch.scheduled_index.enabled')) {
+    $config = $this->config();
+
+    if (!empty($config['scheduled_index']['enabled']))) {
         $scheduler = $e['scheduler'];
-        $at = $this->config->get('plugins.tntsearch.scheduled_index.at');
-        $logs = $this->config->get('plugins.tntsearch.scheduled_index.logs');
+        $at = $config['scheduled_index']['at'] ?? '* * * * *';
+        $logs = $config['scheduled_index']['logs'] ?? '';
         $job = $scheduler->addFunction('Grav\Plugin\TNTSearchPlugin::indexJob', [], 'tntsearch-index');
         $job->at($at);
         $job->output($logs);

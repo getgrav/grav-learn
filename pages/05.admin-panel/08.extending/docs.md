@@ -21,15 +21,15 @@ In your plugin, the path to templates should be: `user/plugins/myadminplugin/adm
 
 Thus we are overriding the path to the template, but non-destructively. We target only the relevant template, in a way that does not override any unnecessary templates or hinder other admin themes from registering their alternate templates for the same use. To do this, we register the path in our plugin like this:
 
-[prism classes="language-twig line-numbers"]
-public static function getSubscribedEvents()
+[prism classes="language-php line-numbers"]
+public static function getSubscribedEvents(): array
 {
     return [
         'onAdminTwigTemplatePaths' => ['onAdminTwigTemplatePaths', 0]
     ];
 }
 
-public function onAdminTwigTemplatePaths($event)
+public function onAdminTwigTemplatePaths($event): void
 {
     $paths = $event['paths'];
     $paths[] = __DIR__ . '/admin/themes/grav/templates';
@@ -38,6 +38,8 @@ public function onAdminTwigTemplatePaths($event)
 [/prism]
 
 It is important to remember that the theme used in the Admin plugin is sensitive to the templates available. As a general rule, you should only modify templates with *low impact*, that is, make changes that will not break the interface for any user who installs your plugin. In this sense it is better to override `nav-user-avatar.html.twig` than `nav.html.twig`, as the latter contains much more functionality but uses `{% include 'partials/nav-user-details.html.twig' %}` to include the former.
+
+! **TIP:** Admin template files have autoescaping turned on. You do not need to add `|e` filters to escape HTML content, but you do need to add `|raw` if your input is valid HTML.
 
 ### Adding a custom field
 
@@ -82,7 +84,7 @@ We could extend this further by using the `prepend` or `append` blocks available
     type="range"
     style="display: inline-block;vertical-align: middle;"
     {% if field.id is defined %}
-        oninput="{{ field.id|e }}_output.value = {{ field.id|e }}.value"
+        oninput="{{ field.id }}_output.value = {{ field.id }}.value"
     {% endif %}
     {% if field.validate.min %}min="{{ field.validate.min }}"{% endif %}
     {% if field.validate.max %}max="{{ field.validate.max }}"{% endif %}
@@ -93,7 +95,7 @@ We could extend this further by using the `prepend` or `append` blocks available
   {% if field.id is defined %}
     <output
         name="{{ (scope ~ field.name)|fieldName }}"
-        id="{{ field.id|e }}_output"
+        id="{{ field.id }}_output"
         style="display: inline-block;vertical-align: baseline;padding: 0 0.5em 5px 0.5em;"
     >
     {{ value|join(', ')|e('html_attr') }}
@@ -103,6 +105,8 @@ We could extend this further by using the `prepend` or `append` blocks available
 [/prism]
 
 Thus we append an `<output>`-tag which will hold the selected value, and add to it and the field itself simple styling to align them properly. We also add an `oninput`-attribute to the field, so that changing values automatically updates the `<output>`-tag with the value. This requires that each field using the range-slider has an unique `id`-property, like the `id: radius` we declared above, which should be something like `id: myadminplugin_radius` to avoid conflicts.
+
+!! If this new template will be shared between frontend and Admin Panel (e.g. using `PLUGIN_TEMPLATES` folder), you need to escape all variables with `|e`. Alternatively you can just go to `Configuration` > `Twig Templating` > `Autoescape variables` and turn it to `Yes`.
 
 ### Creating custom page templates
 
@@ -118,8 +122,8 @@ Example mypage.html.twig:
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-    {{ page.header.newTextField }}
-    {{ page.content}}
+    {{ page.header.newTextField|e }}
+    {{ page.content|raw }}
 {% endblock %}
 [/prism]
 
@@ -127,27 +131,26 @@ There is more information about Twig theming in the [Twig Primer](/themes/twig-p
 
 Themes automatically find template files within the theme's `templates` folder.  If the template is being added via a plugin, you'll need to add the template via the event `onTwigTemplatePaths`:
 
-[prism classes="language-twig line-numbers"]
-    public function onPluginsInitialized()
-    {
-        // If in an Admin page.
-        if ($this->isAdmin()) {
-            return;
-        }
-        // If not in an Admin page.
-        $this->enable([
-            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 1],
-        ]);
+[prism classes="language-php line-numbers"]
+public function onPluginsInitialized(): void
+{
+    // If in an Admin page.
+    if ($this->isAdmin()) {
+        return;
     }
+    // If not in an Admin page.
+    $this->enable([
+        'onTwigTemplatePaths' => ['onTwigTemplatePaths', 1],
+    ]);
+}
 
-    /**
-     * Add templates directory to twig lookup paths.
-     */
-    public function onTwigTemplatePaths()
-    {
-        $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
-    }
-
+/**
+ * Add templates directory to twig lookup paths.
+ */
+public function onTwigTemplatePaths(): void
+{
+    $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
+}
 [/prism]
 
 
@@ -180,36 +183,35 @@ form:
 
 Similarly to the `templates` folder, a theme will automatically add any blueprint yaml files found within the `blueprints` folder.  If the blueprint is being added via a plugin, you'll need to add the blueprint via the event `onGetPageTemplates`:
 
-[prism classes="language-twig line-numbers"]
-    public function onPluginsInitialized()
-    {
-        // If in an Admin page.
-        if ($this->isAdmin()) {
-            $this->enable([
-                'onGetPageBlueprints' => ['onGetPageBlueprints', 0],
-                'onGetPageTemplates' => ['onGetPageTemplates', 0],
-            ]);
-            return;
-        }
-
-    /**
-     * Add blueprint directory.
-     */
-    public function onGetPageBlueprints(Event $event)
-    {
-        $types = $event->types;
-        $types->scanBlueprints('plugin://' . $this->name . '/blueprints');
+[prism classes="language-php line-numbers"]
+public function onPluginsInitialized(): void
+{
+    // If in an Admin page.
+    if ($this->isAdmin()) {
+        $this->enable([
+            'onGetPageBlueprints' => ['onGetPageBlueprints', 0],
+            'onGetPageTemplates' => ['onGetPageTemplates', 0],
+        ]);
     }
+}
 
-    /**
-     * Add templates directory.
-     */
-    public function onGetPageTemplates(Event $event)
-    {
-        $types = $event->types;
-        $types->scanTemplates('plugin://' . $this->name . '/templates');
-    }
+/**
+ * Add blueprint directory.
+ */
+public function onGetPageBlueprints(Event $event): void
+{
+    $types = $event->types;
+    $types->scanBlueprints('plugin://' . $this->name . '/blueprints');
+}
 
+/**
+ * Add templates directory.
+ */
+public function onGetPageTemplates(Event $event): void
+{
+    $types = $event->types;
+    $types->scanTemplates('plugin://' . $this->name . '/templates');
+}
 [/prism]
 
 #### Creating a new page

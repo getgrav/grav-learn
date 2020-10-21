@@ -51,7 +51,7 @@ Every user can be assigned to a group.
 Simply add
 
 [prism classes="language-yaml line-numbers"]
-groups: 
+groups:
   - paid
 [/prism]
 
@@ -95,4 +95,4 @@ access:
 
 to a user’s yaml file.
 
-!! See the [Grav Admin FAQs](https://learn.getgrav.org/16/admin-panel/faq#managing-acl) to learn more about available Access Levels
+!! See the [Grav Admin FAQs](https://learn.getgrav.org/16/admin-panel/faq#managing-acl) to learn more about available Permissions

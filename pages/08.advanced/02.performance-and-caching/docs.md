@@ -8,21 +8,21 @@ taxonomy:
 
 ## Performance
 
-1. **PHP caching is critical**.  You should run a PHP **opcache** and **usercache** in order to get the best performance out of Grav. With PHP 5.5 and 5.6, **Zend opcache** with **APCu user cache** is slightly faster.
+1. **PHP caching is critical**.  You should run a PHP **opcache** and **usercache** (such as **APCu**) in order to get the best performance out of Grav.
 
-2. **SSD drives** can make a big difference. Most things can get cached in PHP user cache, but some are stored as files, so SSD drives can make a big impact on performance.
+2. **SSD drives** can make a big difference. Most things can get cached in PHP user cache, but some are stored as files, so SSD drives can make a big impact on performance. Avoid using network filesystems such as NFS with Grav.
 
 3. **Native hosting** will always be faster than a Virtual Machine.  VMs are a great way hosting providers can offer flexible “cloud” type environments. These add a layer of processing that will always affect performance. Grav can still be fast on a VM (much faster than wordpress, joomla, etc), but still, for optimal performance, you can't beat a native hosting option.
 
 4. **Faster memory** is better. Because Grav is so fast, and because many of its caching solutions use memory heavily, the speed of the memory on your server can have a big impact on performance. Grav does not use extensive amounts of memory compared to some platforms so the amount of memory is not as important, nor does it impact performance as much, as memory type and speed.
 
-5. **Shared hosting** is cheap and readily available, but sharing resources will always slow things down a bit. Again, Grav can run very well on a shared server (better than other CMSes), but for ultimate speed, a dedicated server is the way to go.
+5. **Fast Multi-core processors** are better. Faster and more advanced processors will always help, but not as much as the other points.
 
-6. **Multi-core processors** are better. Faster and more advanced processors will always help, but not as much as the other points.
+6. **Shared hosting** is cheap and readily available, but sharing resources will always slow things down a bit. Again, Grav can run very well on a shared server (better than other CMSes), but for ultimate speed, a dedicated server is the way to go.
 
 7. **PECL Yaml Parser**.  Installing the native PHP PECL Yaml parser can increase YAML parsing by as much as 400%!  This is well worth looking at if you are looking for some extra speed.
 
-!! The getgrav.org runs on a single dedicated server with quad core processors, 16GB of memory and 6G SSD drives. We also run PHP 5.6 with Zend opcache and APCu user cache. The web servers do run a few other websites but not as many as you would find in a shared-hosting environment.
+!! The getgrav.org runs on a single dedicated server with quad core processors, 16GB of memory and 6G SSD drives. We also run PHP 7.4 with Zend opcache and APCu user cache. The web servers do run a few other websites but not as many as you would find in a shared-hosting environment.
 
 ## Caching Options
 
@@ -32,13 +32,12 @@ Grav uses the established and well-respected [Doctrine Cache](https://www.doctri
 
 * **Auto** _(Default)_ - Finds the best option automatically
 * **File** - Stores in cache files in the `cache/` folder
-* **APC** - [https://php.net/manual/en/book.apc.php](https://php.net/manual/en/book.apc.php)
-* **XCache** - [http://xcache.lighttpd.net/](http://xcache.lighttpd.net/)
+* **APCu** - [https://php.net/manual/en/book.apcu.php](https://php.net/manual/en/book.apcu.php)
 * **Memcache** - [https://php.net/manual/en/book.memcache.php](https://php.net/manual/en/book.memcache.php)
 * **Redis** - [https://redis.io](https://redis.io)
 * **WinCache** - [https://www.iis.net/downloads/microsoft/wincache-extension](https://www.iis.net/downloads/microsoft/wincache-extension)
 
-By default, Grav comes preconfigured to use the `auto` setting.  This will try **APC**, then **WinCache**, then **XCache**, and lastly **File**.  You can, of course, explicitly configure the cache in your `user/config/system.yaml` file, which could make things ever so slightly faster.
+By default, Grav comes preconfigured to use the `auto` setting.  This will try **APC**, then **WinCache**, and lastly **File**.  You can, of course, explicitly configure the cache in your `user/config/system.yaml` file, which could make things ever so slightly faster.
 
 ## Caching Types
 

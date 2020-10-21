@@ -15,7 +15,12 @@ The **Page Editor** in the admin is a powerful text editor and page manager that
 
 It's essentially a one-stop-shop for managing a specific page.
 
-!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` access level.
+[version=15,16]
+!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` permission, see [Profile](/admin-panel/dashboard/profile)
+[/version]
+[version=17]
+!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages.list` permission, see [User Accounts](/admin-panel/accounts/users) and [User Groups](/admin-panel/accounts/groups)
+[/version]
 
 Tabs that appear in the **Page Editor** are not universal. There are a default set of form fields that are commonly found in Grav themes, however these can vary between themes. The admin pulls form field information from a number of sources including the theme and the template used for the specific page.
 

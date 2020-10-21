@@ -12,12 +12,23 @@ When developing themes and plugins, there is often a need to display **debugging
 
 Grav comes with a great tool to make this effort easier called via a **Debug Bar**.  This feature is **disabled** by default, but can be turned on either globally or for your [development environment](../environment-config) only via the `system.yaml` configuration file:
 
+[version=15,16]
 [prism classes="language-yaml line-numbers"]
 debugger:
   enabled: true                        # Enable Grav debugger and following settings
   shutdown:
     close_connection: true             # Close the connection before calling onShutdown(). false for debugging
 [/prism]
+[/version]
+[version=17]
+[prism classes="language-yaml line-numbers"]
+debugger:
+  enabled: true                        # Enable Grav debugger and following settings
+  provider: debugbar                    # Set provider to debugbar
+  shutdown:
+    close_connection: true             # Close the connection before calling onShutdown(). false for debugging
+[/prism]
+[/version]
 
 ![](config.png)
 
@@ -77,8 +88,8 @@ and see the results in the Debugbar:
 To display variables before a page is returned by Grav or in case no page refresh occurs such as when using AJAX there is another alternative. By using a single line of Javascript any variable can be displayed in your browser's developer console, for example:
 
 {% verbatim %}
-[prism classes="language-html"]
-<script> console.log({{ page.header | json_encode | raw }}) </script>
+[prism classes="language-twig"]
+<script> console.log({{ page.header|json_encode|raw }}) </script>
 [/prism]
 {% endverbatim %}
 
@@ -88,7 +99,7 @@ Then examine the value in the browser console:
 
 ## Error Display
 
-Our new error display page provides detailed information, backtraces, and even relevant code blocks.  This helps to more quickly isolate, identify and resolve critical errors. By default in Grav 1.0+, these are turned off by default, so you will need to enable them to take advantage of this helpful error handling for development:
+Our new error display page provides detailed information, backtraces, and even relevant code blocks.  This helps to more quickly isolate, identify and resolve critical errors. By default in Grav, these are turned off by default, so you will need to enable them to take advantage of this helpful error handling for development:
 
 [prism classes="language-yaml line-numbers"]
 errors:

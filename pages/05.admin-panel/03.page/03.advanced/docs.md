@@ -17,7 +17,12 @@ It's essentially a one-stop-shop for managing a specific page.
 
 In this page, we will go over the features and functionality found in the **Advanced** tab of the **Page Editor**.
 
-!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` access level.
+[version=15,16]
+!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` permission, see [Profile](/admin-panel/dashboard/profile)
+[/version]
+[version=17]
+!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages.list` permission, see [User Accounts](/admin-panel/accounts/users) and [User Groups](/admin-panel/accounts/groups)
+[/version]
 
 ! You might notice the check boxes to the left of some of the options in this area of the admin. These boxes indicate that you would like to override the default values for this page. Leaving them unchecked reverts to blank or default states.
 
