@@ -12,20 +12,35 @@ By default, **Flex Administration** is invisible to the user. In order to see a 
 
 ## Enabling a Directory
 
+![Plugin Configuration](views-directories.png?width=2030&classes=shadow)
+
 To enable a custom **Flex Directory**, you need to go to **Plugins** > **Flex Objects**.
 
 We are interested in **Directories** option inside the plugin, which lists all the detected **Flex Directories**. Just select the directories you're interested in and make sure toggle has `Enabled` option checked.
 
 Hit **Save** and the directory should show up after a page load.
 
-## Navigation Menu
+## Directory Listing
 
-By default, Flex Directories appear under **Flex Objects** menu item. The menu item will appear when you enable a Flex Directory, which has not configured to show up elsewhere.
+![Directories View](views-directories.png?width=2030&classes=shadow)
 
-When you select a Flex Directory, you will end up to a **List View**.
+By default, **Flex Objects** navigation menu item contains all the **Flex Directories** that have been enabled in your site.
 
-In **List View** you can browse through the objects, use **Search** and change **Ordering**. Additionally each object has **Actions**, usually at least **Edit** and **Delete**. You can also **Add** new objects by using a button at top of the page. Next to it is also **Configuration** button to change directory-wide settings.
+!! Some Flex Directories choose to hide from this list and show up elsewhere. **Accounts** and **Pages** are good examples of this.
 
-In **Edit View** you can edit the object and **Save** it.
+#### Controls
 
-In **Configuration** you can change configuration, which changes the behavior of the whole directory. Usually caching is among of these options.
+Along the top of the page, you will find the administrative controls.
+
+- **Back**: Go back to **[Dashboard](/admin-panel/dashboard)**
+- **Configure**: Redirects to **Plugins** > **Flex Objects**, see [Enabling a Directory](#enabling-a-directory)
+
+#### Directories
+
+When you select a Directory, you will end up to **Content Listing** view.
+
+In **[Content Listing](/advanced/flex/administration/views-list)** you can browse through the objects, use **Search** and change **Ordering**. Additionally each object has **Actions**, usually at least **Edit** and **Delete**. You can also **Add** new objects by using a button at top of the page. Next to it is also **Configuration** button to change directory-wide settings.
+
+In **[Content Editor](/advanced/flex/administration/views-edit)** you can edit the object and **Save** it.
+
+In **[Configuration](/advanced/flex/administration/configuration)** you can change configuration, which changes the behavior of the whole directory. Usually caching is among these options.
