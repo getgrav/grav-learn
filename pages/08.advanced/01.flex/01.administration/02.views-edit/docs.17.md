@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-![Edit View](views-edit.png?width=2030&classes=shadow)
+![Edit View](flex-objects-edit.png?width=2030&classes=shadow)
 
 The **Content Editor** is a powerful view in **Flex Objects** that enables you to create and update your content type.
 

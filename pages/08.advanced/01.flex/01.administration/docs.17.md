@@ -12,13 +12,13 @@ By default, **Flex Administration** is invisible to the user. In order to see a 
 
 ## Enabling a Directory
 
-![Plugin Configuration](views-directories.png?width=2030&classes=shadow)
-
 To enable a custom **Flex Directory**, you need to go to **Plugins** > **Flex Objects**.
 
 We are interested in **Directories** option inside the plugin, which lists all the detected **Flex Directories**. Just select the directories you're interested in and make sure toggle has `Enabled` option checked.
 
 Hit **Save** and the directory should show up after a page load.
+
+! **TIP:** Check **[Introduction](/advanced/flex/administration/introduction)** for full walkthrough on how to create a page for your directory.
 
 ## Directory Listing
 

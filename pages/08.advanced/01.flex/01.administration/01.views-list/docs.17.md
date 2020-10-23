@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-![List View](views-list.png?width=2030&classes=shadow)
+![List View](flex-objects-list.png?width=2030&classes=shadow)
 
 The **Content Listing** usually contains a paginated list to your content, but some directories, like **[Pages](/admin-panel/page)**, may have highly customized look.
 
