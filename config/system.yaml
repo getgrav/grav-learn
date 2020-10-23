@@ -42,13 +42,13 @@ assets:
       jquery: system://assets/jquery/jquery-3.x.min.js
 
 errors:
-  display: 1
+  display: 0
 
 images:
   prettyname_prefix: false
 
 debugger:
-  enabled: true
+  enabled: false
   twig: true
   shutdown:
     close_connection: true
