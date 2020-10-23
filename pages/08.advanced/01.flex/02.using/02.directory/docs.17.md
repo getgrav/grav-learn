@@ -72,7 +72,7 @@ if ($directory) {
 
 ## getObject()
 
-`getObject(id): Object|null` Get an object, returns null if it was not found.
+`getObject( id ): Object | null` Get an object, returns null if it was not found.
 
 Parameters:
 - **id** ID of the object (`string`)
@@ -121,7 +121,7 @@ if ($directory) {
 
 ## getCollection()
 
-`getCollection(): Collection|null` Get collection, returns null if it was not found.
+`getCollection(): Collection | null` Get collection, returns null if it was not found.
 
 Returns:
 - **Collection** (`object`) or `null`

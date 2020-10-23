@@ -91,7 +91,7 @@ $listedDirectoriesWithMissing = $flex->getDirectiories(['contacts', 'phonebook']
 
 ## hasDirectory()
 
-`hasDirectory(name): bool`: Check if directory exists.
+`hasDirectory( name ): bool`: Check if directory exists.
 
 Parameters:
 - **name** Name of the directory (`string`)
@@ -123,7 +123,7 @@ $exists = $flex->hasDirectory('contacts');
 
 ## getDirectory()
 
-`getDirectory(name): Directory|null` Get a directory, returns null if it was not found.
+`getDirectory( name ): Directory | null` Get a directory, returns null if it was not found.
 
 Parameters:
 - **name** Name of the directory (`string`)
@@ -164,7 +164,7 @@ if ($directory) {
 
 ## getObject()
 
-`getObject(id, directory): Object|null` Get an object, returns null if it was not found.
+`getObject( id, directory ): Object | null` Get an object, returns null if it was not found.
 
 Parameters:
 - **id** ID of the object (`string`)
@@ -211,7 +211,7 @@ if ($object) {
 
 ## getCollection()
 
-`getCollection(directory): Collection|null` Get collection, returns null if it was not found.
+`getCollection( directory ): Collection | null` Get collection, returns null if it was not found.
 
 Parameters:
 - `directory` Name of the directory (`string`)
