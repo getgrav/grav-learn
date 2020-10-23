@@ -1,7 +1,9 @@
 ---
 title: Flex Directory
+page-toc:
+  active: true
 taxonomy:
-    category: docs
+  category: docs
 ---
 
 ## getTitle()

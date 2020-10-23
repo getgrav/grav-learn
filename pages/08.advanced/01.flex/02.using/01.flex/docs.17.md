@@ -1,7 +1,9 @@
 ---
 title: Flex
+page-toc:
+  active: true
 taxonomy:
-    category: docs
+  category: docs
 ---
 
 ! **TIP:** Complete list of methods can be found from **Customizing Flex Objects** section.
