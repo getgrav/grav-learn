@@ -126,7 +126,6 @@ if ($directory) {
 Returns:
 - **Collection** (`object`) or `null`
 
-
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
