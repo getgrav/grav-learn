@@ -13,7 +13,7 @@ taxonomy:
 `count(): int` Count the number of directories registered to Flex.
 
 Returns:
-- `int` count of **Directories**
+- `int` Number of **[Directories](/advanced/flex/using/directory)**
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -45,7 +45,7 @@ Parameters:
 - **names** Optional: List of directory names (`array`)
 
 Returns:
-- `array` list of **Directories**
+- `array` list of **[Directories](/advanced/flex/using/directory)**
 
 ! **TIP:** If no list of names was provided, method returns all directories registered to Flex.
 
@@ -129,7 +129,8 @@ Parameters:
 - **name** Name of the directory (`string`)
 
 Returns:
-- **Directory** (`object`) or `null`
+- **[Directory](/advanced/flex/using/directory)** (`object`)
+- `null` Directory not found
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -171,7 +172,8 @@ Parameters:
 - **directory** Name of the directory (`string`)
 
 Returns:
-- **Object** (`object`) or `null`
+- **[Object](/advanced/flex/using/object)** (`object`)
+- `null` Object not found
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -217,7 +219,8 @@ Parameters:
 - `directory` Name of the directory (`string`)
 
 Returns:
-- **Collection** (`object`) or `null`
+- **[Collection](/advanced/flex/using/collection)** (`object`)
+- `null` Directory not found
 
 [ui-tabs]
 [ui-tab title="Twig"]

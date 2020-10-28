@@ -10,6 +10,8 @@ taxonomy:
 
 Collection provides a few useful methods, which can be used to render the output, fetch objects, filter and sort and so on.
 
+! **TIP:** Flex Collection extends **[Doctrine Collections](https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/index.html)**.
+
 # Render Collection
 
 ## render()
@@ -43,7 +45,6 @@ Returns:
 use Grav\Common\Grav;
 use Grav\Framework\ContentBlock\HtmlBlock;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
-use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
 
 $page = 2;
 $limit = 10;
@@ -75,7 +76,7 @@ Parameters:
 - **orderings** Pairs of `property: direction` where direction is either 'ASC' or 'DESC' (`array`)
 
 Returns:
-- **Collection** (`object`) New sorted instance of the collection
+- **[Collection](/advanced/flex/using/collection)** (`object`) New sorted instance of the collection
 
 ! **TIP:** Default sort order can be set for the frontend in the **Flex Type** blueprints.
 
@@ -116,7 +117,7 @@ Parameters:
 - **limit** Maximum number of objects (`int`)
 
 Returns:
-- **Collection** (`object`) New filtered instance of the collection
+- **[Collection](/advanced/flex/using/collection)** (`object`) New filtered instance of the collection
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -160,7 +161,7 @@ Parameters:
 - **filters** Pairs of `property: value` which are used to filter he collection (`array`)
 
 Returns:
-- **Collection** (`object`) New filtered instance of the collection
+- **[Collection](/advanced/flex/using/collection)** (`object`) New filtered instance of the collection
 
 ! **TIP:** Default filtering can be set for the frontend in the **Flex Type** blueprints.
 
@@ -200,7 +201,7 @@ if ($collection) {
 `reverse(): Collection`  Reverse the order of the objects in the Collection.
 
 Returns:
-- **Collection** (`object`) New reversed instance of the collection
+- **[Collection](/advanced/flex/using/collection)** (`object`) New reversed instance of the collection
 
 ! **TIP:** If you're using `sort()`, it is recommended to reverse the ordering in there as it saves an extra step.
 
@@ -240,7 +241,7 @@ if ($collection) {
 `shuffle(): Collection`  Shuffle objects to a random order.
 
 Returns:
-- **Collection** (`object`) New randomly ordered instance of the collection
+- **[Collection](/advanced/flex/using/collection)** (`object`) New randomly ordered instance of the collection
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -278,7 +279,7 @@ Parameters:
 - **keys** List of object keys used to select the objects (`array`)
 
 Returns:
-- **Collection** (`object`) New instance of the collection
+- **[Collection](/advanced/flex/using/collection)** (`object`) New instance of the collection
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -319,7 +320,7 @@ Parameters:
 - **keys** List of object keys used to remove the objects (`array`)
 
 Returns:
-- **Collection** (`object`) New instance of the collection
+- **[Collection](/advanced/flex/using/collection)** (`object`) New instance of the collection
 
 
 [ui-tabs]
@@ -367,7 +368,7 @@ Parameters:
   - case_sensitive: `bool`
 
 Returns:
-- **Collection** (`object`) New filtered instance of the collection
+- **[Collection](/advanced/flex/using/collection)** (`object`) New filtered instance of the collection
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -402,7 +403,7 @@ if ($collection) {
 `copy(): Collection` Create a copy from the collection by cloning all the objects in the collection.
 
 Returns:
-- **Collection** (`object`) New instance of the collection, now with cloned objects
+- **[Collection](/advanced/flex/using/collection)** (`object`) New instance of the collection, now with cloned objects
 
 !! **WARNING:** If you modify objects in your collection, you should always use copies!
 
@@ -482,7 +483,8 @@ if ($collection) {
 `first(): Object | false` Sets the iterator to the first object in the collection and returns this object.
 
 Returns:
-- **Object** (`object`) First object or `false`
+- **[Object](/advanced/flex/using/object)** (`object`) First object
+- `false` No objects in the Collection
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -523,7 +525,9 @@ if ($collection) {
 `last(): Object | false` Sets the iterator to the last object in the collection and returns this object.
 
 Returns:
-- **Object** (`object`) Last object or `false`
+- **[Object](/advanced/flex/using/object)** (`object`) Last object
+- `false` No objects in the Collection
+
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -564,7 +568,9 @@ if ($collection) {
 `next(): object | false` Moves the iterator position to the next object and returns this element.
 
 Returns:
-- **Object** (`object`) Next object or `false`
+- **[Object](/advanced/flex/using/object)** (`object`) Next object
+- `false` No more objects in the Collection
+
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -606,7 +612,8 @@ if ($collection) {
 `current(): object | false` Gets the object of the collection at the current iterator position.
 
 Returns:
-- **Object** (`object`) Current object or `false`
+- **[Object](/advanced/flex/using/object)** (`object`) Current object
+- `false` No more objects in the Collection
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -650,7 +657,8 @@ if ($collection) {
 `key(): key | null` Gets the key of the object at the current iterator position.
 
 Returns:
-- **key** (`string`) Object key or `null`
+- **key** (`string`) Object key
+- `null` No more objects in the Collection
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -739,7 +747,8 @@ Parameters:
 - **key**  Object key (`string`)
 
 Returns:
-- **Object** (`object`) or `null` if object with given key is not in the collection
+- **Object** (`object`)
+- `null` Object with given key is not in the collection
 
 Alternative to [Array Access](#array-access)
 
@@ -787,7 +796,7 @@ if ($collection) {
 `getKeys(): array` Gets all keys of the collection.
 
 Returns:
-- List of keys (`array`)
+- `array` List of keys
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -822,7 +831,7 @@ if ($collection) {
 `GetObjectKeys(): array` Alias to the `getKeys()` method.
 
 Returns:
-- List of keys (`array`)
+- `array` List of keys
 
 ## getValues()
 
@@ -874,7 +883,7 @@ if ($collection) {
 Similar to `getValues()` but preserves the keys.
 
 Returns:
-- List of `key: Object` pairs (`array`)
+- `array` List of `key: Object` pairs
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -919,7 +928,7 @@ Parameters:
 - **length** Maximum number of objects (`int`)
 
 Returns:
-- List of `key: Object` pairs (`array`)
+- `array` List of `key: Object` pairs
 
 ! **TIP:** This method can be used for pagination.
 
@@ -966,7 +975,7 @@ Parameters:
 - **size** Size of the chunks (`int`)
 
 Returns:
-- Two dimensional list of `key: Object` pairs (`array`)
+- `array` Two dimensional list of `key: Object` pairs
 
 ! **TIP:** This method can be used to split content into rows and columns.
 
@@ -1023,7 +1032,7 @@ Parameters:
 - **property** Property name which is used to group the objects (`string`)
 
 Returns:
-- Two dimensional list of `key: Object` pairs, where value of the property is the key of the first level (`array`)
+- `array` Two dimensional list of `key: Object` pairs, where value of the property is the key of the first level
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -1078,7 +1087,7 @@ if ($collection) {
 `add( Object )` Adds an Object at the end of the collection.
 
 Parameters:
-- **Object** Object to be added (`object`)
+- **[Object](/advanced/flex/using/object)** Object to be added (`object`)
 
 ## remove()
 
@@ -1088,14 +1097,14 @@ Parameters:
 - **key** Object key to be removed (`object`)
 
 Returns:
-- **Object** Removed object (`object`) or `null` if it was not found
+- **[Object](/advanced/flex/using/object)** Removed object (`object`) or `null` if it was not found
 
 ## removeElement()
 
 `removeElement( Object ): bool` Removes the specified object from the collection, if it is found.
 
 Parameters:
-- **Object** Object to be removed (`object`)
+- **[Object](/advanced/flex/using/object)** Object to be removed (`object`)
 
 Returns:
 - `true` if object was in the collection, `false` if not
@@ -1121,7 +1130,7 @@ Returns:
 `contains( object ): bool` Checks whether an element is contained in the collection.
 
 Parameters:
-- **Object** Object to be tested (`object`)
+- **[Object](/advanced/flex/using/object)** Object to be tested (`object`)
 
 Returns:
 - `true` if object is in the collection, `false` if not
@@ -1131,7 +1140,7 @@ Returns:
 `indexOf( object ): string | false` Gets the index/key of a given object.
 
 Parameters:
-- **Object** Object to be tested (`object`)
+- **[Object](/advanced/flex/using/object)** Object to be tested (`object`)
 
 Returns:
 - `string` index/key of the object, `false` if not object was not found
@@ -1183,7 +1192,7 @@ Parameters:
 Returns:
 - **Collection** (`object`) The collection for chaining the method calls.
 
-!! **WARMING:** This method modifies the object instances shared between in all collections, if that is not intended, please  [copy()](#copy) collection before using this method.
+!! **WARNING:** This method modifies the object instances shared between all the collections, if that is not intended, please  [copy()](#copy) collection before using this method.
 
 ## defProperty()
 
@@ -1196,7 +1205,7 @@ Parameters:
 Returns:
 - **Collection** (`object`) The collection for chaining the method calls.
 
-!! **WARMING:** This method modifies the object instances shared between in all collections, if that is not intended, please  [copy()](#copy) collection before using this method.
+!! **WARNING:** This method modifies the object instances shared between all the collections, if that is not intended, please  [copy()](#copy) collection before using this method.
 
 ## unsetProperty()
 
@@ -1208,7 +1217,7 @@ Parameters:
 Returns:
 - **Collection** (`object`) The collection for chaining the method calls.
 
-!! **WARMING:** This method modifies the object instances shared between in all collections, if that is not intended, please  [copy()](#copy) collection before using this method.
+!! **WARNING:** This method modifies the object instances shared between all the collections, if that is not intended, please  [copy()](#copy) collection before using this method.
 
 ## call()
 
@@ -1221,7 +1230,7 @@ Parameters:
 Returns:
 - List of `key: result` pairs (`array`)
 
-!! **WARMING:** If the method modifies the object, please  [copy()](#copy) collection before using this method.
+!! **WARNING:** If the method modifies the object, please  [copy()](#copy) collection before using this method.
 
 ## getTimestamps()
 
@@ -1263,9 +1272,21 @@ Returns:
 
 `exists( Closure ): bool` Tests for the existence of an object that satisfies the given predicate.
 
+Parameters:
+- **Closure** Method used to test each object.
+
+Returns:
+- `bool` True if your callback function returns true for any object.
+
 ## forAll()
 
 `forAll( Closure ): bool` Tests whether the given predicate holds for all objects of this collection.
+
+Parameters:
+- **Closure** Method used to test each object.
+
+Returns:
+- `bool` True if your callback function returns true for all objects.
 
 # Closure Filtering (PHP only)
 
@@ -1275,24 +1296,63 @@ Returns:
 
 The order of the elements is preserved.
 
+Parameters:
+- **Closure** Method used to test a single object.
+
+Returns:
+- **Collection** (`object`) New collection with all the objects for which your callback function returns `true`.
+
 ## map()
 
 `map( Closure ): Collection` Applies the given function to each object in the collection and returns a new collection with the objects returned by the function.
 
+Parameters:
+- **Closure** Method used to test a single object.
+
+Returns:
+- **Collection** (`object`) New collection with objects returned by the callback function.
+
+
 ## collectionGroup()
 
-`collectionGroup( property ): Collection` Group objects in the collection by a field and return them as associated array of collections.
+`collectionGroup( property ): Collection[]` Group objects in the collection by a field and return them as associated array of collections.
+
+Parameters:
+- **property** (`string`) Property used to group the objects.
+
+Returns:
+- `array` Multiple collections in an array, key being the value of the property.
 
 ## matching()
 
 `matching( Criteria ): Collection` Selects all objects that match the expression and returns a new collection containing these objects.
 
+Parameters:
+- **[Criteria](https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/expression-builder.html#expression-builder)** Expression
+
+Returns:
+- **Collection** (`object`) New collection with objects matching the criteria.
+
+! **TIP:** Check Doctrine documentation for **[Expression Builder](https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/expression-builder.html#expression-builder)** and** [Expressions](https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/expressions.html#expressions)**.
+
 ## orderBy()
 
 `orderBy( array ): Collection` Reorder collection by list of property/value pairs.
+
+Parameters:
+- `array`
+
+Returns:
+- **Collection** (`object`) New collection with the new ordering.
 
 ## partition()
 
 `partition( Closure ): array` Partitions this collection in two collections according to a predicate.
 
 Keys are preserved in the resulting collections.
+
+Parameters:
+- **Closure** Method used to partition a single object. Returns true or false.
+
+Returns:
+- `array` Partitioned objects `[[a, b], [c, d, e]]`

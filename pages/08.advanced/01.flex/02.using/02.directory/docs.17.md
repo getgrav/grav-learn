@@ -78,7 +78,8 @@ Parameters:
 - **id** ID of the object (`string`)
 
 Returns:
-- **Object** (`object`) or `null`
+- **[Object](/advanced/flex/using/object)** (`object`)
+- `null` Object not found
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -121,10 +122,10 @@ if ($directory) {
 
 ## getCollection()
 
-`getCollection(): Collection | null` Get collection, returns null if it was not found.
+`getCollection(): Collection` Get collection, returns null if it was not found.
 
 Returns:
-- **Collection** (`object`) or `null`
+- **[Collection](/advanced/flex/using/collection)** (`object`)
 
 [ui-tabs]
 [ui-tab title="Twig"]
