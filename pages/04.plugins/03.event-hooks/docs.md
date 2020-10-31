@@ -1,52 +1,91 @@
 ---
 title: Event Hooks
+page-toc:
+  active: true
+  depth: 3
 taxonomy:
     category: docs
 ---
 
 In the previous [Plugin Tutorial](../plugin-tutorial) chapter, you might have noticed that our plugin logic was encompassed in two methods.  Each of these methods `onPluginsInitialized` and `onPageInitialized` correspond to **event hooks** that are available throughout the Grav life cycle.
 
-To fully harness the power of Grav plugins you need to know which event hooks are available, in what order are these hooks called, and what is available during these calls.  The **event hooks** have a direct relationship to the overall [Grav Lifecycle](../../advanced/grav-lifecycle) that we cover in the [Advanced](../../advanced) section later on.
+To fully harness the power of Grav plugins you need to know which event hooks are available, in what order are these hooks called, and what is available during these calls. The **event hooks** have a direct relationship to the overall [Grav Lifecycle](../../plugins/grav-lifecycle).
 
 ## Event Order
 
 Most events within Grav fire in a specific order and it is important to understand this order if you are creating plugins:
 
 1. [onFatalException](../event-hooks#onFatalException) _(no order, can occur anytime)_
+1. `PluginsLoadedEvent` class (1.7)
+1. `PluginsLoadedEvent` class (1.7)
 1. [onPluginsInitialized](../event-hooks#onPluginsInitialized)
+1. `FlexRegisterEvent` class (1.7)
+1. onThemeInitialized
+1. onRequestHandlerInit (1.6)
+1. onTask (1.6)
+  1. onTask.{task}
+1. onAction (1.6)
+  1. onAction.{action} (1.6)
+1. onBackupsInitialized
+1. onSchedulerInitialized (1.6)
 1. [onAssetsInitialized](../event-hooks#onAssetsInitialized)
 1. [onTwigTemplatePaths](../event-hooks#onTwigTemplatePaths)
+1. [onTwigLoader](../event-hooks#onTwigLoader)
 1. [onTwigInitialized](../event-hooks#onTwigInitialized)
 1. [onTwigExtensions](../event-hooks#onTwigExtensions)
-1. [onTwigPageVariables](../event-hooks#onTwigPageVariables) _(each page not cached yet)_
-1. [onPageContentRaw](../event-hooks#onPageContentRaw) _(each page not cached yet)_
-1. [onPageProcessed](../event-hooks#onPageProcessed) _(each page not cached yet)_
-1. [onMarkdownInitialized](../event-hooks#onMarkdownInitialized)
-1. [onPageContentProcessed](../event-hooks#onPageContentProcessed) _(each page not cached yet)_
-1. [onFolderProcessed](../event-hooks#onFolderProcessed) _(for each folder found)_
 1. [onBuildPagesInitialized](../event-hooks#onBuildPagesInitialized) _(once when pages are reprocessed)_
-1. [onBlueprintCreated](../event-hooks#onBlueprintCreated)
+  1. [onPageProcessed](../event-hooks#onPageProcessed) _(each page not cached yet)_
+  1. onFormPageHeaderProcessed (1.6) _(each page not cached yet)_
+  1. [onFolderProcessed](../event-hooks#onFolderProcessed) _(for each folder found)_
 1. [onPagesInitialized](../event-hooks#onPagesInitialized)
-1. [onPageNotFound](../event-hooks#onPageNotFound)
 1. [onPageInitialized](../event-hooks#onPageInitialized)
-1. [onCollectionProcessed](../event-hooks#onCollectionProcessed) _(when collection is requested)_
+  1. [onPageContentRaw](../event-hooks#onPageContentRaw) _(each page not cached yet)_
+  1. [onMarkdownInitialized](../event-hooks#onMarkdownInitialized)
+  1. [onPageContentProcessed](../event-hooks#onPageContentProcessed) _(each page not cached yet)_
+  1. onPageContent _(called first time Page::content() is called even when cached)_
+1. [onPageNotFound](../event-hooks#onPageNotFound)
+1. onPageAction (1.6)
+  1. onPageAction.{action} (1.6)
+1. onPageTask (1.6)
+  1. onPageTask.{task} (1.6)
+1. [onTwigPageVariables](../event-hooks#onTwigPageVariables) _(each page not cached yet)_
+1. onHttpPostFilter (1.5.2)
 1. [onTwigSiteVariables](../event-hooks#onTwigSiteVariables)
+1. [onCollectionProcessed](../event-hooks#onCollectionProcessed) _(when collection is requested)_
 1. [onOutputGenerated](../event-hooks#onOutputGenerated)
 1. [onOutputRendered](../event-hooks#onOutputRendered)
 1. [onShutdown](../event-hooks#onShutdown)
+
+Misc events:
+
+1. [onBlueprintCreated](../event-hooks#onBlueprintCreated)
+1. onTwigTemplateVariables
+1. onTwigStringVariables
 1. [onBeforeDownload](../event-hooks#onBeforeDownload)
 1. [onPageFallBackUrl](../event-hooks#onPageFallBackUrl)
+1. [onMediaLocate](../event-hooks#onMediaLocate)
+1. [onGetPageBlueprints](../event-hooks#onGetPageBlueprints)
+1. [onGetPageTemplates](../event-hooks#onGetPageTemplates)
+1. onFlexObjectRender (1.6)
+1. onFlexCollectionRender (1.6)
+1. onBeforeCacheClear
+1. onImageMediumSaved (ImageFile)
+1. onAfterCacheClear (1.7)
+1. onHttpPostFilter (1.7)
+1. `PermissionsRegisterEvent`class (1.7)
 
 ## Core Grav Event Hooks
 
 There are several core Grav event hooks that are triggered during the processing of a page:
 
 <a name="onFatalException"></a>
+
 #### onFatalException
 
 This is an event that can be fired at any time if PHP throws a fatal exception. This is currently used by the `problems` plugin to handle displaying a list of potential reasons why Grav throws the fatal exception.
 
 <a name="onPluginsInitialized"></a>
+
 #### onPluginsInitialized
 
 This is the first plugin event available. At this point the following objects have been initiated:
@@ -105,7 +144,7 @@ This event enables plugins to provide their own templates in addition to the one
 
 **Example**
 
-```twig
+[prism classes="language-twig line-numbers"]
 /**
  * Add page template types.
  */
@@ -115,7 +154,7 @@ public function onGetPageTemplates(Event $event)
     $types = $event->types;
     $types->register('downloads');
 }
-```
+[/prism]
 
 This allows a plugin to register a template (that it might provide) so that it shows up in the dropdown list of page template types (like when editing a page). In the example above, a template type of `downloads` is added as there is a `downloads.html.twig` file in the `downloads` directory.
 
@@ -127,7 +166,7 @@ This event, like `onGetPageTemplates` enables the plugin to provide its own reso
 
 **Example**
 
-```twig
+[prism classes="language-twig line-numbers"]
 $scanBlueprintsAndTemplates = function () use ($grav) {
     // Scan blueprints
     $event = new Event();
@@ -143,7 +182,7 @@ $scanBlueprintsAndTemplates = function () use ($grav) {
 
     self::$types->scanTemplates('theme://templates/');
 };
-```
+[/prism]
 
 In this example, we are using both the `onGetPageTemplates` and `onGetPageBlueprints` hooks to make these plugin-provided resources (templates and blueprints) available to Grav for inheritance and other uses.
 
@@ -156,6 +195,18 @@ Twig has its own set of event hooks.
 
 The base locations for template paths have been set on the **Twig object**.  If you need to add other locations where Twig will search for template paths, this is the event to use.
 
+**Example**
+
+[prism classes="language-twig line-numbers"]
+/**
+ * Add template directory to twig lookup path.
+ */
+ public function onTwigTemplatePaths()
+ {
+     $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
+ }
+[/prism]
+
 <a name="onTwigInitialized"></a>
 #### onTwigInitialized
 
@@ -164,7 +215,7 @@ The Twig templating engine is now initialized at this point.
 <a name="onTwigExtensions"></a>
 #### onTwigExtensions
 
-The core Twig extensions have been loaded, but if you need to add your own Twig extension, you can do so with this event hook.
+The core Twig extensions have been loaded, but if you need to add [your own Twig extension](https://twig.symfony.com/doc/3.x/advanced.html#id2), you can do so with this event hook.
 
 <a name="onTwigPageVariables"></a>
 #### onTwigPageVariables
@@ -224,3 +275,11 @@ After a folder is parsed and processed.  This is fired for **every folder** in t
 #### onPageFallBackUrl
 
 If a route is not recognized as a page, Grav tries to access a page media asset. The event is fired as soon as the procedure begins, so plugins can hook and provide additional functionality.
+
+#### onMediaLocate
+
+Adds support for custom media locations for excerpts.
+
+#### onTwigLoader
+
+Adds support for use of namespaces in conjunction with two new methods in Twig class: `Twig::addPath($path, $namespace)` and `Twig::prependPath($path, $namespace)`.

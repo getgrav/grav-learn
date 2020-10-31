@@ -1,5 +1,7 @@
 ---
 title: Plugin Tutorial
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -35,9 +37,9 @@ The first step in creating a new plugin is to **install the DevTools Plugin**.  
 
 * Navigate in the command line to the root of your Grav installation
 
-```
-$ bin/gpm install devtools
-```
+[prism classes="language-bash command-line"]
+bin/gpm install devtools
+[/prism]
 
 #### Install via Admin plugin
 
@@ -51,14 +53,14 @@ For this next step you really do need to be in the [command line](/cli-console/c
 
 From the root of your Grav installation enter the following command:
 
-```
-$ bin/plugin devtools new-plugin
-```
+[prism classes="language-bash command-line"]
+bin/plugin devtools new-plugin
+[/prism]
 
 This process will ask you a few questions that are required to create the new plugin:
 
-```
-$ bin/plugin devtools new-plugin
+[prism classes="language-bash command-line" cl-output="2-9"]
+bin/plugin devtools new-plugin
 Enter Plugin Name: Randomizer
 Enter Plugin Description: Sends the user to a random page
 Enter Developer Name: Acme Corp
@@ -67,15 +69,19 @@ Enter Developer Email: contact@acme.co
 SUCCESS plugin Randomizer -> Created Successfully
 
 Path: /www/user/plugins/randomizer
-```
 
-The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not automatically have the logic to perform the function we wish.  We will have to modify it to suite our needs.
+Make sure to run `composer update` to initialize the autoloader
+[/prism]
 
-## Step 2 - Plugin basics
+You need to run composer update in the newly created plugin folder.
+
+The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not automatically have the logic to perform the function we wish.  We will have to modify it to suit our needs.
+
+## Step 3 - Plugin basics
 
 Now we've created a new plugin that can be modified and developed. Let's break it down and have a look at what makes up a plugin.  If you look in the `user/plugins/randomizer` folder you will see:
 
-```
+[prism classes="language-text"]
 .
 ├── CHANGELOG.md
 ├── LICENSE
@@ -83,7 +89,7 @@ Now we've created a new plugin that can be modified and developed. Let's break i
 ├── blueprints.yaml
 ├── randomizer.php
 └── randomizer.yaml
-```
+[/prism]
 
 This is a sample structure but some things are required:
 
@@ -91,43 +97,50 @@ This is a sample structure but some things are required:
 
 These items are critical and your plugin will not function reliably unless you include these in your plugin.
 
-* **`blueprints.yaml`** - The configuration file used by Grav to get information on your plugin. It can also define a form that the admin can display when viewing the plugin details.  This form will let you save settings for the plugin. [This file is documented in the Forms section](/forms/blueprints).
+* **`blueprints.yaml`** - The configuration file used by Grav to get information on your plugin. It can also define a form that the admin can display when viewing the plugin details.  This form will let you save settings for the plugin. [This file is documented in the Forms chapter](/forms/blueprints).
 * **`randomizer.php`** - This file will be named according to your plugin, but can be used to house any logic your plugin needs.  You can use any [plugin event hook](/plugins/event-hooks) to perform logic at pretty much any point in [Grav's lifecycle](/plugins/grav-lifecycle).
 * **`randomizer.yaml`** - This is the configuration used by the plugin to set options the plugin might use. This should be named in the same way as the `.php` file.
 
 ### Required items for release
 
-This items are required if you wish to release your plugin via GPM.
+These items are required if you wish to release your plugin via GPM.
 
 * **`CHANGELOG.md`** - A file that follows the [Grav Changelog Format](/advanced/grav-development#changelog-format) to show changes in releases.
 * **`LICENSE`** - a license file, should probably be MIT unless you have a specific need for something else.
 * **`README.md`** - A 'Readme' that should contain any documentation for the plugin.  How to install it, configure it, and use it.
 
-## Step 3 - Plugin configuration
+## Step 4 - Plugin configuration
 
 As we described in the **Plugin Overview**, we need to have a few configuration options for our plugin, so the `randomizer.yaml` file should look something like this:
 
-```
+[prism classes="language-yaml line-numbers"]
 enabled: true
+active: true
 route: /random
 filters:
     category: blog
-```
+[/prism]
 
 This allows us to have multiple filters if we wish, but for now, we just want all content with the taxonomy `category: blog` to be eligible for the random selection.
+
+All plugins must have the `enabled` option. If this is `false` in the site-wide configuration, your plugin
+will never be initialized by Grav. All plugins also have the `active` option. If this is `false` in the site-wide
+configuration, each page will need to activate your plugin. Note that multiple plugins also support `enabled`/`active` in
+page frontmatter by using `mergeConfig`, detailed below.
 
 !!!! The Grav default install has taxonomy defined for `category` and `tag` by default.  This configuration can be modified in your `user/config/site.yaml` file.
 
 Of course, as with all other configurations in Grav, it is advised not to touch this default configuration for day-to-day control. Rather, you should create an override in a file called `/user/config/plugins/randomizer.yaml` to house any custom settings.  This plugin-provided `randomizer.yaml` is really intended to set some sensible defaults for your plugin.
 
-## Step 4 - Base plugin structure
+## Step 5 - Base plugin structure
 
 The base plugin class structure will already look something like this:
 
-```
+[prism classes="language-php line-numbers"]
 <?php
 namespace Grav\Plugin;
 
+use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
 use RocketTheme\Toolbox\Event\Event;
 
@@ -137,98 +150,116 @@ use RocketTheme\Toolbox\Event\Event;
  */
 class RandomizerPlugin extends Plugin
 {
- ...
+    /**
+     * Composer autoload.
+     *
+     * @return ClassLoader
+     */
+    public function autoload(): ClassLoader
+    {
+        return require __DIR__ . '/vendor/autoload.php';
+    }
 }
-```
+[/prism]
 
 We need to add a few `use` statements because we are going to use these classes in our plugin, and it saves space and makes the code more readable if we don't have to put the full namespace for each class inline.
 
 Modify the `use` statements to look like this:
 
-```
+[prism classes="language-php line-numbers"]
+use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
 use Grav\Common\Page\Collection;
 use Grav\Common\Uri;
 use Grav\Common\Taxonomy;
-```
+[/prism]
 
 The two key parts of this class structure are:
 
 1. Plugins need to have `namespace Grav\Plugin` at the top of the PHP file.
 2. Plugins should be named in **titlecase** based on the name of the plugin with the string `Plugin` appended to the end, and should extend `Plugin`, hence the class name `RandomizerPlugin`.
 
-## Step 5 - Subscribed events
+## Step 6 - Subscribed events
 
 Grav uses a sophisticated event system, and to ensure optimal performance, all plugins are inspected by Grav to determine which events the plugin is subscribed to.
 
-```
-public static function getSubscribedEvents()
+[prism classes="language-php line-numbers"]
+public static function getSubscribedEvents(): array
 {
     return [
-        'onPluginsInitialized' => ['onPluginsInitialized', 0]
+        'onPluginsInitialized' => [
+            ['autoload', 100000], // TODO: Remove when plugin requires Grav >=1.7
+            ['onPluginsInitialized', 0]
+        ]
     ];
 }
-```
+[/prism]
 
 In this plugin we are going to tell Grav we're subscribing to the `onPluginsInitialized` event.  This way we can use that event (which is the first event available to plugins) to determine if we should subscribe to other events.
 
-## Step 6 - Determine if the plugin should run
+!!! **Note:** The first `autoload` event listener is only needed in Grav 1.6. Grav 1.7 automatically calls the method.
+
+## Step 7 - Determine if the plugin should run
 
 The next step is to add a method to our `RandomizerPlugin` class to handle the `onPluginsInitialized` event so it only activates when a user tries to go to the route we have configured in our `randomizer.yaml` file.  Replace the current 'sample' plugin logic with the following:
 
 
-```
-public function onPluginsInitialized()
+[prism classes="language-php line-numbers"]
+public function onPluginsInitialized(): void
 {
     // Don't proceed if we are in the admin plugin
     if ($this->isAdmin()) {
         return;
     }
 
+    /** @var Uri $uri */
     $uri = $this->grav['uri'];
-    $route = $this->config->get('plugins.randomizer.route');
+    $config = $this->config();
 
+    $route = $config['route'] ?? null;
     if ($route && $route == $uri->path()) {
         $this->enable([
             'onPageInitialized' => ['onPageInitialized', 0]
         ]);
     }
 }
-```
+[/prism]
 
 First, we get the **Uri object** from the **Dependency Injection Container**.  This contains all the information about the current URI, including the route information.
 
-The **config object** is already part of the base **Plugin**, so we can simply use it to get the configuration value for our configured `route`.
+The **config() method** is already part of the base **Plugin**, so we can simply use it to get the configuration value for our configured `route`.
 
 Next, we compare the configured route to the current URI path. If they are equal, we instruct the dispatcher that our plugin will also listen to a new event: `onPageInitialized`.
 
 By using this approach, we ensure we do not run through any extra code if we do not need to.  Practices like these will ensure your site runs as fast as possible.
 
-## Step 7 - Display the random page
+## Step 8 - Display the random page
 
 The last step of our plugin is to display the random page, and we can do that by adding the following method:
 
-```
+[prism classes="language-php line-numbers"]
 /**
  * Send user to a random page
  */
-public function onPageInitialized()
+public function onPageInitialized(): void
 {
+    /** @var Taxonomy $uri */
     $taxonomy_map = $this->grav['taxonomy'];
+    $config = $this->config();
 
-    $filters = (array) $this->config->get('plugins.randomizer.filters');
-    $operator = $this->config->get('plugins.randomizer.filter_combinator', 'and');
+    $filters = (array)($config['filters'] ?? []);
+    $operator = $config['filter_combinator'] ?? 'and';
 
-    if (count($filters)) {
+    if (count($filters) > 0) {
         $collection = new Collection();
         $collection->append($taxonomy_map->findTaxonomy($filters, $operator)->toArray());
-        if (count($collection)) {
+        if (count($collection) > 0) {
             unset($this->grav['page']);
             $this->grav['page'] = $collection->random()->current();
         }
     }
 }
-```
+[/prism]
 
 This method is a bit more complicated, so we'll go over what's going on:
 
@@ -245,18 +276,19 @@ This method is a bit more complicated, so we'll go over what's going on:
 6. Set the current `page` to a random item in the collection.
 
 
-## Step 8 - Cleanup
+## Step 9 - Cleanup
 
 The example plugin that was created with the **DevTools** plugin, used an event called `onPageContentRaw()`. This event is not used in our new plugin, so we can safely remove the entire function.
 
-## Step 9 - Final plugin class
+## Step 10 - Final plugin class
 
 And that is all there is to it! The plugin is now complete.  Your complete plugin class should look something like this:
 
-```
+[prism classes="language-php line-numbers"]
 <?php
 namespace Grav\Plugin;
 
+use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
 use Grav\Common\Page\Collection;
 use Grav\Common\Uri;
@@ -278,26 +310,38 @@ class RandomizerPlugin extends Plugin
      *     callable (or function) as well as the priority. The
      *     higher the number the higher the priority.
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
-        return [
-            'onPluginsInitialized' => ['onPluginsInitialized', 0]
-        ];
+    return [
+        'onPluginsInitialized' => [
+            ['autoload', 100000], // TODO: Remove when plugin requires Grav >=1.7
+            ['onPluginsInitialized', 0]
+        ]
+    ];
     }
 
     /**
-     * Initialize the plugin
+     * Composer autoload.
+     *
+     * @return ClassLoader
      */
-    public function onPluginsInitialized()
+    public function autoload(): ClassLoader
+    {
+        return require __DIR__ . '/vendor/autoload.php';
+    }
+
+    public function onPluginsInitialized(): void
     {
         // Don't proceed if we are in the admin plugin
         if ($this->isAdmin()) {
             return;
         }
 
+        /** @var Uri $uri */
         $uri = $this->grav['uri'];
-        $route = $this->config->get('plugins.randomizer.route');
+        $config = $this->config();
 
+        $route = $config['route'] ?? null;
         if ($route && $route == $uri->path()) {
             $this->enable([
                 'onPageInitialized' => ['onPageInitialized', 0]
@@ -308,24 +352,26 @@ class RandomizerPlugin extends Plugin
     /**
      * Send user to a random page
      */
-    public function onPageInitialized()
+    public function onPageInitialized(): void
     {
+        /** @var Taxonomy $uri */
         $taxonomy_map = $this->grav['taxonomy'];
+        $config = $this->config();
 
-        $filters = (array) $this->config->get('plugins.randomizer.filters');
-        $operator = $this->config->get('plugins.randomizer.filter_combinator', 'and');
+        $filters = (array)($config['filters'] ?? []);
+        $operator = $config['filter_combinator'] ?? 'and';
 
-        if (count($filters)) {
+        if (count($filters) > 0) {
             $collection = new Collection();
             $collection->append($taxonomy_map->findTaxonomy($filters, $operator)->toArray());
-            if (count($collection)) {
+            if (count($collection) > 0) {
                 unset($this->grav['page']);
                 $this->grav['page'] = $collection->random()->current();
             }
         }
     }
 }
-```
+[/prism]
 
 If you followed along, you should have a fully functional **Randomizer** plugin enabled for your site.  Just point your browser to the `http://yoursite.com/random`, and you should see a random page.  You can also download the original **Random**  plugin directly from the [Plugins Download](https://getgrav.org/downloads/plugins) section of the [getgrav.org](https://getgrav.org/downloads/plugins) site.
 
@@ -335,8 +381,8 @@ One popular technique that is used in a variety of plugins is the concept of mer
 
 In recent versions of Grav, a helper method was added to perform this functionality automatically rather than you having to code that logic yourself.  The **SmartyPants** plugin provides a good example of this functionality in action:
 
-```
-public function onPageContentProcessed(Event $event)
+[prism classes="language-php line-numbers"]
+public function onPageContentProcessed(Event $event): void
 {
     $page = $event['page'];
     $config = $this->mergeConfig($page);
@@ -348,8 +394,8 @@ public function onPageContentProcessed(Event $event)
         ));
     }
 }
-```
+[/prism]
 
 ## Implementing CLI in your Plugin
 
-Plugins have also the capability of integrating with the `bin/plugin` command line to execute tasks. You can follow the [advanced tutorial](/advanced/grav-cli-plugin) if you desire to implement such functionality.
+Plugins have also the capability of integrating with the `bin/plugin` command line to execute tasks. You can follow the [plugin CLI documentation](/cli-console/grav-cli-plugin#developers-integrate-the-cli-in-plugin) if you desire to implement such functionality.

@@ -30,9 +30,9 @@ There are two options at this point.  **Generate a New Key**, or **Import Key**.
 
 Fire up a terminal window and type:
 
-```
-$ ssh-keygen -t dsa
-```
+[prism classes="language-bash command-line"]
+ssh-keygen -t dsa
+[/prism]
 
 This key generation script will prompt you to fill in some values, or you can just hit `[return]` to accept the default values.  This will create an `id_dsa` (private key), and an `id_dsa.pub` (public key) in a folder called `.ssh/` in your home directory. It is important to ensure you **NEVER** give out your private key, nor upload it anywhere, **only your public key**.
 
@@ -48,9 +48,9 @@ After uploading, you should see the key listed at the **Public Keys** section of
 
 This means you are ready to test ssh'ing to your server.
 
-```
-$ ssh wirenine_username@wirenine_servername -p2200
-```
+[prism classes="language-bash command-line"]
+ssh wirenine_username@wirenine_servername -p2200
+[/prism]
 
 Obviously, you will need to put in your WireNine-provided username for `wirenine_username`, and the WireNine-provided servername for `wirenine_servername`.  The `-p2200` is important as this is the non-standard port that WireNine runs SSH on.
 
@@ -60,9 +60,9 @@ It seems in some WireNine setups the default permissions on user created files a
 
 This should be setup automatically but is not currently.  However, the fix is easy.  Just edit your `.bash_profile` file and add this line to the bottom of it.
 
-```
+[prism classes="language-text"]
 umask 022
-```
+[/prism]
 
 You will need to re-login to your terminal to get this change picked up.
 
@@ -84,9 +84,9 @@ WireNine is a rare bread in the world of hosting providers, in that they provide
 
 To test that you have the **correct version of PHP**, **Zend OPcache**, and **APCu** running, you can create a temporary file: `public_html/info.php` and put this in the contents:
 
-```
+[prism classes="language-php line-numbers"]
 <?php phpinfo();
-```
+[/prism]
 
 Save the file and point your browser to this info.php file on your site, and you should be greeted with PHP information reflecting the version you selected earlier:
 
@@ -102,19 +102,19 @@ Using your new found SSH capabilities, let's SSH to your WireNine server (if you
 
 We will extract Grav into a `/grav` subfolder, but you could unzip directly into the root of your `~/public_html/` folder to ensure Grav is accessible directly.
 
-```
-$ cd ~/public_html
-[~/public_html]$ wget https://getgrav.org/download/core/grav/latest
-[~/public_html]$ unzip grav-v{{ grav_version }}.zip
- ```
+[prism classes="language-bash command-line"]
+cd ~/public_html
+wget https://getgrav.org/download/core/grav/latest
+unzip grav-v{{ grav_version }}.zip
+[/prism]
 
 You should now be able to point your browser to `http://mywirenineserver.com/grav` using the appropriate URL of course.
 
 Because you have followed these instructions diligently, you will also be able to use the [Grav CLI](../../advanced/grav-cli) and [Grav GPM](../../advanced/grav-gpm) commands such as:
 
-```
-$ cd ~/public_html/grav
-$ bin/grav clear-cache
+[prism classes="language-bash command-line" cl-output="3-13"]
+cd ~/public_html/grav
+bin/grav clear-cache
 
 Clearing cache
 
@@ -126,7 +126,7 @@ Cleared:  images/*
 Cleared:  assets/*
 
 Touched: /home/your_user/public_html/grav/user/config/system.yaml
-```
+[/prism]
 
 ## Alternate Install Method: Softaculous
 
@@ -146,7 +146,7 @@ Selecting the download icon will take you to the product page for Grav.
 ![](soft_2.png)
 [/ui-callout]
 
-At this point, you can select the **Downlaod** icon to progress to the main product page for Grav. This page includes additional information, as well as the link where you can install Grav directly to your server.
+At this point, you can select the **Download** icon to progress to the main product page for Grav. This page includes additional information, as well as the link where you can install Grav directly to your server.
 
 [ui-callout]
 [ui-callout-item title="Download" position="28%, 5%, se"]

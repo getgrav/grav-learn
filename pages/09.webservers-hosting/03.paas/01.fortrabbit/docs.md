@@ -27,34 +27,34 @@ There is also **free trial** — which is feature complete but limited in time. 
 
 ## Install locally
 
-First [download](http://getgrav.org/downloads) and unpack the latest Grav locally. It unpacks in the subfolder `grav`. You might configure your localhost to serve the grav site locally now.
+First [download](https://getgrav.org/downloads) and unpack the latest Grav locally. It unpacks in the subfolder `grav`. You might configure your localhost to serve the grav site locally now.
 
 
 ## Deploy to Fortrabbit
 
 Now you can push it. Change into the project folder and set it up with your Git remote on Fortrabbit:
 
-```bash
+[prism classes="language-bash command-line"]
 $ cd grav
 $ git init .
 $ git remote add fortrabbit git@deploy.eu2.frbit.com:your-app.git
-```
+[/prism]
 
 Before committing anything, you should exclude the `vendor/` and the `cache/` folder. Create the file `.gitignore` with the following contents:
 
-```
+[prism classes="language-text"]
 vendor
 cache/*
 !cache/.gitkeep
-```
+[/prism]
 
 Now you can add everything and push everything to your App:
 
-```bash
+[prism classes="language-bash command-line"]
 $ git add -A
 $ git commit -m 'Initial'
 $ git push -u fortrabbit master
-```
+[/prism]
 
 Done: The first deployment triggers a Composer install on remote which can take a few minutes. You can watch it build in the Git output stream. Now, your Grav site is online. Each App comes with an App URL (your-app.frb.io) which you can visit in the browser. 
 

@@ -4,8 +4,8 @@ taxonomy:
     category: docs
 ---
 
-### Chapter 11
+### Chapter 12
 
 # Migration
 
-This section is dedicated to support migrations from other CMSes like WordPress
+This chapter is dedicated to support migrations from other CMSes like WordPress

@@ -1,4 +1,6 @@
 {% macro loop(page, parent_loop) %}
+    {% import _self as self %}
+
     {% if parent_loop|length > 0 %}
         {% set data_level = parent_loop %}
         {% set parent_loop = parent_loop ~ '.' %}
@@ -17,7 +19,7 @@
             </a>
             {% if p.children.count > 0 %}
             <ul>
-                {{ _self.loop(p, parent_loop~loop.index) }}
+                {{ self.loop(p, parent_loop~loop.index) }}
             </ul>
             {% endif %}
         </li>
@@ -25,8 +27,10 @@
     {% endfor %}
 {% endmacro %}
 
+{% import _self as macro %}
+
 <ul class="topics">
-    {{ _self.loop(pages, '') }}
+    {{ macro.loop(pages, '') }}
 </ul>
 
 <hr />

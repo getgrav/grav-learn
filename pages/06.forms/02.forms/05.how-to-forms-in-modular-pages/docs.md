@@ -1,5 +1,5 @@
 ---
-title: How to: Forms in modular pages
+title: 'How to: Forms in modular pages'
 taxonomy:
     category: docs
 ---
@@ -19,11 +19,11 @@ The `form.md` page will not contain any form definition. It’s just an indicati
 
 Important: set
 
-```
+[prism classes="language-yaml line-numbers"]
 ---
 cache_enable: false
 ---
-```
+[/prism]
 
 in that page frontmatter header, because of how modular pages work, if you forget this the form will be cached, along with the nonce that is generated every 12 hours. So when reaching the 12 hours change, the form will stop working until the cache is refreshed. This step is not needed for standalone page forms.
 
@@ -31,11 +31,11 @@ Now add the form header to the main modular page, `modular.md`
 
 The modular.md page should contain the whole form definition, with fields etc, as if it was a “full-page” form.md file header. With its own page path as the `form.action` field.
 
-!!!In Form v2.0, you can now define the form directly in the modular sub-page just like any other form. However, if not found, the form plugin will look in the 'current page', i.e. the top-level modular page for a form, so it's fully backwards compatible with the 1.0 way of doing things.!!!
+!!! In Form v2.0, you can now define the form directly in the modular sub-page just like any other form. However, if not found, the form plugin will look in the 'current page', i.e. the top-level modular page for a form, so it's fully backwards compatible with the 1.0 way of doing things. !!!
 
 For example:
 
-```
+[prism classes="language-yaml line-numbers"]
 ---
 content:
     items: '@self.modular'
@@ -63,7 +63,7 @@ form:
             message: 'Thank you for your feedback!'
 ---
 
-```
+[/prism]
 
 In the form header, make sure you add the `action` parameter, with the modular page route
 

@@ -1,1 +1,2 @@
-theme: hybrid
+enabled: false
+theme: github

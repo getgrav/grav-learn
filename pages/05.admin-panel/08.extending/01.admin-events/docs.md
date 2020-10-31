@@ -6,7 +6,7 @@ process:
     twig: true
 ---
 
-The Admin plugin has multiple event hooks that can be used during the [Grav Lifecycle](/plugins/grav-lifecycle).  See the general plugin documentation for using event hooks in the [Plugins](/plugins) section.
+The Admin plugin has multiple event hooks that can be used during the [Grav Lifecycle](/plugins/grav-lifecycle).  See the general plugin documentation for using event hooks in the [Plugins](/plugins) chapter.
 
 ## Available Admin Event Hooks
 * [onAdminTaskExecute](../admin-events#onAdminTaskExecute)
@@ -38,7 +38,7 @@ While creating a new page, this event is fired after the header data is initiall
 <a name="onAdminSave"></a>
 ### onAdminSave
 
-Use admin event `onAdminSave()` to manipulate the page object data `$obj` before it is saved to the filesystem.
+Use admin event `onAdminSave()` to manipulate the page object data `$object` before it is saved to the filesystem.
 
 <a name="onAdminAfterSave"></a>
 ### onAdminAfterSave

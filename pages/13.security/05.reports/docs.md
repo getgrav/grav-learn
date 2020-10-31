@@ -1,6 +1,6 @@
 ---
 title: Reports
-published: false
+published: true
 taxonomy:
     category: docs
 content:

@@ -1,18 +1,18 @@
 ---
 title: Advanced Blueprint Features
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
 
-!!!! These advanced features are only available in **Grav 1.1.x**.  They will not work in Grav 1.0.x
-
-There are some advanced features in the blueprints which allow you to extend them and to have dynamic fields.
+There are advanced features in the blueprints which allow you to extend them and to have dynamic fields.
 
 ## Defining Validation Rules
 
 If you need the same validation rules multiple times, you can create your own custom rule for it.
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 rules:
   slug:
     pattern: "[a-z][a-z0-9_\-]+"
@@ -24,40 +24,49 @@ form:
       type: text
       label: Folder Name
       validate:
-        type: slug
-```
+        rule: slug
+[/prism]
+
 Above example creates rule `slug`, which is then used in the folder field of the form.
 
 ## Extending Base Type (extends@)
 
-You can extend existing blueprints. Basically extending allows you to add new fields as well as modify existing ones from the base blueprint.
+You can extend existing blueprint, which allows you to add new fields as well as modify existing ones from the base blueprint.
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 extends@: default
-```
+[/prism]
 
-In long format you can specify lookup context for your base file:
+In the extended format you can specify a lookup context for your base file:
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 extends@:
   type: default
   context: blueprints://pages
-```
+[/prism]
 
 You can also extend the blueprint itself, if there are multiple versions of the same blueprint.
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 extends@: parent@
-```
+[/prism]
 
 There is no limit on how many blueprints you can extend. Fields defined in the first blueprint will be replaced by any later blueprints in the list.
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 extends@:
   - parent@
   - type: default
     context: blueprints://pages
-```
+[/prism]
+
+### Understanding the type- and context-properties
+
+In the examples above, `type` is referencing a file and `context` a path. The `context`-property uses [Streams](https://learn.getgrav.org/advanced/multisite-setup#streams), which means that it resolves to a physical location.
+
+`context: blueprints://` by default will yield `/user/plugins/admin/blueprints`, Admin's blueprints-folder. `type: default` will yield `default.yaml`, when looking up files. Because these two properties are used together, they yield a full path that Grav can understand: `/user/plugins/admin/blueprints/default.yaml`.
+
+Whenever you see the `://`-syntax in these docs, you can be pretty sure it's referring to a stream. And when using `context`, this stream must resolve to an existing folder to work.
 
 ## Embedding Form (import@)
 
@@ -65,7 +74,7 @@ Sometimes you may want to share some fields or sub-forms between multiple forms.
 
 Let's create `blueprints://partials/gallery.yaml` which we want to embed to our form:
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 form:
   fields:
     gallery.images:
@@ -75,11 +84,11 @@ form:
         .src:
           type: text
           label: Image
-```
+[/prism]
 
 Our form then has a section where we would like to embed the gallery images:
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 form:
   fields:
     images:
@@ -89,7 +98,7 @@ form:
         import@:
           type: partials/gallery
           context: blueprints://
-```
+[/prism]
 
 ## Removing Fields / Properties (unset-*@)
 
@@ -101,24 +110,25 @@ If you want to remove a property of field, you just append property name, eg: `u
 By default blueprints use deep merging of its properties. Sometimes instead of merging the content of the field, you want to start from a clean table.
 If you want to replace the whole field, your new field needs to start with `replace@`:
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 author.name:
   replace@: true
   type: text
   label: Author name
-```
+[/prism]
+
 
 As the result `author.name` will have only two properties: `type` and `label` regardless of what the form had before.
 You can do the same for individual properties:
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 summary.enabled:
   replace-options@: true
   options:
     0: Yeah
     1: Nope
     2: Do not care
-```
+[/prism]
 
 Note: `replace-*@` is alias for `unset-*@`.
 
@@ -126,25 +136,25 @@ Note: `replace-*@` is alias for `unset-*@`.
 
 There are times when you might want to get default value from Grav configuration. For example you may want to have author field to default to author of the site:
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 form:
   fields:
     author:
       type: text
       label: Author
       config-default@: site.author.name
-```
+[/prism]
 
 If your site author name is `John Doe`, the form is equivalent to:
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 form:
   fields:
     author:
       type: text
       label: Author
       default: "John Doe"
-```
+[/prism]
 
 You can use `config-*@` for any field; for example if you want to change the field `type`, you can just have `config-type@: site.forms.author.type` to allow you to change the input field type from your configuration.
 
@@ -154,7 +164,7 @@ You can make function calls with parameters from your blueprints to dynamically 
 
 As an example we are editing a page and we want to have a field that allows us to change its parent or in another words move page into another location. For that we need default value that points to the current location as well as a list of options which consists of all possible locations. For that we need a way to ask Grav
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 form:
   fields:
     route:
@@ -165,11 +175,11 @@ form:
       data-options@: '\Grav\Common\Page\Pages::parentsRawRoutes'
       options:
         '/': '- Root -'
-```
+[/prism]
 
 If you were editing team member page, resulting form would look something like this:
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 form:
   fields:
     route:
@@ -183,29 +193,29 @@ form:
         '/team': 'Team'
         '/team/ceo': '  Meet Our CEO'
         ...
-```
+[/prism]
 
 While `data-default@:` and `data-options@:` are likely the most used dynamic field properties, you are not limited to those. There are no limits on which properties you can fetch, including `type`, `label`, `validation` and even `fields` under the current field.
 
 Additionally you can pass parameters to the function call just by using array where the first value is the function name and parameters follow:
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
   data-default@: ['\Grav\Theme\ImaginaryClass::getMyDefault', 'default', false]
-```
+[/prism]
 
 ## Changing field ordering
 
 When you extend a blueprint or import a file, by default the new fields are added to the end of the list. Sometimes this is not what you want to do, you may want to add item as the first or after some existing field.
 
-If you want to create a field, you can state its ordering using the `ordering@` property. This field can contain either a field name or an integer (0 = first item).
+If you want to create a field, you can state its ordering using the `ordering@` property. This field can contain either a field name or an integer (-1 = first item).
 
 Here is an example:
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 form:
   fields:
     route:
-      ordering@: 0
+      ordering@: -1
       type: select
       label: Parent
       classes: fancy
@@ -216,13 +226,13 @@ form:
         '/team': 'Team'
         '/team/ceo': '  Meet Our CEO'
         ...
-```
+[/prism]
 
 Doing this ensures that the route field will be the first field to appear in the form. This makes it easy to import and/or extend an existing field and place your additional fields where you would like them to go.
 
 Here is another example:
 
-``` yaml
+[prism classes="language-yaml line-numbers"]
 form:
   fields:
     author:
@@ -230,7 +240,7 @@ form:
       type: text
       label: Author
       default: "John Doe"
-```
+[/prism]
 
 In the example above, we used the name of another field to set the ordering. In this example, we have set it up so that the `author` field appears after the `title` field in the form.
 
@@ -240,7 +250,7 @@ In the example above, we used the name of another field to set the ordering. In 
 
 If you create a special form field type, which needs a special handling in blueprints, there is a plugin function that you can use.
 
-``` php
+[prism classes="language-php line-numbers"]
     /**
      * Get list of form field types specified in this plugin. Only special types needs to be listed.
      *
@@ -257,7 +267,7 @@ If you create a special form field type, which needs a special handling in bluep
             ]
         ];
     }
-```
+[/prism]
 
 You do not need to register this function as it's not really an event, but gets fired when plugin object gets constructed.
 The purpose of this function is to give extra instructions how to handle the field, for example above code makes display and spacer types to be virtual, meaning that they won't exist in real data.
@@ -268,19 +278,19 @@ You can add any `key: value` pairs including dynamic properties like `data-optio
 
 Because of blueprints consist of fields with dots, getting nested field from blueprint uses `/` notation instead of `.` notation.
 
-``` php
+[prism classes="language-php"]
 $tabs = $blueprint->get('form/fields/tabs');
-```
+[/prism]
 
 This makes it possible to access special data fields, like:
 
-``` php
+[prism classes="language-php"]
 $name = $blueprint->get('form/fields/content.name');
 $name = $blueprint->get('form/fields/content/fields/.name');
-```
+[/prism]
 
 For backwards compatibility, you can specify divider in the last (3rd) parameter of `set()` and `get()`
 
-``` php
+[prism classes="language-php"]
 $tabs = $blueprint->get('form/fields/tabs', null, '/');
-```
+[/prism]

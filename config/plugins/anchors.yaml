@@ -1,1 +1,1 @@
-selectors: '#body h2, #body h3, #body h4, #body h5'
+selectors: '#body-inner h2, #body-inner h3, #body-inner h4, #body-inner h5'

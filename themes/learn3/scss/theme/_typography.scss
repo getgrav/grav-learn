@@ -126,8 +126,8 @@ code + .copy-to-clipboard {
     border-left: 0 !important;
     font-size: inherit !important;
     vertical-align: middle;
+    border: 1px solid #fbf0cb;
     height: 21px;
-    top: 0;
 }
 
 pre {
@@ -195,6 +195,10 @@ hr {
     pre {
         white-space: pre-wrap;
     }
+}
+
+code.language-bash {
+    white-space: pre;
 }
 
 .tabs-wrapper pre {

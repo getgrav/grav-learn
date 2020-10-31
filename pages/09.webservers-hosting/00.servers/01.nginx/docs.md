@@ -5,6 +5,8 @@ routes:
         - '/webservers-hosting/local/nginx'
 taxonomy:
     category: docs
+shortcode-core:
+    parser: regex
 ---
 
 *Nginx* is a HTTP server software with focus on core web server and proxy features. It is very common because of its resource efficiency and responsiveness under load. Nginx spawns worker processes, each of which can handle thousands of connections. Each of the connections handled by the worker get placed within an event loop where they exist with other connections. Within the loop, events get processed asynchronously, allowing work to be handled in a non-blocking manner. When the connection closes, it gets removed from the loop. This style of connection processing allows Nginx to scale incredibly far with limited resources.
@@ -16,7 +18,7 @@ taxonomy:
 This page explains how to run Grav with *Nginx* as the HTTP server and *PHP-FPM* (FastCGI Process Manager) to process PHP scripts, so these packages need to be installed on your server:
 
 * `nginx`
-* `php5-fpm`
+* `php-fpm`
 
 ## Configuration
 
@@ -26,7 +28,7 @@ It is assumed that your Nginx configuration is located in `/etc/nginx/` and your
 
 ### File Permissions
 
-The `/var/www` directory and all contained files and folders should be owned by `$USER:www-data` (or whatever you name the Nginx user/group). The section <troubleshooting/permissions> explains how to setup file and directory permissions for Grav, in this case using a shared group. Basically what you want is `775` for directories and `664` for files in the Grav directory, so Grav is allowed to modify content and upgrade itself. You should add your user to the `www-data` group so you can access files that are created by Grav/Nginx.
+The `/var/www` directory and all contained files and folders should be owned by `$USER:www-data` (or whatever you name the Nginx user/group). The section [Troubleshooting/Permissions](https://learn.getgrav.org/16/troubleshooting/permissions) explains how to setup file and directory permissions for Grav, in this case using a shared group. Basically what you want is `775` for directories and `664` for files in the Grav directory, so Grav is allowed to modify content and upgrade itself. You should add your user to the `www-data` group so you can access files that are created by Grav/Nginx.
 
 
 ### Example nginx.conf
@@ -37,7 +39,7 @@ The following configuration is an improved version of the default `/etc/nginx/ng
 
 **nginx.conf**:
 
-```nginx
+[prism classes="language-nginx line-numbers"]
 user www-data;
 worker_processes auto;
 worker_rlimit_nofile 8192; # should be bigger than worker_connections
@@ -59,7 +61,7 @@ http {
     server_tokens off;
 
     # maximum file upload size
-    # update 'upload_max_filesize' & 'post_max_size' in /etc/php5/fpm/php.ini accordingly
+    # update 'upload_max_filesize' & 'post_max_size' in /etc/php/fpm/php.ini accordingly
     client_max_body_size 32m;
     # client_body_timeout 60s; # increase for very long file uploads
 
@@ -121,21 +123,21 @@ http {
     # include virtual host configs
     include sites-enabled/*;
 }
-```
+[/prism]
 
 ### Grav Site Configuration
 
 Grav gets shipped with a configuration file for your site in the `webserver-configs` directory of your Grav installation. You can copy that file into your nginx config directory:
 
-```bash
+[prism classes="language-bash command-line"]
 cp /var/www/grav/webserver-configs/nginx.conf /etc/nginx/sites-available/grav-site
-```
+[/prism]
 
 Open that file with an editor and replace "example.com" with your domain/IP (or "localhost" if you want to just run it locally), replace the "root" line with "root /var/www/grav/;" and then create a symbolic link of your site-config in `sites-enabled`:
 
-```bash
+[prism classes="language-bash command-line"]
 ln -s /etc/nginx/sites-available/grav-site /etc/nginx/sites-enabled/grav-site
-```
+[/prism]
 
 <!--
 !! It is recommended to use the file `expires.conf` from [github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx) (in the directory `h5bp/location/`). It will set "Expires" headers for different file types, so the browser can cache them. Save the file somewhere in your `/etc/nginx/` directory and include it in your site config, e.g. before the first location directive in `/etc/nginx/sites-available/grav-site`.
@@ -143,9 +145,9 @@ ln -s /etc/nginx/sites-available/grav-site /etc/nginx/sites-enabled/grav-site
 
 Finally let Nginx reload its configuration:
 
-```bash
+[prism classes="language-bash command-line"]
 nginx -s reload
-```
+[/prism]
 
 ### Fix against httpoxy vulnerability
 
@@ -154,9 +156,9 @@ nginx -s reload
 
 In order to secure your site against this vulnerability you should block the `Proxy` header. This can be done by adding a FastCGI parameter to your config. Simply open the file `/etc/nginx/fastcgi.conf` and add this line at the end:
 
-```nginx
+[prism classes="language-nginx"]
 fastcgi_param  HTTP_PROXY         "";
-```
+[/prism]
 
 ### Using SSL (with an existing certificate)
 
@@ -166,7 +168,7 @@ First, create a file `/etc/nginx/ssl.conf` with the following content and adjust
 
 **ssl.conf**:
 
-```nginx
+[prism classes="language-nginx line-numbers"]
 # set the paths to your cert and key files here
 ssl_certificate /etc/ssl/certs/example.com.crt;
 ssl_certificate_key /etc/ssl/private/example.com.key;
@@ -193,13 +195,13 @@ ssl_stapling_verify on;
 ssl_trusted_certificate /etc/ssl/certs/example.com.chain+root.crt;
 resolver 198.51.100.1 198.51.100.2 203.0.113.66 203.0.113.67 valid=60s;
 resolver_timeout 2s;
-```
+[/prism]
 
 Now change the content of your Grav-specific config `/etc/nginx/sites-available/grav-site` to redirect unencrypted HTTP requests to HTTPS, that means to a `server` block listening on port 443 and including your `ssl.conf` (replace "example.com" with your domain/IP). You can also change this to redirect from the non-www to the www version of your domain.
 
 **grav-site**:
 
-```nginx
+[prism classes="language-nginx line-numbers"]
 # redirect http to non-www https
 server {
     listen [::]:80;
@@ -237,12 +239,12 @@ server {
     # ...
     # the rest of this server block (location directives) is identical to the one from the shipped config
 }
-```
+[/prism]
 
 Finally reload your Nginx configuration:
 
-```bash
+[prism classes="language-bash command-line"]
 nginx -s reload
-```
+[/prism]
 
 <!-- TODO: ### Using a Let's Encrypt SSL certificate -->

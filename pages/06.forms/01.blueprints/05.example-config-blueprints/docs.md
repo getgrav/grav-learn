@@ -1,5 +1,5 @@
 ---
-title: Example: Config Blueprints
+title: 'Example: Config Blueprints'
 taxonomy:
     category: docs
 ---
@@ -9,7 +9,7 @@ It's common to add some configuration options to site.yaml, to be shown in the s
 To make those options configurable via Admin panel, add some fields to `user/blueprints/config/site.yaml`. For example:
 
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 @extends:
     '@parent'
 
@@ -21,13 +21,13 @@ form:
                 myfield:
                     type: text
                     label: My Field
-```
+[/prism]
 
 Will add the 'My Field' input type, appending it to the Content section of the Site configuration.
 
 You can add entire new sections too, for example:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 @extends:
     '@parent'
 
@@ -43,4 +43,4 @@ form:
                     type: text
                     label: A label
                     size: large
-```
+[/prism]

@@ -1,5 +1,5 @@
 ---
-title: Example: Page Blueprints
+title: 'Example: Page Blueprints'
 taxonomy:
     category: docs
 ---
@@ -12,7 +12,7 @@ If you want to use the default page form, and just add a couple of select boxes 
 
 This will use the default page form, and append a text field to the **Advanced** tab, under the **Overrides** section:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 title: Gallery
 '@extends':
     type: default
@@ -36,11 +36,11 @@ form:
                   validate:
                     required: true
                     type: int
-```
+[/prism]
 
 This will instead add a new tab, called **Gallery**, with some fields in it.
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 title: Gallery
 '@extends':
     type: default
@@ -74,7 +74,7 @@ form:
                 one: One
                 two: Two
                 three: Three
-```
+[/prism]
 
 The fields types you can add are listed in [Available form fields for use in the admin](../fields-available)
 
@@ -88,7 +88,7 @@ You can avoid extending from the default form, and create a page form that is co
 
 For example:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 title: Gallery
 
 form:
@@ -129,7 +129,7 @@ form:
               options:
                 '/': PLUGIN_ADMIN.DEFAULT_OPTION_ROOT
 
-```
+[/prism]
 
 ### A note for Expert mode
 
@@ -141,7 +141,7 @@ In order for the Admin Plugin to pick up the blueprints, and thus show the new P
 
 #### In the User Blueprints folder
 
-Put them in `user/blueprints/pages/`. This is a good place to put them when you simply want your blueprints to be present in your site.
+Put them in `user/blueprints/`. This is a good place to put them when you simply want your blueprints to be present in your site.
 
 #### In the Theme
 
@@ -155,22 +155,20 @@ If you are using a Gantry5 based theme, the best location is `user/data/gantry5/
 
 Put them in `user/plugins/YOURPLUGIN/blueprints/`. This is the place where to put them if you define and add custom pages in the plugin.
 
-Then subscribe to the `onGetPageTemplates` event and add them to Grav. The following example adds the blueprints from the `blueprints/` folder and also the page templates from the `templates/` folder.
+Then subscribe to the `onGetPageBlueprints` event and add them to Grav. The following example adds the blueprints from the `blueprints/` folder.
 
-```php
+[prism classes="language-php line-numbers"]
 public static function getSubscribedEvents()
 {
   return [
-    'onGetPageTemplates' => ['onGetPageTemplates', 0]
+    'onGetPageBlueprints' => ['onGetPageBlueprints', 0]
 
   ];
 }
 
-public function onGetPageTemplates($event)
+public function onGetPageBlueprints($event)
 {
   $types = $event->types;
-  $locator = Grav::instance()['locator'];
-  $types->scanBlueprints($locator->findResource('plugin://' . $this->name . '/blueprints'));
-  $types->scanTemplates($locator->findResource('plugin://' . $this->name . '/templates'));
+  $types->scanBlueprints('plugins://' . $this->name . '/blueprints');
 }
-```
+[/prism]

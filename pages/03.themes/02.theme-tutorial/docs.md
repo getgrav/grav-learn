@@ -1,16 +1,20 @@
 ---
 title: Theme Tutorial
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
 
 Often, the best way to learn a new thing is to use an example, and then try to build your own creation from it. We are going to use this same methodology for creating a new Grav theme.
 
-## Antimatter
+## Quark
 
-Grav comes with a clean and modern theme called **Antimatter** which uses a simple base set of CSS styling that we call **Nucleus**.
+Grav comes with a clean and modern theme called **Quark** which uses the [Spectre.css framework](https://picturepan2.github.io/spectre/).
 
-Nucleus is a lightweight CSS framework that contains the essential CSS resets and styling for layout and HTML markup without any over-bearing design.  Antimatter has some custom styling on top of the Nucleus framework to give it a unique look and feel.
+Spectre.css is a lightweight, responsive and modern CSS framework for faster and extensible development.
+
+Spectre provides basic styles for typography and elements, flexbox based responsive layout system, pure CSS components and utilities with best practice coding and consistent design language.
 
 However, it's often better to start from something even simpler.
 
@@ -22,6 +26,8 @@ Pure is a small, fast, and responsive CSS framework that contains the basics to 
 
 You can read up on all the features Pure brings to the table on the [Pure.css project site](http://purecss.io/).
 
+Also, you should read the [Important Theme Updates](https://getgrav.org/blog/important-theme-updates) blog article that outlines some key changes in Grav themes to provide the best plugin support going forward.
+
 ## Step 1 - Install DevTools Plugin
 
 !! Previous versions of this tutorial required creating a base theme by default.  This whole process can be skipped thanks to our new **DevTools Plugin**
@@ -30,11 +36,11 @@ The first step in creating a new theme is to **install the DevTools Plugin**.  T
 
 #### Install via CLI GPM
 
-* Navigate in the command line to the root of your Grav installation
+* Navigate in the command line to the root of your Grav installation.
 
-```
-$ bin/gpm install devtools
-```
+[prism classes="language-bash command-line"]
+bin/gpm install devtools
+[/prism]
 
 #### Install via Admin Plugin
 
@@ -48,40 +54,42 @@ For this next step you really do need to be in the [command line](/cli-console/c
 
 From the root of your Grav installation enter the following command:
 
-```
-$ bin/plugin devtools new-theme
-```
+[prism classes="language-bash command-line"]
+bin/plugin devtools new-theme
+[/prism]
 
 This process will ask you a few questions that are required to create the new theme:
 
-! We're going to use **pure-blank** to create a new theme, but you can create a simple **inheritence** style template that inherits from another base theme
+! We're going to use **pure-blank** to create a new theme, but you can create a simple **inheritance** style template that inherits from another base theme
 
-```
-$ bin/plugin devtools new-theme
+[prism classes="language-bash command-line" cl-output="2-15"]
+bin/plugin devtools new-theme
+
 Enter Theme Name: MyTheme
 Enter Theme Description: My New Theme
 Enter Developer Name: Acme Corp
 Enter Developer Email: contact@acme.co
 Please choose a template type
-  [0] pure-blank
-  [1] inheritence
- > 0
+  [pure-blank ] Basic Theme using Pure.css
+  [inheritance] Inherit from another theme
+  [copy       ] Copy another theme
+ > pure-blank
 
 SUCCESS theme mytheme -> Created Successfully
 
 Path: /www/user/themes/my-theme
-```
+[/prism]
 
-The DevTools command tells you where this new template was created. This created template is fully functional but also very simple.  You will want to modify this to suite your needs.
+The DevTools command tells you where this new template was created. This created template is fully functional but also very simple.  You will want to modify this to suit your needs.
 
-In order to see your new theme in action, you will need to change the default theme from `antimatter` to `my-theme`, so edit your `user/config/system.yaml` and change it:
+In order to see your new theme in action, you will need to change the default theme from `quark` to `my-theme`, so edit your `user/config/system.yaml` and change it:
 
-```
+[prism classes="language-yaml line-numbers"]
 ...
 pages:
     theme: my-theme
 ...
-```
+[/prism]
 
 Reload your site in your browser and you should see the theme has now changed.
 
@@ -89,7 +97,7 @@ Reload your site in your browser and you should see the theme has now changed.
 
 Now we've created a new basic theme that can be modified and developed, let's break it down and have a look at what makes up a theme.  If you look in the `user/themes/my-theme` folder you will see:
 
-```
+[prism classes="language-text"]
 .
 ├── CHANGELOG.md
 ├── LICENSE
@@ -113,7 +121,7 @@ Now we've created a new basic theme that can be modified and developed, let's br
 │       ├── metadata.html.twig
 │       └── navigation.html.twig
 └── thumbnail.jpg
-```
+[/prism]
 
 This is a sample structure but some things are required:
 
@@ -121,7 +129,7 @@ This is a sample structure but some things are required:
 
 These items are critical and your theme will not function reliably unless you include these in your theme.
 
-* **`blueprints.yaml`** - The configuration file used by Grav to get information on your theme. It can also define a form that the admin can display when viewing the theme details.  This form will let you save settings for the theme. [This file is documented in the Forms section](/forms/blueprints).
+* **`blueprints.yaml`** - The configuration file used by Grav to get information on your theme. It can also define a form that the admin can display when viewing the theme details.  This form will let you save settings for the theme. [This file is documented in the Forms chapter](/forms/blueprints).
 * **`my-theme.php`** - This file will be named according to your theme, but can be used to house any logic your theme needs.  You can use any [plugin event hook](/plugins/event-hooks) except `onPluginsInitialized()`, however there is a theme specific `onThemeInitialized()` hook specific for themes that you can use instead.
 * **`my-theme.yaml`** - This is the configuration used by the plugin to set options the theme might use.
 * **`templates/`** - This is a folder that contains the Twig templates to render your pages.
@@ -143,13 +151,13 @@ As you know from the [previous chapter](../theme-basics), each item of content i
 
 Utilizing the Twig [Extends](http://twig.sensiolabs.org/doc/tags/extends.html) tag you can define a base layout with [blocks](http://twig.sensiolabs.org/doc/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.  So look at the `templates/default.html.twig` file and examine its content:
 
-```
+[prism classes="language-twig line-numbers"]
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
     {{ page.content }}
 {% endblock %}
-```
+[/prism]
 
 There are really two things going on here.
 
@@ -163,44 +171,47 @@ Second, the block `content` is overridden from the base template, and the page's
 
 If you look at the `templates/partials/base.html.twig` you will see the meat of the HTML layout:
 
-```
+[prism classes="language-twig line-numbers"]
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!DOCTYPE html>
-<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<html lang="{{ (grav.language.getActive ?: theme_config.default_lang)|e }}">
 <head>
 {% block head %}
     <meta charset="utf-8" />
-    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+    <title>{% if header.title %}{{ header.title|e }} | {% endif %}{{ site.title|e }}</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% include 'partials/metadata.html.twig' %}
 
-    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
-    <link rel="canonical" href="{{ page.url(true, true) }}" />
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png')|e }}" />
+    <link rel="canonical" href="{{ page.url(true, true)|e }}" />
+{% endblock head %}
 
-    {% block stylesheets %}
-        {% do assets.addCss('http://yui.yahooapis.com/pure/0.6.0/pure-min.css', 100) %}
-        {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', 99) %}
-        {% do assets.addCss('theme://css/custom.css', 98) %}
-    {% endblock %}
-    {{ assets.css() }}
+{% block stylesheets %}
+    {% do assets.addCss('http://yui.yahooapis.com/pure/0.6.0/pure-min.css', 100) %}
+    {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', 99) %}
+    {% do assets.addCss('theme://css/custom.css', 98) %}
+{% endblock %}
 
-    {% block javascripts %}
-        {% do assets.addJs('jquery', 100) %}
-    {% endblock %}
-    {{ assets.js() }}
+{% block javascripts %}
+    {% do assets.addJs('jquery', 100) %}
+{% endblock %}
 
-{% endblock head%}
+{% block assets deferred %}
+    {{ assets.css()|raw }}
+    {{ assets.js()|raw }}
+{% endblock %}
+
 </head>
-<body id="top" class="{{ page.header.body_classes }}">
+<body id="top" class="{{ page.header.body_classes|e }}">
 
 {% block header %}
     <div class="header">
         <div class="wrapper padding">
-            <a class="logo left" href="{{ base_url == '' ? '/' : base_url }}">
+            <a class="logo left" href="{{ (base_url == '' ? '/' : base_url)|e }}">
                 <i class="fa fa-rebel"></i>
-                {{ config.site.title }}
+                {{ config.site.title|e }}
             </a>
             {% block header_navigation %}
             <nav class="main-nav">
@@ -222,23 +233,27 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 {% block footer %}
     <div class="footer text-center">
         <div class="wrapper padding">
-            <p><a href="http://getgrav.org">Grav</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://www.rockettheme.com">RocketTheme</a>.</p>
+            <p><a href="https://getgrav.org">Grav</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://www.rockettheme.com">RocketTheme</a>.</p>
         </div>
     </div>
 {% endblock %}
 
 {% block bottom %}
-    {{ assets.js('bottom') }}
+    {{ assets.js('bottom')|raw }}
 {% endblock %}
 
 </body>
-```
+[/prism]
+
+! **TIP:** If variable is safe to render and contains HTML, always use `|raw` filter to make the template to work with `autoescape` turned on.
+
+!! It is very important to either turn on `autoescape` setting from your [System Configuration](/basics/grav-configuration#twig) or to remember to escape every single variable in template files to make your site safe against XSS attacks.
 
 ## Step 5 - Breaking it Down
 
 Please read over the code in the `base.html.twig` file to try to understand what is going on.  There are several key things to note:
 
-1. A `theme_config` variable is set with the theme configuration.  Because Twig doesn't work well with dashes retrieve variables with dashes (e.g. `config.themes.my-theme`), we use the `attribute()` Twig function to dynamically retrieve the `my-theme` data from `config.themes`.
+1. A `theme_config` variable is set with the theme configuration.  Because Twig doesn't work well with dashes, to retrieve variables with dashes (e.g. `config.themes.my-theme`), we use the `attribute()` Twig function to dynamically retrieve the `my-theme` data from `config.themes`.
 
 1. The `<html lang=...` item is set based on Grav's active language if enabled, else it uses the `default_lang` as set in the `theme_config`.
 
@@ -254,11 +269,11 @@ Please read over the code in the `base.html.twig` file to try to understand what
 
 1. Now we define a block called `stylesheets`, and in here we use the [Asset Manager](/themes/asset-manager) to add several assets.  The first one loads the Pure.css framework.  The second one loads [FontAwesome](http://fontawesome.io/) to provide useful icons.  The last entry points to a `custom.css` file in the theme's `css/` folder.  In here are a few useful styles to get you started, but you can add more here.  Also you can add other CSS file entries as needed.
 
-1. The `{{ assets.css() }}` call is what triggers the template to render all the CSS link tags.
+1. The `{{ assets.css()|raw }}` call is what triggers the template to render all the CSS link tags.
 
 1. The `javascripts` block, like the `stylesheets` block is a good place to put your JavaScript files.  In this example, we only add the 'jquery' library which is already bundled with Grav, so you don't need to provide a path to it.
 
-1. The `{{ assets.js() }}` will render all the JavaScript tags.
+1. The `{{ assets.js()|raw }}` will render all the JavaScript tags.
 
 1. The `<body>` tag has a class attribute that will output anything you set in the `body_classes` variable of the page's frontmatter.
 
@@ -275,13 +290,13 @@ Please read over the code in the `base.html.twig` file to try to understand what
 1. Similar to the content block, the `{% block bottom %}{% endblock %}` is intended as a placeholder for templates to add custom JavaScript initialization or analytic codes. In this example, we output any JavaScript that was added to the `bottom` Asset Group.  Read more about this in the [Asset Manager](/themes/asset-manager) documentation.
 
 
-### Step 6 - Theme CSS
+## Step 6 - Theme CSS
 
 You might have noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via Asset Manager: `do assets.add('theme://css/custom.css', 98)`.  This file will house any custom CSS we need to fill in the gaps not provided by the Pure.css framework.  As Pure is a very minimal framework, it provides the essentials but almost no styling.
 
 1. In your `user/themes/my-theme/css` folder, view the `custom.css`:
 
-```
+[prism classes="language-css line-numbers"]
 /* Core Stuff */
 * {
     -webkit-box-sizing: border-box;
@@ -458,11 +473,11 @@ blockquote {
     content: '\f105';
 }
 
-```
+[/prism]
 
 This is pretty standard CSS stuff and sets some basic margins, fonts, colors, and utility classes. There is some basic content styling and some more extensive styling required to render the drop-down menu.  Feel free to modify this file as you need, or even add new CSS files (just ensure you add a reference in the `head` block by following the example for `custom.css`).
 
-### Step 7 - Testing
+## Step 7 - Testing
 
 To see your theme in action, open your browser, and point it to your Grav site.  You should see something like this:
 

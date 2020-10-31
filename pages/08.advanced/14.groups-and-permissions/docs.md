@@ -1,10 +1,10 @@
 ---
 title: Groups and Permissions
 taxonomy:
-    category: docs
+  category: docs
 ---
 
-!! See the [Grav Admin FAQ](http://learn.getgrav.org/admin-panel/faq#adding-and-managing-users), to learn how to manage users
+!! See the [Grav Admin FAQ](https://learn.getgrav.org/admin-panel/faq#adding-and-managing-users), to learn how to manage users
 
 ## Defining groups
 
@@ -14,7 +14,7 @@ Groups are defined in the user/config/groups.yaml file. If that file does not ex
 
 Here’s an example of a user groups definition:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 registered:
   icon: users
   readableName: 'Registered Users'
@@ -40,7 +40,7 @@ administrators:
       login: true
     site:
       login: true
-```
+[/prism]
 
 Here we define 3 groups.
 
@@ -50,20 +50,20 @@ Every user can be assigned to a group.
 
 Simply add
 
-```yaml
-groups: 
+[prism classes="language-yaml line-numbers"]
+groups:
   - paid
-```
+[/prism]
 
 to a user’s yaml file under `user/accounts`.
 
 You can add multiple groups:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 groups:
   - administrators
   - another-group
-```
+[/prism]
 
 You can also edit a user’s group information through the Admin Plugin.
 
@@ -71,11 +71,11 @@ You can also edit a user’s group information through the Admin Plugin.
 
 Users assigned to a group inherit the group permissions. You can for example define a group that has permission `site.paid` by adding:
 
-```yaml
-  access:
-    site:
-      paid: true
-```
+[prism classes="language-yaml line-numbers"]
+access:
+  site:
+    paid: true
+[/prism]
 
 to the group definition in `user/config/groups.yaml`.
 
@@ -87,10 +87,12 @@ When a user belongs to multiple groups, it's enough that a group provides a perm
 
 You can fine-tune the permissions on a user level too, as usual. With groups, you can define a global permission and deny it on a user level, by adding
 
-```yaml
-  access:
-    site:
-      paid: false
-```
+[prism classes="language-yaml line-numbers"]
+access:
+  site:
+    paid: false
+[/prism]
 
 to a user’s yaml file.
+
+!! See the [Grav Admin FAQs](https://learn.getgrav.org/16/admin-panel/faq#managing-acl) to learn more about available Permissions

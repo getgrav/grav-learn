@@ -19,7 +19,7 @@ In this guide, we will cover the essentials for configuring the **Tier-1 Split-S
 
 [Crucial Web Hosting](http://www.crucialwebhost.com/promo/1421086/) has two primary options when it comes to hosting: **Spit-Shared** and **Split-Dedicated** hosting.  According to Crucial, these cloud-based options are superior to traditional hosting setups as they provide better isolation and performance.
 
-Split-Shared hosting ranges from $10/month to $100/month depending on memory and SSD space.  Split Dedicated ranges from $150/month to $650/month depending on number of cores, memory, SSD space and bandwidth.  We'll just be using the baseline $10/moth option that comes with 256MB of memory and 10GB of SSD space.
+Split-Shared hosting ranges from $10/month to $100/month depending on memory and SSD space.  Split Dedicated ranges from $150/month to $650/month depending on number of cores, memory, SSD space and bandwidth.  We'll just be using the baseline $10/month option that comes with 256MB of memory and 10GB of SSD space.
 
 ## Enabling SSH
 
@@ -35,9 +35,9 @@ There are two options at this point.  **Generate a New Key**, or **Import Key**.
 
 Fire up a terminal window and type:
 
-```
-$ ssh-keygen -t dsa
-```
+[prism classes="language-bash command-line"]
+ssh-keygen -t dsa
+[/prism]
 
 This key generation script will prompt you to fill in some values, or you can just hit `[return]` to accept the default values.  This will create an `id_dsa` (private key), and an `id_dsa.pub` (public key) in a folder called `.ssh/` in your home directory. It is important to ensure you **NEVER** give out your private key, nor upload it anywhere, **only your public key**.
 
@@ -51,9 +51,9 @@ After uploading, you should see the key listed at the **Public Keys** section of
 
 This means you are ready to test ssh'ing to your server.
 
-```
-$ ssh crucial_username@crucial_servername
-```
+[prism classes="language-bash command-line"]
+ssh crucial_username@crucial_servername
+[/prism]
 
 Obviously, you will need to put in your Crucial-provided username for `crucial_username`, and the crucial-provided servername for `crucial_servername`.
 
@@ -63,15 +63,15 @@ Currently Crucial Web Hosting defaults to **PHP 5.3**, which is not up to the mi
 
 To do this, we have to add a special handler call in the `.htaccess` file in the web root.  So create the `~/www/.htaccess` file and put the following:
 
-```
+[prism classes="language-bash command-line"]
 AddHandler application/x-httpd-php70 .php
-```
+[/prism]
 
 Save the file. To test that you have the **correct version of PHP**, you can create a temporary file: `~/www/info.php` and put this in the contents:
 
-```
+[prism classes="language-php"]
 <?php phpinfo();
-```
+[/prism]
 
 Save the file and point your browser to this info.php file on your site, and you should be greeted with PHP information reflecting the version you selected earlier:
 
@@ -86,13 +86,13 @@ Save the file and point your browser to this info.php file on your site, and you
 
 At the time of this writing, Crucial's default PHP version is **5.3**.  Because Grav requires PHP **5.5+**, we need to ensure that Grav is using a newer version of PHP on the command line (CLI).  To accomplish this, you should use SSH to access your server and create a new symbolic link to a newer PHP version in your user's `bin/` folder:
 
-```
-$ ln -s /usr/local/bin/php-70 ~/bin/php
-```
+[prism classes="language-bash command-line"]
+ln -s /usr/local/bin/php-70 ~/bin/php
+[/prism]
 
 Next, edit your `.bash_profile` file and add move the `$HOME/bin` reference in front of the regular `$PATH` string:
 
-```
+[prism classes="language-text line-numbers"]
 # .bash_profile
 
 # Get the aliases and functions
@@ -105,17 +105,17 @@ fi
 PATH=$HOME/bin:$PATH
 
 export PATH
-```
+[/prism]
 
 You will need _source_ the profile: `$ source ~/.bash_profile` or re-login to your terminal for you path change to take effect, but after doing so you should be able to type `php -v` and see:
 
-```
-$ php -v
+[prism classes="language-bash command-line" cl-output="2-5"]
+php -v
 PHP 7.0.1 (cli) (built: Dec 28 2015 17:55:36) ( NTS )
 Copyright (c) 1997-2015 The PHP Group
 Zend Engine v3.0.0, Copyright (c) 1998-2015 Zend Technologies
     with Zend OPcache v7.0.6-dev, Copyright (c) 1999-2015, by Zend Technologies
-```
+[/prism]
 
 ## Install and Test Grav
 
@@ -123,19 +123,19 @@ Using your new found SSH capabilities, let's SSH to your Crucial server (if you 
 
 We will extract Grav into a `/grav` subfolder, but you could unzip directly into the root of your `~/www/` folder to ensure Grav is accessible directly.
 
-```
-$ cd ~/www
-[~/www]$ wget --no-check-certificate https://getgrav.org/download/core/grav/latest
-[~/www]$ unzip grav-v{{ grav_version }}.zip
- ```
+[prism classes="language-bash command-line"]
+cd ~/www
+wget --no-check-certificate https://getgrav.org/download/core/grav/latest
+unzip grav-v{{ grav_version }}.zip
+[/prism]
 
 You should now be able to point your browser to `http://mycrucialserver.com/grav` using the appropriate URL of course.
 
 Because you have followed these instructions diligently, you will also be able to use the [Grav CLI](../../advanced/grav-cli) and [Grav GPM](../../advanced/grav-gpm) commands such as:
 
-```
-$ cd ~/public_html/grav
-$ bin/grav clear-cache
+[prism classes="language-bash command-line" cl-output="3-13"]
+cd ~/public_html/grav
+bin/grav clear-cache
 
 Clearing cache
 
@@ -147,4 +147,4 @@ Cleared:  images/*
 Cleared:  assets/*
 
 Touched: /home/your_user/public_html/grav/user/config/system.yaml
-```
+[/prism]

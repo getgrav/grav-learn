@@ -1,11 +1,10 @@
 ---
 title: Grav Server Error
-markdown_extra: true
 taxonomy:
     category: docs
 ---
 
-![](grav-server-error.png)   {.center}
+![](grav-server-error.png?classes=center)
 
 Server errors are almost always caused by misconfiguration of Grav. Something unexpected happened and because of that Grav is unable to recover and serve the page.
 
@@ -25,9 +24,9 @@ Possible reasons include:
 
 The first thing you should do is flush the cache to ensure that the configuration is up to date:
 
-```
+[prism classes="language-bash command-line"]
 bin/grav clear-cache
-```
+[/prism]
 
 !! Before moving on, make sure that you do not have other file permission issues like this.
 

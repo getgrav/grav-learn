@@ -32,9 +32,9 @@ SiteGround provides a very thorough [tutorial for using SSH](http://www.sitegrou
 
 Fire up a terminal window and type:
 
-```
+[prism classes="language-bash command-line"]
 $ ssh-keygen -t dsa
-```
+[/prism]
 
 This key generation script will prompt you to fill in some values, or you can just hit `[return]` to accept the default values.  This will create an `id_dsa` (private key), and an `id_dsa.pub` (public key) in a folder called `.ssh/` in your home directory. It is important to ensure you **NEVER** give out your private key, nor upload it anywhere, **only your public key**.
 
@@ -44,9 +44,9 @@ Once generate you can paste the contents of your `id_dsa.pub` public key into th
 
 After uploading, you should see the key listed at the bottom of this page. This means you are ready to test SSH'ing to your server.
 
-```
+[prism classes="language-bash command-line"]
 $ ssh siteground_username@siteground_servername -p18765
-```
+[/prism]
 
 Obviously, you will need to put in your SiteGround-provided username for `siteground_username`, and the SiteGround-provided servername for `siteground_servername`.  The `-p18765` is important as this is the non-standard port that SiteGround runs SSH on.
 
@@ -56,15 +56,15 @@ Obviously, you will need to put in your SiteGround-provided username for `sitegr
 
 By default, SiteGround hosting comes with **support** for **Zend OPcache**, but it is **not enabled**.  You must manually enable it by creating a `php.ini` file in your `public_html/` folder with the contents:
 
-```
+[prism classes="language-text"]
 zend_extension=opcache.so
-```
+[/prism]
 
 To test you have the correct version of PHP and the Zend OPcache running, you can create a temporary file: `public_html/info.php` and put this in the contents:
 
-```
+[prism classes="language-php"]
 <?php phpinfo();
-```
+[/prism]
 
 Save the file and point your browser to this info.php file on your site and you should be greeted with a PHP information reflecting the version you selected earlier:
 
@@ -80,11 +80,11 @@ Using your new found SSH capabilities, let's SSH to your SiteGround server (if y
 
 We will extract Grav into a `/grav` subfolder, but you could unzip directly into the root of your `~/public_html/` folder to ensure Grav is accessible directly.
 
-```
+[prism classes="language-bash command-line"]
 $ cd ~/public_html
 [~/public_html]$ curl -L -O https://github.com/getgrav/grav/releases/download/{{ grav_version }}/grav-v{{ grav_version}}.zip
 [~/public_html]$ unzip grav-v{{ grav_version}}.zip
- ```
+[/prism]
 
 You should now be able to point your browser to `http://mysiteground.com/grav` using the appropriate URL of course.
 
@@ -92,7 +92,7 @@ You should now be able to point your browser to `http://mysiteground.com/grav` u
 
 Because you have followed these instructions diligently, you will also be able to use the [Grav CLI](../../advanced/grav-cli) and [Grav GPM](../../advanced/grav-gpm) commands such as:
 
-```
+[prism classes="language-bash command-line" cl-output="3-13"]
 $ cd ~/public_html/grav
 $ bin/grav clear-cache
 
@@ -106,10 +106,10 @@ Cleared:  images/*
 Cleared:  assets/*
 
 Touched: /home/your_user/public_html/grav/user/config/system.yaml
-```
+[/prism]
 
 In order to use the Grav package manager (gpm) you'll have to set it as an executable by running this command in your Grav folder
 
-```
+[prism classes="language-bash command-line"]
 $ chmod +x bin/gpm
-```
+[/prism]

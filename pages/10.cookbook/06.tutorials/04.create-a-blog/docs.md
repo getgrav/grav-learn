@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-!! Download and install locally the Blog Site skeleton from [http://getgrav.org/downloads/skeletons](http://getgrav.org/downloads/skeletons), or at least have ready the [https://github.com/getgrav/grav-skeleton-blog-site](https://github.com/getgrav/grav-skeleton-blog-site) repository to check. This is a sample site that uses the Antimatter theme. Having an up and running Grav site that already works with a Blog structure will surely give a hand if you’re stuck or you don’t understand what to do next.
+!! Download and install locally the Blog Site skeleton from [https://getgrav.org/downloads/skeletons](https://getgrav.org/downloads/skeletons), or at least have ready the [https://github.com/getgrav/grav-skeleton-blog-site](https://github.com/getgrav/grav-skeleton-blog-site) repository to check. This is a sample site that uses the Antimatter theme. Having an up and running Grav site that already works with a Blog structure will surely give a hand if you’re stuck or you don’t understand what to do next.
 
 ## Check your theme provides the Blog and Item page templates
 
@@ -27,12 +27,12 @@ Create one or more child pages of type `Item`. Those are the blog posts.
 Go in your pages/ folder, create a `01.blog` page (change the number to reflect your menu structure), add a `blog.md` file in it.
 In this file, add this content:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 ---
 content:
     items: '@self.children'
 ---
-```
+[/prism]
 
 This tells Grav to iterate over the subpages (the blog posts).
 
@@ -50,24 +50,24 @@ You might want to know how this works. The Blog template, the content of the `bl
 
 In its simplest way:
 
-```twig
-{% set collection = page.collection() %}`
+[prism classes="language-twig line-numbers"]
+{% set collection = page.collection() %}
 
 {% for child in collection %}
         {% include 'partials/blog_item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
 {% endfor %}
-```
+[/prism]
 
 page.collection() by default picks the `content.items` property of the page YAML frontmatter, and returns an array containing the elements that match that definition.
 
 If the page contains:
 
-```
+[prism classes="language-yaml line-numbers"]
 ---
 content:
     items: '@self.children'
 ---
-```
+[/prism]
 
 then `collection` will be the array of the subpages of the current page.
 
@@ -75,7 +75,7 @@ In this case the theme includes the partial `partials/blog_item.html.twig`, resp
 
 ### To learn more
 
-- Collections: [http://learn.getgrav.org/content/collections](http://learn.getgrav.org/content/collections)
-- Listing Page: [http://learn.getgrav.org/content/content-pages#listing-page](http://learn.getgrav.org/content/content-pages#listing-page)
-- Folders: [http://learn.getgrav.org/content/content-pages#folders](http://learn.getgrav.org/content/content-pages#folders)
-- Taxonomy: [http://learn.getgrav.org/content/taxonomy#taxonomy-example](http://learn.getgrav.org/content/taxonomy#taxonomy-example)
+- Collections: [https://learn.getgrav.org/content/collections](https://learn.getgrav.org/content/collections)
+- Listing Page: [https://learn.getgrav.org/content/content-pages#listing-page](https://learn.getgrav.org/content/content-pages#listing-page)
+- Folders: [https://learn.getgrav.org/content/content-pages#folders](https://learn.getgrav.org/content/content-pages#folders)
+- Taxonomy: [https://learn.getgrav.org/content/taxonomy#taxonomy-example](https://learn.getgrav.org/content/taxonomy#taxonomy-example)

@@ -15,7 +15,12 @@ The **Page Editor** in the admin is a powerful text editor and page manager that
 
 It's essentially a one-stop-shop for managing a specific page.
 
-!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` access level.
+[version=15,16]
+!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` permission, see [Profile](/admin-panel/dashboard/profile)
+[/version]
+[version=17]
+!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages.list` permission, see [User Accounts](/admin-panel/accounts/users) and [User Groups](/admin-panel/accounts/groups)
+[/version]
 
 Tabs that appear in the **Page Editor** are not universal. There are a default set of form fields that are commonly found in Grav themes, however these can vary between themes. The admin pulls form field information from a number of sources including the theme and the template used for the specific page.
 
@@ -53,12 +58,13 @@ Because Grav's content is primarily based in markdown, the editing shortcuts aut
 
 Here is a breakdown of the tools found in the content editor:
 
+[div class="table table-striped table-keycol"]
 | Tool                                      | Description                                       |
 | :-----                                    | :-----                                            |
 | <i class="fa fa-fw fa-bold"></i>          | Adds **Bold** tags to your content.               |
 | <i class="fa fa-fw fa-italic"></i>        | Adds *Italic* tags to your content.               |
 | <i class="fa fa-fw fa-strikethrough"></i> | Adds ~~Strikethrough~~ tags to your content.      |
-| <i class="fa fa-fw fa-link"></i>          | Adds [links](http://getgrav.org) to your content. |
+| <i class="fa fa-fw fa-link"></i>          | Adds [links](https://getgrav.org) to your content. |
 | <i class="fa fa-fw fa-picture-o"></i>     | Adds media to your content.                       |
 | <i class="fa fa-fw fa-quote-right"></i>   | Adds quote tags to your content.                  |
 | <i class="fa fa-fw fa-list-ul"></i>       | Creates an unordered list.                        |
@@ -66,6 +72,7 @@ Here is a breakdown of the tools found in the content editor:
 | <i class="fa fa-fw fa-code"></i>          | Activates the edit view.                          |
 | <i class="fa fa-fw fa-eye"></i>           | Activates the content preview.                    |
 | <i class="fa fa-fw fa-expand"></i>        | Toggles to a full-page edit or preview view.      |
+[/div]
 
 ### Page Media
 

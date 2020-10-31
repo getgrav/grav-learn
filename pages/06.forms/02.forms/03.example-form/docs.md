@@ -1,5 +1,5 @@
 ---
-title: Example: Contact Form
+title: 'Example: Contact Form'
 taxonomy:
     category: docs
 ---
@@ -24,7 +24,7 @@ You can put a form inside any page of your site. All you need to do is rename th
 
 The form fields and processing instructions are defined in the YAML frontmatter of the page, so just open the page markdown file with your favorite editor, and put the following code in it:
 
-```
+[prism classes="language-yaml line-numbers"]
 ---
 title: Contact Form
 
@@ -32,7 +32,7 @@ form:
     name: contact
 
     fields:
-        - name: name
+        name:
           label: Name
           placeholder: Enter your name
           autocomplete: on
@@ -40,61 +40,59 @@ form:
           validate:
             required: true
 
-        - name: email
+        email:
           label: Email
           placeholder: Enter your email address
           type: email
           validate:
             required: true
 
-        - name: message
+        message:
           label: Message
           placeholder: Enter your message
           type: textarea
           validate:
             required: true
 
-        - name: g-recaptcha-response
+        g-recaptcha-response:
           label: Captcha
           type: captcha
-          recaptcha_site_key: ENTER_YOUR_CAPTCHA_SITE_KEY
           recaptcha_not_validated: 'Captcha not valid!'
-          validate:
-            required: true
 
     buttons:
-        - type: submit
+        submit:
+          type: submit
           value: Submit
-        - type: reset
+        reset:
+          type: reset
           value: Reset
 
     process:
-        - captcha:
-            recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
-        - email:
-            subject: "[Site Contact Form] {{ form.value.name|e }}"
-            body: "{% include 'forms/data.html.twig' %}"
-        - save:
+        captcha: true
+        save:
             fileprefix: contact-
             dateformat: Ymd-His-u
             extension: txt
             body: "{% include 'forms/data.txt.twig' %}"
-        - message: Thank you for getting in touch!
-        - display: thankyou
+        email:
+            subject: "[Site Contact Form] {{ form.value.name|e }}"
+            body: "{% include 'forms/data.html.twig' %}"
+        message: Thank you for getting in touch!
+        display: thankyou
 ---
 
 # Contact form
 
 Some sample page content
-```
+[/prism]
 
 !!! Make sure you configured the "Email from" and "Email to" email addresses in the Email plugin with your email address
 
-Make sure you add your own `recaptcha_site_key` reCAPTCHA parameter ([see the reCAPTCHA V2 docs](https://developers.google.com/recaptcha/intro)). If you don't need captcha at all, just remove it from the form fields, and remove the captcha process action too.
+!! This example uses Google reCAPTCHA via the [captcha field](https://learn.getgrav.org/forms/forms/fields-available#captcha-field), and you should configure your `site_key` and `secret_key` in the form plugin in order for this to work.  If you don't want to use Google reCaptcha, simply remove the `g-recaptcha-response` field and the `captcha: true` process.
 
 Now inside the page folder create a subfolder named `thankyou/`, create a new file named `formdata.md`. And paste the following code into the file:
 
-```
+[prism classes="language-yaml line-numbers"]
 ---
 title: Email sent
 cache_enable: false
@@ -103,7 +101,7 @@ process:
 ---
 
 ## Email sent!
-```
+[/prism]
 
 That's it!
 

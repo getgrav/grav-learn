@@ -1,0 +1,18 @@
+<div class="version-chooser">
+    <select id="switch-version">
+    {% set langobj = grav['language'] %}
+    {% for key in langswitcher.languages %}
+        {% if key == langswitcher.current %}
+            {% set lang_url = page.url %}
+            {% set active = ' selected="selected"' %}
+        {% else %}
+            {% set lang_url = base_url_simple ~ langobj.getLanguageURLPrefix(key)~langswitcher.page_route ?: '/' %}
+            {% set active = '' %}
+        {% endif %}
+        <option value="{{ lang_url ~ uri.params }}"{{ active }}>{{ (key / 10)|number_format(1) }}</option>
+    {% endfor %}
+    </select>
+</div>
+<script>
+jQuery(document).on('change', '#switch-version', function() { window.location.href = this.value });
+</script>

@@ -1,5 +1,7 @@
 ---
 title: Grav Development
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
@@ -18,30 +20,30 @@ Grav is intentionally focused on working with pages in an efficient manner.  Man
 
 First, install the development dependencies by running composer install from the Grav root.
 
-```
+[prism classes="language-bash command-line"]
 composer install
-```
+[/prism]
 
 Then you can run the tests:
 
-```
+[prism classes="language-bash command-line"]
 composer test
-```
+[/prism]
 
 This will run the full suite of existing tests which should always be executed successfully on any site.
 
 You can also run a single unit test file, e.g.
 
-```
+[prism classes="language-bash command-line"]
 composer test tests/unit/Grav/Common/Markdown/ParsedownTest::testAttributeLinks
-```
+[/prism]
 
 An alternative method to calling these tests is:
 
-```
+[prism classes="language-bash command-line"]
 ./vendor/bin/codecept run
 ./vendor/bin/codecept run tests/unit/Grav/Common/Markdown/ParsedownTest::testAttributeLinks
-```
+[/prism]
 
 
 ## Grav Plugins
@@ -106,13 +108,13 @@ A proper Grav theme requires certain files in order to function properly, be lis
 
 ## Demo Content
 
-With the release of Grav 0.9.18, you are now able to provide demo content as part of a plugin or theme package. This means that anything found in a folder called `_demo/` will be copied over to the `user/` folder as part of the installation procedure.  This means you can provide **pages**, or **configuration** or anything else that sits in the `user/` folder.  The user is prompted to do this, and it's purely optional.
+You are able to provide demo content as part of a plugin or theme package. This means that anything found in a folder called `_demo/` will be copied over to the `user/` folder as part of the installation procedure.  This means you can provide **pages**, or **configuration** or anything else that sits in the `user/` folder.  The user is prompted to do this, and it's purely optional.
 
 _Please note that demo content is not copied when your plugin or theme is installed via the `Admin` plugin._
 
 ## Theme/Plugin Release Process
 
-When you have created your new theme or plugin and would like to see it added to the [Grav Repository](http://getgrav.org/downloads) there are a few standard things that you need to ensure:
+When you have created your new theme or plugin and would like to see it added to the [Grav Repository](https://getgrav.org/downloads) there are a few standard things that you need to ensure:
 
 1. It is open source with a `LICENSE` file that provides an [MIT](http://en.wikipedia.org/wiki/MIT_License) compatible license [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/LICENSE)
 2. Contains a `README.md` file with a summary of functionality and instructions on how to install and configure it. [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/README.md)
@@ -126,9 +128,9 @@ When you have created your new theme or plugin and would like to see it added to
 
 ## ChangeLog Format
 
-The GetGrav.org site uses a custom ChangeLog format that is written in standard markdown but can be manipulated with some simple CSS and [displayed in an attractive format](http://getgrav.org/downloads#changelog).  In order to ensure your ChangeLogs can be parsed and formatted properly, please use this syntax:
+The GetGrav.org site uses a custom ChangeLog format that is written in standard markdown but can be manipulated with some simple CSS and [displayed in an attractive format](https://getgrav.org/downloads#changelog).  In order to ensure your ChangeLogs can be parsed and formatted properly, please use this syntax:
 
-```
+[prism classes="language-markdown line-numbers"]
 # vX.Y.Z
 ## 01/01/2015
 
@@ -143,7 +145,7 @@ The GetGrav.org site uses a custom ChangeLog format that is written in standard 
      * Another bugfix
 
 ...repeat...
-```
+[/prism]
 
 Each section `#new, #improved, #bugfix` are optional, just include the sections you need.
 
@@ -161,17 +163,17 @@ Grav also has some dependencies (dictated by the `.dependencies` file) which inc
 
 !!!! If you wish to make additions or changes to any of the `getgrav` repositories, you will need to **fork** the appropriate repository and then clone **your fork's url** rather than the `getgrav` repository directly. The example below is using the direct `getgrav` repositories for example only.
 
-```
-$ cd
-$ mkdir Projects
-$ cd Projects
-$ mkdir Grav
-$ cd Grav
-$ git clone https://github.com/getgrav/grav.git
-$ git clone https://github.com/getgrav/grav-plugin-error.git
-$ git clone https://github.com/getgrav/grav-plugin-problems.git
-$ git clone https://github.com/getgrav/grav-theme-antimatter.git
-```
+[prism classes="language-bash command-line"]
+cd
+mkdir Projects
+cd Projects
+mkdir Grav
+cd Grav
+git clone https://github.com/getgrav/grav.git
+git clone https://github.com/getgrav/grav-plugin-error.git
+git clone https://github.com/getgrav/grav-plugin-problems.git
+git clone https://github.com/getgrav/grav-theme-antimatter.git
+[/prism]
 
 This will clone **all 4 repositories** into your `~/Projects/Grav` folder.
 
@@ -179,11 +181,11 @@ Usually, the normal procedure for setting up a test site for Grav is to use the 
 
 There is one extra step required. You must tell the command where it can find your repositories. So, follow these steps to create a configuration file in a new `.grav/` folder which you will need to create in the **root of your home directory**:
 
-```
-$ cd
-$ mkdir .grav
-$ vi .grav/config
-```
+[prism classes="language-bash command-line"]
+cd
+mkdir .grav
+vi .grav/config
+[/prism]
 
 In this file: provide a simple mapping of where the relevant files are located:
 
@@ -193,14 +195,14 @@ github_repos: /Users/your_user/Projects/Grav/
 
 Make sure you **save** this file and that it's readable. You can now set up your **symbolically linked** site where `~/www` is your webroot and `~/www/grav` is the location where your new grav test site will be created:
 
-```
-$ cd ~/Projects/Grav/grav
-$ bin/grav new-project -s ~/www/grav
-```
+[prism classes="language-bash command-line"]
+cd ~/Projects/Grav/grav
+bin/grav new-project -s ~/www/grav
+[/prism]
 
 You should see quite a bit of output like this:
 
-```
+[prism classes="language-text"]
 rhukster@gibblets:~/Projects/Grav/grav(develop○) » bin/grav new-project -s ~/www/grav
 
 Creating Directories
@@ -243,7 +245,7 @@ SUCCESS symlinked grav-plugin-problems -> user/plugins/problems
 SUCCESS symlinked grav-plugin-error -> user/plugins/error
 
 SUCCESS symlinked grav-theme-antimatter -> user/themes/antimatter
-```
+[/prism]
 
 As you can see, a number of default directories were created, and an initial `pages` folder was also created. After the base has been set up, the other dependencies are symbolically linked in.
 

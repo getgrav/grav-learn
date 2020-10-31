@@ -2,19 +2,29 @@ home:
   alias: '/basics'
 
 pages:
-  theme: learn3
+  theme: learn4
   markdown:
-    extra: true
+    extra: false
   process:
     markdown: true
     twig: false
+  hide_empty_folders: true
+
+languages:
+    supported: [15,16,17]
+    default_lang: 16
+    content_fallback:
+        15: ['15', '']
+        16: ['16', '15', '']
+        17: ['17', '16', '15', '']
 
 cache:
   enabled: true
   check:
-    method: none
+    method: hash
   driver: auto
   prefix: 'g'
+  gzip: true
 
 twig:
   cache: true
@@ -28,9 +38,21 @@ assets:
   css_rewrite: true
   js_pipeline: true
   js_minify: true
+  collections:
+      jquery: system://assets/jquery/jquery-3.x.min.js
+
+errors:
+  display: 0
+
+images:
+  prettyname_prefix: false
 
 debugger:
   enabled: false
   twig: true
   shutdown:
     close_connection: true
+
+strict_mode:
+    yaml_compat: false
+    twig_compat: false

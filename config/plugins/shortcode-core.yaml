@@ -1,0 +1,5 @@
+enabled: true
+active: true
+active_admin: false
+admin_pages_only: true
+parser: regular

@@ -43,7 +43,7 @@ You can update Grav's core by selecting the **Update Grav Now** button in its no
 
 There is also a graph indicating how long the site has gone without being backed up. Selecting the <i class="fa fa-database"></i> **Backup** button will generate a zip file you can download and store as a backup for your site's data.
 
-!! Backups are also stored in the `backups/` folder of your Grav install.  You can grab them via FTP or web manager tools provided by your hosting company.
+!! Backups are also stored in the `backup/` folder of your Grav install.  You can grab them via FTP or web manager tools provided by your hosting company.
 
 The **Statistics** section displays simple, at-a-glance traffic data breaking down the number of visitors the front end of the site has received in the past day, week, and month (30 days). Statistics for the past week are displayed in a bar graph separated by days of the week.
 

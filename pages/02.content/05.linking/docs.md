@@ -14,27 +14,29 @@ Using this directory structure as an example, we will take a look at the differe
 
 To get us started, here is a quick look at some of the common components of a Grav link, and what they mean.
 
-```
+```markdown
 [Linked Content](../path/slug/page)
 ```
 
-| String | Description                                                                                                                                                      |
-| :----- | :-----                                                                                                                                                           |
-| `[]`   | The square bracket is used to wrap the text or alternate content that becomes linked. In HTML, this would be the content placed between `<a href="">` and `</a>` |
-| `()`   | The parenthesis is used to surround the link itself. This is placed directly after the square bracket.                                                           |
-| `../`  | When used in the link, it indicates a move up a directory.                                                                                                       |
+[div class="table-keycol"]
+| String | Description |
+| :----- | :----- |
+| `[]`   | The square bracket is used to wrap the text or alternate content that becomes linked. In HTML, this would be the content placed between `<a href="">` and `</a>`. |
+| `()`   | The parenthesis is used to surround the link itself. This is placed directly after the square bracket. |
+| `../`  | When used in the link, it indicates a move up a directory. |
+[/div]
 
 ### Slug Relative
 
 Grav doesn't just limit your internal links to specific names within your file/directory structure. It can also pull slugs assigned both in the header of the file, as well as the fallback directory name. This makes creating quick links easy as you don't have to remember the specific file name, but an easily remembered (and relevant) slug.
 
-Grav's templating engine uses file names to determine which template to apply to them. For example, a blog might use the common file name `item.md` for each blog post. The blog post itself can be assigned a slug that makes more sense, such as `grass` or `grass-is-green`.
+Grav's templating engine uses file names to determine which template to apply to them. For example, a blog might use the standard file name `item.md` for each blog post. The blog post itself can be assigned a slug that makes more sense, such as `grass` or `grass-is-green`.
 
-Directory names also have numbers assigned which helps with ordering. You don't have to include these numbers with slug-relative links. Grav ignores them when creating the slug, so your site's URL structure is more clean.
+Directory names also have numbers assigned which helps with ordering. You don't have to include these numbers with slug-relative links. Grav ignores them when creating the slug, so your site's URL structure is cleaner.
 
 Here are a few examples of slug-relative links.
 
-In this example, we're moving up a directory and loading the default page located in the `pages/01.blue/02.water/item.md` directory from `pages/01.blue/01.sky/item.md` The file, `item.md`, has no assigned slug, so Grav uses the directory name.
+In this example, we're moving up a directory and loading the default page located in the `pages/01.blue/02.water/item.md` directory from `pages/01.blue/01.sky/item.md`. The file, `item.md`, has no assigned slug, so Grav uses the directory name.
 
 ```markdown
 [link](../water)
@@ -92,7 +94,7 @@ In an absolute link, the link opens with a `/`. Here is an example of an absolut
 [link](/blue/sky)
 ```
 
-The second method is fashioned after the **Directory Relative** style detailed previously. This method leaves in elements like the ordering numbers at the beginning of directory names. While this does add the potential of a broken link when content is reordered, it is more reliable when used with services like [Github](http://github.com) where content links do not have the benefit of Grav's flexibility. Here is an example of an absolute link made to `pages/01.blue/01.sky/item.md` using this style.
+The second method is fashioned after the **Directory Relative** style detailed previously. This method leaves in elements like the ordering numbers at the beginning of directory names. While this does add the potential of a broken link when content is reordered, it is more reliable when used with services like [Github](https://github.com) where content links do not have the benefit of Grav's flexibility. Here is an example of an absolute link made to `pages/01.blue/01.sky/item.md` using this style.
 
 ```markdown
 [link](/01.blue/01.sky)
@@ -190,6 +192,20 @@ which will result in HTML similar to:
 <a href="/your/pages/some-page#element-id" target="_blank" class="button">Element Anchor</a>
 ```
 
+##### Anchor Links on the Same Page
+
+```markdown
+[Element Anchor](?classes=button#element-id)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="#element-id" class="button">
+```
+
+Note that the anchor should come _after_ the query as discussed in [Issue 1324](https://github.com/getgrav/grav/issues/1324#issuecomment-282587549)
+
 ##### Pass-through of Non-Supported Attributes
 
 ```markdown
@@ -202,15 +218,28 @@ which will result in HTML similar to:
 <a href="/your/pages/some-page?cat=black" class="underline">Pass-through of 'cat' attribute</a>
 ```
 
-##### Pass-through Supported Attributes
+##### Skip All Attributes
 
 ```markdown
-[Pass-through all attributes](../some-page?classes=underline&rel=nofollow&noprocess)
+[Skip all attributes](../some-page?classes=underline&rel=nofollow&noprocess)
 ```
 
 which will result in HTML similar to:
 
 ```html
-<a href="/your/pages/some-page?rel=nofollow&classes=underline">Pass-through all attributes</a>
+<a href="/your/pages/some-page?rel=nofollow&classes=underline">Skip All attributes</a>
 ```
 
+##### Skip Certain Attributes
+
+```markdown
+[Skip Certain attributes](../some-page?id=myvariable&classes=underline&target=_blank&noprocess=id,classes)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="/your/pages/some-page?id=myvariable&classes=underline" target="_blank">Skip Certain attributes</a>
+```
+
+This is useful when trying to skip 1 or more specific attributes without affecting the others.

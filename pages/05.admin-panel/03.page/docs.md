@@ -13,7 +13,12 @@ process:
 
 The **Pages** page gives you quick editorial access to your site's content. This is where you can access a page's editor, delete pages, create new pages, and find out if a page is visible at a glance.
 
-!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` access level.
+[version=15,16]
+!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages` permission, see [Profile](/admin-panel/dashboard/profile)
+[/version]
+[version=17]
+!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages.list` permission, see [User Accounts](/admin-panel/accounts/users) and [User Groups](/admin-panel/accounts/groups)
+[/version]
 
 If you frequently create or modify content on your site, this area of the admin will become very familiar to you.
 
@@ -31,6 +36,7 @@ Below, we break down the options available when you select these buttons.
 
 The **Add Page** button creates a non-modular page for your site. Once selected, a popup will appear enabling you to enter a **Title** and **Folder Name**, assign a **Parent Page** and **Display Template**, as well as to set whether the page should be visible or hidden.
 
+[div class="table table-keycol"]
 | Option           | Description                                                                                                                                                                                                                                                                             |
 | :-----           | :-----                                                                                                                                                                                                                                                                                  |
 | Page Title       | This is where you enter the title of the page you are creating.                                                                                                                                                                                                                         |
@@ -38,6 +44,7 @@ The **Add Page** button creates a non-modular page for your site. Once selected,
 | Parent Page      | This sets the parent page for the new page. Can be a child of another page (such as home or blog) or set to the root of your site. By setting the value of the `child_type` option in the frontmatter of a parent page a default `Display Template` will be automatically selected.                                                                                                                                                    |
 | Display Template | You can choose which theme-provided template you wish to have applied to the page.                                                                                                                                                                                                      |
 | Visible          | Sets whether or not you want the page to be visible in navigation. Can be set to **Auto** to have this be determined for you. In the auto setting, if there is another sibling page that uses a numeric prefix, it uses one and is therefore visible. Otherwise, it doesn't display it. |
+[/div]
 
 Once you have filled out this information, selecting **Continue** will take you to the new page's editor. We will cover the Page Editor in more detail in [a following guide](../page-editor).
 
@@ -51,12 +58,14 @@ The second button along the top of the **Pages** area of the admin allows you to
 
 Here is a breakdown of the fields and options that appear in the **Add Modular Page** button's popup.
 
+[div class="table table-keycol"]
 | Option           | Description                                                                                                        |
 | :-----           | :-----                                                                                                             |
 | Page Title       | Sets a title for the modular page.                                                                                 |
 | Folder Name      | You can set a custom folder name for the page, or keep the automatically-generated one based on the title.         |
 | Page             | Sets the parent page for the new modular subpage. This is the page your new modular page's content will appear on. |
 | Modular Template | Displays a list of templates provided by the theme for modular pages you can choose from for the new page.         |
+[/div]
 
 Once you have filled out this information, selecting **Continue** will take you to the new page's editor. We will cover the Page Editor in more detail in [a following guide](../page-editor).
 

@@ -4,23 +4,20 @@ taxonomy:
     category: docs
 ---
 
-Installation of Grav is a trivial process. In fact, there is no real installation.  You have **three** options for installing Grav.  The first - and simplest - way is to simply download the **zip** archive, and extract it. The second way is to install with **composer**. The third way is to clone the source project directly from **GitHub**, and then run an included script command to install needed dependencies:
+Installation of Grav is a trivial process. In fact, there is no real installation. You have **three** options for installing Grav. The first - and simplest - way is to download the **zip** archive, and extract it. The second way is to install with **Composer**. The third way is to clone the source project directly from **GitHub**, and then run an included script command to install needed dependencies:
 
 ## Check for PHP version
 
-Grav is incredibly easy to set up and get running. Be sure you have at least PHP version 5.5.9 by going to the terminal and typing:
+Grav is incredibly easy to set up and get running. Be sure you have at least PHP version [version=15]5.6.3+[/version][version=16,17]7.1.3+[/version] by going to the terminal and typing `php -v`:
 
-```bash
-$ php -v
-```
+[prism classes="language-bash command-line" cl-output="2-10"]
+php -v
+PHP 7.3.18 (cli) (built: Jun  5 2020 11:06:30) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.3.18, Copyright (c) 1998-2018 Zend Technologies
+    with Zend OPcache v7.3.18, Copyright (c) 1999-2018, by Zend Technologies
+[/prism]
 
-This should report the version and build information.  For example:
-
-```bash
-PHP 5.5.20 (cli) (built: Jan 19 2014 21:32:15)
-Copyright (c) 1997-2013 The PHP Group
-Zend Engine v2.4.0, Copyright (c) 1998-2013 Zend Technologies
-```
 
 ## Option 1: Install from ZIP package
 
@@ -38,97 +35,99 @@ The easiest way to install Grav is to download the ZIP package and extract it:
 
 The alternative method is to install Grav with [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
 
-```
-$ composer create-project getgrav/grav ~/webroot/grav
-```
+[prism classes="language-bash command-line"]
+composer create-project getgrav/grav ~/webroot/grav
+[/prism]
 
 If you want to check out the bleeding edge version of Grav, add `1.x-dev` as an additional parameter:
 
-```
-$ composer create-project getgrav/grav ~/webroot/grav 1.x-dev
-```
+[prism classes="language-bash command-line"]
+composer create-project getgrav/grav ~/webroot/grav 1.x-dev
+[/prism]
 
 ## Option 3: Install from GitHub
 
 Another method is to clone Grav from the GitHub repository, and then run a simple dependency installation script:
 
 1. Clone the Grav repository from [GitHub](https://github.com/getgrav/grav) to a folder in the webroot of your server, e.g. `~/webroot/grav`. Launch a **terminal** or **console** and navigate to the webroot folder:
-   ```
-   $ cd ~/webroot
-   $ git clone -b master https://github.com/getgrav/grav.git
-   ```
+
+   [prism classes="language-bash command-line"]
+   cd ~/webroot
+   git clone -b master https://github.com/getgrav/grav.git
+   [/prism]
 
 2. Install **vendor dependencies** via [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
-   ```
-   $ cd ~/webroot/grav
-   $ composer install --no-dev -o
-   ```
+
+   [prism classes="language-bash command-line"]
+   cd ~/webroot/grav
+   composer install --no-dev -o
+   [/prism]
 
 3. Install the **plugin** and **theme dependencies** by using the [Grav CLI application](../../advanced/grav-cli) `bin/grav`:
-   ```
-   $ cd ~/webroot/grav
-   $ bin/grav install
-   ```
+
+   [prism classes="language-bash command-line"]
+   cd ~/webroot/grav
+   bin/grav install
+   [/prism]
 
    This will automatically **clone** the required dependencies from GitHub directly into this Grav installation.
 
-## Webserver
+## Option 4: Install on Cloudron
+
+Cloudron is a complete solution for running apps on your server and keeping them up-to-date and secure. On your Cloudron you can install Grav with a few clicks. If you host multiple sites, you can install them completely isolated from one another on the same server.
+
+[![Install](https://cloudron.io/img/button.svg)](https://cloudron.io/store/org.getgrav.cloudronapp.html)
+
+The source code for the package can be found [here](https://git.cloudron.io/cloudron/grav-app).
+
+## Webservers
 
 #### Apache/IIS/Nginx
 
-Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is PHP 5.5.9 or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](../requirements) chapter of this guide.
+Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is [version=15]PHP 5.6.3[/version][version=16,17]PHP 7.1.3[/version] or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](../requirements) chapter of this guide.
 
-If your web root is, for example, `~/public_html` then you could extract it into this folder and reach it via `http://localhost`.  If you extracted it into `~/public_html/grav` you would reach it via `http://localhost/grav`.
+If your web root is, for example, `~/public_html` then you could extract it into this folder and reach it via `http://localhost`. If you extracted it into `~/public_html/grav` you would reach it via `http://localhost/grav`.
 
-!!! Every web server must be configured. Grav ships with .htaccess by default, for Apache, and comes with some [default server configuration files](https://github.com/getgrav/grav/tree/master/webserver-configs), for `nginx`, `caddy server`, `iis` and `lighttpd`. Use them accordingly when needed.
+!!! Every web server must be configured. Grav ships with .htaccess by default, for Apache, and comes with some [default server configuration files](https://github.com/getgrav/grav/tree/master/webserver-configs), for `nginx`, `caddy server`, `iis`, and `lighttpd`. Use them accordingly when needed.
 
 #### Running Grav with the Built-in PHP Webserver Using `router.php`
 
-You can run Grav using a simple command from Terminal / Command Prompt using the built-in PHP server available to any system with PHP 5.5+ installed. All you need to do is navigate to the root of your Grav install using the Terminal or Command Prompt and enter `php -S localhost:8000 system/router.php`. You can replace the port number (in our example it's `8000`) with any port you prefer.
+You can run Grav using a simple command from Terminal / Command Prompt using the built-in PHP server available to any system with [version=15]PHP 5.6.3+[/version][version=16,17]PHP 7.1.3+[/version] installed. All you need to do is navigate to the root of your Grav install using the Terminal or Command Prompt and enter `php -S localhost:8000 system/router.php`. You can replace the port number (in our example it's `8000`) with any port you prefer.
 
 Entering this command will present you with output similar to the following:
 
-```bash
-$ php -S localhost:8000 system/router.php
-PHP 7.0.14 Development Server started at Thu Jan 26 17:19:50 2017
+[prism classes="language-bash command-line" cl-output="2-10"]
+php -S localhost:8000 system/router.php
+PHP 7.2.15 Development Server started at Sun Feb 17 21:02:14 2019
 Listening on http://localhost:8000
-Document root is /Users/example/sites/grav/
+Document root is /Users/rhuk/Projects/grav/grav
 Press Ctrl-C to quit.
-```
+[/prism]
 
-Your terminal will also give you real-time updates of any activity on this ad hoc-style server. You can copy the URL given in the `Listening on` line and paste that into your browser of choice to access your site, including the administrator.
+Your terminal will also give you real-time updates of any activity on this ad hoc-style server. You can copy the URL provided in the `Listening on` line and paste that into your browser of choice to access your site, including the administrator.
 
 !!!! This is a useful tool for quick development, and should **not** be used in place of a dedicated web server such as Apache.
-
 
 ## Successful Installation
 
 The first time it loads, Grav pre-compiles some files. If you now refresh your browser, you will get a faster, cached version.
 
-![Grav Installed](install.png?cropResize=600,600)  {.border}
+![Grav Installed](install.png)
 
-!! In the previous examples, **$** represents the command prompt.  This may look different on various platforms.
+!! In the previous examples, **$** represents the command prompt. This may look different on various platforms.
 
-By default, Grav comes with some sample pages to give you something to get started with.  Your site is already fully functional and you can configure it, add content, extend it, or customize it as much as you like.
+By default, Grav comes with some sample pages to give you something to get started with. Your site is already fully functional and you can configure it, add content, extend it, or customize it as much as you like.
 
 ## Installation & Setup Problems
 
 If any issues are discovered during the initial page load (or after a cache-flush event) you may see an error page:
 
-![Grav with Problems](problems.png?cropResize=600,600)  {.border}
+![Grav with Problems](problems.png)
 
 Please consult the [Troubleshooting](../../troubleshooting) section for help regarding specific issues.
 
-! If you have issues with file permissions, please check the [Permissions Troubleshooting documentation](/troubleshooting/permissions).  Also you could look at the [Hosting Guides documentation](/webservers-hosting) that have specific instructions for various hosting environments
+! If you have issues with file permissions, please check the [Permissions Troubleshooting documentation](/troubleshooting/permissions). Also, you could look at the [Hosting Guides documentation](/webservers-hosting) that has specific instructions for various hosting environments
 
 ## Grav Updates
 
-### Automatic Updates
-
-The preferred method for updating Grav (from v0.9.3 onwards) is to use the **Grav Package Manager (GPM)**. All you need to do  is to navigate to the root of your Grav site and type:
-
-```
-bin/gpm selfupgrade -f
-```
-
-Full information can be found in the [Grav GPM Documentation](../../advanced/grav-gpm).  We also have GPM integrated in our [Admin Panel](../../admin-panel) plugin which will check, prompt, and automatically install any updates.
+To keep your site up to date, please read [Updating Grav & Plugins](/basics/updates).

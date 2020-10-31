@@ -20,20 +20,24 @@ First [sign up for an account](https://platform.cloudways.com/signup) on Cloudwa
 ## Installing And Running Grav On Cloudways
 Login in SSH Terminal and move to your application public_html folder.
 
-```bash
+[prism classes="language-bash command-line"]
 cd applications/<foldername>/public_html/
-```
+[/prism]
 
 Go [Grav CMS download](https://getgrav.org/downloads) page and copy the download link. Now, go to the terminal and download it there by using the following command
 
-```bash
+[prism classes="language-bash command-line"]
 wget https://github.com/getgrav/grav/releases/download/{{ grav_version }}/grav-admin-v{{ grav_version }}.zip
-```
+[/prism]
 
 After downloading it, unzip the file.
 
-```bash
+[prism classes="language-bash command-line"]
 unzip grav-admin-v{{ grav_version }}.zip
-```
+[/prism]
 
 That’s it! Grav CMS is ready for your use on Cloudways PHP Hosting Platform. Head to your Application Staging URL and add /grav-admin at the end of the URL.
+
+## Maintenance & Updating Grav on Cloudways
+
+From time to time you may stumble across issues with Grav on Cloudways due to their unusual permissions structure. To reset your file permissions, login to your Cloudways account, navigate to your application, go to Application Settings and click on [Reset Permission](https://support.cloudways.com/using-the-reset-permissions-button-to-solve-permissions-denied-issues/). This may resolve any issues with File Permissions related to caching, loggin, updates or backups.

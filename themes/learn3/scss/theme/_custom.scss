@@ -29,80 +29,74 @@
 
     #body-inner {
 
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 2rem 0 0;
-            position: relative;
-        }
-
-        ol {
-            margin: 1rem 0 1rem 0;
-            padding: 2rem;
+        .level {
             position: relative;
 
-            li {margin-left: 1rem;}
+            h3 {
+                font-size: 18px;
+                position: absolute;
+                margin: 0;
+                padding: 4px 10px;
+                left: 0;
+                z-index: 1000;
+                color: #fff;
 
-            strong {
-                text-decoration: underline;
             }
 
-            ol {
+            .level {
+                margin-top: 0.5rem;
                 margin-left: -1rem;
+                margin-right: 1rem;
+                margin-bottom: 0.5rem;
+                padding-bottom: 1rem;
             }
 
-        }
-
-        h3[class*='level'] {
-            font-size: 20px;
-            position: absolute;
-            margin: 0;
-            padding: 4px 10px;
-            right: 0;
-            z-index: 1000;
-            color: #fff;
-            background: $turquoise;
-        }
-
-        ol h3 {
-            margin-top: 1rem !important;
-            right: 2rem !important;
-        }
-
-        .level-1 + ol {
-            background: lighten($turquoise,56%);
-            border: 4px solid $turquoise;
-            color: $green_sea;
-            h3 {
-                background: $emerald;
-
+            ol li {
+                padding-top: 0.1rem;
             }
-        }
 
-        .level-2 + ol  {
-            background: lighten($emerald,49%);
-            border: 4px solid $emerald;
-            color: $nephritis;
-            h3 {
-                background: $peter_river;
+            & > ol {
+                margin-top: 2.5rem;
             }
-        }
 
-        .level-3 + ol {
-            background: lighten($peter_river,44%);
-            border: 4px solid $peter_river;
-            color: $belize_hole;
-            h3 {
-                background: $wet_asphalt;
+            &.level-1 {
+                background: lighten($turquoise,56%);
+                border: 4px solid $turquoise;
+                color: $turquoise;
+
+                h3 {
+                    background: $turquoise;
+                }
             }
-        }
 
-        .level-4 + ol{
-            background: lighten($wet_asphalt,63%);
-            border: 4px solid $wet_asphalt;
-            color: $midnight_blue;
-            h3 {
-                background: $wet_asphalt;
+            &.level-2   {
+                background: lighten($emerald,49%);
+                border: 4px solid $emerald;
+                color: $emerald;
+
+                h3 {
+                    background: $emerald;
+                }
+            }
+
+            &.level-3 {
+                background: lighten($peter_river,44%);
+                border: 4px solid $peter_river;
+                color: $peter_river;
+
+                h3 {
+                    background: $peter_river;
+                }
+            }
+
+            &.level-4 {
+                background: lighten($wet_asphalt,63%);
+                border: 4px solid $wet_asphalt;
+                color: $wet_asphalt;
+
+                h3 {
+                    background: $wet_asphalt;
+                }
             }
         }
     }
@@ -226,10 +220,32 @@
 }
 
 .adv-search {
-    margin: 5px 0 0 0;
     font-size: 90%;
     text-align: left;
     text-indent: 5px;
+}
+
+.search-options {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    margin-top: 10px;
+
+
+    .version-chooser {
+        flex-grow: 1;
+        text-align: right;
+
+        select {
+            display: inline-block;
+            background-color: darken($header-bg, 5%);
+            border: 1px solid darken($header-bg, 9%);
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+    }
 }
 
 // Utils
@@ -237,6 +253,19 @@
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
+}
+
+.no-margin-bottom {
+    pre {
+        margin-bottom: 0;
+        border-radius: 2px 2px 0 0;
+    }
+}
+.no-margin-top {
+    pre {
+        margin-top: 0;
+        border-radius: 0 0 2px 2px;
+    }
 }
 
 .hljs::selection,

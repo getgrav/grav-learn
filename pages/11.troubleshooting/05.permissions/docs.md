@@ -15,15 +15,15 @@ For Nginx:
 
     ps aux | grep -v root | grep nginx | cut -d\  -f1 | sort | uniq
 
-And find out which user owns the file in your grav directory by running 
-    
+And find out which user owns the file in your grav directory by running
+
     ls -l
 
-  
+
 Being a file-based CMS, Grav needs to write to the file-system in order to create cache and log files. There are three main scenarios:
 
 1. ##### PHP/Webserver runs with the same user that edits the files.  (Preferred)
-   This is the approach used by most **shared hosting** setups and also works well for local development. The blog post we wrote regarding [OS X Yosemite, Apache, and PHP](http://getgrav.org/blog/mac-os-x-apache-setup-multiple-php-versions) outlines how to configure Apache to run as your personal user account. This approach is not considered secure enough to use on a dedicated web host, so the second or third option should be used.
+   This is the approach used by most **shared hosting** setups and also works well for local development. The blog post we wrote regarding [MacOS Yosemite, Apache, and PHP](https://getgrav.org/blog/mac-os-x-apache-setup-multiple-php-versions) outlines how to configure Apache to run as your personal user account. This approach is not considered secure enough to use on a dedicated web host, so the second or third option should be used.
 
 2. ##### PHP/Webserver runs with different accounts but same Group
    By using a shared Group between your user and PHP/Webserver account with `775` and `664` permissions you ensure that even though you have two different accounts, both will have **Read/Write** access to the files.  You should also probably set a `umask 0002` on the root so that new files are created with the proper permissions.
@@ -33,12 +33,14 @@ Being a file-based CMS, Grav needs to write to the file-system in order to creat
 
 A simple **permissions-fixing** shell script can be used to do this:
 
-    #!/bin/sh
-    chown -R joeblow:staff .
-    find . -type f | xargs chmod 664
-    find ./bin -type f | xargs chmod 775
-    find . -type d | xargs chmod 775
-    find . -type d | xargs chmod +s
+[prism classes="language-bash line-numbers"]
+#!/bin/sh
+chown -R joeblow:staff .
+find . -type f -exec chmod 664 {} \;
+find ./bin -type f -exec chmod 775 {} \;
+find . -type d -exec chmod 775 {} \;
+find . -type d -exec chmod +s {} \;
+[/prism]
 
 You can use this file and edit as needed for the appropriate user and group that works for your setup.  What this script basically does, is:
 
@@ -51,19 +53,19 @@ You can use this file and edit as needed for the appropriate user and group that
 
 If image files in the cache folder are written with the wrong permissions, try setting in your `user/config/system.yaml` file,
 
-```
+[prism classes="language-yaml line-numbers"]
 images:
   cache_perms: '0775'
-```
+[/prism]
 
 if the `images` property is already present, just add `cache_perms: '0775'` at the end of it.
 
 If this does still not work, create a `setup.php` file in the root Grav folder (the one with `index.php`), and add
 
-```
+[prism classes="language-php line-numbers"]
 <?php
 umask(0002);
-```
+[/prism]
 
 into it.
 
@@ -77,10 +79,10 @@ In general, Grav can be installed in a root level folder of an existing WordPres
 
 If the above suggestions still do not work, run
 
-`chcon -Rv --type=httpd_sys_rw_content_t` into the Grav root folder.
+`chcon -Rv system_u:object_r:httpd_sys_rw_content_t:s0 ./` into the Grav root folder.
 
 References:
-
+- [https://unix.stackexchange.com/questions/337704/selinux-is-preventing-nginx-from-writing-via-php-fpm](https://unix.stackexchange.com/questions/337704/selinux-is-preventing-nginx-from-writing-via-php-fpm)
 - [https://github.com/getgrav/grav/issues/912#issuecomment-227627196](https://github.com/getgrav/grav/issues/912#issuecomment-227627196)
 - [http://stopdisablingselinux.com](http://stopdisablingselinux.com/)
 - [http://stackoverflow.com/questions/28786047/failed-to-open-stream-on-file-put-contents-in-php-on-centos-7](http://stackoverflow.com/questions/28786047/failed-to-open-stream-on-file-put-contents-in-php-on-centos-7)
