@@ -434,6 +434,11 @@ You could then access them from Twig:
 </section>
 [/prism]
 
+If the variable name [contains dashes](https://github.com/getgrav/grav/issues/1957#issuecomment-723236844) you should use [twigs attribute function](https://twig.symfony.com/doc/2.x/functions/attribute.html):
+
+[prism classes="language-twig"] attribute(page.header, 'plugin-name').active [/prism]
+
+
 ## Meta Page Headers
 
 Meta headers allow you to set the [standard set of HTML **<meta> tags**](http://www.w3schools.com/tags/tag_meta.asp) for each page as well as [OpenGraph](http://ogp.me/), [Facebook](https://developers.facebook.com/docs/sharing/best-practices), and [Twitter](https://dev.twitter.com/cards/overview).
