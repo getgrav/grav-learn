@@ -434,7 +434,7 @@ You could then access them from Twig:
 </section>
 [/prism]
 
-If the variable name [contains dashes](https://github.com/getgrav/grav/issues/1957#issuecomment-723236844) you should use [twigs attribute function](https://twig.symfony.com/doc/2.x/functions/attribute.html):
+If the variable name [contains a special character like a dash](https://github.com/getgrav/grav/issues/1957#issuecomment-723236844) you should use [twigs attribute function](https://twig.symfony.com/doc/2.x/functions/attribute.html):
 
 [prism classes="language-twig"] attribute(page.header, 'plugin-name').active [/prism]
 
