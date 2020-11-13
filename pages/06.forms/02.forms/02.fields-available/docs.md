@@ -524,7 +524,7 @@ header.count:
 | :-----    | :-----                                            |
 | `validate.min` | minimum value |
 | `validate.max`  | maximum value  |
-| `validate.step`  | which increpemts to step up  |
+| `validate.step`  | which increments to step up  |
 [/div]
 
 [div class="table"]
