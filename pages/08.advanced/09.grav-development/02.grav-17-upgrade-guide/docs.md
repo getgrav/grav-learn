@@ -14,6 +14,7 @@ Grav 1.7 introduces a few new features, improvements, bug fixes and provides man
 * **Improved Admin ACL**: Full CRUD support for users and pages.
 * **Improved Media Support**: Support `webp` image format, lazy loading and more.
 * **Improved Caching**: New `{% cache %}` tag and improved performance especially in admin.
+* **XSS Detection in Forms**: Forms will not submit if potential XSS is detected in them. Check the [documentation](/forms/forms/form-options#xss-checks) on how to disable the checks.
 * **Better Debugging Tools**: [Clockwork](https://underground.works/clockwork/) integration, Twig profiling and support for [Tideways XHProf](https://github.com/tideways/php-xhprof-extension) PHP Extension for performance profiling.
 
 !!!! **IMPORTANT:** For most people, Grav 1.7 should be a simple upgrade without any issues, but like any upgrade, it is recommended to **take a backup** of your site and **test the upgrade in a testing environment** before upgrading your live site.
@@ -48,7 +49,9 @@ Additional changes in templating are:
 
 ## Forms
 
-In forms declaring `validation: strict` was not as strict as we hoped because of a bug. The strict mode should prevent forms from sending any extra fields and this was fixed into Grav 1.7. Unfortunately many of the old forms declared to be strict even if they had extra data in them.
+**XSS Injection Detection** is now enabled in all the frontend forms by default. Check the [documentation](/forms/forms/form-options#xss-checks) on how to disable or customize the checks per form and per field.
+
+**Strict mode Improvements**: Inside forms, declaring `validation: strict` was not as strict as we hoped because of a bug. The strict mode should prevent forms from sending any extra fields and this was fixed into Grav 1.7. Unfortunately many of the old forms declared to be strict even if they had extra data in them.
 
 Because of this, we added new configuration option `system.strict_mode.blueprint_compat: true` to maintain old `validation: strict` behavior. It is recommended to turn off this setting to improve site security, but before doing that, please search through all your forms if you were using `validation: strict` feature. If you were, either remove the line or test if the form still works.
 
@@ -404,7 +407,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
         * `$this->initializePages();` This initializes grav, plugins, theme and everything needed by pages
 * It is a good idea to prefix your CLI command classes with your plugin name, otherwise there may be naming conflicts (we already have some!)
 
-### Composer dependencies
+### Used Libraries
 
 * Updated Symfony Components to 4.4, please update any deprecated features in your code
 * **BC BREAK** Please run `bin/grav yamllinter -f user://` to find any YAML parsing errors in your site (including your plugins and themes).
