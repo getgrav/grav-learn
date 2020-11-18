@@ -91,12 +91,50 @@ form:
     client_side_validation: false
 [/prism]
 
+[version=17]
+### XSS Checks
+
+By default, Grav 1.7 and later versions enable various XSS checks in all the forms. The default settings can be found from [Security Configuration](/basics/grav-configuration#security). However you can override these settings per form or per field, for example you can disable XSS checks in the whole form by:
+
+[prism classes="language-yaml line-numbers"]
+form:
+    xss_check: false
+[/prism]
+
+!! **WARNING** It is not recommended to disable all the XSS checks, but to override specific rules per field basis. All the examples here will also work inside a form field.
+
+You can enable or disable individual rules by overriding the main configuration. The rules which are not overridden will fall back to use security configuration:
+
+[prism classes="language-yaml line-numbers"]
+form:
+    xss_check:
+        enabled_rules:
+            on_events: false
+            invalid_protocols: false
+            moz_binding: false
+            html_inline_styles: false
+            dangerous_tags: false
+[/prism]
+
+Even better, you can also allow specific protocols and tags:
+
+[prism classes="language-yaml line-numbers"]
+form:
+    xss_check:
+        safe_protocols:
+            - javascript
+        safe_tags:
+            - iframe
+[/prism]
+
+[/version]
+
 ### Keep Alive
 
 You can ensure your forms do not fail to submit when your session expires, by enabling the `keep_alive` option on the form.  By enabling this, an AJAX request will be made to Grav before your session expires to keep it 'fresh':
 
 [prism classes="language-yaml line-numbers"]
-form:    
+form:
     keep_alive: true
 [/prism]
 
