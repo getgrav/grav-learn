@@ -87,6 +87,16 @@ The deferred attribute on the block which is powered by the [Deferred Extension]
 {% endblock %}
 [/prism]
 
+It is also possible to merge the content of the parent block with the deferred block using `{{ parent() }}`. This can be especially useful for themes if additional css or javascript files are added.
+
+[prism classes="language-twig line-numbers"]
+{% block stylesheets %}
+    <!-- Additional css library -->
+    {% do assets.addCss('theme://libraries/leaflet/dist/leaflet.css') %}
+    {{ parent() }}
+{% endblock %}
+[/prism]
+
 ### Throw an Exception
 
 There are certain situations where you need to manually throw an exception, so we have a tag for that too.

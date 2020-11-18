@@ -36,7 +36,7 @@ The `{{ base_url_simple }}` returns the base URL to the Grav site, without the l
 
 ### home_url variable
 
-The `{{ home_url }}` is particularly useful to use to link back to the homepage of your site. It is similar to `base_url` but takes into account the situation when the this is empty.
+The `{{ home_url }}` is particularly useful to use to link back to the homepage of your site. It is similar to [`base_url`](#base-url-variable) but takes the currently active language into account.
 
 ### html_lang variable
 

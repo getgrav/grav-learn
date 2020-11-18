@@ -14,7 +14,7 @@ This will use the default page form, and append a text field to the **Advanced**
 
 [prism classes="language-yaml line-numbers"]
 title: Gallery
-'@extends':
+extends@:
     type: default
     context: blueprints://pages
 
