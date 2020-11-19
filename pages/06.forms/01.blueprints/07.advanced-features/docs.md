@@ -100,6 +100,23 @@ form:
           context: blueprints://
 [/prism]
 
+It is also possible to import multiple blueprints and order them by appending an index like `import@1`:
+
+[prism classes="language-yaml line-numbers"]
+form:
+  fields:
+    images:
+        type: section
+        title: Images
+        underline: true
+        import@1:
+          type: partials/gallery
+          context: blueprints://
+        import@2:
+          type: partials/another-gallery
+          context: blueprints://
+[/prism]
+
 ## Removing Fields / Properties (unset-*@)
 
 If you want to remove a field, you can add `unset@: true` inside of it.
