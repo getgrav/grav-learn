@@ -44,7 +44,6 @@ We've broken down these options, and what they do, below.
 | Show GitHub Link                | **Enable** or **Disable** display of the "Found an issue? Please report it on GitHub." message.                                             |
 | Automatically Check for Updates | Choose to automatically check for updates to the **Admin Panel** plugin.                                                                    |
 | Session Timeout                 | Set the session timeout (in seconds) here.                                                                                                  |
-| Warn on Page Delete             | **Enable** or **Disable** a warning that asks you to confirm an action that results in a page's deletion.                                   |
 [/div]
 
 ### Dashboard
