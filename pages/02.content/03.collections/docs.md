@@ -311,7 +311,7 @@ The `content.order.dir` variable controls which direction the ordering should be
 [prism classes="language-yaml line-numbers"]
 content:
     order:
-        by: default
+        by: custom
         custom:
             - _showcase
             - _highlights
