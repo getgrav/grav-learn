@@ -410,7 +410,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 ### Used Libraries
 
 * Updated Symfony Components to 4.4, please update any deprecated features in your code
-* **BC BREAK** Please run `bin/grav yamllinter -f user://` to find any YAML parsing errors in your site (including your plugins and themes).
+* **BC BREAK** Please run `bin/grav yamllinter` to find any YAML parsing errors in your site (including your plugins and themes).
 
 ## PLUGINS
 
