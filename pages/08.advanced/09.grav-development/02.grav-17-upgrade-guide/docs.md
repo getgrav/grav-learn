@@ -74,7 +74,7 @@ The existing [Pages Administration](/admin-panel/page) has been greatly improved
 * Better access control: [CRUD ACL](/admin-panel/page/permissions) support with page owners
 * Better multi-language support
 
-!! **BACKWARDS COMPATIBILITY BREAK**: We fixed 404 error page when you go to non-routable page with routable child pages under it. Now you get redirected to the first routable child page instead. This is probably what you wanted in the first place.
+!! **BACKWARDS COMPATIBILITY BREAK**: We fixed 404 error page when you go to non-routable page with routable, visible child pages under it. Now you get redirected to the first routable, visible child page instead. This is probably what you wanted in the first place.
 
 !!! **NOTE:** Flex Pages feature is not yet used in the frontend of your site.
 
