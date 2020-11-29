@@ -880,6 +880,9 @@ header.title:
   type: text
   autofocus: true
   label: PLUGIN_ADMIN.TITLE
+  validate:
+    min: 10
+    max: 255
 [/prism]
 
 [div class="table table-keycol"]
@@ -887,6 +890,8 @@ header.title:
 | :-----    | :-----                                            |
 | `prepend` | prepend some text or HTML to the front of a field |
 | `append`  | append some text or HTML to the end of a field  |
+| `validate.min` | minimum text length |
+| `validate.max`  | maximum text length  |
 [/div]
 
 [div class="table"]
