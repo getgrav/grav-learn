@@ -74,7 +74,7 @@ The existing [Pages Administration](/admin-panel/page) has been greatly improved
 * Better access control: [CRUD ACL](/admin-panel/page/permissions) support with page owners
 * Better multi-language support
 
-!! **BACKWARDS COMPATIBILITY BREAK**: We fixed 404 error page when you go to non-routable page with routable child pages under it. Now you get redirected to the first routable child page instead. This is probably what you wanted in the first place.
+!! **BACKWARDS COMPATIBILITY BREAK**: We fixed 404 error page when you go to non-routable page with routable, visible child pages under it. Now you get redirected to the first routable, visible child page instead. This is probably what you wanted in the first place.
 
 !!! **NOTE:** Flex Pages feature is not yet used in the frontend of your site.
 
@@ -410,7 +410,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 ### Used Libraries
 
 * Updated Symfony Components to 4.4, please update any deprecated features in your code
-* **BC BREAK** Please run `bin/grav yamllinter -f user://` to find any YAML parsing errors in your site (including your plugins and themes).
+* **BC BREAK** Please run `bin/grav yamllinter` to find any YAML parsing errors in your site (including your plugins and themes).
 
 ## PLUGINS
 
