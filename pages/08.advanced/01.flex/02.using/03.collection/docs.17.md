@@ -83,9 +83,9 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
-{% set contacts = contacts.sort(last_name: 'ASC', first_name: 'ASC') %}
+{% set contacts = contacts.sort({last_name: 'ASC', first_name: 'ASC'}) %}
 
 <div>Displaying all contacts in alphabetical order:</div>
 {% render contacts layout: 'cards' %}
@@ -122,7 +122,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 {% set page = 3 %}
 {% set limit = 6 %}
 {% set start = (page - 1) * limit %}
@@ -168,9 +168,9 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
-{% set contacts = contacts.filterBy(['published' => true]) %}
+{% set contacts = contacts.filterBy({'published': true}) %}
 
 <div>Displaying only published contacts:</div>
 {% render contacts layout: 'cards' %}
@@ -208,7 +208,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contacts = contacts.reverse() %}
 
@@ -246,7 +246,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contacts = contacts.shuffle().limit(0, 6) %}
 
@@ -284,7 +284,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 {% set selected = ['gizwsvkyo5xtms2s', 'gjmva53uoncdo4sb', 'mfzwwtcugv5hkocd', 'k5nfctkeoftwi4zu'] %}
 
 {% set contacts = contacts.select(selected) %}
@@ -326,7 +326,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 {% set ignore = ['gizwsvkyo5xtms2s', 'gjmva53uoncdo4sb', 'mfzwwtcugv5hkocd', 'k5nfctkeoftwi4zu'] %}
 
 {% set contacts = contacts.unselect(ignore) %}
@@ -373,9 +373,9 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
-{% set contacts = contacts.search('Jack', ['first_name', 'last_name', 'email'], ['contains' => true]) %}
+{% set contacts = contacts.search('Jack', ['first_name', 'last_name', 'email'], {'contains': true}) %}
 
 <div>Displaying all search results for 'Jack':</div>
 {% render contacts layout: 'cards' %}
@@ -410,7 +410,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contacts = contacts.shuffle().limit(0, 10) %}
 {% set fakes = contacts.copy() %}
@@ -448,7 +448,7 @@ if ($collection) {
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
 <h2>All contacts:</h2>
 <ul>
@@ -489,7 +489,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contact = contacts.first() %}
 
@@ -532,7 +532,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contact = contacts.last() %}
 
@@ -575,7 +575,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 {% set first = contacts.first() %}
 ...
 
@@ -618,7 +618,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 {% do contacts.next() %}
 {% do contacts.next() %}
 ...
@@ -663,7 +663,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 {% do contacts.next() %}
 {% do contacts.next() %}
 ...
@@ -801,7 +801,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set keys = contacts.keys() %}
 
@@ -845,7 +845,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set list = contacts.values() %}
 <ol>
@@ -888,7 +888,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set list = contacts.toArray() %}
 <ol>
@@ -935,7 +935,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set list = contacts.slice(10, 5) %}
 
@@ -982,7 +982,7 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set columns = contacts.limit(0, 10).chunk(5) %}
 
@@ -1037,9 +1037,9 @@ Returns:
 [ui-tabs]
 [ui-tab title="Twig"]
 ```twig
-{% set contects = grav.get('flex').collection('contacts') %}
+{% set contacts = grav.get('flex').collection('contacts') %}
 
-{% set by_name = contacts.sort(last_name: 'ASC', first_name: 'ASC').group('last_name') %}
+{% set by_name = contacts.sort({last_name: 'ASC', first_name: 'ASC'}).group('last_name') %}
 
 <div>Displaying contacts grouped by last name:</div>
 <div>
