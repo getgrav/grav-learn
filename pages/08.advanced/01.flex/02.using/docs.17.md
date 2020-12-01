@@ -15,10 +15,32 @@ Display multiple directories in your `directories/flex-objects.md` page:
 ```text
 title: Directories
 flex:
-  list:
-    - contacts
-    - services
   layout: default
+  list:
+  - contacts
+  - services
+---
+
+# Directories
+```
+
+Alternatively you can pass separate parameters for each directory:
+
+```text
+title: Directories
+flex:
+  layout: default
+  directories:
+    contacts:
+      collection:
+        title: '{{ directory.title }}'
+        layout: default
+        object:
+          layout: list-default
+      object:
+        title: 'Contact: {{ object.first_name }} {{ object.last_name }}'
+        layout: default
+    services:
 ---
 
 # Directories
@@ -30,7 +52,29 @@ Display a single directory in your `contacts/flex-objects.md` page:
 title: Contacts
 flex:
   directory: contacts
-  layout: cards
+  collection:
+    title: '{{ directory.title }}'
+    layout: default
+    object:
+      layout: list-default
+  object:
+    title: 'Contact: {{ object.first_name }} {{ object.last_name }}'
+    layout: default
+---
+
+# Contacts
+```
+
+Display a single object in your `my-contact/flex-objects.md` page:
+
+```text
+title: Contact
+flex:
+  directory: contacts
+  id: ki2ts4cbivggmtlj
+  object:
+    title: 'Contact: {{ object.first_name }} {{ object.last_name }}'
+    layout: default
 ---
 
 # Contacts
