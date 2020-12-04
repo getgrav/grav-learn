@@ -146,7 +146,7 @@ class MyTheme extends Theme
 }
 [/prism]
 
-As you can observe, in order to use the event hooks you first need to register them in a list with the `getSubscribedEvents` function and then define them with your own code. If you subscribe an event for use, define it aswell. Otherwise you will get an error.
+As you can observe, in order to use the event hooks you first need to register them in a list with the `getSubscribedEvents` function and then define them with your own code. If you subscribe an event for use, define it as well. Otherwise you will get an error.
 
 ### Other Folders
 
