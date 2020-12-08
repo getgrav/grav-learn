@@ -8,6 +8,7 @@ data/*
 plugins/*
 !plugins/.*
 themes/learn2
+themes/learn4
 
 # OS Generated
 .DS_Store*

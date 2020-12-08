@@ -113,7 +113,7 @@ links:
         path: user/plugins/youtube
         scm: github
     prism-highlight:
-        url: grav-prism-highlight
+        src: grav-plugin-prism-highlight
         path: user/plugins/prism-highlight
         scm: github
     learn4:
