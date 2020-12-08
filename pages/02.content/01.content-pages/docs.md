@@ -38,13 +38,13 @@ There is also some configuration settings to **control the order** of the listin
 
 ![Modular Page](content-modular.png)
 
-A Modular Page is a special type of listing page because it builds a **single modular page** from its **child modular sub-pages**. This allows for the ability to build very complex **one-page layouts** from Modules. This is accomplished by constructing the **Modular Page** from multiple **Modular sub-page folders** found in the modular page's primary folder.
+A **Modular Page** is a special type of listing page because it builds a **single page** from its **child pages** or **modules**. This allows for the ability to build very complex **one-page layouts** from Modules. This is accomplished by constructing the **Modular Page** from multiple **Modules** found in the modular page's primary folder.
 
 !! A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](https://getgrav.org/downloads/skeletons).
 
 Each of these page types follows the same basic structure, so before we can get into the nitty-gritty of each type, we must explain how pages in Grav are constructed.
 
-!! A Module, because it is intended to be part of another page, is inherently not a page you can reach directly via a URL. Because of this, all modular pages are by default set as **non-routable**.
+!! A Module, because it is intended to be part of another page, is inherently not a page you can reach directly via a URL. Because of this, all module pages are by default set as **non-routable**.
 
 ## Folders
 
@@ -73,7 +73,7 @@ Grav understands that any integer value followed by a period will be solely for 
 
 Your site must have an entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://yoursite.com` in your browser, by default Grav expects an alias `home/`, but you can override the home-location by changing the `home.alias` option in the [Grav configuration file](/basics/grav-configuration).
 
-**Modular sub-pages** are identified by an underscore (`_`) before the folder name. This is a special folder type that is intended to be used only with **modular content**.  These are **not routable** and **not visible** in the navigation. An example of a modular page setup would be a folder such as `user/pages/01.home`. Home is configured as a **modular page** that would contain a collection of child pages, and would be constructed from the `_header`, `_features`, and `_body` modular sub-pages.
+**Modules** are identified by an underscore (`_`) before the folder name. This is a special folder type that is intended to be used only with **modular content**.  These are **not routable** and **not visible** in the navigation. An example of a modular page setup would be a folder such as `user/pages/01.home`. Home is configured as a **modular page** that would contain a collection of **modules**, and would be constructed from the `_header`, `_features`, and `_body` folders within the home folder.
 
 The textual name of each folder defaults to the _slug_ that the system uses as part of the URL. For example if you have a folder such as `/user/pages/02.blog`, the slug for this page would default to `blog`, and the full URL would be `http://yoursite.com/blog`. A blog item page, located in `/user/pages/02.blog/blog-item-5` would be accessible via `http://yoursite.com/blog/blog-item-5`.
 
@@ -88,14 +88,14 @@ When dealing with collections, there are several options available to control ho
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
-| **default**  | The order based on the file system, i.e. `01.home` before `02.advark`|
+| **default**  | The order is based on the file system, i.e. `01.home` before `02.advark` |
 | **title**    | The order is based on the title as defined in each page |
 | **basename** | The order is based on the alphabetic folder without numeric order |
-| **date**     | The order based on the date as defined in each page|
-| **modified** | The order based on the modified timestamp of the page |
-| **folder**   | The order based on the folder name with any numerical prefix, i.e. `01.`, removed |
-| **header.x** | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015` |
-| **manual**   | The order based on the `order_manual` variable |
+| **date**     | The order is based on the date as defined in each page |
+| **modified** | The order is based on the modified timestamp of the page |
+| **folder**   | The order is based on the folder name with any numerical prefix, i.e. `01.`, removed |
+| **header.x** | The order is based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015` |
+| **manual**   | The order is based on the `order_manual` variable |
 | **random**   | The order is randomized |
 [/div]
 
@@ -184,14 +184,14 @@ This allows you to perform a wide variety of functionality from any page on your
 [prism classes="language-twig line-numbers"]
 # All Projects
 <ul>
-{% for p in page.find('/projects').children if p != page %}
-<li><a href="{{p.url}}">{{ p.title }}</a></li>
+{% for p in pages.find('/projects').children if p != page %}
+<li><a href="{{ p.url|e }}">{{ p.title|e }}</a></li>
 {% endfor %}
 </ul>
 [/prism]
 {% endverbatim %}
 
-In the next section, we will continue to dig into the specifics of a Page in detail.
+In the next sections, we will continue to dig into the specifics of a page and page collections in detail.
 
 ### contentMeta
 
@@ -203,7 +203,7 @@ This is where `contentMeta()` comes in. We use ContentMeta in our [Shortcode](ht
 
 {% verbatim %}
 [prism classes="language-twig line-numbers"]
-<div id="author">{{ page.find('/my/custom/page').contentMeta.shortcodeMeta.shortcode.section.author }}</div>
+<div id="author">{{ page.find('/my/custom/page').contentMeta.shortcodeMeta.shortcode.section.author|e }}</div>
 [/prism]
 {% endverbatim %}
 

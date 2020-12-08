@@ -12,7 +12,7 @@ Because Grav does not require a database, it is pretty easy to work with, withou
 
 First, let us familiarize ourselves with where Grav stores content.  We will go into more depth in a [future chapter](../folder-structure), but for the time being, you need to be aware that all our user content, is stored in the `user/pages/` folder of your Grav install.
 
-Currently, there are two folders in the pages folder, the first one is called `01.home` and the second is `02.Typography`.  The `01.` portion of the folder is optional but provides a couple of things that can be handy.
+Currently, there are two folders in the pages folder, the first one is called `01.home` and the second is `02.typography`.  The `01.` portion of the folder is optional but provides a couple of things that can be handy.
 
 Firstly, it lets you expressly define the order of your pages.  For example, `01` will come before `02`, but `00` will come before `01`.
 
@@ -73,13 +73,13 @@ The `#` or `hashes` syntax in markdown indicates a title.  A single `#` with a s
 Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **Quark** theme to get you started.
 [/prism]
 
-This is a simple paragraph that would have been wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicate bold text or `<b>` in HTML.  Italic text is indicated by wrapping text in `_` markers.
+This is a simple paragraph that would have been wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicate bold text or `<strong>`, formerly `<b>`, in HTML.  Italic text is indicated by wrapping text in `_` markers.
 
 [prism classes="language-markdown line-numbers"]
 !! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
 [/prism]
 
-This section uses a custom markdown feature that is provided by the included `markdown-notices` plugin.  This allows you to create simple notices by prefix a paragraph of text with a number of `!` (apostrophe) symbols, from `!` to `!!!!`.
+This section uses a custom markdown feature that is provided by the included `markdown-notices` plugin.  This allows you to create simple notices by prefix a paragraph of text with a number of `!` (exclamation mark) symbols, from `!` to `!!!!`.
 
 This overview should provide you with a few key pointers for writing Markdown, but you should check out our more [detailed explanation](../../content/markdown) to get a thorough understanding.
 
@@ -110,7 +110,7 @@ This is the body of **my new page** and I can easily use _Markdown_ syntax here.
 3. Save this file in the `user/pages/03.mypage/` folder as `default.md`. This will tell **Grav** to render the page using the **default** template in the current theme: `user/themes/quark/templates/default.html.twig`.
 4. That's it! Reload your browser to see your new page in the menu at the top.
 
-The page will automatically show up in the Menu after the **"Typography"** menu item. If you wish to change the name that shows up in the Menu, add: `menu: My Page` between the dashes in the page content.
+The page will automatically show up in the menu after the **"Typography"** menu item. If you wish to change the name that shows up in the menu, add: `menu: My Page` between the dashes in the page frontmatter.
 
 **Congratulations**, you have now successfully created a new page in Grav.  There is much more you can do with Grav, so please continue reading to find out about more advanced capabilities and in-depth features.
 

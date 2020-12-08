@@ -80,7 +80,7 @@ All of the commands listed below are compatible with <strong>any operating syste
 [/version]
 
 
-[version=16]
+[version=16,17]
 [div class="table table-keycol"]
 | Command                           | Description                                                                                                                        |
 | :----------------                 | :--------------------------------------                                                                                            |
@@ -166,6 +166,7 @@ This command creates a symlink that takes contents originally placed in **folder
 [/div]
 
 This command copies the entire **folder1** directory and places it in the target location (in this case **folder2**). In this case, **folder2** would need to already exist as it will not be created with this command.
+Watch the slash or backslash at the ending when specifying **folder2**.
 
 ##### Link Individual File(s) from One Place to Another
 

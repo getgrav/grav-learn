@@ -6,7 +6,7 @@ taxonomy:
     category: docs
 ---
 
-The headers (alternatively known as frontmatter) at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers.
+The page headers (alternatively known as frontmatter) at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers.
 
 ! Headers are also known as **Page Frontmatter** and are commonly referred to as such so as not to be confused with HTTP Headers.
 
@@ -27,12 +27,12 @@ An example of this is when you are using dynamic Twig variables in your content.
 ### Date
 
 ```yaml
-date: 01/01/2014 3:14pm
+date: 01/01/2020 3:14pm
 ```
 
 The `date` variable allows you to specifically set a date associated with this page.  This is often used to indicate when a post was created and can be used for display or sort-order purposes.  If not set, this defaults to the last **modified time** of the page.
 
-! Dates in the `m/d/y` or `d-m-y` formats are disambiguated by looking at the separator between the various components: if the separator is a slash (`/`), then the **American** `m/d/y` is assumed; whereas if the separator is a dash (`-`) or a dot (`.`), then the **European** `d-m-y` format is assumed.
+! Dates in the `m/d/y` or `d-m-y` formats are disambiguated by looking at the separator between the various components: if the separator is a slash (`/`), then the **American** `m/d/y` is assumed; whereas if the separator is a dash (`-`) or a dot (`.`), then the **European** `d.m.y` format is assumed.
 
 ### Menu
 
@@ -94,15 +94,17 @@ These are still important but less commonly used. They can be used to provide ad
 append_url_extension: '.json'
 ```
 
-Allows the page to override the default extension and set one programatically.  It will also set the appropriate header attributes for the response.
+Allows the page to override the default extension and set one programmatically.  It will also set the appropriate header attributes for the response.
 
-### Cache-control
+### Cache-Control
 
 ```yaml
 cache_control: max-age=604800
 ```
 
-Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value
+Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value.
+
+! Make sure you're using `no-cache` if the page contains information that can change based on the user. Otherwise the content can leak to other users. [Expires](/content/headers#expires) setting if set to `expires: 0` has the same effect.
 
 ### Date Format
 
@@ -110,7 +112,7 @@ Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/do
 dateformat: 'Y-m-d H:i:s'
 ```
 
-Overrides the default Grav configuration for date formats and lets it be set at the page level. You can use any of the [PHP date formats](http://php.net/manual/en/datetime.formats.date.php) available.
+Overrides the default Grav configuration for date formats and lets it be set at the page level. You can use any of the [PHP date formats](https://www.php.net/manual/en/function.date.php) available.
 
 ### Debugger
 
@@ -126,7 +128,7 @@ debugger: false
 etag: true
 ```
 
-Enable or disable on a page level whether or not to display an ETag header variable with a unique value. False by default unless overridden in your `system.yaml`.
+Enable or disable on a page level whether or not to display an ETag header variable with a unique value. `false` by default unless overridden in your `system.yaml`.
 
 ### Expires
 
@@ -134,7 +136,9 @@ Enable or disable on a page level whether or not to display an ETag header varia
 expires: 604800
 ```
 
-Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible).
+Page expires time in seconds (604800 seconds = 7 days).
+
+! Make sure you're using `expires: 0` if the page contains information that can change based on the user. Otherwise the content can leak to other users. See also [Cache-Control](/content/headers#Cache-Control) setting.
 
 ### External Url
 
@@ -159,7 +163,7 @@ Allows the dynamic setting of an HTTP Response Code.
 language: fr
 ```
 
-This allows you to override the language for a particular page
+This allows you to override the language for a particular page.
 
 ### LastModified
 
@@ -167,7 +171,7 @@ This allows you to override the language for a particular page
 last_modified: true
 ```
 
-Enable or disable on a page level whether or not to display a Last Modified header variable with modified date. False by default unless overridden in your `system.yaml`.
+Enable or disable on a page level whether or not to display a Last Modified header variable with modified date. `false` by default unless overridden in your `system.yaml`.
 
 ### Lightbox
 
@@ -211,7 +215,7 @@ This will always take you to the `/profile` route after a successful login.
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
-| **extra:** | Enable support for Markdown Extra support (GFM by default) |
+| **extra:** | Enable support for Markdown Extra (GFM by default) |
 | **auto_line_breaks:** | Enable automatic line breaks |
 | **auto_url_links:** | Enable automatic HTML links |
 | **escape_markup:** | Escape markup tags into entities |
@@ -257,10 +261,10 @@ If set to `true` Twig processing will occur before any Markdown processing. This
 ### Publish Date
 
 ```yaml
-publish_date: 01/23/2015 13:00
+publish_date: 01/23/2020 13:00
 ```
 
-Optional field, but can provide a date to automatically trigger publication. Valid values are any string date values that [strtotime()](http://php.net/manual/en/function.strtotime.php) supports.
+Optional field, but can provide a date to automatically trigger publication. Valid values are any string date values that [strtotime()](https://php.net/manual/en/function.strtotime.php) supports.
 
 ### Redirect
 
@@ -382,10 +386,10 @@ We [used this method](https://github.com/getgrav/grav-plugin-sitemap/commit/00c2
 ### Unpublish Date
 
 ```yaml
-unpublish_date: 05/17/2015 00:32
+unpublish_date: 05/17/2020 00:32
 ```
 
-Optional field, but can provide a date to automatically trigger un-publication. Valid values are any string date values that [strtotime()](http://php.net/manual/en/function.strtotime.php) supports.
+Optional field, but can provide a date to automatically trigger un-publication. Valid values are any string date values that [strtotime()](https://php.net/manual/en/function.strtotime.php) supports.
 
 ### Visible
 
@@ -424,11 +428,16 @@ You could then access them from Twig:
 
 [prism classes="language-twig line-numbers"]
 <section id="author-details">
-    <h2>{{ page.header.author.name }}</h2>
-    <p>{{ page.header.author.bio }}</p>
-    <span>Contact: <a href="https://twitter.com/{{ page.header.author.twitter }}"><i class="fa fa-twitter"></i></a></span>
+    <h2>{{ page.header.author.name|e }}</h2>
+    <p>{{ page.header.author.bio|e }}</p>
+    <span>Contact: <a href="https://twitter.com/{{ page.header.author.twitter|e }}"><i class="fa fa-twitter"></i></a></span>
 </section>
 [/prism]
+
+If the variable name [contains a special character like a dash](https://github.com/getgrav/grav/issues/1957#issuecomment-723236844) you should use [twigs attribute function](https://twig.symfony.com/doc/2.x/functions/attribute.html):
+
+[prism classes="language-twig"] attribute(page.header, 'plugin-name').active [/prism]
+
 
 ## Meta Page Headers
 
@@ -495,7 +504,7 @@ This will produce the HTML:
 <meta name="fb:app_id" property="fb:app_id" content="your_facebook_app_id" />
 [/prism]
 
-Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific tags and these are support automatically by Grav.
+Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific tags and these are supported automatically by Grav.
 
 #### Twitter Metatag examples
 
@@ -522,10 +531,6 @@ For a full outline of all Twitter metatags that can be used, please consult the 
 
 This really provides a lot of flexibility and power.
 
-## Collection Headers
-
-Collections have grown up! All [Collection Header information](../collections) is now broken out into [their own separate section](../collections).
-
 ## Frontmatter.yaml
 
 An advanced feature that can come in handy for some power users is the ability to use common frontmatter values via a `frontmatter.yaml` file located in the page folder.  This is particular useful when working with multi-language sites where you may wish to share a portion of the frontmatter between all the language versions of a given page.
@@ -537,5 +542,7 @@ metadata:
     generator: 'Super Grav'
     description: Give your page a powerup with Grav!
 [/prism]
+
+! If a header is defined in both frontmatter.yaml and in page frontmatter, the page values is used, frontmatter.yaml values are overridden.
 
 !!!! Utilizing frontmatter.yaml is a file-side feature and is **not supported** by the admin plugin.

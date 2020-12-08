@@ -108,10 +108,12 @@ In an absolute link, the link opens with a `/`. Here is an example of an absolut
 
 ### PHP Streams
 
-New in Grav 1.2 is the ability to reference and link images via PHP streams.  There are several built-in PHP streams available which are useful including:
+Grav has also the ability to reference and link images via PHP streams.  There are several built-in PHP streams available which are useful including:
 
 * `user://` - user folder. e.g. `user/`
+* `page://` - pages folder. e.g. `user/pages/`
 * `image://` - images folder. e.g. `user/images/`
+* `plugins://` - plugins folder.  e.g. `user/plugins/`
 * `theme://` - current theme.  e.g. `user/themes/antimatter/`
 
 These allow you to easily access images that are traditionally outside of the Pages hierarchy (`user/pages/`).
@@ -126,9 +128,11 @@ or:
 ![Stream Image](theme://images/my-image.jpg)
 ```
 
+For complete list of default stream locations, see [Multisite Setup - Streams](/advanced/multisite-setup#streams).
+
 ### Remote
 
-Remote image links enable you to directly display pretty much any media file via its URL. This doesn't have to include your own site's content, but it can. Here is an example of how you would display to a remote image file.
+Remote image links enable you to directly display pretty much any media file via its URL. This doesn't have to include your own site's content, but it can. Here is an example of how you would display a remote image file.
 
 ```markdown
 ![Remote Image 1](https://getgrav.org/images/testimage.png)

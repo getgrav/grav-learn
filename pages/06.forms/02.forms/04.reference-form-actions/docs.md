@@ -139,7 +139,7 @@ You could use any page type you want, as a destination page. Just create your ow
 
 ### Save
 
-Saves the form data to a file. The file is saved to the `user/data` folder, in a subfolder named as the `form.name` parameter. For example:
+Saves the form data to a file. The file is saved to the `user/data` folder, in a subfolder named as the `form.name` parameter. The form **must** have a name for this action to succeed, and the subfolder must be created with appropriate permissions before data can be saved in it, as a new directory will not be created if one does not exist. For example:
 
 !! The `fileprefix` and `body` can contain Twig markup.
 
@@ -156,6 +156,16 @@ process:
 The body is taken from the theme's `templates/forms/data.html.twig` file, provided by Antimatter and updated themes.
 
 ! the `operation` can be either `create` (default) to create a new file per-form-submission or `add` to append to a single file.
+
+! note that the `add` operation now requires a static filename: to be defined see the example below.
+
+[prism classes="language-yaml line-numbers"]
+process:
+    - save:
+        filename: feedback.txt
+        body: "{% include 'forms/data.txt.twig' %}"
+        operation: add
+[/prism]
 
 ### Captcha
 
@@ -179,12 +189,23 @@ process:
         label: User IP Address
 [/prism]
 
+### Timestamp
+
+Add a form submission timestamp to the output. Put it above email / save processes in the 'form.md' to ensure it is used by the output process(es).
+
+[prism classes="language-yaml line-numbers"]
+process:
+    - timestamp:
+        label: Submission Timestamp
+[/prism]
+
 ### Reset the form after submit
 
 By default, the form is not cleared after the submit. So if you don't have a `display` action and the user is sent back to the form page, it's still filled with the data entered. If you want to avoid this, add a `reset` action:
 
 [prism classes="language-yaml"]
-reset: true
+process:
+    - reset: true
 [/prism]
 
 ## Custom Actions

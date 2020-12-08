@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-As of Grav 1.1, you can easily access theme configuration and blueprint information from your Twig and PHP files.
+In Grav you can easily access theme configuration and blueprint information from your Twig and PHP files.
 
 ## Accessing Theme Blueprint Information
 
@@ -12,6 +12,8 @@ Information from the currently active theme's `blueprints.yaml` file can be had 
 
 [prism classes="language-yaml line-numbers"]
 name: Antimatter
+slug: antimatter
+type: theme
 version: 1.7.0
 description: "Antimatter is the default theme included with **Grav**"
 icon: empire
@@ -42,9 +44,9 @@ $theme_license = $this->grav['theme']['license'];
 
 ## Accessing Theme Configuration
 
-Theme's have configuration files, too. A theme's configuration file is named `<themename>.yaml`. The default file lives in the theme's root folder (`user/themes/<themename>`). 
+Themes have configuration files, too. A theme's configuration file is named `<themename>.yaml`. The default file lives in the theme's root folder (`user/themes/<themename>`).
 
-It is **strongly** recommended not to actually change the theme's default YAML file but to override the settings in the `user/config` folder. This will ensure that the theme's original settings remain intact, allowing you to quickly access the changes and/or revert back whenever necessary.
+It is **strongly** recommended not to actually change the theme's default YAML file but to override the settings in the `user/config/themes` folder. This will ensure that the theme's original settings remain intact, allowing you to quickly access the changes and/or revert back whenever necessary.
 
 For example, let us consider the Antimatter theme.  By default, there is a file called `antimatter.yaml` in the theme's root folder. The contents of this configuration file look like this:
 
@@ -67,7 +69,7 @@ info: Grav is awesome!
 Then in your theme templates you can access these variables using the `grav.theme.config` object:
 
 ```
-<h1 style="color:{{ grav.theme.config.color }}">{{ grav.theme.config.info }}</h1>
+<h1 style="color:{{ grav.theme.config.color|e }}">{{ grav.theme.config.info|e }}</h1>
 ```
 
 This should render out as:
@@ -78,6 +80,7 @@ In PHP you can access the current theme's configuration with:
 
 [prism classes="language-php line-numbers"]
 $color = $this->grav['theme']->config()['color'];
+$info = $this->grav['theme']->config()['info'];
 [/prism]
 
 Simple! The sky is the limit regarding the configuration of your themes.  You can use them for whatever you like! :)
@@ -87,11 +90,11 @@ Simple! The sky is the limit regarding the configuration of your themes.  You ca
 The following aliases also work:
 
 [prism classes="language-twig line-numbers"]
-Theme Color Option: {{ config.theme.color_option }}
+Theme Color Option: {{ config.theme.color_option|e }}
    or
-Theme Color Option: {{ theme_var(color_option) }}
+Theme Color Option: {{ theme_var(color_option)|e }}
    or
-Theme Color Option: {{ grav.themes.antimatter.color_option }} [AVOID!]
+Theme Color Option: {{ grav.themes.antimatter.color_option|e }} [AVOID!]
 [/prism]
 
 **Even though `grav.themes.<themename>` is supported, it should be avoided because it makes it impossible to inherit the theme properly.**

@@ -36,7 +36,7 @@ content:
 
 The `content.items` value in the page's frontmatter tells Grav to gather up a collection of items and information passed to this defines how the collection is to be built.
 
-This definition creates a collection for the page that consists of the all **child pages** sorted by **date** in **descending** order with **pagination** showing **10 items** per-page.
+This definition creates a collection for the page that consists of all **child pages** sorted by **date** in **descending** order with **pagination** showing **10 items** per-page.
 
 ## Accessing Collections in Twig
 
@@ -44,8 +44,8 @@ When this collection is defined in the header, Grav creates a collection **page.
 
 [prism classes="language-twig line-numbers"]
 {% for p in page.collection %}
-<h2>{{ p.title }}</h2>
-{{ p.summary }}
+<h2>{{ p.title|e }}</h2>
+{{ p.summary|raw }}
 {% endfor %}
 [/prism]
 
@@ -55,8 +55,8 @@ You can also include an order parameter to change the default ordering of pages:
 
 [prism classes="language-twig line-numbers"]
 {% for p in page.collection.order('folder','asc') %}
-<h2>{{ p.title }}</h2>
-{{ p.summary }}
+<h2>{{ p.title|e }}</h2>
+{{ p.summary|raw }}
 {% endfor %}
 [/prism]
 
@@ -92,7 +92,7 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 
 ! This document outlines the use of `@page`, `@taxonomy.category` etc, but a more YAML-safe alternative format is `page@`, `taxonomy@.category`.  All the `@` commands can be written in either prefix or postfix format.
 
-We will cover these more in detail. 
+We will cover these more in detail.
 
 ## Root Collections
 
@@ -114,7 +114,7 @@ content:
 
 ##### @root - Top level children + all descendants
 
-This will effectively get every page in your site as it recursively navigates through all the children from the root page down, and builds a collection of **all** the **published non-modular children** of a site.
+This will effectively get every page in your site as it recursively navigates through all the children from the root page down, and builds a collection of **all** the **published non-modular children** of a site:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -134,7 +134,7 @@ content:
 
 ##### @self.descendants - Non-modular children + all descendants of the current page
 
-Similar to `.children`, the `.descendants` collection will retrieve all the **published non-modular children** but continue to recurse through all their children.
+Similar to `.children`, the `.descendants` collection will retrieve all the **published non-modular children** but continue to recurse through all their children:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -143,7 +143,7 @@ content:
 
 ##### @self.modular - Modular children of the current page
 
-The inverse of `.children`, this method retrieves only **published modular children** of the current page (`_features`, `_showcase`, etc.)
+The inverse of `.children`, this method retrieves only **published modular children** of the current page (`_features`, `_showcase`, etc.):
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -152,7 +152,7 @@ content:
 
 ##### @self.parent - The parent page of the current page
 
-This is a special case collection because it will always return just the one **parent** of the current page
+This is a special case collection because it will always return just the one **parent** of the current page:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -161,7 +161,7 @@ content:
 
 ##### @self.siblings - All the sibling pages
 
-This collection will collect all the **published** Pages at the same level of the current page, excluding the current page.
+This collection will collect all the **published** Pages at the same level of the current page, excluding the current page:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -172,7 +172,7 @@ content:
 
 ##### @page or @page.children - Collection of children of a specific page
 
-This collection takes a slug route of a page as an argument and will return all the **published non-modular** children of that page
+This collection takes a slug route of a page as an argument and will return all the **published non-modular** children of that page:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -190,7 +190,7 @@ content:
 
 ##### @page.self or @page.page - Collection of just the specific page
 
-This collection takes a slug route of a page as an argument and will return collection containing that page (if it is **published and non-modular**)
+This collection takes a slug route of a page as an argument and will return collection containing that page (if it is **published and non-modular**):
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -200,7 +200,7 @@ content:
 
 ##### @page.descendants - Collection of children + all descendants of a specific page
 
-This collection takes a slug route of a page as an argument and will return all the **published non-modular** children and all their descendants of that page
+This collection takes a slug route of a page as an argument and will return all the **published non-modular** children and all their descendants of that page:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -210,7 +210,7 @@ content:
 
 ##### @page.modular - Collection of modular children of a specific page
 
-This collection takes a slug route of a page as an argument and will return all the **published modular** children of that page
+This collection takes a slug route of a page as an argument and will return all the **published modular** children of that page:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -229,7 +229,7 @@ content:
 
 Using the `@taxonomy` option, you can utilize Grav's powerful taxonomy functionality.  This is where the `taxonomy` variable in the [Site Configuration](../../basics/grav-configuration#site-configuration) file comes into play. There **must** be a definition for the taxonomy defined in that configuration file for Grav to interpret a page reference to it as valid.
 
-By setting `@taxonomy.tag: foo`, Grav will find all the **published pages** in the `/user/pages` folder that have themselves set `tag: foo` in their taxonomy variable.
+By setting `@taxonomy.tag: foo`, Grav will find all the **published pages** in the `/user/pages` folder that have themselves set `tag: foo` in their taxonomy variable:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -241,7 +241,7 @@ The `content.items` variable can take an array of taxonomies and it will gather 
 
 !! If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `'@taxonomy': {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the hierarchy, each with listed values placed within `[]` brackets. Pages must meet **all** these requirements to be found.
 
-If you have multiple variables in a single parent to set, you can do this using the inline method, but for simplicity, we recommend using the standard method. Here is an example.
+If you have multiple variables in a single parent to set, you can do this using the inline method, but for simplicity, we recommend using the standard method. Here is an example:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -252,6 +252,8 @@ content:
 [/prism]
 
 Each level in the hierarchy adds two whitespaces before the variable. YAML will allow you to use as many spaces as you want here, but two is standard practice. In the above example, both the `category` and `tag` variables are set under `@taxonomy`.
+
+Page collections will automatically be filtered by taxonomy when one has been set in the URL (e.g. /archive/category:news). This enables you to build a single blog archive template but filter the collection dynamically using the URL. If your page collection should ignore the taxonomy set in the URL use the flag `url_taxonomy_filters:false` to disable this feature.
 
 ### Complex Collections
 
@@ -270,7 +272,7 @@ Additionally, you can filter the collection by using `filter: type: value`. The 
 [prism classes="language-yaml line-numbers"]
  content:
   items: '@self.siblings'
-  filter: 
+  filter:
     published: true
     type: 'blog'
 [/prism]
@@ -291,14 +293,14 @@ Ordering of sub-pages follows the same rules as ordering of folders, the availab
 [div class="table-keycol"]
 | Ordering     | Details                                                                                                                                            |
 | :----------  | :----------                                                                                                                                        |
-| `default`    | The order based on the file system, i.e. `01.home` before `02.advark`                                                                              |
+| `default`    | The order is based on the file system, i.e. `01.home` before `02.advark`                                                                              |
 | `title`      | The order is based on the title as defined in each page                                                                                            |
 | `basename`   | The order is based on the alphabetic folder name after it has been processed by the `basename()` PHP function                                      |
-| `date`       | The order based on the date as defined in each page                                                                                                |
-| `modified`   | The order based on the modified timestamp of the page                                                                                              |
-| `folder`     | The order based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                  |
-| `header.x`   | The order based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015`    |
-| `manual`     | The order based on the `order_manual` variable                                                                                                     |
+| `date`       | The order is based on the date as defined in each page                                                                                                |
+| `modified`   | The order is based on the modified timestamp of the page                                                                                              |
+| `folder`     | The order is based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                  |
+| `header.x`   | The order is based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015`    |
+| `manual`     | The order is based on the `order_manual` variable                                                                                                     |
 | `random`     | The order is randomized                                                                                                                            |
 | `custom`     | The order is based on the `content.order.custom` variable                                                                                                                             |
 | `sort_flags` | Allow to override sorting flags for page header-based or default ordering. If the `intl` PHP extension is loaded, only [these flags](https://secure.php.net/manual/en/collator.asort.php) are available. Otherwise, you can use the PHP [standard sorting flags](https://secure.php.net/manual/en/array.constants.php). |
@@ -337,11 +339,11 @@ content:
         end: 1/1/2015
 [/prism]
 
-You can use any string date format supported by [strtotime()](http://php.net/manual/en/function.strtotime.php) such as `-6 weeks` or `last Monday` as well as more traditional dates such as `01/23/2014` or `23 January 2014`. The dateRange will filter out any pages that have a date outside the provided dateRange.  Both **start** and **end** dates are optional, but at least one should be provided.
+You can use any string date format supported by [strtotime()](https://php.net/manual/en/function.strtotime.php) such as `-6 weeks` or `last Monday` as well as more traditional dates such as `01/23/2014` or `23 January 2014`. The dateRange will filter out any pages that have a date outside the provided dateRange.  Both **start** and **end** dates are optional, but at least one should be provided.
 
 ### Multiple Collections
 
-When you create a collection with `content: items:` in your YAML, you are defining a single collection based on a several conditions.  However, Grav does let you create an arbitrary set of collections per page, you just need to create another one:
+When you create a collection with `content: items:` in your YAML, you are defining a single collection based on several conditions.  However, Grav does let you create an arbitrary set of collections per page, you just need to create another one:
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -366,7 +368,7 @@ This sets up **2 collections** for this page, the first uses the default `conten
 
 ## Collection Object Methods
 
-Standard methods Iterable methods include:
+Iterable methods include:
 
 [div class="table-keycol"]
 | Property | Description |
@@ -387,11 +389,12 @@ Also has several useful Collection-specific methods:
 | -------- | ----------- |
 | `Collection::addPage($page)` | You can append another page to this collection |
 | `Collection::copy()` | Creates a copy of the current collection |
-| `Collection::current()` | gets the current item in the collection |
-| `Collection::key()` | Returns the current slug of the the current item |
+| `Collection::current()` | Gets the current item in the collection |
+| `Collection::key()` | Returns the slug of the current item |
 | `Collection::remove($path)` | Removes a specific page in the collection, or current if `$path = null` |
 | `Collection::order($by, $dir, $manual)` | Orders the current collection |
 | `Collection::intersect($collection2)` | Merge two collections, keeping items that occur in both collections (like an "AND" condition) |
+| `Collection::merge($collection2)` | Merge two collections, keeping items that occur in either collection (like an "OR" condition) |
 | `Collection::isFirst($path)` | Determines if the page identified by path is first |
 | `Collection::isLast($path)` | Determines if the page identified by path is last |
 | `Collection::prevSibling($path)` | Returns the previous sibling page if possible |
@@ -400,13 +403,12 @@ Also has several useful Collection-specific methods:
 | `Collection::dateRange($startDate, $endDate, $field)` | Filters the current collection with dates |
 | `Collection::visible()` | Filters the current collection to include only visible pages |
 | `Collection::nonVisible()` | Filters the current collection to include only non-visible pages |
-| `Collection::merge($collection2)` | Merge two collections, keeping items that occur in either collection (like an "OR" condition) |
 | `Collection::modular()` | Filters the current collection to include only modular pages |
 | `Collection::nonModular()` | Filters the current collection to include only non-modular pages |
 | `Collection::published()` | Filters the current collection to include only published pages |
 | `Collection::nonPublished()` | Filters the current collection to include only non-published pages |
 | `Collection::routable()` | Filters the current collection to include only routable pages |
-| `Collection::nonRoutable()` | Filters the current collection to include only non-routabe pages |
+| `Collection::nonRoutable()` | Filters the current collection to include only non-routable pages |
 | `Collection::ofType($type)` | Filters the current collection to include only pages where template = `$type` |
 | `Collection::ofOneOfTheseTypes($types)` | Filters the current collection to include only pages where template is in the array `$types` |
 | `Collection::ofOneOfTheseAccessLevels($levels)` | Filters the current collection to include only pages where page access is in the array of `$levels` |
@@ -425,11 +427,11 @@ Here is an example taken from the **Learn2** theme's **docs.html.twig** that def
 {% block navigation %}
         <div id="navigation">
         {% if not progress.isFirst(page.path) %}
-            <a class="nav nav-prev" href="{{ progress.nextSibling(page.path).url }}"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="{{ progress.nextSibling(page.path).url|e }}"> <i class="fa fa-chevron-left"></i></a>
         {% endif %}
 
         {% if not progress.isLast(page.path) %}
-            <a class="nav nav-next" href="{{ progress.prevSibling(page.path).url }}"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="{{ progress.prevSibling(page.path).url|e }}"><i class="fa fa-chevron-right"></i></a>
         {% endif %}
         </div>
 {% endblock %}
@@ -493,7 +495,7 @@ You can also do similar directly in **Twig Templates**:
 
 By default when you call `page.collection()` in the Twig of a page that has a collection defined in the header, Grav looks for a collection called `content`.  This allows the ability to define [multiple collections](#multiple-collections), but you can even take this a step further.
 
-If you need to programatically generate a collection, you can do so by calling `page.collection()` and passing in an array in the same format as the page header collection definition.  For example:
+If you need to programmatically generate a collection, you can do so by calling `page.collection()` and passing in an array in the same format as the page header collection definition.  For example:
 
 [prism classes="language-twig line-numbers"]
 {% set options = { items: {'@page.children': '/my/pages'}, 'limit': 5, 'order': {'by': 'date', 'dir': 'desc'}, 'pagination': true } %}
@@ -501,7 +503,7 @@ If you need to programatically generate a collection, you can do so by calling `
 
 <ul>
 {% for p in my_collection %}
-<li>{{ p.title }}</li>
+<li>{{ p.title|e }}</li>
 {% endfor %}
 </ul>
 [/prism]
@@ -524,11 +526,113 @@ menu: Home
 {% if p.header.menu %}
 	<ul>
 	{% if page.slug == p.slug %}
-		<li class="{{ p.slug }} active"><span>{{ p.menu }}</span></li>
+		<li class="{{ p.slug|e }} active"><span>{{ p.menu|e }}</span></li>
 	{% else %}
-		<li class="{{ p.slug }}"><a href="{{ p.url }}">{{ p.menu }}</a></li>
+		<li class="{{ p.slug|e }}"><a href="{{ p.url|e }}">{{ p.menu|e }}</a></li>
 	{% endif %}
 	</ul>
 {% endif %}
 {% endfor %}
 [/prism]
+
+#### Pagination with Advanced Collections
+
+A common question we hear is regarding how to enable pagiation for custom collections.  Pagination is a plugin that can be installed via GPM with the name `pagination`.  Once installed it works "out-of-the-box" with page configured collections, but knows nothing about custom collections created in Twig.  To make this process easier, pagination comes with it's own Twig function called `paginate()` that will provide the pagination functionality we need.
+
+After we pass the collection and the limit to the `paginate()` function, we also need to pass the pagination information directly to the `partials/pagination.html.twig` template to render properly.
+
+[prism classes="language-twig line-numbers"]
+{% set options = { items: {'@root.descendants':''}, 'order': {'by': 'folder', 'dir': 'asc'}} %}
+{% set my_collection = page.collection(options) %}
+{% do paginate( my_collection, 5 ) %}
+
+{% for p in my_collection %}
+    <ul>
+        {% if page.slug == p.slug %}
+            <li class="{{ p.slug|e }} active"><span>{{ p.menu|e }}</span></li>
+        {% else %}
+            <li class="{{ p.slug|e }}"><a href="{{ p.url|e }}">{{ p.menu|e }}</a></li>
+        {% endif %}
+    </ul>
+{% endfor %}
+
+{% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':my_collection.params.pagination} %}
+[/prism]
+
+
+[version=16]
+#### Custom Collection Handling with `onCollectionProcessed()` Event
+
+There are times when the event options are just not enough.  Times when you want to get a collection but then further manipulate the collection based on something very custom.  Imagine if you will, a use case where you have what seems like a rather bog-standard blog listing, but your client wants to have fine grain control over what displays in the listing.  They want to have a custom toggle on every blog item that lets them remove it from the listing, but still have it published and available via a direct link.
+
+To make this happen, we can simply add a custom `display_in_listing: false` option in the page header for the item:
+
+[prism classes="language-yaml line-numbers"]
+---
+title: 'My Story'
+date: '13:34 04/14/2020'
+taxonomy:
+    tag:
+        - journal
+display_in_listing: false
+---
+...
+[/prism]
+
+The problem is that there is no way to define or include this filter when defining a collection in the listing page.  It probably is defined something like this:
+
+[prism classes="language-yaml line-numbers"]
+---
+menu: News
+title: 'My Blog'
+content:
+    items:
+        - self@.children
+    order:
+        by: date
+        dir: desc
+    limit: 8
+    pagination: true
+    url_taxonomy_filters: true
+---
+...
+[/prism]
+
+So the collection is simply defined by the `self@.children` directive to get all the published children of the current page. So what about those pages that have the `display_in_listing: false` set? We need to do some extra work on that collection before it is returned to ensure we remove any items that we don't want to see.  To do this we can use the `onCollectionProcessed()` event in a custom plugin.  We need to add the listener:
+
+[prism classes="language-php line-numbers"]
+    public static function getSubscribedEvents()
+    {
+        return [
+            ['autoload', 100000],
+            'onPluginsInitialized' => ['onPluginsInitialized', 0],
+            'onCollectionProcessed' => ['onCollectionProcessed', 10]
+        ];
+    }
+[/prism]
+
+Then, we need to define the method and loop over the collection items, looking for any pages with that `display_in_listing:` field set, then remove it if it is `false`:
+
+[prism classes="language-php line-numbers"]
+    /**
+     * Remove any page from collection with display_in_listing: false|0
+     *
+     * @param Event $event
+     */
+    public function onCollectionProcessed(Event $event)
+    {
+        /** @var Collection $collection */
+        $collection = $event['collection'];
+
+        foreach ($collection as $item) {
+            $display_in_listing = $item->header()->display_in_listing ?? true;
+            if ((bool) $display_in_listing === false) {
+                $collection->remove($item->path());
+            }
+        }
+
+    }
+[/prism]
+
+Now your collection has the correct items, and all other plugins or Twig templates that rely on that collection will see this modified collection so things like pagination will work as expected.
+[/version]

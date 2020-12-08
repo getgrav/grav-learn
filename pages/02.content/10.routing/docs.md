@@ -55,6 +55,8 @@ routes:
 
 If you requested a URL `http://mysite.com/something/else` and that was not a valid page, the routes definition would actually serve you the page located at `/blog/focus-and-blur`, assuming it exists. This does not actually **redirect** the user to the provided page, it simply displays the page when you request the alias.
 
+!! The indentation is key here, without it the route redirect will not work. 
+
 #### Regex-Based Aliases
 
 A more advanced type of alias redirect allows the use of a simple **regex** to map part of an alias to a route.  For example, if you had:

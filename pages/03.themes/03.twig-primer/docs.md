@@ -38,11 +38,11 @@ Here is a basic template created using Twig:
         <title>All About Cookies</title>
     </head>
     <body>
-        My name is {{ name }} and I love cookies.
+        My name is {{ name|e }} and I love cookies.
         My favorite flavors of cookies are:
         <ul>
         {% for cookie in cookies %}
-            <li>{{ cookie.flavor }}</li>
+            <li>{{ cookie.flavor|e }}</li>
 		{% endfor %}
         </ul>
         <h1>Cookies are the best!</h1>
@@ -89,10 +89,12 @@ Output tags (`{{ Insert Output Here }}`) will be evaluated and added to the gene
 Here is an example of output tags being used in a Twig template:
 
 [prism classes="language-twig"]
-My name is {{ name }} and I love cookies.
+My name is {{ name|e }} and I love cookies.
 [/prism]
 
 The variable `name` has been inserted into this line and will appear to the end user as `My name is Jake and I love cookies.` as `Jake` was the value of the name variable.
+
+!! It is very important to either turn on `autoescape` setting from your [System Configuration](/basics/grav-configuration#twig) or to remember to escape every single variable in template files by using `|e` filter to make your site safe against XSS attacks. For safe HTML content, use `|raw` filter.
 
 #### Action Tags
 
@@ -122,7 +124,7 @@ Filters are useful, especially when you are using the output tags to display dat
 Let's say the value of the `name` variable might include unwanted SGML/XML tags. You can filter them out using the code below:
 
 [prism classes="language-twig"]
-{{ name|striptags }}
+{{ name|striptags|e }}
 [/prism]
 
 ### Functions

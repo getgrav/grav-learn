@@ -14,8 +14,9 @@ Because Grav is a **flat-file based CMS**, meaning no database underpins it, the
 /images
 /logs
 /system
-/user
+/tmp
 /vendor
+/user
 [/prism]
 
 So let us dig a little deeper into each of these top-level folders and explain what they are for:
@@ -26,13 +27,13 @@ The `assets` folder is used by the new asset management system within Grav to st
 
 !! This folder should not be used to store any user data, as it is routinely flushed of all data.
 
-### /bin
-
-The `bin` folder contains the [Grav CLI application](../../advanced/grav-cli) that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers so we'll set this topic aside for later discussion.
-
 ### /backup
 
 The `backup` folder is the default location for Grav backups.
+
+### /bin
+
+The `bin` folder contains the [Grav CLI application](../../cli-console/grav-cli) that can be used to perform some handy tasks from the command line.  This is a relatively advanced feature primarily intended for developers so we'll set this topic aside for later discussion.
 
 ### /cache
 
@@ -58,11 +59,17 @@ When Grav detects an error, or if you have extra logging or profiling turned on,
 
 The `system` folder is where the files that make Grav actually function live.  You should not edit anything in this folder because an update to Grav could overwrite your changes.  If you need to change something related to how Grav works, you can use plugins as discussed in later chapters.
 
+### /tmp
+
+The `tmp` folder is used by Grav and plugins to store temporary files.
+
+!! This folder should not be used to store any user data, as it is routinely flushed of all data.
+
 ### /vendor
 
 The `vendor` folder contains important libraries that Grav relies on.  This folder is similar to the `system` folder in that its contents should not be edited unless you are absolutely certain of what you're doing.
 
-**(v0.9.2+)**  If you [installed](../installation) Grav from GitHub, the `vendor` folder won't have been installed with it. In order to create and populate the vendor folder, you will have to run `bin/grav install` or `composer install` from the root of your Grav instance. More details can be found in the [installation](../installation) section.
+If you [installed](../installation) Grav from GitHub, the `vendor` folder won't have been installed with it. In order to create and populate the vendor folder, you will have to run `bin/grav install` or `composer install` from the root of your Grav instance. More details can be found in the [installation](../installation) section.
 
 ### /user
 
@@ -100,12 +107,12 @@ The `data` folder can be used by plugins to store data that you can reference la
 
 ### /user/images
 
-The `images` folder can be used for storing your images. It can be accessed by using `image://` stream. 
+The `images` folder can be used for storing your images. It can be accessed by using `image://` stream.
 
 
 ### /user/languages
 
-The `languages` folder contains [Translation Overrides](../../content/multi-language#translation-overrides). 
+The `languages` folder contains [Translation Overrides](../../content/multi-language#translation-overrides).
 
 ### /user/pages
 

@@ -24,8 +24,7 @@ John Gruber, the author of Markdown, puts it like this:
 > The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions. While Markdown’s syntax has been influenced by several existing text-to-HTML filters, the single biggest source of inspiration for Markdown’s syntax is the format of plain text email.
 > -- <cite>John Gruber</cite>
 
-
-Grav ships with built-in support for [Markdown](http://daringfireball.net/projects/markdown/) and [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/). You must enable **Markdown Extra** in your `system.yaml` configuration file.
+Grav ships with built-in support for [Markdown](https://daringfireball.net/projects/markdown/) and [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/). You must enable **Markdown Extra** in your `system.yaml` configuration file.
 
 Without further delay, let us go over the main elements of Markdown and what the resulting HTML looks like:
 
@@ -64,8 +63,6 @@ HTML:
 <h6>h6 Heading</h6>
 [/prism]
 
-
-
 ## Comments
 
 Comments should be HTML compatible
@@ -75,13 +72,12 @@ Comments should be HTML compatible
 This is a comment
 -->
 [/prism]
+
 Comment below should **NOT** be seen:
 
 <!--
 This is a comment
 -->
-
-
 
 ## Horizontal Rules
 
@@ -99,10 +95,6 @@ ___
 
 ***
 
-
-
-
-
 ## Body Copy
 
 Body copy written as normal, plain text will be wrapped with `<p></p>` tags in the rendered HTML.
@@ -112,6 +104,7 @@ So this body copy:
 [prism classes="language-markdown"]
 Lorem ipsum dolor sit amet, graecis denique ei vel, at duo primis mandamus. Et legere ocurreret pri, animal tacimates complectitur ad cum. Cu eum inermis inimicus efficiendi. Labore officiis his ex, soluta officiis concludaturque ei qui, vide sensibus vim ad.
 [/prism]
+
 renders to this HTML:
 
 [prism classes="language-html"]
@@ -119,10 +112,6 @@ renders to this HTML:
 [/prism]
 
 A **line break** can be done with 2 spaces followed by 1 return.
-
-
-
-
 
 ## Inline HTML
 
@@ -138,13 +127,10 @@ Paragraph in Markdown.
 Paragraph in Markdown.
 [/prism]
 
-
-
-
-
 ## Emphasis
 
 ### Bold
+
 For emphasizing a snippet of text with a heavier font-weight.
 
 The following snippet of text is **rendered as bold text**.
@@ -152,17 +138,19 @@ The following snippet of text is **rendered as bold text**.
 [prism classes="language-markdown"]
 **rendered as bold text**
 [/prism]
+
 renders to:
 
 **rendered as bold text**
 
-and this HTML
+and this HTML:
 
 [prism classes="language-html"]
 <strong>rendered as bold text</strong>
 [/prism]
 
 ### Italics
+
 For emphasizing a snippet of text with italics.
 
 The following snippet of text is _rendered as italicized text_.
@@ -181,13 +169,14 @@ and this HTML:
 <em>rendered as italicized text</em>
 [/prism]
 
+### Strikethrough
 
-### strikethrough
 In GFM (GitHub flavored Markdown) you can do strikethroughs.
 
 [prism classes="language-markdown"]
 ~~Strike through this text.~~
 [/prism]
+
 Which renders to:
 
 ~~Strike through this text.~~
@@ -198,10 +187,8 @@ HTML:
 <del>Strike through this text.</del>
 [/prism]
 
-
-
-
 ## Blockquotes
+
 For quoting blocks of content from another source within your document.
 
 Add `>` before any text you want to quote.
@@ -238,18 +225,14 @@ Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
 >> Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor
 odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.
 
-
-
-
 ## Notices
 
 ! The old mechanism for notices overriding the block quote syntax (`>>>`) has been deprecated.  Notices are now handled via a dedicated plugin called [Markdown Notices](https://github.com/getgrav/grav-plugin-markdown-notices)
 
-
-
 ## Lists
 
 ### Unordered
+
 A list of items in which the order of the items does not explicitly matter.
 
 You may use any of the following symbols to denote bullets for each list item:
@@ -379,13 +362,10 @@ Renders to:
 7. Aenean sit amet erat nunc
 8. Eget porttitor lorem
 
-
-
-
-
 ## Code
 
 ### Inline code
+
 Wrap inline snippets of code with `` ` ``.
 
 [prism classes="language-markdown"]
@@ -434,7 +414,6 @@ HTML:
   </code>
 </pre>
 [/prism]
-
 
 ### Block code "fences"
 
@@ -506,13 +485,9 @@ grunt.initConfig({
 
 !!! For syntax highlighting to work, the [Highlight plugin](https://github.com/getgrav/grav-plugin-highlight) needs to be installed and enabled. It in turn utilizes a jquery plugin, so jquery needs to be loaded in your theme too.
 
-
-
-
-
 ## Tables
-Tables are created by adding pipes as dividers between each cell, and by adding a line of dashes (also separated by bars) beneath the header. Note that the pipes do not need to be vertically aligned.
 
+Tables are created by adding pipes as dividers between each cell, and by adding a line of dashes (also separated by bars) beneath the header. Note that the pipes do not need to be vertically aligned.
 
 [prism classes="language-markdown"]
 | Option | Description |
@@ -579,28 +554,23 @@ Adding a colon on the right side of the dashes below any heading will right alig
 | ext    | extension to be used for dest files. |
 [/div]
 
-
-
-
-
 ## Links
 
 ### Basic link
 
 [prism classes="language-markdown"]
-[Assemble](http://assemble.io)
+[Assemble](https://assemble.io)
 [/prism]
 
 Renders to (hover over the link, there is no tooltip):
 
-[Assemble](http://assemble.io)
+[Assemble](https://assemble.io)
 
 HTML:
 
 [prism classes="language-html"]
-<a href="http://assemble.io">Assemble</a>
+<a href="https://assemble.io">Assemble</a>
 [/prism]
-
 
 ### Add a title
 
@@ -628,6 +598,7 @@ Named anchors enable you to jump to the specified anchor point on the same page.
   * [Chapter 2](#chapter-2)
   * [Chapter 3](#chapter-3)
 [/prism]
+
 will jump to these sections:
 
 [prism classes="language-markdown"]
@@ -643,26 +614,23 @@ Content for chapter one.
 
 **NOTE** that specific placement of the anchor tag seems to be arbitrary. They are placed inline here since it seems to be unobtrusive, and it works.
 
-
-
-
-
 ## Images
+
 Images have a similar syntax to links but include a preceding exclamation point.
 
 [prism classes="language-markdown"]
-![Minion](http://octodex.github.com/images/minion.png)
+![Minion](https://octodex.github.com/images/minion.png)
 [/prism]
-![Minion](http://octodex.github.com/images/minion.png)
+![Minion](https://octodex.github.com/images/minion.png)
 
-or
+or:
 
 [prism classes="language-markdown"]
-![Alt text](http://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+![Alt text](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 [/prism]
-![Alt text](http://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+![Alt text](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 
-Like links, Images also have a footnote style syntax
+Like links, images also have a footnote style syntax:
 
 [prism classes="language-markdown"]
 ![Alt text][id]
@@ -671,7 +639,7 @@ Like links, Images also have a footnote style syntax
 
 With a reference later in the document defining the URL location:
 
-[id]: http://octodex.github.com/images/dojocat.jpg  "The Dojocat"
+[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
 
 
-    [id]: http://octodex.github.com/images/dojocat.jpg  "The Dojocat"
+    [id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"

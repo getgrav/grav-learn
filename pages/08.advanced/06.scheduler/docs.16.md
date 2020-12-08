@@ -27,6 +27,8 @@ Install Scheduler
 
 On my mac system, the full command required is displayed, so all you need to do is to copy and paste the entire then into your terminal and hit return.
 
+!! You need to be logged in to the shell with the same user as your webserver.  This is to ensure that the user that runs the schdeduler commands matches the webserver user that needs to interact with those files.  If you install the crontab entry with another user (e.g. `root`) any files created will be created as that `root` user and not the `webserver` user which can lead to problems.
+
 [prism classes="language-bash command-line"]
 (crontab -l; echo "* * * * * cd /Users/andym/grav;/usr/local/bin/php bin/grav scheduler 1>> /dev/null 2>&1") | crontab -
 [/prism]
@@ -74,7 +76,7 @@ Advanced options:
 
 ## Configuration File
 
-You can see which jobs are currently availble to the Scheduler  by running the `bin/grav scheduler -j` command:
+You can see which jobs are currently available to the Scheduler  by running the `bin/grav scheduler -j` command:
 
 [prism classes="language-bash command-line" cl-output="2-16"]
 bin/grav scheduler -j
@@ -97,7 +99,7 @@ Scheduler Jobs Listing
 
 The Grav scheduler is controlled by a primary configuration file.  This is located in `user/config/scheduler.yaml` and is required to have any job `enabled` in order to run.
 
-Below the configruation shows the jobs that are avialable and if they are enabled to run or not.  Simply set an entry to `disabled` to stop it from running.
+Below the configruation shows the jobs that are available and if they are enabled to run or not.  Simply set an entry to `disabled` to stop it from running.
 
 [prism classes="language-yaml line-numbers"]
 status:
@@ -174,13 +176,15 @@ One of the most powerful feature of the Grav Scheduler, is the ability for 3rd p
 
 The first step is for your plugin to subscribe to the `onSchedulerInitialized()` event.  And then create a method in your plugin file that can add a custom job when called:
 
-[prism classes="language-bash line-numbers"]
-public function onSchedulerInitialized(Event $e)
+[prism classes="language-php line-numbers"]
+public function onSchedulerInitialized(Event $e): void
 {
-    if ($this->config->get('plugins.tntsearch.scheduled_index.enabled')) {
+    $config = $this->config();
+
+    if (!empty($config['scheduled_index']['enabled']))) {
         $scheduler = $e['scheduler'];
-        $at = $this->config->get('plugins.tntsearch.scheduled_index.at');
-        $logs = $this->config->get('plugins.tntsearch.scheduled_index.logs');
+        $at = $config['scheduled_index']['at'] ?? '* * * * *';
+        $logs = $config['scheduled_index']['logs'] ?? '';
         $job = $scheduler->addFunction('Grav\Plugin\TNTSearchPlugin::indexJob', [], 'tntsearch-index');
         $job->at($at);
         $job->output($logs);

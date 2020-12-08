@@ -24,7 +24,7 @@ An example configuration could be:
 
 [prism classes="language-bash command-line"]
 alias php="/usr/local/bin/php53"
-export PHP_PATH = "/usr/local/bin/php53"
+export PHP_PATH = /usr/local/bin/php53
 [/prism]
 
 An alternative way is to add:
@@ -536,7 +536,7 @@ ol.tree li.parent.open:after {
 
 This should generally be placed before the Twig-structure, or ideally be streamed into the [Asset Manager](/themes/asset-manager) in your theme. The effect is to add **[+]** after each parent-item, indicating that it can be opened, which disappears when opened.
 
-Finally, let's add a bit of JavaScript to [handle toggling](http://stackoverflow.com/a/36297446/603387) the *open*-class:
+Finally, let's add a bit of JavaScript to [handle toggling](https://stackoverflow.com/a/36297446/603387) the *open*-class:
 
 [prism classes="language-js line-numbers"]
 <script type="text/javascript">

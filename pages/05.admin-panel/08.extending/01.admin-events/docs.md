@@ -38,7 +38,7 @@ While creating a new page, this event is fired after the header data is initiall
 <a name="onAdminSave"></a>
 ### onAdminSave
 
-Use admin event `onAdminSave()` to manipulate the page object data `$obj` before it is saved to the filesystem.
+Use admin event `onAdminSave()` to manipulate the page object data `$object` before it is saved to the filesystem.
 
 <a name="onAdminAfterSave"></a>
 ### onAdminAfterSave

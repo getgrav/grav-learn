@@ -401,6 +401,7 @@ header.date:
 [div class="table table-keycol"]
 | Attribute      | Description           |
 | :-----         | :-----                |
+| `format`       | A datetime format value, you may use any of the [PHP datetime formats](https://www.php.net/manual/en/datetime.format.php) avaliable. |
 | `validate.min` | A minimum valid value |
 | `validate.max` | A maximum valid value |
 [/div]
@@ -486,8 +487,8 @@ header.fieldset:
   help: Help text
   info: Info text
   text: Text inside fieldset and before other fields
-  icon: comments
-  collapsed: true     # Initial state of fieldset (see collapsible option)
+  icon: comments       # Fork Awesome icons system (see : forkaweso.me).
+  collapsed: true      # Initial state of fieldset (see collapsible option)
   collapsible: true    # Whether one can expand the fieldset or not
   fields:
     header.fieldset.an_example_text:
@@ -497,6 +498,32 @@ header.fieldset:
       type: textarea
       label: textarea
 [/prism]
+
+!Fieldsets have to be saved in the frontmatter too, with `header.`, in order for their sub-field states to be correctly remembered!
+
+!! **Known issue :** if fields in a fieldset use a `toggleable:`, their state won't be memorized if the fieldset named isn't prefixed with `header.`. Here's an example of a valid structure with a modification of the *pagination* option : 
+
+[prism classes="language-yaml line-numbers"]
+header.fieldset:
+  type: fieldset
+  ... etc...
+  fields:
+    header.content.pagination:
+      type: toggle
+      toggleable: true
+      label: "Activate Pagination ?"
+      highlight: 1
+      default: 0
+      options:
+        1: Yes
+        0: No
+      validate:
+        type: bool
+[/prism]
+
+#### Icon of the fieldset
+
+You can use an icon to place in the header of the fieldset. The icon system used is [Fork Awesome](https://forkaweso.me). 
 
 [div class="table table-keycol"]
 | Attribute     | Description                                                                                                |
@@ -522,9 +549,11 @@ header.fieldset:
 
 ![File Field](file_field_bp.gif)
 
-The `file` field type can be used in pages, plugin and theme configurations (blueprints). Handles uploading a file to a location as well as removing it from the page headers or theme / plugin configuration.
+!! The `file` field is intended to be used by **configuration**, **theme**, and **plugins** blueprints, **NOT page blueprints**.  For pages, you should use the existing `pagemedia` field and then utilize the [filepicker](#filepicker-field) field to select the files. 
 
-! More details can be found in the dedicated [How To: Add a File Upload](../how-to-add-file-upload) section. Also note that displaying an image uploaded in a file field is not done the same way than with a filepicker field. More details about how to access images uploaded in a file field can be found on this [cookbook entry](https://learn.getgrav.org/cookbook/twig-recipes#displaying-an-image-uploaded-in-a-file-field).
+!! The `file` field does not currently work as expected in a list field. Use a single `pagemedia` field separate from the list with one or more `filepicker` fields in the list.
+
+! More details can be found in the dedicated [How To: Add a File Upload](../how-to-add-file-upload) section. Also note that displaying an image uploaded in a file field is not done the same way as with a filepicker field. More details about how to access images uploaded in a file field can be found on this [cookbook entry](https://learn.getgrav.org/cookbook/twig-recipes#displaying-an-image-uploaded-in-a-file-field).
 
 Example:
 
@@ -610,6 +639,7 @@ header.a_file:
 | `folder` | The folder where the files will be looked up, relative to the Grav root. Accepts any value in the [file field destination format](/forms/blueprints/how-to-add-file-upload#destination). |
 | `accept` | A list of accepted file extensions                                                          |
 | `preview_images` | If enabled, image files will have a little preview |
+| `on_demand` | If enabled, will only load the files and images when the filepicker is focused. This is useful for reducing admin edit page load times when there is large media or many filepicker fields |
 [/div]
 
 [div class="table table-keycol"]
@@ -805,6 +835,7 @@ home.alias:
     size: medium
     classes: fancy
     label: PLUGIN_ADMIN.HOME_PAGE
+    start_route: '/some_page'
     show_all: false
     show_modular: false
     show_root: false
@@ -814,6 +845,7 @@ home.alias:
 [div class="table table-keycol"]
 | Attribute      | Description                            |
 | :-----         | :-----                                 |
+| `start_route`  | Choose a root route for the list       |
 | `show_all`     | Shows all pages                        |
 | `show_modular` | Shows all pages                        |
 | `show_root`    | Shows all pages                        |
@@ -881,6 +913,14 @@ Example:
 [prism classes="language-yaml line-numbers"]
 taxonomies:
     type: selectize
+    selectize:
+        options:
+            - text: "test"
+              value: "real value 1"
+            - text: "test-2"
+              value: "real value 2"
+            - text: "test-3"
+              value: "real value 3"
     size: large
     label: PLUGIN_ADMIN.TAXONOMY_TYPES
     classes: fancy

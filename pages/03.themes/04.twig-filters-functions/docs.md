@@ -2,7 +2,7 @@
 title: Twig Filters & Functions
 page-toc:
   active: true
-  depth: 3  
+  depth: 3
 process:
     twig: true
 taxonomy:
@@ -16,13 +16,13 @@ Although Twig already provides an extensive list of [filters, functions, and tag
 
 ## Grav Twig Filters
 
-Twig filters are applied to Twig variables by using the `|` character followed by the filter name.  Parameters can be passed in just like Twig functions using parenthesis.  
+Twig filters are applied to Twig variables by using the `|` character followed by the filter name.  Parameters can be passed in just like Twig functions using parenthesis.
 
 #### Absolute URL
 
 Take a relative path and convert it to an absolute URL format including hostname
 
-`'<img src="/some/path/to/image.jpg" />'|absolute_url` <i class="fa fa-long-arrow-right"></i> `{{ '<img src="/some/path/to/image.jpg" />'|absolute_url }}`
+`'<img src="/some/path/to/image.jpg" />'|absolute_url` <i class="fa fa-long-arrow-right"></i> `{{ '<img src="/some/path/to/image.jpg" />'|absolute_url|raw }}`
 
 #### Array Unique
 
@@ -62,7 +62,7 @@ Converts a string into "CamelCase" format
 
 `'send_email'|camelize` <i class="fa fa-long-arrow-right"></i> **{{ 'send_email'|camelize }}**
 
-[version=16]
+[version=16,17]
 #### Chunk Split
 
 Splits a string into smaller chunks of a certain sizeOf
@@ -78,7 +78,7 @@ Determine if a particular string contains another string
 
 #### Casting Values
 
-PHP 7 is getting more strict type checks, which means that passing a value of wrong type may now throw an exception. To avoid this, you should use filters which ensure that the value passed to a method is valid:  
+PHP 7 is getting more strict type checks, which means that passing a value of wrong type may now throw an exception. To avoid this, you should use filters which ensure that the value passed to a method is valid:
 
 **|string**
 
@@ -125,10 +125,10 @@ Takes a needle and a haystack and determines if the haystack ends with the needl
 
 Filters field name by changing dot notation into array notation
 
-`'field.name|fieldName`
+`'field.name'|fieldName` <i class="fa fa-long-arrow-right"></i> **{{ 'field.name'|fieldName }}**
 
 
-[version=16]
+[version=16,17]
 #### Get Type
 
 Gets the type of a variable:
@@ -152,7 +152,17 @@ Converts a string into a hyphenated version.
 
 You can decode JSON by simply applying this filter:
 
-`{"first_name": "Guido", "last_name":"Rossum"}|json_decode`
+`array|json_decode` {% verbatim %}
+[prism classes="language-twig line-numbers"]
+{% set array = '{"first_name": "Guido", "last_name":"Rossum"}'|json_decode %}
+{{ print_r(array) }}
+[/prism]
+{% endverbatim %}
+
+{% set array = '{"first_name": "Guido", "last_name":"Rossum"}'|json_decode %}
+[prism classes="language-text"]
+{{ print_r(array) }}
+[/prism]
 
 #### Ksort
 
@@ -160,27 +170,52 @@ Sort an array map by each key
 
 `array|ksort` {% verbatim %}
 [prism classes="language-twig line-numbers"]
-{% set ritems = {'orange':1, 'apple':2, 'peach':3}|ksort %}
-{% for key, value in ritems %}{{ key }}:{{ value }}, {% endfor %}
+{% set items = {'orange':1, 'apple':2, 'peach':3}|ksort %}
+{{ print_r(items) }}
 [/prism]
 {% endverbatim %}
 
-{% set ritems = {'orange':1, 'apple':2, 'peach':3}|ksort %}
-[prism classes="language-twig line-numbers"]
-{% for key, value in ritems %}{{ key }}:{{ value }}, {% endfor %}
+{% set items = {'orange':1, 'apple':2, 'peach':3}|ksort %}
+[prism classes="language-text"]
+{{ print_r(items) }}
 [/prism]
-
 #### Left Trim
 
 `'/strip/leading/slash/'|ltrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/leading/slash/'|ltrim('/') }}
 
-Removes trailing spaces at the beginning of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.ltrim.php](http://php.net/manual/en/function.ltrim.php))
+Removes trailing spaces at the beginning of a string. It can also remove other characters by setting the character mask (see [https://php.net/manual/en/function.ltrim.php](https://php.net/manual/en/function.ltrim.php))
 
 #### Markdown
 
-Take an arbitrary string containing markdown and convert it to HTML using the markdown parser of Grav
+Take an arbitrary string containing markdown and convert it to HTML using the markdown parser of Grav. Optional `boolean` parameter:
 
-`'something with **markdown** and [a link](http://www.cnn.com)'|markdown` <i class="fa fa-long-arrow-right"></i> something with **markdown** and [a link](http://www.cnn.com)
+* `true` (default): process as block (text mode, content will be wrapped in `<p>` tags)
+* `false`: process as line (content will not be wrapped)
+
+```
+string|markdown($is_block)
+```
+
+{% verbatim %}
+[prism classes="language-twig line-numbers"]
+<div class="div">
+{{ 'A paragraph with **markdown** and [a link](http://www.cnn.com)'|markdown }}
+</div>
+
+<p class="paragraph">{{'A line with **markdown** and [a link](http://www.cnn.com)'|markdown(false) }}</p>
+[/prism]
+{% endverbatim %}
+
+{% set var %}
+<div class="div">
+{{ 'A paragraph with **markdown** and [a link](http://www.cnn.com)'|markdown }}
+</div>
+
+<p class="paragraph">{{'A line with **markdown** and [a link](http://www.cnn.com)'|markdown(false) }}</p>
+{% endset %}
+[prism classes="language-text"]
+{{ var|e }}
+[/prism]
 
 #### MD5
 
@@ -200,10 +235,10 @@ Converts an integer number of days into the number of months
 
 `'181'|monthize` <i class="fa fa-long-arrow-right"></i> **{{ '181'|monthize }}**
 
-[version=16]
+[version=16,17]
 #### NiceCron
 
-Gets a human readable output for cron sytnax
+Gets a human readable output for cron syntax
 
 `"2 * * * *"|nicecron` <i class="fa fa-long-arrow-right"></i> **{{ '2 * * * *'|nicecron }}**
 
@@ -226,7 +261,7 @@ Output a date in a human readable nice time format
 
 `page.date|nicetime(false)` <i class="fa fa-long-arrow-right"></i> **{{ page.date|nicetime(false) }}**
 
-[version=16]
+[version=16,17]
 #### Of Type
 
 Checks the type of a variable to the param:
@@ -242,7 +277,7 @@ Adds an ordinal to the integer (such as 1st, 2nd, 3rd, 4th)
 
 #### Pad
 
-Pads a string to a certain length with another character. This is a wrapper for the PHP [str_pad()](http://php.net/manual/en/function.str-pad.php) function.
+Pads a string to a certain length with another character. This is a wrapper for the PHP [str_pad()](https://php.net/manual/en/function.str-pad.php) function.
 
 `'foobar'|pad(10, '-')` <i class="fa fa-long-arrow-right"></i> **{{ 'foobar'|pad(10, '-') }}**
 
@@ -252,7 +287,19 @@ Converts a string to the English plural version
 
 `'person'|pluralize` <i class="fa fa-long-arrow-right"></i> **{{ 'person'|pluralize }}**
 
-[version=16]
+[version=17]
+#### Preg Match
+
+Wrapper for PHP [preg_match()](https://www.php.net/manual/en/function.preg-match.php) that matches a text by a pattern given as regular expression. Returns the matche(s) if there is at least one accordance or `false` if not.
+[/version]
+
+[version=17]
+#### Preg Split
+
+Wrapper for PHP [preg_split()](https://www.php.net/manual/en/function.preg-split.php) that splits a text by a pattern given as regular expression.
+[/version]
+
+[version=16,17]
 #### Print Variable
 
 Prints human-readable information about a variable
@@ -266,31 +313,33 @@ Prints human-readable information about a variable
 
 #### Randomize
 
-Randomizes the list provided.  If a value is provided as a parameter, it will skip those values and keep them in order.
+Randomizes the list provided.  If a value is provided as a parameter, it will skip first n values and keep them in order.
 
 `array|randomize` {% verbatim %}
 [prism classes="language-twig line-numbers"]
 {% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
-{% for ritem in ritems %}{{ ritem }}, {% endfor %}
+{{ print_r(ritems) }}
 [/prism]
 {% endverbatim %}
 
-<strong>
 {% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
-{% for ritem in ritems %}{{ ritem }}, {% endfor %}
-</strong>
+[prism classes="language-text"]
+{{ print_r(ritems) }}
+[/prism]
 
 #### Regex Replace
 
-A helpful wrapper for the PHP [preg_replace()](http://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
+A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
 
 `'The quick brown fox jumps over the lazy dog.'|regex_replace(['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])` <i class="fa fa-long-arrow-right"></i> **{{ 'The quick brown fox jumps over the lazy dog.'|regex_replace(['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) }}**
+
+! Use the `~`-delimiter rather than the `/`-delimiter where possible. Otherwise you'll most likely have to [double-escape certain characters](https://github.com/getgrav/grav/issues/833). Eg. `~\/\#.*~` rather than `'/\\/\\#.*/'`, which conforms more closely to the [PCRE-syntax](https://www.php.net/manual/en/regexp.reference.delimiters.php) used by PHP.
 
 #### Right Trim
 
 `'/strip/trailing/slash/'|rtrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/trailing/slash/'|rtrim('/') }}
 
-Removes trailing spaces at the end of a string. It can also remove other characters by setting the character mask (see [http://php.net/manual/en/function.rtrim.php](http://php.net/manual/en/function.rtrim.php))
+Removes trailing spaces at the end of a string. It can also remove other characters by setting the character mask (see [https://php.net/manual/en/function.rtrim.php](https://php.net/manual/en/function.rtrim.php))
 
 #### Singularize
 
@@ -302,15 +351,17 @@ Converts a string to the English singular version
 
 The safe email filter converts an email address into ASCII characters to make it harder for email spam bots to recognize and capture.
 
-`"someone@domain.com"|safe_email` <i class="fa fa-long-arrow-right"></i> {{ "someone@domain.com"|safe_email }}
+`"someone@domain.com"|safe_email` <i class="fa fa-long-arrow-right"></i> **{{ "someone@domain.com"|safe_email }}**
 
 Usage example with a mailto link:
 
+{% verbatim %}
 [prism classes="language-html line-numbers"]
-<a href="mailto:{{'your.email@server.com'|safe_email}}">
+<a href="mailto:{{ 'your.email@server.com'|safe_email }}">
   Email me
 </a>
 [/prism]
+{% endverbatim %}
 
 You might not notice a difference at first, but examining the page source (not using the Browser Developer Tools, the actual page source) will reveal the underlying characters encoding.
 
@@ -334,7 +385,7 @@ Sort an array map by a particular key
 
 Takes a needle and a haystack and determines if the haystack starts with the needle.  Also now works with an array of needles and will return `true` if **any** haystack starts with the needle.
 
-`'the quick brown fox'|starts_with('the')` <i class="fa fa-long-arrow-right"></i> {{  'the quick brown fox'|starts_with('the') ? 'true' : 'false' }}
+`'the quick brown fox'|starts_with('the')` <i class="fa fa-long-arrow-right"></i> **{{ 'the quick brown fox'|starts_with('the') ? 'true' : 'false' }}**
 
 #### Titleize
 
@@ -347,7 +398,7 @@ Converts a string to "Title Case" format
 
 Translate a string into the current language
 
-`'MY_LANGUAGE_KEY_STRING'|t` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
+`'MY_LANGUAGE_KEY_STRING'|t` <i class="fa fa-long-arrow-right"></i> **'Some Text in English'**
 
 This assumes you have these language strings translated in your site and have enabled multi-language support.  Please refer to the [multi-language documentation](../../content/multi-language) for more detailed information.
 
@@ -355,7 +406,7 @@ This assumes you have these language strings translated in your site and have en
 
 Translate a string into the current language set in the admin interface user preferences
 
-`'MY_LANGUAGE_KEY_STRING'|tu` <i class="fa fa-long-arrow-right"></i> 'Some Text in English'
+`'MY_LANGUAGE_KEY_STRING'|tu` <i class="fa fa-long-arrow-right"></i> **'Some Text in English'**
 
 This uses the language field set in the user yaml.
 
@@ -375,17 +426,17 @@ Translates a string in a specific language. For more details check out the [mult
 
 You can easily generate a shortened, truncated, version of a string by using this filter.  It takes a number of characters as the only required field, but has some other options:
 
-`'one sentence. two sentences'|truncate(5)` <i class="fa fa-long-arrow-right"></i> {{ 'one sentence. two sentences'|truncate(5) }}
+`'one sentence. two sentences'|truncate(5)` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5) }}**
 
 Simply truncates to 5 characters.
 
-`'one sentence. two sentences'|truncate(5, true)` <i class="fa fa-long-arrow-right"></i> {{ 'one sentence. two sentences'|truncate(5, true) }}
+`'one sentence. two sentences'|truncate(5, true)` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5, true) }}**
 
 Truncates to closest sentence-end after 5 characters.
 
 You can also truncate HTML text, but should first use the `striptags` filter to remove any HTML formatting that could get broken if you end between tags:
 
-`'<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5)` <i class="fa fa-long-arrow-right"></i> {{ '<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5) }}
+`'<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5)` <i class="fa fa-long-arrow-right"></i> **{{ '<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5) }}**
 
 ##### Specialized versions:
 
@@ -407,33 +458,39 @@ Converts a string into "under_scored" format
 
 `'CamelCased'|underscorize` <i class="fa fa-long-arrow-right"></i> **{{ 'CamelCased'|underscorize }}**
 
-[version=16]
+[version=16,17]
 #### Yaml Encode
 
 Dump/Encode a variable into YAML syntax
 
-`{foo: [0,1,2,3], baz: 'qux' }|yaml_encode` 
+{% verbatim %}
+[prism classes="language-twig line-numbers"]
+{% set array = {foo: [0, 1, 2, 3], baz: 'qux' } %}
+{{ array|yaml_encode }}
+[/prism]
+{% endverbatim %}
 
-[prism classes="language-twig"]
-{{ {foo: [0,1,2,3], baz: 'qux' }|yaml_encode }}
+{% set array = {foo: [0, 1, 2, 3], baz: 'qux' } %}
+[prism classes="language-yaml"]
+{{ array|yaml_encode|e }}
 [/prism]
 
 #### Yaml Decode
 
-Decode/Parse a varible from YAML syntax
+Decode/Parse a variable from YAML syntax
 
 {% verbatim %}
-`{% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}`
-
-`yaml|yaml_decode` 
+[prism classes="language-twig line-numbers"]
+{% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}
+{{ yaml|yaml_decode|var_dump }}
+[/prism]
 {% endverbatim %}
 
 {% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}
-[prism classes="language-twig"]
-{{ yaml|yaml_decode|var_dump}}
+[prism]
+{{ yaml|yaml_decode|var_dump }}
 [/prism]
 [/version]
-
 
 ## Grav Twig Functions
 
@@ -443,7 +500,21 @@ Twig functions are called directly with any parameters being passed in via paren
 
 Cast a value to array
 
-`array(value)`
+{% verbatim %}
+[prism classes="language-twig line-numbers"]
+{% set value = array(value) %}
+[/prism]
+{% endverbatim %}
+
+#### Array Difference
+
+Computes the difference of arrays.
+
+{% verbatim %}
+[prism classes="language-twig line-numbers"]
+{% set diff = array_diff(array1, array2...) %}
+[/prism]
+{% endverbatim %}
 
 #### Array Key Value
 
@@ -504,7 +575,7 @@ Authorizes an authenticated user to see a resource. Accepts a single permission 
 
 `authorize(['admin.statistics', 'admin.super'])`
 
-[version=16]
+[version=16,17]
 #### Body Class
 
 Takes an array of classes, and if they are not set on `body_classes` look to see if they are set in current theme configuration.
@@ -541,7 +612,7 @@ The evaluate function can be used to evaluate a string as Twig:
 Similar to evaluate, but will evaluate and process with Twig
 
 {% verbatim %}
-`evaluate_twig({foo: 'bar'}, 'This is a twig variable: {{ foo }}')`)  <i class="fa fa-long-arrow-right"></i> **This is a twig variable: bar**
+`evaluate_twig('This is a twig variable: {{ foo }}', {foo: 'bar'})`)  <i class="fa fa-long-arrow-right"></i> **This is a twig variable: bar**
 {% endverbatim %}
 
 #### EXIF
@@ -564,7 +635,7 @@ Retrieve the value of a cookie with this function:
 
 `get_cookie('your_cookie_key')`
 
-[version=16]
+[version=16,17]
 #### Get Type Function
 
 Gets the type of a variable:
@@ -576,15 +647,14 @@ Gets the type of a variable:
 
 Takes a Github Gist ID and creates appropriate Gist embed code
 
-`gist('bc448ff158df4bc56217')` <i class="fa fa-long-arrow-right"></i> {{ gist('bc448ff158df4bc56217')}}
+`gist('bc448ff158df4bc56217')` <i class="fa fa-long-arrow-right"></i> **{{ gist('bc448ff158df4bc56217')|e }}**
 
-[version=16]
+[version=16,17]
 #### HTTP Response Code
 
 If response_code is provided, then the previous status code will be returned. If response_code is not provided, then the current status code will be returned. Both of these values will default to a 200 status code if used in a web server environment.
 
 `http_response_code(404)`
-
 [/version]
 
 #### Is Ajax Request
@@ -604,7 +674,7 @@ Returns a media object for an arbitrary directory.  Once obtained you can manipu
 
 `media_directory('theme://images')['some-image.jpg'].cropResize(200,200).html`
 
-[version=16]
+[version=16,17]
 #### NiceFilesize Function
 
 Output a file size in a human readable nice size format
@@ -615,7 +685,7 @@ Output a file size in a human readable nice size format
 
 Output a number in a human readable nice number format
 
-`nicenumnber(12430)` <i class="fa fa-long-arrow-right"></i> **{{ nicenumber(12430)}}**
+`nicenumber(12430)` <i class="fa fa-long-arrow-right"></i> **{{ nicenumber(12430)}}**
 
 #### NiceTime Function
 
@@ -630,7 +700,7 @@ Generate a Grav security nonce field for a form with a required `action`:
 
 `nonce_field('action')` <i class="fa fa-long-arrow-right"></i> **{{ nonce_field('action')|e }}**
 
-[version=16]
+[version=16,17]
 #### Of Type Function
 
 Checks the type of a variable to the param:
@@ -653,14 +723,14 @@ Parses a path into an array.
 
 outputs: **{{ print_r(parts) }}**
 
-[version=16]
+[version=16,17]
 #### Print Variable Function
 
 Prints a variable in a readable format
 
 `print_r(page.header)`
 
-[prism classes="language-twig"]
+[prism classes="language-text"]
 {{ print_r(page.header) }}
 [/prism]
 
@@ -678,7 +748,7 @@ Generates an array containing a range of elements, optionally stepped
 
 `range(25, 300, 50)` <i class="fa fa-long-arrow-right"></i> **{{ print_r(range(25, 300, 50)) }}**
 
-[version=16]
+[version=16,17]
 #### Read File
 
 Simple function to read a file based on a filepath and output it.
@@ -688,7 +758,7 @@ Simple function to read a file based on a filepath and output it.
 [prism classes="language-markdown line-numbers"]
 # Grav Standard Administration Panel Plugin
 
-This **admin plugin** for [Grav](http://github.com/getgrav/grav) is an HTML user interface that provides a convenient way to configure Grav and easily create and modify pages...
+This **admin plugin** for [Grav](https://github.com/getgrav/grav) is an HTML user interface that provides a convenient way to configure Grav and easily create and modify pages...
 [/prism]
 
 [/version]
@@ -699,25 +769,29 @@ Redirects to a URL of your choosing
 
 `redirect_me('http://google.com', 304)`
 
-[version=16]
+[version=16,17]
 #### Regex Filter Function
 
 Performs a `preg_grep` on an array with a regex pattern
 
-`regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/")` 
+`regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/")`
 
-[prism classes="language-twig"]
-{{ var_dump(regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/")) }}
+{% set var = regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/") %}
+[prism classes="language-text"]
+{{ print_r(var) }}
 [/prism]
 
 #### Regex Replace Function
 
-A helpful wrapper for the PHP [preg_replace()](http://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
+A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
 
-`regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])` 
+{% verbatim %}
+`regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])`
+{% endverbatim %}
 
-[prism classes="language-twig"]
-{{ regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) }}
+{% set var = regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) %}
+[prism classes="language-text"]
+{{var }}
 [/prism]
 
 [/version]
@@ -732,10 +806,21 @@ Will repeat whatever is passed in a certain amount of times.
 
 Returns a string from a value. If the value is array, return it json encoded
 
-`string(23)` => `"23"`
-`string(['test' => 'x'])` => `{"test":"x"}`
+`string(23)` => **"23"**
 
-[version=16]
+`string(['test' => 'x'])` => **{"test":"x"}**
+
+[version=17]
+#### SVG Image
+
+Returns the content of an SVG image and adds extra classes as needed.
+
+{% verbatim %}
+`{{ svg_image(path, classes, strip_style) }}`
+{% endverbatim %}
+[/version]
+
+[version=16,17]
 #### Theme Variable
 
 Get a theme variable from the page header if it exists, else use the theme config:
@@ -745,7 +830,6 @@ Get a theme variable from the page header if it exists, else use the theme confi
 This will first try `page.header.grid-size`, if that is not set, it will try `theme.grid-size` from the theme configuration file.  it can optionally take a default:
 
 `theme_var('grid-size', 1024)`
-
 [/version]
 
 #### Translate Function
@@ -777,14 +861,17 @@ The `vardump()` function outputs the current variable to the screen (rather than
 {% verbatim %}
 [prism classes="language-twig line-numbers"]
 {% set my_array = {foo: 'bar', baz: 'qux'} %}
-{{ vardump(my_array)}}
+{{ vardump(my_array) }}
 [/prism]
 {% endverbatim %}
 
 {% set my_array = {foo: 'bar', baz: 'qux'} %}
-{{ vardump(my_array)}}
 
-[version=16]
+[prism classes="language-twig"]
+{{ vardump(my_array) }}
+[/prism]
+
+[version=16,17]
 #### XSS
 
 Allow a manual check of a string for XSS vulnerabilities

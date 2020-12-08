@@ -40,7 +40,7 @@ form:
 
 As you can see this is a very basic form that simply asks for your name and provides a submit button.  The only thing that stands out is the `template: form-messages` part.  As outlined in the [Frontend Forms](../../forms) section, you can provide a custom Twig template with which to display the result of the form processing.  This is a great way for us to process the form, and then simply return the messages via Ajax and inject them into the page.  There is already a `form-messages.html.twig` template provided with the forms plugin that does just this.
 
-!! NOTE: We use a hard-coded `action: '/forms/ajax-test'` so the ajax has a consistent URL rather than the letting the form set the action to the curren page route. This resolves an issue with the Ajax request not handling redirects properly. This can otherwise cause issues on the 'home' page. It doesn't have to be the current form page, it just needs to be a consistent, reachable route.
+!! NOTE: We use a hard-coded `action: '/forms/ajax-test'` so the ajax has a consistent URL rather than the letting the form set the action to the current page route. This resolves an issue with the Ajax request not handling redirects properly. This can otherwise cause issues on the 'home' page. It doesn't have to be the current form page, it just needs to be a consistent, reachable route.
 
 ![](simple-form.png?classes=shadow)
 
@@ -48,6 +48,52 @@ As you can see this is a very basic form that simply asks for your name and prov
 
 In this same page, we need to put a little HTML and JavaScript:
 
+[ui-tabs]
+
+[ui-tab title="Vanilla JS"]
+[prism classes="language-twig line-numbers"]
+<div id="form-result"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('#ajax-test-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const result = document.querySelector('#form-result');
+        const action = form.getAttribute('action');
+        const method = form.getAttribute('method');
+        
+        fetch(action, {
+            method: method,
+            body: new FormData(form)
+        })
+        .then(function(response) {
+            if (response.ok) {
+                return response.text();
+            } else {
+                return response.json();
+            }
+        })
+        .then(function(output) {
+            if (result) {
+                result.innerHTML = output;
+            }
+        })
+        .catch(function(error) {
+            if (result) {
+                result.innerHTML = 'Error: ' + error;
+            }
+                
+            throw new Error(error);
+        });
+    });
+});
+</script>
+[/prism]
+[/ui-tab]
+
+[ui-tab title="jQuery"]
 [prism classes="language-twig line-numbers"]
 <div id="form-result"></div>
 
@@ -74,6 +120,9 @@ $(document).ready(function(){
 });
 </script>
 [/prism]
+[/ui-tab]
+
+[/ui-tabs]
 
 First we define a div placeholder with the ID `#form-result` to use as a location to inject the form results.
 

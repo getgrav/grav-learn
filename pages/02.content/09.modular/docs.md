@@ -35,7 +35,7 @@ The data within these Module-folders - including Markdown-files, images, etc. - 
 {% verbatim %}
 [prism classes="language-twig line-numbers"]
 {% for module in page.collection() %}
-    {{ module.content }}
+    {{ module.content|raw }}
 {% endfor %}
 [/prism]
 {% endverbatim %}
@@ -98,9 +98,9 @@ The template file for the `text.md` file should be located in the `/templates/mo
 <div class="modular-row callout">
     {% set image = page.media.images|first %}
     {% if image %}
-        {{ image.cropResize(400,400).html('','','align-'~page.header.image_align) }}
+        {{ image.cropResize(400,400).html('','','align-'~page.header.image_align)|raw }}
     {% endif %}
-{{ content }}
+{{ content|raw }}
 </div>
 [/prism]
 {% endverbatim %}

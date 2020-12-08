@@ -15,7 +15,7 @@ If the user requested the type explicitly via `/blog/new-macbook-pros-soon.html`
 Grav is a flexible platform however, and can actually serve up any content type you could wish for (`xml`, `rss`, `json`, `pdf`, etc.), you just have to provide a way to render it appropriately.
 
 If you were to request a route with a `.xml` extension, for example: `/blog.xml`,  instead of using the regular `blog.html.twig` template to render it,
-Grav look for a template called `blog.xml.twig`.  You would need to ensure that template output the appropriate XML structure.
+Grav looks for a template called `blog.xml.twig`.  You would need to ensure that template outputs the appropriate XML structure.
 
 ### Example with JSON files
 
@@ -32,7 +32,7 @@ The contents of this `item.json.twig` file could look something like:
 
 All this Twig file does is create an array with the page header as **frontmatter** and page **content**, then uses the Twig `json_encode` filter to encode it.
 
-When a user requests the url: `/blog/new-macbook-pros-soon.json` this new Twig file would be used and the output sent would be in the format:
+When a user requests the url `/blog/new-macbook-pros-soon.json`, this new Twig file would be used and the output sent would be in the format:
 
 [prism classes="language-json line-numbers"]
 {

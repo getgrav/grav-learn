@@ -14,7 +14,7 @@ This will use the default page form, and append a text field to the **Advanced**
 
 [prism classes="language-yaml line-numbers"]
 title: Gallery
-'@extends':
+extends@:
     type: default
     context: blueprints://pages
 
@@ -141,7 +141,7 @@ In order for the Admin Plugin to pick up the blueprints, and thus show the new P
 
 #### In the User Blueprints folder
 
-Put them in `user/blueprints/pages/`. This is a good place to put them when you simply want your blueprints to be present in your site.
+Put them in `user/blueprints/`. This is a good place to put them when you simply want your blueprints to be present in your site.
 
 #### In the Theme
 
@@ -155,22 +155,20 @@ If you are using a Gantry5 based theme, the best location is `user/data/gantry5/
 
 Put them in `user/plugins/YOURPLUGIN/blueprints/`. This is the place where to put them if you define and add custom pages in the plugin.
 
-Then subscribe to the `onGetPageTemplates` event and add them to Grav. The following example adds the blueprints from the `blueprints/` folder and also the page templates from the `templates/` folder.
+Then subscribe to the `onGetPageBlueprints` event and add them to Grav. The following example adds the blueprints from the `blueprints/` folder.
 
 [prism classes="language-php line-numbers"]
 public static function getSubscribedEvents()
 {
   return [
-    'onGetPageTemplates' => ['onGetPageTemplates', 0]
+    'onGetPageBlueprints' => ['onGetPageBlueprints', 0]
 
   ];
 }
 
-public function onGetPageTemplates($event)
+public function onGetPageBlueprints($event)
 {
   $types = $event->types;
-  $locator = Grav::instance()['locator'];
-  $types->scanBlueprints($locator->findResource('plugin://' . $this->name . '/blueprints'));
-  $types->scanTemplates($locator->findResource('plugin://' . $this->name . '/templates'));
+  $types->scanBlueprints('plugins://' . $this->name . '/blueprints');
 }
 [/prism]

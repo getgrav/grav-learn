@@ -38,7 +38,7 @@ If the file is there, your next step is to give it a test and make sure your ser
 
 To test, open up the `.htaccess` file in a text editor. Then, you'll want to create a new first line and place the text `Test.` and save.
 
-![HTACCESS Test](test.png)  {.border .shadow}
+![HTACCESS Test](test.png?classes=border,shadow)
 
 This error doesn't solve your problem by itself, but it does let you know that the `.htaccess` in the root directory of your Grav site is the one your server is parsing.
 

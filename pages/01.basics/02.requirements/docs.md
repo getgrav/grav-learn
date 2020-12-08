@@ -13,6 +13,10 @@ Grav is intentionally designed with few requirements. You can easily run Grav on
 [version=16]
 2. PHP 7.1.3 or higher
 [/version]
+[version=17]
+2. PHP 7.3.6 or higher
+[/version]
+
 3. hmm... that's it really, (but please look at PHP requirements for a smooth experience)!
 
 Grav is built with plain text files for your content. There is no database needed.
@@ -21,7 +25,7 @@ Grav is built with plain text files for your content. There is no database neede
 
 ## Web Servers
 
-Grav is so simple and versatile that you don't even need a web server to run it. You can run it directly off the built-in PHP webserver, as long as you're running [version=15]**PHP 5.6.3**[/version][version=16]**PHP 7.1.3**[/version] or later.
+Grav is so simple and versatile that you don't even need a web server to run it. You can run it directly off the built-in PHP webserver, as long as you're running [version=15]**PHP 5.6.3**[/version][version=16]**PHP 7.1.3**[/version][version=17]**PHP 7.3.6**[/version] or later.
 
 Testing with the built-in webservers is a useful way to check a Grav install and perform some brief development, but it is **not** recommended for a live site or even for advanced development tasks. We've outlined how in our [Installation guide](../installation#running-grav-with-the-built-in-php-webserver-using-routerphp).
 
@@ -36,6 +40,7 @@ Even though technically you do not need a standalone web server, it is better to
 
 ### Windows
 
+* [Laragon](https://laragon.org/) portable, isolated, fast & powerful universal development environment for PHP, Node.js, and more. It is fast, lightweight, easy-to-use and easy-to-extend.
 * [XAMPP](https://www.apachefriends.org/index.html) provides Apache, PHP, and MySQL in one simple package.
 * [EasyPHP](http://www.easyphp.org/) provides a personal Web hosting package as well as a more powerful developer version.
 * [MAMP for Windows](http://mamp.info) is a long-time Mac favorite, but now available for Windows.
@@ -151,7 +156,7 @@ Another option if you primarily work with just creating content, is to use a ded
 2. [LightPaper](http://lightpaper.42squares.in/) - MacOS - $9.99, clean, powerful. Our markdown editor of choice on the Mac. **Get 25% OFF with Discount Code: GET_GRAV_25**
 3. [MarkDrop](http://culturezoo.com/markdrop/) - MacOS - $5, but super clean and Droplr support built-in.
 4. [MarkdownPad](http://markdownpad.com/) - Windows - Free and Pro versions. Even has YAML front-matter support. An excellent solution for Windows users.
-5. [Mark Text](https://marktext.github.io/website/) - Free, open source Markdown editor for Windows / Linux / MacOS.
+5. [Mark Text](https://marktext.app/) - Free, open source Markdown editor for Windows / Linux / MacOS.
 
 ### FTP Clients
 

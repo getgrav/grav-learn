@@ -21,7 +21,7 @@ To get us started, here is a quick look at some of the common components of a Gr
 [div class="table-keycol"]
 | String | Description |
 | :----- | :----- |
-| `[]`   | The square bracket is used to wrap the text or alternate content that becomes linked. In HTML, this would be the content placed between `<a href="">` and `</a>` |
+| `[]`   | The square bracket is used to wrap the text or alternate content that becomes linked. In HTML, this would be the content placed between `<a href="">` and `</a>`. |
 | `()`   | The parenthesis is used to surround the link itself. This is placed directly after the square bracket. |
 | `../`  | When used in the link, it indicates a move up a directory. |
 [/div]
@@ -36,7 +36,7 @@ Directory names also have numbers assigned which helps with ordering. You don't 
 
 Here are a few examples of slug-relative links.
 
-In this example, we're moving up a directory and loading the default page located in the `pages/01.blue/02.water/item.md` directory from `pages/01.blue/01.sky/item.md` The file, `item.md`, has no assigned slug, so Grav uses the directory name.
+In this example, we're moving up a directory and loading the default page located in the `pages/01.blue/02.water/item.md` directory from `pages/01.blue/01.sky/item.md`. The file, `item.md`, has no assigned slug, so Grav uses the directory name.
 
 ```markdown
 [link](../water)
@@ -192,6 +192,20 @@ which will result in HTML similar to:
 <a href="/your/pages/some-page#element-id" target="_blank" class="button">Element Anchor</a>
 ```
 
+##### Anchor Links on the Same Page
+
+```markdown
+[Element Anchor](?classes=button#element-id)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="#element-id" class="button">
+```
+
+Note that the anchor should come _after_ the query as discussed in [Issue 1324](https://github.com/getgrav/grav/issues/1324#issuecomment-282587549)
+
 ##### Pass-through of Non-Supported Attributes
 
 ```markdown
@@ -204,15 +218,28 @@ which will result in HTML similar to:
 <a href="/your/pages/some-page?cat=black" class="underline">Pass-through of 'cat' attribute</a>
 ```
 
-##### Pass-through Supported Attributes
+##### Skip All Attributes
 
 ```markdown
-[Pass-through all attributes](../some-page?classes=underline&rel=nofollow&noprocess)
+[Skip all attributes](../some-page?classes=underline&rel=nofollow&noprocess)
 ```
 
 which will result in HTML similar to:
 
 ```html
-<a href="/your/pages/some-page?rel=nofollow&classes=underline">Pass-through all attributes</a>
+<a href="/your/pages/some-page?rel=nofollow&classes=underline">Skip All attributes</a>
 ```
 
+##### Skip Certain Attributes
+
+```markdown
+[Skip Certain attributes](../some-page?id=myvariable&classes=underline&target=_blank&noprocess=id,classes)
+```
+
+which will result in HTML similar to:
+
+```html
+<a href="/your/pages/some-page?id=myvariable&classes=underline" target="_blank">Skip Certain attributes</a>
+```
+
+This is useful when trying to skip 1 or more specific attributes without affecting the others.

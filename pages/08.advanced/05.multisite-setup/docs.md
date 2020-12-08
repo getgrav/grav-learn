@@ -173,6 +173,27 @@ return [
 
 In Grav streams are objects, mapping a set of physical directories of the system to a logical device. They are classified via their `type` attribute. For read-only streams that's the `ReadOnlyStream` type and for read-writeable streams that's the `Stream` type. You can register any custom stream type and pointing to it as long as it is an instance of the [StreamInterface](https://github.com/rockettheme/toolbox/blob/develop/StreamWrapper/src/StreamInterface.php) interface class.
 
+By default, streams have been configured like this:
+
+* `user://` - user folder. e.g. `user/`
+* `page://` - pages folder. e.g. `user://pages/`
+* `image://` - images folder. e.g. `user://images/`, `system://images/`
+* `account://` - accounts folder. e.g. `user://accounts/`
+* `environment://` - current multi-site location.
+* `asset://` - compiled JS/CSS folder. e.g. `assets/`
+* `blueprints://` - blueprints folder. e.g. `environment://blueprints/`, `user://blueprints/`, `system://blueprints/`
+* `config://` - configuration folder. e.g. `environment://config/`, `user://config/`, `system://config/`
+* `plugins://` - plugins folder.  e.g. `user://plugins/`
+* `themes://` - current theme.  e.g. `user://themes/`
+* `theme://` - current theme.  e.g. `themes://antimatter/`
+* `languages://` - languages folder. e.g. `environment://languages/`, `user://languages/`, `system://languages/`
+* `user-data://` - data folder.  e.g. `user/data/`
+* `system://` - system folder. e.g. `system/`
+* `cache://` - cache folder. e.g. `cache/`, `images/`
+* `log://` - log folder. e.g. `logs/`
+* `backup://` - backup folder. e.g. `backups/`
+* `tmp://` - temporary folder. e.g. `tmp/`
+
 Mapping physical directories to a logical device can be done in two ways, either by setting up `paths` or `prefixes`. The former can be understood as a 1-to-1 mapping, whereas the latter (as the name suggests) allows you to combine several physical paths into one logical stream. Let's say you want to register a stream with the name "image". You can then with the stream `images://` list with
 
 [prism classes="language-php line-numbers"]

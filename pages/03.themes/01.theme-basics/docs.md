@@ -28,6 +28,8 @@ Each theme should have a definition file called `blueprints.yaml` which has some
 
 [prism classes="language-yaml line-numbers"]
 name: Antimatter
+slug: antimatter
+type: theme
 version: 1.6.7
 description: "Antimatter is the default theme included with **Grav**"
 icon: empire
@@ -40,6 +42,9 @@ demo: https://demo.getgrav.org/blog-skeleton
 keywords: antimatter, theme, core, modern, fast, responsive, html5, css3
 bugs: https://github.com/getgrav/grav-theme-antimatter/issues
 license: MIT
+
+dependencies:
+    - { name: grav, version: '>=1.6.0' }
 
 form:
   validation: loose
@@ -87,8 +92,8 @@ How you organize your files here is completely up to you.  Feel free to follow o
 
 To install Sass on your computer, simply [follow the instructions on the sass-lang.com](http://sass-lang.com/install) website.
 
-1. Execute the simple provided scss shell script by typing `$ ./scss.sh` from the root of the theme.
-2. Running the command directly `$ scss --sourcemap --watch scss:css-compiled` which is the same thing.
+1. Execute the simple provided scss shell script by typing `./scss.sh` from the root of the theme.
+2. Running the command directly `scss --source-map --watch scss:css-compiled` which is the same thing.
 
 By default, this will compile your scss files into the `css-compiled/` folder.  You can then reference the resulting css file in your theme.
 
@@ -98,7 +103,7 @@ The `blueprints/` folder is used to define forms for options and configuration f
 
 ### Theme and Plugin Events
 
-Another powerful feature that is purely optional is the ability for a theme to interact with Grav via the **plugins** architecture. In short, during the initialization sequence of grav, there are several points in the sequence where you can "hook" your own piece of code. This can be useful, for example, to define extra path shortcuts in your theme when twig is initializing, so that you can use them in your twig templates. These hooks are available to you through a set of "empty" functions with names predefined by the Grav system, which you can fill at your convenience. [Chapter 4. Plugins](../../plugins) has more information about the plugin system and the available event hooks. To make use of this hooks in your theme, simply create a file called `mytheme.php` and use the following format:
+Another powerful feature that is purely optional is the ability for a theme to interact with Grav via the **plugins** architecture. In short, during the initialization sequence of Grav, there are several points in the sequence where you can "hook" your own piece of code. This can be useful, for example, to define extra path shortcuts in your theme when Twig is initializing, so that you can use them in your Twig templates. These hooks are available to you through a set of "empty" functions with names predefined by the Grav system, which you can fill at your convenience. [Chapter 4. Plugins](../../plugins) has more information about the plugin system and the available event hooks. To make use of these hooks in your theme, simply create a file called `mytheme.php` and use the following format:
 
 [prism classes="language-php line-numbers"]
 <?php
@@ -109,14 +114,14 @@ use Grav\Common\Theme;
 class MyTheme extends Theme
 {
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             'onThemeInitialized' => ['onThemeInitialized', 0]
         ];
     }
 
-    public function onThemeInitialized()
+    public function onThemeInitialized(): void
     {
         if ($this->isAdmin()) {
             $this->active = false;
@@ -128,7 +133,7 @@ class MyTheme extends Theme
         ]);
     }
 
-    public function onTwigSiteVariables()
+    public function onTwigSiteVariables(): void
     {
         $this->grav['assets']
             ->addCss('plugin://css/mytheme-core.css')
@@ -141,7 +146,7 @@ class MyTheme extends Theme
 }
 [/prism]
 
-As you can observe, in order to use the event hooks you first need to register them in a list with the `getSubscribedEvents` function and then define them with your own code. If you subscribe an event for use, define it aswell. Otherwise you will get an error.
+As you can observe, in order to use the event hooks you first need to register them in a list with the `getSubscribedEvents` function and then define them with your own code. If you subscribe an event for use, define it as well. Otherwise you will get an error.
 
 ### Other Folders
 

@@ -12,7 +12,7 @@ With **Grav**, the ability to group or tag pages is baked right into the system 
 
 There are a couple of key parts to using taxonomy in your site:
 
-1. Define a list of Taxonomy types in your [`site.yaml`](../../basics/grav-configuration)
+1. Define a list of Taxonomy types in your [`site.yaml`](../../basics/grav-configuration).
 2. Assign your pages to the appropriate `taxonomy` types with values.
 
 ## Taxonomy Example
@@ -33,7 +33,7 @@ taxonomies: [category,tag,author]
 
 This will override the taxonomies that Grav knows about so that pages can be assigned to any of these three taxonomies.
 
-The next step is to create some pages that makes use of these taxonomy types. For example, you could have a page that looks like this:
+The next step is to create some pages that make use of these taxonomy types. For example, you could have a page that looks like this:
 
 [prism classes="language-markdown line-numbers"]
 ---
@@ -80,7 +80,7 @@ In your theme, you can easily display a list of pages that are written by `ksmit
 <h2>Kevin Smith's Posts</h2>
 <ul>
 {% for post in taxonomy.findTaxonomy({'author':'ksmith'}) %}
-    <li>{{ post.title }}</li>
+    <li>{{ post.title|e }}</li>
 {% endfor %}
 </ul>
 [/prism]

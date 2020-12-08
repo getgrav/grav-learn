@@ -86,7 +86,7 @@ When navigating through Grav's admin panel, **Internal Server Error** message ap
 
  ![Internal Server Error](http://i.imgur.com/vyPfoZ7.png)
 
-If this error is popping up the chances are you haven't set the correct permission on the /cache folder, rather than just making the folder writable you need to make it reclusively writable.  Running the below command from within your Grav directory should sort out the problem.
+If this error is popping up the chances are you haven't set the correct permission on the /cache folder, rather than just making the folder writable you need to make it recursively writable.  Running the below command from within your Grav directory should sort out the problem.
 
 [prism classes="language-bash command-line"]
 sudo chmod 755 cache/ -R

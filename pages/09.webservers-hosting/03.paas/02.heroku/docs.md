@@ -17,7 +17,7 @@ Let's see how to install Grav on Heroku.
 
 First, sign up for Heroku.
 
-Download the Heroku Toolbelt, which is a command-line utility needed to deploy create and deploy your site.
+Download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), which is a command-line utility needed to deploy create and deploy your site.
 
 Once installed, type
 
@@ -114,9 +114,9 @@ Due to the ephemeral nature of Heroku's filesystem, all needed plugins or themes
 [prism classes="language-json line-numbers"]
 "scripts": {
   "compile": [
-    "bin/grav install",
-    "bin/gpm install admin -y",
-    "bin/gpm install awesome-theme-name-here -y"
+    "php bin/grav install",
+    "php bin/gpm install admin -y",
+    "php bin/gpm install awesome-theme-name-here -y"
   ]
 }
 [/prism]
