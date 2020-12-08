@@ -10,8 +10,11 @@ Grav is intentionally designed with few requirements. You can easily run Grav on
 [version=15]
 2. PHP 5.6.3 or higher
 [/version]
-[version=16,17]
+[version=16]
 2. PHP 7.1.3 or higher
+[/version]
+[version=17]
+2. PHP 7.3.6 or higher
 [/version]
 
 3. hmm... that's it really, (but please look at PHP requirements for a smooth experience)!
@@ -22,7 +25,7 @@ Grav is built with plain text files for your content. There is no database neede
 
 ## Web Servers
 
-Grav is so simple and versatile that you don't even need a web server to run it. You can run it directly off the built-in PHP webserver, as long as you're running [version=15]**PHP 5.6.3**[/version][version=16,17]**PHP 7.1.3**[/version] or later.
+Grav is so simple and versatile that you don't even need a web server to run it. You can run it directly off the built-in PHP webserver, as long as you're running [version=15]**PHP 5.6.3**[/version][version=16]**PHP 7.1.3**[/version][version=17]**PHP 7.3.6**[/version] or later.
 
 Testing with the built-in webservers is a useful way to check a Grav install and perform some brief development, but it is **not** recommended for a live site or even for advanced development tasks. We've outlined how in our [Installation guide](../installation#running-grav-with-the-built-in-php-webserver-using-routerphp).
 
@@ -55,6 +58,7 @@ Even though most distributions of Apache come with everything needed, for the sa
 
 * `mod_rewrite`
 * `mod_ssl` (if you wish to run Grav under SSL)
+* `mod_mpm_itk_module` (if you wish to run Grav under its own user account)
 
 You should also ensure you have `AllowOverride All` set in the `<Directory>` and/or `<VirtualHost>` blocks so that the `.htaccess` file processes correctly, and rewrite rules take effect.
 
@@ -134,6 +138,12 @@ umask 0002
 If you need to invoke superuser permissions, you would run `find … | sudo xargs chmod …` instead.
 
 ## Recommended Tools
+
+### PhpStorm
+
+Grav is developed using [PhpStorm](https://www.jetbrains.com/phpstorm/), which makes it the best IDE for Grav. However, it does not come for free.
+
+PhpStorm is best suited for PHP developers, including people who write complicated Grav plugins. It offers automated code compilation for Grav (you just need to add Grav and any plugin you use into includes), and many other tools to aid with the code development. It has also good support for formatting twig, yaml, html, js, scss and tailwind.
 
 ### Text Editors
 

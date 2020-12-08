@@ -127,7 +127,7 @@ For this to function you must enable the option in your `user/system.yaml` file 
 
 [prism classes="language-yaml line-numbers"]
 languages:
-  http_accept_language: false
+  http_accept_language: true
 [/prism]
 
 

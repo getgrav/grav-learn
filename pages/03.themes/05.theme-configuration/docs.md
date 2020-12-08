@@ -44,7 +44,7 @@ $theme_license = $this->grav['theme']['license'];
 
 ## Accessing Theme Configuration
 
-Theme's have configuration files, too. A theme's configuration file is named `<themename>.yaml`. The default file lives in the theme's root folder (`user/themes/<themename>`).
+Themes have configuration files, too. A theme's configuration file is named `<themename>.yaml`. The default file lives in the theme's root folder (`user/themes/<themename>`).
 
 It is **strongly** recommended not to actually change the theme's default YAML file but to override the settings in the `user/config/themes` folder. This will ensure that the theme's original settings remain intact, allowing you to quickly access the changes and/or revert back whenever necessary.
 

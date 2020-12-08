@@ -20,7 +20,7 @@ taxonomy:
 
 6. **Shared hosting** is cheap and readily available, but sharing resources will always slow things down a bit. Again, Grav can run very well on a shared server (better than other CMSes), but for ultimate speed, a dedicated server is the way to go.
 
-7. **PECL Yaml Parser**.  Installing the native PHP PECL Yaml parser can increase YAML parsing by as much as 400%!  This is well worth looking at if you are looking for some extra speed.
+7. **PECL Yaml Parser**.  Installing the native PHP PECL Yaml parser can increase YAML parsing speed by as much as 400%!  This is well worth looking at if you are looking for some extra speed.
 
 !! The getgrav.org runs on a single dedicated server with quad core processors, 16GB of memory and 6G SSD drives. We also run PHP 7.4 with Zend opcache and APCu user cache. The web servers do run a few other websites but not as many as you would find in a shared-hosting environment.
 

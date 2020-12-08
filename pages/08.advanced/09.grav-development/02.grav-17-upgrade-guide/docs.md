@@ -2,7 +2,7 @@
 title: Grav 1.7 Upgrade Guide
 taxonomy:
     category: docs
-last_checked: 1.7.0-rc16
+last_checked: 1.7.0-rc18
 ---
 
 Grav 1.7 introduces a few new features, improvements, bug fixes and provides many architectural changes which pave the road towards Grav 2.0. Here are a few highlights:
@@ -14,13 +14,25 @@ Grav 1.7 introduces a few new features, improvements, bug fixes and provides man
 * **Improved Admin ACL**: Full CRUD support for users and pages.
 * **Improved Media Support**: Support `webp` image format, lazy loading and more.
 * **Improved Caching**: New `{% cache %}` tag and improved performance especially in admin.
+* **XSS Detection in Forms**: Forms will not submit if potential XSS is detected in them. Check the [documentation](/forms/forms/form-options#xss-checks) on how to disable the checks.
 * **Better Debugging Tools**: [Clockwork](https://underground.works/clockwork/) integration, Twig profiling and support for [Tideways XHProf](https://github.com/tideways/php-xhprof-extension) PHP Extension for performance profiling.
 
 !!!! **IMPORTANT:** For most people, Grav 1.7 should be a simple upgrade without any issues, but like any upgrade, it is recommended to **take a backup** of your site and **test the upgrade in a testing environment** before upgrading your live site.
 
+### Quick Update Guide
+
+!! **Grav 1.7** requires **PHP 7.3.6** or later version. The recommended version is the latest **PHP 7.4** release.
+
 ### YAML
 
-! **NOTE:** Grav 1.7 YAML parser is more strict and your site may break if you have syntax errors in your configuration files or page headers.
+!!!! **IMPORTANT:** Grav 1.7 YAML parser is more strict and your site may break if you have syntax errors in your configuration files or page headers. However, if you update your existing site using `bin/gpm` or `Admin Plugin` upgrade process keeps most of the broken YAML syntax working.
+
+To revert to the old behavior you need to make sure you have following setting in `user/config/system.yaml`:
+
+```yaml
+strict_mode:
+  yaml_compat: true
+```
 
 !!! **TIP:** **Grav 1.6 Upgrade Guide** has a dedicated **[YAML Parsing](/advanced/grav-development/grav-16-upgrade-guide#yaml-parsing)** section to help you to fix these issues.
 
@@ -29,6 +41,17 @@ By default, Grav 1.7 uses a **Symfony 4.4 YAML parser**, which follows the [YAML
 !!! **TIP:** You should run **CLI command** `bin/grav yamllinter` or visit in **Admin** > **Tools** > **Reports** before and after upgrade and fix all the YAML related warnings and errors.
 
 ### Twig
+
+!!!! **IMPORTANT:** Grav 1.7 enables **Twig Auto-Escaping** by default. However, if you update your existing site using `bin/gpm` or `Admin Plugin` upgrade process keeps the existing auto-escape settings.
+
+To revert to the old behavior you need to make sure you have following settings in `user/config/system.yaml`:
+
+```yaml
+twig:
+  autoescape: true
+strict_mode:
+  twig_compat: true
+```
 
 !!! **TIP:** **Grav 1.6 Upgrade Guide** has a dedicated **[Twig](/advanced/grav-development/grav-16-upgrade-guide#twig)** section. It is very important to read it first!
 
@@ -48,7 +71,18 @@ Additional changes in templating are:
 
 ## Forms
 
-In forms declaring `validation: strict` was not as strict as we hoped because of a bug. The strict mode should prevent forms from sending any extra fields and this was fixed into Grav 1.7. Unfortunately many of the old forms declared to be strict even if they had extra data in them.
+!!!! **IMPORTANT:** Grav 1.7 changes the behavior of **Strict Validation**. However, if you update your existing site using `bin/gpm` or `Admin Plugin` upgrade process keeps the existing strict mode behaviour.
+
+**Strict mode Improvements**: Inside forms, declaring `validation: strict` was not as strict as we hoped because of a bug. The strict mode should prevent forms from sending any extra fields and this was fixed into Grav 1.7. Unfortunately many of the old forms declared to be strict even if they had extra data in them.
+
+To revert to the old behavior you need to make sure you have following setting in `user/config/system.yaml`:
+
+```yaml
+strict_mode:
+  blueprint_compat: true
+```
+
+**XSS Injection Detection** is now enabled in all the frontend forms by default. Check the [documentation](/forms/forms/form-options#xss-checks) on how to disable or customize the checks per form and per field.
 
 Because of this, we added new configuration option `system.strict_mode.blueprint_compat: true` to maintain old `validation: strict` behavior. It is recommended to turn off this setting to improve site security, but before doing that, please search through all your forms if you were using `validation: strict` feature. If you were, either remove the line or test if the form still works.
 
@@ -71,7 +105,7 @@ The existing [Pages Administration](/admin-panel/page) has been greatly improved
 * Better access control: [CRUD ACL](/admin-panel/page/permissions) support with page owners
 * Better multi-language support
 
-!! **BACKWARDS COMPATIBILITY BREAK**: We fixed 404 error page when you go to non-routable page with routable child pages under it. Now you get redirected to the first routable child page instead. This is probably what you wanted in the first place.
+!! **BACKWARDS COMPATIBILITY BREAK**: We fixed 404 error page when you go to non-routable page with routable, visible child pages under it. Now you get redirected to the first routable, visible child page instead. This is probably what you wanted in the first place.
 
 !!! **NOTE:** Flex Pages feature is not yet used in the frontend of your site.
 
@@ -155,6 +189,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 
 ### Use composer autoloader
 
+* Upgraded `bin/composer.phar` to `2.0.2` which is all new and much faster
 * Please add `composer.json` file to your plugin and run `composer update --no-dev` (and remember to keep it updated):
 
     composer.json
@@ -268,13 +303,14 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 
 ### Pages
 
-* Added experimental support for `Flex Pages` in the frontend (not recommended to use yet)
+* Added default templates for `external.html.twig`, `default.html.twig`, and `modular.html.twig`
 * Admin uses `Flex Pages` by default (can be disabled from `Flex-Objects` plugin)
 * Added page specific admin permissions support for `Flex Pages`
 * Added root page support for `Flex Pages`
 * Fixed wrong `Pages::dispatch()` calls (with redirect) when we really meant to call `Pages::find()`
 * Added `Pages::getCollection()` method
 * Moved `collection()` and `evaluate()` logic from `Page` class into `Pages` class
+
 * **DEPRECATED** `$page->modular()` in favor of `$page->isModule()`
 * **DEPRECATED** `PageCollectionInterface::nonModular()` in favor of `PageCollectionInterface::pages()`
 * **DEPRECATED** `PageCollectionInterface::modular()` in favor of `PageCollectionInterface::modules()`
@@ -313,9 +349,14 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
   * Added `FlexRegisterEvent` which triggers when `$grav['flex']` is being accessed the first time
 * Added `hasFlexFeature()` method to test if `FlexObject` or `FlexCollection` implements a given feature
 * Added `getFlexFeatures()` method to return all features that `FlexObject` or `FlexCollection` implements
+* Added `FlexObject::refresh()` method to make sure object is up to date
 * Added `FlexStorage::getMetaData()` to get updated object meta information for listed keys
+* Added `FlexDirectoryInterface` interface
+* Added search option `same_as` to Flex Objects
+* Renamed `PageCollectionInterface::nonModular()` into `PageCollectionInterface::pages()` and deprecated the old method
+* Renamed `PageCollectionInterface::modular()` into `PageCollectionInterface::modules()` and deprecated the old method
 * `FlexDirectory::getObject()` can now be called without any parameters to create a new object
-* Flex Directory: Implemented customizable configuration per flex type
+* Implemented customizable configuration per flex directory type
 * **DEPRECATED** `FlexDirectory::update()` and `FlexDirectory::remove()`
 * **BC BREAK** Moved all Flex type classes under `Grav\Common\Flex`
 * **BC BREAK** `FlexStorageInterface::getStoragePath()` and `getMediaPath()` can now return null
@@ -329,6 +370,10 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 * Translations: rename MODULAR to MODULE everywhere
 * Added `Language::getPageExtensions()` to get full list of supported page language extensions
 * **BC BREAK** Fixed `Language::getFallbackPageExtensions()` to fall back only to default language instead of going through all languages
+
+### Multi-site
+
+* Added support for having all sites / environments under `user/env` folder
 
 ### Blueprints
 
@@ -376,8 +421,13 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
     }
     ```
 
+### JavaScript
+
+* Updated bundled JQuery to latest version `3.5.1`
+
 ### Misc
 
+* Added `Utils::functionExists()`: PHP 8 compatible `function_exists()`
 * Added `Utils::isAssoc()` and `Utils::isNegative()` helper methods
 * Added `Utils::simpleTemplate()` method for very simple variable templating
 * Added `Utils::fullPath()` to get the full path to a file be it stream, relative, etc.
@@ -390,6 +440,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 * **BC BREAK** Make `Route` objects immutable. This means that you need to do: `{% set route = route.withExtension('.html') %}` (for all `withX` methods) to keep the updated version.
 * Better `Content-Encoding` handling in Apache when content compression is disabled
 * Added a `Uri::getAllHeaders()` compatibility function
+* Allow `JsonFormatter` options to be passed as a string
 
 ### CLI
 
@@ -404,10 +455,10 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
         * `$this->initializePages();` This initializes grav, plugins, theme and everything needed by pages
 * It is a good idea to prefix your CLI command classes with your plugin name, otherwise there may be naming conflicts (we already have some!)
 
-### Composer dependencies
+### Used Libraries
 
 * Updated Symfony Components to 4.4, please update any deprecated features in your code
-* **BC BREAK** Please run `bin/grav yamllinter -f user://` to find any YAML parsing errors in your site (including your plugins and themes).
+* **BC BREAK** Please run `bin/grav yamllinter` to find any YAML parsing errors in your site (including your plugins and themes).
 
 ## PLUGINS
 

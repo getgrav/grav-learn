@@ -32,4 +32,4 @@ For more information, see Flex Objects.
 | **Render Cache Lifetime (seconds)** | Lifetime for render caching in seconds. |
 [/div]
 
-If the rendered HTML has dynamic content, render cache can be disabled from the Twig template by ```{% do block.disableCache() %}```.
+If the rendered HTML has dynamic content, render cache can be disabled from the Twig template by {% verbatim %}```{% do block.disableCache() %}```{% endverbatim %}.

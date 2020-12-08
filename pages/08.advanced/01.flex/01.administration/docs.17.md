@@ -18,14 +18,29 @@ We are interested in **Directories** option inside the plugin, which lists all t
 
 Hit **Save** and the directory should show up after a page load.
 
-## Navigation Menu
+! **TIP:** Check **[Introduction](/advanced/flex/administration/introduction)** for full walkthrough on how to create a page for your directory.
 
-By default, Flex Directories appear under **Flex Objects** menu item. The menu item will appear when you enable a Flex Directory, which has not configured to show up elsewhere.
+## Directory Listing
 
-When you select a Flex Directory, you will end up to a **List View**.
+![Directories View](views-directories.png?width=2030&classes=shadow)
 
-In **List View** you can browse through the objects, use **Search** and change **Ordering**. Additionally each object has **Actions**, usually at least **Edit** and **Delete**. You can also **Add** new objects by using a button at top of the page. Next to it is also **Configuration** button to change directory-wide settings.
+By default, **Flex Objects** navigation menu item contains all the **Flex Directories** that have been enabled in your site.
 
-In **Edit View** you can edit the object and **Save** it.
+!! Some Flex Directories choose to hide from this list and show up elsewhere. **Accounts** and **Pages** are good examples of this.
 
-In **Configuration** you can change configuration, which changes the behavior of the whole directory. Usually caching is among of these options.
+#### Controls
+
+Along the top of the page, you will find the administrative controls.
+
+- **Back**: Go back to **[Dashboard](/admin-panel/dashboard)**
+- **Configure**: Redirects to **Plugins** > **Flex Objects**, see [Enabling a Directory](#enabling-a-directory)
+
+#### Directories
+
+When you select a Directory, you will end up to **Content Listing** view.
+
+In **[Content Listing](/advanced/flex/administration/views-list)** you can browse through the objects, use **Search** and change **Ordering**. Additionally each object has **Actions**, usually at least **Edit** and **Delete**. You can also **Add** new objects by using a button at top of the page. Next to it is also **Configuration** button to change directory-wide settings.
+
+In **[Content Editor](/advanced/flex/administration/views-edit)** you can edit the object and **Save** it.
+
+In **[Configuration](/advanced/flex/administration/configuration)** you can change configuration, which changes the behavior of the whole directory. Usually caching is among these options.

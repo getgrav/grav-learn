@@ -17,7 +17,7 @@ Grav core features such as [User Accounts](/admin-panel/accounts/users), [User G
 
 #### Flex
 
-**Flex** is a container for **Flex Directories**.
+**[Flex](/advanced/flex/using/flex)** is a container for **Flex Directories**.
 
 This gives a single access point for all the data in the site, given that the data is inside a Flex Directory. This makes all the objects available to every page and plugin in your site.
 
@@ -31,25 +31,25 @@ It defines everything that is needed to display and modify the content: data str
 
 #### Flex Directory
 
-**Flex Directory** keeps a collection of **Flex Objects** of a single **Flex Type**.
+**[Flex Directory](/advanced/flex/using/directory)** keeps a collection of **Flex Objects** of a single **Flex Type**.
 
 Each Directory contains **Collection** of **Objects** with optional support for **Indexes** to speed up the queries to the **Storage**.
 
 #### Flex Collection
 
-**Flex Collection** is a structure that contains **Flex Objects**.
+**[Flex Collection](/advanced/flex/using/collection)** is a structure that contains **Flex Objects**.
 
 The collection usually contains only the objects which are needed to display the page or to perform the given action. It provides useful tools to further filter or manipulate the data as well as methods to render the whole collection.
 
 #### Flex Object
 
-**Flex Object** is a single instance of some **Flex Type**.
+**[Flex Object](/advanced/flex/using/object)** is a single instance of some **Flex Type**.
 
 The object represents a single entity. The object gives access to its properties, including any associated data, such as **[Media](/content/media)**. Object also knows how to **Render** itself or which **Form** to use to edit its contents. Actions like creating, updating and deleting objects are supported by the object itself.
 
 #### Flex Index
 
-**Flkex Index** is used to make fast queries to **Flex Directory**.
+**Flex Index** is used to make fast queries to **Flex Directory**.
 
 It contains meta-data for the **Flex Objects**, but not the objects themselves.
 
@@ -67,6 +67,6 @@ Flex supports multiple views, which allow different parts of the object to be mo
 
 #### Flex Administration ####
 
-**Flex Administration** is implemented by **Flex Objects Plugin**.
+**[Flex Administration](/advanced/flex/administration)** is implemented by **Flex Objects Plugin**.
 
 It adds a new section to **Admin Plugin** allowing site administrators to manage **Flex Objects**. Each **Flex Directory** comes with CRUD-type ACL, which can be used to restrict parts of Admin and actions within them to certain users.
