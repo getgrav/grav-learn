@@ -58,6 +58,7 @@ Even though most distributions of Apache come with everything needed, for the sa
 
 * `mod_rewrite`
 * `mod_ssl` (if you wish to run Grav under SSL)
+* `mod_mpm_itk_module` (if you wish to run Grav under its own user account)
 
 You should also ensure you have `AllowOverride All` set in the `<Directory>` and/or `<VirtualHost>` blocks so that the `.htaccess` file processes correctly, and rewrite rules take effect.
 
@@ -137,6 +138,12 @@ umask 0002
 If you need to invoke superuser permissions, you would run `find … | sudo xargs chmod …` instead.
 
 ## Recommended Tools
+
+### PhpStorm
+
+Grav is developed using [PhpStorm](https://www.jetbrains.com/phpstorm/), which makes it the best IDE for Grav. However, it does not come for free.
+
+PhpStorm is best suited for PHP developers, including people who write complicated Grav plugins. It offers automated code compilation for Grav (you just need to add Grav and any plugin you use into includes), and many other tools to aid with the code development. It has also good support for formatting twig, yaml, html, js, scss and tailwind.
 
 ### Text Editors
 
