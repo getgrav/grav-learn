@@ -42,7 +42,7 @@ process:
 
 ##### Problem:
 
-You want to display navigation links from non modular pages. 
+You want to display navigation links from non modular pages.
 
 ##### Solution
 
@@ -88,7 +88,7 @@ In some page templates, the Twig `date` filter is used, and it does not handle l
 
 ##### Solution:
 
-There are two solutions to this problem. 
+There are two solutions to this problem.
 
 ###### First approach
 
@@ -143,7 +143,7 @@ Use the  `slice` filter to remove the summary from the page content:
 
 [prism classes="language-twig line-numbers"]
 {% set content = page.content|slice(page.summary|length) %}
-{{ content }}
+{{ content|raw }}
 [/prism]
 
 
@@ -241,7 +241,7 @@ header.myimage:
   folder: 'self@'
   label: Select a file
   preview_images: true
-[/prism]    
+[/prism]
 
 The `mediapicker` field store the path to the image as a string such as `/home/background.jpg`
 In order to access this image with the page media functionality, you have to split this string and get:

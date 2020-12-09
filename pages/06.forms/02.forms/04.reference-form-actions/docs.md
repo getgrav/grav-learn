@@ -110,9 +110,9 @@ Antimatter and compatible themes provide the `formdata.html.twig` Twig template,
 
 {% block content %}
 
-    {{ content }}
+    {{ content|raw }}
 
-    <div class="alert">{{ form.message }}</div>
+    <div class="alert">{{ form.message|e }}</div>
     <p>Here is the summary of what you wrote to us:</p>
 
     {% include "forms/data.html.twig" %}
