@@ -86,13 +86,13 @@ Now we need to display these images in reverse chronological order so the newest
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-    {{ page.content }}
+    {{ page.content|raw }}
 
     <ul>
     {% for image in page.media.images %}
     <li>
         <div class="image-surround">
-            {{ image.cropResize(300,200).html }}
+            {{ image.cropResize(300,200).html|raw }}
         </div>
         <div class="image-info">
             <h2>{{ image.meta.title }}</h2>
@@ -111,7 +111,7 @@ For a modular gallery to be displayed inside another page, remove the following 
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-    {{ page.content }}
+    {{ page.content|raw }}
 [/prism]
 
 and
@@ -161,7 +161,7 @@ Then we simply need to render this content with a `columns.html.twig` template (
     <table>
         <tr>
             {% for column in page.content|split('<hr />') %}
-            <td>{{ column }}</td>
+            <td>{{ column|raw }}</td>
             {% endfor %}
         </tr>
     </table>
@@ -189,12 +189,12 @@ This recipe is for 4 images and a page called `slider.md`! Simply put the images
     <div id="slider">
         <figure>
         {% for image in page.media.images %}
-            {{ image.html }}
+            {{ image.html|raw }}
         {% endfor %}
         </figure>
     </div>
 
-    {{ page.content }}
+    {{ page.content|raw }}
 {% endblock %}
 [/prism]
 
@@ -279,7 +279,7 @@ You want to create a recent post widget on the sidebar
 
 #### Solution:
 
-It's always possible to create a partial template extending `partials/base.html.twig` (see other solutions on this page), but here you're going to create a full template instead. The final code for your Twig template is shown below: 
+It's always possible to create a partial template extending `partials/base.html.twig` (see other solutions on this page), but here you're going to create a full template instead. The final code for your Twig template is shown below:
 
 [prism classes="language-twig line-numbers"]
 <div class="sidebar-content recent-posts">
@@ -599,7 +599,7 @@ Copy the HTML code from the template's home page, starting at `<html>` and endin
 
 Now, move all the HTML theme assets (images, CSS, JS) into your theme folder. You can keep the existing theme folder structure, or change it.
 
-Create a `pages/01.home/home.md` empty file. Now point your browser to yoursite.com/home: it should show up the content, but the CSS, JS and images will not be loaded, probably because the theme has them hardcoded as `/img/*` or `/css/*` links. 
+Create a `pages/01.home/home.md` empty file. Now point your browser to yoursite.com/home: it should show up the content, but the CSS, JS and images will not be loaded, probably because the theme has them hardcoded as `/img/*` or `/css/*` links.
 
 #### Adding the correct asset links
 
@@ -634,8 +634,8 @@ This is just the start. Now you might need to add more pages, and come up with b
 
 #### Adding another page
 
-To add another page, the process is similar. For example, let's say you want to next create the blog page. 
-Repeat the process to add a `templates/blog.html.twig` file, paste the HTML source, and create a `pages/02.blog/blog.md` page. 
+To add another page, the process is similar. For example, let's say you want to next create the blog page.
+Repeat the process to add a `templates/blog.html.twig` file, paste the HTML source, and create a `pages/02.blog/blog.md` page.
 
 Now, while images links inside the pages still need to be migrated to Grav's assets syntax (or simply change the path), you don't want to repeat the same work you did above for CSS and JS assets. This should be reused across the site.
 
@@ -643,7 +643,7 @@ Now, while images links inside the pages still need to be migrated to Grav's ass
 
 Identify the common parts of the pages (header and footer), and move them to the `templates/partials/base.html.twig` file.
 
-Each page template then needs to extend `partials/base.html.twig` (https://github.com/getgrav/grav-theme-antimatter/blob/develop/templates/default.html.twig#L1) and just add their unique content. 
+Each page template then needs to extend `partials/base.html.twig` (https://github.com/getgrav/grav-theme-antimatter/blob/develop/templates/default.html.twig#L1) and just add their unique content.
 
 ## Add an asset to a specific page
 
@@ -653,7 +653,7 @@ You need to add an asset to a specific template on your theme.
 
 #### Solution
 
-Most of the time, your assets will be added inside a twig block in your base template like below. 
+Most of the time, your assets will be added inside a twig block in your base template like below.
 
 [prism classes="language-twig line-numbers"]
 {% block javascripts %}
@@ -663,7 +663,7 @@ Most of the time, your assets will be added inside a twig block in your base tem
 [/prism]
 
 In order to add your asset, you have to extend this block in your template and call `{{ parent() }}` which will get the assets already added in your base template.
-Let's say you want to add a "gallery.js" file on your "Portfolio Gallery" page. 
+Let's say you want to add a "gallery.js" file on your "Portfolio Gallery" page.
 Edit your template and add your asset with the `{{ parent() }}`.
 
 [prism classes="language-twig line-numbers"]
@@ -685,15 +685,15 @@ This is a very simple straightforward method which does not require a plugin and
 **Note:** There is also plugin [Grav Page Inject Plugin](https://github.com/getgrav/grav-plugin-page-inject) for this functionality which may be suitable for more advanced scenarios.
 
 First, create a new template file to act as a placeholder for the content - it can have any name, this one is named "modular_reuse" and will be in the stored in your theme's templates/modular_ folder for this example but can be stored anywhere in the templates folder.
- 
+
 
 `modular_reuse.html.twig` contains only one line:
 [prism classes="language-twig line-numbers"]
-{{ page.content }}
+{{ page.content|raw }}
 [/prism]
 Next, create a new modular page in the admin panel where this content should be displayed using this new "modular reuse" template. The new page name can be anything you like as it will not be displayed - the original page title will be output.
 
-The content of the page is just one line: 
+The content of the page is just one line:
 Page:
 [prism classes="language-twig line-numbers"]
 {% include 'modular_reuse.html.twig' with {'page': page.find('/test-page/amazing-offers')} %}
@@ -775,7 +775,7 @@ Then, create a `robots.txt.twig` page template that checks if Grav is currently 
 {% endfor %}
 
 {% else %}
-{{ page.content }}
+{{ page.content|raw }}
 
 {% endif %}
 [/prism]
@@ -812,6 +812,6 @@ Allow: /user/plugins/*.css$
 Allow: /user/plugins/*.js$
 [/prism]
 
-Now you should have a `robots.txt` file placed at your site's root with dynamic contents, also editable with the Admin plugin. 
+Now you should have a `robots.txt` file placed at your site's root with dynamic contents, also editable with the Admin plugin.
 
 Note: make sure your production site won't display `Disallow: /`, as that will completely obliterate your search engine visibility.

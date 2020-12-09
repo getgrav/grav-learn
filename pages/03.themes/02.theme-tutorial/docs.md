@@ -155,7 +155,7 @@ Utilizing the Twig [Extends](http://twig.sensiolabs.org/doc/tags/extends.html) t
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-    {{ page.content }}
+    {{ page.content|raw }}
 {% endblock %}
 [/prism]
 
