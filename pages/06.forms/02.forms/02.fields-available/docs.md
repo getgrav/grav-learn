@@ -984,6 +984,7 @@ header.content:
 | [validate.pattern](#common-fields-attributes)  |
 | [validate.message](#common-fields-attributes)  |
 [/div]
+
 ---
 
 ### Toggle Field
@@ -1028,6 +1029,7 @@ summary.enabled:
 | [validate.type](#common-fields-attributes)     |
 | [disabled](#common-fields-attributes)          |
 [/div]
+
 ---
 
 ### Url Field
