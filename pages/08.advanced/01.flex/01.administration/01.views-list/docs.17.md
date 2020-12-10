@@ -22,7 +22,7 @@ Along the top of the page, you will find the administrative controls. The contro
 ## Navigation
 
 - **Filter**: Text input for searching
-- **Display Number**: Number of objects to dispay
+- **Display Number**: Number of objects to display
 - **Ordering**: Click on the column titles to change ordering
 - **Pagination**: Quickly navigate through objects
 
