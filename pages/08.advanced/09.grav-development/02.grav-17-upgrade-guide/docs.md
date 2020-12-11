@@ -68,6 +68,7 @@ Additional changes in templating are:
 * Improved `authorize()` twig function to work better with nested rule parameters
 * Improved `|yaml_serialize` twig filter: added support for `JsonSerializable` objects and other array-like objects
 * Added default templates for `external.html.twig`, `default.html.twig`, and `modular.html.twig`
+* **BACKWARDS COMPATIBILITY BREAK**: Use `{% script 'file.js' at 'bottom' %}` instead of `in 'bottom'` which is broken
 
 ## Forms
 
