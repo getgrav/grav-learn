@@ -25,6 +25,7 @@ This is **bold** and this _underlined_
 {% endmarkdown %}
 [/prism]
 
+[version=17]
 ### Scripts
 
 The Scripts tag is really a convenience tag that keeps your Twig more readable compared to the usual `{% do assets...%}` approach.  It's purely an alternative way of writing things.
@@ -32,13 +33,13 @@ The Scripts tag is really a convenience tag that keeps your Twig more readable c
 #### Script File
 
 [prism classes="language-twig line-numbers"]
-{% script 'theme://js/something.js' in 'bottom' priority: 20 with { defer: true, async: true } %}
+{% script 'theme://js/something.js' at 'bottom' priority: 20 with { defer: true, async: true } %}
 [/prism]
 
 #### Inline Script
 
 [prism classes="language-twig line-numbers"]
-{% script in 'bottom' priority: 20 %}
+{% script at 'bottom' priority: 20 %}
     alert('Warning!');
 {% endscript %}
 [/prism]
@@ -58,6 +59,7 @@ The Scripts tag is really a convenience tag that keeps your Twig more readable c
     a { color: red; }
 {% endstyle %}
 [/prism]
+[/version]
 
 ### Switch
 

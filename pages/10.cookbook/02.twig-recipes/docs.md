@@ -255,7 +255,7 @@ You can do this via twig by using the snippet below:
 {% set image_basename = image_parts.basename %}
 {% set image_page = image_parts.dirname == '.' ? page : page.find(image_parts.dirname) %}
 
-{{ image_page.media[image_basename].html() }}
+{{ image_page.media[image_basename].html()|raw }}
 [/prism]
 
 ## Custom Twig Filter/Function
