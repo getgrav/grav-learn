@@ -261,7 +261,7 @@ Please read over the code in the `base.html.twig` file to try to understand what
 
 1. The `<title>` tag is dynamically set based on the page's `title` variable as set in the page header.  The `header.title` is a shortcut method but is equivalent to `page.header.title`.
 
-1. After a couple of standard meta tags are set, there is a reference to include `partials/metadata.html.twig`.  This file contains a loop that loops over the page's metadata.  This is actually a merge of metadata from `site.yaml` and any page-specific overrides.
+1. After a couple of standard meta tags are set, there is a reference to include `partials/metadata.html.twig`.  This file is located in the `systems/templates/partials` folder and contains a loop that loops over the page's metadata.  This is actually a merge of metadata from `site.yaml` and any page-specific overrides.
 
 1. The `<link rel="icon"...` entry is set by pointing to a theme-specific image.  In this case it's located in theme directory under `images/logo.png`.  The syntax for this is `{{ url('theme://images/logo.png') }}`.
 
