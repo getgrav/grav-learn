@@ -306,6 +306,14 @@ Ordering of sub-pages follows the same rules as ordering of folders, the availab
 | `sort_flags` | Allow to override sorting flags for page header-based or default ordering. If the `intl` PHP extension is loaded, only [these flags](https://secure.php.net/manual/en/collator.asort.php) are available. Otherwise, you can use the PHP [standard sorting flags](https://secure.php.net/manual/en/array.constants.php). |
 [/div]
 
+!! `header.x` will order pages based on the **value as a string**.
+!!
+!! If you intend to sort custom dates, make sure you [setup your _Page date format_ as `Y-m-d H:i`](../../admin-panel/dashboard/configuration-system#content) for the sorting to behave as expected.
+!!
+!! **Example:** `08-12-2020 12:00` (December 8th) will be considered earlier than `09-11-2020 12:00` (Novenber 9th). `2020-12-08 12:00` will be considered later than `2020-11-09 12:00`, as expected for dates.
+
+<!-- TODO: ### Sort based on the type of the header in the blueprint? -->
+
 The `content.order.dir` variable controls which direction the ordering should be in. Valid values are either `desc` or `asc`.
 
 [prism classes="language-yaml line-numbers"]
