@@ -54,6 +54,8 @@ If your production server was reachable via `http://www.mysite.com` then you cou
 
 Of course, you are not limited to changes to `system.yaml`, you can actually provide overrides for **any** Grav setting in the `site.yaml` or even in any [plugin configuration](../../plugins/plugin-basics)!
 
+!! If you are using the Grav [Scheduler](/advanced/scheduler), be aware of it using the `localhost` environment and therefore its configuration.
+
 #### Plugin Overrides
 
 To override a plugin configuration YAML file is simply the same process as overriding a regular file.   If the standard configuration file is located in:

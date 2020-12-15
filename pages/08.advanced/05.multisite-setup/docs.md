@@ -132,6 +132,58 @@ return [
 ];
 [/prism]
 
+When using subdirectories to switch language contexts you might need to load different configs depending on the language.
+You can place your language specific configs in `config/<lang-context>/site.yaml` using the example for `setup_subdir_config_switch.php` below.
+This way `yoursite.com/de-AT/index.html` would load `config/de-AT/site.yaml`, `yoursite.com/de-CH/index.html` would load `config/de-CH/site.yaml` and so on.
+
+**setup_subdir_config_switch.php**:
+[prism classes="language-php line-numbers"]
+<?php
+/**
+ * Switch config based on the language context subdir
+ *
+ * DO NOT EDIT UNLESS YOU KNOW WHAT YOU ARE DOING!
+ */
+
+use Grav\Common\Filesystem\Folder;
+
+$languageContexts = [
+    'de-AT',
+    'de-CH',
+    'de-DE',
+];
+
+// Get relative path from Grav root.
+$path = isset($_SERVER['PATH_INFO'])
+    ? $_SERVER['PATH_INFO']
+    : Folder::getRelativePath($_SERVER['REQUEST_URI'], ROOT_DIR);
+
+// Extract name of subdir from path
+$name = Folder::shift($path);
+
+if (in_array($name, $languageContexts)) {
+    return [
+        'streams' => [
+            'schemes' => [
+                'config' => [
+                    'type' => 'ReadOnlyStream',
+                    'prefixes' => [
+                        '' => [
+                            'environment://config',
+                            'user://config/' . $name,
+                            'user://config',
+                            'system/config',
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ];
+}
+
+return [];
+[/prism]
+
 #### Advanced configuration (for Experts)
 
 Once created a `setup.php` have access to two important variables: (i) `$container`, which is the yet not properly initialized [Grav instance](https://github.com/getgrav/grav/blob/develop/system/src/Grav/Common/Grav.php) and (ii) `$self`, which is an instance of the [ConfigServiceProvider class](https://github.com/getgrav/grav/blob/develop/system/src/Grav/Common/Service/ConfigServiceProvider.php).

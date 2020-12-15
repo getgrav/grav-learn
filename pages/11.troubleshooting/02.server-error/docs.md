@@ -25,7 +25,7 @@ Possible reasons include:
 The first thing you should do is flush the cache to ensure that the configuration is up to date:
 
 [prism classes="language-bash command-line"]
-bin/grav clear-cache
+bin/grav clearcache
 [/prism]
 
 !! Before moving on, make sure that you do not have other file permission issues like this.

@@ -16,7 +16,7 @@ Imagine if you moved your site from some other CMS platform to Grav, you have se
 
 There are many other use cases where you may wish to have the Grav site respond to different URLs than the folder structure dictates, and Grav has the following capabilities to help you realize your objectives.
 
-## Page Level Route Overrides
+## Page Level Route and Redirect Overrides
 
 As outlined in the [Headers -> Routes section](../headers#routes), you can provide explicit routing options for the **default route** as well as an array of **route aliases**:
 
@@ -30,6 +30,12 @@ routes:
 [/prism]
 
 These are processed and cached per-page, and are available along with what we call the **raw route** which is the route based on the **slugs** of the page hierarchy (which is how Grav works out a route by default).  So even if you provide custom page routes, the **raw route** is still always valid too.
+
+Similar to page level routing, Grav also supports page level redirects by specifying the target page in the page header. See [Headers -> Redirect section](../headers#redirect) for more details.
+
+[prism classes="language-yaml line-numbers"]
+redirect: '/some/custom/route[303]'
+[/prism]
 
 ## Site Level Routes and Redirects
 

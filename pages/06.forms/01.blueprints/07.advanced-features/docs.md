@@ -263,7 +263,7 @@ In the example above, we used the name of another field to set the ordering. In 
 
 !! When ordering fields in a page blueprint, you still need to reference the field names prefixed with `header.`, eg: `header.title` for the ordering to work.
 
-# Creating new form field type
+## Creating new form field type
 
 If you create a special form field type, which needs a special handling in blueprints, there is a plugin function that you can use.
 
