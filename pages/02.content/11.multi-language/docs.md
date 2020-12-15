@@ -482,6 +482,8 @@ RewriteRule ^de/(.*)$ "http://grav-site.de/$1" [R=302,L]
 
 If you know how to simplify the rewrite rules, please edit this page on GitHub by clicking the **Edit** link at the top of the page.
 
+! Make sure to add these rules before the default rules that come with Grav CMS.
+
 ### Language Logic in Twig Templates
 
 There is often a need to access Language state and logic from Twig templates.  For example if you need to access a certain image file that is different for a particular language and is named differently (`myimage.en.jpg` and `myimage.fr.jpg`).
