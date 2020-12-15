@@ -100,7 +100,7 @@ form:
           context: blueprints://
 [/prism]
 
-It is also possible to import multiple blueprints and order them by appending an index like `import@1`:
+While YAML does not allow using the same `import@` key multiple times, you can still import multiple blueprints by appending a unique number after `@`, e.g. `import@1`, `import@2` and so on. The number has no other meaning than preventing YAML parser from erroring out:
 
 [prism classes="language-yaml line-numbers"]
 form:
