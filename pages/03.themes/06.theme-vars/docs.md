@@ -395,9 +395,9 @@ This returns an array of the taxonomy associated with a page.  These can be iter
 
 ### pages object
 
-!! The whole list of the Pages object methods is available on the [API site](https://learn.getgrav.org/api#class-gravcommonpagepages). Here's a list of the methods you'll find most useful.
+The **pages object** is the **root page** which represents a nested tree of every **page object** that Grav knows about.  This is particularly useful for creating a **sitemap**, **navigation** or if you wish to find a particular **page**.
 
-The **pages object** represents a nested tree of every **page object** that Grav knows about.  This is particularly useful for creating a **sitemap**, **navigation** or if you wish to find a particular **page**.
+!! This object is not the same as `grav.pages` which is an instance of `Pages` class.
 
 ##### children method
 
