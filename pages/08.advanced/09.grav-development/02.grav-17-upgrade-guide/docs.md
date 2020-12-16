@@ -2,7 +2,7 @@
 title: Grav 1.7 Upgrade Guide
 taxonomy:
     category: docs
-last_checked: 1.7.0-rc18
+last_checked: 1.7.0-rc20
 ---
 
 Grav 1.7 introduces a few new features, improvements, bug fixes and provides many architectural changes which pave the road towards Grav 2.0. Here are a few highlights:
@@ -89,6 +89,14 @@ Because of this, we added new configuration option `system.strict_mode.blueprint
 
 ! **NOTE:** This backwards compatibility fallback mechanism will be removed in Grav 2.0
 
+### Environments and Multi-Site
+
+!!!! **Important:** Grav 1.7 moves [environments](/advanced/environment-config) into `user://env` folder. The old location still works, but it is better to move environments into a single location future features may rely on it.
+
+Grav 1.7 also adds support for [Server Based Environment Configuration](/advanced/environment-config#server-based-environment-configuration) and [Server Based Multi-Site Configuration](/advanced/multisite-setup#server-based-multi-site-configuration). This feature comes handy if you want to use for example docker containers and you want to make them independent of the domain you happen to use. Or if do not want to store secrets in the configuration, but to store them in your server setup.
+
+In addition `setup.php` file can now be in either `GRAV_ROOT/setup.php` or `GRAV_ROOT/GRAV_USER_PATH/setup.php`. The second location makes it easier to use environments with git repositories containing only user folder.
+
 ### User Accounts
 
 Admin has now new [Accounts Administration](/admin-panel/accounts) using **Flex Users**:
@@ -138,6 +146,7 @@ Some highlights are:
 * Improved `Scheduler` cron command check and more useful CLI information
 * Added new `-r <job-id>` option for Scheduler CLI command to force-run a job
 * Improved `bin/grav yamllinter` CLI command by adding an option to find YAML Linting issues from the whole site or custom folder
+* CLI/GPM command failures now return non-zero code (allowing error detection if command fails)
 
 ### Configuration
 
@@ -170,11 +179,6 @@ Added system configuration support for `HTTP_X_FORWARDED` headers (host disabled
   * Admin: **Configuration** > **System** > **Advanced** > **HTTP_X_FORWARDED_PORT Enabled**
   * system.yaml: `http_x_forwarded.ip`: true|**false**
   * Admin: **Configuration** > **System** > **Advanced** > **HTTP_X_FORWARDED IP Enabled**
-
-Added new configuration option to enable Flex Pages in the frontend
-  * **EXPERIMENTAL**: Use only for testing purposes!
-  * system.yaml: `pages.type`: **regular**|flex
-  * Admin: **Configuration** > **System** > **Experimental** > **Frontend Page Type**
 
 Added new configuration option `security.sanitize_svg` to remove potentially dangerous code from SVG files
   * security.yaml: `sanitize_svg`: **true**|false
