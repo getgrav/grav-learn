@@ -813,11 +813,16 @@ Returns a string from a value. If the value is array, return it json encoded
 [version=17]
 #### SVG Image
 
-Returns the content of an SVG image and adds extra classes as needed.
+Returns the content of an SVG image and adds extra classes as needed. Provides the benefits of inline svg without having to paste the code directly on the page. Useful for reusable images such as social media icons.
 
 {% verbatim %}
 `{{ svg_image(path, classes, strip_style) }}`
 {% endverbatim %}
+
+strip_style = remove the svg inline styling - useful for styling with css classes.
+
+example: `{{ svg_image('theme://images/something.svg', 'my-class-here mb-10', true/false) }}`
+
 [/version]
 
 [version=16,17]
