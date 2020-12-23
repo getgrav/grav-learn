@@ -117,8 +117,6 @@ Now we've created a new basic theme that can be modified and developed, let's br
 │   ├── error.html.twig
 │   └── partials
 │       ├── base.html.twig
-│       ├── header.html.twig
-│       ├── metadata.html.twig
 │       └── navigation.html.twig
 └── thumbnail.jpg
 [/prism]
