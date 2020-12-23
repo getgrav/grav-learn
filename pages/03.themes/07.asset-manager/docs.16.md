@@ -208,7 +208,7 @@ Where appropriate, you can pass in an array of asset options. The core options a
 
 #### Other Attributes
 
-You can also pass anything else you like in the options array, and if they are not these standard types, they will simply be rendered as attributes such as `{id: 'custom-id'}` will render as `id="custom-id"` in the HTML tag.
+You can also pass anything else you like in the options array, and if they are not these standard types, they will simply be rendered as attributes such as `{id: 'custom-id'}` will render as `id="custom-id"` in the HTML tag. This can be also used to include structured data such as json-ld via `addInlineJs()` by using `{type: 'application/ld+json'}`.
 
 #### Examples
 
