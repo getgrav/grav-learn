@@ -8,4 +8,4 @@ For many sites, the main reason for using **Flex Directories** is to be able to 
 
 Flex Directories solve this issue for you. Because of **Flex Types** use the common design principles to both configuration and pages, it is really easy to convert your existing configuration and pages to use Flex. You may also have existing forms in the site, which you'd want to manage from Administration Panel, or maybe you want to display selected comments in your site. These forms can also be converted to use Flex.
 
-The base of a **Flex Type** is its **Blueprint**. The blueprint defined both the form and the fields of the object. It has also some additional configuration, which can used to customize the directory and its objects, where it shows up in Admin Panel and ACL.
+The base of a **Flex Type** is its **Blueprint**. The blueprint defined both the form and the fields of the object. It has also some additional configuration, which can be used to customize the directory and its objects, where it shows up in Admin Panel and ACL.
