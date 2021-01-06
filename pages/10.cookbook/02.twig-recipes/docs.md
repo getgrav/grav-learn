@@ -390,5 +390,46 @@ And then you can use the function syntax:
 {{ chunker("ER27XV3OCCDPRJK5IVSDME6D6OT6QHK5", 8, '|') }}
 [/prism]
 
+## Extend base template of inherited theme
 
+##### Problem
 
+Sometimes you need to extend the base template itself. This might happen when there's no easy and obvious way to extend blocks already present in a template. Lets use Quark as an example for parent theme and you want to extend `themes/quark/templates/partials/base.html.twig` to your `myTheme` theme. 
+
+##### Solution
+
+You can add Quark as a Twig namespace by using the theme's `my-theme.php` to listen on the `onTwigLoader` event and adding the Quark theme template directory. The contents of the class should be something like this:
+
+[prism classes="language-php line-numbers"]
+    <?php
+    namespace Grav\Theme;
+    
+    use Grav\Common\Grav;
+    use Grav\Common\Theme;
+    
+    class MyTheme extends Quark {
+        public static function getSubscribedEvents() {
+            return [
+                'onTwigLoader' => ['onTwigLoader', 10]
+            ];
+        }
+    
+        public function onTwigLoader() {
+            parent::onTwigLoader();
+    
+            // add quark theme as namespace to twig
+            $quark_path = Grav::instance()['locator']->findResource('themes://quark');
+            $this->grav['twig']->addPath($quark_path . DIRECTORY_SEPARATOR . 'templates', 'quark');
+        }
+    }
+[/prism]
+
+Now in `themes/my-theme/templates/partials/base.html.twig` you can extend Quarks base template like this:
+
+[prism classes="language-twig line-numbers"]
+    {% extends '@quark/partials/base.html.twig' %}
+    
+    {% block header %}
+    This is a new extended header.
+    {% endblock %}
+[/prism]
