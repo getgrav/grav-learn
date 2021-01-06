@@ -288,7 +288,7 @@ Last but not least, streams can be used in other streams. For example, provided 
 [/prism]
 
 [version=17]
-#### Server Based Multi-Site Configuration
+### Server Based Multi-Site Configuration
 
 Grav 1.7 adds support to customize initial environment from your server configuration.
 
@@ -320,6 +320,25 @@ In addition there are variables to customize the environments. Better documentat
 | **GRAV_ENVIRONMENTS_PATH** | `user://env` | Lookup path for all environments if you do prefer something like `user://sites`. Can be either a stream or relative path from `GRAV_ROOT`. |
 | **GRAV_ENVIRONMENT_PATH** | `user://env/ENVIRONMENT` | Sometimes it may be useful to have a custom location for your environment. |
 [/div]
+
+#### Server Based Configuration Overrides
+
+If you do not wish to store secret credentials inside the configuration, you can also provide them by using environment variables from your server.
+
+As environmental variables have strict naming requirements (they can only contain A-Z, a-z, 0-9 and _), some tricks are needed to get the configuration overrides to work.
+
+Here is an example of a simple configuration override using YAML format for presentation:
+
+```yaml
+GRAV_CONFIG: true                           # If false, the configuration here will be ignored.
+
+GRAV_CONFIG_ALIAS__GITHUB: plugins.github   # Create alias GITHUB='plugins.github' to shorten the variable names below
+
+GRAV_CONFIG__GITHUB__auth__method: api      # Override config.plugins.github.auth.method = api
+GRAV_CONFIG__GITHUB__auth__token: xxxxxxxx  # Override config.plugins.github.auth.token = xxxxxxxx
+```
+
+In above example `__` (double underscore) represents nested variable, which in twig is represented with `.` (dot).
 
 You can also use environment variables in `setup.php`. This allows you for example to store secrets outside the configuration:
 
