@@ -324,6 +324,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 * **BC BREAK** Always use `\Grav\Common\Page\Interfaces\PageInterface` instead of `\Grav\Common\Page\Page` in method signatures
 * Admin now uses `Flex Pages` by default, collection will behave in slightly different way
 * **BC BREAK** `$page->topParent()` may return page itself instead of null
+* **BC BREAK** `$page->header()` may now `\Grav\Common\Page\Header` return object instead of `stdClass`, you need to handle both (Flex vs regular)
 
 ### Media
 
