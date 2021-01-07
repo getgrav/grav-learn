@@ -414,29 +414,33 @@ Translates a string in a specific language. For more details check out the [mult
 
 You can easily generate a shortened, truncated, version of a string by using this filter.  It takes a number of characters as the only required field, but has some other options:
 
-`'one sentence. two sentences'|truncate(5)` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5) }}**
+`'one sentence. two sentences'|truncate(5)|raw` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5)|raw }}**
 
 Simply truncates to 5 characters.
 
-`'one sentence. two sentences'|truncate(5, true)` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5, true) }}**
+`'one sentence. two sentences'|truncate(5, true)|raw` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5, true)|raw }}**
+
+!! The `|raw` Twig filiter should be used with the default `&helip;` (elipsis) padding element in order for it to render with Twig auto-escaping
 
 Truncates to closest sentence-end after 5 characters.
 
-You can also truncate HTML text, but should first use the `striptags` filter to remove any HTML formatting that could get broken if you end between tags:
+You can also truncate HTML text, but should first use the `|striptags` filter to remove any HTML formatting that could get broken if you end between tags:
 
-`'<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5)` <i class="fa fa-long-arrow-right"></i> **{{ '<p>one <strong>sentence<strong>. two sentences</p>'|striptags|truncate(5) }}**
+`'<span>one <strong>sentence</strong>. two sentences</span>'
+|raw|striptags|truncate(25)` <i class="fa fa-long-arrow-right"></i> **{{ '<span>one <strong>sentence</strong>. two sentences</span>'|raw|striptags|truncate(25) }}**
+
 
 ##### Specialized versions:
 
-**|safe_truncate**
+`|safe_truncate`
 
 Truncate text by number of characters in a "word-safe" manner.
 
-**|truncate_html**
+`|truncate_html`
 
 Truncate HTML by number of characters. not "word-safe"!
 
-**|safe_truncate_html**
+`|safe_truncate_html`
 
 Truncate HTML by number of characters in a "word-safe" manner.
 
@@ -809,7 +813,12 @@ Returns the content of an SVG image and adds extra classes as needed. Provides t
 
 strip_style = remove the svg inline styling - useful for styling with css classes.
 
-example: `{{ svg_image('theme://images/something.svg', 'my-class-here mb-10', true/false) }}`
+example: 
+
+{% verbatim %}
+`{{ svg_image('theme://images/something.svg', 'my-class-here mb-10', true) }}`
+{% endverbatim %}
+
 
 [/version]
 
