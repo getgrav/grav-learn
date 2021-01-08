@@ -199,8 +199,8 @@ my_field:
     type: checkboxes
     label: A couple of checkboxes
     default:
-        option1: true
-        option2: true
+        - option1
+        - option2
     options:
         option1: Option 1
         option2: Option 2
