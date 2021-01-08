@@ -1,76 +1,71 @@
 ---
-title: Twig Filters & Functions
+title: Twig Filters
+body_classes: twig__headers
 page-toc:
   active: true
-  depth: 3
+  start: 3
+  depth: 1
 process:
     twig: true
 taxonomy:
     category: docs
 ---
 
-Although Twig already provides an extensive list of [filters, functions, and tags](http://twig.sensiolabs.org/documentation), Grav also provides a selection of useful additions to make the process of theming easier.
-
-!! For information about developing your own custom Twig Filters, check out the [Custom Twig Filter/Function](/cookbook/twig-recipes/#custom-twig-filter-function) example in the **Twig Recipes** section of the **Cookbook** chapter.
-
-
-## Grav Twig Filters
-
 Twig filters are applied to Twig variables by using the `|` character followed by the filter name.  Parameters can be passed in just like Twig functions using parenthesis.
 
-#### Absolute URL
+### `absolute_url`
 
 Take a relative path and convert it to an absolute URL format including hostname
 
 `'<img src="/some/path/to/image.jpg" />'|absolute_url` <i class="fa fa-long-arrow-right"></i> `{{ '<img src="/some/path/to/image.jpg" />'|absolute_url|raw }}`
 
-#### Array Unique
+### `array_unique`
 
 Wrapper for PHP `array_unique()` that removes duplicates from an array.
 
 `['foo', 'bar', 'foo', 'baz']|array_unique` <i class="fa fa-long-arrow-right"></i> **{{ print_r(['foo', 'bar', 'foo', 'baz']|array_unique) }}**
 
-#### Base32 Encode
+### `base32_encode`
 
 Performs a base32 encoding on variable
 `'some variable here'|base32_encode` <i class="fa fa-long-arrow-right"></i> **{{ 'some variable here'|base32_encode }}**
 
-#### Base32 Decode
+### `base32_decode`
 
 Performs a base32 decoding on variable
 `'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGK'|base32_decode` <i class="fa fa-long-arrow-right"></i> **{{ 'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGK'|base32_decode }}**
 
-#### Base64 Encode
+### `base64_encode`
 
 Performs a base64 encoding on variable
 `'some variable here'|base64_encode` <i class="fa fa-long-arrow-right"></i> **{{ 'some variable here'|base64_encode }}**
 
-#### Base64 Decode
+### `base64_decode`
 
 Performs a base64 decoding on variable
 `'c29tZSB2YXJpYWJsZSBoZXJl'|base64_decode` <i class="fa fa-long-arrow-right"></i> **{{ 'c29tZSB2YXJpYWJsZSBoZXJl'|base64_decode }}**
 
-#### Basename
+### `basename`
 
 Return the basename of a path.
 
 `'/etc/sudoers.d'|basename` <i class="fa fa-long-arrow-right"></i> **{{ '/etc/sudoers.d'|basename }}**
 
-#### Camelize
+### `camelize`
 
 Converts a string into "CamelCase" format
 
 `'send_email'|camelize` <i class="fa fa-long-arrow-right"></i> **{{ 'send_email'|camelize }}**
 
 [version=16,17]
-#### Chunk Split
+### `chunk_split`
 
 Splits a string into smaller chunks of a certain sizeOf
 
 `'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGKA'|chunk_split(6, '-')` <i class="fa fa-long-arrow-right"></i> **{{ 'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGKA'|chunk_split(6, '-') }}**
 [/version]
 
-#### Contains
+### `contains`
 
 Determine if a particular string contains another string
 
@@ -80,27 +75,27 @@ Determine if a particular string contains another string
 
 PHP 7 is getting more strict type checks, which means that passing a value of wrong type may now throw an exception. To avoid this, you should use filters which ensure that the value passed to a method is valid:
 
-**|string**
+### `string`
 
-Cast value to string.
+Use `|string` to cast value to string.
 
-**|int**
+### `int`
 
-Cast value to integer.
+Use `|int` to cast value to integer.
 
-**|bool**
+### `bool`
 
-Cast value to boolean.
+Use `|bool` to cast value to boolean.
 
-**|float**
+### `float`
 
-Cast value to floating point number.
+Use `|float` to cast value to floating point number.
 
-**|array**
+### `array`
 
-Cast value to an array.
+Use `|array` to cast value to an array.
 
-#### Defined
+### `defined`
 
 Sometimes you want to check if some variable is defined, and if it's not, provide a default value.  For example:
 
@@ -108,20 +103,20 @@ Sometimes you want to check if some variable is defined, and if it's not, provid
 
 This will set the variable `header_image_width` to the value `900` if it's not defined in the page header.
 
-#### Dirname
+### `dirname`
 
 Return the dirname of a path.
 
 `'/etc/sudoers.d'|dirname` <i class="fa fa-long-arrow-right"></i> **{{ '/etc/sudoers.d'|dirname }}**
 
 
-#### Ends-With
+### `ends_width`
 
 Takes a needle and a haystack and determines if the haystack ends with the needle.  Also now works with an array of needles and will return `true` if **any** haystack ends with the needle.
 
 `'the quick brown fox'|ends_with('fox')` <i class="fa fa-long-arrow-right"></i> {{  'the quick brown fox'|ends_with('fox') ? 'true' : 'false' }}
 
-#### FieldName
+### `fieldName`
 
 Filters field name by changing dot notation into array notation
 
@@ -129,26 +124,26 @@ Filters field name by changing dot notation into array notation
 
 
 [version=16,17]
-#### Get Type
+### `get_type`
 
 Gets the type of a variable:
 
 `page|get_type` <i class="fa fa-long-arrow-right"></i> **{{ page|get_type }}**
 [/version]
 
-#### Humanize
+### `humanize`
 
 Converts a string into a more "human readable" format
 
 `'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i> **{{ 'something_text_to_read'|humanize }}**
 
-#### Hyphenize
+### `hyphenize`
 
 Converts a string into a hyphenated version.
 
 `'Something Text to Read'|hyphenize` <i class="fa fa-long-arrow-right"></i> **{{ 'Something Text to Read'|hyphenize }}**
 
-#### JSON Decode
+### `json_decode`
 
 You can decode JSON by simply applying this filter:
 
@@ -164,7 +159,7 @@ You can decode JSON by simply applying this filter:
 {{ print_r(array) }}
 [/prism]
 
-#### Ksort
+### `ksort`
 
 Sort an array map by each key
 
@@ -179,13 +174,14 @@ Sort an array map by each key
 [prism classes="language-text"]
 {{ print_r(items) }}
 [/prism]
-#### Left Trim
+
+### `ltrim`
 
 `'/strip/leading/slash/'|ltrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/leading/slash/'|ltrim('/') }}
 
-Removes trailing spaces at the beginning of a string. It can also remove other characters by setting the character mask (see [https://php.net/manual/en/function.ltrim.php](https://php.net/manual/en/function.ltrim.php))
+Left trim removes trailing spaces at the beginning of a string. It can also remove other characters by setting the character mask (see [https://php.net/manual/en/function.ltrim.php](https://php.net/manual/en/function.ltrim.php))
 
-#### Markdown
+### `markdown`
 
 Take an arbitrary string containing markdown and convert it to HTML using the markdown parser of Grav. Optional `boolean` parameter:
 
@@ -217,78 +213,81 @@ string|markdown($is_block)
 {{ var|e }}
 [/prism]
 
-#### MD5
+### `md5`
 
 Creates an md5 hash for the string
 
 `'anything'|md5` <i class="fa fa-long-arrow-right"></i> **{{ 'anything'|md5 }}**
 
-#### Modulus
+### `modulus`
 
 Performs the same functionality as the Modulus `%` symbol in PHP. It operates on a number by passing in a numeric divider and an optional array of items to select from.
 
 `7|modulus(3, ['red', 'blue', 'green'])` <i class="fa fa-long-arrow-right"></i> **{{ 7|modulus(3, ['red', 'blue', 'green']) }}**
 
-#### Monthize
+### `monthize`
 
 Converts an integer number of days into the number of months
 
 `'181'|monthize` <i class="fa fa-long-arrow-right"></i> **{{ '181'|monthize }}**
 
 [version=16,17]
-#### NiceCron
+
+### `nicecron`
 
 Gets a human readable output for cron syntax
 
 `"2 * * * *"|nicecron` <i class="fa fa-long-arrow-right"></i> **{{ '2 * * * *'|nicecron }}**
 
-#### NiceFilesize
+### `nicefilesize`
 
 Output a file size in a human readable nice size format
 
 `612394|nicefilesize` <i class="fa fa-long-arrow-right"></i> **{{ 612394|nicefilesize }}**
 
-#### NiceNumber
+### `nicenumber`
 
 Output a number in a human readable nice number format
 
 `12430|nicenumber` <i class="fa fa-long-arrow-right"></i> **{{ 12430|nicenumber }}**
 [/version]
 
-#### NiceTime
+### `nicetime`
 
 Output a date in a human readable nice time format
 
 `page.date|nicetime(false)` <i class="fa fa-long-arrow-right"></i> **{{ page.date|nicetime(false) }}**
 
 [version=16,17]
-#### Of Type
+
+### `of_type`
 
 Checks the type of a variable to the param:
 
 `page|of_type('string')` <i class="fa fa-long-arrow-right"></i> **{{ page|of_type('string') ? 'true' : 'false' }}**
 [/version]
 
-#### Ordinalize
+### `ordinalize`
 
 Adds an ordinal to the integer (such as 1st, 2nd, 3rd, 4th)
 
 `'10'|ordinalize` <i class="fa fa-long-arrow-right"></i> **{{ '10'|ordinalize }}**
 
-#### Pad
+### `pad`
 
 Pads a string to a certain length with another character. This is a wrapper for the PHP [str_pad()](https://php.net/manual/en/function.str-pad.php) function.
 
 `'foobar'|pad(10, '-')` <i class="fa fa-long-arrow-right"></i> **{{ 'foobar'|pad(10, '-') }}**
 
-#### Pluralize
+### `pluralize`
 
 Converts a string to the English plural version
 
 `'person'|pluralize` <i class="fa fa-long-arrow-right"></i> **{{ 'person'|pluralize }}**
 
 [version=16,17]
-#### Print Variable
+
+### `print_r`
 
 Prints human-readable information about a variable
 
@@ -299,7 +298,7 @@ Prints human-readable information about a variable
 [/prism]
 [/version]
 
-#### Randomize
+### `randomize`
 
 Randomizes the list provided.  If a value is provided as a parameter, it will skip first n values and keep them in order.
 
@@ -315,7 +314,7 @@ Randomizes the list provided.  If a value is provided as a parameter, it will sk
 {{ print_r(ritems) }}
 [/prism]
 
-#### Regex Replace
+### `regex_replace`
 
 A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
 
@@ -323,19 +322,19 @@ A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/functio
 
 ! Use the `~`-delimiter rather than the `/`-delimiter where possible. Otherwise you'll most likely have to [double-escape certain characters](https://github.com/getgrav/grav/issues/833). Eg. `~\/\#.*~` rather than `'/\\/\\#.*/'`, which conforms more closely to the [PCRE-syntax](https://www.php.net/manual/en/regexp.reference.delimiters.php) used by PHP.
 
-#### Right Trim
+### `rtrim`
 
 `'/strip/trailing/slash/'|rtrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/trailing/slash/'|rtrim('/') }}
 
 Removes trailing spaces at the end of a string. It can also remove other characters by setting the character mask (see [https://php.net/manual/en/function.rtrim.php](https://php.net/manual/en/function.rtrim.php))
 
-#### Singularize
+### `singularize`
 
 Converts a string to the English singular version
 
 `'shoes'|singularize` <i class="fa fa-long-arrow-right"></i> **{{ 'shoes'|singularize }}**
 
-#### Safe Email
+### `safe_email`
 
 The safe email filter converts an email address into ASCII characters to make it harder for email spam bots to recognize and capture.
 
@@ -353,7 +352,7 @@ Usage example with a mailto link:
 
 You might not notice a difference at first, but examining the page source (not using the Browser Developer Tools, the actual page source) will reveal the underlying characters encoding.
 
-#### Sort by Key
+### `sort_by_key`
 
 Sort an array map by a particular key
 
@@ -369,20 +368,20 @@ Sort an array map by a particular key
 {% for person in people %}{{ person.email }}:{{ person.id }}, {% endfor %}
 </strong>
 
-#### Starts-With
+### `starts_with`
 
 Takes a needle and a haystack and determines if the haystack starts with the needle.  Also now works with an array of needles and will return `true` if **any** haystack starts with the needle.
 
 `'the quick brown fox'|starts_with('the')` <i class="fa fa-long-arrow-right"></i> **{{ 'the quick brown fox'|starts_with('the') ? 'true' : 'false' }}**
 
-#### Titleize
+### `titleize`
 
 Converts a string to "Title Case" format
 
 `'welcome page'|titleize` <i class="fa fa-long-arrow-right"></i> **{{ 'welcome page'|titleize }}**
 
 
-#### Translate
+### `t`
 
 Translate a string into the current language
 
@@ -390,7 +389,7 @@ Translate a string into the current language
 
 This assumes you have these language strings translated in your site and have enabled multi-language support.  Please refer to the [multi-language documentation](../../content/multi-language) for more detailed information.
 
-#### Translate Admin
+### `tu`
 
 Translate a string into the current language set in the admin interface user preferences
 
@@ -398,19 +397,19 @@ Translate a string into the current language set in the admin interface user pre
 
 This uses the language field set in the user yaml.
 
-#### Translate Array
+### `ta`
 
 Translates an array with a language use the `|ta` filter. See the [multi-language documentation](../../content/multi-language) for a detailed example.
 
 `'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1)` <i class="fa fa-long-arrow-right"></i> **{{ now|date('F') }}**
 
-#### Translate Language
+### `tl`
 
 Translates a string in a specific language. For more details check out the [multi-language documentation](../../content/multi-language#complex-translations).
 
 `'SIMPLE_TEXT'|tl(['fr'])`
 
-#### Truncate a String
+### `truncate`
 
 You can easily generate a shortened, truncated, version of a string by using this filter.  It takes a number of characters as the only required field, but has some other options:
 
@@ -430,28 +429,28 @@ You can also truncate HTML text, but should first use the `|striptags` filter to
 |raw|striptags|truncate(25)` <i class="fa fa-long-arrow-right"></i> **{{ '<span>one <strong>sentence</strong>. two sentences</span>'|raw|striptags|truncate(25) }}**
 
 
-##### Specialized versions:
+#### Specialized versions:
 
-`|safe_truncate`
+### `safe_truncate`
 
-Truncate text by number of characters in a "word-safe" manner.
+Use `|safe_truncate` to truncate text by number of characters in a "word-safe" manner.
 
-`|truncate_html`
+### `truncate_html`
 
-Truncate HTML by number of characters. not "word-safe"!
+Use `|truncate_html` to truncate HTML by number of characters. not "word-safe"!
 
-`|safe_truncate_html`
+### `safe_truncate_html`
 
-Truncate HTML by number of characters in a "word-safe" manner.
+Use `|safe_truncate_html` to truncate HTML by number of characters in a "word-safe" manner.
 
-#### Underscoreize
+### `underscorize`
 
 Converts a string into "under_scored" format
 
 `'CamelCased'|underscorize` <i class="fa fa-long-arrow-right"></i> **{{ 'CamelCased'|underscorize }}**
 
 [version=16,17]
-#### Yaml Encode
+### `yaml_encode`
 
 Dump/Encode a variable into YAML syntax
 
@@ -467,7 +466,7 @@ Dump/Encode a variable into YAML syntax
 {{ array|yaml_encode|e }}
 [/prism]
 
-#### Yaml Decode
+### `yaml_decode`
 
 Decode/Parse a variable from YAML syntax
 
@@ -482,402 +481,4 @@ Decode/Parse a variable from YAML syntax
 [prism]
 {{ yaml|yaml_decode|var_dump }}
 [/prism]
-[/version]
-
-## Grav Twig Functions
-
-Twig functions are called directly with any parameters being passed in via parenthesis.
-
-#### Array
-
-Cast a value to array
-
-{% verbatim %}
-[prism classes="language-twig line-numbers"]
-{% set value = array(value) %}
-[/prism]
-{% endverbatim %}
-
-#### Array Difference
-
-Computes the difference of arrays.
-
-{% verbatim %}
-[prism classes="language-twig line-numbers"]
-{% set diff = array_diff(array1, array2...) %}
-[/prism]
-{% endverbatim %}
-
-#### Array Key Value
-
-The `array_key_value` function allows you to add a key/value pair to an associate array
-
-{% verbatim %}
-[prism classes="language-twig line-numbers"]
-{% set my_array = {fruit: 'apple'} %}
-{% set my_array = array_key_value('meat','steak', my_array) %}
-{{ print_r(my_array)}}
-[/prism]
-{% endverbatim %}
-
-{% set my_array = {fruit: 'apple'} %}
-{% set my_array = array_key_value('meat','steak', my_array) %}
-outputs: ** {{ print_r(my_array) }} **
-
-#### Array Key Exists
-
-Wrapper for PHP's `array_key_exists` function that returns whether or not a key exists in an associative array.
-
-{% verbatim %}
-[prism classes="language-twig line-numbers"]
-{% set my_array = {fruit: 'apple', meat: 'steak'} %}
-{{ array_key_exists('meat', my_array) }}
-[/prism]
-{% endverbatim %}
-
-{% set my_array = {fruit: 'apple', meat: 'steak'} %}
-outputs: **{{ array_key_exists('meat', my_array) }}**
-
-#### Array Intersect
-
-The `array_intersect` function provides the intersection of two arrays or Grav collections.
-
-{% verbatim %}
-[prism classes="language-twig line-numbers"]
-{% set array_1 = {fruit: 'apple', meat: 'steak'} %}
-{% set array_2 = {fish: 'tuna', meat: 'steak'} %}
-{{ print_r(array_intersect(array_1, array_2)) }}
-[/prism]
-{% endverbatim %}
-
-{% set array_1 = {fruit: 'apple', meat: 'steak'} %}
-{% set array_2 = {fish: 'tuna', meat: 'steak'} %}
-
-outputs: **{{ print_r(array_intersect(array_1, array_2)) }}**
-
-#### Array Unique
-
-Wrapper for PHP `array_unique()` that removes duplicates from an array.
-
-`array_unique(['foo', 'bar', 'foo', 'baz'])` <i class="fa fa-long-arrow-right"></i> **{{ print_r(array_unique(['foo', 'bar', 'foo', 'baz'])) }}**
-
-#### Authorize
-
-Authorizes an authenticated user to see a resource. Accepts a single permission string or an array of permission strings.
-
-`authorize(['admin.statistics', 'admin.super'])`
-
-[version=16,17]
-#### Body Class
-
-Takes an array of classes, and if they are not set on `body_classes` look to see if they are set in current theme configuration.
-
-`set body_classes = body_class(['header-fixed', 'header-animated', 'header-dark', 'header-transparent', 'sticky-footer'])`
-
-#### Cron
-
-Create a "Cron" object from cron syntax
-
-`cron("3 * * * *").getNextRunDate()|date(config.date_format.default)`
-
-[/version]
-
-
-#### Dump
-
-Takes a valid Twig variable and dumps it out into the [Grav debugger panel](../../advanced/debugging).  The debugger must be **enabled** to see the values in the messages tab.
-
-`dump(page.header)`
-
-#### Debug
-
-Same as `dump()`
-
-#### Evaluate
-
-The evaluate function can be used to evaluate a string as Twig:
-
-`evaluate('grav.language.getLanguage')`
-
-#### Evaluate Twig
-
-Similar to evaluate, but will evaluate and process with Twig
-
-{% verbatim %}
-`evaluate_twig('This is a twig variable: {{ foo }}', {foo: 'bar'})`)  <i class="fa fa-long-arrow-right"></i> **This is a twig variable: bar**
-{% endverbatim %}
-
-#### EXIF
-
-Output the EXIF data from an image based on its filepath. This requires that `media: auto_metadata_exif: true` is set in `system.yaml`. For example, in a Twig-template:
-
-{% verbatim %}
-[prism classes="language-twig line-numbers"]
-{% set image = page.media['sample-image.jpg'] %}
-{% set exif = exif(image.filepath, true) %}
-{{ exif.MaxApertureValue }}
-[/prism]
-{% endverbatim %}
-
-This would write the `MaxApertureValue`-value set in the camera, for example "40/10". You can always use `{% verbatim %}{{ dump(exif)}}{% endverbatim %}` to show all the available data in the debugger.
-
-#### Get Cookie
-
-Retrieve the value of a cookie with this function:
-
-`get_cookie('your_cookie_key')`
-
-[version=16,17]
-#### Get Type Function
-
-Gets the type of a variable:
-
-`get_type(page)` <i class="fa fa-long-arrow-right"></i> **{{ get_type(page) }}**
-[/version]
-
-#### Gist
-
-Takes a Github Gist ID and creates appropriate Gist embed code
-
-`gist('bc448ff158df4bc56217')` <i class="fa fa-long-arrow-right"></i> **{{ gist('bc448ff158df4bc56217')|e }}**
-
-[version=16,17]
-#### HTTP Response Code
-
-If response_code is provided, then the previous status code will be returned. If response_code is not provided, then the current status code will be returned. Both of these values will default to a 200 status code if used in a web server environment.
-
-`http_response_code(404)`
-[/version]
-
-#### Is Ajax Request
-
-the `isajaxrequest()` function can be used to check if `HTTP_X_REQUESTED_WITH` header option is set:
-
-
-#### JSON Decode Function
-
-You can decode JSON by simply applying this filter:
-
-`json_decode({"first_name": "Guido", "last_name":"Rossum"})`
-
-#### Media Directory
-
-Returns a media object for an arbitrary directory.  Once obtained you can manipulate images in a similar fashion to pages.
-
-`media_directory('theme://images')['some-image.jpg'].cropResize(200,200).html`
-
-[version=16,17]
-#### NiceFilesize Function
-
-Output a file size in a human readable nice size format
-
-`nicefilesize(612394)` <i class="fa fa-long-arrow-right"></i> **{{ nicefilesize(612394) }}**
-
-#### NiceNumber Function
-
-Output a number in a human readable nice number format
-
-`nicenumber(12430)` <i class="fa fa-long-arrow-right"></i> **{{ nicenumber(12430)}}**
-
-#### NiceTime Function
-
-Output a date in a human readable nice time format
-
-`nicetime(page.date)` <i class="fa fa-long-arrow-right"></i> **{{ nicetime(page.date) }}**
-[/version]
-
-#### Nonce Field
-
-Generate a Grav security nonce field for a form with a required `action`:
-
-`nonce_field('action')` <i class="fa fa-long-arrow-right"></i> **{{ nonce_field('action')|e }}**
-
-[version=16,17]
-#### Of Type Function
-
-Checks the type of a variable to the param:
-
-`of_type(page, 'string')` <i class="fa fa-long-arrow-right"></i> **{{ of_type(page, 'string') ? 'true' : 'false' }}**
-[/version]
-
-#### Pathinfo
-
-Parses a path into an array.
-
-{% verbatim %}
-[prism classes="language-twig"]
-{% set parts = pathinfo('/www/htdocs/inc/lib.inc.php') %}
-{{ print_r(parts) }}
-[/prism]
-{% endverbatim %}
-
-{% set parts = pathinfo('/www/htdocs/inc/lib.inc.php') %}
-
-outputs: **{{ print_r(parts) }}**
-
-[version=16,17]
-#### Print Variable Function
-
-Prints a variable in a readable format
-
-`print_r(page.header)`
-
-[prism classes="language-text"]
-{{ print_r(page.header) }}
-[/prism]
-
-[/version]
-
-#### Random String Generation
-
-Will generate a random string of the required number of characters.  Particularly useful in creating a unique id or key.
-
-`random_string(10)` <i class="fa fa-long-arrow-right"></i> **{{ random_string(10) }}**
-
-#### Range
-
-Generates an array containing a range of elements, optionally stepped
-
-`range(25, 300, 50)` <i class="fa fa-long-arrow-right"></i> **{{ print_r(range(25, 300, 50)) }}**
-
-[version=16,17]
-#### Read File
-
-Simple function to read a file based on a filepath and output it.
-
-`read_file('plugins://admin/README.md')|markdown`
-
-[prism classes="language-markdown line-numbers"]
-# Grav Standard Administration Panel Plugin
-
-This **admin plugin** for [Grav](https://github.com/getgrav/grav) is an HTML user interface that provides a convenient way to configure Grav and easily create and modify pages...
-[/prism]
-
-[/version]
-
-#### Redirect Me
-
-Redirects to a URL of your choosing
-
-`redirect_me('http://google.com', 304)`
-
-[version=16,17]
-#### Regex Filter Function
-
-Performs a `preg_grep` on an array with a regex pattern
-
-`regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/")`
-
-{% set var = regex_filter(['pasta', 'fish', 'steak', 'potatoes'], "/p.*/") %}
-[prism classes="language-text"]
-{{ print_r(var) }}
-[/prism]
-
-#### Regex Replace Function
-
-A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
-
-{% verbatim %}
-`regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])`
-{% endverbatim %}
-
-{% set var = regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) %}
-[prism classes="language-text"]
-{{var }}
-[/prism]
-
-[/version]
-
-#### Repeat
-
-Will repeat whatever is passed in a certain amount of times.
-
-`repeat('blah ', 10)` <i class="fa fa-long-arrow-right"></i> **{{ repeat('blah ', 10) }}**
-
-#### String
-
-Returns a string from a value. If the value is array, return it json encoded
-
-`string(23)` => **"23"**
-
-`string(['test' => 'x'])` => **{"test":"x"}**
-
-[version=17]
-#### SVG Image
-
-Returns the content of an SVG image and adds extra classes as needed. Provides the benefits of inline svg without having to paste the code directly on the page. Useful for reusable images such as social media icons.
-
-{% verbatim %}
-`{{ svg_image(path, classes, strip_style) }}`
-{% endverbatim %}
-
-strip_style = remove the svg inline styling - useful for styling with css classes.
-
-example: 
-
-{% verbatim %}
-`{{ svg_image('theme://images/something.svg', 'my-class-here mb-10', true) }}`
-{% endverbatim %}
-
-
-[/version]
-
-[version=16,17]
-#### Theme Variable
-
-Get a theme variable from the page header if it exists, else use the theme config:
-
-`theme_var('grid-size')`
-
-This will first try `page.header.grid-size`, if that is not set, it will try `theme.grid-size` from the theme configuration file.  it can optionally take a default:
-
-`theme_var('grid-size', 1024)`
-[/version]
-
-#### Translate Function
-
-Translate a string, as the `|t` filter.
-
-`t('SITE_NAME')` <i class="fa fa-long-arrow-right"></i> **Site Name**
-
-#### Translate Array Function
-
-Function related to the `|ta` filter.
-
-#### Translate Language Function
-
-Translates a string in a specific language. For more details check out the [multi-language documentation](../../content/multi-language#complex-translations).
-
-`tl('SIMPLE_TEXT', ['fr'])`
-
-#### Url
-
-Will create a URL and convert any PHP URL streams into a valid HTML resources. A default value can be passed in in case the URL cannot be resolved.
-
-`url('theme://images/logo.png')|default('http://www.placehold.it/150x100/f4f4f4')` <i class="fa fa-long-arrow-right"></i> **{{ url('theme://images/logo.png')|default('http://www.placehold.it/150x100/f4f4f4') }}**
-
-#### VarDump
-
-The `vardump()` function outputs the current variable to the screen (rather than in the debugger as with `dump()`)
-
-{% verbatim %}
-[prism classes="language-twig line-numbers"]
-{% set my_array = {foo: 'bar', baz: 'qux'} %}
-{{ vardump(my_array) }}
-[/prism]
-{% endverbatim %}
-
-{% set my_array = {foo: 'bar', baz: 'qux'} %}
-
-[prism classes="language-twig"]
-{{ vardump(my_array) }}
-[/prism]
-
-[version=16,17]
-#### XSS
-
-Allow a manual check of a string for XSS vulnerabilities
-
-`xss('this string contains a <script>alert("hello");</script> XSS vulnerability')` <i class="fa fa-long-arrow-right"></i> **{{ xss('this string contains a <script>alert("hello");</script> XSS vulnerability') }}**
-
 [/version]
