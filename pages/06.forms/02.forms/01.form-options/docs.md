@@ -34,7 +34,7 @@ The action by default is going to be the route as the current page.  This makes 
 
 [prism classes="language-yaml line-numbers"]
 form:
-    action: /contact-us#contact-form
+    action: '/contact-us#contact-form'
 [/prism]
 
 You can even process the form on another page if that page is where you want to handle the results.  This can also be used as a technique to alter the template of the response from the one used in the original form:
