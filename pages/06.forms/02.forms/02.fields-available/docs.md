@@ -674,6 +674,34 @@ header.choose_a_number_in_range:
 
 ---
 
+### Section Field
+
+The `Section` field type is used to divide a setting page into sections.
+
+Example:
+
+[prism classes="language-yaml line-numbers"]
+content:
+    type: section
+    title: PLUGIN_ADMIN.DEFAULTS
+    underline: true
+
+    fields:
+
+        #..... subfields
+[/prism]
+
+[div class="table table-keycol"]
+| Attribute     | Description                                                    |
+| :-----        | :-----                                                         |
+| `title`       | A heading title                                                |
+| `text`        | A text to show beneath                                         |
+| `security`    | An array of credentials a user needs to visualize this section |
+| `title_level` | Set a custom headline tag. Default: `h3`                       |
+[/div]
+
+---
+
 ### Select Field
 
 ![Select Field](select_field.gif)
