@@ -893,12 +893,13 @@ content:
 [/prism]
 
 [div class="table table-keycol"]
-| Attribute   | Description                                                    |
-| :-----      | :-----                                                         |
-| `title`     | A heading title                                                |
-| `underline` | Add an underline after the title                               |
-| `text`      | A text to show beneath                                         |
-| `security`  | An array of credentials a user needs to visualize this section |
+| Attribute     | Description                                                    |
+| :-----        | :-----                                                         |
+| `title`       | A heading title                                                |
+| `underline`   | Add an underline after the title                               |
+| `text`        | A text to show beneath                                         |
+| `security`    | An array of credentials a user needs to visualize this section |
+| `title_level` | Set a custom headline tag. Default: `h3`                       |
 [/div]
 
 
