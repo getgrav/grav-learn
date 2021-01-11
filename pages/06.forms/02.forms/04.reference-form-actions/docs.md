@@ -83,7 +83,7 @@ You can utilize the message action to trigger in the event of a failed validatio
 username:
    type: text
    label: Username
-  validate:
+   validate:
      required: true
      message: My custom message when validation fails!
 [/prism]
