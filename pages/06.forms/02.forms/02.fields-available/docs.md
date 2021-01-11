@@ -233,6 +233,8 @@ my_field:
 | [validate.message](#common-fields-attributes)  |
 [/div]
 
+!! NOTE: The checkboxes field does not support the `remember` process action.
+
 ---
 ### Conditional Field
 
