@@ -8,12 +8,32 @@ The preferred method for keeping Grav, Plugins and Themes up to date is to use t
 
 We also have **GPM** integrated into our [Administration Panel](../../admin-panel) plugin which will check, prompt, and automatically install any updates.
 
+### Which version do I have?
+
+There are multiple ways to find out which version of Grav and plugins the site is using:
+
+* **Admin Panel**: Version of Grav is listed in a footer of any page. Plugin and theme versions can be found from their own sections.
+* **CLI**: Run command `bin/gpm version grav`. To get list of theme and plugin versions, you can list them by their names.
+* **Filesystem**: Easiest way to see the version is to look for `CHANGELOG.md` file in the root of the Grav installation. Same is true for plugins and themes, they can usually be found in `user/plugins` and `user/themes` folders.
+
+### Upgrading from Grav 1.5 or older version
+
+Updating an older version of Grav may need some extra preparations and work because of the increased minimum requirements and potential incompatibilities.
+
+The basic workflow is following:
+
+- Copy the site to a server with **PHP 7.3** and **CLI** support
+- Upgrade manually **to Grav 1.6.31**
+- Upgrade to the latest version
+
+A detailed guide **[Upgrading from Grav <1.6](/advanced/grav-development/grav-15-upgrade-guide)** should help you in the process.
+
 ### Upgrading to the Next Version
 
 For upgrading to the next version, there are special guides to help you to make sure everything still works after upgrade.
 
-- **[Grav 1.7 Upgrade Guide](/advanced/grav-development/grav-17-upgrade-guide)**
-- **[Grav 1.6 Upgrade Guide](/advanced/grav-development/grav-16-upgrade-guide)**
+- **[Upgrading to Grav 1.7](/advanced/grav-development/grav-17-upgrade-guide)**
+- **[Upgrading to Grav 1.6](/advanced/grav-development/grav-16-upgrade-guide)**
 
 ! **NOTE:** It is recommended to read the upgrade guides before you install the next version of Grav.
 

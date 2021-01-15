@@ -1,5 +1,5 @@
 ---
-title: Grav 1.7 Upgrade Guide
+title: Upgrading to Grav 1.7
 taxonomy:
     category: docs
 last_checked: 1.7.0-rc20

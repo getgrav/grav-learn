@@ -1,5 +1,5 @@
 ---
-title: Grav 1.6 Upgrade Guide
+title: Upgrading to Grav 1.6
 taxonomy:
     category: docs
 ---
