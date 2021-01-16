@@ -70,3 +70,13 @@ Flex supports multiple views, which allow different parts of the object to be mo
 **[Flex Administration](/advanced/flex/administration)** is implemented by **Flex Objects Plugin**.
 
 It adds a new section to **Admin Plugin** allowing site administrators to manage **Flex Objects**. Each **Flex Directory** comes with CRUD-type ACL, which can be used to restrict parts of Admin and actions within them to certain users.
+
+## Current Limitations
+
+There is still a lot of work to do. Here are the current limitations when considering use of Flex Objects:
+
+* Multi-language support has only been implemented for **Pages**, also admin cannot be fully translated yet
+* Frontend only has a basic routing; for your custom tasks, such as saving, you need your own implementation
+* Bulk update features have not yet been implemented in Admin (in code, they are easy)
+* Due to indexing limitations, it is not recommended to use Flex for objects that are constantly being updated
+* Customizing your **Flex Type** requires a good coding knowledge and creating your own classes
