@@ -2,7 +2,7 @@
 title: Upgrading to Grav 1.7
 taxonomy:
     category: docs
-last_checked: 1.7.0-rc20
+last_checked: 1.7.0 (01/18/2021)
 ---
 
 Grav 1.7 introduces a few new features, improvements, bug fixes and provides many architectural changes which pave the road towards Grav 2.0. Here are a few highlights:
@@ -142,6 +142,7 @@ Media handling has been greatly improved in Grav 1.7. Some highlights are:
 
 Some highlights are:
 
+* All CLI commands now accept `--env` and `--lang` parameters to set the environment and the used language respectively (`-e` does not work anymore)
 * Added new `bin/grav server` CLI command to easily run Symfony or PHP built-in web servers
 * Improved `Scheduler` cron command check and more useful CLI information
 * Added new `-r <job-id>` option for Scheduler CLI command to force-run a job
@@ -359,6 +360,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 * Added `FlexStorage::getMetaData()` to get updated object meta information for listed keys
 * Added `FlexDirectoryInterface` interface
 * Added search option `same_as` to Flex Objects
+* `Flex Pages` method `$page->header()` returns `\Grav\Common\Page\Header` object, old `Page` class still returns `stdClass`
 * Renamed `PageCollectionInterface::nonModular()` into `PageCollectionInterface::pages()` and deprecated the old method
 * Renamed `PageCollectionInterface::modular()` into `PageCollectionInterface::modules()` and deprecated the old method
 * `FlexDirectory::getObject()` can now be called without any parameters to create a new object
@@ -380,6 +382,10 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 ### Multi-site
 
 * Added support for having all sites / environments under `user/env` folder
+
+### Serialization
+
+* All classes now use PHP 7.4 serialization. The old `Serializable` methods are now final and cannot be overridden.
 
 ### Blueprints
 
