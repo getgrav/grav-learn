@@ -32,7 +32,7 @@ Grav 1.7 introduces a few new features, improvements, bug fixes and provides man
     Check out the [YAML section](#yaml) of this guide for full details...
 
 3. ###### Errors on Saving or Non-functioning Admin plugins
-   In Grav 1.7 we introduced **Flex Pages** as the new default page management UI.  Also, to optimize performance, we stopped initializing pages on every admin call.  Switching back to regular **Grav Pages** might temporarily resolve your issue.  This is done by editing the **FlexObjects** plugin and disabling **Pages (Admin)**.    
+   In Grav 1.7 we introduced **Flex Pages** as the new default page management UI.  Also, to optimize performance, we stopped initializing pages on every admin call.  Switching back to regular **Grav Pages** might temporarily resolve your issue.  This is done by editing the **FlexObjects** plugin and disabling **Pages (Admin)**.
 
    To properly address the issue, custom plugins should be updated to support both **Grav Pages** and **Flex Pages** by using `PageInterface` and also should expliclty Pages when required.
 
@@ -339,7 +339,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 * Added default templates for `external.html.twig`, `default.html.twig`, and `modular.html.twig`
 * Admin uses `Flex Pages` by default (can be disabled from `Flex-Objects` plugin)
 
-  ![Disable Flex Pages](disable-flex-pages.png?classes=shadow)  
+  ![Disable Flex Pages](disable-flex-pages.png?classes=shadow)
 
 * Added page specific admin permissions support for `Flex Pages`
 * Added root page support for `Flex Pages`
@@ -524,7 +524,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 
 ## Reverting back to latest Grav 1.6
 
-While we recommend resolving any issues you may have to ensure that Grav 1.7 and future updates will be an easy upgrade, there are going to be scenarios where you have custom plugin functionality, or don't have the developer resources handy, and just need to get back to Grav 1.6 quickly. 
+While we recommend resolving any issues you may have to ensure that Grav 1.7 and future updates will be an easy upgrade, there are going to be scenarios where you have custom plugin functionality, or don't have the developer resources handy, and just need to get back to Grav 1.6 quickly.
 
 If you have CLI access to the site, this can be done by running these commands from the **root of your Grav 1.7** site:
 
@@ -538,3 +538,5 @@ cp -rf tmp/grav-update/* ./
 ```
 
 Basically it does a **direct-install** of the latest version of Grav 1.6 and Admin 1.9 on top of your current installation.  It doesn't touch the `user/` folder so your content and plugins are not impacted.
+
+For those who do not have CLI access, download [grav-update-v1.6.31.zip](https://github.com/getgrav/grav/releases/download/1.6.31/grav-update-v1.6.31.zip) and [grav-plugin-admin-1.9.19.zip](https://github.com/getgrav/grav-plugin-admin/archive/1.9.19.zip) files using the links given here. Unzip the files into your filesystem. Then use your favorite ftp/sftp to copy all the Grav files to your `WEBROOT` and Admin files into `WEBROOT/user/plugins/admin`.
