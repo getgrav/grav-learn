@@ -521,3 +521,20 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 ### Shortcode Core
 
 * **DEPRECATED** Every shortcode needs to have `init()` method, classes without it will stop working in the future.
+
+## Reverting back to latest Grav 1.6
+
+While we recommend resolving any issues you may have to ensure that Grav 1.7 and future updates will be an easy upgrade, there are going to be scenarios where you have custom plugin functionality, or don't have the developer resources handy, and just need to get back to Grav 1.6 quickly. 
+
+If you have CLI access to the site, this can be done by running these commands from the **root of your Grav 1.7** site:
+
+```bash
+wget -q https://getgrav.org/download/core/grav-update/1.6.31 -O tmp/grav-update-v1.6.31.zip
+wget -q https://getgrav.org/download/plugins/admin/1.9.19 -O tmp/grav-plugin-admin-v1.9.19.zip
+unzip tmp/grav-update-v1.6.31.zip -d tmp
+unzip tmp/grav-plugin-admin-v1.9.19.zip -d tmp
+cp -rf tmp/getgrav-grav-plugin-admin-5d86394/* user/plugins/admin/
+cp -rf tmp/grav-update/* ./
+```
+
+Basically it does a **direct-install** of the latest version of Grav 1.6 and Admin 1.9 on top of your current installation.  It doesn't touch the `user/` folder so your content and plugins are not impacted.
