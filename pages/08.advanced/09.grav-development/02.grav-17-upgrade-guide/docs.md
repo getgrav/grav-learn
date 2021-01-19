@@ -19,6 +19,25 @@ Grav 1.7 introduces a few new features, improvements, bug fixes and provides man
 
 !!!! **IMPORTANT:** For most people, Grav 1.7 should be a simple upgrade without any issues, but like any upgrade, it is recommended to **take a backup** of your site and **test the upgrade in a testing environment** before upgrading your live site.
 
+### Most Common Issues
+
+1.  ###### HTML is displayed as **code** on your site rather than being **rendered** as HTML as intended.
+    This behavior is a result of the new default of **auto-escaping** being true in Grav 1.7.  This is a security enhancement, and if you are upgrading from a version prior to 1.7, we automatically enable **Twig Compatibility** setting in the system configuration to ensure your old Twig code will continue to function.  If you manually update to 1.7 or upgrade in any way that does not go through the GPM self upgrade process, you should set this setting yourself.
+
+    Check out the [Twig section](#twig) of this guide for full details...
+
+2.  ###### Getting errors about invalid YAML.
+    As we have upgraded to a newer version of Symfony framework, the YAML parser is stricter than it was in versions prior to 1.7.  To handle this we have included an older version of the parser that is available when enabling **Yaml Compatibility**.  This is automatically handled for you if you upgrade to Grav 1.7 via GPM, but if you have upgraded manually, you will need to set this value yourself.
+
+    Check out the [YAML section](#yaml) of this guide for full details...
+
+3. ###### Errors on Saving or Non-functioning Admin plugins
+   In Grav 1.7 we introduced **Flex Pages** as the new default page management UI.  Also, to optimize performance, we stopped initializing pages on every admin call.  Switching back to regular **Grav Pages** might temporarily resolve your issue.  This is done by editing the **FlexObjects** plugin and disabling **Pages (Admin)**.    
+
+   To properly address the issue, custom plugins should be updated to support both **Grav Pages** and **Flex Pages** by using `PageInterface` and also should expliclty Pages when required.
+
+   Check out the [Pages section](#pages-1) and [Admin Section](#admin) of this guide for full details...
+
 ### Quick Update Guide
 
 !! **Grav 1.7** requires **PHP 7.3.6** or later version. The recommended version is the latest **PHP 7.4** release.
@@ -33,6 +52,10 @@ To revert to the old behavior you need to make sure you have following setting i
 strict_mode:
   yaml_compat: true
 ```
+
+or in Admin under **Configuration** → **Advanced** -> **YAML Compatibility**
+
+![Yaml Compatibility](yaml-compat.png?classes=shadow)
 
 !!! **TIP:** **Grav 1.6 Upgrade Guide** has a dedicated **[YAML Parsing](/advanced/grav-development/grav-16-upgrade-guide#yaml-parsing)** section to help you to fix these issues.
 
@@ -52,6 +75,10 @@ twig:
 strict_mode:
   twig_compat: true
 ```
+
+or in Admin under **Configuration** → **Advanced** -> **Twig Compatibility**
+
+![Twig Compatibility](twig-compat.png?classes=shadow)
 
 !!! **TIP:** **Grav 1.6 Upgrade Guide** has a dedicated **[Twig](/advanced/grav-development/grav-16-upgrade-guide#twig)** section. It is very important to read it first!
 
@@ -310,6 +337,9 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 
 * Added default templates for `external.html.twig`, `default.html.twig`, and `modular.html.twig`
 * Admin uses `Flex Pages` by default (can be disabled from `Flex-Objects` plugin)
+
+  ![Disable Flex Pages](disable-flex-pages.png?classes=shadow)  
+
 * Added page specific admin permissions support for `Flex Pages`
 * Added root page support for `Flex Pages`
 * Fixed wrong `Pages::dispatch()` calls (with redirect) when we really meant to call `Pages::find()`
