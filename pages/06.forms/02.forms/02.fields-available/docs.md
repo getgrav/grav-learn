@@ -377,6 +377,8 @@ test:
 
 The `email` field type is used to present a text input field that accepts an email, using the [email HTML5 input](http://html5doctor.com/html5-forms-input-types/#input-email).
 
+!! Emails are case-insensitive by design. Ensure that your application logic handles upper-, lower- or mixed case emails properly.
+
 Example:
 [prism classes="language-yaml line-numbers"]
 header.email:
