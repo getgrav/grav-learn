@@ -38,6 +38,8 @@ Grav 1.7 introduces a few new features, improvements, bug fixes and provides man
 
    Check out the [Pages section](#pages-1) and [Admin Section](#admin) of this guide for full details...
 
+    There have also been some specific plugin issues that have already been discovered. Check out the [Troubleshooting](#troublshooting-issues) section of this page for specific issues with plugins.
+
 ### Quick Update Guide
 
 !! **Grav 1.7** requires **PHP 7.3.6** or later version. The recommended version is the latest **PHP 7.4** release.
@@ -521,6 +523,16 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 ### Shortcode Core
 
 * **DEPRECATED** Every shortcode needs to have `init()` method, classes without it will stop working in the future.
+
+## Troublshooting Issues
+
+#### `ERROR: flex-objects.html.twig template not found for page`
+
+If you get this error after upgrading to Grav 1.7, it might be related to a plugin called `content-edit`.  If you disable this plugin, the error should resolve itself. [Grav Issue #3169](https://github.com/getgrav/grav/issues/3169)
+
+#### Missing CSS Styling in Admin
+
+It has been reported that after upgrading to latest Grav 1.7 and Admin 1.10, some admin pages appear broken and not fully styled.  THis could be related to the `imagecreate` plugin.  If you disable this plugin, the error should resolve  itself.  [Admin Issue #2035](https://github.com/getgrav/grav-plugin-admin/issues/2035)
 
 ## Reverting back to latest Grav 1.6
 
