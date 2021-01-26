@@ -31,7 +31,13 @@ Grav 1.7 introduces a few new features, improvements, bug fixes and provides man
 
     Check out the [YAML section](#yaml) of this guide for full details...
 
-3. ###### Errors on Saving or Non-functioning Admin plugins
+3. ###### Admin showing up with untranslated strings
+
+   If your admin is displaying with untranslated strings in the interface, it's most likely because you have previously disabled **Language Translations**.  This was buggy in previous versions of Grav and disabling it, didn't actually disable translations throughout the admin as intended.  This is **fixed** in Grav 1.7 and this setting is doing what it is intended to do, show the translation codes in uppercase rather than the translated strings themselves.
+
+   Check out the Check out the [Troubleshooting](#troublshooting-issues) section for the fix.
+
+4. ###### Errors on Saving or Non-functioning Admin plugins
    In Grav 1.7 we introduced **Flex Pages** as the new default page management UI.  Also, to optimize performance, we stopped initializing pages on every admin call.  Switching back to regular **Grav Pages** might temporarily resolve your issue.  This is done by editing the **FlexObjects** plugin and disabling **Pages (Admin)**.
 
    To properly address the issue, custom plugins should be updated to support both **Grav Pages** and **Flex Pages** by using `PageInterface` and also should expliclty Pages when required.
@@ -529,6 +535,17 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 #### `ERROR: flex-objects.html.twig template not found for page`
 
 If you get this error after upgrading to Grav 1.7, it might be related to a plugin called `content-edit`.  If you disable this plugin, the error should resolve itself. [Grav Issue #3169](https://github.com/getgrav/grav/issues/3169)
+
+#### Untranslated Admin
+
+If your admin plugin looks like this:
+
+![Untranslated Admin](untranslated.png?classes=shadow)
+
+The fix is very easy, and can be done even when not fully translated. Simply navigate to `PLUGIN_ADMIN.CONFIGURATION` and then in `PLUGIN_ADMIN.LANGUAGES`, set `PLUGIN_ADMIN.LANGUAGE_TRANLATIONS` to `PLUGIN_ADMIN.YES`:
+
+![Fix translations](fix-translations.png?classes=shadow)
+
 
 #### Missing CSS Styling in Admin
 
