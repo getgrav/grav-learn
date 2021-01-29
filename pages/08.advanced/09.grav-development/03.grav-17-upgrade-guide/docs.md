@@ -79,7 +79,7 @@ To revert to the old behavior you need to make sure you have following settings 
 
 ```yaml
 twig:
-  autoescape: true
+  autoescape: false
 strict_mode:
   twig_compat: true
 ```
