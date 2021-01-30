@@ -530,7 +530,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 
 * **DEPRECATED** Every shortcode needs to have `init()` method, classes without it will stop working in the future.
 
-## Troublshooting Issues
+## Troubleshooting Issues
 
 #### `ERROR: flex-objects.html.twig template not found for page`
 
