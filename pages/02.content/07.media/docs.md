@@ -286,6 +286,7 @@ Manually choose the thumbnail Grav should use. You can choose between `page` and
 
 ![Sample Image](sample-image.jpg?thumbnail=default&display=thumbnail)
 
+
 ## Image Actions
 
 #### resize
@@ -754,6 +755,35 @@ Fixes the orientation of the image when rotation is made via EXIF data (applies 
 [/ui-tab]
 [/ui-tabs]
 
+#### loading
+
+The loading attributing on images gives authors control over when the browser should start loading the resource. The value for the loading attribute can be one of `auto` (default), `lazy`, `eager`.
+Value can be set in `system.images.defaults.loading` as default value, or per md image with `?loading=lazy`
+When value `auto` is chosen, no `loading` attribute is added and browser will determine which strategy to use.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```markdown
+![Sample Image](sample-image.jpg?loading=lazy)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```twig
+{# Using default value as defined in 'config.system.images.defaults.loading' #}
+{{ page.media['sample-image.jpg'].loading.html('Sample Image')|raw }}
+
+{# Using explicit value #}
+{{ page.media['sample-image.jpg'].loading('lazy').html('Sample Image')|raw }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```html
+<img loading="lazy" title="Sample Image"  src="/images/e/f/1/0/5/ef10554cd3a99f2e65136e79dce170d4f8a7a1b9-sample-image.jpg" />
+```
+[/ui-tab]
+[/ui-tabs]
 
 ## Animated / Vectorized Actions
 
