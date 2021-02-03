@@ -35,7 +35,7 @@ Grav 1.7 introduces a few new features, improvements, bug fixes and provides man
 
    If your admin is displaying with untranslated strings in the interface, it's most likely because you have previously disabled **Language Translations**.  This was buggy in previous versions of Grav and disabling it, didn't actually disable translations throughout the admin as intended.  This is **fixed** in Grav 1.7 and this setting is doing what it is intended to do, show the translation codes in uppercase rather than the translated strings themselves.
 
-   Check out the Check out the [Troubleshooting](#troublshooting-issues) section for the fix.
+   Check out the Check out the [Troubleshooting](#troubleshooting-issues) section for the fix.
 
 4. ###### Errors on Saving or Non-functioning Admin plugins
    In Grav 1.7 we introduced **Flex Pages** as the new default page management UI.  Also, to optimize performance, we stopped initializing pages on every admin call.  Switching back to regular **Grav Pages** might temporarily resolve your issue.  This is done by editing the **FlexObjects** plugin and disabling **Pages (Admin)**.
@@ -44,7 +44,7 @@ Grav 1.7 introduces a few new features, improvements, bug fixes and provides man
 
    Check out the [Pages section](#pages-1) and [Admin Section](#admin) of this guide for full details...
 
-    There have also been some specific plugin issues that have already been discovered. Check out the [Troubleshooting](#troublshooting-issues) section of this page for specific issues with plugins.
+    There have also been some specific plugin issues that have already been discovered. Check out the [Troubleshooting](#troubleshooting-issues) section of this page for specific issues with plugins.
 
 ### Quick Update Guide
 
