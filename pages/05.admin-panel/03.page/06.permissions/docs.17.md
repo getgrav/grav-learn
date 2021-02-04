@@ -22,7 +22,7 @@ User / Group permissions for Pages are:
 | **Pages**                             | *admin.pages*                 | Gives the user full access to the **Pages** area of the admin.    |
 | &nbsp; &nbsp; **Create**              | *admin.pages.create*          | Gives the user access to **Create** pages.                        |
 | &nbsp; &nbsp; **Read**                | *admin.pages.read*            | Gives the user access to **Read** pages.                          |
-| &nbsp; &nbsp; **Update**              | *admin.pages.upodate*         | Gives the user access to **Update** pages.                        |
+| &nbsp; &nbsp; **Update**              | *admin.pages.update*          | Gives the user access to **Update** pages.                        |
 | &nbsp; &nbsp; **Delete**              | *admin.pages.delete*          | Gives the user access to **Delete** pages.                        |
 | &nbsp; &nbsp; **List**                | *admin.pages.list*            | Gives the user access to **Pages** area of the admin.             |
 [/div]
