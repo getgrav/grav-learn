@@ -765,7 +765,8 @@ Accessing and displaying the data of a `list` field is done with a simple twig f
 | `style`     | Can be set to `vertical` to conserve horizontal space    |
 | `btnLabel`  | The "add new item" label text                            |
 | `sort`      | Boolean. If negative, disables the ability to sort items |
-| `controls`  | Decides where the "Add Item" button will be placed. Can be set to `[top|bottom|both]` defaults to `bottom`.  |
+| `controls`  | Decides where the "Add Item" button will be placed. Can be set to `[top|bottom|both]`. Defaults to `bottom`.  |
+| `placement` | Decides where the added item will be placed. Can be set to `[top|bottom|position]`. Defaults to `bottom`. If `placement` value is `top` or `bottom`, both buttons add item to top or bottom respectively. If `placement` value is `position`, item is added depending on a clicked button position - if top button is clicked, item will be added to top and if bottom button - to bottom.  |
 | `min`       | Minimum number of items allowed in the list.             |
 | `max`       | Maximum number of items allowed in the list. 'Add item' button won't function past this number |
 [/div]
