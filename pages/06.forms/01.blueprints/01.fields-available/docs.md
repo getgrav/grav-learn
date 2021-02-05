@@ -523,7 +523,7 @@ header.fieldset:
 
 #### Icon of the fieldset
 
-You can use an icon to place in the header of the fieldset. The icon system used is [Fork Awesome](https://forkaweso.me). 
+You can use an icon to place in the header of the fieldset. The icon system used is [Fork Awesome](https://forkaweso.me).
 
 [div class="table table-keycol"]
 | Attribute     | Description                                                                                                |
@@ -549,7 +549,7 @@ You can use an icon to place in the header of the fieldset. The icon system used
 
 ![File Field](file_field_bp.gif)
 
-!! The `file` field is intended to be used by **configuration**, **theme**, and **plugins** blueprints, **NOT page blueprints**.  For pages, you should use the existing `pagemedia` field and then utilize the [filepicker](#filepicker-field) field to select the files. 
+!! The `file` field is intended to be used by **configuration**, **theme**, and **plugins** blueprints, **NOT page blueprints**.  For pages, you should use the existing `pagemedia` field and then utilize the [filepicker](#filepicker-field) field to select the files.
 
 !! The `file` field does not currently work as expected in a list field. Use a single `pagemedia` field separate from the list with one or more `filepicker` fields in the list.
 
@@ -765,7 +765,8 @@ Accessing and displaying the data of a `list` field is done with a simple twig f
 | `style`     | Can be set to `vertical` to conserve horizontal space    |
 | `btnLabel`  | The "add new item" label text                            |
 | `sort`      | Boolean. If negative, disables the ability to sort items |
-| `controls`  | Decides where the "Add Item" button will be placed. Can be set to `[top|bottom|both]` defaults to `bottom`.  |
+| `controls`  | Decides where the "Add Item" button will be placed. Can be set to `[top|bottom|both]`. Defaults to `bottom`.  |
+| `placement` | Decides where the added item will be placed. Can be set to `[top|bottom|position]`. Defaults to `bottom`. If `placement` value is `top` or `bottom`, both buttons add item to top or bottom respectively. If `placement` value is `position`, item is added depending on a clicked button position - if top button is clicked, item will be added to top and if bottom button - to bottom.  |
 | `min`       | Minimum number of items allowed in the list.             |
 | `max`       | Maximum number of items allowed in the list. 'Add item' button won't function past this number |
 [/div]
