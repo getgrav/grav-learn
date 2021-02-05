@@ -523,7 +523,7 @@ header.fieldset:
 
 #### Icon of the fieldset
 
-You can use an icon to place in the header of the fieldset. The icon system used is [Fork Awesome](https://forkaweso.me). 
+You can use an icon to place in the header of the fieldset. The icon system used is [Fork Awesome](https://forkaweso.me).
 
 [div class="table table-keycol"]
 | Attribute     | Description                                                                                                |
