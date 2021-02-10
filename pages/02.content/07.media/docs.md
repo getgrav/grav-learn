@@ -228,6 +228,41 @@ The following example will display a textual link (`display('text')`) to a sepia
 [/ui-tab]
 [/ui-tabs]
 
+#### Cache only
+
+Grav can be set to cache all image files, this may increase the speed that files are served. However, images will go through the Grav image manipulation system which may lead to a considerably larger file size for images that have already been optimized prior to Grav. Image manipulation can be bypassed.
+
+Enable `cache_all` in `system/config/system.yaml`
+{% verbatim %}
+```yaml
+images:
+  default_image_quality: 85
+  cache_all: false
+```
+{% endverbatim %}
+
+Disable image manipulation with the `cache`option.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```markdown
+![](sample-image.jpg?cache)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```twig
+{{ page.media['sample-image.jpg'].cache.html()|raw }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```html
+{{ page.media['sample-image.jpg'].cache.html()|e }}
+```
+[/ui-tab]
+[/ui-tabs]
+
 #### lightbox
 
 The lightbox action is essentially the same as the link action but with a few extras. Like explained above ([Links and Lightboxes](https://learn.getgrav.org/16/content/media#links-and-lightboxes)), the lightbox action will not do anything more than create a link with some extra attributes. It differs from the link action in that it adds a `rel="lightbox"` attribute and accepts a `width` and `height` attribute.
