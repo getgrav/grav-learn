@@ -451,6 +451,7 @@ session:
   secure: false
   httponly: true
   split: true
+  domain:
   path:
 [/prism]
 
@@ -466,7 +467,8 @@ These options determine session properties for your site.
 | **uniqueness:** | Should sessions be `path` based or `security.salt` based |
 | **secure:** | Set session secure. If `true`, indicates that communication for this cookie must be over an encrypted transmission. Enable this only on sites that run exclusively on HTTPS. Can be set to `true` or `false` |
 | **httponly:** | Set session HTTP only. If `true`, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed. Can be set to `true` or `false` |
-| **path:** | The path where sessions are stored |
+| **domain:** | The session domain to be used in the responses. Use only if you you rewrite the site domain for example in a Docker Container. |
+| **path:** | The session path to be used in the responses. Use only if you you rewrite the site subfolder for example in a Docker Container. |
 [/div]
 
 ### GPM
