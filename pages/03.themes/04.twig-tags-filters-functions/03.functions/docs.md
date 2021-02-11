@@ -308,7 +308,36 @@ A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/functio
 
 {% set var = regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) %}
 [prism classes="language-text"]
-{{var }}
+{{ var }}
+[/prism]
+
+[/version]
+
+[version=17]
+### `regex_match`
+
+A helpful wrapper for the PHP [preg_match()](https://php.net/manual/en/function.preg-math.php) method, you can perform complex regular expression match on text via this filter:
+
+{% verbatim %}
+`regex_match('http://www.php.net/index.html', '@^(?:http://)?([^/]+)@i')`
+{% endverbatim %}
+
+{% set var = regex_match('http://www.php.net/index.html', '@^(?:http://)?([^/]+)@i') %}
+[prism classes="language-text"]
+{{ print_r(var) }}
+[/prism]
+
+### `regex_split`
+
+A helpful wrapper for the PHP [preg_split()](https://php.net/manual/en/function.preg-split.php) method. Split string by a regular expression on text via this filter:
+
+{% verbatim %}
+`regex_split('hypertext language, programming', '/\\s*,\\s*/u')`
+{% endverbatim %}
+
+{% set var = regex_split('hypertext language    ,    programming', '/\\s*,\\s*/u') %}
+[prism classes="language-text"]
+{{ print_r(var) }}
 [/prism]
 
 [/version]
@@ -338,7 +367,7 @@ Returns the content of an SVG image and adds extra classes as needed. Provides t
 
 strip_style = remove the svg inline styling - useful for styling with css classes.
 
-example: 
+example:
 
 {% verbatim %}
 `{{ svg_image('theme://images/something.svg', 'my-class-here mb-10', true) }}`

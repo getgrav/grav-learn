@@ -86,6 +86,8 @@ strict_mode:
 
 or in Admin under **Configuration** → **Advanced** -> **Twig Compatibility**
 
+And please remember to clear cache after doing this!
+
 ![Twig Compatibility](twig-compat.png?classes=shadow)
 
 !!! **TIP:** **Grav 1.6 Upgrade Guide** has a dedicated **[Twig](/advanced/grav-development/grav-16-upgrade-guide#twig)** section. It is very important to read it first!
