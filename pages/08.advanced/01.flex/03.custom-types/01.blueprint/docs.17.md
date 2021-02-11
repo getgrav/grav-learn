@@ -131,7 +131,7 @@ config:
         website:
 ```
 
-There are two mandatory sections in the configuration: `data.storage` and `config.admin.list.fields`. The first one defines fields displayed inside admin list view. Data storage on the other hand defines how the data will be stored.
+There are two mandatory sections in the configuration: `config.data.storage` and `config.admin.list.fields`. The latter defines fields displayed inside admin list view. Data storage on the other hand defines how the data will be stored.
 
 ### Config > Data
 
