@@ -321,6 +321,30 @@ Manually choose the thumbnail Grav should use. You can choose between `page` and
 
 ![Sample Image](sample-image.jpg?thumbnail=default&display=thumbnail)
 
+#### attribute
+
+This adds an additional HTML attribute to the output.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```markdown
+![Sample Image](sample-image.jpg?attribute=myattribute,myvalue)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```twig
+{{ page.media['sample-image.jpg'].attribute('myattribute', 'myvalue').html('Sample Image')|raw }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```html
+{{ page.media['sample-image.jpg'].attribute('myattribute', 'myvalue').html('Sample Image')|e }}
+```
+[/ui-tab]
+[/ui-tabs]
+
 
 ## Image Actions
 
