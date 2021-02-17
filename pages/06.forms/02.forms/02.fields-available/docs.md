@@ -429,7 +429,7 @@ With the `file` field type, you can let users upload files through the form. The
 my_files:
   type: file
   multiple: false
-  destination: '@self'
+  destination: 'self@'
   accept:
     - image/*
 [/prism]

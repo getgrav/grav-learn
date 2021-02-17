@@ -501,7 +501,7 @@ header.fieldset:
 
 !Fieldsets have to be saved in the frontmatter too, with `header.`, in order for their sub-field states to be correctly remembered!
 
-!! **Known issue :** if fields in a fieldset use a `toggleable:`, their state won't be memorized if the fieldset named isn't prefixed with `header.`. Here's an example of a valid structure with a modification of the *pagination* option : 
+!! **Known issue :** if fields in a fieldset use a `toggleable:`, their state won't be memorized if the fieldset named isn't prefixed with `header.`. Here's an example of a valid structure with a modification of the *pagination* option :
 
 [prism classes="language-yaml line-numbers"]
 header.fieldset:
@@ -523,7 +523,7 @@ header.fieldset:
 
 #### Icon of the fieldset
 
-You can use an icon to place in the header of the fieldset. The icon system used is [Fork Awesome](https://forkaweso.me). 
+You can use an icon to place in the header of the fieldset. The icon system used is [Fork Awesome](https://forkaweso.me).
 
 [div class="table table-keycol"]
 | Attribute     | Description                                                                                                |
@@ -549,7 +549,7 @@ You can use an icon to place in the header of the fieldset. The icon system used
 
 ![File Field](file_field_bp.gif)
 
-!! The `file` field is intended to be used by **configuration**, **theme**, and **plugins** blueprints, **NOT page blueprints**.  For pages, you should use the existing `pagemedia` field and then utilize the [filepicker](#filepicker-field) field to select the files. 
+!! The `file` field is intended to be used by **configuration**, **theme**, and **plugins** blueprints, **NOT page blueprints**.  For pages, you should use the existing `pagemedia` field and then utilize the [filepicker](#filepicker-field) field to select the files.
 
 !! The `file` field does not currently work as expected in a list field. Use a single `pagemedia` field separate from the list with one or more `filepicker` fields in the list.
 
@@ -561,7 +561,7 @@ Example:
 custom_logo_login_screen:
   type: file
   label: Custom Logo Login Screen
-  destination: 'user/plugins/admin-pro/assets'
+  destination: 'plugins://admin/assets'
   accept:
     - image/*
 [/prism]
@@ -570,7 +570,7 @@ custom_logo_login_screen:
 custom_file:
   type: file
   label: A Label
-  destination: 'user/themes/my-theme/assets'
+  destination: 'theme://assets'
   multiple: true
   limit: 5
   filesize: 1
@@ -581,7 +581,7 @@ custom_file:
 [div class="table table-keycol"]
 | Attribute           | Description                                                                                                |
 | :-----              | :-----                                                                                                     |
-| `destination`       | The folder where the files will be stored, relative to the Grav root. E.g. `user/plugins/my-plugin/assets` |
+| `destination`       | The folder where the files will be stored, using a stream or relative to the Grav root. E.g. `plugins://my-plugin/assets` |
 | `multiple`          | Whether or not to allow more than one file per field                                                       |
 | `limit`             | When `multiple` is enabled, allows to constrain the amount of files permitted to be uploaded               |
 | `filesize`          | The size in MB each file is allowed                                                                        |
@@ -617,7 +617,7 @@ Example:
 [prism classes="language-yaml line-numbers"]
 picked_image:
   type: filepicker
-  folder: 'theme@:/images/pages'
+  folder: 'theme://images/pages'
   label: Select a file
   preview_images: true
   accept:
@@ -628,7 +628,7 @@ picked_image:
 [prism classes="language-yaml line-numbers"]
 header.a_file:
   type: filepicker
-  folder: '@self'
+  folder: 'self@'
   preview_images: true
   label: Select a file
 [/prism]
@@ -636,7 +636,7 @@ header.a_file:
 [div class="table table-keycol"]
 | Attribute     | Description                                                                                                |
 | :-----        | :-----                                                                                                     |
-| `folder` | The folder where the files will be looked up, relative to the Grav root. Accepts any value in the [file field destination format](/forms/blueprints/how-to-add-file-upload#destination). |
+| `folder` | The folder where the files will be looked up, using a stream or relative to the Grav root. Accepts any value in the [file field destination format](/forms/blueprints/how-to-add-file-upload#destination). |
 | `accept` | A list of accepted file extensions                                                          |
 | `preview_images` | If enabled, image files will have a little preview |
 | `on_demand` | If enabled, will only load the files and images when the filepicker is focused. This is useful for reducing admin edit page load times when there is large media or many filepicker fields |
