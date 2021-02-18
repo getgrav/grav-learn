@@ -371,7 +371,9 @@ class CustomTemplatesPlugin extends Plugin
 
 This plugin simple subscribes to the `onTwigTemplatePaths()` event, and then in that event method, it adds the `user/plugins/custom-templates/templates` folder to this of paths that Twig will check.
 
-This allows you to drop in a Twig template called `foo.html.twig` and then any page called `foo.md` will be able to use this template.
+This allows you to drop in a Twig template called `foo.html.twig` and then any page called `foo.md` will be able to use this template.  
+But be aware that, if you create a new page in the Grav admin backend, `foo` will not be selectable in the Page Template Dropdown list - this list works only for templates from the theme.  
+You can, however, use the override template option and fill in `foo` - then this will be used regardless of the selection in the dropdown.
 
 ! NOTE: This will add the plugin's custom template path to the **end** of the Twig template path array. This means the theme (which is always first), will have precedence over the plugin's templates of the same name.  To resolve this, simply put the plugin's template path in the front of the array by modifying the event method:
 
