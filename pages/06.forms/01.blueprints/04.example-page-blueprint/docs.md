@@ -88,6 +88,7 @@ You can avoid extending from the default form, and create a page form that is co
 
 For example:
 
+[version=15,16]
 [prism classes="language-yaml line-numbers"]
 title: Gallery
 
@@ -130,6 +131,50 @@ form:
                 '/': PLUGIN_ADMIN.DEFAULT_OPTION_ROOT
 
 [/prism]
+[/version]
+
+[version=17]
+[prism classes="language-yaml line-numbers"]
+title: Gallery
+
+form:
+fields:
+tabs:
+type: tabs
+active: 1
+
+      fields:
+        gallery:
+          type: tab
+          title: Gallery
+
+          fields:
+            header.an_example_text_field:
+              type: text
+              label: Add a number
+              default: 5
+              validate:
+                required: true
+                type: int
+
+            header.an_example_select_box:
+              type: select
+              label: Select one of the following
+              default: one
+              options:
+                one: One
+                two: Two
+                three: Three
+
+            route:
+              type: parents
+              label: PLUGIN_ADMIN.PARENT
+              classes: fancy
+
+[/prism]
+
+!! **WARNING:** `route` field has changed in Grav 1.7. Please update your existing blueprints to use the new `type: parents`.
+[/version]
 
 ### A note for Expert mode
 
