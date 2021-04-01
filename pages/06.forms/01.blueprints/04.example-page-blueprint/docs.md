@@ -186,7 +186,7 @@ In order for the Admin Plugin to pick up the blueprints, and thus show the new P
 
 #### In the User Blueprints folder
 
-Put them in `user/blueprints/`. This is a good place to put them when you simply want your blueprints to be present in your site.
+Put them in `user/blueprints/pages/`. This is a good place to put them when you simply want your blueprints to be present in your site.
 
 #### In the Theme
 
