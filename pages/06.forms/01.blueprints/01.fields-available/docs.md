@@ -931,6 +931,8 @@ taxonomies:
         type: commalist
 [/prism]
 
+!! **Known issue :** See [Selectize field drops custom values after saving/refreshing input](https://github.com/getgrav/grav-plugin-admin/issues/1933) and proposed workaround.
+
 [div class="table"]
 | Common Attributes Allowed                      |
 | :-----                                         |
