@@ -66,6 +66,7 @@ These configuration options do not appear within their own child sections. They'
 [prism classes="language-yaml line-numbers"]
 languages:
   supported: []
+  default_lang:  
   include_default_lang: true
   include_default_lang_file_extension: true
   pages_fallback_only: false
@@ -83,6 +84,7 @@ The **Languages** area of the file establishes the site's language settings. Thi
 | Property | Description |
 | -------- | ----------- |
 | **supported:** | List of languages supported. eg: `[en, fr, de]` |
+| **default_lang:** | Default is the first supported language. Must be one of the supported languages |
 | **include_default_lang:** | Include the default lang prefix in all URLs. Can be `true` or `false` |
 | **include_default_lang_file_extension:** | If enabled, saving a page will prepend the default language to the file extension (eg. `.en.md`). Disable it to keep the default language using `.md` file extension. Can be `true` or `false` (**Grav 1.7.0+**) |
 | **pages_fallback_only:** | Only fallback to find page content through supported languages. Can be `true` or `false` |
@@ -240,6 +242,8 @@ cache:
   allow_webserver_gzip: false
   redis:
     socket: false
+    password:  
+    database:  
 [/prism]
 
 The **Cache** section is where you can configure the site's caching settings. You can enable, disable, choose the method, and more.
@@ -262,6 +266,8 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 | **allow_webserver_gzip:** | This option will change the header to `Content-Encoding: identity` allowing gzip to be more reliably set by the webserver although this usually breaks the out-of-process `onShutDown()` capability.  The event will still run, but it won't be out of process, and may hold up the page until the event is complete |
 | **redis:** | |
 | **... socket:** | The path to the redis socket file |
+| **... password:** | Optional password |
+| **... database:** | Optional database ID |
 [/div]
 
 ### Twig
@@ -306,6 +312,7 @@ assets:
   js_pipeline_before_excludes: true
   js_minify: true
   enable_asset_timestamp: false
+  enable_asset_sri: false   
   collections:
     jquery: system://assets/jquery/jquery-2.x.min.js
 [/prism]
@@ -326,6 +333,7 @@ The **Assets** section enables you to configure options related to the Assets Ma
 | **js_pipeline_before_excludes:** | Render the pipeline before any excluded files. Can be set to `true` or `false` |
 | **js_minify:** | Minify the JS during pipelining. Can be set to `true` or `false` |
 | **enable_asset_timestamp:** | Enable asset timestamps. Can be set to `true` or `false` |
+| **enable_asset_sri:** | Enable asset SRI. Can be set to `true` or `false` |
 | **collections:** | This contains collections, designated as sub-items. For example: `jquery: system://assets/jquery/jquery-3.x.min.js` |
 [/div]
 
@@ -398,6 +406,10 @@ images:
   debug: false
   auto_fix_orientation: false
   seofriendly: false
+  cls:  
+    auto_sizes: false
+    aspect_ratio: false
+    retina_scale: 1 
   defaults:
     loading: auto
 [/prism]
@@ -413,6 +425,10 @@ The **Images** section gives you the ability to set the default image quality im
 | **debug:** | Show an overlay over images indicating the pixel depth of the image when working with retina, for example. Can be set to `true` or `false` |
 | **auto_fix_orientation:** | Try to automatically fix images uploaded with non-standard rotation |
 | **seofriendly:** | SEO-friendly processed image names |
+| **cls:** | Cumulative Layout Shift. [More details](https://web.dev/optimize-cls/) |
+| **... auto_sizes:** | Automatically add height/width to image |
+| **... aspect_ratio:** | Reserve space with aspect ratio style |
+| **... retina_scale:** | Scale to adjust auto-sizes for better handling of HiDPI resolutions |
 | **defaults:** | (**Grav 1.7+**) |
 | **... loading:** | Let browser pick: `auto`, `lazy` or `eager` (**Grav 1.7+**) |
 [/div]
@@ -450,6 +466,7 @@ session:
   uniqueness: path
   secure: false
   httponly: true
+  samesite: Lax  
   split: true
   domain:
   path:
@@ -467,6 +484,7 @@ These options determine session properties for your site.
 | **uniqueness:** | Should sessions be `path` based or `security.salt` based |
 | **secure:** | Set session secure. If `true`, indicates that communication for this cookie must be over an encrypted transmission. Enable this only on sites that run exclusively on HTTPS. Can be set to `true` or `false` |
 | **httponly:** | Set session HTTP only. If `true`, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed. Can be set to `true` or `false` |
+| **samesite:** | Set session SameSite. Possible values are Lax, Strict and None. See [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite) |
 | **domain:** | The session domain to be used in the responses. Use only if you you rewrite the site domain for example in a Docker Container. |
 | **path:** | The session path to be used in the responses. Use only if you you rewrite the site subfolder for example in a Docker Container. |
 [/div]
@@ -550,6 +568,7 @@ Flex Objects cache configuration settings are new in **Grav 1.7**. These are def
 strict_mode:
   yaml_compat: true
   twig_compat: true
+  blueprint_compat: false  
 [/prism]
 
 Strict mode allows for a cleaner migration to future versions of Grav by moving to the newer versions of YAML and Twig processors.  These may not be compatible with all 3rd party extensions.
@@ -559,6 +578,7 @@ Strict mode allows for a cleaner migration to future versions of Grav by moving 
 | -------- | ----------- |
 | **yaml_compat:** | Enables YAML backwards compatibility |
 | **twig_compat:** | Enables deprecated Twig autoescape setting |
+| **blueprint_compat:** | Enables backward compatible strict support for blueprints |
 [/div]
 
 !! You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
