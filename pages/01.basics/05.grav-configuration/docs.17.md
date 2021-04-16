@@ -516,7 +516,7 @@ Options in the **GPM** section control Grav's GPM (Grav Package Manager). For ex
 
 [prism classes="language-yaml line-numbers"]
 accounts:
-  type: data
+  type: regular
   storage: file
 [/prism]
 
@@ -525,7 +525,7 @@ Accounts settings allows you to try out the new experimental Flex Users.  This b
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
-| **type:** | Account type: `data` or `flex` |
+| **type:** | Account type: `regular` or `flex` |
 | **storage:** | Flex storage type: `file` or `folder` |
 [/div]
 
