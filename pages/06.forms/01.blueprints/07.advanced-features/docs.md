@@ -253,7 +253,7 @@ Here is another example:
 form:
   fields:
     author:
-      ordering@: title
+      ordering@: header.title
       type: text
       label: Author
       default: "John Doe"
