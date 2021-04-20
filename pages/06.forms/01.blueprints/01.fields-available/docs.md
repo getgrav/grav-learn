@@ -844,15 +844,18 @@ home.alias:
 [/prism]
 
 [div class="table table-keycol"]
-| Attribute      | Description                            |
-| :-----         | :-----                                 |
-| `start_route`  | Choose a root route for the list       |
-| `show_all`     | Shows all pages                        |
-| `show_modular` | Shows all pages                        |
-| `show_root`    | Shows all pages                        |
-| `options`      | An optional list of additional choices |
-| `multiple`     | Select multiple pages                  |
-| `selectize`    |                                        |
+| Attribute       | Description                            |
+| :-----          | :-----                                 |
+| `start_route`   | Choose a root route for the list       |
+| `show_fullpath` | Show page path instead of title        |
+| `show_slug`     | Show slug                              |
+| `show_all`      | Shows all pages                        |
+| `show_modular`  | Shows modular pages                    |
+| `show_root`     | Shows root page                        |
+| `options`       | An optional list of additional choices |
+| `multiple`      | Select multiple pages                  |
+| `limit_levels`  | How many levels to show                |
+| `selectize`     |                                        |
 [/div]
 
 If you set `multiple` to true, you need to add `validate.type: array`. Otherwise the array of selected pages will not be saved correctly.
