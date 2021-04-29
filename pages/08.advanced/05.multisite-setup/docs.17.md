@@ -40,9 +40,9 @@ https://example.com/<subsite>   -->   user/env/<subsite>
 
 will use the `user/env` directory as the base "user" path instead of the `user` directory.
 
-If you choose sub-directories or path based URLs for subsites, then the only thing you need is to create a directory for each subsite in the `user/sites` directory containing at least the required folders `config`, `pages`, `plugins`, and `themes`.
+If you choose sub-directories or path based URLs for subsites, then the only thing you need is to create a directory for each subsite in the `user/env` directory containing at least the required folders `config`, `pages`, `plugins`, and `themes`.
 
-If you choose sub-domains for structuring your website network, then you will have to configure (wildcard) sub-domains on your server in addition to the setup of your subsites in your `user/sites` directory.
+If you choose sub-domains for structuring your website network, then you will have to configure (wildcard) sub-domains on your server in addition to the setup of your subsites in your `user/env` directory.
 
 Either way, decide which setup suits you best.
 
