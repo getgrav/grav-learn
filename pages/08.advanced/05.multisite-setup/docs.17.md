@@ -186,6 +186,10 @@ if (in_array($name, $languageContexts)) {
 return [];
 [/prism]
 
+##### GPM (Grav Packet Manager) and multiple setups
+Should you need to manage your subsites' plugins and themes with the [GPM](https://learn.getgrav.org/17/cli-console/grav-cli-gpm), 
+Keep both `user/themes` + `user/plugins`, so that the GPM fetches and updates them in a single location. Then symlink the needed items under `user/env/my.site.com/themes` or `user/env/my.site.com/plugins`. Then setup individual yaml configurations `user/env/my.site.com/config/plugins` for each subsites.
+
 #### Advanced configuration (for Experts)
 
 Once created a `setup.php` have access to two important variables: (i) `$container`, which is the yet not properly initialized [Grav instance](https://github.com/getgrav/grav/blob/develop/system/src/Grav/Common/Grav.php) and (ii) `$self`, which is an instance of the [ConfigServiceProvider class](https://github.com/getgrav/grav/blob/develop/system/src/Grav/Common/Service/ConfigServiceProvider.php).
