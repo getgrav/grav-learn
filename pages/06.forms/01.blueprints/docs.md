@@ -55,7 +55,7 @@ Additional page Blueprints are added and set up by the theme, which might decide
 
 A Grav theme is much more flexible and powerful than what you might be used to on other platforms.
 
-This allows themes to be specific application. For example, a theme might specialize in one of those goals:
+This allows themes to be application specific. For example, a theme might specialize in one of those goals:
 
 - building a documentation site, like the one you are reading now.
 - building an e-commerce site.
