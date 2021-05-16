@@ -10,7 +10,7 @@ process:
 
 The **Plugins** area of the admin is where you can go to manage your plugins, add new ones, remove existing ones, and quickly access links to documentation and other information.
 
-In this page, we will explore this area of the admin in detail, including how to active and deactivate installed plugins, and add new ones with ease.
+In this page, we will explore this area of the admin in detail, including how to activate and deactivate installed plugins, and add new ones with ease.
 
 !! Accessing the Plugins functionality requires an `access.admin.super` or `access.admin.plugins` permission.
 
@@ -22,7 +22,7 @@ The **Controls** area at the top of the page gives you the ability to add new pl
 
 ![Admin Plugins](plugins-2.png?width=2014&classes=shadow)
 
-The <i class="fa fa-plus"></i> Add button takes you to a page listing all of the currently-available Grav plugins, enabling you to view their information and install them by selecting the <i class="fa fa-plus"></i> Install button to the right of the plugin.
+The <i class="fa fa-plus"></i> Add button takes you to a page listing all of the currently available Grav plugins, enabling you to view their information and install them by selecting the <i class="fa fa-plus"></i> Install button to the right of the plugin.
 
 ! The <span color="purple"><i class="fa fa-check-circle"></i></span> icon indicates that the plugin is created and supported by the Grav team. Plugins without this icon were created by third-party developers.
 
