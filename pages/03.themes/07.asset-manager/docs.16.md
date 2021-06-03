@@ -300,7 +300,7 @@ $assets->add('bootstrap', 100);
 
 An example of this action can be found in the [**bootstrapper** plugin](https://github.com/getgrav/grav-plugin-bootstrapper/blob/develop/bootstrapper.php#L51-L71).
 
-#### Advanced collections
+##### Collections with attributes
 Sometimes you might want to specify custom and/or different attributes to specific items in a collection, for example if you are loading assets from a remote CDN, and you wish to include the integrity check (SRI). This is possible by treating the value of the named asset as an array where the key is the asset location, and the value is the list of additional attributes. For example:
 
 [prism classes="language-yaml line-numbers"]
