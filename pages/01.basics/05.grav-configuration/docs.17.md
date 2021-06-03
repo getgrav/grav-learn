@@ -334,7 +334,7 @@ The **Assets** section enables you to configure options related to the Assets Ma
 | **js_minify:** | Minify the JS during pipelining. Can be set to `true` or `false` |
 | **enable_asset_timestamp:** | Enable asset timestamps. Can be set to `true` or `false` |
 | **enable_asset_sri:** | Enable asset SRI. Can be set to `true` or `false` |
-| **collections:** | This contains collections, designated as sub-items. For example: `jquery: system://assets/jquery/jquery-3.x.min.js` |
+| **collections:** | This contains collections, designated as sub-items. For example: `jquery: system://assets/jquery/jquery-3.x.min.js`. [Read more about this](/themes/asset-manager#named-assets-and-collections) |
 [/div]
 
 ### Errors

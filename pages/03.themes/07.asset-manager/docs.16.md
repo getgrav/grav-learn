@@ -273,7 +273,7 @@ If pipelining is turned **on** in the configuration, assets in the pipeline posi
 
 Each asset is rendered either as a script link or inline, depending on the asset's `loading` option and whether `{'loading': 'inline'}` is used for this group's rendering. Note that the only way to inline a JS pipeline is to use inline loading as an option of the `js()` method. JS added by `addInlineJs()` will be rendered in the `after` position by default, but you can configure it to render before the pipelined output with `position: before`
 
-## Named Assets
+## Named Assets and Collections
 
 Grav now has a powerful feature called **named assets** that allows you to register a collection of CSS and JavaScript assets with a name.  Then you can simply **add** those assets to the Asset Manager via the name you registered the collection with.  Grav comes preconfigured with **jQuery** but has the ability to define custom collections in the `system.yaml` to be used by any theme or plugin:
 
@@ -299,6 +299,32 @@ $assets->add('bootstrap', 100);
 [/prism]
 
 An example of this action can be found in the [**bootstrapper** plugin](https://github.com/getgrav/grav-plugin-bootstrapper/blob/develop/bootstrapper.php#L51-L71).
+
+#### Advanced collections
+Sometimes you might want to specify custom and/or different attributes to specific items in a collection, for example if you are loading assets from a remote CDN, and you wish to include the integrity check (SRI). This is possible by treating the value of the named asset as an array where the key is the asset location, and the value is the list of additional attributes. For example:
+
+[prism classes="language-yaml line-numbers"]
+assets:
+  collections:
+    jquery_and_ui:
+        https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js:
+            integrity: 'sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=='
+            group: 'bottom'
+        https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js:
+            integrity: 'sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=='
+            group: 'bottom'
+[/prism]
+
+Then, after you add the JS in your twig via `{% do assets.addJs('jquery_and_ui', { defer: true }) %}`, the assets will load as:
+
+[prism classes="language-html"]
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer="1" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" defer="1" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="></script>
+[/prism]
+
+Note that `defer` was defined at the twig level and it was applied to all the assets in the collection. This is because Grav will merge together the attributes from both the twig and the yaml definition, giving priority to the ones in the yaml definition.
+
+If the `jquery-ui.min.js` asset included also an attribute `defer: null` then it would have taken precedence over the twig `defer: 1` and it would have not been rendered.
 
 ## Grouped Assets
 
