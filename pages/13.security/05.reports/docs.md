@@ -16,10 +16,9 @@ process:
 twig_first: true
 ---
 
-This is the public repository for security reports for Grav. Below are the most recent reports that have been submitted and processed.
+Since GitHub now have support for security advisories for each repository, this is where you'll find up-to-date reports and policies. You can always find more details on [MITRE's CVE](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=Grav)-program, and an overview on [CVE Details](https://www.cvedetails.com/vulnerability-list.php?vendor_id=20511&order=1&trc=9&sha=2d99a894afce93a4722e6f89c4baddfb1a6c010f).
 
-{% for p in page.collection %}
-  <a href="{{ p.url }}">
-    <h4>{{ p.title }}</h4>
-  </a>
-{% endfor %}
+Most prominently, Grav itself and the Admin-plugin are what every other extension builds on, therefore their advisories and policies are most important to follow:
+
+- Grav Core [Security Advisories](https://github.com/getgrav/grav/security/advisories) and [Security Policy](https://github.com/getgrav/grav/security/policy)
+- Admin [Security Advisories](https://github.com/getgrav/grav-plugin-admin/security/advisories) and [Security Policy](https://github.com/getgrav/grav-plugin-admin/security/policy)
