@@ -35,16 +35,21 @@ Grav 1.7 introduces a few new features, improvements, bug fixes and provides man
 
    If your admin is displaying with untranslated strings in the interface, it's most likely because you have previously disabled **Language Translations**.  This was buggy in previous versions of Grav and disabling it, didn't actually disable translations throughout the admin as intended.  This is **fixed** in Grav 1.7 and this setting is doing what it is intended to do, show the translation codes in uppercase rather than the translated strings themselves.
 
-   Check out the Check out the [Troubleshooting](#troubleshooting-issues) section for the fix.
+   Check out the [Troubleshooting](#troubleshooting-issues) section for the fix.
 
 4. ###### Errors on Saving or Non-functioning Admin plugins
    In Grav 1.7 we introduced **Flex Pages** as the new default page management UI.  Also, to optimize performance, we stopped initializing pages on every admin call.  Switching back to regular **Grav Pages** might temporarily resolve your issue.  This is done by editing the **FlexObjects** plugin and disabling **Pages (Admin)**.
 
-   To properly address the issue, custom plugins should be updated to support both **Grav Pages** and **Flex Pages** by using `PageInterface` and also should expliclty Pages when required.
+   To properly address the issue, custom plugins should be updated to support both **Grav Pages** and **Flex Pages** by using `PageInterface` and also should explicitly Pages when required.
 
    Check out the [Pages section](#pages-1) and [Admin Section](#admin) of this guide for full details...
 
     There have also been some specific plugin issues that have already been discovered. Check out the [Troubleshooting](#troubleshooting-issues) section of this page for specific issues with plugins.
+
+5. ###### Page blueprints stop working or give error about a loop
+   **Grav 1.7.8** adds support for defining any **blueprint** in your theme. This means that if you have page blueprints in `blueprints/pages/` folder, standard blueprint locations are used, just like in plugins. Unfortunately some older themes may have a mix of files in `blueprints/` and `blueprint/pages`, which breaks the detection and causes either missing fields in admin when editing the pages or a fatal error: `Loop detected while extending blueprint file`.
+
+   If either of these errors happen, check out the [Troubleshooting](#troubleshooting-issues) section for the fix.
 
 ### Quick Update Guide
 
@@ -323,6 +328,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
     ```
 
 * Added `themes` to cached blueprints and configuration
+* **Grav 1.7.8** adds support for defining any **blueprint** in your theme. Move all files and folders in `blueprints/` into `blueprints/pages/` to keep your theme forward compatible. Also remember to update minimum Grav dependency to `>=1.7.8`.
 
 ### Sessions
 
@@ -548,6 +554,31 @@ The fix is very easy, and can be done even when not fully translated. Simply nav
 
 ![Fix translations](fix-translations.png?classes=shadow)
 
+#### Page blueprints stop working in Admin
+
+If you cannot see your custom fields when editing the page, your theme is using two conflicting locations for page blueprints.
+
+If the theme was not created by you, please report a bug to the theme author.
+
+To fix the bug, you need to move all files and folders in your theme from `blueprints/` to `blueprints/pages/` (requires **Grav 1.7.8+**). Alternatively if the theme must support older versions of Grav, do the opposite.
+
+#### Error: Loop detected while extending blueprint file
+
+The easiest fix for loop error is to move the files into their proper location, please see the above issue.
+
+Alternatively you can fix the issue by changing the broken page blueprint from:
+
+```yaml
+extends@:
+    type: [NAME]
+    context: 'blueprints://pages'
+```
+
+where `[NAME]` is the filename (without the file extension) of the blueprint itself, to:
+
+```yaml
+extends@: self@
+```
 
 #### Missing CSS Styling in Admin
 
