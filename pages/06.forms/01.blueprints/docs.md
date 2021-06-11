@@ -120,3 +120,10 @@ form:
 This area of the file creates any administrative options accessible in the Grav Admin. In this particular instance, we have created a simple **Plugin Status** toggle which lets the user enable or disable the plugin from the admin (pictured below).
 
 ![Admin Forms](blueprints_3.png?classes=shadow)
+
+## Debugging Blueprints
+
+Errors in Blueprint files may cause unexpected results.
+
+!!! **TIP:** You can run **CLI command** `bin/grav yamllinter` to get a report on an errors in yaml files. This can be an invaluable when modifiying yaml files=
+
