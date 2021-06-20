@@ -14,6 +14,7 @@ twig:
 
 debugger:
   enabled: true
+  provider: phpdebugbar
 
 strict_mode:
     yaml_compat: false
