@@ -22,7 +22,7 @@ The other thing that the numeric portion of the folder name does is explicitly i
 
 There is an option in the `user/config/system.yaml` file that sets the location of the __home page__, in other words, where Grav points to when you reference the root of your site: `http://yoursite.com`.
 
-If you examine this configuration file in your install, you will see that it already points to the alias for `/home`.  We can leave it like this in this example.
+If you examine line 31 of this configuration file in your install, you will see that it already points to the alias for `/home`.  We can leave it like this in this example.
 
 ## Page Editing
 
@@ -79,7 +79,7 @@ This is a simple paragraph that would have been wrapped in regular `<p>` tags wh
 !! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
 [/prism]
 
-This section uses a custom markdown feature that is provided by the included `markdown-notices` plugin.  This allows you to create simple notices by prefix a paragraph of text with a number of `!` (exclamation mark) symbols, from `!` to `!!!!`.
+This section uses a custom markdown feature that is provided by the included `markdown-notices` plugin.  This allows you to create simple notices by prefixing a paragraph of text with a number of `!` (exclamation mark) symbols, from `!` to `!!!!`.
 
 This overview should provide you with a few key pointers for writing Markdown, but you should check out our more [detailed explanation](../../content/markdown) to get a thorough understanding.
 
