@@ -67,6 +67,7 @@ All of the commands listed below are compatible with <strong>any operating syste
 | `bin/grav clear-cache`            | This command clears the cache of your Grav install. Options include: `--all`, `--assets-only`, `--images-only`, and `--cache-only` |
 | `bin/grav backup`                 | Creates a zip backup of your current Grav site.                                                                                    |
 | `bin/grav composer`               | Updates manually-installed composer-based vendor packages.                                                                         |
+| `bin/grav security`               | Runs through the configured XSS security checks on all Grav pages                                                                  |
 | `bin/gpm list`                    | Lists all commands available via Grav's GPM (Grav Package Manager)                                                                 |
 | `bin/gpm help <command>`          | Gives you help on a specific command.                                                                                              |
 | `bin/gpm index`                   | Shows a list of all the available resources in the Grav repository, organized by themes and plugins.                               |
@@ -75,7 +76,6 @@ All of the commands listed below are compatible with <strong>any operating syste
 | `bin/gpm update`                  | Checks installed plugins and themes for available updates and lists them.                                                          |
 | `bin/gpm uninstall`               | Removes an installed theme or plugin and clears the cache.                                                                         |
 | `bin/gpm self-upgrade`            | Enables you to update Grav to the latest version.                                                                                  |
-| `bin/gpm security`                | Runs through the configured XSS security checks on all Grav pages                                                                  |
 [/div]
 [/version]
 
@@ -91,6 +91,7 @@ All of the commands listed below are compatible with <strong>any operating syste
 | `bin/grav cache`                  | This command clears the cache of your Grav install. Options include: `--all`, `--assets-only`, `--images-only`, and `--cache-only` |
 | `bin/grav backup`                 | Creates a zip backup of your current Grav site.                                                                                    |
 | `bin/grav composer`               | Updates manually-installed composer-based vendor packages.                                                                         |
+| `bin/grav security`               | Runs through the configured XSS security checks on all Grav pages                                                                  |
 | `bin/gpm list`                    | Lists all commands available via Grav's GPM (Grav Package Manager)                                                                 |
 | `bin/gpm help <command>`          | Gives you help on a specific command.                                                                                              |
 | `bin/gpm index`                   | Shows a list of all the available resources in the Grav repository, organized by themes and plugins.                               |
@@ -99,7 +100,6 @@ All of the commands listed below are compatible with <strong>any operating syste
 | `bin/gpm update`                  | Checks installed plugins and themes for available updates and lists them.                                                          |
 | `bin/gpm uninstall`               | Removes an installed theme or plugin and clears the cache.                                                                         |
 | `bin/gpm self-upgrade`            | Enables you to update Grav to the latest version.                                                                                  |
-| `bin/gpm security`                | Runs through the configured XSS security checks on all Grav pages                                                                  |
 | `bin/gpm logviewer`               | Easily view Grav logs with configuration options to pick log file, number of lines, and verbosity                                  |
 | `bin/gpm scheduler`               | Manage the scheduled jobs and manually run the scheduler process if required                                                       |
 [/div]
