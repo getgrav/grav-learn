@@ -58,9 +58,15 @@ This is valid JSON that can easily be parsed and processed by JavaScript.  Easy 
 
 ## Custom Content Types
 
-In order to send the data with the appropriate content type, Grav needs to know the MIME type that the browser expects in order for it to render that content type.  Grav knows about most of the standard content types as defined in the `system/config/media.yaml` file.  If you wish to handle a content type that is not provided, you just need to add an entry to this file.
+In order to send the data with the appropriate content type, Grav needs to know the MIME type that the browser expects in order for it to render that content type.  Grav knows about most of the standard content types as defined in the `system/config/media.yaml` file. 
 
-For example, if you wish to be able to render iCal calendar events, you would need to add this media type to the `media.yaml`:
+If you wish to handle a content type that isn't provided, you need to:
+
+* extend the list in `system/config/media.yaml`
+* add your new content type extension to the list found in `system/config/system.yaml`
+* create templates in your theme as required for serving the content type.
+
+For example, if you wish to be able to render iCal calendar events, you would need to add this media type entry under `types` in `user/config/media.yaml`:
 
 [prism classes="language-yaml line-numbers"]
   ics:
@@ -69,4 +75,12 @@ For example, if you wish to be able to render iCal calendar events, you would ne
     mime: text/calendar
 [/prism]
 
-This defines the `.ics` file extension as an `iCal` file with mime type: `text/calendar`.  Then all you need to do is provide the appropriate `.ical.twig` template to render any file you request of this type.
+This defines the `.ics` file extension as an `iCal` file with mime type: `text/calendar`.
+
+Then add its extension 'ics' to your `pages.types` list in `user/config/system.yaml`. Copy the list from `system/config/system.yaml` if you don't have this in your `system.yaml` already. After adding 'ics', it will look similar to:
+
+[prism classes="language-yaml line-numbers"]
+  types: [html,htm,xml,txt,json,rss,atom,ics]
+[/prism]
+
+Then all you need to do is provide the appropriate `.ical.twig` template to render any file you request of this type.
