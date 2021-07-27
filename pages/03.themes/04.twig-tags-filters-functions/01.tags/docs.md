@@ -15,7 +15,7 @@ Grav also provides a variety of custom Twig Tags that extend the already very ca
 
 ### `markdown`
 
-The Markdown tag provides a powerful new way to embedding markdown in Twig template.  You could use a variable and render that variable with the `|markdown` filter, but the `{% markdown %}` syntax makes creating blocks of markdown text even simpler.
+The Markdown tag provides a powerful new way to embed markdown in Twig template.  You could use a variable and render that variable with the `|markdown` filter, but the `{% markdown %}` syntax makes creating blocks of markdown text even simpler.
 
 [prism classes="language-twig line-numbers"]
 {% markdown %}
