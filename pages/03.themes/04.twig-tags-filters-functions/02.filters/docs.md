@@ -285,6 +285,14 @@ Converts a string to the English plural version
 
 `'person'|pluralize` <i class="fa fa-long-arrow-right"></i> **{{ 'person'|pluralize }}**
 
+`pluralize` also takes an optional numeric parameter which you can pass in when you don't know in advance how many items the noun will refer to. It defaults to 2, so will provide the plural form if omitted. For example:
+
+{% verbatim %}
+[prism classes="language-twig "]
+<p>We have {{ num_vacancies }} {{ 'vacancy'|pluralize(num_vacancies) }} right now.</p>
+[/prism]
+{% endverbatim %}
+
 [version=16,17]
 
 ### `print_r`
