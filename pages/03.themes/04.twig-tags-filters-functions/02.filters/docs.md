@@ -258,6 +258,10 @@ Output a date in a human readable nice time format
 
 `page.date|nicetime(false)` <i class="fa fa-long-arrow-right"></i> **{{ page.date|nicetime(false) }}**
 
+The first argument specifies whether to use a full format date description. It's `true` by default.
+
+You can provide a second argument of `false` if you want to remove the time relative descriptor (like 'ago' or 'from now' in your language) from the result.
+
 [version=16,17]
 
 ### `of_type`
