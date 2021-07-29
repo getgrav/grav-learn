@@ -22,7 +22,7 @@ The underlying architecture of Grav is built using well established and _best-in
 
 ## Grav's Place in the Universe
 
-There are many powerful open source CMS solutions for building complex websites.  Some of the more commonly used ones are [Joomla](https://wwwjoomla.org), [WordPress](https://wordpress.org), and [Drupal](https://www.drupal.org). The downside of these platforms is that they have a steep learning curve associated with them. This requires a significant amount of your time - and this may be the time that you do not have.
+There are many powerful open source CMS solutions for building complex websites.  Some of the more commonly used ones are [Joomla](https://www.joomla.org), [WordPress](https://wordpress.org), and [Drupal](https://www.drupal.org). The downside of these platforms is that they have a steep learning curve associated with them. This requires a significant amount of your time - and this may be the time that you do not have.
 
 These platforms provide a wealth of features and functionality that you can extend with a wide variety of open source and proprietary plug-ins and themes.  These extensions and themes are themselves often feature-packed, requiring more knowledge and time on the part of the developer yet.
 
