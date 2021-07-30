@@ -15,7 +15,7 @@ Twig filters are applied to Twig variables by using the `|` character followed b
 
 ### `absolute_url`
 
-Take a relative path and convert it to an absolute URL format including hostname
+Takes an HTML snippet containing a `src` or `href` attribute which uses a relative path. Converts the path string to an absolute URL format including hostname.
 
 `'<img src="/some/path/to/image.jpg" />'|absolute_url` <i class="fa fa-long-arrow-right"></i> `{{ '<img src="/some/path/to/image.jpg" />'|absolute_url|raw }}`
 
@@ -258,6 +258,10 @@ Output a date in a human readable nice time format
 
 `page.date|nicetime(false)` <i class="fa fa-long-arrow-right"></i> **{{ page.date|nicetime(false) }}**
 
+The first argument specifies whether to use a full format date description. It's `true` by default.
+
+You can provide a second argument of `false` if you want to remove the time relative descriptor (like 'ago' or 'from now' in your language) from the result.
+
 [version=16,17]
 
 ### `of_type`
@@ -284,6 +288,14 @@ Pads a string to a certain length with another character. This is a wrapper for 
 Converts a string to the English plural version
 
 `'person'|pluralize` <i class="fa fa-long-arrow-right"></i> **{{ 'person'|pluralize }}**
+
+`pluralize` also takes an optional numeric parameter which you can pass in when you don't know in advance how many items the noun will refer to. It defaults to 2, so will provide the plural form if omitted. For example:
+
+{% verbatim %}
+[prism classes="language-twig "]
+<p>We have {{ num_vacancies }} {{ 'vacancy'|pluralize(num_vacancies) }} right now.</p>
+[/prism]
+{% endverbatim %}
 
 [version=16,17]
 
