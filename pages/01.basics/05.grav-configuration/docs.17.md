@@ -235,7 +235,7 @@ cache:
   purge_at: '0 4 * * *'
   clear_at: '0 3 * * *'
   clear_job_type: 'standard'
-  clear_images_by_default: true
+  clear_images_by_default: false
   cli_compatibility: false
   lifetime: 604800
   gzip: false
@@ -259,7 +259,7 @@ The **Cache** section is where you can configure the site's caching settings. Yo
 | **purge_at:** | Scheduler: How often to purge old cache using cron `at` syntax |
 | **clear_at:** | Scheduler: How often to clear the cache using cron `at` syntax |
 | **clear_job_type:** | Type to clear when processing the scheduled clear job. Options: `standard` \| `all` |
-| **clear_images_by_default:** | By default grav will include processed images when cache clears, this can be disabled by setting this to `false` |
+| **clear_images_by_default:** | By default grav does not include processed images when cache clears, this can be enabled by setting this to `true` |
 | **cli_compatibility:** | Ensures only non-volatile drivers are used (file, redis, memcache, etc.) |
 | **lifetime:** | Lifetime of cached data in seconds (`0` = infinite). `604800` is 7 days |
 | **gzip:** | GZip compress the page output. Can be set to `true` or `false` |
