@@ -431,7 +431,7 @@ Simply truncates to 5 characters.
 
 `'one sentence. two sentences'|truncate(5, true)|raw` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5, true)|raw }}**
 
-!! The `|raw` Twig filiter should be used with the default `&helip;` (elipsis) padding element in order for it to render with Twig auto-escaping
+!! The `|raw` Twig filter should be used with the default `&hellip;` (elipsis) padding element in order for it to render with Twig auto-escaping
 
 Truncates to closest sentence-end after 5 characters.
 
