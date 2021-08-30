@@ -73,15 +73,15 @@ use Grav\Framework\Flex\Interfaces\FlexDirectoryInterface;
 $flex = Grav::instance()->get('flex');
 
 /** @var FlexDirectoryInterface[] $directories */
-$directories = $flex->getDirectiories();
+$directories = $flex->getDirectories();
 // = ['contacts' => FlexDirectory, ...]
 
 /** @var FlexDirectoryInterface[] $directories */
-$listedDirectories = $flex->getDirectiories(['contacts', 'phonebook']);
+$listedDirectories = $flex->getDirectories(['contacts', 'phonebook']);
 // = ['contacts' => FlexDirectory]
 
 /** @var array<FlexDirectoryInterface|null> $directories */
-$listedDirectoriesWithMissing = $flex->getDirectiories(['contacts', 'phonebook'], true);
+$listedDirectoriesWithMissing = $flex->getDirectories(['contacts', 'phonebook'], true);
 // = ['contacts' => FlexDirectory, 'phonebook' => null]
 ```
 [/ui-tab]

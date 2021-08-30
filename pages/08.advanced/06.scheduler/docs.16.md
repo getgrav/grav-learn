@@ -181,7 +181,7 @@ public function onSchedulerInitialized(Event $e): void
 {
     $config = $this->config();
 
-    if (!empty($config['scheduled_index']['enabled']))) {
+    if (!empty($config['scheduled_index']['enabled'])) {
         $scheduler = $e['scheduler'];
         $at = $config['scheduled_index']['at'] ?? '* * * * *';
         $logs = $config['scheduled_index']['logs'] ?? '';

@@ -46,7 +46,7 @@ In short, it just loops the values and prints them in the email body.
 
 If you want for example to set the `email.from` field from a Form input, you can get its content and use it in this way:
 
-`from: "{{ form.value.email }}"`
+`from: "{{ form.value.email|e }}"`
 
 In this case, we get the field "email" from the form, and use it for the "from" attribute. This way the site owner will receive an email and will be able to directly reply to the email entered in the form.
 
@@ -83,7 +83,7 @@ You can utilize the message action to trigger in the event of a failed validatio
 username:
    type: text
    label: Username
-  validate:
+   validate:
      required: true
      message: My custom message when validation fails!
 [/prism]
@@ -110,9 +110,9 @@ Antimatter and compatible themes provide the `formdata.html.twig` Twig template,
 
 {% block content %}
 
-    {{ content }}
+    {{ content|raw }}
 
-    <div class="alert">{{ form.message }}</div>
+    <div class="alert">{{ form.message|e }}</div>
     <p>Here is the summary of what you wrote to us:</p>
 
     {% include "forms/data.html.twig" %}

@@ -83,6 +83,15 @@ and see the results in the Debugbar:
 
 ![](twig-dump.png)
 
+It's possible to output multiple dump commands at the same time but it can get confusing to tell them apart. Add static text like this:
+{% verbatim %}
+[prism classes="language-twig line-numbers"]
+{{ dump('page.header output:',page.header) }}
+[/prism]
+{% endverbatim %}
+
+![](twig-dump-text.png)
+
 ### Dump to browser console from Twig
 
 To display variables before a page is returned by Grav or in case no page refresh occurs such as when using AJAX there is another alternative. By using a single line of Javascript any variable can be displayed in your browser's developer console, for example:

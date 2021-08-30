@@ -8,6 +8,12 @@ data/*
 plugins/*
 !plugins/.*
 themes/learn2
+themes/learn4
+accounts/admin.yaml
+config/versions.yaml
+config/security.yaml
+localhost/config/security.yaml
+learn.dev/config/security.yaml
 
 # OS Generated
 .DS_Store*
@@ -17,7 +23,6 @@ Thumbs.db
 
 # phpstorm
 .idea/*
-localhost/config/security.yaml
-config/security.yaml
-learn.dev/config/security.yaml
-/accounts/admin.yaml
+
+
+

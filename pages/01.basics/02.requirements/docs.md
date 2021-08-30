@@ -10,8 +10,11 @@ Grav is intentionally designed with few requirements. You can easily run Grav on
 [version=15]
 2. PHP 5.6.3 or higher
 [/version]
-[version=16,17]
+[version=16]
 2. PHP 7.1.3 or higher
+[/version]
+[version=17]
+2. PHP 7.3.6 or higher
 [/version]
 
 3. hmm... that's it really, (but please look at PHP requirements for a smooth experience)!
@@ -22,7 +25,7 @@ Grav is built with plain text files for your content. There is no database neede
 
 ## Web Servers
 
-Grav is so simple and versatile that you don't even need a web server to run it. You can run it directly off the built-in PHP webserver, as long as you're running [version=15]**PHP 5.6.3**[/version][version=16,17]**PHP 7.1.3**[/version] or later.
+Grav is so simple and versatile that you don't even need a web server to run it. You can run it directly off the built-in PHP webserver, as long as you're running [version=15]**PHP 5.6.3**[/version][version=16]**PHP 7.1.3**[/version][version=17]**PHP 7.3.6**[/version] or later.
 
 Testing with the built-in webservers is a useful way to check a Grav install and perform some brief development, but it is **not** recommended for a live site or even for advanced development tasks. We've outlined how in our [Installation guide](../installation#running-grav-with-the-built-in-php-webserver-using-routerphp).
 
@@ -55,6 +58,7 @@ Even though most distributions of Apache come with everything needed, for the sa
 
 * `mod_rewrite`
 * `mod_ssl` (if you wish to run Grav under SSL)
+* `mod_mpm_itk_module` (if you wish to run Grav under its own user account)
 
 You should also ensure you have `AllowOverride All` set in the `<Directory>` and/or `<VirtualHost>` blocks so that the `.htaccess` file processes correctly, and rewrite rules take effect.
 
@@ -135,6 +139,12 @@ If you need to invoke superuser permissions, you would run `find … | sudo xarg
 
 ## Recommended Tools
 
+### PhpStorm
+
+Grav is developed using [PhpStorm](https://www.jetbrains.com/phpstorm/), which makes it the best IDE for Grav. However, it does not come for free.
+
+PhpStorm is best suited for PHP developers, including people who write complicated Grav plugins. It offers automated code compilation for Grav (you just need to add Grav and any plugin you use into includes), and many other tools to aid with the code development. It has also good support for formatting twig, yaml, html, js, scss and tailwind.
+
 ### Text Editors
 
 Although you can get away with Notepad, Textedit, Vi, or whatever default text editor comes with your platform, we recommend using a good text editor with syntax highlighting to make things easier. Here are some recommended options:
@@ -144,13 +154,14 @@ Although you can get away with Notepad, Textedit, Vi, or whatever default text e
 3. [SublimeText](http://www.sublimetext.com/) - MacOS/Windows/Linux - A commercial developer's editor, but well worth the price. Very powerful especially combined with plugins such as [Markdown Extended](https://sublime.wbond.net/packages/Markdown%20Extended), [Pretty YAML](https://sublime.wbond.net/packages/Pretty%20YAML), and [PHP-Twig](https://sublime.wbond.net/packages/PHP-Twig).
 4. [Notepad++](http://notepad-plus-plus.org/) - Windows - A free and very popular developer's editor for Windows.
 5. [Bluefish](http://bluefish.openoffice.nl/index.html) - MacOS/Windows/Linux - A free, open source text editor geared towards programmers and web developers.
+6. [Kate](https://kate-editor.org/about-kate/) - MacOS/Windows/Linux - A light yet powerfull and versatile opensource text editor and programming tool, supporting highlighting for over 300 languages (including Markdown).
 
 ### Markdown Editors
 
 Another option if you primarily work with just creating content, is to use a dedicated **Markdown Editor**. These often are very content-centric and usually provide a **live-preview** of your content rendered as HTML. There are literally hundreds of these, but some good options include:
 
 1. [MacDown](http://macdown.uranusjr.com/) - MacOS - Free, a simple, lightweight open source Markdown editor.
-2. [LightPaper](http://lightpaper.42squares.in/) - MacOS - $9.99, clean, powerful. Our markdown editor of choice on the Mac. **Get 25% OFF with Discount Code: GET_GRAV_25**
+2. [LightPaper](https://getlightpaper.com/) - MacOS - $17.99, clean, powerful. Our markdown editor of choice on the Mac. **Get 25% OFF with Discount Code: GET_GRAV_25**
 3. [MarkDrop](http://culturezoo.com/markdrop/) - MacOS - $5, but super clean and Droplr support built-in.
 4. [MarkdownPad](http://markdownpad.com/) - Windows - Free and Pro versions. Even has YAML front-matter support. An excellent solution for Windows users.
 5. [Mark Text](https://marktext.app/) - Free, open source Markdown editor for Windows / Linux / MacOS.

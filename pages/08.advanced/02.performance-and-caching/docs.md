@@ -20,7 +20,7 @@ taxonomy:
 
 6. **Shared hosting** is cheap and readily available, but sharing resources will always slow things down a bit. Again, Grav can run very well on a shared server (better than other CMSes), but for ultimate speed, a dedicated server is the way to go.
 
-7. **PECL Yaml Parser**.  Installing the native PHP PECL Yaml parser can increase YAML parsing by as much as 400%!  This is well worth looking at if you are looking for some extra speed.
+7. **PECL Yaml Parser**.  Installing the native PHP PECL Yaml parser can increase YAML parsing speed by as much as 400%!  This is well worth looking at if you are looking for some extra speed.
 
 !! The getgrav.org runs on a single dedicated server with quad core processors, 16GB of memory and 6G SSD drives. We also run PHP 7.4 with Zend opcache and APCu user cache. The web servers do run a few other websites but not as many as you would find in a shared-hosting environment.
 
@@ -72,7 +72,13 @@ By default, Grav uses the `file` check method for its caching.  What this means 
 
 `hash` checking uses a fast hash algorithm on all of the files in each page folder.  This may be faster than file checking in some situations and does take into account every file in the folder.
 
-If automatic re-caching of changed pages is not critical to you (or if your site is rather large), then setting this value to `none` will speed up a production environment even more. You will just need to manually [clear the cache](../grav-cli#clearing-grav-cache) after changes are made.
+If automatic re-caching of changed pages is not critical to you (or if your site is rather large), then setting this value to `none` will speed up a production environment even more. You will just need to manually [clear the cache](../grav-cli#clearing-grav-cache) after changes are made. This is intended as a **Production-only** setting.
+
+!!!! Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
+
+<!-- -->
+
+!!! You can easily force the cache to clear by just touching/saving a configuration file.
 
 #### Memcache Specific Options
 
@@ -129,13 +135,7 @@ cache:
     password: your-secret
 [/prism]
 
-!!!! Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
-
-<!-- -->
-
-!!! You can easily force the cache to clear by just touching/saving a configuration file.
-
-The `cache: check: pages:` option can provide some slight performance improvements, but this will cause Grav to not check for any page edits.  This is intended as a **Production-only** setting.
+#### Twig Specific Options
 
 The Twig templating engine uses its own file based cache system, and there are a few options associated with it.
 
@@ -147,7 +147,7 @@ twig:
   autoescape: false                     # Autoescape Twig vars
 [/prism]
 
-For slight performance gains, you can disable the `debug` extension, and also disable `auto_reload` which performs a similar function to `cache: check: pages` as it will not look for changes in `.html.twig` files to trigger cache refreshes.
+For slight performance gains, you can disable the `debug` extension, and also disable `auto_reload` which performs a similar function to `cache: check: method: none` as it will not look for changes in `.html.twig` files to trigger cache refreshes.
 
 ## Caching and Events
 

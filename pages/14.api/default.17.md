@@ -4446,7 +4446,7 @@ $settings = ['destination' => 'user://pages/media']; // Settings from the form f
 <hr /><a id="class-gravcommontwigtokenparsertwigtokenparserscript"></a>
 ### Class: \Grav\Common\Twig\TokenParser\TwigTokenParserScript
 
-> Adds a script to head/bottom/custom location in the document. {% script 'theme://js/something.js' in 'bottom' priority: 20 with { defer: true, async: true } %} {% script in 'bottom' priority: 20 %} alert('Warning!'); {% endscript %}
+> Adds a script to head/bottom/custom location in the document. {% script 'theme://js/something.js' at 'bottom' priority: 20 with { defer: true, async: true } %} {% script at 'bottom' priority: 20 %} alert('Warning!'); {% endscript %}
 
 | Visibility | Function |
 |:-----------|:---------|

@@ -1,0 +1,11 @@
+enabled: true
+test_mode: false
+admin_index_events: true
+site_index_events: true
+
+controller_class: Grav\Plugin\AlgoliaSearch\AlgoliaSearchController
+application_id: 19BCUBTQVZ
+search_only_api_key: 8a31002762a1da2afba852c8370b752f
+admin_api_key: cdaac57ce5adafca51932f12850c2cfc
+
+base_index_name: grav-learn

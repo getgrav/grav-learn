@@ -100,6 +100,23 @@ form:
           context: blueprints://
 [/prism]
 
+While YAML does not allow using the same `import@` key multiple times, you can still import multiple blueprints by appending a unique number after `@`, e.g. `import@1`, `import@2` and so on. The number has no other meaning than preventing YAML parser from erroring out:
+
+[prism classes="language-yaml line-numbers"]
+form:
+  fields:
+    images:
+        type: section
+        title: Images
+        underline: true
+        import@1:
+          type: partials/gallery
+          context: blueprints://
+        import@2:
+          type: partials/another-gallery
+          context: blueprints://
+[/prism]
+
 ## Removing Fields / Properties (unset-*@)
 
 If you want to remove a field, you can add `unset@: true` inside of it.
@@ -236,7 +253,7 @@ Here is another example:
 form:
   fields:
     author:
-      ordering@: title
+      ordering@: header.title
       type: text
       label: Author
       default: "John Doe"
@@ -246,7 +263,7 @@ In the example above, we used the name of another field to set the ordering. In 
 
 !! When ordering fields in a page blueprint, you still need to reference the field names prefixed with `header.`, eg: `header.title` for the ordering to work.
 
-# Creating new form field type
+## Creating new form field type
 
 If you create a special form field type, which needs a special handling in blueprints, there is a plugin function that you can use.
 

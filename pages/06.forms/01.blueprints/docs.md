@@ -55,7 +55,7 @@ Additional page Blueprints are added and set up by the theme, which might decide
 
 A Grav theme is much more flexible and powerful than what you might be used to on other platforms.
 
-This allows themes to be specific application. For example, a theme might specialize in one of those goals:
+This allows themes to be application specific. For example, a theme might specialize in one of those goals:
 
 - building a documentation site, like the one you are reading now.
 - building an e-commerce site.
@@ -120,3 +120,10 @@ form:
 This area of the file creates any administrative options accessible in the Grav Admin. In this particular instance, we have created a simple **Plugin Status** toggle which lets the user enable or disable the plugin from the admin (pictured below).
 
 ![Admin Forms](blueprints_3.png?classes=shadow)
+
+## Debugging Blueprints
+
+Errors in Blueprint files may cause unexpected results.
+
+!!! **TIP:** You can run **CLI command** `bin/grav yamllinter` to get a report on an errors in yaml files. This can be an invaluable when modifiying yaml files.
+

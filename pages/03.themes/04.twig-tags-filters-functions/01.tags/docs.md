@@ -1,9 +1,10 @@
 ---
 title: Twig Tags
+body_classes: twig__headers
 page-toc:
   active: true
   start: 3
-
+  depth: 1
 process:
     twig: false
 taxonomy:
@@ -12,9 +13,9 @@ taxonomy:
 
 Grav also provides a variety of custom Twig Tags that extend the already very capable Twig templating capabilities with some new tags that we've found useful.
 
-### Markdown
+### `markdown`
 
-The Markdown tag provides a powerful new way to embedding markdown in Twig template.  You could use a variable and render that variable with the `|markdown` filter, but the `{% markdown %}` syntax makes creating blocks of markdown text even simpler.
+The Markdown tag provides a powerful new way to embed markdown in Twig template.  You could use a variable and render that variable with the `|markdown` filter, but the `{% markdown %}` syntax makes creating blocks of markdown text even simpler.
 
 [prism classes="language-twig line-numbers"]
 {% markdown %}
@@ -25,25 +26,26 @@ This is **bold** and this _underlined_
 {% endmarkdown %}
 [/prism]
 
-### Scripts
+[version=17]
+### `script`
 
-The Scripts tag is really a convenience tag that keeps your Twig more readable compared to the usual `{% do assets...%}` approach.  It's purely an alternative way of writing things.
+The Script tag is really a convenience tag that keeps your Twig more readable compared to the usual `{% do assets...%}` approach.  It's purely an alternative way of writing things.
 
 #### Script File
 
 [prism classes="language-twig line-numbers"]
-{% script 'theme://js/something.js' in 'bottom' priority: 20 with { defer: true, async: true } %}
+{% script 'theme://js/something.js' at 'bottom' priority: 20 with { defer: true, async: true } %}
 [/prism]
 
 #### Inline Script
 
 [prism classes="language-twig line-numbers"]
-{% script in 'bottom' priority: 20 %}
+{% script at 'bottom' priority: 20 %}
     alert('Warning!');
 {% endscript %}
 [/prism]
 
-### CSS Styles
+### `style`
 
 #### CSS File
 
@@ -58,8 +60,9 @@ The Scripts tag is really a convenience tag that keeps your Twig more readable c
     a { color: red; }
 {% endstyle %}
 [/prism]
+[/version]
 
-### Switch
+### `switch`
 
 In most programming language, using a `switch` statement is a common way to make a bunch of `is else` statements cleaner and more readabile.  Also they may prove to be marginally faster.  We just provide a simple way of creating these as they were missing in the base Twig functionality.
 
@@ -75,7 +78,7 @@ In most programming language, using a `switch` statement is a common way to make
 [/prism]
 
 [version=16,17]
-### Deferred Blocks
+### `deferred`
 
 With traditional blocks, once the block has been rendered, it cannot be manipulated.  Take the example of a `{% block scripts %}` that might hold some entries for JavaScript includes.  If you have a child Twig template, and you extend a base template where this block is defined, you can extend the block, and add your own custom JavaScript entries.  However, partial twig templates that are included from this page, cannot reach or interact with the block.
 
@@ -87,7 +90,17 @@ The deferred attribute on the block which is powered by the [Deferred Extension]
 {% endblock %}
 [/prism]
 
-### Throw an Exception
+It is also possible to merge the content of the parent block with the deferred block using `{{ parent() }}`. This can be especially useful for themes if additional css or javascript files are added.
+
+[prism classes="language-twig line-numbers"]
+{% block stylesheets %}
+    <!-- Additional css library -->
+    {% do assets.addCss('theme://libraries/leaflet/dist/leaflet.css') %}
+    {{ parent() }}
+{% endblock %}
+[/prism]
+
+### `throw`
 
 There are certain situations where you need to manually throw an exception, so we have a tag for that too.
 
@@ -95,7 +108,7 @@ There are certain situations where you need to manually throw an exception, so w
 {% throw 404 'Not Found' %}
 [/prism]
 
-### Try / Catch Exceptions
+### `try` & `catch`
 
 Also it's useful to have more powerful PHP-style error handling in your Twig templates so we have a new `try/catch` tag.
 
@@ -107,7 +120,7 @@ Also it's useful to have more powerful PHP-style error handling in your Twig tem
 {% endcatch %}
 [/prism]
 
-### Render Object (Flex only)
+### `render`
 
 Flex Objects are slowly making their way into more and more elements of Grav.  These are self-aware objects that have an associated Twig template structure, so they know how to render themselves.  In order to use these, we have implemented a new `render` tag that takes an optional layout which in turn controls which of the template layouts the object should be rendered with.
 

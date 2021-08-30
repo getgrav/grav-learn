@@ -6,7 +6,7 @@ taxonomy:
 
 ### File Uploads
 
-You can add file upload functionality in Pages, Config, Plugins and Themes blueprints. File uploads are always Ajax based and allow Drag & Drop from the desktop or picking them as regular file fields. Every time a file is added to the field, it's automatically uploaded to a temporary folder, and will only be stored when the Save (or Submit) action takes place. 
+You can add file upload functionality in Pages, Config, Plugins and Themes blueprints. File uploads are always Ajax based and allow Drag & Drop from the desktop or picking them as regular file fields. Every time a file is added to the field, it's automatically uploaded to a temporary folder, and will only be stored when the Save (or Submit) action takes place.
 
 Example of usage:
 
@@ -15,7 +15,7 @@ custom_file:
   name: myfile
   type: file
   label: A Label
-  destination: 'user/plugins/my-plugin/assets'
+  destination: 'plugins://my-plugin/assets'
   multiple: true
   autofocus: false
   accept:
@@ -54,19 +54,19 @@ Like a regular HTML5 file field, when the `multiple` option is enabled, it allow
 #### `destination`
 
 ``` yaml
-destination: 'self@' # [<path> | self@ | page@:<path> | theme@:<path>]
+destination: 'self@' # [<path> | <stream> | self@ | page@:<path>]
 ```
 
-Destination is the location where uploaded files should be stored. This can be either a regular `path` (relative to the root of Grav), `self@` or one of the special  `page@:` and `theme@:` prefixes.
+Destination is the location where uploaded files should be stored. This can be either a regular `path` (relative to the root of Grav), a `stream` (such as `theme://images`), `self@` or the special  `page@:` prefix.
 
-!! `self@` is not allowed outside of the Pages scope, an error will be thrown. If you use a file field outside of a Page, you should always change the `destination` setting.
+!! `self@` is not allowed outside the Pages or Flex Objects scope, an error will be thrown. If you use a file field outside a Page or Flex Object, you should always change the `destination` setting.
 
 ##### Examples
 
 1. If it's desired to upload files to a plugin `testing` folder (`user/plugins/testing`), destination would be:
 
   [prism classes="language-yaml"]
-  destination: 'user/plugins/testing'
+  destination: 'plugins://testing'
   [/prism]
 
 2. Assuming we have a blog item at the route `/blog/ajax-upload` (physical location being `user/pages/02.blog/ajax-upload`), with the `page@:` prefix the destination would be:
@@ -74,10 +74,10 @@ Destination is the location where uploaded files should be stored. This can be e
   [prism classes="language-yaml"]
   destination: 'page@:/blog/ajax-upload'
   [/prism]
-3. Assuming the current theme is `antimatter` and we want to upload to the assets folder (physical location being `user/themes/antimatter/assets`), with the `theme@:` prefix the destination would be:
+3. Assuming the current theme is `antimatter` and we want to upload to the assets folder (physical location being `user/themes/antimatter/assets`), with the `theme` stream the destination would be:
 
    [prism classes="language-yaml"]
-   destination: 'theme@:/assets'
+   destination: 'theme://assets'
    [/prism]
 
 #### `random_name`
@@ -130,7 +130,7 @@ The `accept` setting allows an array of MIME type as well as extensions definiti
 In addition you can also allow any file by simply using the __*__ (star) notation `accept: ['*']`.
 
 ##### Examples
-    
+
 1. To only allow `yaml` and `json` files:
    [prism classes="language-yaml line-numbers"]
      accept:
@@ -158,11 +158,11 @@ In addition you can also allow any file by simply using the __*__ (star) notatio
 
 #### `filesize`
 
-The max file size is limited by: 
+The max file size is limited by:
 
 1. field level  `filesize:`, then ...
 
-2. Form plugin level configuration `user/plugins/form.yaml` setting `files: filesize:`, then if neither of those are limiting... 
+2. Form plugin level configuration `user/plugins/form.yaml` setting `files: filesize:`, then if neither of those are limiting...
 
 3. PHP level configuration for `upload_max_filesize` for individual files that are uploaded, and `post_max_size` for the max form post total size.
 
@@ -174,7 +174,7 @@ The max file size is limited by:
      name: myfile
      type: file
      label: A Label
-     destination: 'user/plugins/my-plugin/assets'
+     destination: 'plugins://my-plugin/assets'
      filesize: 5
      accept:
        - image/*
@@ -185,7 +185,7 @@ The max file size is limited by:
    files:
      multiple: false
      limit: 10
-     destination: '@self'
+     destination: 'self@'
      avoid_overwriting: false
      random_name: false
      filesize: 5

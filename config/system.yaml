@@ -11,8 +11,9 @@ pages:
   hide_empty_folders: true
 
 languages:
-    supported: [15,16,17]
-    default_lang: 16
+    supported: [17,16,15]
+    default_lang: 17
+    include_default_lang: true
     content_fallback:
         15: ['15', '']
         16: ['16', '15', '']
@@ -54,5 +55,6 @@ debugger:
     close_connection: true
 
 strict_mode:
-    yaml_compat: false
-    twig_compat: false
+  yaml_compat: true
+  twig_compat: true
+  blueprint_compat: true

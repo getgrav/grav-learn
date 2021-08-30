@@ -228,9 +228,44 @@ The following example will display a textual link (`display('text')`) to a sepia
 [/ui-tab]
 [/ui-tabs]
 
+#### Cache only
+
+Grav can be set to cache all image files, this may increase the speed that files are served. However, images will go through the Grav image manipulation system which may lead to a considerably larger file size for images that have already been optimized prior to Grav. Image manipulation can be bypassed.
+
+Enable `cache_all` in `system/config/system.yaml`
+{% verbatim %}
+```yaml
+images:
+  default_image_quality: 85
+  cache_all: false
+```
+{% endverbatim %}
+
+Disable image manipulation with the `cache`option.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```markdown
+![](sample-image.jpg?cache)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```twig
+{{ page.media['sample-image.jpg'].cache.html()|raw }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```html
+{{ page.media['sample-image.jpg'].cache.html()|e }}
+```
+[/ui-tab]
+[/ui-tabs]
+
 #### lightbox
 
-The lightbox action is essentially the same as the link action but with a few extras. Like explained above, the lightbox action will not do anything more than create a link with some extra attributes. It differs from the link action in that it adds a `rel="lightbox"` attribute and accepts a `width` and `height` attribute.
+The lightbox action is essentially the same as the link action but with a few extras. Like explained above ([Links and Lightboxes](https://learn.getgrav.org/16/content/media#links-and-lightboxes)), the lightbox action will not do anything more than create a link with some extra attributes. It differs from the link action in that it adds a `rel="lightbox"` attribute and accepts a `width` and `height` attribute.
 
 If possible (currently only in the case of images), Grav will resize your media to the requested width and height. Otherwise it will simply add a `data-width` and `data-height` attribute to the link.
 
@@ -285,6 +320,31 @@ Manually choose the thumbnail Grav should use. You can choose between `page` and
 ##### Result:
 
 ![Sample Image](sample-image.jpg?thumbnail=default&display=thumbnail)
+
+#### attribute
+
+This adds an additional HTML attribute to the output.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```markdown
+![Sample Image](sample-image.jpg?attribute=myattribute,myvalue)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```twig
+{{ page.media['sample-image.jpg'].attribute('myattribute', 'myvalue').html('Sample Image')|raw }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```html
+{{ page.media['sample-image.jpg'].attribute('myattribute', 'myvalue').html('Sample Image')|e }}
+```
+[/ui-tab]
+[/ui-tabs]
+
 
 ## Image Actions
 
@@ -754,6 +814,35 @@ Fixes the orientation of the image when rotation is made via EXIF data (applies 
 [/ui-tab]
 [/ui-tabs]
 
+#### loading
+
+The loading attributing on images gives authors control over when the browser should start loading the resource. The value for the loading attribute can be one of `auto` (default), `lazy`, `eager`.
+Value can be set in `system.images.defaults.loading` as default value, or per md image with `?loading=lazy`
+When value `auto` is chosen, no `loading` attribute is added and browser will determine which strategy to use.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```markdown
+![Sample Image](sample-image.jpg?loading=lazy)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```twig
+{# Using default value as defined in 'config.system.images.defaults.loading' #}
+{{ page.media['sample-image.jpg'].loading.html('Sample Image')|raw }}
+
+{# Using explicit value #}
+{{ page.media['sample-image.jpg'].loading('lazy').html('Sample Image')|raw }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```html
+<img loading="lazy" title="Sample Image"  src="/images/e/f/1/0/5/ef10554cd3a99f2e65136e79dce170d4f8a7a1b9-sample-image.jpg" />
+```
+[/ui-tab]
+[/ui-tabs]
 
 ## Animated / Vectorized Actions
 

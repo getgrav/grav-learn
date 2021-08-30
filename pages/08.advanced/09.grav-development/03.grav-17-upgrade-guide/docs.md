@@ -1,8 +1,8 @@
 ---
-title: Grav 1.7 Upgrade Guide
+title: Upgrading to Grav 1.7
 taxonomy:
     category: docs
-last_checked: 1.7.0-rc16
+last_checked: 1.7.0 (01/19/2021)
 ---
 
 Grav 1.7 introduces a few new features, improvements, bug fixes and provides many architectural changes which pave the road towards Grav 2.0. Here are a few highlights:
@@ -14,13 +14,61 @@ Grav 1.7 introduces a few new features, improvements, bug fixes and provides man
 * **Improved Admin ACL**: Full CRUD support for users and pages.
 * **Improved Media Support**: Support `webp` image format, lazy loading and more.
 * **Improved Caching**: New `{% cache %}` tag and improved performance especially in admin.
+* **XSS Detection in Forms**: Forms will not submit if potential XSS is detected in them. Check the [documentation](/forms/forms/form-options#xss-checks) on how to disable the checks.
 * **Better Debugging Tools**: [Clockwork](https://underground.works/clockwork/) integration, Twig profiling and support for [Tideways XHProf](https://github.com/tideways/php-xhprof-extension) PHP Extension for performance profiling.
 
 !!!! **IMPORTANT:** For most people, Grav 1.7 should be a simple upgrade without any issues, but like any upgrade, it is recommended to **take a backup** of your site and **test the upgrade in a testing environment** before upgrading your live site.
 
+### Most Common Issues
+
+1.  ###### HTML is displayed as **code** on your site rather than being **rendered** as HTML as intended.
+    This behavior is a result of the new default of **auto-escaping** being true in Grav 1.7.  This is a security enhancement, and if you are upgrading from a version prior to 1.7, we automatically enable **Twig Compatibility** setting in the system configuration to ensure your old Twig code will continue to function.  If you manually update to 1.7 or upgrade in any way that does not go through the GPM self upgrade process, you should set this setting yourself.
+
+    Check out the [Twig section](#twig) of this guide for full details...
+
+2.  ###### Getting errors about invalid YAML.
+    As we have upgraded to a newer version of Symfony framework, the YAML parser is stricter than it was in versions prior to 1.7.  To handle this we have included an older version of the parser that is available when enabling **Yaml Compatibility**.  This is automatically handled for you if you upgrade to Grav 1.7 via GPM, but if you have upgraded manually, you will need to set this value yourself.
+
+    Check out the [YAML section](#yaml) of this guide for full details...
+
+3. ###### Admin showing up with untranslated strings
+
+   If your admin is displaying with untranslated strings in the interface, it's most likely because you have previously disabled **Language Translations**.  This was buggy in previous versions of Grav and disabling it, didn't actually disable translations throughout the admin as intended.  This is **fixed** in Grav 1.7 and this setting is doing what it is intended to do, show the translation codes in uppercase rather than the translated strings themselves.
+
+   Check out the [Troubleshooting](#troubleshooting-issues) section for the fix.
+
+4. ###### Errors on Saving or Non-functioning Admin plugins
+   In Grav 1.7 we introduced **Flex Pages** as the new default page management UI.  Also, to optimize performance, we stopped initializing pages on every admin call.  Switching back to regular **Grav Pages** might temporarily resolve your issue.  This is done by editing the **FlexObjects** plugin and disabling **Pages (Admin)**.
+
+   To properly address the issue, custom plugins should be updated to support both **Grav Pages** and **Flex Pages** by using `PageInterface` and also should explicitly Pages when required.
+
+   Check out the [Pages section](#pages-1) and [Admin Section](#admin) of this guide for full details...
+
+    There have also been some specific plugin issues that have already been discovered. Check out the [Troubleshooting](#troubleshooting-issues) section of this page for specific issues with plugins.
+
+5. ###### Page blueprints stop working or give error about a loop
+   **Grav 1.7.8** adds support for defining any **blueprint** in your theme. This means that if you have page blueprints in `blueprints/pages/` folder, standard blueprint locations are used, just like in plugins. Unfortunately some older themes may have a mix of files in `blueprints/` and `blueprint/pages`, which breaks the detection and causes either missing fields in admin when editing the pages or a fatal error: `Loop detected while extending blueprint file`.
+
+   If either of these errors happen, check out the [Troubleshooting](#troubleshooting-issues) section for the fix.
+
+### Quick Update Guide
+
+!! **Grav 1.7** requires **PHP 7.3.6** or later version. The recommended version is the latest **PHP 7.4** release.
+
 ### YAML
 
-! **NOTE:** Grav 1.7 YAML parser is more strict and your site may break if you have syntax errors in your configuration files or page headers.
+!!!! **IMPORTANT:** Grav 1.7 YAML parser is more strict and your site may break if you have syntax errors in your configuration files or page headers. However, if you update your existing site using `bin/gpm` or `Admin Plugin` upgrade process keeps most of the broken YAML syntax working.
+
+To revert to the old behavior you need to make sure you have following setting in `user/config/system.yaml`:
+
+```yaml
+strict_mode:
+  yaml_compat: true
+```
+
+or in Admin under **Configuration** → **Advanced** -> **YAML Compatibility**
+
+![Yaml Compatibility](yaml-compat.png?classes=shadow)
 
 !!! **TIP:** **Grav 1.6 Upgrade Guide** has a dedicated **[YAML Parsing](/advanced/grav-development/grav-16-upgrade-guide#yaml-parsing)** section to help you to fix these issues.
 
@@ -29,6 +77,23 @@ By default, Grav 1.7 uses a **Symfony 4.4 YAML parser**, which follows the [YAML
 !!! **TIP:** You should run **CLI command** `bin/grav yamllinter` or visit in **Admin** > **Tools** > **Reports** before and after upgrade and fix all the YAML related warnings and errors.
 
 ### Twig
+
+!!!! **IMPORTANT:** Grav 1.7 enables **Twig Auto-Escaping** by default. However, if you update your existing site using `bin/gpm` or `Admin Plugin` upgrade process keeps the existing auto-escape settings.
+
+To revert to the old behavior you need to make sure you have following settings in `user/config/system.yaml`:
+
+```yaml
+twig:
+  autoescape: false
+strict_mode:
+  twig_compat: true
+```
+
+or in Admin under **Configuration** → **Advanced** -> **Twig Compatibility**
+
+And please remember to clear cache after doing this!
+
+![Twig Compatibility](twig-compat.png?classes=shadow)
 
 !!! **TIP:** **Grav 1.6 Upgrade Guide** has a dedicated **[Twig](/advanced/grav-development/grav-16-upgrade-guide#twig)** section. It is very important to read it first!
 
@@ -45,14 +110,34 @@ Additional changes in templating are:
 * Improved `authorize()` twig function to work better with nested rule parameters
 * Improved `|yaml_serialize` twig filter: added support for `JsonSerializable` objects and other array-like objects
 * Added default templates for `external.html.twig`, `default.html.twig`, and `modular.html.twig`
+* **BACKWARDS COMPATIBILITY BREAK**: Use `{% script 'file.js' at 'bottom' %}` instead of `in 'bottom'` which is broken
 
 ## Forms
 
-In forms declaring `validation: strict` was not as strict as we hoped because of a bug. The strict mode should prevent forms from sending any extra fields and this was fixed into Grav 1.7. Unfortunately many of the old forms declared to be strict even if they had extra data in them.
+!!!! **IMPORTANT:** Grav 1.7 changes the behavior of **Strict Validation**. However, if you update your existing site using `bin/gpm` or `Admin Plugin` upgrade process keeps the existing strict mode behaviour.
+
+**Strict mode Improvements**: Inside forms, declaring `validation: strict` was not as strict as we hoped because of a bug. The strict mode should prevent forms from sending any extra fields and this was fixed into Grav 1.7. Unfortunately many of the old forms declared to be strict even if they had extra data in them.
+
+To revert to the old behavior you need to make sure you have following setting in `user/config/system.yaml`:
+
+```yaml
+strict_mode:
+  blueprint_compat: true
+```
+
+**XSS Injection Detection** is now enabled in all the frontend forms by default. Check the [documentation](/forms/forms/form-options#xss-checks) on how to disable or customize the checks per form and per field.
 
 Because of this, we added new configuration option `system.strict_mode.blueprint_compat: true` to maintain old `validation: strict` behavior. It is recommended to turn off this setting to improve site security, but before doing that, please search through all your forms if you were using `validation: strict` feature. If you were, either remove the line or test if the form still works.
 
 ! **NOTE:** This backwards compatibility fallback mechanism will be removed in Grav 2.0
+
+### Environments and Multi-Site
+
+!!!! **Important:** Grav 1.7 moves [environments](/advanced/environment-config) into `user://env` folder. The old location still works, but it is better to move environments into a single location future features may rely on it.
+
+Grav 1.7 also adds support for [Server Based Environment Configuration](/advanced/environment-config#server-based-environment-configuration) and [Server Based Multi-Site Configuration](/advanced/multisite-setup#server-based-multi-site-configuration). This feature comes handy if you want to use for example docker containers and you want to make them independent of the domain you happen to use. Or if do not want to store secrets in the configuration, but to store them in your server setup.
+
+In addition `setup.php` file can now be in either `GRAV_ROOT/setup.php` or `GRAV_ROOT/GRAV_USER_PATH/setup.php`. The second location makes it easier to use environments with git repositories containing only user folder.
 
 ### User Accounts
 
@@ -71,7 +156,7 @@ The existing [Pages Administration](/admin-panel/page) has been greatly improved
 * Better access control: [CRUD ACL](/admin-panel/page/permissions) support with page owners
 * Better multi-language support
 
-!! **BACKWARDS COMPATIBILITY BREAK**: We fixed 404 error page when you go to non-routable page with routable child pages under it. Now you get redirected to the first routable child page instead. This is probably what you wanted in the first place.
+!! **BACKWARDS COMPATIBILITY BREAK**: We fixed 404 error page when you go to non-routable page with routable, visible child pages under it. Now you get redirected to the first routable, visible child page instead. This is probably what you wanted in the first place.
 
 !!! **NOTE:** Flex Pages feature is not yet used in the frontend of your site.
 
@@ -99,10 +184,12 @@ Media handling has been greatly improved in Grav 1.7. Some highlights are:
 
 Some highlights are:
 
+* All CLI commands now accept `--env` and `--lang` parameters to set the environment and the used language respectively (`-e` does not work anymore)
 * Added new `bin/grav server` CLI command to easily run Symfony or PHP built-in web servers
 * Improved `Scheduler` cron command check and more useful CLI information
 * Added new `-r <job-id>` option for Scheduler CLI command to force-run a job
 * Improved `bin/grav yamllinter` CLI command by adding an option to find YAML Linting issues from the whole site or custom folder
+* CLI/GPM command failures now return non-zero code (allowing error detection if command fails)
 
 ### Configuration
 
@@ -136,11 +223,6 @@ Added system configuration support for `HTTP_X_FORWARDED` headers (host disabled
   * system.yaml: `http_x_forwarded.ip`: true|**false**
   * Admin: **Configuration** > **System** > **Advanced** > **HTTP_X_FORWARDED IP Enabled**
 
-Added new configuration option to enable Flex Pages in the frontend
-  * **EXPERIMENTAL**: Use only for testing purposes!
-  * system.yaml: `pages.type`: **regular**|flex
-  * Admin: **Configuration** > **System** > **Experimental** > **Frontend Page Type**
-
 Added new configuration option `security.sanitize_svg` to remove potentially dangerous code from SVG files
   * security.yaml: `sanitize_svg`: **true**|false
   * Admin: **Configuration** > **Security** > **Sanitize SVG**
@@ -155,6 +237,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 
 ### Use composer autoloader
 
+* Upgraded `bin/composer.phar` to `2.0.2` which is all new and much faster
 * Please add `composer.json` file to your plugin and run `composer update --no-dev` (and remember to keep it updated):
 
     composer.json
@@ -245,6 +328,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
     ```
 
 * Added `themes` to cached blueprints and configuration
+* **Grav 1.7.8** adds support for defining any **blueprint** in your theme. Move all files and folders in `blueprints/` into `blueprints/pages/` to keep your theme forward compatible. Also remember to update minimum Grav dependency to `>=1.7.8`.
 
 ### Sessions
 
@@ -268,13 +352,17 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 
 ### Pages
 
-* Added experimental support for `Flex Pages` in the frontend (not recommended to use yet)
+* Added default templates for `external.html.twig`, `default.html.twig`, and `modular.html.twig`
 * Admin uses `Flex Pages` by default (can be disabled from `Flex-Objects` plugin)
+
+  ![Disable Flex Pages](disable-flex-pages.png?classes=shadow)
+
 * Added page specific admin permissions support for `Flex Pages`
 * Added root page support for `Flex Pages`
 * Fixed wrong `Pages::dispatch()` calls (with redirect) when we really meant to call `Pages::find()`
 * Added `Pages::getCollection()` method
 * Moved `collection()` and `evaluate()` logic from `Page` class into `Pages` class
+
 * **DEPRECATED** `$page->modular()` in favor of `$page->isModule()`
 * **DEPRECATED** `PageCollectionInterface::nonModular()` in favor of `PageCollectionInterface::pages()`
 * **DEPRECATED** `PageCollectionInterface::modular()` in favor of `PageCollectionInterface::modules()`
@@ -283,6 +371,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 * **BC BREAK** Always use `\Grav\Common\Page\Interfaces\PageInterface` instead of `\Grav\Common\Page\Page` in method signatures
 * Admin now uses `Flex Pages` by default, collection will behave in slightly different way
 * **BC BREAK** `$page->topParent()` may return page itself instead of null
+* **BC BREAK** `$page->header()` may now `\Grav\Common\Page\Header` return object instead of `stdClass`, you need to handle both (Flex vs regular)
 
 ### Media
 
@@ -313,9 +402,15 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
   * Added `FlexRegisterEvent` which triggers when `$grav['flex']` is being accessed the first time
 * Added `hasFlexFeature()` method to test if `FlexObject` or `FlexCollection` implements a given feature
 * Added `getFlexFeatures()` method to return all features that `FlexObject` or `FlexCollection` implements
+* Added `FlexObject::refresh()` method to make sure object is up to date
 * Added `FlexStorage::getMetaData()` to get updated object meta information for listed keys
+* Added `FlexDirectoryInterface` interface
+* Added search option `same_as` to Flex Objects
+* `Flex Pages` method `$page->header()` returns `\Grav\Common\Page\Header` object, old `Page` class still returns `stdClass`
+* Renamed `PageCollectionInterface::nonModular()` into `PageCollectionInterface::pages()` and deprecated the old method
+* Renamed `PageCollectionInterface::modular()` into `PageCollectionInterface::modules()` and deprecated the old method
 * `FlexDirectory::getObject()` can now be called without any parameters to create a new object
-* Flex Directory: Implemented customizable configuration per flex type
+* Implemented customizable configuration per flex directory type
 * **DEPRECATED** `FlexDirectory::update()` and `FlexDirectory::remove()`
 * **BC BREAK** Moved all Flex type classes under `Grav\Common\Flex`
 * **BC BREAK** `FlexStorageInterface::getStoragePath()` and `getMediaPath()` can now return null
@@ -329,6 +424,14 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 * Translations: rename MODULAR to MODULE everywhere
 * Added `Language::getPageExtensions()` to get full list of supported page language extensions
 * **BC BREAK** Fixed `Language::getFallbackPageExtensions()` to fall back only to default language instead of going through all languages
+
+### Multi-site
+
+* Added support for having all sites / environments under `user/env` folder
+
+### Serialization
+
+* All classes now use PHP 7.4 serialization. The old `Serializable` methods are now final and cannot be overridden.
 
 ### Blueprints
 
@@ -376,8 +479,13 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
     }
     ```
 
+### JavaScript
+
+* Updated bundled JQuery to latest version `3.5.1`
+
 ### Misc
 
+* Added `Utils::functionExists()`: PHP 8 compatible `function_exists()`
 * Added `Utils::isAssoc()` and `Utils::isNegative()` helper methods
 * Added `Utils::simpleTemplate()` method for very simple variable templating
 * Added `Utils::fullPath()` to get the full path to a file be it stream, relative, etc.
@@ -390,6 +498,7 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 * **BC BREAK** Make `Route` objects immutable. This means that you need to do: `{% set route = route.withExtension('.html') %}` (for all `withX` methods) to keep the updated version.
 * Better `Content-Encoding` handling in Apache when content compression is disabled
 * Added a `Uri::getAllHeaders()` compatibility function
+* Allow `JsonFormatter` options to be passed as a string
 
 ### CLI
 
@@ -404,10 +513,10 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
         * `$this->initializePages();` This initializes grav, plugins, theme and everything needed by pages
 * It is a good idea to prefix your CLI command classes with your plugin name, otherwise there may be naming conflicts (we already have some!)
 
-### Composer dependencies
+### Used Libraries
 
 * Updated Symfony Components to 4.4, please update any deprecated features in your code
-* **BC BREAK** Please run `bin/grav yamllinter -f user://` to find any YAML parsing errors in your site (including your plugins and themes).
+* **BC BREAK** Please run `bin/grav yamllinter` to find any YAML parsing errors in your site (including your plugins and themes).
 
 ## PLUGINS
 
@@ -428,3 +537,68 @@ Added new configuration option `security.sanitize_svg` to remove potentially dan
 ### Shortcode Core
 
 * **DEPRECATED** Every shortcode needs to have `init()` method, classes without it will stop working in the future.
+
+## Troubleshooting Issues
+
+#### `ERROR: flex-objects.html.twig template not found for page`
+
+If you get this error after upgrading to Grav 1.7, it might be related to a plugin called `content-edit`.  If you disable this plugin, the error should resolve itself. [Grav Issue #3169](https://github.com/getgrav/grav/issues/3169)
+
+#### Untranslated Admin
+
+If your admin plugin looks like this:
+
+![Untranslated Admin](untranslated.png?classes=shadow)
+
+The fix is very easy, and can be done even when not fully translated. Simply navigate to `PLUGIN_ADMIN.CONFIGURATION` and then in `PLUGIN_ADMIN.LANGUAGES`, set `PLUGIN_ADMIN.LANGUAGE_TRANLATIONS` to `PLUGIN_ADMIN.YES`:
+
+![Fix translations](fix-translations.png?classes=shadow)
+
+#### Page blueprints stop working in Admin
+
+If you cannot see your custom fields when editing the page, your theme is using two conflicting locations for page blueprints.
+
+If the theme was not created by you, please report a bug to the theme author.
+
+To fix the bug, you need to move all files and folders in your theme from `blueprints/` to `blueprints/pages/` (requires **Grav 1.7.8+**). Alternatively if the theme must support older versions of Grav, do the opposite.
+
+#### Error: Loop detected while extending blueprint file
+
+The easiest fix for loop error is to move the files into their proper location, please see the above issue.
+
+Alternatively you can fix the issue by changing the broken page blueprint from:
+
+```yaml
+extends@:
+    type: [NAME]
+    context: 'blueprints://pages'
+```
+
+where `[NAME]` is the filename (without the file extension) of the blueprint itself, to:
+
+```yaml
+extends@: self@
+```
+
+#### Missing CSS Styling in Admin
+
+It has been reported that after upgrading to latest Grav 1.7 and Admin 1.10, some admin pages appear broken and not fully styled.  THis could be related to the `imagecreate` plugin.  Disabling this plugin is not enough, you must **completely remove** the plugin, and then the error should resolve  itself.  [Admin Issue #2035](https://github.com/getgrav/grav-plugin-admin/issues/2035)
+
+## Reverting back to latest Grav 1.6
+
+While we recommend resolving any issues you may have to ensure that Grav 1.7 and future updates will be an easy upgrade, there are going to be scenarios where you have custom plugin functionality, or don't have the developer resources handy, and just need to get back to Grav 1.6 quickly.
+
+If you have CLI access to the site, this can be done by running these commands from the **root of your Grav 1.7** site:
+
+```bash
+wget -q https://getgrav.org/download/core/grav-update/1.6.31 -O tmp/grav-update-v1.6.31.zip
+wget -q https://getgrav.org/download/plugins/admin/1.9.19 -O tmp/grav-plugin-admin-v1.9.19.zip
+unzip tmp/grav-update-v1.6.31.zip -d tmp
+unzip tmp/grav-plugin-admin-v1.9.19.zip -d tmp
+cp -rf tmp/getgrav-grav-plugin-admin-5d86394/* user/plugins/admin/
+cp -rf tmp/grav-update/* ./
+```
+
+Basically it does a **direct-install** of the latest version of Grav 1.6 and Admin 1.9 on top of your current installation.  It doesn't touch the `user/` folder so your content and plugins are not impacted.
+
+For those who do not have CLI access, download [grav-update-v1.6.31.zip](https://github.com/getgrav/grav/releases/download/1.6.31/grav-update-v1.6.31.zip) and [grav-plugin-admin-1.9.19.zip](https://github.com/getgrav/grav-plugin-admin/archive/1.9.19.zip) files using the links given here. Unzip the files into your filesystem. Then use your favorite FTP/SFTP client to copy all the Grav files to your `WEBROOT` and Admin files into `WEBROOT/user/plugins/admin`.

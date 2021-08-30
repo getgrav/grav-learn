@@ -105,3 +105,4 @@ Another cause could be your page is **not routable**. The routable option for a 
 
 If your site is in a subfolder, make sure your nginx.conf location points to that subfolder. Grav's [sample nginx.conf](https://github.com/getgrav/grav/blob/master/webserver-configs/nginx.conf) has a comment in the code that explains how.
 
+ If your homepage works but other pages are not found, make sure your nginx.conf is configured according to sample nginx.conf.
