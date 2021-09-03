@@ -57,7 +57,9 @@ class ExamplePlugin extends Plugin
 [prism classes="language-php line-numbers"]
 <?php
 namespace Grav\Plugin;
-class ExampleTwigExtension extends \Twig_Extension
+use Grav\Common\Twig\Extension\GravExtension;
+
+class ExampleTwigExtension extends GravExtension
 {
     public function getName()
     {
