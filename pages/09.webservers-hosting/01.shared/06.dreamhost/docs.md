@@ -16,7 +16,7 @@ Let’s focus on the lower end offer, shared hosting. It comes with a great admi
 
 ## Configuring PHP
 
-You can set every (sub)domain to have its own PHP version. At the time of writing, the default PHP version for new sites is 7.4. You can choose to use a later version (8.0 available), and we recommend doing so as PHP 5.5.9+ is required for Grav.
+You can set every (sub)domain to have its own PHP version. At the time of writing, the default PHP version for new sites is 7.4. You can choose to use a later version (8.0 available), and we recommend doing so as PHP 7.3.6+ is required for Grav.
 
 ![](php-version.png)
 
