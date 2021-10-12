@@ -38,7 +38,7 @@ sudo apt install apache2
 
 Create a project folder for your websites. For reasons mentioned above, this folder needs to be outside of the WSL filesystem. You could use for example: `C:/Users/<Username>/Documents/Development/Web/webroot`, or simply `C:/webroot`.
 
-In Ubunto, create a symbolic link to the `webroot` folder.
+In Ubuntu, create a symbolic link to the `webroot` folder.
 
 [prism classes="language-bash command-line"]
 sudo ln -s /mnt/c/your/path/to/webroot /var/www/webroot
