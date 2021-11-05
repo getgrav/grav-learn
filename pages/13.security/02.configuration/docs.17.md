@@ -54,7 +54,7 @@ For development server, there are a few settings we should change to make it mor
 
 ### System Configuration (`user/env/localhost/config/system.yaml`)
 
-!!! **TIP:** Replace localhost with your local domain.
+!!! **TIP:** Replace localhost with your local server name.
 
 ```yaml
 force_ssl: false      # If the development site doesn't use SSL
