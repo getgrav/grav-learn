@@ -9,7 +9,7 @@ twig_first: true
 
 All Grav configuration files are written in [YAML syntax](../../advanced/yaml) with a `.yaml` file extension.  YAML is very intuitive which makes it very easy to both read and write, however, you can check out the [YAML page in the Advanced chapter](../../advanced/yaml) to get a complete understanding of the syntax available.
 
-!!! **TIP:** See [Security > Configuration](/security/configuration) for a quick quide how to secure and optimize your production site.
+!!! **TIP:** See [Security > Configuration](/security/configuration) for a quick guide how to secure and optimize your production site.
 
 ## System Configuration
 
