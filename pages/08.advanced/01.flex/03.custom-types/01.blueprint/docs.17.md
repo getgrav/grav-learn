@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Basic structure of **Flex Blueprint** contains `title`, `description` and `type`, which describe the type and three sections: `config`, `blueprints` and `form`, which describe diferent aspects from the directory type.
+Basic structure of **Flex Blueprint** contains `title`, `description` and `type`, which describe the type and three sections: `config`, `blueprints` and `form`, which describe different aspects from the directory type.
 
 Main structure of `contacts.yaml`:
 ```yaml
