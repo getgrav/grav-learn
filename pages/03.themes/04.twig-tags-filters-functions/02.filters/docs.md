@@ -399,7 +399,8 @@ Translate a string into the current language
 
 `'MY_LANGUAGE_KEY_STRING'|t` <i class="fa fa-long-arrow-right"></i> **'Some Text in English'**
 
-This assumes you have these language strings translated in your site and have enabled multi-language support.  Please refer to the [multi-language documentation](../../content/multi-language) for more detailed information.
+This assumes you have these language strings translated in your site and have enabled 
+-language support.  Please refer to the [multi-language documentation](../../../content/multi-language) for more detailed information.
 
 ### `tu`
 
@@ -411,13 +412,13 @@ This uses the language field set in the user yaml.
 
 ### `ta`
 
-Translates an array with a language use the `|ta` filter. See the [multi-language documentation](../../content/multi-language) for a detailed example.
+Translates an array with a language use the `|ta` filter. See the [multi-language documentation](../../../content/multi-language) for a detailed example.
 
 `'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1)` <i class="fa fa-long-arrow-right"></i> **{{ now|date('F') }}**
 
 ### `tl`
 
-Translates a string in a specific language. For more details check out the [multi-language documentation](../../content/multi-language#complex-translations).
+Translates a string in a specific language. For more details check out the [multi-language documentation](../../../content/multi-language#complex-translations).
 
 `'SIMPLE_TEXT'|tl(['fr'])`
 
