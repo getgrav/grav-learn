@@ -433,7 +433,10 @@ The `vardump()` function outputs the current variable to the screen (rather than
 {% set my_array = {foo: 'bar', baz: 'qux'} %}
 
 [prism classes="language-twig"]
-{{ vardump(my_array) }}
+[
+  "foo" => "bar"
+  "baz" => "qux"
+]
 [/prism]
 
 [version=16,17]
