@@ -9,6 +9,8 @@ twig_first: true
 
 All Grav configuration files are written in [YAML syntax](../../advanced/yaml) with a `.yaml` file extension.  YAML is very intuitive which makes it very easy to both read and write, however, you can check out the [YAML page in the Advanced chapter](../../advanced/yaml) to get a complete understanding of the syntax available.
 
+!!! **TIP:** See [Security > Configuration](/security/configuration) for a quick guide how to secure and optimize your production site.
+
 ## System Configuration
 
 Grav focuses on making things as easy as possible for the user, and the same goes for configuration.  Grav comes with some sensible default options, and these are contained in a file that resides in the `system/config/system.yaml` file.
@@ -66,7 +68,7 @@ These configuration options do not appear within their own child sections. They'
 [prism classes="language-yaml line-numbers"]
 languages:
   supported: []
-  default_lang:  
+  default_lang:
   include_default_lang: true
   include_default_lang_file_extension: true
   pages_fallback_only: false
@@ -242,8 +244,8 @@ cache:
   allow_webserver_gzip: false
   redis:
     socket: false
-    password:  
-    database:  
+    password:
+    database:
 [/prism]
 
 The **Cache** section is where you can configure the site's caching settings. You can enable, disable, choose the method, and more.
@@ -312,7 +314,7 @@ assets:
   js_pipeline_before_excludes: true
   js_minify: true
   enable_asset_timestamp: false
-  enable_asset_sri: false   
+  enable_asset_sri: false
   collections:
     jquery: system://assets/jquery/jquery-2.x.min.js
 [/prism]
@@ -406,10 +408,10 @@ images:
   debug: false
   auto_fix_orientation: false
   seofriendly: false
-  cls:  
+  cls:
     auto_sizes: false
     aspect_ratio: false
-    retina_scale: 1 
+    retina_scale: 1
   defaults:
     loading: auto
 [/prism]
@@ -466,7 +468,7 @@ session:
   uniqueness: path
   secure: false
   httponly: true
-  samesite: Lax  
+  samesite: Lax
   split: true
   domain:
   path:
@@ -568,7 +570,7 @@ Flex Objects cache configuration settings are new in **Grav 1.7**. These are def
 strict_mode:
   yaml_compat: true
   twig_compat: true
-  blueprint_compat: false  
+  blueprint_compat: false
 [/prism]
 
 Strict mode allows for a cleaner migration to future versions of Grav by moving to the newer versions of YAML and Twig processors.  These may not be compatible with all 3rd party extensions.

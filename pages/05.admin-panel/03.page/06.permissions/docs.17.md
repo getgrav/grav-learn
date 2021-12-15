@@ -27,6 +27,10 @@ User / Group permissions for Pages are:
 | &nbsp; &nbsp; **List**                | *admin.pages.list*            | Gives the user access to **Pages** area of the admin.             |
 [/div]
 
+!! **WARNING:** All actions in Grav are only checked against a single permission type. If you prevent user from listing or reading pages in admin, but still allow users to perform create, update and delete, they can perform those actions. This means that even if users cannot see the `Pages` in admin, they can visit the edit page directly and perform those actions from there.
+
+!!! **TIP:** Starting from Grav 1.7, you can and should restrict the **CRUD** access for the individual pages and their children directly from the pages themselves.
+
 The possible values for the permissions are:
 
 [div class="table table-striped table-keycol"]
