@@ -64,7 +64,7 @@ The Script tag is really a convenience tag that keeps your Twig more readable co
 
 ### `switch`
 
-In most programming language, using a `switch` statement is a common way to make a bunch of `is else` statements cleaner and more readabile.  Also they may prove to be marginally faster.  We just provide a simple way of creating these as they were missing in the base Twig functionality.
+In most programming language, using a `switch` statement is a common way to make a bunch of `if else` statements cleaner and more readabile.  Also they may prove to be marginally faster.  We just provide a simple way of creating these as they were missing in the base Twig functionality.
 
 [prism classes="language-twig line-numbers"]
 {% switch type %}
