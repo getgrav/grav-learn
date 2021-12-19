@@ -2,6 +2,9 @@
 title: Content
 taxonomy:
     category: docs
+algolia-pro:
+    interface:
+        appearance: 'light'
 ---
 
 ### Chapter 2
