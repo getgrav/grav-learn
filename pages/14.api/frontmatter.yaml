@@ -5,4 +5,4 @@ metadata:
 shortcode-core:
   active: false
 algolia_pro:
-  process: true
+  process: false
