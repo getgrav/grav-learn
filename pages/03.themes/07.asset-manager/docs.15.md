@@ -62,7 +62,7 @@ An example of how you can add CSS files in your theme can be found in the defaul
         {% do assets.addJs('theme://js/html5shiv-printshiv.min.js') %}
     {% endif %}
 {% endblock %}
-{{ assets.css() }}
+{{ assets.css()|raw }}
 [/prism]
 
 The `block` twig tag just defines a region that can be replaced or appended to in templates that extend the one. Within the block, you will see a number of `do assets.addCss()` calls.
@@ -83,7 +83,7 @@ JavaScript assets are very similar:
     {% do assets.addJs('theme://js/slidebars.min.js') %}
     {% do assets.addInlineJs('alert(\'This is inline!\')') %}
 {% endblock %}
-{{ assets.js() }}
+{{ assets.js()|raw }}
 [/prism]
 
 ## Adding Assets
