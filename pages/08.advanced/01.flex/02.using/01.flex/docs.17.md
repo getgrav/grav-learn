@@ -185,7 +185,7 @@ Returns:
 {# Do something #}
 {% if contact %}
   {# Got Bruce Day #}
-  {{ contact.first_name|e }} {{ contact.last_name|e }} has a website: {{ contact.websize|e }}
+  {{ contact.first_name|e }} {{ contact.last_name|e }} has a website: {{ contact.website|e }}
 {% else %}
   Oops, contact has been removed!
 {% endif %}
