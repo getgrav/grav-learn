@@ -24,6 +24,4 @@ Thumbs.db
 # phpstorm
 .idea/*
 
-
-
-/env/learn.getgrav.org/config/plugins/algolia-pro.yaml
+/env/**/config/plugins/algolia-pro.yaml
