@@ -2,10 +2,6 @@
 title: Basics
 taxonomy:
     category: docs
-algolia-pro:
-    interface:
-        appearance: 'dark'
-    search_params:
 ---
 
 ### Chapter 1
