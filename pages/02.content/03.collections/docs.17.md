@@ -354,7 +354,7 @@ The type can also be negative: `non-published`, `non-visible`, `non-page` (=modu
 
 !! Collection filters have been simplified since **Grav 1.6**. The old `modular` and `non-modular` variants will still work, but are not recommended to use. Use `module` and `page` instead.
 
-### Ordering Options
+## Ordering Options
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -377,9 +377,9 @@ Ordering of sub-pages follows the same rules as ordering of folders, the availab
 | `modified`   | The order is based on the modified timestamp of the page                                                                                              |
 | `folder`     | The order is based on the folder name with any numerical prefix, i.e. `01.`, removed                                                                  |
 | `header.x`   | The order is based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015`    |
-| `manual`     | The order is based on the `order_manual` variable                                                                                                     |
 | `random`     | The order is randomized                                                                                                                            |
 | `custom`     | The order is based on the `content.order.custom` variable                                                                                                                             |
+| `manual`     | The order is based on the `order_manual` variable. **DEPRECATED**                                                                                                    |
 | `sort_flags` | Allow to override sorting flags for page header-based or default ordering. If the `intl` PHP extension is loaded, only [these flags](https://secure.php.net/manual/en/collator.asort.php) are available. Otherwise, you can use the PHP [standard sorting flags](https://secure.php.net/manual/en/array.constants.php). |
 [/div]
 
