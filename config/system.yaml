@@ -37,8 +37,10 @@ assets:
   css_pipeline: true
   css_minify: true
   css_rewrite: true
-  js_pipeline: false
+  js_pipeline: true
   js_minify: true
+  js_module_pipeline: true
+
   collections:
       jquery: system://assets/jquery/jquery-3.x.min.js
 
