@@ -312,6 +312,9 @@ assets:
   js_pipeline: false
   js_pipeline_include_externals: true
   js_pipeline_before_excludes: true
+  js_module_pipeline: false
+  js_module_pipeline_include_externals: true
+  js_module_pipeline_before_excludes: true
   js_minify: true
   enable_asset_timestamp: false
   enable_asset_sri: false
@@ -333,6 +336,9 @@ The **Assets** section enables you to configure options related to the Assets Ma
 | **js_pipeline:** | The JS pipeline is the unification of multiple JS resources into one file. Can be set to `true` or `false` |
 | **js_pipeline_include_externals:** | Include external URLs in the pipeline by default. Can be set to `true` or `false` |
 | **js_pipeline_before_excludes:** | Render the pipeline before any excluded files. Can be set to `true` or `false` |
+| **js_module_pipeline** | The JS Module pipeline is the unification of multiple JS Module resources into one file. Can be set to `true` or `false` |
+| **js_module_pipeline_include_externals** | Include external URLs in the pipeline by default. Can be set to `true` or `false` |
+| **js_module_pipeline_before_excludes** | Render the pipeline before any excluded files. Can be set to `true` or `false` |
 | **js_minify:** | Minify the JS during pipelining. Can be set to `true` or `false` |
 | **enable_asset_timestamp:** | Enable asset timestamps. Can be set to `true` or `false` |
 | **enable_asset_sri:** | Enable asset SRI. Can be set to `true` or `false` |

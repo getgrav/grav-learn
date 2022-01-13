@@ -19,18 +19,21 @@ It's much more flexible and more reliable than before. Also it's considerably 'c
 The Grav Asset Manager has a simple set of configuration options.  The default values are located in the system `system.yaml` file, but you can override any or all of them in your `user/config/system.yaml` file:
 
 [prism classes="language-yaml line-numbers"]
-assets:                                # Configuration for Assets Manager (JS, CSS)
-  css_pipeline: false                  # The CSS pipeline is the unification of multiple CSS resources into one file
-  css_pipeline_include_externals: true # Include external URLs in the pipeline by default
-  css_pipeline_before_excludes: true   # Render the pipeline before any excluded files
-  css_minify: true                     # Minify the CSS during pipelining
-  css_minify_windows: false            # Minify Override for Windows platforms, also applies to js. False by default due to ThreadStackSize
-  css_rewrite: true                    # Rewrite any CSS relative URLs during pipelining
-  js_pipeline: false                   # The JS pipeline is the unification of multiple JS resources into one file
-  js_pipeline_include_externals: true  # Include external URLs in the pipeline by default
-  js_pipeline_before_excludes: true    # Render the pipeline before any excluded files
-  js_minify: true                      # Minify the JS during pipelining
-  enable_asset_timestamp: false        # Enable asset timestamps
+assets:                                        # Configuration for Assets Manager (JS, CSS)
+  css_pipeline: false                          # The CSS pipeline is the unification of multiple CSS resources into one file
+  css_pipeline_include_externals: true         # Include external URLs in the pipeline by default
+  css_pipeline_before_excludes: true           # Render the pipeline before any excluded files
+  css_minify: true                             # Minify the CSS during pipelining
+  css_minify_windows: false                    # Minify Override for Windows platforms, also applies to js. False by default due to ThreadStackSize
+  css_rewrite: true                            # Rewrite any CSS relative URLs during pipelining
+  js_pipeline: false                           # The JS pipeline is the unification of multiple JS resources into one file
+  js_pipeline_include_externals: true          # Include external URLs in the pipeline by default
+  js_pipeline_before_excludes: true            # Render the pipeline before any excluded files
+  js_module_pipeline: false                    # The JS Module pipeline is the unification of multiple JS Module resources into one file
+  js_module_pipeline_include_externals: true   # Include external URLs in the pipeline by default
+  js_module_pipeline_before_excludes: true     # Render the pipeline before any excluded files
+  js_minify: true                              # Minify the JS during pipelining
+  enable_asset_timestamp: false                # Enable asset timestamps
   collections:
     jquery: system://assets/jquery/jquery-2.x.min.js
 [/prism]
@@ -66,7 +69,7 @@ There are multiple levels of positioning control as outlined in the diagram belo
 └───────────────────────┘
 
 
-  JS
+JS
 ┌───────────────────────┐
 │ Group (head)          │
 │┌─────────────────────┐│        ┌──────────────────┐
@@ -86,9 +89,32 @@ There are multiple levels of positioning control as outlined in the diagram belo
 ││└───────────────────┘││
 │└─────────────────────┘│
 └───────────────────────┘
+
+
+
+JS Module
+┌───────────────────────┐
+│ Group (head)          │
+│┌─────────────────────┐│        ┌──────────────────┐
+││ Position            ││        │   priority 100   │─────┐     ┌─────────────────────────┐
+││┌───────────────────┐││        ├──────────────────┤     ├────▶│        JS Module        │
+│││                   │││        │   priority 99    │─────┤     └─────────────────────────┘
+│││      before       │├┼──┬────▶├──────────────────┤     │
+│││                   │││  │     │    priority 1    │─────┤     ┌─────────────────────────┐
+││├───────────────────┤││  │     ├──────────────────┤     ├────▶│    inline JS Module     │
+│││                   │││  │     │    priority 0    │─────┘     └─────────────────────────┘
+│││     pipeline      │├┼──┤     └──────────────────┘
+│││                   │││  │
+││├───────────────────┤││  │
+│││                   │││  │
+│││       after       │├┼──┘
+│││                   │││
+││└───────────────────┘││
+│└─────────────────────┘│
+└───────────────────────┘
 [/prism]
 
-By defaults, `CSS` and `JS` default to display in the `pipeline` position when they are output.  While `InlineCSS` and `InlineJS` default to be in the `after` position.  This is configurable though, and you can set any asset to be in any position.
+By defaults, `CSS`, `JS` and `JS Module` default to display in the `pipeline` position when they are output.  While `InlineCSS`, `InlineJS` and `Inline JS Module` default to be in the `after` position.  This is configurable though, and you can set any asset to be in any position.
 
 ## Assets in Themes
 
@@ -97,6 +123,13 @@ By defaults, `CSS` and `JS` default to display in the `pipeline` position when t
 In general, you add CSS assets one by one using `assets.addCss()` or `assets.addInlineCss()` calls, then render those assets via `assets.css()`. Options controlling priority, pipelining or inlining can be specified per asset when adding it, or at rendering time for a group of assets.
 
 JS assets are handled similarly with `assets.addJs()` and `assets.addInlineJs()` calls. There is also a generic `assets.add()` method that tries to guess the type of asset you are adding, but it is recommended to use the more specific method calls.
+
+Since version 1.7.27, Grav's Assets Manager also supports JS Modules. These assets work exactly like JS assets but their type is `type="module"` and they are handled with `assets.addJsModule()` and `assets.addInlineJsModule()` calls. The generic `assets.add()` method will only fallback to JS Module if the extension detected is `.mjs`. Otherwise, any `.js` file will be treated as regular JS.
+
+! To learn more about JS Modules
+! * [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules?target=_blank)
+! * [https://v8.dev/features/modules](https://v8.dev/features/modules?target=_blank)
+! * [https://javascript.info/modules-intro](https://javascript.info/modules-intro?target=_blank)
 
 The Asset Manager also supports:
 
@@ -122,8 +155,9 @@ An example of how you can add CSS files in your theme can be found in the defaul
 
     {% block javascripts %}
         {% do assets.addJs('jquery', 101) %}
-        {% do assets.addJs('theme://js/jquery.treemenu.js', {group:'bottom'}) %}
-        {% do assets.addJs('theme://js/site.js', {group:'bottom'}) %}
+        {% do assets.addJs('theme://js/jquery.treemenu.js', { group: 'bottom' }) %}
+        {% do assets.addJs('theme://js/site.js', { group: 'bottom' }) %}
+        {% do assets.addJsModule('plugin://my_plugin/app/main.js', { group: 'bottom' }) %}
     {% endblock %}
 
     {% block assets deferred %}
@@ -158,25 +192,40 @@ The `bottom` block at the very end of your theme output, renders JavaScript that
 
 #### add(asset, [options])
 
-The add method does its best attempt to match an asset based on file extension.  It is a convenience method, it's better to call one of the direct methods for CSS or JS.  See the direct methods for details.
+The add method does its best attempt to match an asset based on file extension.  It is a convenience method, it's better to call one of the direct methods for CSS, Link, JS and JS Module.  See the direct methods for details.
 
-!! The options array is the preferred approach for passing multiple options. However as in the previous example with `jquery`, you can use a shortcut and pass in an integer for the **second argument** in the method if all you wish to set is the **priority**.
+!! The options array is the preferred approach for passing multiple options. However, as in the previous example with `jquery`, you can use a shortcut and pass in an integer for the **second argument** in the method if all you wish to set is the **priority**.
 
 #### addCss(asset, [options])
 
-This method will add assets to the list of CSS assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.  The `pipeline` option controls whether or not this asset should be included in the combination/minify pipeline. If not pipelined, the `loading` option controls whether the asset should be rendered as a link to an external stylesheet or whether its contents should be inlined inside an inline style tag.
+This method will add assets to the list of CSS assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.  The `pipeline` option controls whether this asset should be included in the combination/minify pipeline. If not pipelined, the `loading` option controls whether the asset should be rendered as a link to an external stylesheet or whether its contents should be inlined inside an inline style tag.
+
+#### addLink($asset, [options])
+
+This method will add assets to the of Link assets, in the form of `<link>` tag. It is useful for adding link tags to the head from anywhere in your site that are not CSS files. The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.
+
+Differently than the other methods for adding assets, `link()` does not support pipelining, nor does support `inline`.
 
 #### addInlineCss(css, [options])
 
-Lets you add a string of CSS inside an inline style tag. Useful for initialization or anything dynamic.  To inline a regular asset file's content, see the `{'loading': 'inline'}` option of the `addCss()` and `css()` methods.
+Lets you add a string of CSS inside an inline style tag. Useful for initialization or anything dynamic.  To inline a regular asset file's content, see the `{ 'loading': 'inline' }` option of the `addCss()` and `css()` methods.
 
 #### addJs(asset, [options])
 
-This method will add assets to the list of JavaScript assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.  The `pipeline` option controls whether or not this asset should be included in the combination/minify pipeline. If not pipelined, the `loading` option controls whether the asset should be rendered as a link to an external script file or whether its contents should be inlined inside an inline script tag.
+This method will add assets to the list of JavaScript assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.  The `pipeline` option controls whether this asset should be included in the combination/minify pipeline. If not pipelined, the `loading` option controls whether the asset should be rendered as a link to an external script file or whether its contents should be inlined inside an inline script tag.
 
 #### addInlineJs(javascript, [options])
 
-Lets you add a string of JavaScript inside an inline script tag. Useful for initialization or anything dynamic.  To inline a regular asset file's content, see the `{'loading': 'inline'}` option of the `addJs()` and `js()` methods.
+Lets you add a string of JavaScript inside an inline script tag. Useful for initialization or anything dynamic.  To inline a regular asset file's content, see the `{ 'loading': 'inline' }` option of the `addJs()` and `js()` methods.
+
+#### addJsModule(asset, [options])
+
+This method will add assets to the list of JavaScript Modules assets.  The priority defaults to 10 if not provided.  A higher number means it will display before lower priority assets.  The `pipeline` option controls whether this asset should be included in the combination/minify pipeline. If not pipelined, the `loading` option controls whether the asset should be rendered as a link to an external script file or whether its contents should be inlined inside an inline script tag.
+
+#### addInlineJsModule(javascript, [options])
+
+Lets you add a string of JavaScript inside an inline module script tag.  To inline a regular asset file's content, see the `{ 'loading': 'inline' }` option of the `addJsModule()` and `js()` methods.
+
 
 #### registerCollection(name, array)
 
@@ -196,7 +245,7 @@ Where appropriate, you can pass in an array of asset options. The core options a
 
 * **group**: string to specify a unique group name for asset (default is `head`)
 
-#### For JS
+#### For JS and JS Module
 
 * **priority**: Integer value (default value is `10`)
 
@@ -241,11 +290,25 @@ Will render as:
 <script src="/grav/user/pages/01.blog/assets-test/example.js" async id="custom-css"></script>
 [/prism]
 
+A Link example:
+
+[prism classes="language-twig"]
+{% do assets.addLink('theme://images/favicon.png', { rel: 'icon', type: 'image/png' }) %}
+{% do assets.addLink('plugin://grav-plugin/build/js/vendor.js', { rel: 'modulepreload' }) %}
+[/prism]
+
+Wil render as:
+
+[prism classes="language-html"]
+<link rel="icon" type="image/png" href="/user/themes/quark/images/favicon.png">
+<link href="/user/plugins/grav-plugin/build/js/vendor.js" rel="modulepreload">
+[/prism]
+
 ## Rendering Assets
 
 The following allow you to render the current state of the CSS and JavaScript assets.
 
-#### css([group, [options]])
+#### css(group, [options], include_link = true)
 
 Renders CSS assets that have been added to an Asset Manager's group (default is `head`). Options are
 
@@ -253,13 +316,21 @@ Renders CSS assets that have been added to an Asset Manager's group (default is 
 
 * **_link attributes_**, see below (default: `{'type': 'text/css', 'rel': 'stylesheet'}`). Effective only if `inline` is **not** used as this group's rendering option
 
+When `include_link` is enabled, which it is by default, calling `css()` will also propagate to calling `link()`.
+
 If pipelining is turned **off** in the configuration, the group's assets are rendered individually, ordered by asset priority (high to low), followed by the order in which assets were added.
 
 If pipelining is turned **on** in the configuration, assets in the pipeline position are combined in the order in which assets were added, then processed according to the pipeline configuration.
 
 Each asset is rendered either as a stylesheet link or inline, depending on the asset's `loading` option and whether `{'loading': 'inline'}` is used for this group's rendering. CSS added by `addInlineCss()` will be rendered in the `after` position by default, but you can configure it to render before the pipelined output with `position: before`
 
-#### js([group, [options]])
+#### link(group, [options])
+
+Renders Link assets that have been added o an Asset Manager's group (default is `head`). It is not recommended using a group different from `head`, this is where the browser expect the tag to be found and processed.
+
+Differently than the other methods for adding assets, `link()` does not support pipelining, nor does support `inline`.
+
+#### js(group, [options], include_js_module = true)
 
 Renders JavaScript assets that have been added to an Asset Manager's group (default is `head`). Options are
 
@@ -267,11 +338,30 @@ Renders JavaScript assets that have been added to an Asset Manager's group (defa
 
 * **_script attributes_**, see below (default: `{'type': 'text/javascript'}`). Effective only if `inline` is **not** used as this group's rendering option
 
+When `include_js_module` is enabled, which it is by default, calling `js()` will also propagate to calling `jsModule()`.
+
 If pipelining is turned **off** in the configuration, the group's assets are rendered individually, ordered by asset priority (high to low), followed by the order in which assets were added.
 
 If pipelining is turned **on** in the configuration, assets in the pipeline position are combined in the order in which assets were added, then processed according to the pipeline configuration. The combined pipeline result is then rendered before or after non-pipelined assets depending on the setting of `js_pipeline_before_excludes`.
 
 Each asset is rendered either as a script link or inline, depending on the asset's `loading` option and whether `{'loading': 'inline'}` is used for this group's rendering. Note that the only way to inline a JS pipeline is to use inline loading as an option of the `js()` method. JS added by `addInlineJs()` will be rendered in the `after` position by default, but you can configure it to render before the pipelined output with `position: before`
+
+
+#### jsModule(group, [options])
+
+Works exactly like the `js()` renderer, but for JavaScript modules. The default script type attribute is `type="module"`, even when rendering `inline`.
+
+#### all(group, [options])
+
+Renders every asset above in the order: `css()`, `link()`, `js()`, `jsModule()`
+
+This is the recommended way of including deferred assets into your main twig file (usually `base.html.twig`).
+
+```twig
+{% block assets deferred %}
+  {{ assets.all()|raw }}
+{% endblock %}
+```
 
 ## Named Assets and Collections
 
