@@ -4,5 +4,5 @@ metadata:
     keywords: "grav api, api, classes"
 shortcode-core:
   active: false
-ez-algolia:
+algolia_pro:
   process: false

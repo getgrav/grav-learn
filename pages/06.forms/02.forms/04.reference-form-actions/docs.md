@@ -208,6 +208,27 @@ process:
     - reset: true
 [/prism]
 
+### Remember field values
+
+Using the `remember` action, you can allow your users to have _some_ field values "recalled" from the last time a form was submitted. This is especially useful for forms which are submitted repeatedly, like an anonymous submission that requires information about the submitter.
+
+! [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) and [Grav's Form plugin](../fields-available#common-field-attributes) already provide this in limited ways through the browser, so do make use of this. However, you may find that autocomplete doesn't work reliably for some users and fields.
+
+! The `remember` action **uses cookies** to store the last value, so it will only work on the same device and browser where the browser is configured to allow them from your site.
+
+To use this action, simply list the names of the fields you would like to be remembered.
+
+For example, an online medical referral form is a good use case. These are typically completed from the same computer with some field values that rarely change and are boring to complete repeatedly.
+
+[prism classes="language-yaml"]
+process:
+    - remember:
+        - referrer-name
+        - referrer-address
+        - referrer-specialty
+        - preferred-practitioner
+[/prism]
+
 ## Custom Actions
 
 You can "hook" into a form processing and perform any kind of operation. Perform custom processing, add data for an online web application, even save to a database.

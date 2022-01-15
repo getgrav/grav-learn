@@ -21,7 +21,7 @@
             {% do assets.add('theme://js/html5shiv-printshiv.min.js') %}
         {% endif %}
 
-        {{ assets.css() }}
+        {{ assets.css()|raw }}
     {% endblock %}
 
     {% block javascripts %}
@@ -30,7 +30,7 @@
         {% do assets.add('theme://js/learn.js') %}
         {% do assets.add('theme://js/featherlight.min.js') %}
 
-        {{ assets.js() }}
+        {{ assets.js()|raw }}
     {% endblock %}
 
     {% endblock %}

@@ -1,4 +1,13 @@
-enabled: true     # Plugin enabled
-active: false     # TOC processed by default for all page
-start: 2          # Start header tag level (1 = h1)
-depth: 2          # Depth from start (2 = 2 levels deep)
+enabled: true               # Plugin enabled
+active: true                # TOC processed by default for all page
+start: 2                    # Start header tag level (1 = h1)
+depth: 2                    # Depth from start (2 = 2 levels deep)
+anchors:                    # Anchor configuration
+  start: 1                  # Start header tag level (1 = h1)
+  depth: 6                  # Depth from start (2 = 2 levels deep)
+  link: true                # Enabled auto-generation of clickable link with fragment
+  aria: Anchor              # Aria label to use
+  class:                    # Custom Header anchor styling classes
+  icon: '#'                 # Icon to use, can be a symbol, emoji, ascii etc.
+  position: after           # Position to put the anchor, `before|after`
+  copy_to_clipboard: true

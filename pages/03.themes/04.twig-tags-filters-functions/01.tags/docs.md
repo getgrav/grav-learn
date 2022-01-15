@@ -37,6 +37,13 @@ The Script tag is really a convenience tag that keeps your Twig more readable co
 {% script 'theme://js/something.js' at 'bottom' priority: 20 with { defer: true, async: true } %}
 [/prism]
 
+Grav 1.7.28 adds also support for modules:
+
+[prism classes="language-twig line-numbers"]
+{% script module 'theme://js/module.mjs' %}
+[/prism]
+
+
 #### Inline Script
 
 [prism classes="language-twig line-numbers"]
@@ -62,9 +69,16 @@ The Script tag is really a convenience tag that keeps your Twig more readable co
 [/prism]
 [/version]
 
+### `link`
+
+[prism classes="language-twig line-numbers"]
+{% link icon 'theme://images/favicon.png' priority: 20 with { type: 'image/png' } %}
+{% link modulepreload 'plugin://grav-plugin/build/js/vendor.js' %}
+[/prism]
+
 ### `switch`
 
-In most programming language, using a `switch` statement is a common way to make a bunch of `is else` statements cleaner and more readabile.  Also they may prove to be marginally faster.  We just provide a simple way of creating these as they were missing in the base Twig functionality.
+In most programming language, using a `switch` statement is a common way to make a bunch of `if else` statements cleaner and more readabile.  Also they may prove to be marginally faster.  We just provide a simple way of creating these as they were missing in the base Twig functionality.
 
 [prism classes="language-twig line-numbers"]
 {% switch type %}
@@ -128,4 +142,17 @@ Flex Objects are slowly making their way into more and more elements of Grav.  T
 {% render collection layout: 'list' %}
 {% render object layout: 'default' with { variable: 'value' } %}
 [/prism]
+
+### `cache`
+
+Sometimes you may need to cache parts of the page, which take a lot of time to render. You can do this with `cache` tag.
+
+[prism classes="language-twig line-numbers"]
+{% cache 600 %}
+  {{ some_complex_work() }}
+{% endcache %}
+[/prism]
+
+In the example `600` is an optional lifetime in seconds. If the parameter isn't passed, default cache lifetime will be used.
+
 [/version]

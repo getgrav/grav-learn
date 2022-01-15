@@ -611,21 +611,21 @@ Stylesheets require a bit more thought as there’s an asset pipeline we’ll wa
 
 Example:
 [prism classes="language-twig line-numbers"]
-    {% block stylesheets %}
-        {% do assets.addCss('theme://css/styles.min.css', 100) %}
-    {% endblock %}
-    {{ assets.css() }}
+{% block stylesheets %}
+    {% do assets.addCss('theme://css/styles.min.css', 100) %}
+{% endblock %}
+{{ assets.css()|raw }}
 [/prism]
 
 The same applies to JavaScript files, with the additional requirement that some JS is loaded in the footer.
 
 Example:
 [prism classes="language-twig line-numbers"]
-    {% block javascripts %}
-        {% do assets.addJs('theme://js/custom.js') %}
-        {% do assets.addJs('jquery', 101) %}
-    {% endblock %}
-    {{ assets.js() }}
+{% block javascripts %}
+    {% do assets.addJs('theme://js/custom.js') %}
+    {% do assets.addJs('jquery', 101) %}
+{% endblock %}
+{{ assets.js()|raw }}
 [/prism]
 
 The page changes should now be shown in your Browser. If not, make sure that the pages cache and the twig cache are disabled in the Grav system configuration settings.
@@ -657,9 +657,9 @@ Most of the time, your assets will be added inside a twig block in your base tem
 
 [prism classes="language-twig line-numbers"]
 {% block javascripts %}
-{% do assets.addJs('theme://js/jquery.js', 91) %}
+    {% do assets.addJs('theme://js/jquery.js', 91) %}
 {% endblock %}
-{{ assets.js() }}
+{{ assets.js()|raw }}
 [/prism]
 
 In order to add your asset, you have to extend this block in your template and call `{{ parent() }}` which will get the assets already added in your base template.
@@ -668,8 +668,8 @@ Edit your template and add your asset with the `{{ parent() }}`.
 
 [prism classes="language-twig line-numbers"]
 {% block javascripts %}
-     {% do assets.addJs('theme://js/gallery.js', 100) %}
-     {{ parent() }}
+  {% do assets.addJs('theme://js/gallery.js', 100) %}
+  {{ parent() }}
 {% endblock %}
 [/prism]
 

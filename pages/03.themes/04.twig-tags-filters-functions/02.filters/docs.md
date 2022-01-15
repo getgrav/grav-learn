@@ -110,7 +110,7 @@ Return the dirname of a path.
 `'/etc/sudoers.d'|dirname` <i class="fa fa-long-arrow-right"></i> **{{ '/etc/sudoers.d'|dirname }}**
 
 
-### `ends_width`
+### `ends_with`
 
 Takes a needle and a haystack and determines if the haystack ends with the needle.  Also now works with an array of needles and will return `true` if **any** haystack ends with the needle.
 
@@ -399,7 +399,8 @@ Translate a string into the current language
 
 `'MY_LANGUAGE_KEY_STRING'|t` <i class="fa fa-long-arrow-right"></i> **'Some Text in English'**
 
-This assumes you have these language strings translated in your site and have enabled multi-language support.  Please refer to the [multi-language documentation](../../content/multi-language) for more detailed information.
+This assumes you have these language strings translated in your site and have enabled 
+-language support.  Please refer to the [multi-language documentation](../../../content/multi-language) for more detailed information.
 
 ### `tu`
 
@@ -411,13 +412,13 @@ This uses the language field set in the user yaml.
 
 ### `ta`
 
-Translates an array with a language use the `|ta` filter. See the [multi-language documentation](../../content/multi-language) for a detailed example.
+Translates an array with a language use the `|ta` filter. See the [multi-language documentation](../../../content/multi-language) for a detailed example.
 
 `'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1)` <i class="fa fa-long-arrow-right"></i> **{{ now|date('F') }}**
 
 ### `tl`
 
-Translates a string in a specific language. For more details check out the [multi-language documentation](../../content/multi-language#complex-translations).
+Translates a string in a specific language. For more details check out the [multi-language documentation](../../../content/multi-language#complex-translations).
 
 `'SIMPLE_TEXT'|tl(['fr'])`
 
@@ -431,7 +432,7 @@ Simply truncates to 5 characters.
 
 `'one sentence. two sentences'|truncate(5, true)|raw` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5, true)|raw }}**
 
-!! The `|raw` Twig filiter should be used with the default `&helip;` (elipsis) padding element in order for it to render with Twig auto-escaping
+!! The `|raw` Twig filter should be used with the default `&hellip;` (elipsis) padding element in order for it to render with Twig auto-escaping
 
 Truncates to closest sentence-end after 5 characters.
 

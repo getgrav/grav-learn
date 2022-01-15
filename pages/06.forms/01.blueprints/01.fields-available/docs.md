@@ -30,6 +30,7 @@ In addition to the fields listed below, reserved for usage in the Admin, you can
 | **[Dateformat](#dateformat-field)**               | a special select that renders the current date/time in the passed formats                                                                                                                                   |
 | **[Datetime](#datetime-field)**                   | a date and time selection field                                                                                                                                                                             |
 | **[Editor](#editor-field)**                       | show a markdown editor                                                                                                                                                                                      |
+| **[Elements](#elements-field)**                   | a conditional, and organizational, field to show/hide children based on the selected value of the "trigger". This is extremely useful to keep the clutter down when there are a lot of options to display                                                                                                                                                                                    |
 | **[Fieldset](#fieldset-field)**                   | group a set of fields inside a collapsible accordion                                                                                                                                                        |
 | **[File](#file-field)**                           | in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
 | **[Filepicker](#filepicker-field)**               | **Filepicker** allows to choose files from a location in the web server filesystem.                                                                                                                         |
@@ -471,6 +472,52 @@ frontmatter:
 | [placeholder](#common-fields-attributes)       |
 | [readonly](#common-fields-attributes)          |
 [/div]
+
+### Elements Field
+
+![Elements](elements_field.gif)
+
+This field is only organizational and allows grouping items within a named group that will only be showed if the selected element value matches the group.
+
+Example:
+
+[prism classes="language-yaml line-numbers"]
+header.elements-demo:
+  type: elements
+  label: 'Elements Demo'
+  size: small
+  default: gelato
+  options:
+    gelato: Gelato Flavors
+    color: Color
+    planets: Planets
+  fields:
+    gelato:
+      type: element
+      fields:
+        .items:
+          type: array
+          default:
+            pistacchio: Pistacchio
+            vanilla: Vanilla
+            chocolate: Chocolate
+            stracciatella: Stracciatella
+    color:
+      type: element
+      fields:
+        .items:
+          type: textarea
+          rows: 10
+          default: Color (American English) or colour (Commonwealth English) is the visual perceptual property corresponding in humans to the categories called blue, green, red, etc. Color derives from the spectrum of light (distribution of light power versus wavelength) interacting in the eye with the spectral sensitivities of the light receptors. Color categories and physical specifications of color are also associated with objects or materials based on their physical properties such as light absorption, reflection, or emission spectra. By defining a color space colors can be identified numerically by their coordinates.
+    planets:
+      type: element
+      fields:
+        .items:
+          type: text
+          placeholder: What are your favorite planets?
+          markdown: true
+          description: 'Find a list of planets from [Wikipedia](https://en.wikipedia.org/wiki/Planet)'
+[/prism]
 
 ### Fieldset Field
 

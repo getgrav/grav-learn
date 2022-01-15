@@ -12,8 +12,8 @@ themes/learn4
 accounts/admin.yaml
 config/versions.yaml
 config/security.yaml
-localhost/config/security.yaml
-learn.dev/config/security.yaml
+env/localhost/config/security.yaml
+env/learn.dev/config/security.yaml
 
 # OS Generated
 .DS_Store*
@@ -24,5 +24,4 @@ Thumbs.db
 # phpstorm
 .idea/*
 
-
-
+/env/**/config/plugins/algolia-pro.yaml

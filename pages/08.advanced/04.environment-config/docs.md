@@ -1,7 +1,7 @@
 ---
 title: Environment Configuration
 taxonomy:
-    category: docs
+     category: docs
 ---
 
 Grav has the ability to extend the [powerful configuration capabilities](../../basics/grav-configuration) for different environments to support different configuration for **development**, **staging**, and **production** scenarios.
@@ -40,13 +40,14 @@ debugger:
   enabled: true
 [/prism]
 
-Similarly, you may want to enable CSS and Js Asset Pipelining (combining + minification) for your production site only
+Similarly, you may want to enable CSS, Link, JS and JS Module Asset Pipelining (combining + minification) for your production site only
 ([version=15,16]`user/www.mysite.com/config/system.yaml`[/version][version=17]`user/env/www.mysite.com/config/system.yaml`[/version]):
 
 [prism classes="language-yaml line-numbers"]
 assets:
   css_pipeline: true
   js_pipeline: true
+  js_module_pipeline: true
 [/prism]
 
 If your production server was reachable via `http://www.mysite.com` then you could also provide configuration specific for that production site with a file located at

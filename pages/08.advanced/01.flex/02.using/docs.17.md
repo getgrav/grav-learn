@@ -2,6 +2,8 @@
 title: Using Flex Objects
 taxonomy:
     category: docs
+algolia-pro:
+
 ---
 
 **Flex Objects** is designed to be easy to use. Displaying collection and groups in your pages can mostly be done from Twig templates.

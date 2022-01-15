@@ -35,10 +35,6 @@ git:
         url: https://github.com/trilbymedia/grav-plugin-page-toc
         path: user/plugins/page-toc
         branch: develop
-    tntsearch:
-        url: https://github.com/trilbymedia/grav-plugin-tntsearch
-        path: user/plugins/tntsearch
-        branch: develop
     shortcode-core:
         url: https://github.com/getgrav/grav-plugin-shortcode-core
         path: user/plugins/shortcode-core
@@ -95,10 +91,6 @@ links:
     page-toc:
         src: grav-plugin-page-toc
         path: user/plugins/page-toc
-        scm: github
-    tntsearch:
-        src: grav-plugin-tntsearch
-        path: user/plugins/tntsearch
         scm: github
     shortcode-core:
         src: grav-plugin-shortcode-core

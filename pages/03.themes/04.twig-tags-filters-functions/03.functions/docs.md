@@ -259,6 +259,15 @@ Will generate a random string of the required number of characters.  Particularl
 
 `random_string(10)` <i class="fa fa-long-arrow-right"></i> **{{ random_string(10) }}**
 
+### `unique_id`
+
+Generates a random string with configurable length, prefix and suffix. Unlike the built-in PHP `uniqid()` function and the `random_string` utils, this string will be generated truly unique and non-conflicting.
+
+
+`unique_id(9)` <i class="fa fa-long-arrow-right"></i> **{{ unique_id(9) }}**
+`unique_id(11, { prefix: 'user_' })` <i class="fa fa-long-arrow-right"></i> **unique_id(11, { prefix: 'user_' }) }}**
+`unique_id(13, { suffix: '.json' })` <i class="fa fa-long-arrow-right"></i> **unique_id(13, { suffix: '.json' }) }}**
+
 ### `range`
 
 Generates an array containing a range of elements, optionally stepped
@@ -424,7 +433,10 @@ The `vardump()` function outputs the current variable to the screen (rather than
 {% set my_array = {foo: 'bar', baz: 'qux'} %}
 
 [prism classes="language-twig"]
-{{ vardump(my_array) }}
+[
+  "foo" => "bar"
+  "baz" => "qux"
+]
 [/prism]
 
 [version=16,17]
