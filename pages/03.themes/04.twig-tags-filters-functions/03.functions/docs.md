@@ -110,7 +110,7 @@ Create a "Cron" object from cron syntax
 
 ### `dump`
 
-Takes a valid Twig variable and dumps it out into the [Grav debugger panel](../../advanced/debugging).  The debugger must be **enabled** to see the values in the messages tab.
+Takes a valid Twig variable and dumps it out into the [Grav debugger panel](../../../advanced/debugging).  The debugger must be **enabled** to see the values in the messages tab.
 
 `dump(page.header)`
 
