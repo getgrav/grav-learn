@@ -147,7 +147,7 @@ These items are required if you wish to release your theme via GPM.
 
 As you know from the [previous chapter](../theme-basics), each item of content in Grav has a particular filename, e.g. `default.md`, which instructs Grav to look for a rendering Twig template called `default.html.twig`.  It is possible to put everything you need to display a page in this one file, and it would work fine. However, there is a better solution.
 
-Utilizing the Twig [Extends](https://twig.symfony.com/doc/3.x/tags/extends.html) tag you can define a base layout with [blocks](https://twig.symfony.com/doc/3.x/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.  So look at the `templates/default.html.twig` file and examine its content:
+Utilizing the Twig [Extends](https://twig.symfony.com/doc/1.x/tags/extends.html) tag you can define a base layout with [blocks](https://twig.symfony.com/doc/1.x/tags/block.html) that you define. This enables any twig template to **extend** the base template, and provides definitions for any **block** defined in the base.  So look at the `templates/default.html.twig` file and examine its content:
 
 [prism classes="language-twig line-numbers"]
 {% extends 'partials/base.html.twig' %}
