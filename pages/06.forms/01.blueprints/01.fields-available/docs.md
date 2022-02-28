@@ -230,7 +230,7 @@ folder:
 
 ![Array](array_field_bp.gif)
 
-The `array` field type is used to create a simple list of key - values objects.
+The `array` field type is used to create a simple list of key - values objects, or just a list of values if you use the `value_only` option.
 
 Example:
 
@@ -249,7 +249,7 @@ metadata:
 | :-----              | :-----      |
 | `placeholder_key`   |             |
 | `placeholder_value` |             |
-| `value_only`        |             |
+| `value_only`        | Do not require or store array keys, just store a simple array of values. |
 [/div]
 
 [div class="table table-keycol"]
