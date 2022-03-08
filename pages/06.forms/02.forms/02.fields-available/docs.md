@@ -246,25 +246,25 @@ Examples:
 If your conditional already returns a `true` or `false` then you can simply use this simplified format:
 
 [prism classes="language-yaml line-numbers"]
-header.field_condition:
+my_conditional:
   type: conditional
   condition: config.plugins.yourplugin.enabled
   fields: # The field(s) below will be displayed only if the plugin named yourplugin is enabled
     header.mytextfield:
-    type: text
-    label: A text field
+      type: text
+      label: A text field
 [/prism]
 
 However, if you require more complex conditions, you can perform some logic that returns `'true'` or `'false'` as strings, and the field will understand that too.
 
 [prism classes="language-yaml line-numbers"]
-header.field_condition:
+my_conditional:
   type: conditional
-  condition: "config.plugins.yourplugin.enabled ? 'true' : 'false'"
-  fields: # The field(s) below will be displayed only if the plugin named yourplugin is enabled
+  condition: "config.site.something == 'custom'"
+  fields: # The field(s) below will be displayed only if the `site` configuration option `something` equals `custom`
     header.mytextfield:
-    type: text
-    label: A text field
+        type: text
+        label: A text field
 [/prism]
 
 [div class="table table-keycol"]
