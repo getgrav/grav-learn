@@ -711,7 +711,7 @@ content:
 
 The `select` field type is used to present a select field.
 
-Example:
+Example 1:
 [prism classes="language-yaml line-numbers"]
 pages.order.by:
     type: select
@@ -726,14 +726,32 @@ pages.order.by:
         date: 'Date - based on date field in header'
 [/prism]
 
+Example 2 - Disabling Individual Options:
+[prism classes="language-yaml line-numbers"]
+my_element:
+    type: select
+    size: long
+    classes: fancy
+    label: 'My Select Element'
+    help: 'Use the disabled key:value to display but disable a particular option'
+    options:
+        option1:
+          value: 'Option 1'
+        option2:
+          value: 'Option 2'
+        option3:
+          disabled: true
+          value: 'Option 3'
+[/prism]
+
 [div class="table table-keycol"]
 | Attribute  | Description                                         |
 | :-----     | :-----                                              |
-| `options`  | An array of key-value options that will be allowed. The key will be submittedt by the form. |
+| `options`  | An array of key-value options that will be allowed. The key will be submitted by the form. |
 | `multiple` | Allow the form to accept multiple values.           |
 [/div]
 
-If you set `multiple` to true, you need to add 
+If you set `multiple` to true, you need to add
 ```
 pages.order.by:
   validate:
