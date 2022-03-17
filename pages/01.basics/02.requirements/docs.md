@@ -168,7 +168,7 @@ Another option if you primarily work with just creating content, is to use a ded
 
 ### FTP Clients
 
-Although there are many ways to deploy **Grav**, the simplest is to copy your local site to your hosting provider. The easiest way to accomplish this is with an [FTP Client](http://en.wikipedia.org/wiki/File_Transfer_Protocol). There are many available, but some recommended ones include:
+Although there are many ways to deploy **Grav**, fundamentally you only need to copy your local site to your hosting provider. The most basic way to do this is with an [FTP Client](http://en.wikipedia.org/wiki/File_Transfer_Protocol). There are many available, but some recommended ones include:
 
 1. [Transmit](http://panic.com/transmit/) - MacOS - The de facto FTP/SFTP client on MacOS. Easy to use, fast, folder-syncing and pretty much anything else you could ask for.
 2. [FileZilla](https://filezilla-project.org/) - MacOS/Windows/Linux - Probably the best option for Windows and Linux users. Free and very powerful (but very ugly on the Mac!).
