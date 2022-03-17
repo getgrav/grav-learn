@@ -175,4 +175,8 @@ Although there are many ways to deploy **Grav**, the simplest is to copy your lo
 3. [Cyberduck](http://cyberduck.io/) - MacOS/Windows - A decent free option for both MacOS and Windows users. Not as full-featured as the others.
 4. [ForkLift](http://www.binarynights.com/forklift/) - MacOS - A solid alternative to Transmit, and slightly cheaper to boot.
 
+### Git
 
+If you run the [Git](https://git-scm.com/) distributed version control system on your development and server environments, you can set up a simple workflow via a hosted Git service like [Github](https://github.com) or [GitLab](https://about.gitlab.com/). This is slightly more work to set up, but provides a cleaner, more robust workflow that takes care of backups for you. Try this only if you are comfortable with Git and its client tools.
+
+!!! We provide more details about using Git in your workflow later under [Deploying with Git](/webservers-hosting/deploying-with-git) section in the [Web Servers & Hosting chapter](/webservers-hosting).
