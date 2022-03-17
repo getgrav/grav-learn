@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Installation of Grav is a trivial process. In fact, there is no real installation. You have **three** options for installing Grav. The first - and simplest - way is to download the **zip** archive, and extract it. The second way is to install with **Composer**. The third way is to clone the source project directly from **GitHub**, and then run an included script command to install needed dependencies:
+Installation of Grav is a trivial process. In fact, there is no real installation. You have several options for installing Grav. The first – and simplest – way is to download the **zip** archive, and extract it. The second way is to install with **Composer**. The third way is to clone the source project directly from **GitHub**, and then run an included script command to install needed dependencies. There are [more ways](#further-options) that involve running bundled scripts.
 
 ## Check for PHP version
 
@@ -82,13 +82,25 @@ Another method is to clone Grav from the GitHub repository, and then run a simpl
 
    This will automatically **clone** the required dependencies from GitHub directly into this Grav installation.
 
-## Option 4: Install on Cloudron
+## Further options
+
+### Install with Docker
+
+[Docker](https://en.wikipedia.org/wiki/Docker_(software)) is an extremely efficient way to bootstrap platforms and services on both servers and local environments. If you are setting up several environments that need to be the same, or working collaboratively, it offers a simple way to ensure consistency between installations. If you are developing several Grav sites, you can streamline setting them up using Docker.
+
+Stable Docker images are available that use [Apache](https://github.com/getgrav/docker-grav) (the official image), [Nginx](https://github.com/dsavell/docker-grav), and [Caddy](https://github.com/hughbris/grav-daddy) webservers. If you search, you will find more that you can try. With any image, make sure you create volumes to persist Grav's `user`, `backups`, and `logs` folders. (Backups and logs are optional if you don't need to keep that data.)
+
+### Install on Cloudron
 
 Cloudron is a complete solution for running apps on your server and keeping them up-to-date and secure. On your Cloudron you can install Grav with a few clicks. If you host multiple sites, you can install them completely isolated from one another on the same server.
 
 [![Install](https://cloudron.io/img/button.svg)](https://cloudron.io/store/org.getgrav.cloudronapp.html)
 
 The source code for the package can be found [here](https://git.cloudron.io/cloudron/grav-app).
+
+### Install through Linode Marketplace
+
+If you use Linode servers, there is an [easy, documented method using Linode Marketplace](https://www.linode.com/docs/guides/grav-marketplace-app/). This will set up a new Grav site on a new dedicated Linode virtual server. The virtual server will incur a periodic charge.
 
 ## Webservers
 
