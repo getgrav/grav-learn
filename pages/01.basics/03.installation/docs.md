@@ -94,7 +94,7 @@ Stable Docker images are available that use [Apache](https://github.com/getgrav/
 
 Cloudron is a complete solution for running apps on your server and keeping them up-to-date and secure. On your Cloudron you can install Grav with a few clicks. If you host multiple sites, you can install them completely isolated from one another on the same server.
 
-[![Install](https://cloudron.io/img/button.svg)](https://cloudron.io/store/org.getgrav.cloudronapp.html)
+[![button: Cloudron install](https://cloudron.io/img/button.svg)](https://cloudron.io/store/org.getgrav.cloudronapp.html)
 
 The source code for the package can be found [here](https://git.cloudron.io/cloudron/grav-app).
 
