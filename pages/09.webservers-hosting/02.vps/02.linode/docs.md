@@ -10,6 +10,8 @@ taxonomy:
 
 [Linode](https://www.linode.com/?r=300c424631b602daaa0ecef22912c1c26c81e3af) has been in the VPS game for quite some time and focus on providing **lightning-quick SSD equipped Linux servers** for developers.  There is a quick and easy process to getting a server up and running that involves: picking a **pricing plan**, picking a **Linux distribution**, and then choosing a **node location** that is best suited to your needs.
 
+!!! You can now [install Grav directly onto a new Linode](https://www.linode.com/docs/guides/grav-marketplace-app/) Virtual Private Server using their [Linode Maketplace app](https://www.linode.com/marketplace/apps/linode/grav/).
+
 ![](linode.png?classes=center)
 
 After creating an account and navigating to the **Linode Manager**, you first need to add a Linode. For this test, we will pick the smallest and cheapest option at $10/month for 1 CPU core and 24GB of SSD Disk space. There are plenty of scaling options here all the way up to 20 CPU cores and 2GB of disk space! Also remember to choose an appropriate location from the drop-down:
