@@ -45,6 +45,7 @@ These are handled via the [Site Configuration](../../basics/grav-configuration#s
 
 !! All redirect rules apply on the slug-path beginning after the language part (if you use multi-language pages)
 
+!!!! You must escape certain characters in any routes that you want to match. This is especially important to know if you are migrating an old site that used links containing legacy file extensions (e.g. `.php`) or URL parameters (`?foo=bar`). In these examples, the period and question mark **must be escaped** like `/index\.php\?foo=bar: '/new/location'`.
 
 ### Route Aliases
 
