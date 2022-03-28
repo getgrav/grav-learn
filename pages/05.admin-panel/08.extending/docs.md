@@ -110,7 +110,7 @@ Thus we append an `<output>`-tag which will hold the selected value, and add to 
 
 ### Creating custom page templates
 
-As mentioned in [Theme Basics](themes/theme-basics#content-pages-twig-templates), there is a direct relationship between **pages** in Grav and the **Twig template files** provided in a theme/ plugin.
+As mentioned in [Theme Basics](/themes/theme-basics#content-pages-twig-templa), there is a direct relationship between **pages** in Grav and the **Twig template files** provided in a theme/ plugin.
 To create a custom page template, you will need a blueprint file to define the fields for the Admin plugin and a template file for rendering the content.
 
 #### Adding a custom page template to a theme/ plugin
