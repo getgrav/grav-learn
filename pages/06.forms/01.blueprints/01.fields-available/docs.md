@@ -495,7 +495,7 @@ header.elements-demo.type:
     gelato:
       type: element
       fields:
-        header.elements-demo.gelato:
+        .flavours:
           type: array
           default:
             pistacchio: Pistacchio
@@ -505,14 +505,14 @@ header.elements-demo.type:
     color:
       type: element
       fields:
-        header.elements-demo.color:
+        .description:
           type: textarea
           rows: 10
           default: Color (American English) or colour (Commonwealth English) is the visual perceptual property corresponding in humans to the categories called blue, green, red, etc. Color derives from the spectrum of light (distribution of light power versus wavelength) interacting in the eye with the spectral sensitivities of the light receptors. Color categories and physical specifications of color are also associated with objects or materials based on their physical properties such as light absorption, reflection, or emission spectra. By defining a color space colors can be identified numerically by their coordinates.
     planets:
       type: element
       fields:
-        header.elements-demo.planets:
+        .favorites:
           type: text
           placeholder: What are your favorite planets?
           markdown: true
