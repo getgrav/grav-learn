@@ -39,6 +39,23 @@ This list provides a common ground so there's no need to repeat the description 
 | `validate.message`  | sets the message shown if the validation fails                                                                                                                                                                 |
 [/div]
 
+To add custom attributes, you can use:
+```
+attributes:
+  key: value
+```
+
+To add custom data-* values, you can use:
+```
+datasets:
+  key: value
+```
+
+The above shown `attributes` and `datasets` definitions lead to the following field definition:
+```
+<input name="data[name]" value="" type="text" class="form-input " key="value" data-key="value">
+```
+
 !!! NOTE: You can set positive values in multiple ways: `'on'`, `true`, `1`. Other values are interpreted as negative.
 
 ---
