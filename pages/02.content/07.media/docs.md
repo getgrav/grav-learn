@@ -851,13 +851,13 @@ The **watermark action** merges two images, a watermark image and a source image
 [ui-tabs]
 [ui-tab title="Markdown"]
 ```markdown
-![Sample Image](sample-image.jpg?watermark=user://pages/content/media/sample-watermark.png,top-left,50)
+![Sample Image](sample-image.jpg?watermark=user://pages/02.content/07.media/sample-watermark.png,top-left,50)
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
 {% verbatim %}
 ```twig
-{{ page.media['sample-image.jpg'].watermark('user://pages/content/media/sample-watermark.png','top-left',50).html()|raw }}
+{{ page.media['sample-image.jpg'].watermark('user://pages/02.content/07.media/sample-watermark.png','top-left',50).html()|raw }}
 ```
 {% endverbatim %}
 [/ui-tab]
@@ -865,7 +865,7 @@ The **watermark action** merges two images, a watermark image and a source image
 
 ##### Result:
 
-![Sample Image](sample-image.jpg?watermark=user://pages/content/media/sample-watermark.png,top-left,50)
+![Sample Image](sample-image.jpg?watermark=user://pages/02.content/07.media/sample-watermark.png,top-left,50)
 
 ## Animated / Vectorized Actions
 
