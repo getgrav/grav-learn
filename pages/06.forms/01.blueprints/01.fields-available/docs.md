@@ -230,7 +230,7 @@ folder:
 
 ![Array](array_field_bp.gif)
 
-The `array` field type is used to create a simple list of key - values objects.
+The `array` field type is used to create a simple list of key - values objects, or just a list of values if you use the `value_only` option.
 
 Example:
 
@@ -249,7 +249,7 @@ metadata:
 | :-----              | :-----      |
 | `placeholder_key`   |             |
 | `placeholder_value` |             |
-| `value_only`        |             |
+| `value_only`        | Do not require or store array keys, just store a simple array of values. |
 [/div]
 
 [div class="table table-keycol"]
@@ -482,7 +482,7 @@ This field is only organizational and allows grouping items within a named group
 Example:
 
 [prism classes="language-yaml line-numbers"]
-header.elements-demo:
+header.elements-demo.type:
   type: elements
   label: 'Elements Demo'
   size: small
@@ -495,7 +495,7 @@ header.elements-demo:
     gelato:
       type: element
       fields:
-        .items:
+        .flavours:
           type: array
           default:
             pistacchio: Pistacchio
@@ -505,14 +505,14 @@ header.elements-demo:
     color:
       type: element
       fields:
-        .items:
+        .description:
           type: textarea
           rows: 10
           default: Color (American English) or colour (Commonwealth English) is the visual perceptual property corresponding in humans to the categories called blue, green, red, etc. Color derives from the spectrum of light (distribution of light power versus wavelength) interacting in the eye with the spectral sensitivities of the light receptors. Color categories and physical specifications of color are also associated with objects or materials based on their physical properties such as light absorption, reflection, or emission spectra. By defining a color space colors can be identified numerically by their coordinates.
     planets:
       type: element
       fields:
-        .items:
+        .favorites:
           type: text
           placeholder: What are your favorite planets?
           markdown: true

@@ -39,6 +39,23 @@ This list provides a common ground so there's no need to repeat the description 
 | `validate.message`  | sets the message shown if the validation fails                                                                                                                                                                 |
 [/div]
 
+To add custom attributes, you can use:
+```
+attributes:
+  key: value
+```
+
+To add custom data-* values, you can use:
+```
+datasets:
+  key: value
+```
+
+The above shown `attributes` and `datasets` definitions lead to the following field definition:
+```
+<input name="data[name]" value="" type="text" class="form-input " key="value" data-key="value">
+```
+
 !!! NOTE: You can set positive values in multiple ways: `'on'`, `true`, `1`. Other values are interpreted as negative.
 
 ---
@@ -246,25 +263,25 @@ Examples:
 If your conditional already returns a `true` or `false` then you can simply use this simplified format:
 
 [prism classes="language-yaml line-numbers"]
-header.field_condition:
+my_conditional:
   type: conditional
   condition: config.plugins.yourplugin.enabled
   fields: # The field(s) below will be displayed only if the plugin named yourplugin is enabled
     header.mytextfield:
-    type: text
-    label: A text field
+      type: text
+      label: A text field
 [/prism]
 
 However, if you require more complex conditions, you can perform some logic that returns `'true'` or `'false'` as strings, and the field will understand that too.
 
 [prism classes="language-yaml line-numbers"]
-header.field_condition:
+my_conditional:
   type: conditional
-  condition: "config.plugins.yourplugin.enabled ? 'true' : 'false'"
-  fields: # The field(s) below will be displayed only if the plugin named yourplugin is enabled
+  condition: "config.site.something == 'custom'"
+  fields: # The field(s) below will be displayed only if the `site` configuration option `something` equals `custom`
     header.mytextfield:
-    type: text
-    label: A text field
+        type: text
+        label: A text field
 [/prism]
 
 [div class="table table-keycol"]
@@ -438,7 +455,7 @@ my_files:
 | Attribute     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | :-----        | :-----                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `multiple`    | Can be `true` or `false`, when set to **true**, multiple files can be selected at the same time                                                                                                                                                                                                                                                                                                                                                                                          |
-| `destination` | Can be either **@self**, **@page:/route** or **local/rel/path/**. <br>Set to **@self**, the files will be uploaded where the form has been declared (current .md). <br>Using **@page:/route** will upload to the specified route of a page, if exists (e.g., **@page:/blog/a-blog-post**). <br>Set to **'local/rel/path'**: Can be any path relative to the Grav instance. For instance, `user/data/files`. If the path doesn't exist, it will get created, so make sure it is writable. |
+| `destination` | Can be either **@self**, **@page:/route**, **local/rel/path/**, or a PHP stream.<br> Set to **@self**, the files will be uploaded where the form has been declared (current .md). <br>Using **@page:/route** will upload to the specified route of a page, if exists (e.g., **@page:/blog/a-blog-post**).<br> Set to **'local/rel/path'**: Can be any path relative to the Grav instance. For instance, `user/images/uploads`. If the path doesn't exist, it will get created, so make sure it is writable.<br> You can also set the value to any valid PHP stream recognized by Grav like `user-data://my-form` or `theme://media/uploads`. |
 | `accept`      | Takes an array of MIME types that are allowed. For instance to allow only gifs and mp4 files: `accept: ['image/gif', 'video/mp4']`                                                                                                                                                                                                                                                                                                                                                       |
 [/div]
 
@@ -711,7 +728,7 @@ content:
 
 The `select` field type is used to present a select field.
 
-Example:
+Example 1:
 [prism classes="language-yaml line-numbers"]
 pages.order.by:
     type: select
@@ -726,14 +743,38 @@ pages.order.by:
         date: 'Date - based on date field in header'
 [/prism]
 
+Example 2 - Disabling Individual Options:
+[prism classes="language-yaml line-numbers"]
+my_element:
+    type: select
+    size: long
+    classes: fancy
+    label: 'My Select Element'
+    help: 'Use the disabled key:value to display but disable a particular option'
+    options:
+        option1:
+          value: 'Option 1'
+        option2:
+          value: 'Option 2'
+        option3:
+          disabled: true
+          value: 'Option 3'
+[/prism]
+
 [div class="table table-keycol"]
 | Attribute  | Description                                         |
 | :-----     | :-----                                              |
-| `options`  | An array of key-value options that will be allowed. The key will be submittedt by the form. |
+| `options`  | An array of key-value options that will be allowed. The key will be submitted by the form. |
 | `multiple` | Allow the form to accept multiple values.           |
 [/div]
 
-If you set `multiple` to true, you need to add `validate.type: array`. Otherwise the array of selected values will not be saved correctly.
+If you set `multiple` to true, you need to add
+```
+pages.order.by:
+  validate:
+    type: array
+```
+Otherwise the array of selected values will not be saved correctly.
 
 [div class="table"]
 | Common Attributes Allowed                      |

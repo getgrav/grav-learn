@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-Themes in Grav are quite simple, and very flexible because they are built with the powerful [Twig Templating engine](https://twig.sensiolabs.org/). Every theme is created with a combination of twig files (a mixture of twig-like PHP code and HTML), called templates, and CSS. We typically use [Sass CSS Extension](http://sass-lang.com) to generate our CSS files, but there is nothing stopping you from using [Less](http://lesscss.org/), or even regular CSS. It simply comes down to your own personal preferences.
+Themes in Grav are quite simple, and very flexible because they are built with the powerful [Twig Templating engine](https://twig.symfony.com/). Every theme is created with a combination of twig files (a mixture of twig-like PHP code and HTML), called templates, and CSS. We typically use [Sass CSS Extension](http://sass-lang.com) to generate our CSS files, but there is nothing stopping you from using [Less](http://lesscss.org/), or even regular CSS. It simply comes down to your own personal preferences.
 
 ## Content Pages & Twig Templates
 

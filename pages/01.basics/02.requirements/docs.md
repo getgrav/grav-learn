@@ -168,11 +168,15 @@ Another option if you primarily work with just creating content, is to use a ded
 
 ### FTP Clients
 
-Although there are many ways to deploy **Grav**, the simplest is to copy your local site to your hosting provider. The easiest way to accomplish this is with an [FTP Client](http://en.wikipedia.org/wiki/File_Transfer_Protocol). There are many available, but some recommended ones include:
+Although there are many ways to deploy **Grav**, fundamentally you only need to copy your local site to your hosting provider. The most basic way to do this is with an [FTP Client](http://en.wikipedia.org/wiki/File_Transfer_Protocol). There are many available, but some recommended ones include:
 
 1. [Transmit](http://panic.com/transmit/) - MacOS - The de facto FTP/SFTP client on MacOS. Easy to use, fast, folder-syncing and pretty much anything else you could ask for.
 2. [FileZilla](https://filezilla-project.org/) - MacOS/Windows/Linux - Probably the best option for Windows and Linux users. Free and very powerful (but very ugly on the Mac!).
 3. [Cyberduck](http://cyberduck.io/) - MacOS/Windows - A decent free option for both MacOS and Windows users. Not as full-featured as the others.
 4. [ForkLift](http://www.binarynights.com/forklift/) - MacOS - A solid alternative to Transmit, and slightly cheaper to boot.
 
+### Git
 
+If you run the [Git](https://git-scm.com/) distributed version control system on your development and server environments, you can set up a simple workflow via a hosted Git service like [Github](https://github.com) or [GitLab](https://about.gitlab.com/). This is slightly more work to set up, but provides a cleaner, more robust workflow that takes care of backups for you. Try this only if you are comfortable with Git and its client tools.
+
+!!! We provide more details about using Git in your workflow later under [Deploying with Git](/webservers-hosting/deploying-with-git) section in the [Web Servers & Hosting chapter](/webservers-hosting).
