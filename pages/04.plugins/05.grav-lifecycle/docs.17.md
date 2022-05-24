@@ -183,7 +183,7 @@ It is often useful to know how Grav processes in order to fully understand how b
         1. Fire **onPagesInitialized** event with [pages]
         1. Fire **onPageInitialized** event with [page]
         1. If page is not routable:
-            1. Fire **onPageNotFount** event with [page]
+            1. Fire **onPageNotFound** event with [page]
         1. If _task_:
             1. Fire **onPageTask** event with [task, page]
             1. Fire **onPageTask.[TASK]** event with [task, page]
