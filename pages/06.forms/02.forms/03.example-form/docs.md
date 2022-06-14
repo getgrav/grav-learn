@@ -90,7 +90,7 @@ Some sample page content
 
 !! This example uses Google reCAPTCHA via the [captcha field](https://learn.getgrav.org/forms/forms/fields-available#captcha-field), and you should configure your `site_key` and `secret_key` in the form plugin in order for this to work.  If you don't want to use Google reCaptcha, simply remove the `g-recaptcha-response` field and the `captcha: true` process.
 
-Now inside the page folder create a subfolder named `thankyou/`, create a new file named `formdata.md`. And paste the following code into the file:
+Now within your contact page folder create a subfolder named `thankyou/`, create a new file named `formdata.md`. And paste the following code into the file:
 
 [prism classes="language-yaml line-numbers"]
 ---
