@@ -292,7 +292,7 @@ Please read over the code in the `base.html.twig` file to try to understand what
 
 You might have noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via Asset Manager: `do assets.add('theme://css/custom.css', 98)`.  This file will house any custom CSS we need to fill in the gaps not provided by the Pure.css framework.  As Pure is a very minimal framework, it provides the essentials but almost no styling.
 
-1. In your `user/themes/my-theme/css` folder, view the `custom.css`:
+1. In your `user/themes/my-theme/css` folder, take a look at `custom.css`:
 
 [prism classes="language-css line-numbers"]
 /* Core Stuff */
