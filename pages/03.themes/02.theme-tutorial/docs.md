@@ -163,7 +163,7 @@ First, the template extends a template located in `partials/base.html.twig`.
 
 ! You don't need to include `templates/` within Twig templates as Twig is already looking in `templates/` as the root level for any template.
 
-Second, the block `content` is overridden from the base template, and the page's content is output in its place.
+Second, the `content` block is overridden from the base template, and the page's content is output in its place.
 
 !! For consistency, it's a good idea to use the `templates/partials` folder to contain Twig templates that represent either little chunks of HTML, or are shared. We also use `templates/modular` for modular templates, and `templates/forms` for any forms.  You can create any sub-folders you like if you prefer to organize your templates differently.
 
