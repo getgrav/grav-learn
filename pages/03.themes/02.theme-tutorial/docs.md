@@ -245,7 +245,7 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 
 ! **TIP:** If variable is safe to render and contains HTML, always use `|raw` filter to make the template to work with `autoescape` turned on.
 
-!! It is very important to either turn on `autoescape` setting from your [System Configuration](/basics/grav-configuration#twig) or to remember to escape every single variable in template files to make your site safe against XSS attacks.
+!! It is very important to either turn on the `autoescape` setting in [System Configuration](/basics/grav-configuration#twig) or to remember to escape every single variable in template files to make your site safe against [XSS attacks](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting).
 
 ## Step 5 - Breaking it Down
 
