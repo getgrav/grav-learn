@@ -10,7 +10,7 @@ Its easy-to-follow syntax and straightforward processes make it a natural fit fo
 
 We use it for our Grav templates in part because of its flexibility and inherent security. The fact that it is also one of the fastest template engines for PHP out there made choosing it for use in Grav a no brainer.
 
-Twig compiles templates down to plain PHP. This cuts the amount of PHP overhead down to a minimum, resulting in a faster, more streamlined user experience.
+Twig compiles templates down to plain PHP. This cuts the amount of PHP overhead down to a minimum, resulting in a faster, more streamlined developer experience.
 
 It is also a very flexible engine thanks to its *lexer* and *parser*. This enables the developer to create their own custom tags and filters. It also enables it to create its own [domain-specific language](http://en.wikipedia.org/wiki/Domain-specific_language) (DSL).
 
