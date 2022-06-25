@@ -12,7 +12,7 @@ We use it for our Grav templates in part because of its flexibility and inherent
 
 Twig compiles templates down to plain PHP. This cuts the amount of PHP overhead down to a minimum, resulting in a faster, more streamlined user experience.
 
-It is also a very flexible engine thanks to its *lexer* and *parser*. This enables the developer to create their own custom tags and filters. It also enables it to create its own [domain-specific language](http://en.wikipedia.org/wiki/Domain-specific_language) (DSL).
+Twig is a very flexible engine thanks to its *lexer* and *parser*. This enables the developer to create their own custom tags and filters. It also enables it to create its own [domain-specific language](http://en.wikipedia.org/wiki/Domain-specific_language) (DSL).
 
 When it comes to security, Twig doesn't cut any corners. It gives the developer a sandbox mode that enables them to examine any untrusted code. This gives you the ability to use Twig as a template language for applications while giving users the ability to modify the template design.
 
