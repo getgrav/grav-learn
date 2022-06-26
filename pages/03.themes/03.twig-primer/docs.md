@@ -8,9 +8,9 @@ Twig is a quick, optimized template engine for PHP. It is designed from the grou
 
 Its easy-to-follow syntax and straightforward processes make it a natural fit for anyone familiar with Smarty, Django, Jinja, Liquid, or Stencil.
 
-We use it for our Grav templates in part because of its flexibility and inherent security. The fact that it is also one of the fastest template engines for PHP out there made choosing it for use in Grav a no brainer.
+We use it for our Grav templates in part because of its flexibility and inherent security. The fact that it is also one of the fastest template engines for PHP out there made choosing it for use in Grav a no-brainer.
 
-Twig compiles templates down to plain PHP. This cuts the amount of PHP overhead down to a minimum, resulting in a faster, more streamlined user experience.
+Twig compiles templates down to plain PHP. This cuts the amount of PHP overhead down to a minimum, resulting in a faster, more streamlined developer experience.
 
 It is also a very flexible engine thanks to its *lexer* and *parser*. This enables the developer to create their own custom tags and filters. Twig's lexer and parser also enables it to create its own [domain-specific language](http://en.wikipedia.org/wiki/Domain-specific_language) (DSL).
 

@@ -163,7 +163,7 @@ First, the template extends a template located in `partials/base.html.twig`.
 
 ! You don't need to include `templates/` within Twig templates as Twig is already looking in `templates/` as the root level for any template.
 
-Second, the block `content` is overridden from the base template, and the page's content is output in its place.
+Second, the `content` block is overridden from the base template, and the page's content is output in its place.
 
 !! For consistency, it's a good idea to use the `templates/partials` folder to contain Twig templates that represent either little chunks of HTML, or are shared. We also use `templates/modular` for modular templates, and `templates/forms` for any forms.  You can create any sub-folders you like if you prefer to organize your templates differently.
 
@@ -243,15 +243,13 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 </body>
 [/prism]
 
-! **TIP:** If variable is safe to render and contains HTML, always use `|raw` filter to make the template to work with `autoescape` turned on.
+! **TIP:** If a variable is safe to render and contains HTML, always use the `|raw` filter to make the template work with `autoescape` turned on.
 
-!! It is very important to either turn on `autoescape` setting from your [System Configuration](/basics/grav-configuration#twig) or to remember to escape every single variable in template files to make your site safe against XSS attacks.
+!! It is very important to either turn on the `autoescape` setting in [System Configuration](/basics/grav-configuration#twig) or to remember to escape every single variable in template files to make your site safe against [XSS attacks](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting).
 
 ## Step 5 - Breaking it Down
 
-Please read over the code in the `base.html.twig` file to try to understand what is going on.  There are several key things to note:
-
-1. A `theme_config` variable is set with the theme configuration.  Because Twig doesn't work well with dashes, to retrieve variables with dashes (e.g. `config.themes.my-theme`), we use the `attribute()` Twig function to dynamically retrieve the `my-theme` data from `config.themes`.
+Please read over the code in the `base.html.twig` file in order to better understand what is happening.  There are several key things to note:
 
 1. The `<html lang=...` item is set based on Grav's active language if enabled, else it uses the `default_lang` as set in the `theme_config`.
 
@@ -292,10 +290,10 @@ Please read over the code in the `base.html.twig` file to try to understand what
 
 You might have noticed that in the `partials/base.html.twig` file we made reference to a custom theme css via Asset Manager: `do assets.add('theme://css/custom.css', 98)`.  This file will house any custom CSS we need to fill in the gaps not provided by the Pure.css framework.  As Pure is a very minimal framework, it provides the essentials but almost no styling.
 
-1. In your `user/themes/my-theme/css` folder, view the `custom.css`:
+1. In your `user/themes/my-theme/css` folder, take a look at `custom.css`:
 
 [prism classes="language-css line-numbers"]
-/* Core Stuff */
+/* Core Styles */
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -473,7 +471,7 @@ blockquote {
 
 [/prism]
 
-This is pretty standard CSS stuff and sets some basic margins, fonts, colors, and utility classes. There is some basic content styling and some more extensive styling required to render the drop-down menu.  Feel free to modify this file as you need, or even add new CSS files (just ensure you add a reference in the `head` block by following the example for `custom.css`).
+This is pretty standard CSS that sets some basic margins, fonts, colors, and utility classes. There is some basic content styling and some more extensive styling required to render the drop-down menu.  Feel free to modify this file as you need, or even add new CSS files (just ensure you add a reference in the `head` block by following the example for `custom.css`).
 
 ## Step 7 - Testing
 

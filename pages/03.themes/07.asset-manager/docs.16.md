@@ -326,7 +326,7 @@ Each asset is rendered either as a stylesheet link or inline, depending on the a
 
 #### link(group, [options])
 
-Renders Link assets that have been added o an Asset Manager's group (default is `head`). It is not recommended using a group different from `head`, this is where the browser expect the tag to be found and processed.
+Renders Link assets that have been added to an Asset Manager's group (default is `head`). It is not recommended using a group different from `head`, this is where the browser expect the tag to be found and processed.
 
 Differently than the other methods for adding assets, `link()` does not support pipelining, nor does support `inline`.
 

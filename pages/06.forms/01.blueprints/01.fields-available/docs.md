@@ -277,6 +277,7 @@ Example:
 color:
    type: colorpicker
    label: Choose a color
+   default: '#FFFFFF'
 [/prism]
 
 [div class="table table-keycol"]
