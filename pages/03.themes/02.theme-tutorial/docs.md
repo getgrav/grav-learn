@@ -293,7 +293,7 @@ You might have noticed that in the `partials/base.html.twig` file we made refere
 1. In your `user/themes/my-theme/css` folder, take a look at `custom.css`:
 
 [prism classes="language-css line-numbers"]
-/* Core Stuff */
+/* Core Styles */
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -471,7 +471,7 @@ blockquote {
 
 [/prism]
 
-This is pretty standard CSS stuff and sets some basic margins, fonts, colors, and utility classes. There is some basic content styling and some more extensive styling required to render the drop-down menu.  Feel free to modify this file as you need, or even add new CSS files (just ensure you add a reference in the `head` block by following the example for `custom.css`).
+This is pretty standard CSS that sets some basic margins, fonts, colors, and utility classes. There is some basic content styling and some more extensive styling required to render the drop-down menu.  Feel free to modify this file as you need, or even add new CSS files (just ensure you add a reference in the `head` block by following the example for `custom.css`).
 
 ## Step 7 - Testing
 
