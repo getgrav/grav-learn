@@ -251,8 +251,6 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 
 Please read over the code in the `base.html.twig` file in order to better understand what is happening.  There are several key things to note:
 
-1. A `theme_config` variable is set with the theme configuration.  Because Twig doesn't work well with dashes, to retrieve variables with dashes (e.g. `config.themes.my-theme`), we use the `attribute()` Twig function to dynamically retrieve the `my-theme` data from `config.themes`.
-
 1. The `<html lang=...` item is set based on Grav's active language if enabled, else it uses the `default_lang` as set in the `theme_config`.
 
 1. The `{% block head %}{% endblock head %}` syntax defines an area in the base Twig template. Note that the use of `head` in the `{% endblock head %}` tag is not required, but is used here for readability. In this block we put things that are typically located in the HTML `<head>` tag.
