@@ -249,7 +249,7 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 
 ## Step 5 - Breaking it Down
 
-Please read over the code in the `base.html.twig` file to try to understand what is going on.  There are several key things to note:
+Please read over the code in the `base.html.twig` file in order to better understand what is happening.  There are several key things to note:
 
 1. A `theme_config` variable is set with the theme configuration.  Because Twig doesn't work well with dashes, to retrieve variables with dashes (e.g. `config.themes.my-theme`), we use the `attribute()` Twig function to dynamically retrieve the `my-theme` data from `config.themes`.
 
