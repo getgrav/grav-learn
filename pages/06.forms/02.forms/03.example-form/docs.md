@@ -78,12 +78,6 @@ form:
 Some sample page content
 [/prism]
 
-### Live Demo
-
-[Live page](http://demo.getgrav.org/soraarticle-skeleton/contact)
-
-[Page markdown file](https://raw.githubusercontent.com/getgrav/grav-skeleton-soraarticle-blog/develop/pages/03.contact/form.md)
-
 !!! Make sure you configured the "Email from" and "Email to" email addresses in the Email plugin with your email address
 
 !! This example uses Google reCAPTCHA via the [captcha field](https://learn.getgrav.org/forms/forms/fields-available#captcha-field), and you should configure your `site_key` and `secret_key` in the form plugin in order for this to work.  If you don't want to use Google reCaptcha, simply remove the `g-recaptcha-response` field and the `captcha: true` process.
@@ -102,6 +96,12 @@ process:
 [/prism]
 
 That's it!
+
+### Live Demo
+
+[Live page](http://demo.getgrav.org/soraarticle-skeleton/contact)
+
+[Page markdown file](https://raw.githubusercontent.com/getgrav/grav-skeleton-soraarticle-blog/develop/pages/03.contact/form.md)
 
 !!! Modular pages are a bit different. In this case, also see [using forms in modular pages](https://learn.getgrav.org/forms/forms/how-to-forms-in-modular-pages)
 
