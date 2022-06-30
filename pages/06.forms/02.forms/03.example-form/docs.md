@@ -6,7 +6,7 @@ taxonomy:
 
 ## Simple Contact Form
 
-The **Grav Form Plugin** is the easiest way to have forms on your site. Let's see how to create a simple contact form.
+The **Grav Form Plugin** is the easiest way to use forms on your site. Let's see how we can create a simple contact form.
 
 !!! In the future we want Grav to be able to dynamically generate forms from the Admin Plugin
 
