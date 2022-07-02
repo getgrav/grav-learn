@@ -35,7 +35,7 @@ It defines everything that is needed to display and modify the content: data str
 
 **[Flex Directory](/advanced/flex/using/directory)** keeps a collection of **Flex Objects** of a single **Flex Type**.
 
-Each Directory contains **Collection** of **Objects** with optional support for **Indexes** to speed up the queries to the **Storage**.
+Each Directory contains a **Collection** of **Objects** with optional support for **Indexes** to speed up queries to **Storage**.
 
 #### Flex Collection
 
