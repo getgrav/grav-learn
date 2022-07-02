@@ -22,7 +22,7 @@ The Sora Article skeleton has a form page ready to see while reading this tutori
 
 You can put a form inside any page of your site. All you need to do is rename the page markdown file to `form.md`, or add a [template](../../../content/headers#template) header in the page frontmatter, to make it use the `form` template.
 
-!! Your theme's `base.html.twig` template must implement the `{% block content %}` tag in order for the **Grav Form Plugin** to render your inputs on the page.
+!! Your page's template, or page's parent template, must implement the `{% block content %}` tag in order for the **Grav Form Plugin** to render your inputs on the page.
 
 The form fields and processing instructions are defined in the YAML frontmatter of the page, so just open the page markdown file with your favorite editor, and put the following code in it:
 
