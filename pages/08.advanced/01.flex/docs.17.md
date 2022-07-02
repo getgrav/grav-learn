@@ -6,7 +6,7 @@ algolia-pro:
     process_children: true
 ---
 
-**Flex Objects** is a new concept in Grav 1.7, which adds support for custom data types which can be easily integrated to your site. Support for custom types and administration capabilities are provided by [**Flex Objects** Plugin](https://github.com/trilbymedia/grav-plugin-flex-objects), which is required by [Admin Panel](/admin-panel). This plugin also handles object creation in the frontend in case if you need users to be able to submit new objects or make changes to them.
+**Flex Objects** is a new concept in Grav 1.7, which adds support for custom data types which can be easily integrated to your site. Support for custom types and administration capabilities are provided by [**Flex Objects** Plugin](https://github.com/trilbymedia/grav-plugin-flex-objects), which is required by [Admin Panel](/admin-panel). This plugin also handles object creation in the frontend in case you need users to be able to submit new objects or make changes to them.
 
 Grav core features such as [User Accounts](/admin-panel/accounts/users), [User Groups](/admin-panel/accounts/groups) and [Pages](/admin-panel/page) have already been converted to Flex Objects, though they are only being used in **Admin Panel**.
 
