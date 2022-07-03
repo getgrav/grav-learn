@@ -106,13 +106,14 @@ process:
 
 That's it!
 
+
 ### Live Demo
 
 [Live page](http://demo.getgrav.org/soraarticle-skeleton/contact)
 
 [Page markdown file](https://raw.githubusercontent.com/getgrav/grav-skeleton-soraarticle-blog/develop/pages/03.contact/form.md)
 
-!!! Modular pages are a bit different. In this case, also see [using forms in modular pages](https://learn.getgrav.org/forms/forms/how-to-forms-in-modular-pages)
+!!! Forms in modular pages work differently. To learn more about that we recommend reading [using forms in modular pages](https://learn.getgrav.org/forms/forms/how-to-forms-in-modular-pages)
 
 When users submit the form, the plugin will send an email to you (as set in the `form` setting of the Grav Email Plugin), and will save the entered data in the data/ folder.
 
