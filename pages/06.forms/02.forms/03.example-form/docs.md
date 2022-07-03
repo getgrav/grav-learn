@@ -10,14 +10,6 @@ The **Grav Form Plugin** is the easiest way to use forms on your site. Let's see
 
 !!! In the future we want Grav to be able to dynamically generate forms from the Admin Plugin
 
-### A Live Example
-
-The Sora Article skeleton has a form page ready to see while reading this tutorial:
-
-[Live page](http://demo.getgrav.org/soraarticle-skeleton/contact)
-
-[Page markdown file](https://raw.githubusercontent.com/getgrav/grav-skeleton-soraarticle-blog/develop/pages/03.contact/form.md)
-
 ### Setup the Page
 
 You can put a form inside any page of your site. All you need to do is rename the page markdown file to `form.md`, or add a [template](../../../content/headers#template) header in the page frontmatter, to make it use the `form` template.
@@ -106,6 +98,12 @@ process:
 [/prism]
 
 That's it!
+
+### Live Demo
+
+[Live page](http://demo.getgrav.org/soraarticle-skeleton/contact)
+
+[Page markdown file](https://raw.githubusercontent.com/getgrav/grav-skeleton-soraarticle-blog/develop/pages/03.contact/form.md)
 
 !!! Modular pages are a bit different. In this case, also see [using forms in modular pages](https://learn.getgrav.org/forms/forms/how-to-forms-in-modular-pages)
 
