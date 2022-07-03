@@ -8,7 +8,14 @@ taxonomy:
 
 The **Grav Form Plugin** is the easiest way to use forms on your site. Let's see how we can create a simple contact form.
 
-!!! In the future we want Grav to be able to dynamically generate forms from the Admin Plugin
+
+### A Live Example
+
+The Sora Article skeleton has a form page ready to see while reading this tutorial:
+
+[Live page](http://demo.getgrav.org/soraarticle-skeleton/contact)
+
+[Page markdown file](https://raw.githubusercontent.com/getgrav/grav-skeleton-soraarticle-blog/develop/pages/03.contact/form.md)
 
 ### Setup the Page
 
@@ -112,3 +119,5 @@ When users submit the form, the plugin will send an email to you (as set in the 
 ! For full details on setting up and configuring email, please read the [Email plugin documentation](https://github.com/getgrav/grav-plugin-email/blob/develop/README.md)
 
 You can activate the **Grav Data Manager** plugin to see that data in the **Admin Plugin**.
+
+!!! In the future we want Grav to be able to dynamically generate forms from the Admin Plugin
