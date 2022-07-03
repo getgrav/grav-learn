@@ -6,9 +6,8 @@ taxonomy:
 
 ## Simple Contact Form
 
-The **Grav Form Plugin** is the easiest way to have forms on your site. Let's see how to create a simple contact form.
+The **Grav Form Plugin** is the easiest way to use forms on your site. Let's see how we can create a simple contact form.
 
-!!! In the future we want Grav to be able to dynamically generate forms from the Admin Plugin
 
 ### A Live Example
 
@@ -21,6 +20,8 @@ The Sora Article skeleton has a form page ready to see while reading this tutori
 ### Setup the Page
 
 You can put a form inside any page of your site. All you need to do is rename the page markdown file to `form.md`, or add a [template](../../../content/headers#template) header in the page frontmatter, to make it use the `form` template.
+
+!! Your page's template, or page's parent template, must implement the `{% block content %}` tag in order for the **Grav Form Plugin** to render your inputs on the page.
 
 The form fields and processing instructions are defined in the YAML frontmatter of the page, so just open the page markdown file with your favorite editor, and put the following code in it:
 
@@ -105,6 +106,13 @@ process:
 
 That's it!
 
+
+### Live Demo
+
+[Live page](http://demo.getgrav.org/soraarticle-skeleton/contact)
+
+[Page markdown file](https://raw.githubusercontent.com/getgrav/grav-skeleton-soraarticle-blog/develop/pages/03.contact/form.md)
+
 !!! Forms in modular pages work differently. To learn more about that we recommend reading [using forms in modular pages](https://learn.getgrav.org/forms/forms/how-to-forms-in-modular-pages)
 
 When users submit the form, the plugin will send an email to you (as set in the `form` setting of the Grav Email Plugin), and will save the entered data in the data/ folder.
@@ -112,3 +120,5 @@ When users submit the form, the plugin will send an email to you (as set in the 
 ! For full details on setting up and configuring email, please read the [Email plugin documentation](https://github.com/getgrav/grav-plugin-email/blob/develop/README.md)
 
 You can activate the **Grav Data Manager** plugin to see that data in the **Admin Plugin**.
+
+!!! In the future we want Grav to be able to dynamically generate forms from the Admin Plugin

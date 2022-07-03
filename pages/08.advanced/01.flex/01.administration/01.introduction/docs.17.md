@@ -49,7 +49,7 @@ When you are happy with the page, hit **Save**.
 
 ## Display the Page
 
-You can just go to your site and look at the menu. It should contain **Contacts**. Entering to that page should display:
+Navigate to the page you created. You should see the following page which contains **Contacts**:
 
 ![](flex-objects-site.png?width=2030&classes=shadow)
 
