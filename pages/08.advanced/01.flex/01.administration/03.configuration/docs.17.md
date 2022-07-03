@@ -6,8 +6,6 @@ process:
     twig: true
 ---
 
-![Caching Tab](accounts-configuration.png?width=2030&classes=shadow)
-
 **Configuration** has common settings for the **Flex Directory**.
 
 These settings are typically used for changing the behaviour of the directory, setting defaults for the objects or alter rendering of the layouts.
