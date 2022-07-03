@@ -22,9 +22,9 @@ blueprints: {}
 form: {}
 ```
 
-To create your own custom Directory, you need to start by naming your `type` (filename) and filling up the `title` and `description`.
+To create your own custom Directory, you need to start by naming your `type` (filename) and filling in the `title` and `description`.
 
-After creating the file and filling up the basic information, the next step is to either copy your existing form or to add some fields into the file.
+After creating the file and filling in the basic information, the next step is to either copy your existing form or to add some fields into the file.
 
 ! **TIP:** We assume that you already know how to create your own **[Forms and Blueprints](/forms)**.
 
