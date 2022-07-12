@@ -73,6 +73,16 @@ form:
     classes: 'form-style form-surround'
 [/prism]
 
+### Attributes
+
+Adding custom attributes to the form element. Using the example below, replace `key` with your attribute and `value` with the attribute's value.
+
+[prism classes="language-yaml line-numbers"]
+form:
+    attributes:
+        key: value
+[/prism]
+
 ### Inline Errors
 
 Setting Inline Errors in the form's markdown file or definition enables the display of in-line errors, an important troubleshooting tool.
