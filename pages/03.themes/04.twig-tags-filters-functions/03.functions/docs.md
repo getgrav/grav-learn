@@ -177,7 +177,7 @@ title: Home
 ---
 ```
 
-`header_var('title')` <i class="fa fa-long-arrow-right"></i> **About**
+`header_var('title')` <i class="fa fa-long-arrow-right"></i> **Home**
 
 [version=16,17]
 ### `http_response_code`
