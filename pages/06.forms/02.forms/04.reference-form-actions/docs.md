@@ -235,6 +235,11 @@ You can "hook" into a form processing and perform any kind of operation. Perform
 
 To do this, in the form process field add your own processing action name, for example 'yourAction'.
 
+[prism classes="language-yaml"]
+process:
+    yourAction: true
+[/prism]
+
 Then, create a simple plugin.
 
 In its main PHP file, register for the event `onFormProcessed`
