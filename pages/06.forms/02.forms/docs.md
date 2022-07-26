@@ -24,7 +24,7 @@ title: A Page with an Example Form
 form:
     name: contact-form
     fields:
-        - name: name
+        name:
           label: Name
           placeholder: Enter your name
           autofocus: on
@@ -33,7 +33,7 @@ form:
           validate:
             required: true
 
-        - name: email
+        email:
           label: Email
           placeholder: Enter your email address
           type: email
@@ -41,26 +41,28 @@ form:
             required: true
 
     buttons:
-        - type: submit
+        submit:
+          type: submit
           value: Submit
-        - type: reset
+        reset:
+          type: reset
           value: Reset
 
     process:
-        - email:
-            from: "{{ config.plugins.email.from }}"
-            to:
-              - "{{ config.plugins.email.to }}"
-              - "{{ form.value.email }}"
-            subject: "[Feedback] {{ form.value.name|e }}"
-            body: "{% include 'forms/data.html.twig' %}"
-        - save:
-            fileprefix: feedback-
-            dateformat: Ymd-His-u
-            extension: txt
-            body: "{% include 'forms/data.txt.twig' %}"
-        - message: Thank you for your feedback!
-        - display: thankyou
+        email:
+          from: "{{ config.plugins.email.from }}"
+          to:
+            - "{{ config.plugins.email.to }}"
+            - "{{ form.value.email }}"
+          subject: "[Feedback] {{ form.value.name|e }}"
+          body: "{% include 'forms/data.html.twig' %}"
+        save:
+          fileprefix: feedback-
+          dateformat: Ymd-His-u
+          extension: txt
+          body: "{% include 'forms/data.txt.twig' %}"
+        message: Thank you for your feedback!
+        display: thankyou
 
 ---
 
