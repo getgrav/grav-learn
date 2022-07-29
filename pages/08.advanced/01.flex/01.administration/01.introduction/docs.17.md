@@ -12,7 +12,7 @@ This section contains a walkthrough how to quickly enable existing **Directory**
 
 To enable a custom **Flex Directory**, you need to go to **Plugins** > **Flex Objects**.
 
-We are interested in the **Directories** configuration setting which lists all the detected **Flex Directories**. Find the directories you're wanting to enable and ensure the **Enabled** option checked.
+We are interested in the **Directories** configuration setting which lists all the detected **Flex Directories**. Find the directories you're wanting to enable and ensure the **Enabled** option is checked.
 
 For this demonstration, let's enable the **Contacts** directory and click **Save** at the top.
 
