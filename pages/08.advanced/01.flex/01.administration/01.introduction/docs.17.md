@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-This section contains a walkthrough how to quickly enable existing **Directory** and how to display it in your site. In our examples we are using **Contacts** Directory which already exists in your site.
+This section contains a walk-through how to quickly enable existing **Directory** and how to display it in your site. In our examples we are using **Contacts** Directory which already exists in your site.
 
 ## Enabling a Directory
 
