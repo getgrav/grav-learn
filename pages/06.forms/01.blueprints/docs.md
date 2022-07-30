@@ -24,6 +24,7 @@ Grav uses Blueprints to:
 - define theme/plugin configuration options to be shown in the Admin.
 - define the Pages forms in the Admin.
 - define the options shown in the Configuration Admin section.
+- define flex directories/objects.
 
 At this point, we will break down additional details about how Blueprints work in Grav.
 
