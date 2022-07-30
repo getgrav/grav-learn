@@ -4,7 +4,8 @@ taxonomy:
     category: docs
 ---
 
-This section contains a walk-through how to quickly enable existing **Directory** and how to display it in your site. In our examples we are using **Contacts** Directory which already exists in your site.
+
+This section contains a walk-through on how to quickly enable an existing **Flex Directory** and how to display it within the Grav admin. In our examples we are using the **Contacts** Flex Directory which comes included with the **Flex Objects Plugin** for demonstration purposes.
 
 ## Enabling a Directory
 
