@@ -34,18 +34,18 @@ Even though technically you do not need a standalone web server, it is better to
 ### Mac
 
 * MacOS 10.14 Mojave already ships with the Apache Web server and PHP 7.1, so job done!
-* [MAMP/MAMP Pro](http://mamp.info) comes with Apache, MySQL and of course PHP. It is a great way to get more control over which version of PHP you are running, setting up virtual hosts, plus other useful features such as automatically handling dynamic DNS.
-* [AMPPS](http://www.ampps.com/downloads) is a software stack from Softaculous enabling Apache, PHP, Perl, Python,.. This includes everything you need (and more) for GRAV development.
+* [MAMP/MAMP Pro](https://www.mamp.info/en/mac/) comes with Apache, MySQL and of course PHP. It is a great way to get more control over which version of PHP you are running, setting up virtual hosts, plus other useful features such as automatically handling dynamic DNS.
+* [AMPPS](https://www.ampps.com/downloads) is a software stack from Softaculous enabling Apache, PHP, Perl, Python,.. This includes everything you need (and more) for GRAV development.
 * [Brew Apache/PHP](https://getgrav.org/blog/macos-mojave-apache-multiple-php-versions) is an alternative approach that allows a fully configurable installation with various PHP versions.
 
 ### Windows
 
 * [Laragon](https://laragon.org/) portable, isolated, fast & powerful universal development environment for PHP, Node.js, and more. It is fast, lightweight, easy-to-use and easy-to-extend.
 * [XAMPP](https://www.apachefriends.org/index.html) provides Apache, PHP, and MySQL in one simple package.
-* [EasyPHP](http://www.easyphp.org/) provides a personal Web hosting package as well as a more powerful developer version.
-* [MAMP for Windows](http://mamp.info) is a long-time Mac favorite, but now available for Windows.
-* [IIS with PHP](http://php.iis.net/) is a fast way to run PHP on Windows.
-* [AMPPS](http://www.ampps.com/downloads) is a software stack from Softaculous enabling Apache, PHP, Perl, Python,.. This includes everything you need (and more) for GRAV development.
+* [EasyPHP](https://www.easyphp.org/) provides a personal Web hosting package as well as a more powerful developer version.
+* [MAMP for Windows](https://www.mamp.info/en/windows/) is a long-time Mac favorite, but now available for Windows.
+* [IIS with PHP](https://php.iis.net/) is a fast way to run PHP on Windows.
+* [AMPPS](https://www.ampps.com/downloads) is a software stack from Softaculous enabling Apache, PHP, Perl, Python,.. This includes everything you need (and more) for GRAV development.
 * [Linux Subsystem](https://medium.freecodecamp.org/setup-a-php-development-environment-on-windows-subsystem-for-linux-wsl-9193ff28ae83) is a great way to Run a linux-like environment on Windows
 
 ### Linux
@@ -150,30 +150,30 @@ PhpStorm is best suited for PHP developers, including people who write complicat
 Although you can get away with Notepad, Textedit, Vi, or whatever default text editor comes with your platform, we recommend using a good text editor with syntax highlighting to make things easier. Here are some recommended options:
 
 1. [Visual Studio Code](https://code.visualstudio.com/) - Similar to Atom, it's built using Electron, Node, as well as HTML/CSS.  It's quite lightweight and has many plugins available, including very good support for PHP and JavaScript.  This is the current recommended editor for developing for Grav.
-2. [Atom](http://atom.io) - MacOS/Windows/Linux - A new editor developed by Github. It's free and open source. It is similar to Sublime, but does not have the sheer depth of plugins available yet.
-3. [SublimeText](http://www.sublimetext.com/) - MacOS/Windows/Linux - A commercial developer's editor, but well worth the price. Very powerful especially combined with plugins such as [Markdown Extended](https://sublime.wbond.net/packages/Markdown%20Extended), [Pretty YAML](https://sublime.wbond.net/packages/Pretty%20YAML), and [PHP-Twig](https://sublime.wbond.net/packages/PHP-Twig).
-4. [Notepad++](http://notepad-plus-plus.org/) - Windows - A free and very popular developer's editor for Windows.
-5. [Bluefish](http://bluefish.openoffice.nl/index.html) - MacOS/Windows/Linux - A free, open source text editor geared towards programmers and web developers.
+2. [Atom](https://atom.io) - MacOS/Windows/Linux - A new editor developed by Github. It's free and open source. It is similar to Sublime, but does not have the sheer depth of plugins available yet.
+3. [SublimeText](https://www.sublimetext.com/) - MacOS/Windows/Linux - A commercial developer's editor, but well worth the price. Very powerful especially combined with plugins such as [Markdown Extended](https://sublime.wbond.net/packages/Markdown%20Extended), [Pretty YAML](https://sublime.wbond.net/packages/Pretty%20YAML), and [PHP-Twig](https://sublime.wbond.net/packages/PHP-Twig).
+4. [Notepad++](https://notepad-plus-plus.org/) - Windows - A free and very popular developer's editor for Windows.
+5. [Bluefish](https://bluefish.openoffice.nl/index.html) - MacOS/Windows/Linux - A free, open source text editor geared towards programmers and web developers.
 6. [Kate](https://kate-editor.org/about-kate/) - MacOS/Windows/Linux - A light yet powerfull and versatile opensource text editor and programming tool, supporting highlighting for over 300 languages (including Markdown).
 
 ### Markdown Editors
 
 Another option if you primarily work with just creating content, is to use a dedicated **Markdown Editor**. These often are very content-centric and usually provide a **live-preview** of your content rendered as HTML. There are literally hundreds of these, but some good options include:
 
-1. [MacDown](http://macdown.uranusjr.com/) - MacOS - Free, a simple, lightweight open source Markdown editor.
+1. [MacDown](https://macdown.uranusjr.com/) - MacOS - Free, a simple, lightweight open source Markdown editor.
 2. [LightPaper](https://getlightpaper.com/) - MacOS - $17.99, clean, powerful. Our markdown editor of choice on the Mac. **Get 25% OFF with Discount Code: GET_GRAV_25**
-3. [MarkDrop](http://culturezoo.com/markdrop/) - MacOS - $5, but super clean and Droplr support built-in.
-4. [MarkdownPad](http://markdownpad.com/) - Windows - Free and Pro versions. Even has YAML front-matter support. An excellent solution for Windows users.
-5. [Mark Text](https://marktext.app/) - Free, open source Markdown editor for Windows / Linux / MacOS.
+3. [MarkDrop](https://culturezoo.com/markdrop/) - MacOS - $5, but super clean and Droplr support built-in.
+4. [MarkdownPad](https://markdownpad.com/) - Windows - Free and Pro versions. Even has YAML front-matter support. An excellent solution for Windows users.
+5. [Mark Text](https://github.com/marktext/marktext) - Free, open source Markdown editor for Windows / Linux / MacOS.
 
 ### FTP Clients
 
-Although there are many ways to deploy **Grav**, fundamentally you only need to copy your local site to your hosting provider. The most basic way to do this is with an [FTP Client](http://en.wikipedia.org/wiki/File_Transfer_Protocol). There are many available, but some recommended ones include:
+Although there are many ways to deploy **Grav**, fundamentally you only need to copy your local site to your hosting provider. The most basic way to do this is with an [FTP Client](https://en.wikipedia.org/wiki/File_Transfer_Protocol). There are many available, but some recommended ones include:
 
-1. [Transmit](http://panic.com/transmit/) - MacOS - The de facto FTP/SFTP client on MacOS. Easy to use, fast, folder-syncing and pretty much anything else you could ask for.
+1. [Transmit](https://panic.com/transmit/) - MacOS - The de facto FTP/SFTP client on MacOS. Easy to use, fast, folder-syncing and pretty much anything else you could ask for.
 2. [FileZilla](https://filezilla-project.org/) - MacOS/Windows/Linux - Probably the best option for Windows and Linux users. Free and very powerful (but very ugly on the Mac!).
-3. [Cyberduck](http://cyberduck.io/) - MacOS/Windows - A decent free option for both MacOS and Windows users. Not as full-featured as the others.
-4. [ForkLift](http://www.binarynights.com/forklift/) - MacOS - A solid alternative to Transmit, and slightly cheaper to boot.
+3. [Cyberduck](https://cyberduck.io/) - MacOS/Windows - A decent free option for both MacOS and Windows users. Not as full-featured as the others.
+4. [ForkLift](https://www.binarynights.com/forklift/) - MacOS - A solid alternative to Transmit, and slightly cheaper to boot.
 
 ### Git
 
