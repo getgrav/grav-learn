@@ -56,7 +56,7 @@ A template is first loaded, then passed through the **lexer** where its source c
 
 Once this is done, the compiler turns this into PHP code that can then be evaluated and displayed to the user.
 
-Twig can also be extended to add additional tags, filters, tests, operators, global variables, and functions. More information about extending Twig can be found in its [official documentation](http://twig.sensiolabs.org/doc/advanced.html).
+Twig can also be extended to add additional tags, filters, tests, operators, global variables, and functions. More information about extending Twig can be found in its [official documentation](https://twig.symfony.com/doc/1.x/advanced.html).
 
 ## Twig Syntax
 
