@@ -23,8 +23,7 @@ page-toc:
 3. Enable the grav_export module either via `drush en grav_export -y` or the administration GUI.
 4. Run `drush grav_export_all`, or its alias `drush gravea`, to export all items.  See other options below.
 5. Exported files are located at `[DRUPAL_ROOT]/sites/default/files/grav_export/EXPORT`
-6. The Grav plugin [https://github.com/david-szabo97/grav-plugin-admin-addon-user-manager](admin-addon-user-manager) is recommended to view and manage users.
-7. Follow the steps below for importing the data into Grav.
+6. Follow the steps below for importing the data into Grav.
 
 ===
 
@@ -106,4 +105,4 @@ Note: While field content is added to Grav page headers, display of those fields
 
 ### Importing Nodes to Grav Pages
 
-Copy the `EXPORT/data` and `EXPORT/pages` folders to the `user directory in Grav. 
+Copy the `EXPORT/data` and `EXPORT/pages` folders to the `user` directory in Grav.
