@@ -214,6 +214,7 @@ It is often useful to know how Grav processes in order to fully understand how b
             1. Fire **onOutputRendered** event
             1. Build _Response_ object
             1. Stop further processing and output the response
+    1. Fire **onPageHeaders** event to allow page header manipulation
     1. Output HTTP header and body
     1. Render debugger (if enabled)
     1. Shutdown
