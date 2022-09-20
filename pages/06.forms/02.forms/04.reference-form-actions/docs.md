@@ -67,13 +67,16 @@ In this case, we get the field "hiddenfield" from the form, and use it for the l
 
 ### Message
 
-Sets a message to be shown in the next page. Works if you set a `display` action too, which redirects the user to another page. Note, you can use Twig in the message if you like.
+Sets a message to be shown upon form submission. 
 
 [prism classes="language-yaml line-numbers"]
 process:
     - message: Thank you for your feedback!
-    - display: thankyou
 [/prism]
+
+By default, the message will be rendered at the beginning of the `form` element. 
+
+However, you can optionally modify the presentation either through `display` or through `redirect`.
 
 #### Validation Message
 
@@ -92,16 +95,16 @@ This will enable you to write a custom message that users will see in the event 
 
 ### Display
 
-After submitting the form the user can be redirected to another page. That page will be a subpage of the form, so for example, if your form lives in `/form`, you can redirect users to `/form/thankyou` with the following code:
+After submitting the form, the presentation of the form will update to embed a subpage. So for example, if your form lives in `/form`, you can embed the subpage `/form/thankyou` with the following code:
 
 [prism classes="language-yaml line-numbers"]
 process:
     - display: thankyou
 [/prism]
 
-The Form plugin provides a `formdata` template that's suitable for the process destination page, as it outputs the result of the form submission. In the above example, you could create a `pages/form/thankyou/formdata.md` page.
+If you prefer to embed an absolute page path, like `site.com/thankyou`, prepend it with `/`, for example: `display: /thankyou`.
 
-If you're redirecting to a subpage, `display: thankyou` works perfectly. If you're redirecting to an absolute page path, like `site.com/thankyou`, prepend it with `/`, for example: `display: /thankyou`.
+The Form plugin provides a `formdata` template that's suitable for the process destination page, as it outputs the result of the form submission. In the above example, you could create a `pages/form/thankyou/formdata.md` page.
 
 Antimatter and compatible themes provide the `formdata.html.twig` Twig template, that looks like this:
 
