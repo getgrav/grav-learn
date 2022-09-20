@@ -62,13 +62,61 @@ The above shown `attributes` and `datasets` definitions lead to the following fi
 
 ## Available Fields
 
+### Basic-Captcha Field
+
+Added in Forms `7.0.0` as an local alternative to the Google ReCaptcha field.  This field is particularly handy when dealing with SPAM in contact forms when you don't want to deal with the hassle or perhaps GPDR restrictions that come with Google's offering. It uses **OCR-resistant** fonts to deter attacks, and can be configured with codes to be copied, or simple math questions.
+
+![Basic-Captcha](basic-captcha_field.gif)
+
+the `basic-captcha` field type is fully configurable via the `forms` configuration but comes with sensible defaults. The overall configuration of Basic-Captcha is configured in your global form configuration file (typically `user/config/plugins/form.yaml`).  The default options are:
+
+[prism classes="language-yaml line-numbers"]
+basic_captcha:
+  type: characters            # options: [characters | math]
+  chars:
+    length: 6                 # number of chars to output
+    font: zxx-noise.ttf       # options: [zxx-noise.ttf | zxx-camo.ttf | zxx-xed.ttf | zxx-sans.ttf]
+    bg: '#cccccc'             # 6-char hex color
+    text: '#333333'           # 6-char hex color
+    size: 24                  # font size in px
+    start_x: 5                # start position in x direction in px
+    start_y: 30               # start position in y direction in px
+    box_width: 135            # box width in px
+    box_height: 40            # box height in px
+  math:
+    min: 1                    # smallest digit
+    max: 12                   # largest digit
+    operators: ['+','-','*']  # operators that can be used in math
+[/prism]
+
+Example:
+
+[prism classes="language-yaml line-numbers"]
+basic-captcha:
+    type: basic-captcha
+    placeholder: copy the 6 characters
+    label: Are you human?  
+[/prism]
+
+This also requires a matching `process:` element to ensure the form is validated properly.  
+
+! This must be the first entry in the `process:` section of the form to ensure the form is not processed if captcha validation fails.
+
+Example:
+
+[prism classes="language-yaml line-numbers"]
+process:
+    basic-captcha:
+        message: Humanity verification failed, please try again...
+[/prism]
+
 ### Captcha Field
 
 The `captcha` field type is used to add a Google reCAPTCHA element to your form. Unlike other elements, it can only be used once in a form.
 
 ! You should configure your Google reCAPTCHA configurations in the [reCAPTCHA Admin Console](https://www.google.com/recaptcha/admin?target=_blank)
 
-As of version 3.0, the field supports 3 variations of reCAPTCHA.  The overall configuration of reCAPTCHA is best set in your global form configuration file (typically `user/config/plugins/form.yaml`).  The default options are:
+As of version `3.0`, the field supports 3 variations of reCAPTCHA.  The overall configuration of reCAPTCHA is best set in your global form configuration file (typically `user/config/plugins/form.yaml`).  The default options are:
 
 [prism classes="language-yaml line-numbers"]
 recaptcha:
@@ -129,6 +177,16 @@ g-recaptcha-response:
 | [validate.required](#common-fields-attributes) |
 [/div]
 
+This also requires a matching `process:` element to ensure the form is validated properly.  
+
+! This must be the first entry in the `process:` section of the form to ensure the form is not processed if ReCaptcha validation fails.
+
+Example:
+
+[prism classes="language-yaml line-numbers"]
+process:
+    captcha: true
+[/prism]
 
 ##### Server-side Captcha validation
 
