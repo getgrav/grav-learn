@@ -250,6 +250,7 @@ metadata:
 | `placeholder_key`   |             |
 | `placeholder_value` |             |
 | `value_only`        | Do not require or store array keys, just store a simple array of values. |
+| `value_type`        | Set to `textarea` to display a [textarea field](/forms/forms/fields-available#textarea-field) for entering array values rather than the smaller [text field](/forms/forms/fields-available#text-field). |
 [/div]
 
 [div class="table table-keycol"]
