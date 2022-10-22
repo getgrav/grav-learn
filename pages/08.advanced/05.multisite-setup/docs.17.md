@@ -28,7 +28,7 @@ This is essential since serving multiple websites from the same installation is 
 
 Once created, the `setup.php` is called every time a user requests a page. In order to serve multiple websites from one single installation, this script (roughly speaking) has to tell Grav where the files (for the configurations, themes, plugins, pages etc.) for a specific subsite are located.
 
-The provided snippets below setup your Grav installation in such a way that a request like
+The provided snippets below set up your Grav installation in such a way that a request like
 
 [prism classes="language-text"]
 https://<subsite>.example.com   -->   user/env/<subsite>.example.com
@@ -187,7 +187,7 @@ return [];
 [/prism]
 
 ##### GPM (Grav Package Manager) and multiple setups
-Should you need to manage your subsites' plugins and themes with the [GPM](https://learn.getgrav.org/17/cli-console/grav-cli-gpm), 
+Should you need to manage your subsites' plugins and themes with the [GPM](https://learn.getgrav.org/17/cli-console/grav-cli-gpm),
 Keep both `user/themes` + `user/plugins`, so that the GPM fetches and updates them in a single location. Then symlink the needed items under `user/env/my.site.com/themes` or `user/env/my.site.com/plugins`. Then setup individual yaml configurations `user/env/my.site.com/config/plugins` for each subsites.
 
 #### Advanced configuration (for Experts)
@@ -225,7 +225,7 @@ return [
 
 [/prism]
 
-!!!! Please be aware that a this very early stage you neither have access to the configuration nor to the URI instance and thus any call to a non-initialized class might end in a freeze of the system, in unexpected errors or in (complete) data loss.
+!!!! Please be aware that at this very early stage you neither have access to the configuration nor to the URI instance and thus any call to a non-initialized class might end in a freeze of the system, in unexpected errors or in (complete) data loss.
 
 #### Streams
 

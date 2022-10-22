@@ -125,7 +125,7 @@ accept:
   - 'image/*' # Array of MIME types and/or extensions. ['*'] for allowing any file.
 [/prism]
 
-The `accept` setting allows an array of MIME type as well as extensions definitions. All of the extensions need to be starting with the `.` (dot) plus the extension itself.
+The `accept` setting allows an array of MIME type as well as extensions definitions. All the extensions need to start with the `.` (dot) plus the extension itself.
 
 In addition you can also allow any file by simply using the __*__ (star) notation `accept: ['*']`.
 

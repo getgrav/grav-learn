@@ -8,7 +8,7 @@ taxonomy:
 
 ## What is a Blueprint?
 
-Blueprints are an important aspect of Grav. They are essentially the foundation of a theme or plugin's interaction with the Grav admin. They tell Grav what a theme or plugin is, its name, where it can be found on GitHub, etc. It also generates the configuration options for that theme or plugin in the Grav admin. 
+Blueprints are an important aspect of Grav. They are essentially the foundation of a theme or plugin's interaction with the Grav admin. They tell Grav what a theme or plugin is, its name, where it can be found on GitHub, etc. It also generates the configuration options for that theme or plugin in the Grav admin.
 
 A Blueprint is defined in a YAML file, and can generally host properties as well as form definitions.
 
@@ -126,5 +126,5 @@ This area of the file creates any administrative options accessible in the Grav 
 
 Errors in Blueprint files may cause unexpected results.
 
-!!! **TIP:** You can run **CLI command** `bin/grav yamllinter` to get a report on an errors in yaml files. This can be an invaluable when modifiying yaml files.
+!!! **TIP:** You can run **CLI command** `bin/grav yamllinter` to get a report on an errors in yaml files. This can be an invaluable when modifying yaml files.
 

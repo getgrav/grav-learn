@@ -5,7 +5,7 @@ title: Ubuntu 18.04 VPS Installation
 
 ### Update and Upgrade Packages
 
-At this point, you might want to either setup a local `/etc/hosts` entry to give the IP provided a nice friendly name such as `{{ page.header.localname }}`.  That way you can more easily SSH to your server with `ssh root@{{ page.header.localname }}{% if ssh_port %} -p{{ ssh_port }}{% endif %}`.
+At this point, you might want to either set up a local `/etc/hosts` entry to give the IP provided a nice friendly name such as `{{ page.header.localname }}`.  That way you can more easily SSH to your server with `ssh root@{{ page.header.localname }}{% if ssh_port %} -p{{ ssh_port }}{% endif %}`.
 
 {% if ssh_port %}
 !!! The `-p{{ ssh_port}}` configuration option is required in order to be able to the non-standard SSH port
@@ -60,7 +60,7 @@ Save and close the file, and then restart the service.
 
 
 [prism classes="language-bash command-line"]
-# systemctl restart php7.2-fpm 
+# systemctl restart php7.2-fpm
 [/prism]
 
 ### Configure Nginx Connection Pool
@@ -200,7 +200,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 Now all we have to do is restart Nginx and the php7-fpm process and test to ensure we have configured Nginx and the PHP connection pool correctly:
 
 [prism classes="language-bash command-line"]
-# systemctl restart nginx 
+# systemctl restart nginx
 # systemctl restart php7.2-fpm
 [/prism]
 

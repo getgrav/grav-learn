@@ -179,7 +179,7 @@ You can use `config-*@` for any field; for example if you want to change the fie
 
 You can make function calls with parameters from your blueprints to dynamically fetch a value for any property in your field. You can do this by using `data-*@:` notation as the key, where `*` is the field name you want to fill with the result of the function call.
 
-As an example we are editing a page and we want to have a field that allows us to change its parent or in another words move page into another location. For that we need default value that points to the current location as well as a list of options which consists of all possible locations. For that we need a way to ask Grav
+As an example we are editing a page and we want to have a field that allows us to change its parent or in other words move page into another location. For that we need default value that points to the current location as well as a list of options which consists of all possible locations. For that we need a way to ask Grav
 
 [prism classes="language-yaml line-numbers"]
 form:

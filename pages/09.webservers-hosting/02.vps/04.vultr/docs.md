@@ -16,7 +16,7 @@ After creating an account and navigating to the **Vultr Control Manager**, click
 
 ![](deploy.png?classes=center)
 
-Next select the **Operating System** from the list available.  We have selected **Ubuntu 18.04 LTS** to be consistent with the other guides and because it's the latests, very popular, reliable, and well supported distribution.
+Next select the **Operating System** from the list available.  We have selected **Ubuntu 18.04 LTS** to be consistent with the other guides and because it's the latest, very popular, reliable, and well supported distribution.
 
 For the **Server Size** you can pick a size that is appropriate for you but Grav will run great on any of them.  For the sake of this guide, we'll use the 1 CPU, 1GB memory option that is currently priced at $8/month.
 

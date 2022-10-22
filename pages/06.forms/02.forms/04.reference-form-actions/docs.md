@@ -67,14 +67,14 @@ In this case, we get the field "hiddenfield" from the form, and use it for the l
 
 ### Message
 
-Sets a message to be shown upon form submission. 
+Sets a message to be shown upon form submission.
 
 [prism classes="language-yaml line-numbers"]
 process:
     - message: Thank you for your feedback!
 [/prism]
 
-By default, the message will be rendered at the beginning of the `form` element. 
+By default, the message will be rendered at the beginning of the `form` element.
 
 However, you can optionally modify the presentation either through `display` or through `redirect`.
 
@@ -184,7 +184,7 @@ To also validate the captcha server-side, add the captcha process action.
 
 ### User IP Address
 
-Display the user's IP address on the output. Put it above email / save processes in the 'form.md' to ensure it is used by the output processe(s).
+Display the user's IP address on the output. Put it above email / save processes in the 'form.md' to ensure it is used by the output process(es).
 
 [prism classes="language-yaml line-numbers"]
 process:

@@ -158,7 +158,7 @@ if ($collection) {
 `filterBy( filters ): Collection` Filter collection by list of `property: value` pairs.
 
 Parameters:
-- **filters** Pairs of `property: value` which are used to filter he collection (`array`)
+- **filters** Pairs of `property: value` which are used to filter the collection (`array`)
 
 Returns:
 - **[Collection](/advanced/flex/using/collection)** (`object`) New filtered instance of the collection
