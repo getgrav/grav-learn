@@ -69,4 +69,4 @@ For example, if you wish to be able to render iCal calendar events, you would ne
     mime: text/calendar
 [/prism]
 
-This defines the `.ics` file extension as an `iCal` file with mime type: `text/calendar`.  Then all you need to do is provide the appropriate `.ical.twig` template to render any file you request of this type.
+This defines the `.ics` file extension as an `iCal` file with mime type: `text/calendar`.  Then all you need to do is provide the appropriate `.ics.twig` template to render any file you request of this type.
