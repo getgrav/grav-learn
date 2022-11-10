@@ -457,7 +457,7 @@ The **Media** section handles the configuration options for settings related to 
 [div class="table-keycol"]
 | Property | Description |
 | -------- | ----------- |
-| **enable_media_timestamp:** | Enable media timetsamps |
+| **enable_media_timestamp:** | Enable media timestamps |
 | **unsupported_inline_types:** | Array of supported media types to try to display inline. These file types are placed within `[]` brackets |
 | **allowed_fallback_types:** | Array of allowed media types of files found if accessed via Page route. These file types are placed within `[]` brackets |
 | **auto_metadata_exif:** | Automatically create metadata files from Exif data where possible |
