@@ -95,10 +95,10 @@ Example:
 basic-captcha:
     type: basic-captcha
     placeholder: copy the 6 characters
-    label: Are you human?  
+    label: Are you human?
 [/prism]
 
-This also requires a matching `process:` element to ensure the form is validated properly.  
+This also requires a matching `process:` element to ensure the form is validated properly.
 
 ! This must be the first entry in the `process:` section of the form to ensure the form is not processed if captcha validation fails.
 
@@ -110,7 +110,83 @@ process:
         message: Humanity verification failed, please try again...
 [/prism]
 
-### Captcha Field
+### Turnstile Field (Cloudflare)
+
+As of Form `v7.1.0`, Grav adds support for the new Cloudflare Turnstile field.  This field is a new way to prevent SPAM in forms, and is a great alternative to the Google ReCaptcha field and **GPDR** restrictions that come with Google's offering. This field is particularly handy when dealing with SPAM in contact forms.  [Learn more about Turnstile](https://blog.cloudflare.com/turnstile-private-captcha-alternative/?target=_blank).
+
+##### Advantages over Google ReCaptcha
+
+1. GDPR compliant and user-privacy focused
+2. Extremely fast challenge verification
+3. Very simple to implement both in Cloudflare and Grav, no complex UIs or parameters to configure
+4. No fancy workarounds for asynchronous form submissions (ajax), it just works!
+4. Exceptional user experience compared to ReCaptcha, no more counting cars, traffic lights, or other nonsense
+5. Built on top of machine learning, it will get better over-time and adapt to new attack vectors
+6. Exhaustive analytics on the effectiveness of the challenge, [see screenshot](https://blog.cloudflare.com/content/images/2022/09/image1-64.png?target=_blank)
+
+
+##### Integration
+Before integrating Grav Forms with Turnstile, you must first [create a new Turnstile site](https://dash.cloudflare.com/?to=/:account/turnstile?target=_blank), you can also follow the [official "get started" tutorial](https://developers.cloudflare.com/turnstile/get-started/?target=_blank).
+Here you can also choose the type of widget you want to use, it can be either `managed`, `non-interactive` or `invisible`. It is important to note that you can only change the type of widget from Cloudflare, you won't be able to configure this via Grav. However, if not happy with one choice, you will be able to change it later if you need to. [Learn more about the different widget types](https://developers.cloudflare.com/turnstile/reference/widget-types/?target=_blank).
+
+! Make sure you add any Domain you might need to use the Turnstile field on, this might include your local environment.
+
+Once you have created a site, you will be given a `site_key` and `site_secret` that you will need to configure in your form configuration file (typically `user/config/plugins/form.yaml`). You can ignore the script tag suggested, as Grav takes care of it for you.
+
+The default options are:
+
+[prism classes="language-yaml line-numbers"]
+turnstile:
+  theme: light
+  site_key: <Your Turnstile Site Key>
+  secret_key: <Your Turnstile Secret Key>
+[/prism]
+
+Finally, you will also requires a matching `process:` element to ensure the form is validated properly.
+
+! This must be the first entry in the `process:` section of the form to ensure the form is not processed if captcha validation fails.
+
+##### Example
+A typical example for a contact form would look like the following.
+
+[prism classes="language-yaml line-numbers" highlight="19-21,27"]
+form:
+  name: contact
+  fields:
+    name:
+      label: Name
+      type: text
+      validate:
+        required: true
+    email:
+      label: Email
+      type: email
+      validate:
+        required: true
+    message:
+      label: Message
+      type: textarea
+      validate:
+        required: true
+    captcha:
+        type: turnstile
+        theme: light
+  buttons:
+    submit:
+      type: submit
+      value: Submit
+  process:
+    turnstile: true
+    email:
+      subject: "[Acme] {{ form.value.name|e }}"
+      reply_to: "{{ form.value.name|e }} <{{ form.value.email }}>"
+    message: Thanks for contacting us!
+    reset: true
+    display: '/'
+[/prism]
+
+
+### Captcha Field (Google ReCaptcha)
 
 The `captcha` field type is used to add a Google reCAPTCHA element to your form. Unlike other elements, it can only be used once in a form.
 
@@ -177,7 +253,7 @@ g-recaptcha-response:
 | [validate.required](#common-fields-attributes) |
 [/div]
 
-This also requires a matching `process:` element to ensure the form is validated properly.  
+This also requires a matching `process:` element to ensure the form is validated properly.
 
 ! This must be the first entry in the `process:` section of the form to ensure the form is not processed if ReCaptcha validation fails.
 
