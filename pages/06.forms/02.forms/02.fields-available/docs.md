@@ -110,7 +110,7 @@ process:
         message: Humanity verification failed, please try again...
 [/prism]
 
-### Turnstile Field (Cloudflare)
+### Turnstile Captcha Field (Cloudflare)
 
 As of Form `v7.1.0`, Grav adds support for the new Cloudflare Turnstile field.  This field is a new way to prevent SPAM in forms, and is a great alternative to the Google ReCaptcha field and **GPDR** restrictions that come with Google's offering. This field is particularly handy when dealing with SPAM in contact forms.  [Learn more about Turnstile](https://blog.cloudflare.com/turnstile-private-captcha-alternative/?target=_blank).
 
@@ -186,7 +186,7 @@ form:
 [/prism]
 
 
-### Captcha Field (Google ReCaptcha)
+### Google Captcha Field (ReCaptcha)
 
 The `captcha` field type is used to add a Google reCAPTCHA element to your form. Unlike other elements, it can only be used once in a form.
 
