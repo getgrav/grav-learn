@@ -21,7 +21,7 @@ User and Group permissions for managing account related information are:
 | **Accounts**                          | *admin.accounts*                  | Gives the user full access to the **Accounts** area of the admin.    |
 | &nbsp; &nbsp; **Create**              | *admin.accounts.create*           | Gives the user access to **Create** user accounts and groups.        |
 | &nbsp; &nbsp; **Read**                | *admin.accounts.read*             | Gives the user access to **Read** user accounts and groups.          |
-| &nbsp; &nbsp; **Update**              | *admin.accounts.upodate*          | Gives the user access to **Update** user accounts and groups.        |
+| &nbsp; &nbsp; **Update**              | *admin.accounts.update*           | Gives the user access to **Update** user accounts and groups.        |
 | &nbsp; &nbsp; **Delete**              | *admin.accounts.delete*           | Gives the user access to **Delete** user accounts and groups.        |
 | &nbsp; &nbsp; **List**                | *admin.accounts.list*             | Gives the user access to **Accounts** area of the admin.             |
 [/div]
