@@ -28,11 +28,11 @@ bugs: https://github.com/getgrav/grav-theme-antimatter/issues
 license: MIT
 [/prism]
 
-You can reach any of these items via `theme` by using the standard **dot-syntax**:
+You can reach any of these items via `grav.theme` by using the standard **dot-syntax**:
 
 [prism classes="language-twig line-numbers"]
-Author Email: {{ theme.author.email }}
-Theme License: {{ theme.license }}
+Author Email: {{ grav.theme.author.email }}
+Theme License: {{ grav.theme.license }}
 [/prism]
 
 You can also reach these same values from a Grav plugin with PHP syntax:
