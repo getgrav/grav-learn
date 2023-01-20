@@ -226,7 +226,7 @@ content:
     items:
       '@page.parent': '/blog'
 [/prism]
-
+@
 ! Empty collection will be returned if the page is in the top level.
 
 ##### @page.siblings - Siblings of a specific page
@@ -263,7 +263,7 @@ content:
 
 Using alias of `'@page.modular': '/blog'` is deprecated.
 
-##### @self.all - Children and modules of a specific page
+##### @page.all - Children and modules of a specific page
 
 This method retrieves only **published children and modules** of the specific page:
 

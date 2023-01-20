@@ -10,7 +10,7 @@ When creating a plugin or theme for Grav, it is not only important to follow bes
 
 These are some recommendations for how to best create a secure and trustworthy extension to Grav, and should be considered essential knowledge for any theme- or plugin-author 
 
-- When writing Twig-templates that output user-submitted information, always [escape the input](https://twig.sensiolabs.org/doc/2.x/filters/escape.html), this also includes [assets](https://twig.sensiolabs.org/doc/2.x/filters/raw.html).
+- When writing Twig-templates that output user-submitted information, always [escape the input](https://twig.symfony.com/doc/1.x/filters/escape.html), this also includes [assets](https://twig.symfony.com/doc/1.x/filters/raw.html).
 - PHP-code should [sanitize](https://php.net/manual/en/filter.filters.sanitize.php) input and output.
 - Blueprints should prefer preset options: When possible, give the user a set of choices rather than raw input.
 - Be aware of how memory and processor-usage affect the extension, and avoid using system resources unjustifiably.

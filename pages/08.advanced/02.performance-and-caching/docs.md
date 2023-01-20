@@ -60,7 +60,7 @@ cache:
   enabled: true                        # Set to true to enable caching
   check:
     method: file                       # Method to check for updates in pages: file|folder|hash|none
-  driver: auto                         # One of: auto|file|apc|xcache|memcache|wincache
+  driver: auto                         # One of: auto|file|apc|xcache|memcache|wincache|redis
   prefix: 'g'                          # Cache prefix string (prevents cache conflicts)
 [/prism]
 
@@ -134,6 +134,8 @@ cache:
   redis:
     password: your-secret
 [/prism]
+
+_you will also need the php-redis installed in your system_
 
 #### Twig Specific Options
 

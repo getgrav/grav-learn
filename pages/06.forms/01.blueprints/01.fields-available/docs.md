@@ -250,6 +250,7 @@ metadata:
 | `placeholder_key`   |             |
 | `placeholder_value` |             |
 | `value_only`        | Do not require or store array keys, just store a simple array of values. |
+| `value_type`        | Set to `textarea` to display a [textarea field](/forms/forms/fields-available#textarea-field) for entering array values rather than the smaller [text field](/forms/forms/fields-available#text-field). |
 [/div]
 
 [div class="table table-keycol"]
@@ -277,6 +278,7 @@ Example:
 color:
    type: colorpicker
    label: Choose a color
+   default: '#FFFFFF'
 [/prism]
 
 [div class="table table-keycol"]
@@ -950,7 +952,6 @@ content:
 | `underline`   | Add an underline after the title                               |
 | `text`        | A text to show beneath                                         |
 | `security`    | An array of credentials a user needs to visualize this section |
-| `title_level` | Set a custom headline tag. Default: `h3`                       |
 [/div]
 
 

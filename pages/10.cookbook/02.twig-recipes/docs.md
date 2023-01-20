@@ -21,7 +21,7 @@ Simply find the `/blog` page, obtain it's children, order them by date in a desc
 
 [prism classes="language-twig line-numbers"]
 <ul>
-{% for post in page.find('/blog').children.order('date', 'desc').slice(0, 5) %}
+{% for post in page.find('/blog').children.published.order('date', 'desc').slice(0, 5) %}
     <li class="recent-posts">
         <strong><a href="{{ post.url }}">{{ post.title }}</a></strong>
     </li>

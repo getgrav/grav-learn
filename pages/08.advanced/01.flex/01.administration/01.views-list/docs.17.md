@@ -6,9 +6,9 @@ taxonomy:
 
 ![List View](flex-objects-list.png?width=2030&classes=shadow)
 
-The **Content Listing** usually contains a paginated list to your content, but some directories, like **[Pages](/admin-panel/page)**, may have highly customized look.
+The **Content Listing** usually contains a paginated list of your content, but some directories, like **[Pages](/admin-panel/page)**, may have a highly customized look.
 
-This is where you can create, edit and delete your content. The page also has powerful tools to **Search** and **Order** the items.
+This is where you can create, edit, and delete your content. The page also has powerful tools to **Search** and **Order** the items.
 
 ## Controls
 

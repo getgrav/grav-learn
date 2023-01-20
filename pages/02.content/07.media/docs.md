@@ -423,7 +423,7 @@ For example, if you have an image that is `640` x `480` and you perform a `cropR
 
 `crop` will not resize the image at all, it will merely crop the original image so that only the portion of the bounding box as described by the `width` and the `height` originating from the `x` and `y` location is used to create the new image.
 
-For example, an image that is `640` x `480` that has the `crop(0, 0, 400, 100)` action upon it, will simply get the width and height both cropped so that the resulting image is an image with a width of `400` and a height of `100` originated from the top-left corner as described by `0, 0`.
+For example, an image that is `640` x `480` with `crop(0, 0, 400, 100)` will produce an image with a width of `400` and a height of `100` originating from the top-left corner as described by `0, 0`.
 
 [ui-tabs]
 [ui-tab title="Markdown"]

@@ -11,3 +11,4 @@ anchors:                    # Anchor configuration
   icon: '#'                 # Icon to use, can be a symbol, emoji, ascii etc.
   position: after           # Position to put the anchor, `before|after`
   copy_to_clipboard: true
+  slug_maxlen: 50

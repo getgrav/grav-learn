@@ -506,7 +506,7 @@ Usually, you'd incorporate other complete libraries into a `vendor` subfolder an
 
 The simplest way is to follow the [Custom Twig Filter/Function](/cookbook/twig-recipes/#custom-twig-filter-function) example in the **Twig Recipes** section.
 
-Also, [read the Twig docs](http://twig.sensiolabs.org/doc/advanced.html) and develop your extension. Then look at the [TwigPCRE](https://github.com/kesslernetworks/grav-plugin-twigpcre) plugin to learn how to incorporate it into Grav.
+Also, [read the Twig docs](https://twig.symfony.com/) and develop your extension. Then look at the [TwigPCRE](https://github.com/kesslernetworks/grav-plugin-twigpcre) plugin to learn how to incorporate it into Grav.
 
 ### How do I interact with external APIs?
 

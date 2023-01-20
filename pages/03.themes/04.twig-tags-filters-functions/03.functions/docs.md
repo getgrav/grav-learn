@@ -166,6 +166,19 @@ Takes a Github Gist ID and creates appropriate Gist embed code
 
 `gist('bc448ff158df4bc56217')` <i class="fa fa-long-arrow-right"></i> **{{ gist('bc448ff158df4bc56217')|e }}**
 
+### `header_var`
+
+Helper function. Returns `page.header.<variable>`.
+
+Given frontmatter of
+```
+---
+title: Home
+---
+```
+
+`header_var('title')` <i class="fa fa-long-arrow-right"></i> **Home**
+
 [version=16,17]
 ### `http_response_code`
 

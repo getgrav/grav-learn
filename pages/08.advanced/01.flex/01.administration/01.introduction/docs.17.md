@@ -4,7 +4,8 @@ taxonomy:
     category: docs
 ---
 
-This section contains a walkthrough how to quickly enable existing **Directory** and how to display it in your site. In our examples we are using **Contacts** Directory which already exists in your site.
+
+This section contains a walk-through on how to quickly enable an existing **Flex Directory** and how to display it within the Grav admin. In our examples we are using the **Contacts** Flex Directory which comes included with the **Flex Objects Plugin** for demonstration purposes.
 
 ## Enabling a Directory
 
@@ -12,11 +13,11 @@ This section contains a walkthrough how to quickly enable existing **Directory**
 
 To enable a custom **Flex Directory**, you need to go to **Plugins** > **Flex Objects**.
 
-We are interested in **Directories** option inside the plugin, which lists all the detected **Flex Directories**. Just select the directories you're interested in and make sure toggle has `Enabled` option checked.
+We are interested in the **Directories** configuration setting which lists all the detected **Flex Directories**. Find the directories you're wanting to enable and ensure the **Enabled** option is checked.
 
-! **TIP:** Enable directory called **Contacts**
+For this demonstration, let's enable the **Contacts** directory and click **Save** at the top.
 
-Hit **Save** and the directory should show up after a page load.
+After the page reloads, you should see a new item in the Grav Admin menu titled **Contacts**.
 
 ## Install Sample Data (Optional)
 
@@ -49,7 +50,7 @@ When you are happy with the page, hit **Save**.
 
 ## Display the Page
 
-You can just go to your site and look at the menu. It should contain **Contacts**. Entering to that page should display:
+Navigate to the page you created. You should see the following page which contains **Contacts**:
 
 ![](flex-objects-site.png?width=2030&classes=shadow)
 

@@ -53,6 +53,7 @@ Most events within Grav fire in a specific order and it is important to understa
 1. [onTwigSiteVariables](../event-hooks#onTwigSiteVariables)
 1. [onCollectionProcessed](../event-hooks#onCollectionProcessed) _(when collection is requested)_
 1. [onOutputGenerated](../event-hooks#onOutputGenerated)
+1. [onPageHeaders](../event-hooks#onPageHeaders)
 1. [onOutputRendered](../event-hooks#onOutputRendered)
 1. [onShutdown](../event-hooks#onShutdown)
 
@@ -122,6 +123,11 @@ The current page as requested by a URL has been loaded into the **Page object**.
 #### onOutputGenerated
 
 The output has been processed by the **Twig templating engine** and is now just a string of HTML.
+
+<a name="onPageHeaders"></a>
+#### onPageHeaders
+
+Allows the manipulation of the page headers object.
 
 <a name="onOutputRendered"></a>
 #### onOutputRendered
@@ -215,7 +221,7 @@ The Twig templating engine is now initialized at this point.
 <a name="onTwigExtensions"></a>
 #### onTwigExtensions
 
-The core Twig extensions have been loaded, but if you need to add [your own Twig extension](https://twig.symfony.com/doc/3.x/advanced.html#id2), you can do so with this event hook.
+The core Twig extensions have been loaded, but if you need to add [your own Twig extension](https://twig.symfony.com/doc/1.x/advanced.html#creating-an-extension), you can do so with this event hook.
 
 <a name="onTwigPageVariables"></a>
 #### onTwigPageVariables
