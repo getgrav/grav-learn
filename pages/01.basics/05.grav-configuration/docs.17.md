@@ -106,7 +106,7 @@ home:
   hide_in_urls: false
 [/prism]
 
-The **Home** section is where you set the default path for the site's homepage. You can also choose to hide the home route in URLs.
+The **Home** section is where you set the default route to the site's homepage. You can also choose to hide the home route in URLs.
 
 [div class="table-keycol"]
 | Property | Description |
