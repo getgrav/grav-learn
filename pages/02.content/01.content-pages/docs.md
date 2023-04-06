@@ -191,7 +191,7 @@ This allows you to perform a wide variety of functionality from any page on your
 [/prism]
 {% endverbatim %}
 
-! The object **pages**, for example **pages.find** or **pages.descendants**, must be used in a Twig template file (\*.html.twig). It cannot be used in the content section of a normal page (such as default.md). The **pages** object is only brought to live after Grav has processed all of the website's pages. The object **pages** is not the object **page**. The **page** object can be used in the content section of a normal page, remember to have twig processing enabled for the given page.
+!! The `pages`-object is unavailable when [processing Twig directly in Markdown-content](https://learn.getgrav.org/content/headers#process). However, the `page`-object and its inherited `find()`-method is, so you could use `{% for p in page.find('/projects').children %}` as a replacement for the above. Note that the **pages** refers to all the Pages available to Grav, and **page** refers to a single, and often the current, Page.
 
 In the next sections, we will continue to dig into the specifics of a page and page collections in detail.
 
