@@ -338,7 +338,7 @@ A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/functio
 [version=17]
 ### `regex_match`
 
-A helpful wrapper for the PHP [preg_match()](https://php.net/manual/en/function.preg-math.php) method, you can perform complex regular expression match on text via this filter:
+A helpful wrapper for the PHP [preg_match()](https://php.net/manual/en/function.preg-match.php) method, you can perform complex regular expression match on text via this filter:
 
 {% verbatim %}
 `regex_match('http://www.php.net/index.html', '@^(?:http://)?([^/]+)@i')`
