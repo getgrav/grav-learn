@@ -1246,7 +1246,7 @@ Example:
 [prism classes="language-yaml line-numbers"]
 header.phone:
   type: url
-  label: 'Your Phone Number'
+  label: 'Your Website Url'
 [/prism]
 
 [div class="table table-keycol"]
