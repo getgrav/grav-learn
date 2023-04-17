@@ -34,6 +34,8 @@ The `content.items` value in the page's frontmatter tells Grav to gather up a co
 
 This definition creates a collection for the page that consists of all **child pages** sorted by **date** in **descending** order with **pagination** showing **10 items** per-page.
 
+Pagination links are added only if [Pagination plugin](https://github.com/getgrav/grav-plugin-pagination) is installed and enabled.
+
 ## Accessing Collections in Twig
 
 When this collection is defined in the header, Grav creates a collection **page.collection** that you can access in a twig template with:
