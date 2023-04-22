@@ -147,13 +147,14 @@ which will result in HTML similar to:
 ##### Rel Attribute
 
 ```markdown
-[NoFollow Link](../some-page?rel=nofollow)
+[NoFollow Link](../some-page?rel=nofollow) or if the URL already has a "?" character, then nofollow should be prepended with a "&" character (../some-page?id=some-id&rel=nofollow)
 ```
 
 which will result in HTML similar to:
 
 ```html
 <a href="/your/pages/some-page" rel="nofollow">NoFollow Link</a>
+<a href="/your/pages/some-page?id=some-id" rel="nofollow">NoFollow Link</a>
 ```
 
 ##### Target Attribute
