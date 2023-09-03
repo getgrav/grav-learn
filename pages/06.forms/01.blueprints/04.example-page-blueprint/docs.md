@@ -76,7 +76,7 @@ form:
                 three: Three
 [/prism]
 
-The fields types you can add are listed in [Available form fields for use in the admin](../fields-available)
+The field types you can add are listed in [Available form fields for use in the admin](../fields-available)
 
 ### How to name fields
 

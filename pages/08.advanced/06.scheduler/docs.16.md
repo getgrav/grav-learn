@@ -27,7 +27,7 @@ Install Scheduler
 
 On my mac system, the full command required is displayed, so all you need to do is to copy and paste the entire then into your terminal and hit return.
 
-!! You need to be logged in to the shell with the same user as your webserver.  This is to ensure that the user that runs the schdeduler commands matches the webserver user that needs to interact with those files.  If you install the crontab entry with another user (e.g. `root`) any files created will be created as that `root` user and not the `webserver` user which can lead to problems.
+!! You need to be logged in to the shell with the same user as your webserver.  This is to ensure that the user that runs the scheduler commands matches the webserver user that needs to interact with those files.  If you install the crontab entry with another user (e.g. `root`) any files created will be created as that `root` user and not the `webserver` user which can lead to problems.
 
 [prism classes="language-bash command-line"]
 (crontab -l; echo "* * * * * cd /Users/andym/grav;/usr/local/bin/php bin/grav scheduler 1>> /dev/null 2>&1") | crontab -
@@ -131,7 +131,7 @@ Job Details
 
 ## Manually Running Jobs
 
-The CLI command provides an simple way to manually run any jobs.  In fact this is what the scheduler is doing when it runs periodically.
+The CLI command provides a simple way to manually run any jobs.  In fact this is what the scheduler is doing when it runs periodically.
 
 [prism classes="language-bash command-line"]
 bin/grav scheduler

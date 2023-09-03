@@ -301,7 +301,7 @@ It's always possible to create a partial template extending `partials/base.html.
 </div>
 [/prism]
 
-All this code does is sort the children (blog posts) of the `/blog` page by decending date order. It then takes the first five blog posts using the `slice` Twig filter. By the way, `slice(n,m)` takes elements from `n` to `m-1`. In this example, any blog posts that have a banner image have been named `banner.jpg`. This is set in a variable `bannerimage`. If `bannerimage` exists, it is shrunk down to a `60px x 60px` box and will appear to the left of the post title text and date. If it does not exist, the website logo is resized to `60px x 60px` and placed to the left of the title and date text instead.
+All this code does is sort the children (blog posts) of the `/blog` page by descending date order. It then takes the first five blog posts using the `slice` Twig filter. By the way, `slice(n,m)` takes elements from `n` to `m-1`. In this example, any blog posts that have a banner image have been named `banner.jpg`. This is set in a variable `bannerimage`. If `bannerimage` exists, it is shrunk down to a `60px x 60px` box and will appear to the left of the post title text and date. If it does not exist, the website logo is resized to `60px x 60px` and placed to the left of the title and date text instead.
 
 The CSS for this widget is listed below:
 

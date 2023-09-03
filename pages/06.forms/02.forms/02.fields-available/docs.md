@@ -30,7 +30,7 @@ This list provides a common ground so there's no need to repeat the description 
 | `outerclasses`      | Classes added to the div that includes the label and the field                                                                                                                                                 |
 | `placeholder`       | sets the field placeholder value                                                                                                                                                                               |
 | `readonly`          | sets the field readonly state                                                                                                                                                                                  |
-| `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can ofcourse add more in the template you see, when used in the frontend |
+| `size`              | sets the field size, which in turn adds a class to its container. Valid values are `large`, `x-small`, `medium`, `long`, `small`. You can of course add more in the template you see, when used in the frontend |
 | `style`             | sets the field style                                                                                                                                                                                           |
 | `title`             | sets the field title value                                                                                                                                                                                     |
 | `type`              | sets the field type                                                                                                                                                                                            |
@@ -64,7 +64,7 @@ The above shown `attributes` and `datasets` definitions lead to the following fi
 
 ### Basic-Captcha Field
 
-Added in Forms `7.0.0` as an local alternative to the Google ReCaptcha field.  This field is particularly handy when dealing with SPAM in contact forms when you don't want to deal with the hassle or perhaps GPDR restrictions that come with Google's offering. It uses **OCR-resistant** fonts to deter attacks, and can be configured with codes to be copied, or simple math questions.
+Added in Forms `7.0.0` as an local alternative to the Google ReCaptcha field.  This field is particularly handy when dealing with SPAM in contact forms when you don't want to deal with the hassle or perhaps GDPR restrictions that come with Google's offering. It uses **OCR-resistant** fonts to deter attacks, and can be configured with codes to be copied, or simple math questions.
 
 ![Basic-Captcha](basic-captcha_field.gif)
 
@@ -273,7 +273,7 @@ The above code will validate the Captcha in the frontend and prevent form submis
     captcha: true
 [/prism]
 
-You can also provide an optional success `message`, but if you don't no specific message will be displayed on success.  If you want to set a form-specific `recaptcha_secret` rather than setting it globally in the form configuration, you can set that also.
+You can also provide an optional success `message`, but if you don't, no specific message will be displayed on success.  If you want to set a form-specific `recaptcha_secret` rather than setting it globally in the form configuration, you can set that also.
 
 [prism classes="language-yaml line-numbers"]
   process:
@@ -1240,7 +1240,7 @@ summary.enabled:
 
 ### Url Field
 
-The `url` field type is used to present a text input field that accepts an URL, using the [url HTML5 input](http://html5doctor.com/html5-forms-input-types/#input-url).
+The `url` field type is used to present a text input field that accepts a URL, using the [url HTML5 input](http://html5doctor.com/html5-forms-input-types/#input-url).
 
 Example:
 [prism classes="language-yaml line-numbers"]

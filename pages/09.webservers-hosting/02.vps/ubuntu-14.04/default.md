@@ -4,7 +4,7 @@ title: Ubuntu 14.04 VPS Installation
 
 ### Update and Upgrade Packages
 
-At this point, you might want to either setup a local `/etc/hosts` entry to give the IP provided a nice friendly name such as `{{ page.header.localname }}`.  That way you can more easily SSH to your server with `ssh root@{{ page.header.localname }}`.
+At this point, you might want to either set up a local `/etc/hosts` entry to give the IP provided a nice friendly name such as `{{ page.header.localname }}`.  That way you can more easily SSH to your server with `ssh root@{{ page.header.localname }}`.
 
 After successfully SSH'ing to your server as **root**, the first thing you will want to do is update and upgrade all the installed packages.  This will ensure you are running the _latest-and-greatest_:
 
@@ -75,7 +75,7 @@ $ mkdir www;cd www;mkdir html;cd html
 
 Create a simple `index.html` with the contents of `<h1>Working!</h1>` and a file called `info.php` with the contents of `<?php phpinfo();`
 
-Now we can exit out of this user and return to root in order to setup the Nginx server configuration:
+Now we can exit out of this user and return to root in order to set up the Nginx server configuration:
 
 ```
 $ exit
@@ -160,7 +160,7 @@ $ rm -Rf html
 $ mv grav html
 ```
 
-Now That's done you can confirm Grav is installed by poiting your browser to `http://{{ page.header.localname }}` and you should be greeted with the **Grav is Running!** page.
+Now That's done you can confirm Grav is installed by pointing your browser to `http://{{ page.header.localname }}` and you should be greeted with the **Grav is Running!** page.
 
 Because you have followed these instructions diligently, you will also be able to use the [Grav CLI](../../advanced/grav-cli) and [Grav GPM](../../advanced/grav-gpm) commands such as:
 

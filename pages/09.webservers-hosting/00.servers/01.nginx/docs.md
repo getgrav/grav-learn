@@ -22,7 +22,7 @@ This page explains how to run Grav with *Nginx* as the HTTP server and *PHP-FPM*
 
 ## Configuration
 
-If you are new to Nginx and don't yet have a basic understanding of block directives/context, it is recommended to read the Nginx [Beginners's Guide](http://nginx.org/en/docs/beginners_guide.html), especially the sections [Configuration File’s Structure](http://nginx.org/en/docs/beginners_guide.html#conf_structure) and [Serving Static Content](http://nginx.org/en/docs/beginners_guide.html#static).
+If you are new to Nginx and don't yet have a basic understanding of block directives/context, it is recommended to read the Nginx [Beginner's Guide](http://nginx.org/en/docs/beginners_guide.html), especially the sections [Configuration File’s Structure](http://nginx.org/en/docs/beginners_guide.html#conf_structure) and [Serving Static Content](http://nginx.org/en/docs/beginners_guide.html#static).
 
 It is assumed that your Nginx configuration is located in `/etc/nginx/` and your Grav installation is stored in `/var/www/grav/`. The structure of the configuration is a `http` block that contains general directives relevant for all pages served by Nginx, as well as one or multiple `server` blocks for each page, containing site-specific directives. The main server configuration file is `nginx.conf` and stores the `http` block, while site-specific configurations (`server` blocks) are stored in `sites-available` and symlinked to `sites-enabled`.
 

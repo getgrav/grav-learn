@@ -58,7 +58,7 @@ Once generate you can paste the contents of your `id_dsa.pub` public key into th
 
 ![](ssh-public-key.png)
 
-After uploading, you should see the key listed at the **Public Keys** section of the Manage SSH Keys page.  You then need to clikc **Manage** to ensure the key is authorized:
+After uploading, you should see the key listed at the **Public Keys** section of the Manage SSH Keys page.  You then need to click **Manage** to ensure the key is authorized:
 
 ![](authorized-keys.png)
 

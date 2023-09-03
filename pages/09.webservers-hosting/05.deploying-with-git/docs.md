@@ -50,4 +50,4 @@ themes/*
 **/config/security.yaml
 [/prism]
 
-!! If you are using a custom or inherited theme that you want to include in your source control, subsitute `MY_CUSTOM_THEME` above with the theme name. Consider doing the same for any site-specific custom plugins.
+!! If you are using a custom or inherited theme that you want to include in your source control, substitute `MY_CUSTOM_THEME` above with the theme name. Consider doing the same for any site-specific custom plugins.

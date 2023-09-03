@@ -78,7 +78,7 @@ Grav 1.7.28 adds also support for modules:
 
 ### `switch`
 
-In most programming language, using a `switch` statement is a common way to make a bunch of `if else` statements cleaner and more readabile.  Also they may prove to be marginally faster.  We just provide a simple way of creating these as they were missing in the base Twig functionality.
+In most programming language, using a `switch` statement is a common way to make a bunch of `if else` statements cleaner and more readable.  Also they may prove to be marginally faster.  We just provide a simple way of creating these as they were missing in the base Twig functionality.
 
 [prism classes="language-twig line-numbers"]
 {% switch type %}

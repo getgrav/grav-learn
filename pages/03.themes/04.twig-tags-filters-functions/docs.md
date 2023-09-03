@@ -39,7 +39,7 @@ Grav includes several useful custom filters that provide functionality such as `
 
 ## Functions
 
-Twig functions are another way to implement functionality in Twig. They are similar to filters, however rather than acting on a variable via a `|` you would call these functions directly and pass in any attributes they support between the parentheses after the function name.  Frequently, Grav provides both a filter and a function for the same logic and leaves it up to the user to choose the method they prefer.  
+Twig functions are another way to implement functionality in Twig. They are similar to filters, however rather than acting on a variable via a `|` you would call these functions directly and pass in any attributes they support between the parentheses after the function name.  Frequently, Grav provides both a filter and a function for the same logic and leaves it up to the user to choose the method they prefer.
 
 Examples of built in Twig filters include `block`, `dump`, `parent`, `random`, `range`, and more. An example would be:
 
@@ -49,7 +49,7 @@ Examples of built in Twig filters include `block`, `dump`, `parent`, `random`, `
 ```
 {% endverbatim %}
 
-Grav includes several useful custom funcions that provide functionality such as `authorize`, `debug`, `evaluate`, `regex_filter`, `media`, and many more.
+Grav includes several useful custom functions that provide functionality such as `authorize`, `debug`, `evaluate`, `regex_filter`, `media`, and many more.
 
 [Grav Twig Functions <i class="fa fa-arrow-right"></i>](functions?classes=button,button-primary)
 

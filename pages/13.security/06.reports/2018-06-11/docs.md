@@ -13,7 +13,7 @@ Admin tasks a have low level of access-specificity, DirectInstall especially sho
 
 ### Advisory
 
-Upgrade to v1.8.6 of the Admin-plugin. The vulnerability is more pertinant to sites with multiple or many users, less so for few or single users.
+Upgrade to v1.8.6 of the Admin-plugin. The vulnerability is more pertinent to sites with multiple or many users, less so for few or single users.
 
 ### Description
 
