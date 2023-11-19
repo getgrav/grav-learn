@@ -155,6 +155,7 @@ Although you can get away with Notepad, Textedit, Vi, or whatever default text e
 4. [Notepad++](https://notepad-plus-plus.org/) - Windows - A free and very popular developer's editor for Windows.
 5. [Bluefish](https://bluefish.openoffice.nl/index.html) - MacOS/Windows/Linux - A free, open source text editor geared towards programmers and web developers.
 6. [Kate](https://kate-editor.org/about-kate/) - MacOS/Windows/Linux - A light yet powerfull and versatile opensource text editor and programming tool, supporting highlighting for over 300 languages (including Markdown).
+7. [CodeLobster](https://codelobster.com/) - MacOS/Windows/Linux - A cross-platform free editor with special support for many popular frameworks (including Markdown).
 
 ### Markdown Editors
 
