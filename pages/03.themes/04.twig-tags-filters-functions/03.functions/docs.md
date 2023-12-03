@@ -167,8 +167,16 @@ Takes a Github Gist ID and creates appropriate Gist embed code
 `gist('bc448ff158df4bc56217')` <i class="fa fa-long-arrow-right"></i> **{{ gist('bc448ff158df4bc56217')|e }}**
 
 ### `header_var`
+`header_var($variable, $pages = null)`
 
-Helper function. Returns `page.header.<variable>`.
+Returns `page.header.<variable>`.
+
+! **NOTE:** Deprecated since Grav 1.7. `theme_var` should be used.
+
+! The logic of finding the variable has changed, which might lead to unexptected results:
+! - If an array of lookup pages is provided as second parameter, only the first page will be used.
+! - If `<variable>` is not defined in het header of the page, Grav will search for the variable in the tree of parents of the page.
+! - If still not found, Grav will search for the variable in the config file of the theme
 
 Given frontmatter of
 ```
@@ -400,12 +408,15 @@ example:
 
 [version=16,17]
 ### `theme_var`
+`theme_var($variable, $default = null, $page = null)`
 
-Get a theme variable from the page header if it exists, else use the theme config:
+Get a theme variable from the page's header, or, if not found, from its parent(s), the theme's config file, or the default value if provided:
 
 `theme_var('grid-size')`
 
-This will first try `page.header.grid-size`, if that is not set, it will try `theme.grid-size` from the theme configuration file.  it can optionally take a default:
+This will first try `page.header.grid-size`, if not set, it will traverse the tree of parents. If still not found, it will try `theme.grid-size` from the theme's configuration file.
+
+It can optionally take a default value as fallback:
 
 `theme_var('grid-size', 1024)`
 [/version]
