@@ -14,7 +14,7 @@ Admin UI can be added easily, either using standard templates or your own custom
 
 ## Requirements
 
-Grav 1.7 or later is required. For the purpose of this documentation, we will be using the grav+admin installation. See the [installation documentation](/basics/installation) to get it ready.
+Grav 1.7 or later is required. For the purpose of this documentation, we will be using the grav+admin installation, make sure you have it up and running to follow the steps below. See the [installation documentation](/basics/installation) to get it ready.
 
 ## Create your plugins
 
@@ -91,7 +91,14 @@ The Admin interface also nicely shows a new entry in the left side menu:
 
 ![Admin book flex menu entry](admin_menu_book.png)
 
+The default edit form looks like:
+
+![Simple form edit](book_edit.png)
+
 The devtools generated a very basic flex object, made of a name and a description, and its collection. The admin UI already allows one to list these books objects, create, edit or delete them, without having written a single line of code.
+
+## What is done where
+
 
 The plugin folder should look like this:
 
@@ -131,10 +138,7 @@ The plugin folder should look like this:
         └── platform_check.php
 [/prism]
 
-
-## What is done where
-
-The key file is the blueprints definition. It is where the schema of this flex object will be defined, along with the numerous options to customize pretty much anything about it.
+The key file is the [blueprints](advanced/flex/custom-types/blueprint) definition. It is where the schema of this flex object will be defined, along with the numerous options to customize pretty much anything about it.
 
 In our plugin, the book blueprints can be found at user/plugins/myflexplugin/blueprints/flex-objects/book.yaml.
 
@@ -142,7 +146,7 @@ In our plugin, the book blueprints can be found at user/plugins/myflexplugin/blu
 
 The schema is defined using the Form section of this blueprints. Whether or not the admin UI forms will be used, this section defines the properties of this flex object.
 
-We won't cover all options here, but focus on getting our book object implement. The [extensive Flex documentation](/advanced/flex) will guide you to go deeper and customize it.
+We won't cover all options here, but focus on getting our book object implement. The [extensive Flex blueprints documentation](/advanced/flex/custom-types/blueprint) will guide you to go deeper and customize it.
 
 The schema below defines the two properties:
 [prism classes="yaml"]
@@ -171,3 +175,36 @@ form:
             validate:
                 required: true
 [/prism]
+
+To add a field to our object, say a datetime field representing the publication's date of this book, we can add:
+
+[prism classes="yaml"]
+form:
+    validation: loose
+    fields:
+        published:
+            type: toggle
+            label: Published
+            highlight: 1
+            default: 1
+            options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+            validate:
+                type: bool
+                required: true
+        name:
+            type: text
+            label: Name
+            validate:
+                required: true
+        pub_date:
+            type: datetime
+            label: Description
+            validate:
+                required: true
+[/prism]
+
+The default edit form now shows the date input fields for the publication date:
+
+![Simple form edit](pub_date_added.png)
