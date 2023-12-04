@@ -91,4 +91,83 @@ The Admin interface also nicely shows a new entry in the left side menu:
 
 ![Admin book flex menu entry](admin_menu_book.png)
 
-## 
+The devtools generated a very basic flex object, made of a name and a description, and its collection. The admin UI already allows one to list these books objects, create, edit or delete them, without having written a single line of code.
+
+The plugin folder should look like this:
+
+[prism classes="shell"]
+../grav-admin/user/plugins/myflexplugin
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── blueprints
+│   └── flex-objects
+│       └── book.yaml
+├── blueprints.yaml
+├── classes
+│   └── Flex
+│       └── Types
+│           └── Book
+│               ├── BookCollection.php
+│               └── BookObject.php
+├── composer.json
+├── composer.lock
+├── languages.yaml
+├── myflexplugin.php
+├── myflexplugin.yaml
+└── vendor
+    ├── autoload.php
+    └── composer
+        ├── ClassLoader.php
+        ├── InstalledVersions.php
+        ├── LICENSE
+        ├── autoload_classmap.php
+        ├── autoload_namespaces.php
+        ├── autoload_psr4.php
+        ├── autoload_real.php
+        ├── autoload_static.php
+        ├── installed.json
+        ├── installed.php
+        └── platform_check.php
+[/prism]
+
+
+## What is done where
+
+The key file is the blueprints definition. It is where the schema of this flex object will be defined, along with the numerous options to customize pretty much anything about it.
+
+In our plugin, the book blueprints can be found at user/plugins/myflexplugin/blueprints/flex-objects/book.yaml.
+
+> **IMPORTANT** The blueprint for each flex object in your plugin (or main install /blueprints) must be in  blueprints/flex-objects/ folder or they won't be found.
+
+The schema is defined using the Form section of this blueprints. Whether or not the admin UI forms will be used, this section defines the properties of this flex object.
+
+We won't cover all options here, but focus on getting our book object implement. The [extensive Flex documentation](/advanced/flex) will guide you to go deeper and customize it.
+
+The schema below defines the two properties:
+[prism classes="yaml"]
+form:
+    validation: loose
+    fields:
+        published:
+            type: toggle
+            label: Published
+            highlight: 1
+            default: 1
+            options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+            validate:
+                type: bool
+                required: true
+        name:
+            type: text
+            label: Name
+            validate:
+                required: true
+        description:
+            type: text
+            label: Description
+            validate:
+                required: true
+[/prism]
