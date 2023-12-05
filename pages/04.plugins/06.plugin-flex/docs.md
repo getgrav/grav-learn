@@ -22,15 +22,19 @@ As it is possible to create a plugin, with or without flex from scratch, to ensu
 
 To do so, we will use the devtools CLI:
 
-[prism classes="shell"]
+```bash
 bin/gpm install devtools
-[/prism]
+```
 
 To [create a new plugin using the devtools](/plugins/plugin-tutorial), the following command is used, the plugin name is myflexplugin:
 
-[prism classes="shell"]
+```bash
  grav-admin bin/plugin devtools new-plugin
+```
 
+and fill up the questions using the following answers, the important part is to choose a plugin prepared for flex:
+
+```bash
  Enter Plugin Name:
  > myflexplugin
 
@@ -66,14 +70,21 @@ SUCCESS plugin myflexplugin -> Created Successfully
 Path: /home/pierre/project/grav/grav-admin/user/plugins/myflexplugin
 
 Please run `cd /home/pierre/project/grav/grav-admin/user/plugins/myflexplugin` and `composer update` to initialize the autoloader
-[/prism]
+```
 
-On success, we need now to install the dependecies, if any, for our new plugin:
+On success, we need now to install the dependencies, if any, for our new plugin:
 
 
-[prism classes="shell"]
-$ cd /home/pierre/project/grav/grav-admin/user/plugins/myflexplugin
-$ composer update
+```bash
+cd /home/pierre/project/grav/grav-admin/user/plugins/myflexplugin
+```
+```bash
+composer update
+```
+
+On success, the following output should be displayed:
+
+```bash
 Loading composer repositories with package information
 Updating dependencies
 Nothing to modify in lock file
@@ -82,12 +93,18 @@ Installing dependencies from lock file (including require-dev)
 Nothing to install, update or remove
 Generating autoload files
 No installed packages - skipping audit.
+```
+
+and go back to the root folder of the grav-admin install:
+
+
+```bash
 $ cd -
-[/prism]
+```
 
-Now you should see the various folders and files related to your plugin and its flex object 'book'.
+The devtools generated a very basic flex object, made of a name and a description, and its collection. The admin UI already allows one to list these books objects, create, edit or delete them, without having written a single line of code.
 
-The Admin interface also nicely shows a new entry in the left side menu:
+A new entry in the left side menu has been added:
 
 ![Admin book flex menu entry](admin_menu_book.png)
 
@@ -95,14 +112,15 @@ The default edit form looks like:
 
 ![Simple form edit](book_edit.png)
 
-The devtools generated a very basic flex object, made of a name and a description, and its collection. The admin UI already allows one to list these books objects, create, edit or delete them, without having written a single line of code.
+
+You should also see the various folders and files related to your plugin and its flex object 'book'.
 
 ## What is done where
 
 
 The plugin folder should look like this:
 
-[prism classes="shell"]
+```bash
 ../grav-admin/user/plugins/myflexplugin
 ├── CHANGELOG.md
 ├── LICENSE
@@ -136,7 +154,7 @@ The plugin folder should look like this:
         ├── installed.json
         ├── installed.php
         └── platform_check.php
-[/prism]
+```
 
 The key file is the [blueprints](advanced/flex/custom-types/blueprint) definition. It is where the schema of this flex object will be defined, along with the numerous options to customize pretty much anything about it.
 
@@ -149,7 +167,7 @@ The schema is defined using the Form section of this blueprints. Whether or not 
 We won't cover all options here, but focus on getting our book object implement. The [extensive Flex blueprints documentation](/advanced/flex/custom-types/blueprint) will guide you to go deeper and customize it.
 
 The schema below defines the two properties:
-[prism classes="yaml"]
+```yaml
 form:
     validation: loose
     fields:
@@ -174,11 +192,11 @@ form:
             label: Description
             validate:
                 required: true
-[/prism]
+```
 
 To add a field to our object, say a datetime field representing the publication's date of this book, we can add:
 
-[prism classes="yaml"]
+```yaml
 form:
     validation: loose
     fields:
@@ -203,7 +221,7 @@ form:
             label: Description
             validate:
                 required: true
-[/prism]
+```
 
 The default edit form now shows the date input fields for the publication date:
 
