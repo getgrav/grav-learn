@@ -156,6 +156,7 @@ The plugin folder should look like this:
         └── platform_check.php
 ```
 
+### Flex Object definition
 The key file is the [blueprints](advanced/flex/custom-types/blueprint) definition. It is where the schema of this flex object will be defined, along with the numerous options to customize pretty much anything about it.
 
 In our plugin, the book blueprints can be found at user/plugins/myflexplugin/blueprints/flex-objects/book.yaml.
@@ -194,7 +195,47 @@ form:
                 required: true
 ```
 
-To add a field to our object, say a datetime field representing the publication's date of this book, we can add:
+### plugin hooks
+
+the myflexplugin.php is the usual core definition for the implementations of the pluging, hooks etc.
+
+These parts are required to enable flex:
+
+```php
+    public $features = [
+        'blueprints' => 0,
+    ];
+
+    /**
+     * @return array
+     *
+     * The getSubscribedEvents() gives the core a list of events
+     *     that the plugin wants to listen to. The key of each
+     *     array section is the event that the plugin listens to
+     *     and the value (in the form of an array) contains the
+     *     callable (or function) as well as the priority. The
+     *     higher the number the higher the priority.
+     */
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            'onPluginsInitialized' => [
+                // Uncomment following line when plugin requires Grav < 1.7
+                // ['autoload', 100000],
+                ['onPluginsInitialized', 0]
+            ],
+            FlexRegisterEvent::class       => [['onRegisterFlex', 0]],
+        ];
+    }
+```
+
+The other files are standard and well documented in earlier sections of the plugins documentations. We won't cover them here.
+
+The _classes_ folder contains the classes used for the book flex object and the book flex collection. These are the classes where you can add custom methods that would be available on every object or collection instances. See [add custom methods to a flex object](#add-custom-method-to-the-flex-object).
+
+## Modify the flex object schema
+
+Let add a field to our object, say a datetime field representing the publication's date of this book, it can be achieved by simply adding the pub_date fields to the blueprints:
 
 ```yaml
 form:
@@ -226,3 +267,85 @@ form:
 The default edit form now shows the date input fields for the publication date:
 
 ![Simple form edit](pub_date_added.png)
+
+## Add custom method to the flex object<a href="#addcustommethod"></a>
+
+The current flex book object, user/plugins/myflexplugin/classes/Flex/Types/Book/BookObject.php, only implements the GenericObject (using traits):
+
+```php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @package    Grav\Common\Flex
+ *
+ * @copyright  Copyright (c) 2015 - 2021 Trilby Media, LLC. All rights reserved.
+ * @license    MIT License; see LICENSE file for details.
+ */
+
+namespace Grav\Plugin\Myflexplugin\Flex\Types\Book;
+
+use Grav\Common\Flex\Types\Generic\GenericObject;
+
+/**
+ * Class BookObject
+ * @package Grav\Common\Flex\Generic
+ *
+ * @extends FlexObject<string,GenericObject>
+*/
+class BookObject extends GenericObject
+{
+
+}
+```
+
+Let add a method to get the summary of the book, using the site's delimiter for the summary:
+
+
+```php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @package    Grav\Common\Flex
+ *
+ * @copyright  Copyright (c) 2015 - 2021 Trilby Media, LLC. All rights reserved.
+ * @license    MIT License; see LICENSE file for details.
+ */
+
+namespace Grav\Plugin\Myflexplugin\Flex\Types\Book;
+
+use Grav\Common\Flex\Types\Generic\GenericObject;
+
+/**
+ * Class BookObject
+ * @package Grav\Common\Flex\Generic
+ *
+ * @extends FlexObject<string,GenericObject>
+*/
+class BookObject extends GenericObject
+{
+    public function getSummary() {
+        $delimiter = \Grav\Common\Grav::instance()['config']['site']['summary']['delimiter'] ?? '===';
+        $summary = explode($delimiter, $this->content);
+        return $summary[0] ?? '';
+    }
+}
+```
+
+Now we can call this method anywhere where a book flex object is used, for example, in a template:
+
+
+```twig
+{% set books = grav.get('flex').collection('book') %}
+{% for book in books  %}
+<h1>{{ book.header.title}}</h1>
+<p>{{ book.getSummary()}}</p>
+{% endfor %}
+```
+
+The ::getSummary method can be used in any PHP code as well.
+
+The same can be done in the collection class, user/plugins/myflexplugin/classes/Flex/Types/Book/BookCollection.php. For example to add friendly method to search using non trivial queries. Indeed the collection already provides all common collections methods. It can be handy to add some helpers if an object has many different fields were the standard collection methods could be error prone.
