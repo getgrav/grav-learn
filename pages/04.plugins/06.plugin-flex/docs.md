@@ -22,19 +22,19 @@ As it is possible to create a plugin, with or without flex from scratch, to ensu
 
 To do so, we will use the devtools CLI:
 
-```bash
+[prism classes="language-shell command-line"]
 bin/gpm install devtools
-```
+[/prism]
 
 To [create a new plugin using the devtools](/plugins/plugin-tutorial), the following command is used, the plugin name is myflexplugin:
 
-```bash
+[prism classes="language-shell command-line"]
  grav-admin bin/plugin devtools new-plugin
-```
+[/prism]
 
 and fill up the questions using the following answers, the important part is to choose a plugin prepared for flex:
 
-```bash
+[prism classes="language-shell command-line"]
  Enter Plugin Name:
  > myflexplugin
 
@@ -70,21 +70,21 @@ SUCCESS plugin myflexplugin -> Created Successfully
 Path: /home/pierre/project/grav/grav-admin/user/plugins/myflexplugin
 
 Please run `cd /home/pierre/project/grav/grav-admin/user/plugins/myflexplugin` and `composer update` to initialize the autoloader
-```
+[/prism]
 
 On success, we need now to install the dependencies, if any, for our new plugin:
 
 
-```bash
+[prism classes="language-shell command-line"]
 cd /home/pierre/project/grav/grav-admin/user/plugins/myflexplugin
-```
-```bash
+[/prism]
+[prism classes="language-shell command-line"]
 composer update
-```
+[/prism]
 
 On success, the following output should be displayed:
 
-```bash
+[prism classes="language-shell command-line"]
 Loading composer repositories with package information
 Updating dependencies
 Nothing to modify in lock file
@@ -93,14 +93,14 @@ Installing dependencies from lock file (including require-dev)
 Nothing to install, update or remove
 Generating autoload files
 No installed packages - skipping audit.
-```
+[/prism]
 
 and go back to the root folder of the grav-admin install:
 
 
-```bash
-$ cd -
-```
+[prism classes="language-shell command-line"]
+cd -
+[/prism]
 
 The devtools generated a very basic flex object, made of a name and a description, and its collection. The admin UI already allows one to list these books objects, create, edit or delete them, without having written a single line of code.
 
@@ -119,8 +119,7 @@ You should also see the various folders and files related to your plugin and its
 
 
 The plugin folder should look like this:
-
-```bash
+[prism classes="language-bash line-numbers"]
 ../grav-admin/user/plugins/myflexplugin
 ├── CHANGELOG.md
 ├── LICENSE
@@ -154,7 +153,7 @@ The plugin folder should look like this:
         ├── installed.json
         ├── installed.php
         └── platform_check.php
-```
+[/prism]
 
 ### Flex Object definition
 The key file is the [blueprints](advanced/flex/custom-types/blueprint) definition. It is where the schema of this flex object will be defined, along with the numerous options to customize pretty much anything about it.
@@ -168,7 +167,7 @@ The schema is defined using the Form section of this blueprints. Whether or not 
 We won't cover all options here, but focus on getting our book object implement. The [extensive Flex blueprints documentation](/advanced/flex/custom-types/blueprint) will guide you to go deeper and customize it.
 
 The schema below defines the two properties:
-```yaml
+[prism classes="language-yaml line-numbers"]
 form:
     validation: loose
     fields:
@@ -193,7 +192,7 @@ form:
             label: Description
             validate:
                 required: true
-```
+[/prism]
 
 ### plugin hooks
 
@@ -201,7 +200,7 @@ the myflexplugin.php is the usual core definition for the implementations of the
 
 These parts are required to enable flex:
 
-```php
+[prism classes="language-php line-numbers"]
     public $features = [
         'blueprints' => 0,
     ];
@@ -227,7 +226,7 @@ These parts are required to enable flex:
             FlexRegisterEvent::class       => [['onRegisterFlex', 0]],
         ];
     }
-```
+[/prism]
 
 The other files are standard and well documented in earlier sections of the plugins documentations. We won't cover them here.
 
@@ -237,7 +236,7 @@ The _classes_ folder contains the classes used for the book flex object and the 
 
 Let add a field to our object, say a datetime field representing the publication's date of this book, it can be achieved by simply adding the pub_date fields to the blueprints:
 
-```yaml
+[prism classes="language-yaml line-numbers"]
 form:
     validation: loose
     fields:
@@ -262,17 +261,19 @@ form:
             label: Description
             validate:
                 required: true
-```
+[/prism]
 
 The default edit form now shows the date input fields for the publication date:
 
 ![Simple form edit](pub_date_added.png)
 
+The list of all fields types available can be found [here](/forms/blueprints/fields-available)
+
 ## Add custom method to the flex object<a href="#addcustommethod"></a>
 
 The current flex book object, user/plugins/myflexplugin/classes/Flex/Types/Book/BookObject.php, only implements the GenericObject (using traits):
 
-```php
+[prism classes="language-php line-numbers"]
 <?php
 
 declare(strict_types=1);
@@ -298,12 +299,12 @@ class BookObject extends GenericObject
 {
 
 }
-```
+[/prism]
 
 Let add a method to get the summary of the book, using the site's delimiter for the summary:
 
 
-```php
+[prism classes="language-php line-numbers"]
 <?php
 
 declare(strict_types=1);
@@ -333,18 +334,18 @@ class BookObject extends GenericObject
         return $summary[0] ?? '';
     }
 }
-```
+[/prism]
 
 Now we can call this method anywhere where a book flex object is used, for example, in a template:
 
 
-```twig
+[prism classes="language-twig line-numbers"]
 {% set books = grav.get('flex').collection('book') %}
 {% for book in books  %}
-<h1>{{ book.header.title}}</h1>
-<p>{{ book.getSummary()}}</p>
+    <h1>{{ book.header.title}}</h1>
+    <p>{{ book.getSummary()}}</p>
 {% endfor %}
-```
+[/prism]
 
 The ::getSummary method can be used in any PHP code as well.
 
