@@ -609,3 +609,6 @@ blueprints:
 ! **TIP:** These configuration options can be modified in **[Configuration](/advanced/flex/administration/configuration)** section of the **[Flex Directory Administration](/advanced/flex/administration)**.
 
 !!! **NOTE:** Currently the only used configuration options are inside the cache section. For your custom settings, you need to add logic to use them by yourself.
+
+!!! **NOTE:** A flex object will be added to as extra page and is accessable and included in xml sitemap. Add `header.published` in your blueprint fields to avoid generating extra pages.
+
