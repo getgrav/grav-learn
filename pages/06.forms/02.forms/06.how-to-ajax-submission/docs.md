@@ -4,11 +4,27 @@ taxonomy:
     category: docs
 ---
 
-## Submitting forms via Ajax
+## Submitting forms via XHR/Ajax
 
 The default mechanism for form processing relies on standard HTML style form submission that causes the contents of an HTML form to be sent to the server via either `POST` or `GET` (default is `POST`). After the form has been [validated](../fields-available), and [processed](../reference-form-actions), results are sent back to the form (or to a [redirected page](../reference-form-actions#redirect)) where messages are displayed and the form can be edited for re-submission if required.
 
 This involves a page reload, and that is sometimes undesirable.  This is where a form submitted via JavaScript using Ajax or XHR is the preferred option.  Luckily, Grav's form capabilities are up to the task.
+
+## Automatic Approach (From plugin >= `v7.3.0`)
+
+With the release of From plugin version `7.3.0` the ability to submit forms with XHR to process the form in-place and not require an entire page reload is now available with a quick setup option.
+
+To enable this simply add this option to your Form blueprint:
+
+```yaml
+xhr_submit: true
+```
+
+You are not required to provide `action:`, `template:`, or even `id:`.  The plugin will just 'work' even with multiple ajax forms on a single page. This uses a new `form-xhr.html.twig` template that the plugin provides as well as including some vanilla JS code to make the request.
+
+!! This approach submits the whole form via an XHR request and replaces the entire form HTML from the response. This is intended to be a simple approach, you can still create your own more advanced solutions if required.
+
+## Manual Approach (required for Form plugin < `v7.3.0`)
 
 ### Creating the form
 
