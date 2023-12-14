@@ -24,6 +24,8 @@ You are not required to provide `action:`, `template:`, or even `id:`.  The plug
 
 !! This approach submits the whole form via an XHR request and replaces the entire form HTML from the response. This is intended to be a simple approach, you can still create your own more advanced solutions if required.
 
+!!! The Javacript code used for the XHR request is located in `form/layouts/xhr.html.twig`. If you require, you can copy this to your theme's `templates` folder (maintaining the path structure) and modify as needed.
+
 ## Manual Approach (required for Form plugin < `v7.3.0`)
 
 ### Creating the form
