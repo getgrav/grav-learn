@@ -150,11 +150,10 @@ PhpStorm is best suited for PHP developers, including people who write complicat
 Although you can get away with Notepad, Textedit, Vi, or whatever default text editor comes with your platform, we recommend using a good text editor with syntax highlighting to make things easier. Here are some recommended options:
 
 1. [Visual Studio Code](https://code.visualstudio.com/) - Similar to Atom, it's built using Electron, Node, as well as HTML/CSS.  It's quite lightweight and has many plugins available, including very good support for PHP and JavaScript.  This is the current recommended editor for developing for Grav.
-2. [Atom](https://atom.io) - MacOS/Windows/Linux - A new editor developed by Github. It's free and open source. It is similar to Sublime, but does not have the sheer depth of plugins available yet.
-3. [SublimeText](https://www.sublimetext.com/) - MacOS/Windows/Linux - A commercial developer's editor, but well worth the price. Very powerful especially combined with plugins such as [Markdown Extended](https://sublime.wbond.net/packages/Markdown%20Extended), [Pretty YAML](https://sublime.wbond.net/packages/Pretty%20YAML), and [PHP-Twig](https://sublime.wbond.net/packages/PHP-Twig).
-4. [Notepad++](https://notepad-plus-plus.org/) - Windows - A free and very popular developer's editor for Windows.
-5. [Bluefish](https://bluefish.openoffice.nl/index.html) - MacOS/Windows/Linux - A free, open source text editor geared towards programmers and web developers.
-6. [Kate](https://kate-editor.org/about-kate/) - MacOS/Windows/Linux - A light yet powerfull and versatile opensource text editor and programming tool, supporting highlighting for over 300 languages (including Markdown).
+2. [SublimeText](https://www.sublimetext.com/) - MacOS/Windows/Linux - A commercial developer's editor, but well worth the price. Very powerful especially combined with plugins such as [Markdown Extended](https://sublime.wbond.net/packages/Markdown%20Extended), [Pretty YAML](https://sublime.wbond.net/packages/Pretty%20YAML), and [PHP-Twig](https://sublime.wbond.net/packages/PHP-Twig).
+3. [Notepad++](https://notepad-plus-plus.org/) - Windows - A free and very popular developer's editor for Windows.
+4. [Bluefish](https://bluefish.openoffice.nl/index.html) - MacOS/Windows/Linux - A free, open source text editor geared towards programmers and web developers.
+5. [Kate](https://kate-editor.org/about-kate/) - MacOS/Windows/Linux - A light yet powerfull and versatile opensource text editor and programming tool, supporting highlighting for over 300 languages (including Markdown).
 
 ### Markdown Editors
 
