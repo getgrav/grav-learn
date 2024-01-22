@@ -144,7 +144,7 @@ Output the EXIF data from an image based on its filepath. This requires that `me
 [/prism]
 {% endverbatim %}
 
-This would write the `MaxApertureValue`-value set in the camera, for example "40/10". You can always use `{% verbatim %}{{ dump(exif)}}{% endverbatim %}` to show all the available data in the debugger.
+This would write the `MaxApertureValue`-value set in the camera, for example "40/10". You can always use {% verbatim %}`{{ dump(exif) }}`{% endverbatim %} to show all the available data in the debugger.
 
 ### `get_cookie`
 

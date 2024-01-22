@@ -4,6 +4,9 @@ cache:
     method: hash
   gzip: false
 
+errors:
+  display: 1
+
 assets:
   css_pipeline: false
   js_pipeline: false
