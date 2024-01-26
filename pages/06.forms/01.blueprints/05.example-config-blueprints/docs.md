@@ -10,7 +10,7 @@ To make those options configurable via Admin panel, add some fields to `user/blu
 
 
 [prism classes="language-yaml line-numbers"]
-@extends:
+extends@:
     '@parent'
 
 form:
@@ -28,7 +28,7 @@ Will add the 'My Field' input type, appending it to the Content section of the S
 You can add entire new sections too, for example:
 
 [prism classes="language-yaml line-numbers"]
-@extends:
+extends@:
     '@parent'
 
 form:
