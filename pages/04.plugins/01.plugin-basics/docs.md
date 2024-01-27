@@ -39,3 +39,10 @@ If plugin name contains dashes you should refer to its properties using :
 [prism classes="language-twig"]
 config.plugins['plugin-name'].pluginproperty
 [/prism]
+
+## Using Flex in plugins
+
+The recommended way to start using flex in a plugin is to use the devtools and create a plugin with Flex basic support generated for you:
+https://learn.getgrav.org/17/basics/installation#option-1-install-from-zip-package
+
+See [Flex plugin section](../06.plugin-flex/)
