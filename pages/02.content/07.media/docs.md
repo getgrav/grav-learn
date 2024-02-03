@@ -844,6 +844,31 @@ When value `auto` is chosen, no `loading` attribute is added and browser will de
 [/ui-tab]
 [/ui-tabs]
 
+#### watermark
+
+The **watermark action** merges two images, a watermark image and a source image, into a final watermarked image. This is a very specific action that needs a more detailed description than other actions or filters. In particular, the specific behavior when [combining filters](#combinations) must be taken into account. For those interested, there is a very detailed [blog post about the watermark action](https://www.grav.cz/blog/vodoznak-aneb-nepokrades-kelisova), written by [Vít Petira](https://github.com/petira), but only in Czech. However, the instructions are easy to understand.
+
+! If you are using a page-level [stream](/content/image-linking#php-streams), then page prefixes must also be specified.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```markdown
+![Sample Image](sample-image.jpg?watermark=user://pages/02.content/07.media/sample-watermark.png,top-left,50)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```twig
+{{ page.media['sample-image.jpg'].watermark('user://pages/02.content/07.media/sample-watermark.png','top-left',50).html()|raw }}
+```
+{% endverbatim %}
+[/ui-tab]
+[/ui-tabs]
+
+##### Result:
+
+![Sample Image](sample-image.jpg?watermark=user://pages/02.content/07.media/sample-watermark.png,top-left,50)
+
 ## Animated / Vectorized Actions
 
 #### resize
