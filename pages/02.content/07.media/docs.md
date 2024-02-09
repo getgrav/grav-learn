@@ -844,6 +844,36 @@ When value `auto` is chosen, no `loading` attribute is added and browser will de
 [/ui-tab]
 [/ui-tabs]
 
+#### decoding
+
+The decoding attributing on images gives authors control over when the browser should start decoding the resource. The value for the decoding attribute can be one of `auto` (default), `sync`, `async`.
+Value can be set in `system.images.defaults.decoding` as default value, or per md image with `?decoding=async`
+When value `auto` is chosen, no `decoding` attribute is added and browser will determine which strategy to use.
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```markdown
+![Sample Image](sample-image.jpg?decoding=async)
+```
+[/ui-tab]
+[ui-tab title="Twig"]
+{% verbatim %}
+```twig
+{# Using default value as defined in 'config.system.images.defaults.decoding' #}
+{{ page.media['sample-image.jpg'].decoding.html('Sample Image')|raw }}
+
+{# Using explicit value #}
+{{ page.media['sample-image.jpg'].decoding('async').html('Sample Image')|raw }}
+```
+{% endverbatim %}
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```html
+<img decoding="async" title="Sample Image"  src="/images/e/f/1/0/5/ef10554cd3a99f2e65136e79dce170d4f8a7a1b9-sample-image.jpg" />
+```
+[/ui-tab]
+[/ui-tabs]
+
 ## Animated / Vectorized Actions
 
 #### resize
