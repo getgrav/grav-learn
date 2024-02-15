@@ -52,7 +52,7 @@ This link moves up one folder, as indicated by `../`, and then down one folder, 
 If we want to load `blog-header.jpg` from the `01.blog` directory, we would do the following:
 
 ```markdown
-![Blog Header](../../blog/blog-header.jpg)
+![Blog Header](../blog/blog-header.jpg)
 ```
 
 ! You do not need to include ordering numerals (`01.`) for slug relative links.
