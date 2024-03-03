@@ -11,7 +11,7 @@ taxonomy:
 Let’s start simple: choose a theme that already provides a blog page template. For example Antimatter, TwentyFifteen, Deliver, Lingonberry, Afterburner2, and many others.
 How do you check if your theme already provides a blog page template? Go in the `/user/themes/[yourtheme]/templates` folder, and check the existence of the `blog.html.twig` and `item.html.twig` files.
 
-If you’ve already chosen a theme, and your theme does not come with those files, then copy them from Antimatter: [https://github.com/getgrav/grav-theme-antimatter/tree/develop/templates](https://github.com/getgrav/grav-theme-antimatter/tree/develop/templates)
+If you’ve already chosen a theme, and your theme does not come with those files, then copy them from Antimatter: [https://github.com/getgrav/grav-theme-antimatter/tree/develop/templates](https://github.com/getgrav/grav-theme-antimatter/tree/develop/templates) (If you copy the files from this theme, you will also need the two partialsnamed `blog_item.html.twig` and `sidebar.html.twig`. These must be placed in the `templates/partials` folder.)
 
 You might need to tweak the markup to suit your theme. The best option if you’re just starting out if to use a theme that already comes with them.
 
