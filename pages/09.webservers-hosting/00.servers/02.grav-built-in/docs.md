@@ -47,3 +47,7 @@ https://127.0.0.1:8000
 ```
 
 !!!! This is a useful tool for quick development, and should **not** be used in place of a dedicated web server such as Apache or Nginx.
+
+To specify a different port than the default 8000, use the -p option. For example, to set the port to 8001:
+[prism classes="language-bash command-line" cl-output="2-100"]
+➜ bin/grav server -p 8001
