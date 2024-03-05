@@ -170,6 +170,8 @@ Then we simply need to render this content with a `columns.html.twig` template (
 
 You can see how the content is being **split** by the `<hr />` tag and converted into an array of 3 columns which we loop over and render.  In this example we are using a simple HTML table tag, but you could use anything you wish.
 
+!! Note: When using plugin page-toc, you'll need use `|split('<hr>')` since the page-toc plugin cleanses the HTML code.
+
 ## Really simple css image slider
 
 ##### Problem:
