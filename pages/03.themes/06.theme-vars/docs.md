@@ -395,7 +395,7 @@ This returns an array of the taxonomy associated with a page.  These can be iter
 
 ### pages object
 
-The **pages object** is the **root page** which represents a nested tree of every **page object** that Grav knows about.  This is particularly useful for creating a **sitemap**, **navigation** or if you wish to find a particular **page**.
+The **pages** object is the root page which represents a nested tree of every **page** object that Grav knows about. This is particularly useful for creating a sitemap, navigation, or if you wish to find a particular **page**.
 
 !! This object is not the same as `grav.pages` which is an instance of `Pages` class.
 
