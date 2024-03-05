@@ -49,7 +49,7 @@ Examples of built in Twig filters include `block`, `dump`, `parent`, `random`, `
 ```
 {% endverbatim %}
 
-Grav includes several useful custom funcions that provide functionality such as `authorize`, `debug`, `evaluate`, `regex_filter`, `media`, and many more.
+Grav includes several useful custom functions that provide functionality such as `authorize`, `debug`, `evaluate`, `regex_filter`, `media`, and many more.
 
 [Grav Twig Functions <i class="fa fa-arrow-right"></i>](functions?classes=button,button-primary)
 
