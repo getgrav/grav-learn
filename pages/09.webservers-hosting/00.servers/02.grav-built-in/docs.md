@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-For the fasted way to get Grav up and running, you can run Grav using a simple command from Terminal / Command Prompt using the built-in PHP server available as long as you have PHP installed.
+For the fastest way to get Grav up and running, you can run Grav using a simple command from Terminal / Command Prompt using the built-in PHP server available as long as you have PHP installed.
 
 All you need to do is navigate to the root of your Grav install using the Terminal or Command Prompt and enter `bin/grav server`.
 
