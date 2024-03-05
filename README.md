@@ -10,3 +10,5 @@ To install your own copy of the learn site, simply follow these steps:
 4. Run `bin/grav install` from the root (e.g. `~/www/grav-learn/`)
 
 At this point the required plugins and vendor libraries should be installed, and your learn site should be fully functional.
+
+For French speakers, take a look at the translation [here](https://grav.stallaf.net).
