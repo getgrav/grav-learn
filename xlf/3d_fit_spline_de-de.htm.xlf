@@ -1,0 +1,2160 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xliff
+  version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-strict.xsd" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd"
+  MadCap:translationStatus="untranslated">
+  <file
+    xml:space="preserve"
+    original="3d_fit_spline.htm"
+    source-language="en"
+    target-language="de-de"
+    MadCap:file-filter=""
+    datatype="xhtml">
+    <header>
+      <skl><external-file
+          href="3d_fit_spline.htm.skl" /></skl>
+      <phase-group>
+        <phase
+          phase-name="translation"
+          process-name="translation" />
+        <phase
+          phase-name="completion"
+          process-name="translation" />
+        <phase
+          phase-name="approval"
+          process-name="review" />
+        <phase
+          phase-name="pretrans"
+          process-name="pre-translation" />
+      </phase-group>
+      <count-group
+        name="MadCap Statistics">
+        <count
+          count-type="total"
+          unit="segment">189</count>
+        <count
+          count-type="x-subflow"
+          unit="trans-unit">35</count>
+      </count-group>
+      <tool
+        tool-id="lingoproject"
+        tool-name="Lingo"
+        tool-version="11.2.8423.32284"
+        tool-company="MadCap Software" />
+    </header>
+    <body><trans-unit
+        id="1"
+        restype="x-xhtml-madcap:keyword-term"
+        phase-name="pretrans"
+        translate="no"><source>3d fit spline</source><seg-source><mrk
+            mtype="seg"
+            mid="1">3d fit spline</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="2"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3D Fit Spline feature icon</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3D Fit Spline feature icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Feature-Symbol „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="3"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Feature toolbar with 3D Fit Spline feature icon highlighted</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Feature toolbar with 3D Fit Spline feature icon highlighted</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Feature-Symbolleiste mit hervorgehobenem Feature-Symbol „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="4"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Video example icon</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:conditions="Default.ScreenOnly"
+            MadCap:parentConditions="|||Default.ScreenOnly"
+            comment="img">Video example icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Video example icon</mrk></target></trans-unit><trans-unit
+        id="5"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3D Fit Spline Feature Icon</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3D Fit Spline Feature Icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="92">Feature-Symbol „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="6"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Step 1 for using 3D Fit Spline tool</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Step 1 for using 3D Fit Spline tool</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Schritt 1 zur Verwendung des Tools „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="7"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>accept checkmark</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">accept checkmark</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="8"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>example of final step of using 3D Fit Spline tool</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">example of final step of using 3D Fit Spline tool</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel für den letzten Schritt der Verwendung des Tools „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="9"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>example of final step of using 3D Fit Spline tool</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">example of final step of using 3D Fit Spline tool</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel für den letzten Schritt der Verwendung des Tools „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="10"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3D Fit Spline Feature Icon</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3D Fit Spline Feature Icon</mrk></seg-source><target
+          state="needs-review-adaptation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Repetition"
+            MadCap:matchPercent="100">Feature-Symbol „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="11"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>accept checkmark</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">accept checkmark</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="12"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of a spline using edges</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of a spline using edges</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel für einen Spline mit Kanten</mrk></target></trans-unit><trans-unit
+        id="13"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3D Fit Spline Feature Icon</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3D Fit Spline Feature Icon</mrk></seg-source><target
+          state="needs-review-adaptation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Repetition"
+            MadCap:matchPercent="100">Feature-Symbol „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="14"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>accept checkmark</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">accept checkmark</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="15"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>example of a closed spline</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">example of a closed spline</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel eines geschlossenen Splines</mrk></target></trans-unit><trans-unit
+        id="16"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>example of a closed spline</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">example of a closed spline</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel eines geschlossenen Splines</mrk></target></trans-unit><trans-unit
+        id="17"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3D Fit Spline Feature Icon</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3D Fit Spline Feature Icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Feature-Symbol „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="18"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>example of selecting vertices to create a 3D fit spline</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">example of selecting vertices to create a 3D fit spline</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel für die Auswahl von Scheitelpunkten zum Erstellen eines 3D-angepassten Splines</mrk></target></trans-unit><trans-unit
+        id="19"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>example of selecting start and end directions</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">example of selecting start and end directions</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel für die Auswahl der Start- und Endrichtungen</mrk></target></trans-unit><trans-unit
+        id="20"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>example of selecting Match curvature at start and Match curvature at end</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">example of selecting Match curvature at start and Match curvature at end</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel für die Auswahl von „Krümmung anpassen am Beginn“ und "Krümmung anpassen am Ende“</mrk></target></trans-unit><trans-unit
+        id="21"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Accept checkmark</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Accept checkmark</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="22"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3D Fit spline tool icon</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3D Fit spline tool icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tool-Symbol „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="23"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3D fit spline dialog</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3D fit spline dialog</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Dialogfenster „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="24"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3d Fit spline example</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3d Fit spline example</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">3D-angepasster Spline – Beispiel</mrk></target></trans-unit><trans-unit
+        id="25"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3d Fit spline example</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3d Fit spline example</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">3D-angepasster Spline – Beispiel</mrk></target></trans-unit><trans-unit
+        id="26"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3D Fit spline tool icon</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3D Fit spline tool icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tool-Symbol „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="27"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3d Fit spline example</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3d Fit spline example</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">3D-angepasster Spline – Beispiel</mrk></target></trans-unit><trans-unit
+        id="28"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3d Fit spline example</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3d Fit spline example</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">3D-angepasster Spline – Beispiel</mrk></target></trans-unit><trans-unit
+        id="29"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3D Fit Spline tool icon</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3D Fit Spline tool icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tool-Symbol „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="30"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of 3D Fit Spline tool dialog</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of 3D Fit Spline tool dialog</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel eines Dialogfensters für das Tool „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="31"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3D Fit Spline dialog for Android</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3D Fit Spline dialog for Android</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">3D Fit Spline für Android</mrk></target></trans-unit><trans-unit
+        id="32"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of step 6 for using 3D fit spline tool</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of step 6 for using 3D fit spline tool</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel für den 6. Schritt bei der Verwendung des Tools „3D-angepasste Spline“</mrk></target></trans-unit><trans-unit
+        id="33"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of step 6 for using 3D fit spline tool</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of step 6 for using 3D fit spline tool</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel für den 6. Schritt bei der Verwendung des Tools „3D-angepasste Spline“</mrk></target></trans-unit><trans-unit
+        id="34"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>3D Fit Spline tool icon</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">3D Fit Spline tool icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tool-Symbol „3D Fit Spline“</mrk></target></trans-unit><trans-unit
+        id="35"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of step 4 for creating a closed spline</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of step 4 for creating a closed spline</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel für den 4. Schritt bei der Erstellung eines geschlossenen Splines</mrk></target></trans-unit><trans-unit
+        id="36"
+        restype="x-xml-title"
+        phase-name="pretrans"><source>3D Fit Spline</source><seg-source><mrk
+            mtype="seg"
+            mid="1">3D Fit Spline</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">3D Fit Spline</mrk></target></trans-unit><trans-unit
+        id="37"
+        restype="x-xml-meta-content"
+        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="38"
+        restype="x-xml-h1"
+        phase-name="pretrans"><source>3D Fit Spline</source><seg-source><mrk
+            mtype="seg"
+            mid="1">3D Fit Spline</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">3D Fit Spline</mrk></target></trans-unit><trans-unit
+        id="39"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="40"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source><bpt
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span&gt;</bpt>3D Fit Spline: Desktop<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept>
+                    </source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="2">3D Fit Spline: Desktop</mrk><mrk
+            mtype="seg"
+            mid="3"><ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept></mrk><mrk
+            mtype="protected"
+            mid="4"> </mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="3"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="4"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="41"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>In the Feature toolbar:</source><seg-source><mrk
+            mtype="seg"
+            mid="1">In the Feature toolbar:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">In der Feature-Symbolleiste:</mrk></target></trans-unit><trans-unit
+        id="42"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices or edges that are tangential continuous. Creates a curve which is listed in the Parts list under Curves.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Create a 3D fit spline through a series of vertices or edges that are tangential continuous. Creates a curve which is listed in the Parts list under Curves.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Erstellen Sie einen 3D-angepassten Spline mit mehreren Scheitelpunkten oder Kanten, die durchgehend tangential sind. Dadurch wird eine Kurve erzeugt, die in der Bauteilliste unter „Kurven“ aufgeführt ist.</mrk></target></trans-unit><trans-unit
+        id="43"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+                Video example
+                </source><seg-source><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:conditions="Default.ScreenOnly"
+            MadCap:parentConditions="||Default.ScreenOnly"> </mrk><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:conditions="Default.ScreenOnly"
+            MadCap:parentConditions="||Default.ScreenOnly">Video example</mrk><mrk
+            mtype="protected"
+            mid="3"
+            MadCap:conditions="Default.ScreenOnly"
+            MadCap:parentConditions="||Default.ScreenOnly"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Video-Beispiel</mrk><mrk
+            mtype="protected"
+            mid="3"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="44"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>Video transcript
+                    </source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:conditions="Default.ScreenOnly"
+            MadCap:parentConditions="||||Default.ScreenOnly">Video transcript</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:conditions="Default.ScreenOnly"
+            MadCap:parentConditions="||||Default.ScreenOnly"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Video-Transkript</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="45"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The 3D fit spline feature tool allows you to create a 3D fit spline through a series of vertices or edges that are tangential continuous. Click the 3D fit spline feature tool on the toolbar. Select the Vertices to form the spline. Check Closed spline if required. Click the green checkmark to accept the new spline. Alternatively, you can create a spline based on edges that are tangential continuous. Click the 3D fit spline feature tool on the toolbar, select Edges, and then select the edges to include in the spline. Click the green checkmark. A new Curve is created in the Curve list that is based on the new spline.</source><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:conditions="Default.ScreenOnly"
+            MadCap:parentConditions="||||Default.ScreenOnly">The 3D fit spline feature tool allows you to create a 3D fit spline through a series of vertices or edges that are tangential continuous. Click the 3D fit spline feature tool on the toolbar. Select the Vertices to form the spline. Check Closed spline if required. Click the green checkmark to accept the new spline. Alternatively, you can create a spline based on edges that are tangential continuous. Click the 3D fit spline feature tool on the toolbar, select Edges, and then select the edges to include in the spline. Click the green checkmark. A new Curve is created in the Curve list that is based on the new spline.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Mit dem Feature-Tool „3D Fit Spline“ können Sie einen 3D Fit Spline durch eine Reihe von tangential durchgehenden Scheitelpunkten oder Kanten erstellen. Klicken Sie in der Symbolleiste auf das Feature „3D-Fit-Spline“. Wählen Sie die Scheitelpunkte aus, die den Spline bilden sollen. Aktivieren Sie „Geschlossener Spline“, falls erforderlich. Klicken Sie auf das grüne Häkchen, um den neuen Spline zu übernehmen. Alternativ können Sie einen Spline auf der Grundlage von tangential durchgehenden Kanten erstellen. Klicken Sie in der Symbolleiste auf das Feature-Tool „3D Fit Spline“, wählen Sie „Kanten“ und dann die Kanten aus, die in den Spline einbezogen werden sollen. Klicken Sie auf das grüne Häkchen. In derKurven-Liste wird eine neue Kurve erstellt, die auf dem neuen Spline basiert.</mrk></target></trans-unit><trans-unit
+        id="46"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>Steps
+              </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Steps</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Schritte</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="47"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+                <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/3d-curve-button@1x.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="5" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>.
+                </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/3d-curve-button@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="5" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Klicken Sie auf <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/3d-curve-button@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="5" />" class="InlineImage" /&gt;</ph>.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="48"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click to select whether to use vertices, or edges at the top of the dialog.
+                <bpt
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol&gt;</bpt><bpt
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>For splines using vertices:
+                    <bpt
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol&gt;</bpt><bpt
+            id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>Click to select vertices along which to create the 3D fit spline.<ept
+            id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>Optionally, check the box to create a closed spline.<ept
+            id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                        If the spline is not closed, you have the option to click a line or a Mate connector (inferred or existing) to select a
+                        <bpt
+            id="7"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Start direction<ept
+            id="7" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.
+                      <ept
+            id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="8" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                        Enter a value or click and drag the directional arrow in the graphics area to adjust the
+                        <bpt
+            id="9"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Start magnitude<ept
+            id="9" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.
+                      <ept
+            id="8" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="10" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                        Optionally, click to select
+                        <bpt
+            id="11"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Match curvature at start<ept
+            id="11" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+                        to match the curvature of the edge or face selected as the start direction.
+                      <ept
+            id="10" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="12" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                        Optionally, click a line or Mate connector (inferred or existing) to select an
+                        <bpt
+            id="13"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>end direction<ept
+            id="13" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.
+                      <ept
+            id="12" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="14" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                        Enter a value or click and drag the directional arrow in the graphics area to adjust the
+                        <bpt
+            id="15"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>End magnitude<ept
+            id="15" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.
+                      <ept
+            id="14" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="16" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                        Optionally, click to select
+                        <bpt
+            id="17"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Match curvature at end<ept
+            id="17" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+                        to match the curvature of the edge or face selected as the end direction.
+                      <ept
+            id="16" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><ept
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/ol&gt;</ept><ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="18" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>For splines using edges, click to select tangentially continuous edges with which to create the 3D fit spline.<ept
+            id="18" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/ol&gt;</ept></source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click to select whether to use vertices, or edges at the top of the dialog. <bpt
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="2"><bpt
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>For splines using vertices: <bpt
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="3"><bpt
+              id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>Click to select vertices along which to create the 3D fit spline.<ept
+              id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="4"><bpt
+              id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="5">Optionally, check the box to create a closed spline.</mrk><mrk
+            mtype="seg"
+            mid="6"><ept
+              id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="7"><bpt
+              id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="8"> If the spline is not closed, you have the option to click a line or a Mate connector (inferred or existing) to select a <bpt
+              id="7"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Start direction<ept
+              id="7" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. </mrk><mrk
+            mtype="seg"
+            mid="9"> <ept
+              id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="10"><bpt
+              id="8" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="11"> Enter a value or click and drag the directional arrow in the graphics area to adjust the <bpt
+              id="9"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Start magnitude<ept
+              id="9" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. </mrk><mrk
+            mtype="seg"
+            mid="12"> <ept
+              id="8" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="13"><bpt
+              id="10" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="14"> Optionally, click to select <bpt
+              id="11"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Match curvature at start<ept
+              id="11" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> to match the curvature of the edge or face selected as the start direction. </mrk><mrk
+            mtype="seg"
+            mid="15"> <ept
+              id="10" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="16"><bpt
+              id="12" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="17"> Optionally, click a line or Mate connector (inferred or existing) to select an <bpt
+              id="13"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>end direction<ept
+              id="13" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. </mrk><mrk
+            mtype="seg"
+            mid="18"> <ept
+              id="12" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="19"><bpt
+              id="14" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="20"> Enter a value or click and drag the directional arrow in the graphics area to adjust the <bpt
+              id="15"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>End magnitude<ept
+              id="15" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. </mrk><mrk
+            mtype="seg"
+            mid="21"> <ept
+              id="14" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="22"><bpt
+              id="16" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="23"> Optionally, click to select <bpt
+              id="17"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Match curvature at end<ept
+              id="17" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> to match the curvature of the edge or face selected as the end direction. </mrk><mrk
+            mtype="seg"
+            mid="24"> <ept
+              id="16" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="25"><ept
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/ol&gt;</ept><ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="26"><bpt
+              id="18" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="27">For splines using edges, click to select tangentially continuous edges with which to create the 3D fit spline.</mrk><mrk
+            mtype="seg"
+            mid="28"><ept
+              id="18" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="29"><ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/ol&gt;</ept></mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Klicken Sie oben im Dialogfenster, um auszuwählen, ob Scheitelpunkte oder Kanten am oberen Rand des Dialogfensters verwendet werden sollen. <bpt
+              id="1">&lt;ol&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100"><bpt
+              id="2">&lt;li&gt;</bpt>Für Splines mit Scheitelpunkten: <bpt
+              id="3">&lt;ol&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="3"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100"><bpt
+              id="4">&lt;li&gt;</bpt>Klicken Sie, um Scheitelpunkte auszuwählen, entlang welcher der 3D-angepasste Spline erstellt werden soll.<ept
+              id="4">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="4"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="5"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Sie können auch das Kästchen aktivieren, um einen geschlossenen Spline zu erstellen.</mrk><mrk
+            mtype="seg"
+            mid="6"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="7"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="8"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Bei nicht geschlossenen Splines können Sie auch auf eine Linie oder Verknüpfungsverbindung (abgeleitet oder bestehend) klicken, um die <bpt
+              id="7"
+              ctype="bold">&lt;b&gt;</bpt>Startrichtung<ept
+              id="7">&lt;/b&gt;</ept> auszuwählen.</mrk><mrk
+            mtype="seg"
+            mid="9"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="10"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="11"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Geben Sie einen Wert ein oder klicken Sie auf den Richtungspfeil und ziehen Sie ihn in den Grafikbereich, um die <bpt
+              id="9"
+              ctype="bold">&lt;b&gt;</bpt>Anfangsgröße<ept
+              id="9">&lt;/b&gt;</ept> anzupassen.</mrk><mrk
+            mtype="seg"
+            mid="12"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="13"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="14"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie bei Bedarf <bpt
+              id="11"
+              ctype="bold">&lt;b&gt;</bpt>Krümmung anpassen am Beginn<ept
+              id="11">&lt;/b&gt;</ept> aus, um die Krümmung der als Startrichtung ausgewählten Kante oder Fläche anzupassen.</mrk><mrk
+            mtype="seg"
+            mid="15"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="16"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="17"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Sie können auch auf eine Linie oder eine Verknüpfungsverbindung (abgeleitet oder bestehend) klicken, um eine <bpt
+              id="13"
+              ctype="bold">&lt;b&gt;</bpt>Endrichtung<ept
+              id="13">&lt;/b&gt;</ept> auszuwählen.</mrk><mrk
+            mtype="seg"
+            mid="18"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="19"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="20"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Geben Sie einen Wert ein oder klicken Sie auf den Richtungspfeil und ziehen Sie ihn in den Grafikbereich, um die <bpt
+              id="15"
+              ctype="bold">&lt;b&gt;</bpt>Endgröße<ept
+              id="15">&lt;/b&gt;</ept> anzupassen.</mrk><mrk
+            mtype="seg"
+            mid="21"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="22"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="23"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie bei Bedarf <bpt
+              id="17"
+              ctype="bold">&lt;b&gt;</bpt>Krümmung anpassen am Ende<ept
+              id="17">&lt;/b&gt;</ept> aus, um die Krümmung der als Endrichtung ausgewählten Kante oder Fläche anzupassen.</mrk><mrk
+            mtype="seg"
+            mid="24"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="25"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="26"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="27"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Bei Splines, die Kanten verwenden: Klicken Sie, um die tangential durchgehenden Kanten auszuwählen, die zum Erstellen des 3D-angepassten Splines verwendet werden sollen.</mrk><mrk
+            mtype="seg"
+            mid="28"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="29"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="49"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+                <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/greencheck.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="7" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/greencheck.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="7" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Klicken Sie auf <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/greencheck.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="7" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
+        id="50"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>A curve is created, listed under Curves in the Parts list. You are not able to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">A curve is created, listed under Curves in the Parts list. You are not able to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Eine Kurve wird erstellt und unter „Kurven“ in der Bauteil-Liste aufgeführt. Sie können das 3D-angepasste Spline-Feature nicht anzeigen/ausblenden. Verwenden Sie stattdessen die Anzeigen/Ausblenden-Funktion in der Kurvenliste (Bauteil-Liste).</mrk></target></trans-unit><trans-unit
+        id="51"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>Example of a spline using edges
+                </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Example of a spline using edges</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel für einen Spline mit Kanten</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="52"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+                  <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/3d-curve-button@1x.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="10" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/3d-curve-button@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="10" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Klicken Sie auf <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/3d-curve-button@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="10" />" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
+        id="53"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select edges (must be tangentially continuous) to create a 3D fit spline.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Select edges (must be tangentially continuous) to create a 3D fit spline.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie Kanten aus (müssen durchgehend tangential sein), um einen 3D-angepassten Spline zu erzeugen.</mrk></target></trans-unit><trans-unit
+        id="54"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Check the box to create the spline.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Check the box to create the spline.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Aktivieren Sie das Kästchen, um den Spline zu erstellen.</mrk></target></trans-unit><trans-unit
+        id="55"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+                  <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/greencheck.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="11" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/greencheck.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="11" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Klicken Sie auf <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/greencheck.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="11" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
+        id="56"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>Example of a closed spline
+              </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Example of a closed spline</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel eines geschlossenen Splines</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="57"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+                <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/3d-curve-button@1x.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="13" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/3d-curve-button@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="13" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Klicken Sie auf <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/3d-curve-button@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="13" />" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
+        id="58"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select vertices to create a 3D fit spline.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Select vertices to create a 3D fit spline.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie Scheitelpunkte zum Erstellen eines 3D-angepasste Splines aus.</mrk></target></trans-unit><trans-unit
+        id="59"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Check the box to create a closed spline.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Check the box to create a closed spline.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Aktivieren Sie das Kästchen, um einen geschlossenen Spline zu erstellen.</mrk></target></trans-unit><trans-unit
+        id="60"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+                <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/greencheck.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="14" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/greencheck.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="14" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Klicken Sie auf <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/greencheck.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="14" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
+        id="61"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>Matching curvature
+              </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Matching curvature</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Krümmung anpassen</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="62"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+                <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/3d-curve-button@1x.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="17" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/3d-curve-button@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="17" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Klicken Sie auf <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/3d-curve-button@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="17" />" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
+        id="63"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select vertices to create a 3D fit spline:
+                </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Select vertices to create a 3D fit spline:</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie Scheitelpunkte zum Erstellen eines 3D-angepassten Splines aus:</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="64"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select Start and End directions (highlighted edges):
+                </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Select Start and End directions (highlighted edges):</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie die Start- und Endrichtungen aus (hervorgehobene Kanten):</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="65"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select
+                <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Match curvature at start<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+                and
+                <bpt
+            id="2"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Match curvature at end<ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>:
+                </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Select <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Match curvature at start<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> and <bpt
+              id="2"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Match curvature at end<ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>:</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Krümmung anpassen am Beginn<ept
+              id="1">&lt;/i&gt;</ept> und <bpt
+              id="2"
+              ctype="italic">&lt;i&gt;</bpt>Krümmung anpassen am Ende<ept
+              id="2">&lt;/i&gt;</ept> aus:</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="66"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+                <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/greencheck.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="21" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/greencheck.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="21" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Klicken Sie auf <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/greencheck.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="21" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
+        id="67"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>3D Fit Spline: iOS</source><seg-source><mrk
+            mtype="seg"
+            mid="1">3D Fit Spline: iOS</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="68"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices, or edges that are tangential continuous. Creates a curve which is listed in the Parts list under Curves.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Create a 3D fit spline through a series of vertices, or edges that are tangential continuous. Creates a curve which is listed in the Parts list under Curves.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="99">Erstellen Sie einen 3D-angepassten Spline mit mehreren Scheitelpunkten oder Kanten, die durchgehend tangential sind. Dadurch wird eine Kurve erzeugt, die in der Bauteilliste unter „Kurven“ aufgeführt ist.</mrk></target></trans-unit><trans-unit
+        id="69"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>Steps
+              </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Steps</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Schritte</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="70"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Tap the 3D fit spline tool.
+                </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Tap the 3D fit spline tool.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tippen Sie auf das Tool „3D Fit Spline“.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="71"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Tap to select whether to use vertices, or edges at the top of the dialog.
+                <bpt
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol&gt;</bpt><bpt
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol style="list-style-type: lower-alpha;"&gt;&lt;li&gt;</bpt>For splines using vertices:
+                      <bpt
+            id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol&gt;</bpt><bpt
+            id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>Tap to select vertices along which to create the 3D fit spline.<ept
+            id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>Optionally, check the box to create a closed spline.<ept
+            id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="7" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                          If the spline is not closed, you have the option to click a line or a Mate connector (inferred or existing) to select a
+                          <bpt
+            id="8"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Start direction<ept
+            id="8" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.
+                        <ept
+            id="7" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="9" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                          Enter a value or drag the directional arrow in the graphics area to adjust the
+                          <bpt
+            id="10"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Start magnitude<ept
+            id="10" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.
+                        <ept
+            id="9" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="11" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                          Optionally, select
+                          <bpt
+            id="12"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Match curvature at start<ept
+            id="12" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+                          to match the curvature of the edge or face selected as the start direction.
+                        <ept
+            id="11" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="13" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                          Optionally, select a line or Mate connector (inferred or existing) to select an
+                          <bpt
+            id="14"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>end direction<ept
+            id="14" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.
+                        <ept
+            id="13" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="15" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                          Enter a value or drag the directional arrow in the graphics area to adjust the
+                          <bpt
+            id="16"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>End magnitude<ept
+            id="16" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.
+                        <ept
+            id="15" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="17" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                          Optionally, select
+                          <bpt
+            id="18"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Match curvature at end<ept
+            id="18" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+                          to match the curvature of the edge or face selected as the end direction.
+                        <ept
+            id="17" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><ept
+            id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/ol&gt;</ept><ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;&lt;/ol&gt;</ept><bpt
+            id="19" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>For splines using edges, select tangentially continuous edges with which to create the 3D fit spline.<ept
+            id="19" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/ol&gt;</ept></source><seg-source><mrk
+            mtype="seg"
+            mid="1">Tap to select whether to use vertices, or edges at the top of the dialog. <bpt
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol&gt;</bpt><bpt
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol style="list-style-type: lower-alpha;"&gt;&lt;li&gt;</bpt>For splines using vertices: <bpt
+              id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="2"><bpt
+              id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>Tap to select vertices along which to create the 3D fit spline.<ept
+              id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="3"><bpt
+              id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="4">Optionally, check the box to create a closed spline.</mrk><mrk
+            mtype="seg"
+            mid="5"><ept
+              id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="6"><bpt
+              id="7" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="7"> If the spline is not closed, you have the option to click a line or a Mate connector (inferred or existing) to select a <bpt
+              id="8"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Start direction<ept
+              id="8" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. </mrk><mrk
+            mtype="seg"
+            mid="8"> <ept
+              id="7" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="9"><bpt
+              id="9" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="10"> Enter a value or drag the directional arrow in the graphics area to adjust the <bpt
+              id="10"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Start magnitude<ept
+              id="10" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. </mrk><mrk
+            mtype="seg"
+            mid="11"> <ept
+              id="9" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="12"><bpt
+              id="11" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="13"> Optionally, select <bpt
+              id="12"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Match curvature at start<ept
+              id="12" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> to match the curvature of the edge or face selected as the start direction. </mrk><mrk
+            mtype="seg"
+            mid="14"> <ept
+              id="11" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="15"><bpt
+              id="13" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="16"> Optionally, select a line or Mate connector (inferred or existing) to select an <bpt
+              id="14"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>end direction<ept
+              id="14" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. </mrk><mrk
+            mtype="seg"
+            mid="17"> <ept
+              id="13" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="18"><bpt
+              id="15" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="19"> Enter a value or drag the directional arrow in the graphics area to adjust the <bpt
+              id="16"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>End magnitude<ept
+              id="16" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. </mrk><mrk
+            mtype="seg"
+            mid="20"> <ept
+              id="15" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="21"><bpt
+              id="17" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="22"> Optionally, select <bpt
+              id="18"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Match curvature at end<ept
+              id="18" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> to match the curvature of the edge or face selected as the end direction. </mrk><mrk
+            mtype="seg"
+            mid="23"> <ept
+              id="17" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="24"><ept
+              id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/ol&gt;</ept><ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;&lt;/ol&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="25"><bpt
+              id="19" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>For splines using edges, select tangentially continuous edges with which to create the 3D fit spline.<ept
+              id="19" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="26"><ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/ol&gt;</ept></mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tippen Sie oben im Dialogfenster, um auszuwählen, ob Scheitelpunkte oder Kanten am oberen Rand des Dialogfensters verwendet werden sollen. <bpt
+              id="1">&lt;ol&gt;</bpt><bpt
+              id="2">&lt;ol style="list-style-type: lower-alpha;"&gt;&lt;li&gt;</bpt>Für Splines mit Scheitelpunkten: <bpt
+              id="4">&lt;ol&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100"><bpt
+              id="5">&lt;li&gt;</bpt>Tippen Sie, um die Scheitelpunkte auszuwählen, entlang welcher der 3D-angepasste Spline erstellt werden soll.<ept
+              id="5">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="3"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="4"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Sie können auch das Kästchen aktivieren, um einen geschlossenen Spline zu erstellen.</mrk><mrk
+            mtype="seg"
+            mid="5"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="6"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="7"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Bei nicht geschlossenen Splines können Sie auch auf eine Linie oder Verknüpfungsverbindung (abgeleitet oder bestehend) klicken, um die <bpt
+              id="8"
+              ctype="bold">&lt;b&gt;</bpt>Startrichtung<ept
+              id="8">&lt;/b&gt;</ept> auszuwählen.</mrk><mrk
+            mtype="seg"
+            mid="8"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="9"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="10"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Geben Sie einen Wert ein oder ziehen Sie den Richtungspfeil in den Grafikbereich, um die <bpt
+              id="10"
+              ctype="bold">&lt;b&gt;</bpt>Anfangsgröße<ept
+              id="10">&lt;/b&gt;</ept> anzupassen.</mrk><mrk
+            mtype="seg"
+            mid="11"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="12"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="13"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie bei Bedarf die Option <bpt
+              id="12"
+              ctype="bold">&lt;b&gt;</bpt>Krümmung anpassen am Beginn<ept
+              id="12">&lt;/b&gt;</ept> aus, um die Krümmung an die Kante oder Fläche anzupassen, die als Startrichtung ausgewählt wurde.</mrk><mrk
+            mtype="seg"
+            mid="14"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="15"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="16"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Sie können auch eine Linie oder eine Verknüpfungsverbindung (abgeleitet oder bestehend) auswählen, um eine <bpt
+              id="14"
+              ctype="bold">&lt;b&gt;</bpt>Endrichtung<ept
+              id="14">&lt;/b&gt;</ept> auszuwählen.</mrk><mrk
+            mtype="seg"
+            mid="17"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="18"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="19"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Geben Sie einen Wert ein oder ziehen Sie den Richtungspfeil in den Grafikbereich, um die <bpt
+              id="16"
+              ctype="bold">&lt;b&gt;</bpt>Endgröße<ept
+              id="16">&lt;/b&gt;</ept> anzupassen.</mrk><mrk
+            mtype="seg"
+            mid="20"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="21"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="22"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie bei Bedarf <bpt
+              id="18"
+              ctype="bold">&lt;b&gt;</bpt>Krümmung anpassen am Ende<ept
+              id="18">&lt;/b&gt;</ept> aus, um die Krümmung der als Endrichtung ausgewählten Kante oder Fläche anzupassen.</mrk><mrk
+            mtype="seg"
+            mid="23"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="24"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="25"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100"><bpt
+              id="19">&lt;li&gt;</bpt>Bei Splines, die Kanten verwenden: Wählen Sie die tangential durchgehenden Kanten aus, die zum Erstellen des 3D-angepassten Splines verwendet werden sollen.<ept
+              id="19">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="26"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="72"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Tap the checkmark.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Tap the checkmark.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tippen Sie auf das Häkchen.</mrk></target></trans-unit><trans-unit
+        id="73"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>A curve is created, listed under Curves in the Parts list. You are unable to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">A curve is created, listed under Curves in the Parts list. You are unable to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Eine Kurve wird erstellt und unter „Kurven“ in der Bauteil-Liste aufgeführt. Sie können das 3D-angepasste Spline-Feature nicht anzeigen/ausblenden. Verwenden Sie stattdessen die Anzeigen/Ausblenden-Funktion in der Kurvenliste (Bauteil-Liste).</mrk></target></trans-unit><trans-unit
+        id="74"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>Example of a closed spline
+              </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Example of a closed spline</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel eines geschlossenen Splines</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="75"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Tap the 3D fit spline tool.
+                </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Tap the 3D fit spline tool.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tippen Sie auf das Tool „3D Fit Spline“.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="76"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select vertices to create a 3d fit spline.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Select vertices to create a 3d fit spline.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie Scheitelpunkte zum Erstellen eines 3D-angepassten Splines aus.</mrk></target></trans-unit><trans-unit
+        id="77"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Check the box to create a closed spline.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Check the box to create a closed spline.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Aktivieren Sie das Kästchen, um einen geschlossenen Spline zu erstellen.</mrk></target></trans-unit><trans-unit
+        id="78"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Tap the checkmark.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Tap the checkmark.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tippen Sie auf das Häkchen.</mrk></target></trans-unit><trans-unit
+        id="79"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>3D Fit Spline: Android</source><seg-source><mrk
+            mtype="seg"
+            mid="1">3D Fit Spline: Android</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="80"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="81"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>Steps
+              </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Steps</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Schritte</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="82"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Tap the 3D fit spline tool.
+                </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Tap the 3D fit spline tool.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tippen Sie auf das Tool „3D Fit Spline“.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="83"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Tap to select whether to use vertices, or edges at the top of the dialog.
+                <bpt
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol&gt;</bpt><bpt
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol style="list-style-type: lower-alpha;"&gt;&lt;li&gt;</bpt>For splines using vertices:
+                      <bpt
+            id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol&gt;</bpt><bpt
+            id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>Tap to select vertices along which to create the 3D fit spline.<ept
+            id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>Optionally, check the box to create a closed spline.<ept
+            id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="7" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                          If the spline is not closed, you have the option to click a line or a Mate connector (inferred or existing) to select a
+                          <bpt
+            id="8"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Start direction<ept
+            id="8" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.
+                        <ept
+            id="7" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="9" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                          Enter a value or drag the directional arrow in the graphics area to adjust the
+                          <bpt
+            id="10"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Start magnitude<ept
+            id="10" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.
+                        <ept
+            id="9" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="11" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                          Optionally, select
+                          <bpt
+            id="12"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Match curvature at start<ept
+            id="12" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+                          to match the curvature of the edge or face selected as the start direction.
+                        <ept
+            id="11" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="13" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                          Optionally, select a line or Mate connector (inferred or existing) to select an
+                          <bpt
+            id="14"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>end direction<ept
+            id="14" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.
+                        <ept
+            id="13" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="15" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                          Enter a value or drag the directional arrow in the graphics area to adjust the
+                          <bpt
+            id="16"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>End magnitude<ept
+            id="16" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.
+                        <ept
+            id="15" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><bpt
+            id="17" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>
+                          Optionally, select
+                          <bpt
+            id="18"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Match curvature at end<ept
+            id="18" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+                          to match the curvature of the edge or face selected as the end direction.
+                        <ept
+            id="17" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><ept
+            id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/ol&gt;</ept><ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;&lt;/ol&gt;</ept><bpt
+            id="19" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>For splines using edges, select tangentially continuous edges with which to create the 3D fit spline.<ept
+            id="19" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept><ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/ol&gt;</ept></source><seg-source><mrk
+            mtype="seg"
+            mid="1">Tap to select whether to use vertices, or edges at the top of the dialog. <bpt
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol&gt;</bpt><bpt
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol style="list-style-type: lower-alpha;"&gt;&lt;li&gt;</bpt>For splines using vertices: <bpt
+              id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;ol&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="2"><bpt
+              id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>Tap to select vertices along which to create the 3D fit spline.<ept
+              id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="3"><bpt
+              id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="4">Optionally, check the box to create a closed spline.</mrk><mrk
+            mtype="seg"
+            mid="5"><ept
+              id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="6"><bpt
+              id="7" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="7"> If the spline is not closed, you have the option to click a line or a Mate connector (inferred or existing) to select a <bpt
+              id="8"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Start direction<ept
+              id="8" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. </mrk><mrk
+            mtype="seg"
+            mid="8"> <ept
+              id="7" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="9"><bpt
+              id="9" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="10"> Enter a value or drag the directional arrow in the graphics area to adjust the <bpt
+              id="10"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Start magnitude<ept
+              id="10" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. </mrk><mrk
+            mtype="seg"
+            mid="11"> <ept
+              id="9" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="12"><bpt
+              id="11" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="13"> Optionally, select <bpt
+              id="12"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Match curvature at start<ept
+              id="12" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> to match the curvature of the edge or face selected as the start direction. </mrk><mrk
+            mtype="seg"
+            mid="14"> <ept
+              id="11" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="15"><bpt
+              id="13" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="16"> Optionally, select a line or Mate connector (inferred or existing) to select an <bpt
+              id="14"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>end direction<ept
+              id="14" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. </mrk><mrk
+            mtype="seg"
+            mid="17"> <ept
+              id="13" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="18"><bpt
+              id="15" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="19"> Enter a value or drag the directional arrow in the graphics area to adjust the <bpt
+              id="16"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>End magnitude<ept
+              id="16" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. </mrk><mrk
+            mtype="seg"
+            mid="20"> <ept
+              id="15" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="21"><bpt
+              id="17" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt> </mrk><mrk
+            mtype="seg"
+            mid="22"> Optionally, select <bpt
+              id="18"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Match curvature at end<ept
+              id="18" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> to match the curvature of the edge or face selected as the end direction. </mrk><mrk
+            mtype="seg"
+            mid="23"> <ept
+              id="17" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="24"><ept
+              id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/ol&gt;</ept><ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;&lt;/ol&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="25"><bpt
+              id="19" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;li&gt;</bpt>For splines using edges, select tangentially continuous edges with which to create the 3D fit spline.<ept
+              id="19" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="26"><ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/ol&gt;</ept></mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tippen Sie oben im Dialogfenster, um auszuwählen, ob Scheitelpunkte oder Kanten am oberen Rand des Dialogfensters verwendet werden sollen. <bpt
+              id="1">&lt;ol&gt;</bpt><bpt
+              id="2">&lt;ol style="list-style-type: lower-alpha;"&gt;&lt;li&gt;</bpt>Für Splines mit Scheitelpunkten: <bpt
+              id="4">&lt;ol&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100"><bpt
+              id="5">&lt;li&gt;</bpt>Tippen Sie, um die Scheitelpunkte auszuwählen, entlang welcher der 3D-angepasste Spline erstellt werden soll.<ept
+              id="5">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="3"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="4"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Sie können auch das Kästchen aktivieren, um einen geschlossenen Spline zu erstellen.</mrk><mrk
+            mtype="seg"
+            mid="5"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="6"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="7"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Bei nicht geschlossenen Splines können Sie auch auf eine Linie oder Verknüpfungsverbindung (abgeleitet oder bestehend) klicken, um die <bpt
+              id="8"
+              ctype="bold">&lt;b&gt;</bpt>Startrichtung<ept
+              id="8">&lt;/b&gt;</ept> auszuwählen.</mrk><mrk
+            mtype="seg"
+            mid="8"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="9"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="10"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Geben Sie einen Wert ein oder ziehen Sie den Richtungspfeil in den Grafikbereich, um die <bpt
+              id="10"
+              ctype="bold">&lt;b&gt;</bpt>Anfangsgröße<ept
+              id="10">&lt;/b&gt;</ept> anzupassen.</mrk><mrk
+            mtype="seg"
+            mid="11"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="12"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="13"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie bei Bedarf die Option <bpt
+              id="12"
+              ctype="bold">&lt;b&gt;</bpt>Krümmung anpassen am Beginn<ept
+              id="12">&lt;/b&gt;</ept> aus, um die Krümmung an die Kante oder Fläche anzupassen, die als Startrichtung ausgewählt wurde.</mrk><mrk
+            mtype="seg"
+            mid="14"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="15"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="16"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Sie können auch eine Linie oder eine Verknüpfungsverbindung (abgeleitet oder bestehend) auswählen, um eine <bpt
+              id="14"
+              ctype="bold">&lt;b&gt;</bpt>Endrichtung<ept
+              id="14">&lt;/b&gt;</ept> auszuwählen.</mrk><mrk
+            mtype="seg"
+            mid="17"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="18"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="19"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Geben Sie einen Wert ein oder ziehen Sie den Richtungspfeil in den Grafikbereich, um die <bpt
+              id="16"
+              ctype="bold">&lt;b&gt;</bpt>Endgröße<ept
+              id="16">&lt;/b&gt;</ept> anzupassen.</mrk><mrk
+            mtype="seg"
+            mid="20"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="21"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="22"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie bei Bedarf <bpt
+              id="18"
+              ctype="bold">&lt;b&gt;</bpt>Krümmung anpassen am Ende<ept
+              id="18">&lt;/b&gt;</ept> aus, um die Krümmung der als Endrichtung ausgewählten Kante oder Fläche anzupassen.</mrk><mrk
+            mtype="seg"
+            mid="23"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="24"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="25"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100"><bpt
+              id="19">&lt;li&gt;</bpt>Bei Splines, die Kanten verwenden: Wählen Sie die tangential durchgehenden Kanten aus, die zum Erstellen des 3D-angepassten Splines verwendet werden sollen.<ept
+              id="19">&lt;/li&gt;</ept></mrk><mrk
+            mtype="seg"
+            mid="26"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="84"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Tap the checkmark.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Tap the checkmark.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tippen Sie auf das Häkchen.</mrk></target></trans-unit><trans-unit
+        id="85"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>A curve is created, listed under Curves in the Parts list. You are unable to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">A curve is created, listed under Curves in the Parts list. You are unable to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Eine Kurve wird erstellt und unter „Kurven“ in der Bauteil-Liste aufgeführt. Sie können das 3D-angepasste Spline-Feature nicht anzeigen/ausblenden. Verwenden Sie stattdessen die Anzeigen/Ausblenden-Funktion in der Kurvenliste (Bauteil-Liste).</mrk></target></trans-unit><trans-unit
+        id="86"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>Example of a closed spline
+              </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Example of a closed spline</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Beispiel eines geschlossenen Splines</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="87"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Tap the 3D fit spline tool.
+                </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Tap the 3D fit spline tool.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tippen Sie auf das Tool „3D Fit Spline“.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="88"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select vertices to create a 3d fit spline.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Select vertices to create a 3d fit spline.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Wählen Sie Scheitelpunkte zum Erstellen eines 3D-angepassten Splines aus.</mrk></target></trans-unit><trans-unit
+        id="89"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Check the box to create a closed spline.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Check the box to create a closed spline.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Aktivieren Sie das Kästchen, um einen geschlossenen Spline zu erstellen.</mrk></target></trans-unit><trans-unit
+        id="90"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Tap the checkmark.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Tap the checkmark.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Tippen Sie auf das Häkchen.</mrk></target></trans-unit></body>
+  </file>
+</xliff>
