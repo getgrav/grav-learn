@@ -12,7 +12,7 @@
     datatype="xhtml">
     <header>
       <skl><external-file
-          href="action_items.htm.skl" />s</skl>
+          href="action_items.htm.skl" /></skl>
       <phase-group>
         <phase
           phase-name="translation"
