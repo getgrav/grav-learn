@@ -6,15 +6,13 @@ algolia-pro:
     process_children: true
 ---
 
-**Flex Objects** is a new concept in Grav 1.7, which adds support for custom data types which can be easily integrated to your site. Support for custom types and administration capabilities are provided by [**Flex Objects** Plugin](https://github.com/trilbymedia/grav-plugin-flex-objects), which is required by [Admin Panel](/admin-panel). This plugin also handles object creation in the frontend in case you need users to be able to submit new objects or make changes to them.
-
-Grav core features such as [User Accounts](/admin-panel/accounts/users), [User Groups](/admin-panel/accounts/groups) and [Pages](/admin-panel/page) have already been converted to Flex Objects, though they are only being used in **Admin Panel**.
+**Flex Objects** is a new concept in Grav 1.7 that adds support for custom data types which can be easily integrated to your site. **Flex Objects** are provided by the [**Flex Objects** Plugin](https://github.com/trilbymedia/grav-plugin-flex-objects) which is required by the [Admin Panel](/admin-panel) and included in the [**Grav Core + Admin Plugin**](https://getgrav.org/downloads) package. 
 
 !! **Flex Directories** in this documentation has nothing to do with the older **Flex Directories Plugin**. In fact the old plugin has been superseded with this feature together with **Flex Objects Plugin**.
 
 ## Introduction
 
-**Flex** is a set of **Directories** of a single **Type**. Grav has its own built-in types, such as *User Accounts* and *Pages*. Plugins and themes can also define their own types and register those to Grav. With **Flex Objects Plugin** you are also able to create your own custom types and directories.
+**Flex** is a set of **Directories** of a given type. Grav has its own built-in types, such as **User Accounts** and **Pages**. Plugins and themes can also define their own types and register those with Grav.
 
 
 #### Flex

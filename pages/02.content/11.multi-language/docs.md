@@ -482,6 +482,21 @@ RewriteRule ^de/(.*)$ "http://grav-site.de/$1" [R=302,L]
 
 If you know how to simplify the rewrite rules, please edit this page on GitHub by clicking the **Edit** link at the top of the page.
 
+Here's a simplified version of the rule set:
+[prism classes="language-htaccess line-numbers"]
+# http://www.cheat-sheets.org/saved-copy/mod_rewrite_cheat_sheet.pdf
+# http://www.workingwith.me.uk/articles/scripting/mod_rewrite
+
+# Redirect top-level URLs
+RewriteRule ^en/?$ "http://grav-site.com" [R=302,L]
+RewriteRule ^de/?$ "http://grav-site.de" [R=302,L]
+
+# Redirect sub-pages, excluding the admin path
+RewriteCond %{REQUEST_URI} !^/admin [NC]
+RewriteRule ^(en|de)/(.*)$ "http://grav-site.$1/$2" [R=302,L]
+[/prism]
+This simplified version combines the rewrite rules for redirecting sub-pages for "en" and "de" into a single rule using grouping. Additionally, it consolidates the RewriteCond for the admin path to reduce duplication.
+
 ! Make sure to add these rules before the default rules that come with Grav CMS.
 
 ### Language Logic in Twig Templates

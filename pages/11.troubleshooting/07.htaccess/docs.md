@@ -68,3 +68,5 @@ If `AllowOverride` is set to `None` or anything other than `All`, you will need 
 Once you have done this, give your site another test.
 
 We've also included troubleshooting guides to help you should you encounter a [404](../page-not-found) or [500](../internal-server-error) internal server error while working with Grav.
+
+## Htaccess Examples https://www.askapache.com/htaccess/

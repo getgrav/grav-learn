@@ -8,11 +8,11 @@ taxonomy:
 
 ### What is a Multisite Setup?
 
-> A multisite setup allows you to create and manage a network of multiple websites, all running on a single installation.
+A multisite setup allows you to create and manage a network of multiple websites, all running on a single installation.
 
 Grav has built-in multisite support. This functionality extends the [basic environment configuration](../environment-config), which lets you define custom environments for your production and development sites.
 
-A full multisite setup gives you the power to change the way how and from where Grav loads all its files.
+A full multisite setup gives you the power to change how and from where Grav loads all its files.
 
 ### Requirements for a Grav Multisite Setup
 

@@ -104,6 +104,7 @@ http {
         image/x-icon
         text/cache-manifest
         text/css
+        text/javascript
         text/plain
         text/vcard
         text/vnd.rim.location.xloc
@@ -255,6 +256,10 @@ It is also recommended to enable those in production. These additions to the con
 
 
 [prism classes="language-nginx line-numbers"]
+        location ~* ^/forms-basic-captcha-image.jpg$ {
+                try_files $uri $uri/ /index.php$is_args$args;
+        }
+
         location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
                 expires 30d;
                 add_header Vary Accept-Encoding;

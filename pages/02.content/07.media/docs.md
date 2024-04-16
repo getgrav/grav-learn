@@ -844,6 +844,7 @@ When value `auto` is chosen, no `loading` attribute is added and browser will de
 [/ui-tab]
 [/ui-tabs]
 
+
 #### watermark
 
 The **watermark action** merges two images, a watermark image and a source image, into a final watermarked image. This is a very specific action that needs a more detailed description than other actions or filters. In particular, the specific behavior when [combining filters](#combinations) must be taken into account. For those interested, there is a very detailed [blog post about the watermark action](https://www.grav.cz/blog/vodoznak-aneb-nepokrades-kelisova), written by [Vít Petira](https://github.com/petira), but only in Czech. However, the instructions are easy to understand.
@@ -868,6 +869,32 @@ The **watermark action** merges two images, a watermark image and a source image
 ##### Result:
 
 ![Sample Image](sample-image.jpg?watermark=user://pages/02.content/07.media/sample-watermark.png,top-left,50)
+
+
+#### decoding
+
+The decoding attributing on images gives authors control over when the browser should start decoding the resource. The value for the decoding attribute can be one of `auto` (default), `sync`, `async`.
+Value can be set in `system.images.defaults.decoding` as default value, or per md image with `?decoding=async`
+When value `auto` is chosen, no `decoding` attribute is added and browser will determine which strategy to use.
+
+{# Using default value as defined in 'config.system.images.defaults.decoding' #}
+{{ page.media['sample-image.jpg'].decoding.html('Sample Image')|raw }}
+
+{# Using explicit value #}
+{{ page.media['sample-image.jpg'].decoding('async').html('Sample Image')|raw }}
+
+[ui-tabs]
+[ui-tab title="Markdown"]
+```markdown
+![Sample Image](sample-image.jpg?decoding=async)
+```
+[/ui-tab]
+[ui-tab title="HTML Code"]
+```html
+<img decoding="async" title="Sample Image"  src="/images/e/f/1/0/5/ef10554cd3a99f2e65136e79dce170d4f8a7a1b9-sample-image.jpg" />
+```
+[/ui-tab]
+[/ui-tabs]
 
 ## Animated / Vectorized Actions
 
@@ -1213,7 +1240,7 @@ Grav also has support for media queries inside the `sizes` attribute, allowing y
 
 ##### Sizes with media queries using derivatives
 
-If you want to customize the sizes of the automatically created files, you can use the `derivatives()` method (as shown below). The first parameter is the width of the smallest of the generated images. The second is the maximum width of the generated images. The third, and only optional parameter, dictates the intervals with which to generate the photos (default is 200). For example, if you set the first parameter to be `320` and the third to be `100`, Grav will generate an image for 320, 420, 520, 620, and so on until it reaches its set maximum.
+If you want to customize the sizes of the automatically created files, you can use the `derivatives()` method (as shown below). The first parameter is the width of the smallest of the generated images. The second is the maximum width (exclusive) of the generated images. The third, and only optional parameter, dictates the intervals with which to generate the photos (default is 200). For example, if you set the first parameter to be `320` and the third to be `100`, Grav will generate an image for 320, 420, 520, 620, and so on until it reaches its set maximum.
 
 In our example, we set the maximum to `1600`. This will result in increments of 300 being met from `320` to `1520` as `1620` would be above the threshold.
 

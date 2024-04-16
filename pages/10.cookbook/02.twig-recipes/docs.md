@@ -17,7 +17,7 @@ You want to display the last 5 blog posts in a sidebar of your site so a reader 
 
 ##### Solution:
 
-Simply find the `/blog` page, obtain it's children, order them by date in a descending order, and then get the first 5 to display in a list:
+Simply find the `/blog` page, obtain its children, order them by date in a descending order, and then get the first 5 to display in a list:
 
 [prism classes="language-twig line-numbers"]
 <ul>

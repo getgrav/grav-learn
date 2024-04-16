@@ -16,7 +16,7 @@ The plugin should let you know the **_NAME_ to be used** in the following steps.
 
 ### GPM Installation (Preferred)
 
-To install the plugin via the [GPM](http://learn.getgrav.org/advanced/grav-gpm), through your system’s terminal (also called the command line), navigate to the root of your Grav-installation, and enter:
+To install the plugin via the [GPM](https://learn.getgrav.org/17/cli-console/grav-cli-gpm), through your system’s terminal (also called the command line), navigate to the root of your Grav-installation, and enter:
 
 [prism classes="language-sh"]
 bin/gpm install NAME

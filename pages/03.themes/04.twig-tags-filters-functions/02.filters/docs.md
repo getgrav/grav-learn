@@ -17,7 +17,7 @@ Twig filters are applied to Twig variables by using the `|` character followed b
 
 Takes an HTML snippet containing a `src` or `href` attribute which uses a relative path. Converts the path string to an absolute URL format including hostname.
 
-`'<img src="/some/path/to/image.jpg" />'|absolute_url` <i class="fa fa-long-arrow-right"></i> `{{ '<img src="/some/path/to/image.jpg" />'|absolute_url|raw }}`
+`'<img src="/some/path/to/image.jpg" />'|absolute_url` <i class="fa fa-long-arrow-right"></i> &lt;img src=&quot;https://learn.getgrav.org/some/path/to/image.jpg&quot;&gt;
 
 ### `array_unique`
 
