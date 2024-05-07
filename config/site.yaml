@@ -1,0 +1,32 @@
+title: Grav Documentation
+metadata:
+    description: 'Grav documentation'
+
+author:
+  name: Andy Miller
+  email: 'andy@getgrav.org'
+
+taxonomies: [category,tag]
+summary:
+  size: 300
+
+redirects:
+  '/(\d+)/hosting/rochen': '/hosting/shared/rochen'
+  '/(\d+)/hosting/wirenine': '/hosting/shared/wirenine'
+  '/(\d+)/hosting/crucial': '/hosting/shared/crucial'
+  '/(\d+)/hosting/arvixe': '/hosting/shared/arvixe'
+  '/(\d+)/hosting/siteground': '/hosting/shared/siteground'
+  '/(\d+)/hosting/dreamhost': '/hosting/shared/dreamhost'
+  '/(\d+)/advanced/route-aliases': '/content/routing'
+  '/(\d+)/advanced/grav-cli': '/cli-console/grav-cli'
+  '/(\d+)/advanced/grav-cli-plugin': '/cli-console/grav-cli-plugin'
+  '/(\d+)/advanced/grav-gpm': '/cli-console/grav-cli-gpm'
+  '/(\d+)/advanced/command-line': '/cli-console/command-line-intro'
+  '/(\d+)/advanced/blueprints': '/forms/blueprints'
+  '/(\d+)/advanced/forms': '/forms/forms'
+  '/(\d+)/advanced/contact-form': '/forms/example-form'
+  '/(\d+)/advanced/grav-lifecycle': '/plugins/grav-lifecycle'
+  '/(\d+)/hosting/(.*)': '/webservers-hosting/$1'
+  '/(\d+)/themes/twig-tags': '/themes/twig-tags-filters-functions/tags'
+
+

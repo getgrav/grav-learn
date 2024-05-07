@@ -1,0 +1,13 @@
+// Import Google Web Fonts
+@import url(//fonts.googleapis.com/css?family=Montserrat:400|Muli:300,400|Inconsolata);
+
+// Set local icon font
+@font-face {
+  font-family: '#{$icons}';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/icons/#{$icons}.eot);
+  src: url('../fonts/icons/#{$icons}.eot?#iefix') format('ie9-skip-eot'),
+       url('../fonts/icons/#{$icons}.woff') format('woff'),
+       url('../fonts/icons/#{$icons}.ttf')  format('truetype');
+}

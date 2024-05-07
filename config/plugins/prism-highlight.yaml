@@ -1,0 +1,7 @@
+enabled: true
+theme: prism-base2tone-space-light.css
+all-pre-blocks: false
+plugins:
+    line-numbers: false
+    command-line: false
+    command-line-prompt: '$'

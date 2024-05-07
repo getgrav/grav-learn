@@ -1,0 +1,66 @@
+// Core
+$core-text:                     #777;
+$core-accent:                   #00BDF3;
+$secondary-link:                #F8B450;
+$white:                         #fff;
+$black:                         #000;
+$light-gray:                    #ddd;
+
+// Borders
+$core-border-color:             $light-gray;
+$core-border-color-hover:       darken($core-border-color, 10);
+$core-border-color-focus:       $core-accent;
+
+// Shadows
+$core-box-shadow:               inset 0 1px 3px hsla(0, 0%, 0%, 0.06);
+$core-box-shadow-focus:         $core-box-shadow, 0 0 5px rgba(darken($core-border-color-focus, 5), 0.7);
+
+// Background
+$page-bg:                       #fff;
+
+// Header
+$header-text:                   #aaa;
+
+// Nav
+$nav-link:                      #aaa;
+
+// Showcase
+$showcase-bg:                   lighten($core-accent, 6%);
+$showcase-text:                 #fff;
+
+// Feature
+$feature-bg:                    #fff;
+
+// Main Body
+$main-bg:                       #f7f7f7;
+$body-border:                   darken($main-bg, 5%);
+
+// Sidebar
+$sidebar-text:                  #aaa;
+
+// Bottom
+$bottom-bg:                     #f7f7f7;
+$bottom-text:                   $core-text;
+
+// Footer
+$footer-bg:                     #404040;
+$footer-text:                   #ccc;
+
+$rule-color:                    #F0F2F4;
+$code-text:                     darken($core-text,10%);
+$code-bg:                       lighten(#FDF7E3, 2%);
+$pre-text:                      #237794;
+$pre-bg:                        #1d1f21;
+
+// Dark Contrast variation
+$dark-navbar-text:              #999;
+$dark-sidebar:                  #222;
+$dark-sidebar-text:             #999;
+$dark-main-bg:                  #333;
+$dark-body-border:              #666;
+
+$bullet-icon-size:              3.5rem;
+
+$bullet-icon-color-1:           $core-accent;
+$bullet-icon-color-2:           adjust-hue($core-accent, -20);
+$bullet-icon-color-3:           adjust-hue($core-accent, -130);

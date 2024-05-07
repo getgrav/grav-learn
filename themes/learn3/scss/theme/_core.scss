@@ -1,0 +1,59 @@
+body {
+    background: $page-bg;
+    color: #444;
+
+    #chapter {
+        h1 {
+            font-size: 3.5rem;
+
+            @include breakpoint(tablet-range) {
+                font-size: 3rem;
+            }
+
+            @include breakpoint(mobile-only) {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+a {
+    color: $core-accent;
+    &:hover {
+        color: darken($core-accent, 15%);
+    }
+}
+
+pre {
+    position: relative;
+}
+
+.bg {
+    background: #fff;
+    border: 1px solid $body-border;
+}
+
+b, strong {
+    font-weight: 600;
+}
+
+.default-animation {
+    @include transition(all 0.5s ease);
+}
+
+#grav-logo {
+    max-width: 60%;
+    path {
+        fill: $white !important;
+    }
+}
+
+#header {
+    border-bottom: 4px solid lighten($header-bg, 10%);
+}
+
+#sidebar  {
+    font-weight: 300 !important;
+}
+
+

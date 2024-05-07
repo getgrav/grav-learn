@@ -1,0 +1,67 @@
+/* Icons */
+// Entypo Icons
+@import "vendor/entypo/entypo";
+@import "vendor/entypo/entypo-icon-list";
+
+//Icons
+@function match($list, $icon) {
+  @each $item in $list {
+    $index: index($item, $icon);
+      @if $index {
+        $return: if($index == 1, 2, $index);
+        @return nth($item, $return);
+      }
+    }
+  @return false;
+}
+
+@mixin i($icon) {
+  .#{$icon}.icon-left a:before,
+  .#{$icon}.icon-right a:after,
+  i.#{$icon}:before {
+    content: unquote("\"\\#{match($entypo-icons, $icon)}\"");
+    height: inherit;
+  }
+}
+
+@mixin icon($icon) {
+  @if (type-of($icon) == list) {
+    @each $i in $icon {
+      @include i($i);
+    }
+  }
+  @elseif ($icon == all) {
+    @each $icon in $entypo-icons {
+      @include i(nth($icon, 1));
+    }
+  }
+  @else {
+    @include i($icon);
+  }
+}
+
+// include all entypo icon classes
+@include icon(all);
+
+[class^="icon-"] a:before,
+[class*=" icon-"] a:before,
+[class^="icon-"] a:after,
+[class*=" icon-"] a:after,
+i[class^="icon-"],
+i[class*=" icon-"] {
+  font-family: "#{$icons}";
+  position:absolute;
+  text-decoration: none;
+  zoom: 1;
+}
+
+i[class^="icon-"],
+i[class*=" icon-"] {
+  display: inline-block;
+  position: static;
+  min-width: 20px;
+  margin: 0 5px;
+  text-align: center;
+  text-decoration: none;
+  font-style: normal;
+}

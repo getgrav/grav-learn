@@ -1,0 +1,613 @@
+@charset 'utf-8';
+
+// Your custom SCSS should be written here...
+//
+$header-height: 60px;
+$sidebar-width: 250px;
+$sidebar-bg: #F9FAFB;
+$navbar-text: desaturate($core-accent,50%);
+$navbar-bg: #FCFCFD;
+$progress-bar: #4FCB51;
+$star-color: #F8C74A;
+
+// Font Weights
+$font-weight-bold: 600;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+
+$body-margin: 4rem;
+
+
+body {
+	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+
+}
+
+
+b, strong {
+	font-weight: $font-weight-bold
+}
+
+.default-animation {
+	@include transition(all 0.5s ease);
+}
+
+.bookmarked {
+	#header.navbar {
+		a[data-bookmark-toggle] {
+			color: $star-color;
+		}
+	}
+}
+
+#header.navbar {
+
+	width: 100%;
+	min-height: $header-height;
+	display: block;
+	background: $navbar-bg; // Change this color in settings to change the navbar color
+
+	#logo img {
+		margin-bottom: -5px;
+	}
+
+	ul {
+		position: absolute;
+		top: 0;
+		padding-left: 10px;
+		display: table;
+		vertical-align: middle;
+		margin: 0;
+		float: none;
+
+		li {
+			display: table-cell;
+			text-align: center;
+			padding: 0;
+			height: $header-height;
+			line-height: $header-height;
+
+			> a, > span {
+				color: $navbar-text;
+				padding: 0 5px;
+				font-size: 24px;
+				@include breakpoint(mobile-only) {
+					font-size: 18px;
+					padding: 0;
+				}
+				&:hover {
+					color: darken($navbar-text, 20%);
+				}
+			}
+		}
+	}
+	h4 {
+		@extend .default-animation;
+		font-family: $font-family-default;
+		font-weight: $font-weight-regular;
+		line-height: $header-height;
+		padding: 0 1rem 0 $sidebar-width;
+		text-align: center;
+		color: $navbar-text;
+		margin: 0;
+		font-size: 26px;
+		@include breakpoint(mobile-only) {
+			font-size: 20px;
+			text-align: right;
+			padding-left: 0;
+		}
+	}
+}
+
+@include breakpoint(mobile-only) {
+	#overlay {
+		display: static;
+		position: fixed;
+		top: $header-height;
+		left: $sidebar-width;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		cursor: pointer;
+	}
+}
+
+body {
+
+	&.sidebar-hidden {
+		#sidebar {
+			left: - $sidebar-width;
+		}
+		#body {
+			left: 0;
+			@include breakpoint(mobile-only) {
+				overflow-y: auto;
+			}
+		}
+		#header.navbar {
+			h3 {
+				padding-left: 0;
+			}
+		}
+		#progress {
+			margin-left: 0;
+		}
+		#overlay {
+			display: none;
+		}
+	}
+
+	&.searchbox-hidden {
+		.searchbox {
+			top: - $header-height;
+		}
+		.padding {
+			margin-top: 0 !important;
+		}
+	}
+}
+
+#sidebar {
+	@extend .default-animation;
+	background-color: $sidebar-bg;
+	position: absolute;
+	top: $header-height;
+	width: $sidebar-width;
+	bottom: 0;
+	left: 0;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	font-weight: $font-weight-medium;
+	font-size: 15px;
+	.padding {
+		padding: 1rem 5px 1rem 1rem;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		ul {
+			padding-left: 1rem;
+		}
+		li {
+			padding: 0;
+			&.bookmarked + span {
+				margin-right: 16px;
+			}
+			&.visited + span {
+				margin-right: 16px;
+			}
+			&.bookmarked.visited + span {
+				margin-right: 32px;
+			}
+			a {
+				display: block;
+				padding: 2px 0;
+				span {
+					text-overflow: ellipsis;
+					overflow: hidden;
+					white-space: nowrap;
+					display: block;
+				}
+			}
+			> a {
+				padding: 4px 0;
+			}
+
+			i {
+				display: none;
+				float: right;
+				font-size: 13px;
+				min-width: 16px;
+				margin: 0;
+			}
+
+
+
+			&.visited {
+				> a .read-icon {
+					color: $progress-bar;
+					display: inline;
+				}
+			}
+
+			&.bookmarked {
+				> a .bookmark-icon {
+					color: $star-color;
+					display: inline;
+				}
+			}
+		}
+		&.searched {
+			a {
+				color: lighten($core-accent, 25%);
+			}
+
+			.search-match {
+				a {
+					color: $core-accent;
+					&:hover {
+						color: darken($core-accent, 20%);
+					}
+				}
+			}
+		}
+	}
+
+	.padding {
+		@extend .default-animation;
+		margin-top: $header-height;
+	}
+}
+
+#body {
+	img, .video-container {
+		margin: 3rem auto;
+		display: block;
+        text-align: center;
+
+		&.border {
+			border: 3px solid #f0f0f0;
+		}
+
+		&.shadow {
+			box-shadow: 10px 10px 0 0 #f0f0f0;
+		}
+	}
+
+	@extend .default-animation;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	position: absolute;
+	top: $header-height;
+	right: 0;
+	left: $sidebar-width;
+	bottom: 0;
+	@include breakpoint(mobile-only) {
+		overflow: hidden;
+		position: fixed;
+		width: 100%;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.bordered {
+		border: 1px solid #ccc;
+	}
+
+	.padding {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		@extend .default-animation;
+		padding: 15px ($body-margin + 2rem);
+
+		@include breakpoint(desktop-only) {
+			position: static;
+			padding: 15px ($body-margin - 1rem);
+		}
+
+		@include breakpoint(mobile-only) {
+			padding: 5px 1rem;
+		}
+	}
+
+	h1 + hr {
+		margin-top: -1.7rem;
+		margin-bottom: 3rem;
+	}
+
+	#navigation {
+
+
+		@include breakpoint(desktop-only) {
+			position: static;
+			margin-right: 0 !important;
+			width: 100%;
+			display: table;
+		}
+	}
+
+	.nav {
+		@extend .default-animation;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: $body-margin;
+		font-size: 50px;
+		height: 100%;
+		cursor: pointer;
+		display: table;
+		text-align: center;
+		> i {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		@include breakpoint(desktop-only) {
+			display: table-cell;
+			position: static;
+			top: auto;
+			width: 50%;
+			text-align: center;
+			height: 100px;
+			line-height: 100px;
+			padding-top: 0;
+			> i {
+				display: inline-block;
+			}
+		}
+
+
+		&:hover {
+			background: darken($sidebar-bg,5%);
+		}
+
+		&.nav-pref {
+			left: 0;
+		}
+
+		&.nav-next {
+			right: 0;
+		}
+	}
+
+
+}
+
+#body-inner {
+	margin-bottom: 5rem;
+}
+
+.searchbox {
+	@extend .default-animation;
+	position: absolute;
+	top: 0;
+	background: darken($sidebar-bg,5%);
+	left: 0;
+	right: 0;
+	height: $header-height;
+	line-height: $header-height;
+	padding: 0 1rem;
+
+	input {
+		display: inline-block;
+		width: 100%;
+		height: 30px;
+		border: 1px solid darken($sidebar-bg,10%);
+		background: $sidebar-bg;
+		border-radius: 4px;
+		font-size: 16px;
+		padding: 0 25px 0 10px;
+		margin: 0;
+		font-weight: $font-weight-regular;
+	}
+
+	span[data-search-clear] {
+		display: inline-block;
+		position: absolute;
+		width: 18px;
+		height: 18px;
+		line-height: 18px;
+		border-radius: 3px;
+		background: #f3f3f3;
+		color: #999;
+		text-align: center;
+		font-weight: bold;
+		right: 0;
+		font-size: 18px;
+		z-index: 10;
+		top: 20px;
+		right: 20px;
+		cursor: pointer;
+
+		&:hover {
+			background: #ebebeb;
+		}
+	}
+}
+
+// Progress Bar
+#progress-wrapper {
+	background: darken($sidebar-bg,5%);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 56px;
+}
+
+#progress {
+	@extend .default-animation;
+	margin-left: $sidebar-width;
+
+	.progress-bar {
+		@include transition(all 1s ease-out);
+		display: block;
+		height: 4px;
+		background: $progress-bar;
+	}
+}
+
+// Chapter title
+#chapter {
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+
+	#body-inner {
+		padding-bottom: 3rem;
+		max-width: 80%;
+	}
+
+	h3 {
+		font-family: $font-family-default;
+		font-weight: $font-weight-regular;
+		text-align: center;
+	}
+
+	h1 {
+		text-transform: capitalize;
+		font-size: 5rem;
+		border-bottom: 4px solid $rule-color;
+	}
+
+	p {
+		text-align: center;
+		font-size: 1.2rem;
+	}
+}
+
+// Sans Fonts
+.font-toggle {
+	font-family: $font-family-serif;
+}
+
+// Serif Fonts
+body.font-serif {
+	font-family: $font-family-serif;
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: $font-family-serif;
+	}
+	.font-toggle {
+		font-family: $font-family-default;
+	}
+}
+
+//Fluidbox fixes
+.lightbox-active {
+	#body, {
+		overflow: visible;
+		.padding {
+			overflow: visible;
+		}
+	}
+}
+
+//Github
+#github-contrib {
+	i {
+		font-size: 30px;
+		line-height: 30px;
+		vertical-align: middle;
+	}
+}
+
+$turquoise: #1ABC9C;
+$green_sea: #16A085;
+$emerald: #2ECC71;
+$nephritis: #27AE60;
+$peter_river: #3498DB;
+$belize_hole: #2980B9;
+$amethyst: #A66BBE;
+$wisteria: #8E44AD;
+$wet_asphalt: #34495E;
+$midnight_blue: #2C3E50;
+$sunflower: #F2CA27;
+$orange: #F39C12;
+$carrot: #E67E22;
+$pumpkin: #D35400;
+$alizarin: #E74C3C;
+$pomegranate: #C0392B;
+$clouds: #ECF0F1;
+$silver: #BDC3C7;
+$concrete: #95A5A6;
+$asbestos: #7F8C8D;
+
+//Lifecycle
+.lifecycle {
+
+	#body-inner {
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 2rem 0 0;
+			position: relative;
+		}
+
+		ol {
+			margin: 1rem 0 1rem 0;
+			padding: 2rem;
+			position: relative;
+
+			li {margin-left: 1rem;}
+
+			strong {
+				text-decoration: underline;
+			}
+
+			ol {
+				margin-left: -1rem;
+			}
+
+		}
+
+		h3[class*='level'] {
+			font-size: 20px;
+			position: absolute;
+			margin: 0;
+			padding: 4px 10px;
+			right: 0;
+			z-index: 1000;
+			color: #fff;
+			background: $turquoise;
+		}
+
+		ol h3 {
+			margin-top: 1rem !important;
+			right: 2rem !important;
+		}
+
+		.level-1 + ol {
+			background: lighten($turquoise,56%);
+			border: 4px solid $turquoise;
+			color: $green_sea;
+			h3 {
+				background: $emerald;
+
+			}
+		}
+
+		.level-2 + ol  {
+			background: lighten($emerald,49%);
+			border: 4px solid $emerald;
+			color: $nephritis;
+			h3 {
+				background: $peter_river;
+			}
+		}
+
+		.level-3 + ol {
+			background: lighten($peter_river,44%);
+			border: 4px solid $peter_river;
+			color: $belize_hole;
+			h3 {
+				background: $wet_asphalt;
+			}
+		}
+
+		.level-4 + ol{
+			background: lighten($wet_asphalt,63%);
+			border: 4px solid $wet_asphalt;
+			color: $midnight_blue;
+			h3 {
+				background: $wet_asphalt;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+

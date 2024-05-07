@@ -1,0 +1,38 @@
+{% macro loop(page, parent_loop) %}
+    {% import _self as self %}
+
+    {% if parent_loop|length > 0 %}
+        {% set data_level = parent_loop %}
+        {% set parent_loop = parent_loop ~ '.' %}
+    {% else %}
+        {% set data_level = 0 %}
+    {% endif %}
+    {% for p in page.children %}
+        {% if p.visible %}
+        <li class="dd-item" data-nav-level='{{ data_level }}' data-nav-id="{{ p.route }}">
+            <a href="{{ p.url }}">
+                <i class="read-icon icon-check"></i>
+                <i class="bookmark-icon icon-star"></i>
+                <span>
+                    <b>{{ parent_loop}}{{ loop.index }}.</b> {{ p.menu }}
+                </span>
+            </a>
+            {% if p.children.count > 0 %}
+            <ul>
+                {{ self.loop(p, parent_loop~loop.index) }}
+            </ul>
+            {% endif %}
+        </li>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% import _self as macro %}
+
+<ul class="topics">
+    {{ macro.loop(pages, '') }}
+</ul>
+
+<hr />
+<a href="#" data-clear-history-toggle><i class="icon-back-in-time"></i> Clear History</a><br />
+<a href="#" data-clear-bookmark-toggle><i class="icon-star"></i> Clear Bookmarks</a><br />

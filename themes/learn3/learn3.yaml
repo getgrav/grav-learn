@@ -1,0 +1,17 @@
+enabled: true
+top_level_version: false
+home_url: https://getgrav.org
+github:
+    enabled: true
+    position: top
+    tree: https://github.com/getgrav/grav/blob/develop/
+    commits: https://github.com/getgrav/grav/commits/develop/
+
+streams:
+  schemes:
+    theme:
+      type: ReadOnlyStream
+      prefixes:
+        '':
+        - user/themes/learn3
+        - user/themes/learn2

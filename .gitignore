@@ -1,0 +1,27 @@
+
+# Sass
+.sass-cache
+
+# Grav Specific
+data/*
+!data/.*
+plugins/*
+!plugins/.*
+themes/learn2
+themes/learn4
+accounts/admin.yaml
+config/versions.yaml
+config/security.yaml
+env/localhost/config/security.yaml
+env/learn.dev/config/security.yaml
+
+# OS Generated
+.DS_Store*
+thumbs.db
+Thumbs.db
+*.swp
+
+# phpstorm
+.idea/*
+
+/env/**/config/plugins/algolia-pro.yaml

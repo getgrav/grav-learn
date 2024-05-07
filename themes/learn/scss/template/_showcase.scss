@@ -1,0 +1,10 @@
+#showcase {
+	background: $showcase-bg;
+	color: $showcase-text;
+	.spacer {
+		height: 180px;
+		@include breakpoint(mobile-only) {
+			display: none;
+		}
+	}
+}

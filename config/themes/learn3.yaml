@@ -1,0 +1,7 @@
+home_url: https://getgrav.org
+google_analytics_code: UA-57776306-2
+github:
+    enabled: true
+    position: top
+    tree: https://github.com/getgrav/grav-learn/blob/develop/
+    commits: https://github.com/getgrav/grav-learn/commits/develop/

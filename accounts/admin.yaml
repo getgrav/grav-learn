@@ -1,0 +1,11 @@
+state: enabled
+email: rhuk@rhuk.net
+fullname: Admin
+title: Administrator
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$pJdEP84gnPa./CvgELTpae.LLuvyF8Iuq3mtWuO.P8xiTFRUp9KDe

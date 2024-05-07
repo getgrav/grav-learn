@@ -1,0 +1,24 @@
+cache:
+  enabled: true
+  check:
+    method: hash
+  gzip: false
+
+errors:
+  display: 1
+
+assets:
+  css_pipeline: false
+  js_pipeline: false
+
+twig:
+  cache: true
+  debug: true
+
+debugger:
+  enabled: true
+  provider: phpdebugbar
+
+strict_mode:
+    yaml_compat: false
+    twig_compat: false
