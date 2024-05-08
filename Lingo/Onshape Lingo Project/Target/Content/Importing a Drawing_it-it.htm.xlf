@@ -46,7 +46,8 @@
         id="1"
         restype="x-xhtml-madcap:keyword-term"
         phase-name="pretrans"
-        translate="no"><source>importing:drawings;drawings:importing</source><seg-source><mrk
+        translate="no"><source>importing:drawings;drawings:importing</source>
+<target>importing:drawings;drawings:importing pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">importing:drawings</mrk><mrk
             mtype="seg"
@@ -62,7 +63,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="2"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Importing a Drawing tool icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Importing a Drawing tool icon</source>
+<target>Importing a Drawing tool icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Importing a Drawing tool icon</mrk></seg-source><target
@@ -73,7 +75,8 @@
             MadCap:matchPercent="101">Importazione dell'icona di uno strumento Disegno</mrk></target></trans-unit><trans-unit
         id="3"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Importing a Drawing tool icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Importing a Drawing tool icon</source>
+<target>Importing a Drawing tool icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Importing a Drawing tool icon</mrk></seg-source><target
@@ -84,7 +87,8 @@
             MadCap:matchPercent="101">Importazione dell'icona di uno strumento Disegno</mrk></target></trans-unit><trans-unit
         id="4"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Plus sign icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Plus sign icon</source>
+<target>Plus sign icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Plus sign icon</mrk></seg-source><target
@@ -95,7 +99,8 @@
             MadCap:matchPercent="101">Icona segno più</mrk></target></trans-unit><trans-unit
         id="5"
         restype="x-xml-title"
-        phase-name="pretrans"><source>Importing a Drawing</source><seg-source><mrk
+        phase-name="pretrans"><source>Importing a Drawing</source>
+<target>Importing a Drawing pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Importing a Drawing</mrk></seg-source><target
           state="translated"><mrk
@@ -105,7 +110,8 @@
             MadCap:matchPercent="101">Importazione di un disegno</mrk></target></trans-unit><trans-unit
         id="6"
         restype="x-xml-meta-content"
-        phase-name="pretrans"><source>This section covers how to import Drawings. They can be imported from the Documents page where they automatically become a new document, or within a document, where they automatically become a tab inside that document.</source><seg-source><mrk
+        phase-name="pretrans"><source>This section covers how to import Drawings. They can be imported from the Documents page where they automatically become a new document, or within a document, where they automatically become a tab inside that document.</source>
+<target>This section covers how to import Drawings. They can be imported from the Documents page where they automatically become a new document, or within a document, where they automatically become a tab inside that document. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">This section covers how to import Drawings. They can be imported from the Documents page where they automatically become a new document, or within a document, where they automatically become a tab inside that document.</mrk></seg-source><target
           state="translated"><mrk
@@ -148,7 +154,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="8"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Drawings are able to be imported from:</source><seg-source><mrk
+        phase-name="pretrans"><source>Drawings are able to be imported from:</source>
+<target>Drawings are able to be imported from: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Drawings are able to be imported from:</mrk></seg-source><target
           state="translated"><mrk
@@ -158,7 +165,8 @@
             MadCap:matchPercent="101">I disegni possono essere importati da:</mrk></target></trans-unit><trans-unit
         id="9"
         restype="x-xml-li"
-        phase-name="pretrans"><source>The Documents page where they automatically become a new document.</source><seg-source><mrk
+        phase-name="pretrans"><source>The Documents page where they automatically become a new document.</source>
+<target>The Documents page where they automatically become a new document. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The Documents page where they automatically become a new document.</mrk></seg-source><target
           state="translated"><mrk
@@ -168,7 +176,8 @@
             MadCap:matchPercent="101">La pagina Documenti in cui diventano automaticamente un nuovo documento.</mrk></target></trans-unit><trans-unit
         id="10"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Within a document, where they automatically become a tab inside that document.</source><seg-source><mrk
+        phase-name="pretrans"><source>Within a document, where they automatically become a tab inside that document.</source>
+<target>Within a document, where they automatically become a tab inside that document. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Within a document, where they automatically become a tab inside that document.</mrk></seg-source><target
           state="translated"><mrk
@@ -221,7 +230,8 @@
                 xid="3" />" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
         id="13"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Select the file to import.</source><seg-source><mrk
+        phase-name="pretrans"><source>Select the file to import.</source>
+<target>Select the file to import. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Select the file to import.</mrk></seg-source><target
           state="translated"><mrk
@@ -231,7 +241,8 @@
             MadCap:matchPercent="101">Seleziona il file da importare.</mrk></target></trans-unit><trans-unit
         id="14"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Onshape automatically translates the file to the proper format and creates a new Onshape document using the imported file name as the document name.</source><seg-source><mrk
+        phase-name="pretrans"><source>Onshape automatically translates the file to the proper format and creates a new Onshape document using the imported file name as the document name.</source>
+<target>Onshape automatically translates the file to the proper format and creates a new Onshape document using the imported file name as the document name. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Onshape automatically translates the file to the proper format and creates a new Onshape document using the imported file name as the document name.</mrk></seg-source><target
           state="translated"><mrk
@@ -284,7 +295,8 @@
                 xid="4" />" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
         id="17"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Select Import...</source><seg-source><mrk
+        phase-name="pretrans"><source>Select Import...</source>
+<target>Select Import... pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Select Import...</mrk></seg-source><target
           state="translated"><mrk
@@ -294,7 +306,8 @@
             MadCap:matchPercent="101">Seleziona Importa...</mrk></target></trans-unit><trans-unit
         id="18"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Select the file to import.</source><seg-source><mrk
+        phase-name="pretrans"><source>Select the file to import.</source>
+<target>Select the file to import. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Select the file to import.</mrk></seg-source><target
           state="translated"><mrk
@@ -304,7 +317,8 @@
             MadCap:matchPercent="101">Seleziona il file da importare.</mrk></target></trans-unit><trans-unit
         id="19"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Onshape automatically translates the file to the proper format and creates a new tab for the file, as well as a drawing, using the file name as the file tab name and the drawing tab name.</source><seg-source><mrk
+        phase-name="pretrans"><source>Onshape automatically translates the file to the proper format and creates a new tab for the file, as well as a drawing, using the file name as the file tab name and the drawing tab name.</source>
+<target>Onshape automatically translates the file to the proper format and creates a new tab for the file, as well as a drawing, using the file name as the file tab name and the drawing tab name. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Onshape automatically translates the file to the proper format and creates a new tab for the file, as well as a drawing, using the file name as the file tab name and the drawing tab name.</mrk></seg-source><target
           state="translated"><mrk

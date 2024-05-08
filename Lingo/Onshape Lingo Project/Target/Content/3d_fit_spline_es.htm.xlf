@@ -46,7 +46,8 @@
         id="1"
         restype="x-xhtml-madcap:keyword-term"
         phase-name="pretrans"
-        translate="no"><source>3d fit spline</source><seg-source><mrk
+        translate="no"><source>3d fit spline</source>
+<target>3d fit spline pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">3d fit spline</mrk></seg-source><target
           state="needs-translation"><mrk
@@ -56,7 +57,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="2"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3D Fit Spline feature icon</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit Spline feature icon</source>
+<target>3D Fit Spline feature icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3D Fit Spline feature icon</mrk></seg-source><target
@@ -67,7 +69,8 @@
             MadCap:matchPercent="101">Ícono de la operación Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="3"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Feature toolbar with 3D Fit Spline feature icon highlighted</source><seg-source><mrk
+        phase-name="pretrans"><source>Feature toolbar with 3D Fit Spline feature icon highlighted</source>
+<target>Feature toolbar with 3D Fit Spline feature icon highlighted pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Feature toolbar with 3D Fit Spline feature icon highlighted</mrk></seg-source><target
@@ -78,7 +81,8 @@
             MadCap:matchPercent="101">Barra de herramientas de operaciones con el icono de la operación Ajuste a spline 3D resaltado</mrk></target></trans-unit><trans-unit
         id="4"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Video example icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Video example icon</source>
+<target>Video example icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             MadCap:conditions="Default.ScreenOnly"
@@ -91,7 +95,8 @@
             MadCap:matchPercent="101">Ícono de ejemplo de vídeo</mrk></target></trans-unit><trans-unit
         id="5"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3D Fit Spline Feature Icon</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit Spline Feature Icon</source>
+<target>3D Fit Spline Feature Icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3D Fit Spline Feature Icon</mrk></seg-source><target
@@ -102,7 +107,8 @@
             MadCap:matchPercent="101">Ícono de la operación Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="6"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Step 1 for using 3D Fit Spline tool</source><seg-source><mrk
+        phase-name="pretrans"><source>Step 1 for using 3D Fit Spline tool</source>
+<target>Step 1 for using 3D Fit Spline tool pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Step 1 for using 3D Fit Spline tool</mrk></seg-source><target
@@ -113,7 +119,8 @@
             MadCap:matchPercent="101">Paso uno para usar la herramienta Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="7"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>accept checkmark</source><seg-source><mrk
+        phase-name="pretrans"><source>accept checkmark</source>
+<target>accept checkmark pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">accept checkmark</mrk></seg-source><target
@@ -124,7 +131,8 @@
             MadCap:matchPercent="101">Aceptar marca de verificación</mrk></target></trans-unit><trans-unit
         id="8"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>example of final step of using 3D Fit Spline tool</source><seg-source><mrk
+        phase-name="pretrans"><source>example of final step of using 3D Fit Spline tool</source>
+<target>example of final step of using 3D Fit Spline tool pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">example of final step of using 3D Fit Spline tool</mrk></seg-source><target
@@ -135,7 +143,8 @@
             MadCap:matchPercent="101">ejemplo del paso final del uso de la herramienta Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="9"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>example of final step of using 3D Fit Spline tool</source><seg-source><mrk
+        phase-name="pretrans"><source>example of final step of using 3D Fit Spline tool</source>
+<target>example of final step of using 3D Fit Spline tool pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">example of final step of using 3D Fit Spline tool</mrk></seg-source><target
@@ -146,7 +155,8 @@
             MadCap:matchPercent="101">ejemplo del paso final del uso de la herramienta Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="10"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3D Fit Spline Feature Icon</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit Spline Feature Icon</source>
+<target>3D Fit Spline Feature Icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3D Fit Spline Feature Icon</mrk></seg-source><target
@@ -157,7 +167,8 @@
             MadCap:matchPercent="101">Ícono de la operación Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="11"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>accept checkmark</source><seg-source><mrk
+        phase-name="pretrans"><source>accept checkmark</source>
+<target>accept checkmark pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">accept checkmark</mrk></seg-source><target
@@ -168,7 +179,8 @@
             MadCap:matchPercent="101">Aceptar marca de verificación</mrk></target></trans-unit><trans-unit
         id="12"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of a spline using edges</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of a spline using edges</source>
+<target>Example of a spline using edges pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of a spline using edges</mrk></seg-source><target
@@ -179,7 +191,8 @@
             MadCap:matchPercent="101">Ejemplo de un Spline con aristas</mrk></target></trans-unit><trans-unit
         id="13"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3D Fit Spline Feature Icon</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit Spline Feature Icon</source>
+<target>3D Fit Spline Feature Icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3D Fit Spline Feature Icon</mrk></seg-source><target
@@ -190,7 +203,8 @@
             MadCap:matchPercent="101">Ícono de la operación Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="14"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>accept checkmark</source><seg-source><mrk
+        phase-name="pretrans"><source>accept checkmark</source>
+<target>accept checkmark pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">accept checkmark</mrk></seg-source><target
@@ -201,7 +215,8 @@
             MadCap:matchPercent="101">Aceptar marca de verificación</mrk></target></trans-unit><trans-unit
         id="15"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>example of a closed spline</source><seg-source><mrk
+        phase-name="pretrans"><source>example of a closed spline</source>
+<target>example of a closed spline pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">example of a closed spline</mrk></seg-source><target
@@ -212,7 +227,8 @@
             MadCap:matchPercent="101">ejemplo de un spline cerrado</mrk></target></trans-unit><trans-unit
         id="16"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>example of a closed spline</source><seg-source><mrk
+        phase-name="pretrans"><source>example of a closed spline</source>
+<target>example of a closed spline pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">example of a closed spline</mrk></seg-source><target
@@ -223,7 +239,8 @@
             MadCap:matchPercent="101">ejemplo de un spline cerrado</mrk></target></trans-unit><trans-unit
         id="17"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3D Fit Spline Feature Icon</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit Spline Feature Icon</source>
+<target>3D Fit Spline Feature Icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3D Fit Spline Feature Icon</mrk></seg-source><target
@@ -234,7 +251,8 @@
             MadCap:matchPercent="101">Ícono de la operación Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="18"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>example of selecting vertices to create a 3D fit spline</source><seg-source><mrk
+        phase-name="pretrans"><source>example of selecting vertices to create a 3D fit spline</source>
+<target>example of selecting vertices to create a 3D fit spline pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">example of selecting vertices to create a 3D fit spline</mrk></seg-source><target
@@ -245,7 +263,8 @@
             MadCap:matchPercent="101">ejemplo de la selección de vértices para crear un ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="19"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>example of selecting start and end directions</source><seg-source><mrk
+        phase-name="pretrans"><source>example of selecting start and end directions</source>
+<target>example of selecting start and end directions pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">example of selecting start and end directions</mrk></seg-source><target
@@ -256,7 +275,8 @@
             MadCap:matchPercent="101">ejemplo de selección de direcciones inicial y final</mrk></target></trans-unit><trans-unit
         id="20"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>example of selecting Match curvature at start and Match curvature at end</source><seg-source><mrk
+        phase-name="pretrans"><source>example of selecting Match curvature at start and Match curvature at end</source>
+<target>example of selecting Match curvature at start and Match curvature at end pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">example of selecting Match curvature at start and Match curvature at end</mrk></seg-source><target
@@ -267,7 +287,8 @@
             MadCap:matchPercent="101">ejemplo de cómo seleccionar Curvatura coincidente al principio y Curvatura coincidente al final</mrk></target></trans-unit><trans-unit
         id="21"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Accept checkmark</source><seg-source><mrk
+        phase-name="pretrans"><source>Accept checkmark</source>
+<target>Accept checkmark pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Accept checkmark</mrk></seg-source><target
@@ -278,7 +299,8 @@
             MadCap:matchPercent="101">Aceptar marca de verificación</mrk></target></trans-unit><trans-unit
         id="22"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3D Fit spline tool icon</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit spline tool icon</source>
+<target>3D Fit spline tool icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3D Fit spline tool icon</mrk></seg-source><target
@@ -289,7 +311,8 @@
             MadCap:matchPercent="101">Ícono de la herramienta Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="23"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3D fit spline dialog</source><seg-source><mrk
+        phase-name="pretrans"><source>3D fit spline dialog</source>
+<target>3D fit spline dialog pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3D fit spline dialog</mrk></seg-source><target
@@ -300,7 +323,8 @@
             MadCap:matchPercent="101">Cuadro de diálogo de Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="24"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3d Fit spline example</source><seg-source><mrk
+        phase-name="pretrans"><source>3d Fit spline example</source>
+<target>3d Fit spline example pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3d Fit spline example</mrk></seg-source><target
@@ -311,7 +335,8 @@
             MadCap:matchPercent="101">Ejemplo de Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="25"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3d Fit spline example</source><seg-source><mrk
+        phase-name="pretrans"><source>3d Fit spline example</source>
+<target>3d Fit spline example pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3d Fit spline example</mrk></seg-source><target
@@ -322,7 +347,8 @@
             MadCap:matchPercent="101">Ejemplo de Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="26"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3D Fit spline tool icon</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit spline tool icon</source>
+<target>3D Fit spline tool icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3D Fit spline tool icon</mrk></seg-source><target
@@ -333,7 +359,8 @@
             MadCap:matchPercent="101">Ícono de la herramienta Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="27"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3d Fit spline example</source><seg-source><mrk
+        phase-name="pretrans"><source>3d Fit spline example</source>
+<target>3d Fit spline example pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3d Fit spline example</mrk></seg-source><target
@@ -344,7 +371,8 @@
             MadCap:matchPercent="101">Ejemplo de Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="28"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3d Fit spline example</source><seg-source><mrk
+        phase-name="pretrans"><source>3d Fit spline example</source>
+<target>3d Fit spline example pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3d Fit spline example</mrk></seg-source><target
@@ -355,7 +383,8 @@
             MadCap:matchPercent="101">Ejemplo de Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="29"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3D Fit Spline tool icon</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit Spline tool icon</source>
+<target>3D Fit Spline tool icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3D Fit Spline tool icon</mrk></seg-source><target
@@ -366,7 +395,8 @@
             MadCap:matchPercent="101">Ícono de la herramienta Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="30"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of 3D Fit Spline tool dialog</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of 3D Fit Spline tool dialog</source>
+<target>Example of 3D Fit Spline tool dialog pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of 3D Fit Spline tool dialog</mrk></seg-source><target
@@ -377,7 +407,8 @@
             MadCap:matchPercent="101">Ejemplo del cuadro de diálogo de la herramienta Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="31"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3D Fit Spline dialog for Android</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit Spline dialog for Android</source>
+<target>3D Fit Spline dialog for Android pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3D Fit Spline dialog for Android</mrk></seg-source><target
@@ -388,7 +419,8 @@
             MadCap:matchPercent="101">Cuadro de diálogo Ajuste a spline 3D para Android</mrk></target></trans-unit><trans-unit
         id="32"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of step 6 for using 3D fit spline tool</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of step 6 for using 3D fit spline tool</source>
+<target>Example of step 6 for using 3D fit spline tool pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of step 6 for using 3D fit spline tool</mrk></seg-source><target
@@ -399,7 +431,8 @@
             MadCap:matchPercent="101">Ejemplo del paso seis para usar la herramienta de ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="33"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of step 6 for using 3D fit spline tool</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of step 6 for using 3D fit spline tool</source>
+<target>Example of step 6 for using 3D fit spline tool pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of step 6 for using 3D fit spline tool</mrk></seg-source><target
@@ -410,7 +443,8 @@
             MadCap:matchPercent="101">Ejemplo del paso seis para usar la herramienta de ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="34"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>3D Fit Spline tool icon</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit Spline tool icon</source>
+<target>3D Fit Spline tool icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">3D Fit Spline tool icon</mrk></seg-source><target
@@ -421,7 +455,8 @@
             MadCap:matchPercent="101">Ícono de la herramienta Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="35"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of step 4 for creating a closed spline</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of step 4 for creating a closed spline</source>
+<target>Example of step 4 for creating a closed spline pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of step 4 for creating a closed spline</mrk></seg-source><target
@@ -432,7 +467,8 @@
             MadCap:matchPercent="101">Ejemplo del paso cuatro para crear un spline cerrado</mrk></target></trans-unit><trans-unit
         id="36"
         restype="x-xml-title"
-        phase-name="pretrans"><source>3D Fit Spline</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit Spline</source>
+<target>3D Fit Spline pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">3D Fit Spline</mrk></seg-source><target
           state="translated"><mrk
@@ -442,7 +478,8 @@
             MadCap:matchPercent="101">Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="37"
         restype="x-xml-meta-content"
-        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</source><seg-source><mrk
+        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</source>
+<target>Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</mrk></seg-source><target
           state="translated"><mrk
@@ -452,7 +489,8 @@
             MadCap:matchPercent="101">Cree un ajuste a spline 3D a través de una serie de vértices. Crea una curva que aparece en la lista de piezas en Curvas.</mrk></target></trans-unit><trans-unit
         id="38"
         restype="x-xml-h1"
-        phase-name="pretrans"><source>3D Fit Spline</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit Spline</source>
+<target>3D Fit Spline pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">3D Fit Spline</mrk></seg-source><target
           state="translated"><mrk
@@ -462,7 +500,8 @@
             MadCap:matchPercent="101">Ajuste a spline 3D</mrk></target></trans-unit><trans-unit
         id="39"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</source><seg-source><mrk
+        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</source>
+<target>Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</mrk></seg-source><target
           state="translated"><mrk
@@ -505,7 +544,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="41"
         restype="x-xml-p"
-        phase-name="pretrans"><source>In the Feature toolbar:</source><seg-source><mrk
+        phase-name="pretrans"><source>In the Feature toolbar:</source>
+<target>In the Feature toolbar: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">In the Feature toolbar:</mrk></seg-source><target
           state="translated"><mrk
@@ -515,7 +555,8 @@
             MadCap:matchPercent="101">En la barra de herramientas de operaciones:</mrk></target></trans-unit><trans-unit
         id="42"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices or edges that are tangential continuous. Creates a curve which is listed in the Parts list under Curves.</source><seg-source><mrk
+        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices or edges that are tangential continuous. Creates a curve which is listed in the Parts list under Curves.</source>
+<target>Create a 3D fit spline through a series of vertices or edges that are tangential continuous. Creates a curve which is listed in the Parts list under Curves. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Create a 3D fit spline through a series of vertices or edges that are tangential continuous. Creates a curve which is listed in the Parts list under Curves.</mrk></seg-source><target
           state="translated"><mrk
@@ -576,7 +617,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="45"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The 3D fit spline feature tool allows you to create a 3D fit spline through a series of vertices or edges that are tangential continuous. Click the 3D fit spline feature tool on the toolbar. Select the Vertices to form the spline. Check Closed spline if required. Click the green checkmark to accept the new spline. Alternatively, you can create a spline based on edges that are tangential continuous. Click the 3D fit spline feature tool on the toolbar, select Edges, and then select the edges to include in the spline. Click the green checkmark. A new Curve is created in the Curve list that is based on the new spline.</source><seg-source><mrk
+        phase-name="pretrans"><source>The 3D fit spline feature tool allows you to create a 3D fit spline through a series of vertices or edges that are tangential continuous. Click the 3D fit spline feature tool on the toolbar. Select the Vertices to form the spline. Check Closed spline if required. Click the green checkmark to accept the new spline. Alternatively, you can create a spline based on edges that are tangential continuous. Click the 3D fit spline feature tool on the toolbar, select Edges, and then select the edges to include in the spline. Click the green checkmark. A new Curve is created in the Curve list that is based on the new spline.</source>
+<target>The 3D fit spline feature tool allows you to create a 3D fit spline through a series of vertices or edges that are tangential continuous. Click the 3D fit spline feature tool on the toolbar. Select the Vertices to form the spline. Check Closed spline if required. Click the green checkmark to accept the new spline. Alternatively, you can create a spline based on edges that are tangential continuous. Click the 3D fit spline feature tool on the toolbar, select Edges, and then select the edges to include in the spline. Click the green checkmark. A new Curve is created in the Curve list that is based on the new spline. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             MadCap:conditions="Default.ScreenOnly"
@@ -971,7 +1013,8 @@
                 xid="7" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
         id="50"
         restype="x-xml-p"
-        phase-name="pretrans"><source>A curve is created, listed under Curves in the Parts list. You are not able to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</source><seg-source><mrk
+        phase-name="pretrans"><source>A curve is created, listed under Curves in the Parts list. You are not able to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</source>
+<target>A curve is created, listed under Curves in the Parts list. You are not able to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">A curve is created, listed under Curves in the Parts list. You are not able to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</mrk></seg-source><target
           state="translated"><mrk
@@ -1024,7 +1067,8 @@
                 xid="10" />" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
         id="53"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Select edges (must be tangentially continuous) to create a 3D fit spline.</source><seg-source><mrk
+        phase-name="pretrans"><source>Select edges (must be tangentially continuous) to create a 3D fit spline.</source>
+<target>Select edges (must be tangentially continuous) to create a 3D fit spline. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Select edges (must be tangentially continuous) to create a 3D fit spline.</mrk></seg-source><target
           state="translated"><mrk
@@ -1034,7 +1078,8 @@
             MadCap:matchPercent="101">Seleccione aristas (deben ser tangencialmente continuas) para crear un ajuste a spline 3D.</mrk></target></trans-unit><trans-unit
         id="54"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Check the box to create the spline.</source><seg-source><mrk
+        phase-name="pretrans"><source>Check the box to create the spline.</source>
+<target>Check the box to create the spline. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Check the box to create the spline.</mrk></seg-source><target
           state="translated"><mrk
@@ -1113,7 +1158,8 @@
                 xid="13" />" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
         id="58"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Select vertices to create a 3D fit spline.</source><seg-source><mrk
+        phase-name="pretrans"><source>Select vertices to create a 3D fit spline.</source>
+<target>Select vertices to create a 3D fit spline. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Select vertices to create a 3D fit spline.</mrk></seg-source><target
           state="translated"><mrk
@@ -1123,7 +1169,8 @@
             MadCap:matchPercent="101">Seleccione vértices para crear un ajuste a spline 3D.</mrk></target></trans-unit><trans-unit
         id="59"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Check the box to create a closed spline.</source><seg-source><mrk
+        phase-name="pretrans"><source>Check the box to create a closed spline.</source>
+<target>Check the box to create a closed spline. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Check the box to create a closed spline.</mrk></seg-source><target
           state="translated"><mrk
@@ -1300,7 +1347,8 @@
                 xid="21" />" height="16" width="18" vspace="0" hspace="0" align="bottom" border="0" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
         id="67"
         restype="x-xml-madcap:dropdownhotspot"
-        phase-name="pretrans"><source>3D Fit Spline: iOS</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit Spline: iOS</source>
+<target>3D Fit Spline: iOS pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">3D Fit Spline: iOS</mrk></seg-source><target
           state="translated"><mrk
@@ -1310,7 +1358,8 @@
             MadCap:matchPercent="101">Ajuste a spline 3D: iOS</mrk></target></trans-unit><trans-unit
         id="68"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices, or edges that are tangential continuous. Creates a curve which is listed in the Parts list under Curves.</source><seg-source><mrk
+        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices, or edges that are tangential continuous. Creates a curve which is listed in the Parts list under Curves.</source>
+<target>Create a 3D fit spline through a series of vertices, or edges that are tangential continuous. Creates a curve which is listed in the Parts list under Curves. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Create a 3D fit spline through a series of vertices, or edges that are tangential continuous. Creates a curve which is listed in the Parts list under Curves.</mrk></seg-source><target
           state="translated"><mrk
@@ -1645,7 +1694,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="72"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Tap the checkmark.</source><seg-source><mrk
+        phase-name="pretrans"><source>Tap the checkmark.</source>
+<target>Tap the checkmark. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Tap the checkmark.</mrk></seg-source><target
           state="translated"><mrk
@@ -1655,7 +1705,8 @@
             MadCap:matchPercent="101">Toque el tic.</mrk></target></trans-unit><trans-unit
         id="73"
         restype="x-xml-p"
-        phase-name="pretrans"><source>A curve is created, listed under Curves in the Parts list. You are unable to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</source><seg-source><mrk
+        phase-name="pretrans"><source>A curve is created, listed under Curves in the Parts list. You are unable to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</source>
+<target>A curve is created, listed under Curves in the Parts list. You are unable to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">A curve is created, listed under Curves in the Parts list. You are unable to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</mrk></seg-source><target
           state="translated"><mrk
@@ -1699,7 +1750,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="76"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Select vertices to create a 3d fit spline.</source><seg-source><mrk
+        phase-name="pretrans"><source>Select vertices to create a 3d fit spline.</source>
+<target>Select vertices to create a 3d fit spline. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Select vertices to create a 3d fit spline.</mrk></seg-source><target
           state="translated"><mrk
@@ -1709,7 +1761,8 @@
             MadCap:matchPercent="101">Seleccione vértices para crear un ajuste a spline 3D.</mrk></target></trans-unit><trans-unit
         id="77"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Check the box to create a closed spline.</source><seg-source><mrk
+        phase-name="pretrans"><source>Check the box to create a closed spline.</source>
+<target>Check the box to create a closed spline. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Check the box to create a closed spline.</mrk></seg-source><target
           state="translated"><mrk
@@ -1719,7 +1772,8 @@
             MadCap:matchPercent="101">Marque la casilla para crear una spline cerrada.</mrk></target></trans-unit><trans-unit
         id="78"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Tap the checkmark.</source><seg-source><mrk
+        phase-name="pretrans"><source>Tap the checkmark.</source>
+<target>Tap the checkmark. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Tap the checkmark.</mrk></seg-source><target
           state="translated"><mrk
@@ -1729,7 +1783,8 @@
             MadCap:matchPercent="101">Toque el tic.</mrk></target></trans-unit><trans-unit
         id="79"
         restype="x-xml-madcap:dropdownhotspot"
-        phase-name="pretrans"><source>3D Fit Spline: Android</source><seg-source><mrk
+        phase-name="pretrans"><source>3D Fit Spline: Android</source>
+<target>3D Fit Spline: Android pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">3D Fit Spline: Android</mrk></seg-source><target
           state="translated"><mrk
@@ -1739,7 +1794,8 @@
             MadCap:matchPercent="101">Ajuste a spline 3D: Android</mrk></target></trans-unit><trans-unit
         id="80"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</source><seg-source><mrk
+        phase-name="pretrans"><source>Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</source>
+<target>Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Create a 3D fit spline through a series of vertices. Creates a curve which is listed in the Parts list under Curves.</mrk></seg-source><target
           state="translated"><mrk
@@ -2074,7 +2130,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="84"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Tap the checkmark.</source><seg-source><mrk
+        phase-name="pretrans"><source>Tap the checkmark.</source>
+<target>Tap the checkmark. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Tap the checkmark.</mrk></seg-source><target
           state="translated"><mrk
@@ -2084,7 +2141,8 @@
             MadCap:matchPercent="101">Toque el tic.</mrk></target></trans-unit><trans-unit
         id="85"
         restype="x-xml-p"
-        phase-name="pretrans"><source>A curve is created, listed under Curves in the Parts list. You are unable to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</source><seg-source><mrk
+        phase-name="pretrans"><source>A curve is created, listed under Curves in the Parts list. You are unable to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</source>
+<target>A curve is created, listed under Curves in the Parts list. You are unable to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">A curve is created, listed under Curves in the Parts list. You are unable to show/hide the 3D Fit Spline feature; use the show/hide functionality in the Curves (Parts) list instead.</mrk></seg-source><target
           state="translated"><mrk
@@ -2128,7 +2186,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="88"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Select vertices to create a 3d fit spline.</source><seg-source><mrk
+        phase-name="pretrans"><source>Select vertices to create a 3d fit spline.</source>
+<target>Select vertices to create a 3d fit spline. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Select vertices to create a 3d fit spline.</mrk></seg-source><target
           state="translated"><mrk
@@ -2138,7 +2197,8 @@
             MadCap:matchPercent="101">Seleccione vértices para crear un ajuste a spline 3D.</mrk></target></trans-unit><trans-unit
         id="89"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Check the box to create a closed spline.</source><seg-source><mrk
+        phase-name="pretrans"><source>Check the box to create a closed spline.</source>
+<target>Check the box to create a closed spline. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Check the box to create a closed spline.</mrk></seg-source><target
           state="translated"><mrk
@@ -2148,7 +2208,8 @@
             MadCap:matchPercent="101">Marque la casilla para crear una spline cerrada.</mrk></target></trans-unit><trans-unit
         id="90"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Tap the checkmark.</source><seg-source><mrk
+        phase-name="pretrans"><source>Tap the checkmark.</source>
+<target>Tap the checkmark. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Tap the checkmark.</mrk></seg-source><target
           state="translated"><mrk

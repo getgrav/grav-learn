@@ -45,7 +45,8 @@
     <body><trans-unit
         id="1"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Light user homepage</source><seg-source><mrk
+        phase-name="pretrans"><source>Light user homepage</source>
+<target>Light user homepage pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Light user homepage</mrk></seg-source><target
@@ -56,7 +57,8 @@
             MadCap:matchPercent="101">Homepage utente light</mrk></target></trans-unit><trans-unit
         id="2"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of tabs bar located at bottom of your document</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of tabs bar located at bottom of your document</source>
+<target>Example of tabs bar located at bottom of your document pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of tabs bar located at bottom of your document</mrk></seg-source><target
@@ -67,7 +69,8 @@
             MadCap:matchPercent="101">Esempio di barra delle schede situata nella parte inferiore del documento</mrk></target></trans-unit><trans-unit
         id="3"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Tab manager icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Tab manager icon</source>
+<target>Tab manager icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Tab manager icon</mrk></seg-source><target
@@ -78,7 +81,8 @@
             MadCap:matchPercent="101">Icona Gestione schede</mrk></target></trans-unit><trans-unit
         id="4"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of view when Part Studios icon is selected</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of view when Part Studios icon is selected</source>
+<target>Example of view when Part Studios icon is selected pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of view when Part Studios icon is selected</mrk></seg-source><target
@@ -89,7 +93,8 @@
             MadCap:matchPercent="101">Esempio di vista quando è selezionata l'icona dei Part Studio</mrk></target></trans-unit><trans-unit
         id="5"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Part Studios tab icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Part Studios tab icon</source>
+<target>Part Studios tab icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Part Studios tab icon</mrk></seg-source><target
@@ -100,7 +105,8 @@
             MadCap:matchPercent="101">Icona della scheda Part Studio</mrk></target></trans-unit><trans-unit
         id="6"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Drawings tab icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Drawings tab icon</source>
+<target>Drawings tab icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Drawings tab icon</mrk></seg-source><target
@@ -111,7 +117,8 @@
             MadCap:matchPercent="101">Icona della scheda Disegni</mrk></target></trans-unit><trans-unit
         id="7"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>feature studio icon</source><seg-source><mrk
+        phase-name="pretrans"><source>feature studio icon</source>
+<target>feature studio icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">feature studio icon</mrk></seg-source><target
@@ -122,7 +129,8 @@
             MadCap:matchPercent="101">icona Feature Studio</mrk></target></trans-unit><trans-unit
         id="8"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Application tab icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Application tab icon</source>
+<target>Application tab icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Application tab icon</mrk></seg-source><target
@@ -133,7 +141,8 @@
             MadCap:matchPercent="101">Icona scheda Applicazione</mrk></target></trans-unit><trans-unit
         id="9"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Image tab icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Image tab icon</source>
+<target>Image tab icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Image tab icon</mrk></seg-source><target
@@ -144,7 +153,8 @@
             MadCap:matchPercent="101">Icona scheda Immagine</mrk></target></trans-unit><trans-unit
         id="10"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Zip file tab icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Zip file tab icon</source>
+<target>Zip file tab icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Zip file tab icon</mrk></seg-source><target
@@ -155,7 +165,8 @@
             MadCap:matchPercent="101">Icona scheda File zip</mrk></target></trans-unit><trans-unit
         id="11"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Material library tab icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Material library tab icon</source>
+<target>Material library tab icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Material library tab icon</mrk></seg-source><target
@@ -166,7 +177,8 @@
             MadCap:matchPercent="101">Icona scheda Libreria materiali</mrk></target></trans-unit><trans-unit
         id="12"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>PDF tab icon</source><seg-source><mrk
+        phase-name="pretrans"><source>PDF tab icon</source>
+<target>PDF tab icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">PDF tab icon</mrk></seg-source><target
@@ -177,7 +189,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="13"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Assemblies tab icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Assemblies tab icon</source>
+<target>Assemblies tab icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Assemblies tab icon</mrk></seg-source><target
@@ -188,7 +201,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="14"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>X_T tab icon</source><seg-source><mrk
+        phase-name="pretrans"><source>X_T tab icon</source>
+<target>X_T tab icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">X_T tab icon</mrk></seg-source><target
@@ -199,7 +213,8 @@
             MadCap:matchPercent="101">Icona scheda X_T</mrk></target></trans-unit><trans-unit
         id="15"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Light user home page, navigating the interface</source><seg-source><mrk
+        phase-name="pretrans"><source>Light user home page, navigating the interface</source>
+<target>Light user home page, navigating the interface pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Light user home page, navigating the interface</mrk></seg-source><target
@@ -210,7 +225,8 @@
             MadCap:matchPercent="101">Home page per utenti light, navigazione nell'interfaccia</mrk></target></trans-unit><trans-unit
         id="16"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Onshape Help menu icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Onshape Help menu icon</source>
+<target>Onshape Help menu icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Onshape Help menu icon</mrk></seg-source><target
@@ -221,7 +237,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="17"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Accessing the help files via the help menu</source><seg-source><mrk
+        phase-name="pretrans"><source>Accessing the help files via the help menu</source>
+<target>Accessing the help files via the help menu pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Accessing the help files via the help menu</mrk></seg-source><target
@@ -232,7 +249,8 @@
             MadCap:matchPercent="101">Accesso ai file della guida tramite il menu Guida</mrk></target></trans-unit><trans-unit
         id="18"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Account user button</source><seg-source><mrk
+        phase-name="pretrans"><source>Account user button</source>
+<target>Account user button pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Account user button</mrk></seg-source><target
@@ -243,7 +261,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="19"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of Activity page button selected</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of Activity page button selected</source>
+<target>Example of Activity page button selected pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of Activity page button selected</mrk></seg-source><target
@@ -254,7 +273,8 @@
             MadCap:matchPercent="101">Esempio di pulsante della pagina Attività selezionato</mrk></target></trans-unit><trans-unit
         id="20"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of view of Activity page</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of view of Activity page</source>
+<target>Example of view of Activity page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of view of Activity page</mrk></seg-source><target
@@ -265,7 +285,8 @@
             MadCap:matchPercent="101">Esempio di visualizzazione della pagina Attività</mrk></target></trans-unit><trans-unit
         id="21"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of Documents page button selected</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of Documents page button selected</source>
+<target>Example of Documents page button selected pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of Documents page button selected</mrk></seg-source><target
@@ -276,7 +297,8 @@
             MadCap:matchPercent="101">Esempio di pulsante della pagina dei documenti selezionato</mrk></target></trans-unit><trans-unit
         id="22"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of the Documents page</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of the Documents page</source>
+<target>Example of the Documents page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of the Documents page</mrk></seg-source><target
@@ -287,7 +309,8 @@
             MadCap:matchPercent="101">Esempio della pagina Documenti</mrk></target></trans-unit><trans-unit
         id="23"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of Advanced Search bar outlined in red</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of Advanced Search bar outlined in red</source>
+<target>Example of Advanced Search bar outlined in red pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of Advanced Search bar outlined in red</mrk></seg-source><target
@@ -298,7 +321,8 @@
             MadCap:matchPercent="101">Esempio di barra di Ricerca avanzata delineata in rosso</mrk></target></trans-unit><trans-unit
         id="24"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of Advanced Search bar dialog</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of Advanced Search bar dialog</source>
+<target>Example of Advanced Search bar dialog pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of Advanced Search bar dialog</mrk></seg-source><target
@@ -309,7 +333,8 @@
             MadCap:matchPercent="101">Esempio di finestra di dialogo della barra di Ricerca avanzata</mrk></target></trans-unit><trans-unit
         id="25"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of Advanced Search dialog filled out</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of Advanced Search dialog filled out</source>
+<target>Example of Advanced Search dialog filled out pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of Advanced Search dialog filled out</mrk></seg-source><target
@@ -320,7 +345,8 @@
             MadCap:matchPercent="101">Esempio di finestra di dialogo Ricerca avanzata compilata</mrk></target></trans-unit><trans-unit
         id="26"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of view of Search results</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of view of Search results</source>
+<target>Example of view of Search results pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of view of Search results</mrk></seg-source><target
@@ -331,7 +357,8 @@
             MadCap:matchPercent="101">Esempio di visualizzazione dei risultati di ricerca</mrk></target></trans-unit><trans-unit
         id="27"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Screenshot of Part Studio with view only toolbar outlined in blue</source><seg-source><mrk
+        phase-name="pretrans"><source>Screenshot of Part Studio with view only toolbar outlined in blue</source>
+<target>Screenshot of Part Studio with view only toolbar outlined in blue pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Screenshot of Part Studio with view only toolbar outlined in blue</mrk></seg-source><target
@@ -342,7 +369,8 @@
             MadCap:matchPercent="101">Schermata di Part Studio con barra degli strumenti di sola visualizzazione delineata in blu</mrk></target></trans-unit><trans-unit
         id="28"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of view of your document with one part selected</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of view of your document with one part selected</source>
+<target>Example of view of your document with one part selected pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of view of your document with one part selected</mrk></seg-source><target
@@ -353,7 +381,8 @@
             MadCap:matchPercent="101">Esempio di visualizzazione del documento con una parte selezionata</mrk></target></trans-unit><trans-unit
         id="29"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of view of your document with three parts selected</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of view of your document with three parts selected</source>
+<target>Example of view of your document with three parts selected pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of view of your document with three parts selected</mrk></seg-source><target
@@ -364,7 +393,8 @@
             MadCap:matchPercent="101">Esempio di visualizzazione del documento con tre parti selezionate</mrk></target></trans-unit><trans-unit
         id="30"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of view of a part selected, with the Area outlined in red</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of view of a part selected, with the Area outlined in red</source>
+<target>Example of view of a part selected, with the Area outlined in red pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of view of a part selected, with the Area outlined in red</mrk></seg-source><target
@@ -375,7 +405,8 @@
             MadCap:matchPercent="101">Esempio di vista di una parte selezionata, con l'area delineata in rosso</mrk></target></trans-unit><trans-unit
         id="31"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of Mass properties icon outlined in red</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of Mass properties icon outlined in red</source>
+<target>Example of Mass properties icon outlined in red pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of Mass properties icon outlined in red</mrk></seg-source><target
@@ -386,7 +417,8 @@
             MadCap:matchPercent="101">Esempio di icona Proprietà massa delineata in rosso</mrk></target></trans-unit><trans-unit
         id="32"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Screenshot of the Create task option highlighted in a context menu</source><seg-source><mrk
+        phase-name="pretrans"><source>Screenshot of the Create task option highlighted in a context menu</source>
+<target>Screenshot of the Create task option highlighted in a context menu pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Screenshot of the Create task option highlighted in a context menu</mrk></seg-source><target
@@ -397,7 +429,8 @@
             MadCap:matchPercent="101">Schermata dell'opzione Crea attività evidenziata in un menu contestuale</mrk></target></trans-unit><trans-unit
         id="33"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Screenshot of the Create task dialog box</source><seg-source><mrk
+        phase-name="pretrans"><source>Screenshot of the Create task dialog box</source>
+<target>Screenshot of the Create task dialog box pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Screenshot of the Create task dialog box</mrk></seg-source><target
@@ -408,7 +441,8 @@
             MadCap:matchPercent="101">Schermata della finestra di dialogo Crea attività</mrk></target></trans-unit><trans-unit
         id="34"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>References icon</source><seg-source><mrk
+        phase-name="pretrans"><source>References icon</source>
+<target>References icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">References icon</mrk></seg-source><target
@@ -419,7 +453,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="35"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Priority and Dates icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Priority and Dates icon</source>
+<target>Priority and Dates icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Priority and Dates icon</mrk></seg-source><target
@@ -430,7 +465,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="36"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of a created task</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of a created task</source>
+<target>Example of a created task pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of a created task</mrk></seg-source><target
@@ -441,7 +477,8 @@
             MadCap:matchPercent="101">Esempio di attività creata</mrk></target></trans-unit><trans-unit
         id="37"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Comments icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Comments icon</source>
+<target>Comments icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Comments icon</mrk></seg-source><target
@@ -452,7 +489,8 @@
             MadCap:matchPercent="101">Icona Commenti</mrk></target></trans-unit><trans-unit
         id="38"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of Comments flyout</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of Comments flyout</source>
+<target>Example of Comments flyout pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of Comments flyout</mrk></seg-source><target
@@ -463,7 +501,8 @@
             MadCap:matchPercent="101">Esempio di menu Commenti</mrk></target></trans-unit><trans-unit
         id="39"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of right-click context menu in a document with Add comment...highlighted</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of right-click context menu in a document with Add comment...highlighted</source>
+<target>Example of right-click context menu in a document with Add comment...highlighted pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of right-click context menu in a document with Add comment...highlighted</mrk></seg-source><target
@@ -474,7 +513,8 @@
             MadCap:matchPercent="101">Esempio di menu contestuale a scelta rapida in un documento, con Aggiungi commento... evidenziato</mrk></target></trans-unit><trans-unit
         id="40"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of view of right-click context menu Comments flyout in a document</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of view of right-click context menu Comments flyout in a document</source>
+<target>Example of view of right-click context menu Comments flyout in a document pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of view of right-click context menu Comments flyout in a document</mrk></seg-source><target
@@ -485,7 +525,8 @@
             MadCap:matchPercent="101">Esempio di visualizzazione del menu contestuale di scelta rapida Commenti in un documento</mrk></target></trans-unit><trans-unit
         id="41"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of right-click context menu with Export...highlighted</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of right-click context menu with Export...highlighted</source>
+<target>Example of right-click context menu with Export...highlighted pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of right-click context menu with Export...highlighted</mrk></seg-source><target
@@ -496,7 +537,8 @@
             MadCap:matchPercent="101">Esempio di menu contestuale con Esporta... evidenziato</mrk></target></trans-unit><trans-unit
         id="42"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of Export dialog</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of Export dialog</source>
+<target>Example of Export dialog pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of Export dialog</mrk></seg-source><target
@@ -507,7 +549,8 @@
             MadCap:matchPercent="101">Esempio di finestra Esporta</mrk></target></trans-unit><trans-unit
         id="43"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of right-click context menu</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of right-click context menu</source>
+<target>Example of right-click context menu pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of right-click context menu</mrk></seg-source><target
@@ -518,7 +561,8 @@
             MadCap:matchPercent="101">Esempio di menu contestuale di scelta rapida</mrk></target></trans-unit><trans-unit
         id="44"
         restype="x-xml-title"
-        phase-name="pretrans"><source>Getting Started as a Light User</source><seg-source><mrk
+        phase-name="pretrans"><source>Getting Started as a Light User</source>
+<target>Getting Started as a Light User pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Getting Started as a Light User</mrk></seg-source><target
           state="needs-translation"><mrk
@@ -528,7 +572,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="45"
         restype="x-xml-meta-content"
-        phase-name="pretrans"><source>Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of  their enterprise data.</source><seg-source><mrk
+        phase-name="pretrans"><source>Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of  their enterprise data.</source>
+<target>Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of  their enterprise data. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of their enterprise data.</mrk></seg-source><target
           state="translated"><mrk
@@ -538,7 +583,8 @@
             MadCap:matchPercent="101">Gli account degli utenti light sono di solito utilizzati da membri della supply chain interna, manager o dirigenti, e possono essere anche a disposizione di fornitori esterni o clienti. Tutti gli utenti Onshape hanno accesso a una singola fonte di dati aziendali.</mrk></target></trans-unit><trans-unit
         id="46"
         restype="x-xml-h1"
-        phase-name="pretrans"><source>Getting Started as a Light User</source><seg-source><mrk
+        phase-name="pretrans"><source>Getting Started as a Light User</source>
+<target>Getting Started as a Light User pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Getting Started as a Light User</mrk></seg-source><target
           state="needs-translation"><mrk
@@ -548,7 +594,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="47"
         restype="x-xml-madcap:dropdownhotspot"
-        phase-name="pretrans"><source>What is a Light user?</source><seg-source><mrk
+        phase-name="pretrans"><source>What is a Light user?</source>
+<target>What is a Light user? pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">What is a Light user?</mrk></seg-source><target
           state="translated"><mrk
@@ -558,7 +605,8 @@
             MadCap:matchPercent="101">Cos'è un utente Light?</mrk></target></trans-unit><trans-unit
         id="48"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of their enterprise data. There are times, however, when some users don't need all the CAD functionality but rather just need to access, view, and export data. To better serve the needs of different users, Onshape provides two types of user accounts:</source><seg-source><mrk
+        phase-name="pretrans"><source>Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of their enterprise data. There are times, however, when some users don't need all the CAD functionality but rather just need to access, view, and export data. To better serve the needs of different users, Onshape provides two types of user accounts:</source>
+<target>Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of their enterprise data. There are times, however, when some users don't need all the CAD functionality but rather just need to access, view, and export data. To better serve the needs of different users, Onshape provides two types of user accounts: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of their enterprise data. There are times, however, when some users don't need all the CAD functionality but rather just need to access, view, and export data. To better serve the needs of different users, Onshape provides two types of user accounts:</mrk></seg-source><target
           state="translated"><mrk
@@ -628,7 +676,8 @@
               id="1">&lt;/b&gt;</ept>.</mrk></target></trans-unit><trans-unit
         id="52"
         restype="x-xml-p"
-        phase-name="pretrans"><source>In addition to the toolbar, you can also right-click on a sketch or part to access a menu of available commands like Show Dimensions, and other commands as well. Double-click on a feature in the Features list to see the settings and options used to create it.</source><seg-source><mrk
+        phase-name="pretrans"><source>In addition to the toolbar, you can also right-click on a sketch or part to access a menu of available commands like Show Dimensions, and other commands as well. Double-click on a feature in the Features list to see the settings and options used to create it.</source>
+<target>In addition to the toolbar, you can also right-click on a sketch or part to access a menu of available commands like Show Dimensions, and other commands as well. Double-click on a feature in the Features list to see the settings and options used to create it. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">In addition to the toolbar, you can also right-click on a sketch or part to access a menu of available commands like Show Dimensions, and other commands as well. Double-click on a feature in the Features list to see the settings and options used to create it.</mrk></seg-source><target
           state="translated"><mrk
@@ -638,7 +687,8 @@
             MadCap:matchPercent="101">Oltre alla barra degli strumenti, puoi anche fare clic con il pulsante destro del mouse su uno schizzo o su una parte per accedere a un menu di comandi disponibili come Mostra dimensioni e altri comandi. Fai doppio clic su una funzione nell'elenco Funzioni per visualizzare le impostazioni e le opzioni utilizzate per crearla.</mrk></target></trans-unit><trans-unit
         id="53"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The default entry-point for a Light user upon sign-in is the Activity stream on the dashboard:</source><seg-source><mrk
+        phase-name="pretrans"><source>The default entry-point for a Light user upon sign-in is the Activity stream on the dashboard:</source>
+<target>The default entry-point for a Light user upon sign-in is the Activity stream on the dashboard: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The default entry-point for a Light user upon sign-in is the Activity stream on the dashboard:</mrk></seg-source><target
           state="translated"><mrk
@@ -669,7 +719,8 @@
               id="1">&lt;/a&gt;</ept> di seguito per ulteriori informazioni su questa illustrazione </mrk></target></trans-unit><trans-unit
         id="55"
         restype="x-xml-p"
-        phase-name="pretrans"><source>An activity stream lists all the actions taken on all documents to which you have permissions.</source><seg-source><mrk
+        phase-name="pretrans"><source>An activity stream lists all the actions taken on all documents to which you have permissions.</source>
+<target>An activity stream lists all the actions taken on all documents to which you have permissions. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">An activity stream lists all the actions taken on all documents to which you have permissions.</mrk></seg-source><target
           state="translated"><mrk
@@ -679,7 +730,8 @@
             MadCap:matchPercent="101">Un flusso attività elenca tutte le azioni intraprese su tutti i documenti per i quali disponi delle autorizzazioni.</mrk></target></trans-unit><trans-unit
         id="56"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The only time you will not land on the Activity stream page, is when you are shared directly into a document and access that document via the share link (sent via a notification in the product, an email, or a mobile notification if this type of notification is turned on).</source><seg-source><mrk
+        phase-name="pretrans"><source>The only time you will not land on the Activity stream page, is when you are shared directly into a document and access that document via the share link (sent via a notification in the product, an email, or a mobile notification if this type of notification is turned on).</source>
+<target>The only time you will not land on the Activity stream page, is when you are shared directly into a document and access that document via the share link (sent via a notification in the product, an email, or a mobile notification if this type of notification is turned on). pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The only time you will not land on the Activity stream page, is when you are shared directly into a document and access that document via the share link (sent via a notification in the product, an email, or a mobile notification if this type of notification is turned on).</mrk></seg-source><target
           state="translated"><mrk
@@ -706,7 +758,8 @@
             MadCap:matchPercent="101">Accesso</mrk></target></trans-unit><trans-unit
         id="58"
         restype="x-xml-p"
-        phase-name="pretrans"><source>When working within an Enterprise in Onshape, be aware that you are in a separate, managed environment that has a subtle difference from other types of Onshape subscriptions. The Enterprise environment is owned and managed by an Enterprise Administrator and can include many users, called Members of the Enterprise.</source><seg-source><mrk
+        phase-name="pretrans"><source>When working within an Enterprise in Onshape, be aware that you are in a separate, managed environment that has a subtle difference from other types of Onshape subscriptions. The Enterprise environment is owned and managed by an Enterprise Administrator and can include many users, called Members of the Enterprise.</source>
+<target>When working within an Enterprise in Onshape, be aware that you are in a separate, managed environment that has a subtle difference from other types of Onshape subscriptions. The Enterprise environment is owned and managed by an Enterprise Administrator and can include many users, called Members of the Enterprise. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">When working within an Enterprise in Onshape, be aware that you are in a separate, managed environment that has a subtle difference from other types of Onshape subscriptions. The Enterprise environment is owned and managed by an Enterprise Administrator and can include many users, called Members of the Enterprise.</mrk></seg-source><target
           state="translated"><mrk
@@ -716,7 +769,8 @@
             MadCap:matchPercent="101">Quando lavori all'interno di un account Enterprise su Onshape, tieni presente che ti trovi in un ambiente gestito e separato, che presenta alcune differenze con altri tipi di abbonamenti a Onshape. L'ambiente Enterprise è di proprietà e gestito da un amministratore Enterprise e può includere molti utenti, chiamati Membri dell'Enterprise.</mrk></target></trans-unit><trans-unit
         id="59"
         restype="x-xml-p"
-        phase-name="pretrans"><source>All users belonging to a specific Enterprise plan access Onshape through a single URL, specifically for their Enterprise.</source><seg-source><mrk
+        phase-name="pretrans"><source>All users belonging to a specific Enterprise plan access Onshape through a single URL, specifically for their Enterprise.</source>
+<target>All users belonging to a specific Enterprise plan access Onshape through a single URL, specifically for their Enterprise. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">All users belonging to a specific Enterprise plan access Onshape through a single URL, specifically for their Enterprise.</mrk></seg-source><target
           state="translated"><mrk
@@ -754,7 +808,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">La struttura dei documenti Onshape</mrk></target></trans-unit><trans-unit
         id="62"
         restype="x-xml-p"
-        phase-name="pretrans"><source>An Onshape document is a version-controlled container for potentially many types of data. A single document may contain parts, assemblies, drawings, and even uploaded files like PDFs, images, or videos. Every organization uses documents differently, but understanding how documents are structured and how to find different types of information will help you work with them effectively.</source><seg-source><mrk
+        phase-name="pretrans"><source>An Onshape document is a version-controlled container for potentially many types of data. A single document may contain parts, assemblies, drawings, and even uploaded files like PDFs, images, or videos. Every organization uses documents differently, but understanding how documents are structured and how to find different types of information will help you work with them effectively.</source>
+<target>An Onshape document is a version-controlled container for potentially many types of data. A single document may contain parts, assemblies, drawings, and even uploaded files like PDFs, images, or videos. Every organization uses documents differently, but understanding how documents are structured and how to find different types of information will help you work with them effectively. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">An Onshape document is a version-controlled container for potentially many types of data. A single document may contain parts, assemblies, drawings, and even uploaded files like PDFs, images, or videos. Every organization uses documents differently, but understanding how documents are structured and how to find different types of information will help you work with them effectively.</mrk></seg-source><target
           state="translated"><mrk
@@ -764,7 +819,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Un documento Onshape è un contenitore con controllo delle versioni che può potenzialmente includere vari tipi di dati. Un singolo documento può contenere parti, assiemi, disegni e persino file caricati come PDF, immagini o video. Ogni organizzazione utilizza i documenti in modo diverso, ma capire come sono strutturati i documenti e come trovare diversi tipi di informazioni ti aiuterà a lavorare in modo efficace.</mrk></target></trans-unit><trans-unit
         id="63"
         restype="x-xml-h3"
-        phase-name="pretrans"><source>Tabs</source><seg-source><mrk
+        phase-name="pretrans"><source>Tabs</source>
+<target>Tabs pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Tabs</mrk></seg-source><target
           state="translated"><mrk
@@ -774,7 +830,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Schede</mrk></target></trans-unit><trans-unit
         id="64"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Each Onshape document may contain different types of information, broken down into different kinds of tabs which can be seen along the bottom of the window:</source><seg-source><mrk
+        phase-name="pretrans"><source>Each Onshape document may contain different types of information, broken down into different kinds of tabs which can be seen along the bottom of the window:</source>
+<target>Each Onshape document may contain different types of information, broken down into different kinds of tabs which can be seen along the bottom of the window: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Each Onshape document may contain different types of information, broken down into different kinds of tabs which can be seen along the bottom of the window:</mrk></seg-source><target
           state="translated"><mrk
@@ -784,7 +841,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Ogni documento Onshape può contenere diversi tipi di informazioni, suddivise in diversi tipi di schede che possono essere visualizzate lungo la parte inferiore della finestra:</mrk></target></trans-unit><trans-unit
         id="65"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Examples of the different types of tab data</source><seg-source><mrk
+        phase-name="pretrans"><source>Examples of the different types of tab data</source>
+<target>Examples of the different types of tab data pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Examples of the different types of tab data</mrk></seg-source><target
           state="translated"><mrk
@@ -821,7 +879,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
                 xid="3" />" class="InlineImage" /&gt;</ph> in basso a sinistra per visualizzare un elenco verticale di schede, nonché cercare e filtrare specifici tipi o istanze di dati:</mrk></target></trans-unit><trans-unit
         id="67"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Select a tab type filter to sort by tab type.</source><seg-source><mrk
+        phase-name="pretrans"><source>Select a tab type filter to sort by tab type.</source>
+<target>Select a tab type filter to sort by tab type. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Select a tab type filter to sort by tab type.</mrk></seg-source><target
           state="translated"><mrk
@@ -831,7 +890,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Seleziona un filtro di tipo scheda per ordinare in base al tipo di scheda.</mrk></target></trans-unit><trans-unit
         id="68"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Enter search criteria if you wish.</source><seg-source><mrk
+        phase-name="pretrans"><source>Enter search criteria if you wish.</source>
+<target>Enter search criteria if you wish. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Enter search criteria if you wish.</mrk></seg-source><target
           state="translated"><mrk
@@ -841,7 +901,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Se lo desideri, inserisci i criteri di ricerca.</mrk></target></trans-unit><trans-unit
         id="69"
         restype="x-xml-li"
-        phase-name="pretrans"><source>View the results of your search.</source><seg-source><mrk
+        phase-name="pretrans"><source>View the results of your search.</source>
+<target>View the results of your search. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">View the results of your search.</mrk></seg-source><target
           state="translated"><mrk
@@ -851,7 +912,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Visualizza i risultati della ricerca.</mrk></target></trans-unit><trans-unit
         id="70"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The Tab manager with the Part Studio filter selected</source><seg-source><mrk
+        phase-name="pretrans"><source>The Tab manager with the Part Studio filter selected</source>
+<target>The Tab manager with the Part Studio filter selected pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The Tab manager with the Part Studio filter selected</mrk></seg-source><target
           state="translated"><mrk
@@ -861,7 +923,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Gestione schede con il filtro Part Studio selezionato</mrk></target></trans-unit><trans-unit
         id="71"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Tabs fall into 9 categories:</source><seg-source><mrk
+        phase-name="pretrans"><source>Tabs fall into 9 categories:</source>
+<target>Tabs fall into 9 categories: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Tabs fall into 9 categories:</mrk></seg-source><target
           state="translated"><mrk
@@ -871,7 +934,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Le schede rientrano in 9 categorie:</mrk></target></trans-unit><trans-unit
         id="72"
         restype="x-xml-b"
-        phase-name="pretrans"><source>Part Studio -</source><seg-source><mrk
+        phase-name="pretrans"><source>Part Studio -</source>
+<target>Part Studio - pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Part Studio -</mrk></seg-source><target
           state="translated"><mrk
@@ -881,7 +945,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="84">Part Studio - </mrk></target></trans-unit><trans-unit
         id="73"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Parts in Onshape are created in Part Studio tabs. A Part Studio may contain one part or multiple parts, depending on how the designer constructed them.</source><seg-source><mrk
+        phase-name="pretrans"><source>Parts in Onshape are created in Part Studio tabs. A Part Studio may contain one part or multiple parts, depending on how the designer constructed them.</source>
+<target>Parts in Onshape are created in Part Studio tabs. A Part Studio may contain one part or multiple parts, depending on how the designer constructed them. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Parts in Onshape are created in Part Studio tabs. A Part Studio may contain one part or multiple parts, depending on how the designer constructed them.</mrk></seg-source><target
           state="translated"><mrk
@@ -891,7 +956,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Le parti in Onshape vengono create nelle schede Part Studio. Un Part Studio può contenere una o più parti, a seconda di come il progettista le ha costruite.</mrk></target></trans-unit><trans-unit
         id="74"
         restype="x-xml-b"
-        phase-name="pretrans"><source>Drawing -</source><seg-source><mrk
+        phase-name="pretrans"><source>Drawing -</source>
+<target>Drawing - pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Drawing -</mrk></seg-source><target
           state="translated"><mrk
@@ -901,7 +967,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Disegno -</mrk></target></trans-unit><trans-unit
         id="75"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Drawing tabs will be familiar if you have used drawing files in another system. Onshape drawings can have multiple sheets and reference multiple parts or assemblies.</source><seg-source><mrk
+        phase-name="pretrans"><source>Drawing tabs will be familiar if you have used drawing files in another system. Onshape drawings can have multiple sheets and reference multiple parts or assemblies.</source>
+<target>Drawing tabs will be familiar if you have used drawing files in another system. Onshape drawings can have multiple sheets and reference multiple parts or assemblies. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Drawing tabs will be familiar if you have used drawing files in another system. Onshape drawings can have multiple sheets and reference multiple parts or assemblies.</mrk></seg-source><target
           state="translated"><mrk
@@ -911,7 +978,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Le schede di disegno ti saranno familiari se hai mai usato file di disegno in un altro sistema. I disegni Onshape possono avere più fogli e fare riferimento a più parti o assiemi.</mrk></target></trans-unit><trans-unit
         id="76"
         restype="x-xml-b"
-        phase-name="pretrans"><source>Feature Studio -</source><seg-source><mrk
+        phase-name="pretrans"><source>Feature Studio -</source>
+<target>Feature Studio - pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Feature Studio -</mrk></seg-source><target
           state="translated"><mrk
@@ -942,7 +1010,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="1">&lt;/a&gt;</ept>).</mrk></target></trans-unit><trans-unit
         id="78"
         restype="x-xml-b"
-        phase-name="pretrans"><source>Application -</source><seg-source><mrk
+        phase-name="pretrans"><source>Application -</source>
+<target>Application - pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Application -</mrk></seg-source><target
           state="translated"><mrk
@@ -952,7 +1021,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Applicazione -</mrk></target></trans-unit><trans-unit
         id="79"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Third-party applications from the Onshape App store may also appear as tabs in an Onshape document. These may be less relevant to your use of Onshape, but are nonetheless important to recognize if you encounter them.</source><seg-source><mrk
+        phase-name="pretrans"><source>Third-party applications from the Onshape App store may also appear as tabs in an Onshape document. These may be less relevant to your use of Onshape, but are nonetheless important to recognize if you encounter them.</source>
+<target>Third-party applications from the Onshape App store may also appear as tabs in an Onshape document. These may be less relevant to your use of Onshape, but are nonetheless important to recognize if you encounter them. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Third-party applications from the Onshape App store may also appear as tabs in an Onshape document. These may be less relevant to your use of Onshape, but are nonetheless important to recognize if you encounter them.</mrk></seg-source><target
           state="translated"><mrk
@@ -962,7 +1032,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Le applicazioni di terze parti dell'App Store Onshape possono essere visualizzate anche come schede di un documento Onshape. Queste possono essere meno rilevanti per l'uso di Onshape, ma sono comunque importanti da riconoscere se li incontri.</mrk></target></trans-unit><trans-unit
         id="80"
         restype="x-xml-b"
-        phase-name="pretrans"><source>Image -</source><seg-source><mrk
+        phase-name="pretrans"><source>Image -</source>
+<target>Image - pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Image -</mrk></seg-source><target
           state="translated"><mrk
@@ -972,7 +1043,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Immagine -</mrk></target></trans-unit><trans-unit
         id="81"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Images uploaded into Onshape are stored in a tab and are displayed both in the tab and the thumbnail of the tab.</source><seg-source><mrk
+        phase-name="pretrans"><source>Images uploaded into Onshape are stored in a tab and are displayed both in the tab and the thumbnail of the tab.</source>
+<target>Images uploaded into Onshape are stored in a tab and are displayed both in the tab and the thumbnail of the tab. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Images uploaded into Onshape are stored in a tab and are displayed both in the tab and the thumbnail of the tab.</mrk></seg-source><target
           state="translated"><mrk
@@ -982,7 +1054,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Le immagini caricate in Onshape sono memorizzate in una scheda e vengono visualizzate sia nella scheda che nella miniatura della scheda.</mrk></target></trans-unit><trans-unit
         id="82"
         restype="x-xml-b"
-        phase-name="pretrans"><source>Zip -</source><seg-source><mrk
+        phase-name="pretrans"><source>Zip -</source>
+<target>Zip - pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Zip -</mrk></seg-source><target
           state="translated"><mrk
@@ -1013,7 +1086,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
         id="84"
         restype="x-xml-b"
-        phase-name="pretrans"><source>Material library -</source><seg-source><mrk
+        phase-name="pretrans"><source>Material library -</source>
+<target>Material library - pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Material library -</mrk></seg-source><target
           state="translated"><mrk
@@ -1128,7 +1202,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="2">&lt;/p&gt;</ept></mrk></target></trans-unit><trans-unit
         id="88"
         restype="x-xml-b"
-        phase-name="pretrans"><source>X_T -</source><seg-source><mrk
+        phase-name="pretrans"><source>X_T -</source>
+<target>X_T - pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">X_T -</mrk></seg-source><target
           state="translated"><mrk
@@ -1196,7 +1271,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Navigazione nell'interfaccia</mrk></target></trans-unit><trans-unit
         id="92"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The Onshape Light user interface includes the following features (note that the numbers coincide with the numbers in the image above):</source><seg-source><mrk
+        phase-name="pretrans"><source>The Onshape Light user interface includes the following features (note that the numbers coincide with the numbers in the image above):</source>
+<target>The Onshape Light user interface includes the following features (note that the numbers coincide with the numbers in the image above): pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The Onshape Light user interface includes the following features (note that the numbers coincide with the numbers in the image above):</mrk></seg-source><target
           state="translated"><mrk
@@ -1553,7 +1629,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="1">&lt;/b&gt;</ept> nella parte superiore della finestra.</mrk></target></trans-unit><trans-unit
         id="106"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The Activity page is your Onshape home page and is your default starting point in Onshape. On this page you see document-related activity in a stream. Use the 'ellipsis' menu to access commands related to the activity entry.</source><seg-source><mrk
+        phase-name="pretrans"><source>The Activity page is your Onshape home page and is your default starting point in Onshape. On this page you see document-related activity in a stream. Use the 'ellipsis' menu to access commands related to the activity entry.</source>
+<target>The Activity page is your Onshape home page and is your default starting point in Onshape. On this page you see document-related activity in a stream. Use the 'ellipsis' menu to access commands related to the activity entry. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The Activity page is your Onshape home page and is your default starting point in Onshape. On this page you see document-related activity in a stream. Use the 'ellipsis' menu to access commands related to the activity entry.</mrk></seg-source><target
           state="translated"><mrk
@@ -1583,7 +1660,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
         id="108"
         restype="x-xml-p"
-        phase-name="pretrans"><source>An activity stream (outlined in red), with the ellipsis menu (circled in blue)</source><seg-source><mrk
+        phase-name="pretrans"><source>An activity stream (outlined in red), with the ellipsis menu (circled in blue)</source>
+<target>An activity stream (outlined in red), with the ellipsis menu (circled in blue) pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">An activity stream (outlined in red), with the ellipsis menu (circled in blue)</mrk></seg-source><target
           state="translated"><mrk
@@ -1631,7 +1709,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="1">&lt;/b&gt;</ept> nella parte superiore della finestra per aprire la pagina dei documenti, un elenco di tutti i documenti per i quali disponi dell'autorizzazione.</mrk></target></trans-unit><trans-unit
         id="111"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The Documents page is where you'll likely start most of your work in Onshape. Click your company logo in the top left corner of the window to return to the Documents page from anywhere in Onshape.</source><seg-source><mrk
+        phase-name="pretrans"><source>The Documents page is where you'll likely start most of your work in Onshape. Click your company logo in the top left corner of the window to return to the Documents page from anywhere in Onshape.</source>
+<target>The Documents page is where you'll likely start most of your work in Onshape. Click your company logo in the top left corner of the window to return to the Documents page from anywhere in Onshape. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The Documents page is where you'll likely start most of your work in Onshape. Click your company logo in the top left corner of the window to return to the Documents page from anywhere in Onshape.</mrk></seg-source><target
           state="translated"><mrk
@@ -1641,7 +1720,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">La pagina dei documenti è dove probabilmente inizierai la maggior parte del tuo lavoro in Onshape. Fai clic sul logo dell'azienda nell'angolo in alto a sinistra della finestra per tornare alla pagina dei documenti da qualsiasi punto di Onshape.</mrk></target></trans-unit><trans-unit
         id="112"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The Documents page lists all of the documents you have access to, sometimes listed singly, sometimes organized into projects and folders (shown below, outlined in red). This page also contains filters for narrowing the list of documents (outlined in orange), and a search box (outlined in yellow). Click on a project, folder, or document name to open it.</source><seg-source><mrk
+        phase-name="pretrans"><source>The Documents page lists all of the documents you have access to, sometimes listed singly, sometimes organized into projects and folders (shown below, outlined in red). This page also contains filters for narrowing the list of documents (outlined in orange), and a search box (outlined in yellow). Click on a project, folder, or document name to open it.</source>
+<target>The Documents page lists all of the documents you have access to, sometimes listed singly, sometimes organized into projects and folders (shown below, outlined in red). This page also contains filters for narrowing the list of documents (outlined in orange), and a search box (outlined in yellow). Click on a project, folder, or document name to open it. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The Documents page lists all of the documents you have access to, sometimes listed singly, sometimes organized into projects and folders (shown below, outlined in red). This page also contains filters for narrowing the list of documents (outlined in orange), and a search box (outlined in yellow). Click on a project, folder, or document name to open it.</mrk></seg-source><target
           state="translated"><mrk
@@ -1651,7 +1731,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">La pagina dei documenti elenca tutti i documenti a cui hai accesso, a volte elencati singolarmente, talvolta organizzati in progetti e cartelle (mostrati di seguito, delineati in rosso). Questa pagina contiene anche filtri per restringere l'elenco dei documenti (delineati in arancione) e una casella di ricerca (delineata in giallo). Fai clic sul nome di un progetto, di una cartella o di un documento per aprirlo.</mrk></target></trans-unit><trans-unit
         id="113"
         restype="x-xml-p"
-        phase-name="pretrans"><source>In the above example, the icons outlined in blue represent Labels, Document details, and List and Grid view options.</source><seg-source><mrk
+        phase-name="pretrans"><source>In the above example, the icons outlined in blue represent Labels, Document details, and List and Grid view options.</source>
+<target>In the above example, the icons outlined in blue represent Labels, Document details, and List and Grid view options. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">In the above example, the icons outlined in blue represent Labels, Document details, and List and Grid view options.</mrk></seg-source><target
           state="translated"><mrk
@@ -1744,7 +1825,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="1">&lt;/b&gt;</ept> per aprire la finestra di ricerca avanzata. Da qui puoi specificare i diversi parametri per la ricerca:</mrk></target></trans-unit><trans-unit
         id="118"
         restype="x-xml-p"
-        phase-name="pretrans"><source>As an example, say you receive a work order specifying part number 00203 rev B and you need both the drawing and the 3D model of the part to complete the order. To find both, open the advanced search dialog and fill it out as shown:</source><seg-source><mrk
+        phase-name="pretrans"><source>As an example, say you receive a work order specifying part number 00203 rev B and you need both the drawing and the 3D model of the part to complete the order. To find both, open the advanced search dialog and fill it out as shown:</source>
+<target>As an example, say you receive a work order specifying part number 00203 rev B and you need both the drawing and the 3D model of the part to complete the order. To find both, open the advanced search dialog and fill it out as shown: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">As an example, say you receive a work order specifying part number 00203 rev B and you need both the drawing and the 3D model of the part to complete the order. To find both, open the advanced search dialog and fill it out as shown:</mrk></seg-source><target
           state="translated"><mrk
@@ -1812,7 +1894,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Utilizzo della barra degli strumenti Sola lettura</mrk></target></trans-unit><trans-unit
         id="122"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The View only toolbar is the default presentation for all users who do not have edit permissions on a document.</source><seg-source><mrk
+        phase-name="pretrans"><source>The View only toolbar is the default presentation for all users who do not have edit permissions on a document.</source>
+<target>The View only toolbar is the default presentation for all users who do not have edit permissions on a document. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The View only toolbar is the default presentation for all users who do not have edit permissions on a document.</mrk></seg-source><target
           state="translated"><mrk
@@ -1842,7 +1925,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="1">&lt;/i&gt;</ept>:</mrk></target></trans-unit><trans-unit
         id="124"
         restype="x-xml-p"
-        phase-name="pretrans"><source>A user in Enterprise and any other account will have this toolbar as well, when shared with the View only permissions. Only a company owner has the ability to change their company's settings to hide the View only toolbar in all documents. Users with editing permissions on a document will not see the View only toolbar.</source><seg-source><mrk
+        phase-name="pretrans"><source>A user in Enterprise and any other account will have this toolbar as well, when shared with the View only permissions. Only a company owner has the ability to change their company's settings to hide the View only toolbar in all documents. Users with editing permissions on a document will not see the View only toolbar.</source>
+<target>A user in Enterprise and any other account will have this toolbar as well, when shared with the View only permissions. Only a company owner has the ability to change their company's settings to hide the View only toolbar in all documents. Users with editing permissions on a document will not see the View only toolbar. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">A user in Enterprise and any other account will have this toolbar as well, when shared with the View only permissions. Only a company owner has the ability to change their company's settings to hide the View only toolbar in all documents. Users with editing permissions on a document will not see the View only toolbar.</mrk></seg-source><target
           state="translated"><mrk
@@ -1872,7 +1956,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="1">&lt;/a&gt;</ept></mrk></target></trans-unit><trans-unit
         id="126"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The View only toolbar is located at the bottom of your Onshape Part Studio or Assembly (shown above outlined in red) and can have up to 18 tools or features, some of which depend on the tab type or the user's permissions:</source><seg-source><mrk
+        phase-name="pretrans"><source>The View only toolbar is located at the bottom of your Onshape Part Studio or Assembly (shown above outlined in red) and can have up to 18 tools or features, some of which depend on the tab type or the user's permissions:</source>
+<target>The View only toolbar is located at the bottom of your Onshape Part Studio or Assembly (shown above outlined in red) and can have up to 18 tools or features, some of which depend on the tab type or the user's permissions: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The View only toolbar is located at the bottom of your Onshape Part Studio or Assembly (shown above outlined in red) and can have up to 18 tools or features, some of which depend on the tab type or the user's permissions:</mrk></seg-source><target
           state="translated"><mrk
@@ -1899,7 +1984,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Collegamenti e condivisione</mrk></target></trans-unit><trans-unit
         id="128"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Everything in Onshape has a unique URL. Many organizations post links to specific versions of Onshape objects (Part Studios, Assemblies, Drawings, etc) in work orders or ERP software, allowing you to get to the exact version you need. These links can be easily copied from and to the address bar of your browser.</source><seg-source><mrk
+        phase-name="pretrans"><source>Everything in Onshape has a unique URL. Many organizations post links to specific versions of Onshape objects (Part Studios, Assemblies, Drawings, etc) in work orders or ERP software, allowing you to get to the exact version you need. These links can be easily copied from and to the address bar of your browser.</source>
+<target>Everything in Onshape has a unique URL. Many organizations post links to specific versions of Onshape objects (Part Studios, Assemblies, Drawings, etc) in work orders or ERP software, allowing you to get to the exact version you need. These links can be easily copied from and to the address bar of your browser. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Everything in Onshape has a unique URL. Many organizations post links to specific versions of Onshape objects (Part Studios, Assemblies, Drawings, etc) in work orders or ERP software, allowing you to get to the exact version you need. These links can be easily copied from and to the address bar of your browser.</mrk></seg-source><target
           state="translated"><mrk
@@ -1909,7 +1995,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Tutto in Onshape ha un URL univoco. Molte organizzazioni pubblicano collegamenti a versioni specifiche di oggetti Onshape (Part Studio, assiemi, disegni ecc.) in ordini di lavoro o software ERP, il che consente di accedere alla versione esatta di cui hai bisogno. Questi collegamenti possono essere facilmente copiati da e nella barra degli indirizzi del browser.</mrk></target></trans-unit><trans-unit
         id="129"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Using the Share button is not available to Light users at this time as Light users are not permitted to share documents.</source><seg-source><mrk
+        phase-name="pretrans"><source>Using the Share button is not available to Light users at this time as Light users are not permitted to share documents.</source>
+<target>Using the Share button is not available to Light users at this time as Light users are not permitted to share documents. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Using the Share button is not available to Light users at this time as Light users are not permitted to share documents.</mrk></seg-source><target
           state="translated"><mrk
@@ -1936,7 +2023,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Selezione</mrk></target></trans-unit><trans-unit
         id="131"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Selection in an Onshape document is additive. When you left click to select a piece of geometry and then click again on another piece of geometry, Onshape adds the second selection (and subsequent selections) rather than switching to it. You can clear your selection by tapping the spacebar on your keyboard (or clicking in empty space). The first example below is of the view of your document in a Part Studio with just one part selected. The second example shows how your document would look with three parts selected simultaneously, the parts all highlight in yellow when selected.</source><seg-source><mrk
+        phase-name="pretrans"><source>Selection in an Onshape document is additive. When you left click to select a piece of geometry and then click again on another piece of geometry, Onshape adds the second selection (and subsequent selections) rather than switching to it. You can clear your selection by tapping the spacebar on your keyboard (or clicking in empty space). The first example below is of the view of your document in a Part Studio with just one part selected. The second example shows how your document would look with three parts selected simultaneously, the parts all highlight in yellow when selected.</source>
+<target>Selection in an Onshape document is additive. When you left click to select a piece of geometry and then click again on another piece of geometry, Onshape adds the second selection (and subsequent selections) rather than switching to it. You can clear your selection by tapping the spacebar on your keyboard (or clicking in empty space). The first example below is of the view of your document in a Part Studio with just one part selected. The second example shows how your document would look with three parts selected simultaneously, the parts all highlight in yellow when selected. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Selection in an Onshape document is additive. When you left click to select a piece of geometry and then click again on another piece of geometry, Onshape adds the second selection (and subsequent selections) rather than switching to it. You can clear your selection by tapping the spacebar on your keyboard (or clicking in empty space). The first example below is of the view of your document in a Part Studio with just one part selected. The second example shows how your document would look with three parts selected simultaneously, the parts all highlight in yellow when selected.</mrk></seg-source><target
           state="translated"><mrk
@@ -1983,7 +2071,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
         id="134"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The measurement tool in a Part Studio displayed the area of the selected part.</source><seg-source><mrk
+        phase-name="pretrans"><source>The measurement tool in a Part Studio displayed the area of the selected part.</source>
+<target>The measurement tool in a Part Studio displayed the area of the selected part. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The measurement tool in a Part Studio displayed the area of the selected part.</mrk></seg-source><target
           state="translated"><mrk
@@ -1993,7 +2082,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Lo strumento di misura in un Part Studio ha mostrato l'area della parte selezionata.</mrk></target></trans-unit><trans-unit
         id="135"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The same is true for mass properties. Select a part or assembly and the mass properties icon appears in the bottom right corner of the interface:</source><seg-source><mrk
+        phase-name="pretrans"><source>The same is true for mass properties. Select a part or assembly and the mass properties icon appears in the bottom right corner of the interface:</source>
+<target>The same is true for mass properties. Select a part or assembly and the mass properties icon appears in the bottom right corner of the interface: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The same is true for mass properties. Select a part or assembly and the mass properties icon appears in the bottom right corner of the interface:</mrk></seg-source><target
           state="translated"><mrk
@@ -2003,7 +2093,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Lo stesso vale per le proprietà massa. Seleziona una parte o un assieme e l'icona delle proprietà massa appare nell'angolo in basso a destra dell'interfaccia:</mrk></target></trans-unit><trans-unit
         id="136"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Click the icon to display the properties for the selection.</source><seg-source><mrk
+        phase-name="pretrans"><source>Click the icon to display the properties for the selection.</source>
+<target>Click the icon to display the properties for the selection. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Click the icon to display the properties for the selection.</mrk></seg-source><target
           state="translated"><mrk
@@ -2033,7 +2124,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
         id="138"
         restype="x-xml-madcap:dropdownhotspot"
-        phase-name="pretrans"><source>Creating a task</source><seg-source><mrk
+        phase-name="pretrans"><source>Creating a task</source>
+<target>Creating a task pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Creating a task</mrk></seg-source><target
           state="translated"><mrk
@@ -2043,7 +2135,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Creazione di un'attività</mrk></target></trans-unit><trans-unit
         id="139"
         restype="x-xml-p"
-        phase-name="pretrans"><source>While inside a document, right-click on a tab to access the context menu:</source><seg-source><mrk
+        phase-name="pretrans"><source>While inside a document, right-click on a tab to access the context menu:</source>
+<target>While inside a document, right-click on a tab to access the context menu: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">While inside a document, right-click on a tab to access the context menu:</mrk></seg-source><target
           state="translated"><mrk
@@ -2072,7 +2165,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="1">&lt;/b&gt;</ept> opzione dal menu per aprire la finestra di dialogo Crea attività:</mrk></target></trans-unit><trans-unit
         id="141"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Specify a task name.</source><seg-source><mrk
+        phase-name="pretrans"><source>Specify a task name.</source>
+<target>Specify a task name. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Specify a task name.</mrk></seg-source><target
           state="translated"><mrk
@@ -2082,7 +2176,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Specificare un nome per l'attività.</mrk></target></trans-unit><trans-unit
         id="142"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Optionally, specify a task description.</source><seg-source><mrk
+        phase-name="pretrans"><source>Optionally, specify a task description.</source>
+<target>Optionally, specify a task description. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Optionally, specify a task description.</mrk></seg-source><target
           state="translated"><mrk
@@ -2198,7 +2293,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
               id="3">&lt;/span&gt;</ept> per interrompere la creazione dell'attività.</mrk></target></trans-unit><trans-unit
         id="147"
         restype="x-xml-p"
-        phase-name="pretrans"><source>An example task in the Action items list after it is created.</source><seg-source><mrk
+        phase-name="pretrans"><source>An example task in the Action items list after it is created.</source>
+<target>An example task in the Action items list after it is created. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">An example task in the Action items list after it is created.</mrk></seg-source><target
           state="translated"><mrk
@@ -2275,7 +2371,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="151"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The Comment button will not appear if you do not have permission to comment.</source><seg-source><mrk
+        phase-name="pretrans"><source>The Comment button will not appear if you do not have permission to comment.</source>
+<target>The Comment button will not appear if you do not have permission to comment. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The Comment button will not appear if you do not have permission to comment.</mrk></seg-source><target
           state="translated"><mrk
@@ -2343,7 +2440,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Esportazione</mrk></target></trans-unit><trans-unit
         id="155"
         restype="x-xml-p"
-        phase-name="pretrans"><source>You can export parts, Assemblies and Drawings to a number of different file formats, which allows you to, for example, easily create the STEP files that your supplier needs to make your parts. If you have permission to export data, right-click on a part in the Parts list or graphics area of a Part Studio, an Assembly tab or a Drawing tab and select Export from the context menu (shown in first example below). An Export dialog will appear (second image below):</source><seg-source><mrk
+        phase-name="pretrans"><source>You can export parts, Assemblies and Drawings to a number of different file formats, which allows you to, for example, easily create the STEP files that your supplier needs to make your parts. If you have permission to export data, right-click on a part in the Parts list or graphics area of a Part Studio, an Assembly tab or a Drawing tab and select Export from the context menu (shown in first example below). An Export dialog will appear (second image below):</source>
+<target>You can export parts, Assemblies and Drawings to a number of different file formats, which allows you to, for example, easily create the STEP files that your supplier needs to make your parts. If you have permission to export data, right-click on a part in the Parts list or graphics area of a Part Studio, an Assembly tab or a Drawing tab and select Export from the context menu (shown in first example below). An Export dialog will appear (second image below): pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">You can export parts, Assemblies and Drawings to a number of different file formats, which allows you to, for example, easily create the STEP files that your supplier needs to make your parts. If you have permission to export data, right-click on a part in the Parts list or graphics area of a Part Studio, an Assembly tab or a Drawing tab and select Export from the context menu (shown in first example below). An Export dialog will appear (second image below):</mrk></seg-source><target
           state="translated"><mrk
@@ -2390,7 +2488,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Accesso ai menu contestuali dei comandi</mrk></target></trans-unit><trans-unit
         id="158"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Right-click, or context, menus appear everywhere in Onshape and contain many of the commands needed to complete your tasks. Right-click to activate context menus for entities in the graphics area (such as parts, surfaces, and sketches), entities in Feature lists (such as Extrude and Revolve features), Parts lists in both Part Studios and Assemblies (individual parts, surfaces, curves, and assemblies), and entities in Drawings. Key command like Export are found in context menus, so be sure to right-click throughout the interface to access the commands needed to accomplish your goals.</source><seg-source><mrk
+        phase-name="pretrans"><source>Right-click, or context, menus appear everywhere in Onshape and contain many of the commands needed to complete your tasks. Right-click to activate context menus for entities in the graphics area (such as parts, surfaces, and sketches), entities in Feature lists (such as Extrude and Revolve features), Parts lists in both Part Studios and Assemblies (individual parts, surfaces, curves, and assemblies), and entities in Drawings. Key command like Export are found in context menus, so be sure to right-click throughout the interface to access the commands needed to accomplish your goals.</source>
+<target>Right-click, or context, menus appear everywhere in Onshape and contain many of the commands needed to complete your tasks. Right-click to activate context menus for entities in the graphics area (such as parts, surfaces, and sketches), entities in Feature lists (such as Extrude and Revolve features), Parts lists in both Part Studios and Assemblies (individual parts, surfaces, curves, and assemblies), and entities in Drawings. Key command like Export are found in context menus, so be sure to right-click throughout the interface to access the commands needed to accomplish your goals. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Right-click, or context, menus appear everywhere in Onshape and contain many of the commands needed to complete your tasks. Right-click to activate context menus for entities in the graphics area (such as parts, surfaces, and sketches), entities in Feature lists (such as Extrude and Revolve features), Parts lists in both Part Studios and Assemblies (individual parts, surfaces, curves, and assemblies), and entities in Drawings. Key command like Export are found in context menus, so be sure to right-click throughout the interface to access the commands needed to accomplish your goals.</mrk></seg-source><target
           state="translated"><mrk
@@ -2400,7 +2499,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">I menu contestuali, o di scelta rapida, vengono visualizzati ovunque in Onshape e contengono molti dei comandi necessari per completare le attività. Fai clic con il pulsante destro del mouse per attivare i menu contestuali per entità nell'area grafica (ad esempio parti, superfici e schizzi), entità negli elenchi funzioni (ad esempio, le funzioni Estrusione e Rivoluzione), elenchi delle parti sia in Part Studio sia negli Assiemi (singole parti, superfici, curve e assiemi) ed entità nei Disegni. I comandi fondamentali come Esporta si trovano nei menu contestuali, perciò assicurati di fare clic con il pulsante destro del mouse su tutta l'interfaccia per accedere ai comandi necessari per raggiungere i tuoi obiettivi.</mrk></target></trans-unit><trans-unit
         id="159"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Example of a context menu generated by right-clicking on a document on the Documents page</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of a context menu generated by right-clicking on a document on the Documents page</source>
+<target>Example of a context menu generated by right-clicking on a document on the Documents page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Example of a context menu generated by right-clicking on a document on the Documents page</mrk></seg-source><target
           state="translated"><mrk
@@ -2427,7 +2527,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Utenti con responsabilità di gestione delle versioni</mrk></target></trans-unit><trans-unit
         id="161"
         restype="x-xml-p"
-        phase-name="pretrans"><source>When a user has release management responsibilities (Enterprise or Professional users only), they cannot initiate a release, but they can and may have the responsibility to observe, comment, and approve a release candidate. There is no Light user tool on the toolbar for this purpose, however, the user must access the release candidate through the notification they received, which may be:</source><seg-source><mrk
+        phase-name="pretrans"><source>When a user has release management responsibilities (Enterprise or Professional users only), they cannot initiate a release, but they can and may have the responsibility to observe, comment, and approve a release candidate. There is no Light user tool on the toolbar for this purpose, however, the user must access the release candidate through the notification they received, which may be:</source>
+<target>When a user has release management responsibilities (Enterprise or Professional users only), they cannot initiate a release, but they can and may have the responsibility to observe, comment, and approve a release candidate. There is no Light user tool on the toolbar for this purpose, however, the user must access the release candidate through the notification they received, which may be: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">When a user has release management responsibilities (Enterprise or Professional users only), they cannot initiate a release, but they can and may have the responsibility to observe, comment, and approve a release candidate. There is no Light user tool on the toolbar for this purpose, however, the user must access the release candidate through the notification they received, which may be:</mrk></seg-source><target
           state="translated"><mrk
@@ -2437,7 +2538,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Quando un utente ha responsabilità di gestione delle versioni (solo utenti Enterprise o Professional), non può avviare un rilascio, ma può avere o gli è consentito di avere la responsabilità di osservare, commentare e approvare una versione di pre-rilascio. Sulla barra degli strumenti non è presente uno strumento utenti Light per questo scopo, tuttavia, l'utente deve accedere alla versione di pre-rilascio tramite la notifica ricevuta, che può essere:</mrk></target></trans-unit><trans-unit
         id="162"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Email notification with a link</source><seg-source><mrk
+        phase-name="pretrans"><source>Email notification with a link</source>
+<target>Email notification with a link pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Email notification with a link</mrk></seg-source><target
           state="translated"><mrk
@@ -2447,7 +2549,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Notifica via email con un collegamento</mrk></target></trans-unit><trans-unit
         id="163"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Internal notification in the document</source><seg-source><mrk
+        phase-name="pretrans"><source>Internal notification in the document</source>
+<target>Internal notification in the document pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Internal notification in the document</mrk></seg-source><target
           state="translated"><mrk
@@ -2457,7 +2560,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Notifica interna nel documento</mrk></target></trans-unit><trans-unit
         id="164"
         restype="x-xml-li"
-        phase-name="pretrans"><source>Mobile notification with a link</source><seg-source><mrk
+        phase-name="pretrans"><source>Mobile notification with a link</source>
+<target>Mobile notification with a link pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Mobile notification with a link</mrk></seg-source><target
           state="translated"><mrk
@@ -2467,7 +2571,8 @@ If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find
             MadCap:matchPercent="101">Notifica su telefono cellulare con un collegamento</mrk></target></trans-unit><trans-unit
         id="165"
         restype="x-xml-p"
-        phase-name="pretrans"><source>These notifications will contain a View release link that when clicked takes the user directly to the release candidate dialog.</source><seg-source><mrk
+        phase-name="pretrans"><source>These notifications will contain a View release link that when clicked takes the user directly to the release candidate dialog.</source>
+<target>These notifications will contain a View release link that when clicked takes the user directly to the release candidate dialog. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">These notifications will contain a View release link that when clicked takes the user directly to the release candidate dialog.</mrk></seg-source><target
           state="translated"><mrk
