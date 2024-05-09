@@ -45,7 +45,8 @@
     <body><trans-unit
         id="1"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Video example icon</source><seg-source><mrk
+        phase-name="pretrans"><source>Video example icon</source>
+<target>Video example icon pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             MadCap:conditions="Default.ScreenOnly"
@@ -58,7 +59,8 @@
             MadCap:matchPercent="100">Video example icon</mrk></target></trans-unit><trans-unit
         id="2"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Signing into the Microsoft Azure portal</source><seg-source><mrk
+        phase-name="pretrans"><source>Signing into the Microsoft Azure portal</source>
+<target>Signing into the Microsoft Azure portal pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Signing into the Microsoft Azure portal</mrk></seg-source><target
@@ -69,7 +71,8 @@
             MadCap:matchPercent="101">Accesso al portale Microsoft Azure</mrk></target></trans-unit><trans-unit
         id="3"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Selecting the Azure Active directory from the navigation menu on the left</source><seg-source><mrk
+        phase-name="pretrans"><source>Selecting the Azure Active directory from the navigation menu on the left</source>
+<target>Selecting the Azure Active directory from the navigation menu on the left pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Selecting the Azure Active directory from the navigation menu on the left</mrk></seg-source><target
@@ -80,7 +83,8 @@
             MadCap:matchPercent="101">Selezione di Azure Active Directory dal menu di navigazione a sinistra</mrk></target></trans-unit><trans-unit
         id="4"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Selecting Enterprise applications from the navigation menu on the left</source><seg-source><mrk
+        phase-name="pretrans"><source>Selecting Enterprise applications from the navigation menu on the left</source>
+<target>Selecting Enterprise applications from the navigation menu on the left pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Selecting Enterprise applications from the navigation menu on the left</mrk></seg-source><target
@@ -91,7 +95,8 @@
             MadCap:matchPercent="101">Selezione di applicazioni Enterprise dal menu di navigazione a sinistra</mrk></target></trans-unit><trans-unit
         id="5"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example selecting New application from the Enterprise applications page</source><seg-source><mrk
+        phase-name="pretrans"><source>Example selecting New application from the Enterprise applications page</source>
+<target>Example selecting New application from the Enterprise applications page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example selecting New application from the Enterprise applications page</mrk></seg-source><target
@@ -102,7 +107,8 @@
             MadCap:matchPercent="101">Esempio di selezione di Nuova applicazione dalla pagina Applicazioni Enterprise</mrk></target></trans-unit><trans-unit
         id="6"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example searching for Onshape in the Browse Azure AD Gallery page</source><seg-source><mrk
+        phase-name="pretrans"><source>Example searching for Onshape in the Browse Azure AD Gallery page</source>
+<target>Example searching for Onshape in the Browse Azure AD Gallery page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example searching for Onshape in the Browse Azure AD Gallery page</mrk></seg-source><target
@@ -113,7 +119,8 @@
             MadCap:matchPercent="101">Esempio di ricerca di Onshape nella pagina Sfoglia galleria di Azure AD</mrk></target></trans-unit><trans-unit
         id="7"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Selecting and opening the Onshape application</source><seg-source><mrk
+        phase-name="pretrans"><source>Selecting and opening the Onshape application</source>
+<target>Selecting and opening the Onshape application pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Selecting and opening the Onshape application</mrk></seg-source><target
@@ -124,7 +131,8 @@
             MadCap:matchPercent="101">Selezione e apertura dell'applicazione Onshape</mrk></target></trans-unit><trans-unit
         id="8"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Selecting the Set up single sign on option</source><seg-source><mrk
+        phase-name="pretrans"><source>Selecting the Set up single sign on option</source>
+<target>Selecting the Set up single sign on option pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Selecting the Set up single sign on option</mrk></seg-source><target
@@ -135,7 +143,8 @@
             MadCap:matchPercent="101">Selezione dell'opzione Imposta Single sign on</mrk></target></trans-unit><trans-unit
         id="9"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Clicking the SAML option on the Single sign-on page</source><seg-source><mrk
+        phase-name="pretrans"><source>Clicking the SAML option on the Single sign-on page</source>
+<target>Clicking the SAML option on the Single sign-on page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Clicking the SAML option on the Single sign-on page</mrk></seg-source><target
@@ -146,7 +155,8 @@
             MadCap:matchPercent="101">Clic sull'opzione SAML nella pagina Single sign on</mrk></target></trans-unit><trans-unit
         id="10"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Clicking Yes to Save the signle sign-on setting</source><seg-source><mrk
+        phase-name="pretrans"><source>Clicking Yes to Save the signle sign-on setting</source>
+<target>Clicking Yes to Save the signle sign-on setting pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Clicking Yes to Save the signle sign-on setting</mrk></seg-source><target
@@ -157,7 +167,8 @@
             MadCap:matchPercent="101">Clic su Sì per salvare l'impostazione del Single sign on</mrk></target></trans-unit><trans-unit
         id="11"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Clicking to edit the User Attributes &amp; Claims on the SAML-based Sign-on page</source><seg-source><mrk
+        phase-name="pretrans"><source>Clicking to edit the User Attributes &amp; Claims on the SAML-based Sign-on page</source>
+<target>Clicking to edit the User Attributes &amp; Claims on the SAML-based Sign-on page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Clicking to edit the User Attributes &amp; Claims on the SAML-based Sign-on page</mrk></seg-source><target
@@ -168,7 +179,8 @@
             MadCap:matchPercent="101">Clic per modificare gli attributi e le attestazioni utente nella pagina Accesso basato su SAML</mrk></target></trans-unit><trans-unit
         id="12"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Selecting the CompanyName claim on the User Attributes &amp; Claims page</source><seg-source><mrk
+        phase-name="pretrans"><source>Selecting the CompanyName claim on the User Attributes &amp; Claims page</source>
+<target>Selecting the CompanyName claim on the User Attributes &amp; Claims page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Selecting the CompanyName claim on the User Attributes &amp; Claims page</mrk></seg-source><target
@@ -179,7 +191,8 @@
             MadCap:matchPercent="101">Selezione dell'attestazione companyName nella pagina Attributi e attestazioni utente</mrk></target></trans-unit><trans-unit
         id="13"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of managing a claim</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of managing a claim</source>
+<target>Example of managing a claim pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of managing a claim</mrk></seg-source><target
@@ -190,7 +203,8 @@
             MadCap:matchPercent="101">Esempio di gestione di un'attestazione</mrk></target></trans-unit><trans-unit
         id="14"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example saving the claim from the Manage claim page</source><seg-source><mrk
+        phase-name="pretrans"><source>Example saving the claim from the Manage claim page</source>
+<target>Example saving the claim from the Manage claim page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example saving the claim from the Manage claim page</mrk></seg-source><target
@@ -201,7 +215,8 @@
             MadCap:matchPercent="101">Esempio di salvataggio dell'attestazione nella pagina Gestisci attestazione</mrk></target></trans-unit><trans-unit
         id="15"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Closing the User Attributes &amp; Claims page</source><seg-source><mrk
+        phase-name="pretrans"><source>Closing the User Attributes &amp; Claims page</source>
+<target>Closing the User Attributes &amp; Claims page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Closing the User Attributes &amp; Claims page</mrk></seg-source><target
@@ -212,7 +227,8 @@
             MadCap:matchPercent="101">Chiusura della pagina Attributi e attestazioni utente</mrk></target></trans-unit><trans-unit
         id="16"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Clicking No I'll test later button on the SAML-based Sign-on page</source><seg-source><mrk
+        phase-name="pretrans"><source>Clicking No I'll test later button on the SAML-based Sign-on page</source>
+<target>Clicking No I'll test later button on the SAML-based Sign-on page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Clicking No I'll test later button on the SAML-based Sign-on page</mrk></seg-source><target
@@ -223,7 +239,8 @@
             MadCap:matchPercent="101">Clic su No, testerò più tardi nella pagina Accesso basato su SAML</mrk></target></trans-unit><trans-unit
         id="17"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example showing the completed claims</source><seg-source><mrk
+        phase-name="pretrans"><source>Example showing the completed claims</source>
+<target>Example showing the completed claims pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example showing the completed claims</mrk></seg-source><target
@@ -234,7 +251,8 @@
             MadCap:matchPercent="101">Esempio di attestazioni completate</mrk></target></trans-unit><trans-unit
         id="18"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Downloading the Federation Metadata XML file</source><seg-source><mrk
+        phase-name="pretrans"><source>Downloading the Federation Metadata XML file</source>
+<target>Downloading the Federation Metadata XML file pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Downloading the Federation Metadata XML file</mrk></seg-source><target
@@ -245,7 +263,8 @@
             MadCap:matchPercent="101">Download del file XML dei metadati della federazione</mrk></target></trans-unit><trans-unit
         id="19"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Closing the completed download notice</source><seg-source><mrk
+        phase-name="pretrans"><source>Closing the completed download notice</source>
+<target>Closing the completed download notice pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Closing the completed download notice</mrk></seg-source><target
@@ -256,7 +275,8 @@
             MadCap:matchPercent="101">Chiusura della notifica di completamento del download</mrk></target></trans-unit><trans-unit
         id="20"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Selecting Users and groups from the navigation on the left of the SAML-based Sign-on page</source><seg-source><mrk
+        phase-name="pretrans"><source>Selecting Users and groups from the navigation on the left of the SAML-based Sign-on page</source>
+<target>Selecting Users and groups from the navigation on the left of the SAML-based Sign-on page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Selecting Users and groups from the navigation on the left of the SAML-based Sign-on page</mrk></seg-source><target
@@ -267,7 +287,8 @@
             MadCap:matchPercent="101">Selezione di Utenti e gruppi dalla barra di navigazione a sinistra della pagina Accesso basato su SAML</mrk></target></trans-unit><trans-unit
         id="21"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Clicking the add user/group button from the Users and groups page</source><seg-source><mrk
+        phase-name="pretrans"><source>Clicking the add user/group button from the Users and groups page</source>
+<target>Clicking the add user/group button from the Users and groups page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Clicking the add user/group button from the Users and groups page</mrk></seg-source><target
@@ -278,7 +299,8 @@
             MadCap:matchPercent="101">Clic sul pulsante Aggiungi utente/gruppo nella pagina Utenti e gruppi</mrk></target></trans-unit><trans-unit
         id="22"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Assigning users to the user group/team</source><seg-source><mrk
+        phase-name="pretrans"><source>Assigning users to the user group/team</source>
+<target>Assigning users to the user group/team pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Assigning users to the user group/team</mrk></seg-source><target
@@ -289,7 +311,8 @@
             MadCap:matchPercent="101">Assegnazione di utenti al gruppo/team di utenti</mrk></target></trans-unit><trans-unit
         id="23"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Clicking the Assign button on the Add Assignment page</source><seg-source><mrk
+        phase-name="pretrans"><source>Clicking the Assign button on the Add Assignment page</source>
+<target>Clicking the Assign button on the Add Assignment page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Clicking the Assign button on the Add Assignment page</mrk></seg-source><target
@@ -300,7 +323,8 @@
             MadCap:matchPercent="101">Clic sul pulsante Assegna nella pagina Aggiungi assegnazione</mrk></target></trans-unit><trans-unit
         id="24"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>The new users added to the Users and groups page</source><seg-source><mrk
+        phase-name="pretrans"><source>The new users added to the Users and groups page</source>
+<target>The new users added to the Users and groups page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">The new users added to the Users and groups page</mrk></seg-source><target
@@ -311,7 +335,8 @@
             MadCap:matchPercent="101">I nuovi utenti aggiunti alla pagina Utenti e gruppi</mrk></target></trans-unit><trans-unit
         id="25"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Example of the Microsoft active directory application dashboard</source><seg-source><mrk
+        phase-name="pretrans"><source>Example of the Microsoft active directory application dashboard</source>
+<target>Example of the Microsoft active directory application dashboard pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Example of the Microsoft active directory application dashboard</mrk></seg-source><target
@@ -322,7 +347,8 @@
             MadCap:matchPercent="101">Esempio del dashboard delle applicazioni Microsoft Active Directory</mrk></target></trans-unit><trans-unit
         id="26"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Selecting my account: Enterprise settings</source><seg-source><mrk
+        phase-name="pretrans"><source>Selecting my account: Enterprise settings</source>
+<target>Selecting my account: Enterprise settings pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Selecting my account: Enterprise settings</mrk></seg-source><target
@@ -333,7 +359,8 @@
             MadCap:matchPercent="101">Selezione di Il mio account &gt; Impostazioni Enterprise</mrk></target></trans-unit><trans-unit
         id="27"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Selecting Authentication from the left side navigation panel</source><seg-source><mrk
+        phase-name="pretrans"><source>Selecting Authentication from the left side navigation panel</source>
+<target>Selecting Authentication from the left side navigation panel pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Selecting Authentication from the left side navigation panel</mrk></seg-source><target
@@ -344,7 +371,8 @@
             MadCap:matchPercent="101">Selezione di Autenticazione nel pannello di navigazione a sinistra</mrk></target></trans-unit><trans-unit
         id="28"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Clicking the Configure SSO provider button on the Authentication page</source><seg-source><mrk
+        phase-name="pretrans"><source>Clicking the Configure SSO provider button on the Authentication page</source>
+<target>Clicking the Configure SSO provider button on the Authentication page pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Clicking the Configure SSO provider button on the Authentication page</mrk></seg-source><target
@@ -355,7 +383,8 @@
             MadCap:matchPercent="101">Clic sul pulsante Configura provider SSO nella pagina Autenticazione</mrk></target></trans-unit><trans-unit
         id="29"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Create SSO provider dialog</source><seg-source><mrk
+        phase-name="pretrans"><source>Create SSO provider dialog</source>
+<target>Create SSO provider dialog pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Create SSO provider dialog</mrk></seg-source><target
@@ -366,7 +395,8 @@
             MadCap:matchPercent="101">Finestra di dialogo Crea provider</mrk></target></trans-unit><trans-unit
         id="30"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Opening the XML metadata file</source><seg-source><mrk
+        phase-name="pretrans"><source>Opening the XML metadata file</source>
+<target>Opening the XML metadata file pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Opening the XML metadata file</mrk></seg-source><target
@@ -377,7 +407,8 @@
             MadCap:matchPercent="101">Apertura del file di metadati XML</mrk></target></trans-unit><trans-unit
         id="31"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Clicking OK to finalize the creation of the SSO provider</source><seg-source><mrk
+        phase-name="pretrans"><source>Clicking OK to finalize the creation of the SSO provider</source>
+<target>Clicking OK to finalize the creation of the SSO provider pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Clicking OK to finalize the creation of the SSO provider</mrk></seg-source><target
@@ -388,7 +419,8 @@
             MadCap:matchPercent="101">Clic su OK per finalizzare la creazione del provider SSO</mrk></target></trans-unit><trans-unit
         id="32"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Receiving a notification that the XML file was successfully uploaded</source><seg-source><mrk
+        phase-name="pretrans"><source>Receiving a notification that the XML file was successfully uploaded</source>
+<target>Receiving a notification that the XML file was successfully uploaded pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Receiving a notification that the XML file was successfully uploaded</mrk></seg-source><target
@@ -399,7 +431,8 @@
             MadCap:matchPercent="101">Ricezione di una notifica che informa che il file XML è stato caricato correttamente</mrk></target></trans-unit><trans-unit
         id="33"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Signing into Onshape using the Sign in with Microsoft (SSO) button</source><seg-source><mrk
+        phase-name="pretrans"><source>Signing into Onshape using the Sign in with Microsoft (SSO) button</source>
+<target>Signing into Onshape using the Sign in with Microsoft (SSO) button pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Signing into Onshape using the Sign in with Microsoft (SSO) button</mrk></seg-source><target
@@ -410,7 +443,8 @@
             MadCap:matchPercent="101">Accesso a Onshape mediante il pulsante Accedi con Microsoft (SSO)</mrk></target></trans-unit><trans-unit
         id="34"
         restype="x-xhtml-img-alt"
-        phase-name="pretrans"><source>Possible error message when signing in</source><seg-source><mrk
+        phase-name="pretrans"><source>Possible error message when signing in</source>
+<target>Possible error message when signing in pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             comment="img">Possible error message when signing in</mrk></seg-source><target
@@ -421,7 +455,8 @@
             MadCap:matchPercent="101">Possibile messaggio di errore al momento dell'accesso</mrk></target></trans-unit><trans-unit
         id="35"
         restype="x-xml-title"
-        phase-name="pretrans"><source>Integrating with Microsoft Azure AD</source><seg-source><mrk
+        phase-name="pretrans"><source>Integrating with Microsoft Azure AD</source>
+<target>Integrating with Microsoft Azure AD pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Integrating with Microsoft Azure AD</mrk></seg-source><target
           state="translated"><mrk
@@ -431,7 +466,8 @@
             MadCap:matchPercent="101">Integrazione con Microsoft Azure AD</mrk></target></trans-unit><trans-unit
         id="36"
         restype="x-xml-meta-content"
-        phase-name="pretrans"><source>This section covers how to set up and integrate Onshape with Microsoft Azure AD single sign-on (SSO).</source><seg-source><mrk
+        phase-name="pretrans"><source>This section covers how to set up and integrate Onshape with Microsoft Azure AD single sign-on (SSO).</source>
+<target>This section covers how to set up and integrate Onshape with Microsoft Azure AD single sign-on (SSO). pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">This section covers how to set up and integrate Onshape with Microsoft Azure AD single sign-on (SSO).</mrk></seg-source><target
           state="translated"><mrk
@@ -441,7 +477,8 @@
             MadCap:matchPercent="101">Questa sezione tratta di come configurare e integrare Onshape con il single sign-on (SSO) Microsoft Azure AD.</mrk></target></trans-unit><trans-unit
         id="37"
         restype="x-xml-h1"
-        phase-name="pretrans"><source>Integrating with Microsoft Azure AD</source><seg-source><mrk
+        phase-name="pretrans"><source>Integrating with Microsoft Azure AD</source>
+<target>Integrating with Microsoft Azure AD pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Integrating with Microsoft Azure AD</mrk></seg-source><target
           state="translated"><mrk
@@ -451,7 +488,8 @@
             MadCap:matchPercent="101">Integrazione con Microsoft Azure AD</mrk></target></trans-unit><trans-unit
         id="38"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Before starting the integration process, you must have requested, and been approved for, an Onshape Enterprise account or trial, and have an Onshape Enterprise domain name.</source><seg-source><mrk
+        phase-name="pretrans"><source>Before starting the integration process, you must have requested, and been approved for, an Onshape Enterprise account or trial, and have an Onshape Enterprise domain name.</source>
+<target>Before starting the integration process, you must have requested, and been approved for, an Onshape Enterprise account or trial, and have an Onshape Enterprise domain name. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Before starting the integration process, you must have requested, and been approved for, an Onshape Enterprise account or trial, and have an Onshape Enterprise domain name.</mrk></seg-source><target
           state="translated"><mrk
@@ -461,7 +499,8 @@
             MadCap:matchPercent="101">Prima di avviare il processo di integrazione, devi aver richiesto e ricevere l'approvazione per un account o una versione di prova Onshape Enterprise e disporre di un nome di dominio Onshape Enterprise.</mrk></target></trans-unit><trans-unit
         id="39"
         restype="x-xml-p"
-        phase-name="pretrans"><source>An example of an Enterprise domain name might be: MyCompanyName.onshape.com.</source><seg-source><mrk
+        phase-name="pretrans"><source>An example of an Enterprise domain name might be: MyCompanyName.onshape.com.</source>
+<target>An example of an Enterprise domain name might be: MyCompanyName.onshape.com. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">An example of an Enterprise domain name might be: MyCompanyName.onshape.com.</mrk></seg-source><target
           state="translated"><mrk
@@ -471,7 +510,8 @@
             MadCap:matchPercent="101">Un esempio di nome di dominio Enterprise potrebbe essere: NomeMiaAzienda.onshape.com.</mrk></target></trans-unit><trans-unit
         id="40"
         restype="x-xml-p"
-        phase-name="pretrans"><source>You can use only one (single sign-on) SSO provider at a time.</source><seg-source><mrk
+        phase-name="pretrans"><source>You can use only one (single sign-on) SSO provider at a time.</source>
+<target>You can use only one (single sign-on) SSO provider at a time. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">You can use only one (single sign-on) SSO provider at a time.</mrk></seg-source><target
           state="translated"><mrk
@@ -481,7 +521,8 @@
             MadCap:matchPercent="101">È possibile utilizzare un solo provider SSO (single sign-on) alla volta.</mrk></target></trans-unit><trans-unit
         id="41"
         restype="x-xml-p"
-        phase-name="pretrans"><source>This configuration process might fail without parameter values customized for your organization. Use your Microsoft Azure AD single sign-on dashboard to add Onshape as an application and record the values that are specific for your organization. You need those values for the following procedure.</source><seg-source><mrk
+        phase-name="pretrans"><source>This configuration process might fail without parameter values customized for your organization. Use your Microsoft Azure AD single sign-on dashboard to add Onshape as an application and record the values that are specific for your organization. You need those values for the following procedure.</source>
+<target>This configuration process might fail without parameter values customized for your organization. Use your Microsoft Azure AD single sign-on dashboard to add Onshape as an application and record the values that are specific for your organization. You need those values for the following procedure. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">This configuration process might fail without parameter values customized for your organization. Use your Microsoft Azure AD single sign-on dashboard to add Onshape as an application and record the values that are specific for your organization. You need those values for the following procedure.</mrk></seg-source><target
           state="translated"><mrk
@@ -512,7 +553,8 @@
             MadCap:matchPercent="101">Passaggi di Modifica in contesto</mrk></target></trans-unit><trans-unit
         id="43"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Azure Video example</source><seg-source><mrk
+        phase-name="pretrans"><source>Azure Video example</source>
+<target>Azure Video example pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1"
             MadCap:conditions="Default.ScreenOnly"
@@ -541,7 +583,8 @@
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="45"
         restype="x-xml-p"
-        phase-name="pretrans"><source>To enable single sign-on for your company, you must first add the Onshape application to your Azure AD single sign-on account:</source><seg-source><mrk
+        phase-name="pretrans"><source>To enable single sign-on for your company, you must first add the Onshape application to your Azure AD single sign-on account:</source>
+<target>To enable single sign-on for your company, you must first add the Onshape application to your Azure AD single sign-on account: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">To enable single sign-on for your company, you must first add the Onshape application to your Azure AD single sign-on account:</mrk></seg-source><target
           state="translated"><mrk
@@ -700,7 +743,8 @@
               id="1">&lt;/i&gt;</ept> nella parte inferiore del riquadro.</mrk></target></trans-unit><trans-unit
         id="52"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Microsoft Azure creates the new application for you. Be aware this can take a few seconds to set up.</source><seg-source><mrk
+        phase-name="pretrans"><source>Microsoft Azure creates the new application for you. Be aware this can take a few seconds to set up.</source>
+<target>Microsoft Azure creates the new application for you. Be aware this can take a few seconds to set up. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Microsoft Azure creates the new application for you. Be aware this can take a few seconds to set up.</mrk></seg-source><target
           state="translated"><mrk
@@ -1102,7 +1146,8 @@
               id="1">&lt;/i&gt;</ept>.</mrk></target></trans-unit><trans-unit
         id="62"
         restype="x-xml-p"
-        phase-name="pretrans"><source>The SAML-based Sign-on page is displayed again. Your page should look similar to the image below.</source><seg-source><mrk
+        phase-name="pretrans"><source>The SAML-based Sign-on page is displayed again. Your page should look similar to the image below.</source>
+<target>The SAML-based Sign-on page is displayed again. Your page should look similar to the image below. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">The SAML-based Sign-on page is displayed again. Your page should look similar to the image below.</mrk></seg-source><target
           state="translated"><mrk
@@ -1748,7 +1793,8 @@ Select
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="81"
         restype="x-xml-p"
-        phase-name="pretrans"><source>In order to sign in to Onshape, administrators must provision their users (in their single sign-on account) to use the Onshape application.</source><seg-source><mrk
+        phase-name="pretrans"><source>In order to sign in to Onshape, administrators must provision their users (in their single sign-on account) to use the Onshape application.</source>
+<target>In order to sign in to Onshape, administrators must provision their users (in their single sign-on account) to use the Onshape application. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">In order to sign in to Onshape, administrators must provision their users (in their single sign-on account) to use the Onshape application.</mrk></seg-source><target
           state="translated"><mrk
@@ -1775,7 +1821,8 @@ Select
             MadCap:matchPercent="0" /></target></trans-unit><trans-unit
         id="83"
         restype="x-xml-p"
-        phase-name="pretrans"><source>If you see the following error:</source><seg-source><mrk
+        phase-name="pretrans"><source>If you see the following error:</source>
+<target>If you see the following error: pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">If you see the following error:</mrk></seg-source><target
           state="translated"><mrk
@@ -1785,7 +1832,8 @@ Select
             MadCap:matchPercent="101">Se viene visualizzato il seguente errore:</mrk></target></trans-unit><trans-unit
         id="84"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Close all tabs, fully sign out, and sign back into Microsoft.</source><seg-source><mrk
+        phase-name="pretrans"><source>Close all tabs, fully sign out, and sign back into Microsoft.</source>
+<target>Close all tabs, fully sign out, and sign back into Microsoft. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Close all tabs, fully sign out, and sign back into Microsoft.</mrk></seg-source><target
           state="translated"><mrk
@@ -1795,7 +1843,8 @@ Select
             MadCap:matchPercent="101">Chiudi tutte le schede, disconnetti completamente e accedi di nuovo a Microsoft.</mrk></target></trans-unit><trans-unit
         id="85"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Sign into Onshape again.</source><seg-source><mrk
+        phase-name="pretrans"><source>Sign into Onshape again.</source>
+<target>Sign into Onshape again. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Sign into Onshape again.</mrk></seg-source><target
           state="translated"><mrk
@@ -1805,7 +1854,8 @@ Select
             MadCap:matchPercent="101">Accedi di nuovo a Onshape.</mrk></target></trans-unit><trans-unit
         id="86"
         restype="x-xml-p"
-        phase-name="pretrans"><source>Be aware that the "test connection" button in the AD admin panel does not work.</source><seg-source><mrk
+        phase-name="pretrans"><source>Be aware that the "test connection" button in the AD admin panel does not work.</source>
+<target>Be aware that the "test connection" button in the AD admin panel does not work. pseudo</target><seg-source><mrk
             mtype="seg"
             mid="1">Be aware that the "test connection" button in the AD admin panel does not work.</mrk></seg-source><target
           state="translated"><mrk
