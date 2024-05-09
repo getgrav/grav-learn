@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xliff
+  version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-strict.xsd" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd"
+  MadCap:translationStatus="untranslated">
+  <file
+    xml:space="preserve"
+    original="Importing a Drawing.htm"
+    source-language="en"
+    target-language="it-it"
+    MadCap:file-filter=""
+    datatype="xhtml">
+    <header>
+      <skl><external-file
+          href="Importing a Drawing.htm.skl" /></skl>
+      <phase-group>
+        <phase
+          phase-name="translation"
+          process-name="translation" />
+        <phase
+          phase-name="completion"
+          process-name="translation" />
+        <phase
+          phase-name="approval"
+          process-name="review" />
+        <phase
+          phase-name="pretrans"
+          process-name="pre-translation" />
+      </phase-group>
+      <count-group
+        name="MadCap Statistics">
+        <count
+          count-type="total"
+          unit="segment">26</count>
+        <count
+          count-type="x-subflow"
+          unit="trans-unit">4</count>
+      </count-group>
+      <tool
+        tool-id="lingoproject"
+        tool-name="Lingo"
+        tool-version="11.2.8423.32284"
+        tool-company="MadCap Software" />
+    </header>
+    <body><trans-unit
+        id="1"
+        restype="x-xhtml-madcap:keyword-term"
+        phase-name="pretrans"
+        translate="no"><source>importing:drawings;drawings:importing</source>
+<target>importing:drawings;drawings:importing pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">importing:drawings</mrk><mrk
+            mtype="seg"
+            mid="2">drawings:importing</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="2"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Importing a Drawing tool icon</source>
+<target>Importing a Drawing tool icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Importing a Drawing tool icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Importazione dell'icona di uno strumento Disegno</mrk></target></trans-unit><trans-unit
+        id="3"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Importing a Drawing tool icon</source>
+<target>Importing a Drawing tool icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Importing a Drawing tool icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Importazione dell'icona di uno strumento Disegno</mrk></target></trans-unit><trans-unit
+        id="4"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Plus sign icon</source>
+<target>Plus sign icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Plus sign icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Icona segno più</mrk></target></trans-unit><trans-unit
+        id="5"
+        restype="x-xml-title"
+        phase-name="pretrans"><source>Importing a Drawing</source>
+<target>Importing a Drawing pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Importing a Drawing</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Importazione di un disegno</mrk></target></trans-unit><trans-unit
+        id="6"
+        restype="x-xml-meta-content"
+        phase-name="pretrans"><source>This section covers how to import Drawings. They can be imported from the Documents page where they automatically become a new document, or within a document, where they automatically become a tab inside that document.</source>
+<target>This section covers how to import Drawings. They can be imported from the Documents page where they automatically become a new document, or within a document, where they automatically become a tab inside that document. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">This section covers how to import Drawings. They can be imported from the Documents page where they automatically become a new document, or within a document, where they automatically become a tab inside that document.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Questa sezione tratta di come importare i disegni. Possono essere importati dalla pagina dei documenti, così da diventare automaticamente un nuovo documento, o all'interno di un documento, così da diventare automaticamente una scheda all'interno di quel documento.</mrk></target></trans-unit><trans-unit
+        id="7"
+        restype="x-xml-h1"
+        phase-name="pretrans"><source><bpt
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span&gt;</bpt>Importing a Drawing<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept>
+                </source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="2">Importing a Drawing</mrk><mrk
+            mtype="seg"
+            mid="3"><ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept></mrk><mrk
+            mtype="protected"
+            mid="4"> </mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Importazione di un disegno</mrk><mrk
+            mtype="seg"
+            mid="3"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="4"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="8"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Drawings are able to be imported from:</source>
+<target>Drawings are able to be imported from: pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Drawings are able to be imported from:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">I disegni possono essere importati da:</mrk></target></trans-unit><trans-unit
+        id="9"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>The Documents page where they automatically become a new document.</source>
+<target>The Documents page where they automatically become a new document. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The Documents page where they automatically become a new document.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">La pagina Documenti in cui diventano automaticamente un nuovo documento.</mrk></target></trans-unit><trans-unit
+        id="10"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Within a document, where they automatically become a tab inside that document.</source>
+<target>Within a document, where they automatically become a tab inside that document. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Within a document, where they automatically become a tab inside that document.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">All'interno di un documento, dove diventano automaticamente una scheda di tale documento.</mrk></target></trans-unit><trans-unit
+        id="11"
+        restype="x-xml-h2"
+        phase-name="pretrans"><source>Importing from Documents page
+      </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Importing from Documents page</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Importazione dalla pagina dei documenti</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="12"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+        <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/importfileicon@1x.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="3" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/importfileicon@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="3" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fai clic su <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/importfileicon@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="3" />" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
+        id="13"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select the file to import.</source>
+<target>Select the file to import. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Select the file to import.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Seleziona il file da importare.</mrk></target></trans-unit><trans-unit
+        id="14"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Onshape automatically translates the file to the proper format and creates a new Onshape document using the imported file name as the document name.</source>
+<target>Onshape automatically translates the file to the proper format and creates a new Onshape document using the imported file name as the document name. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Onshape automatically translates the file to the proper format and creates a new Onshape document using the imported file name as the document name.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Onshape converte automaticamente il file nel formato corretto e crea un nuovo documento Onshape utilizzando il nome del file importato come nome del documento.</mrk></target></trans-unit><trans-unit
+        id="15"
+        restype="x-xml-h2"
+        phase-name="pretrans"><source>Importing from within a document
+      </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Importing from within a document</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Importazione dall'interno di un documento</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="16"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+        <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/plussign.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="4" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/plussign.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="4" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fai clic su <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/plussign.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="4" />" class="InlineImage" /&gt;</ph>.</mrk></target></trans-unit><trans-unit
+        id="17"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select Import...</source>
+<target>Select Import... pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Select Import...</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Seleziona Importa...</mrk></target></trans-unit><trans-unit
+        id="18"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select the file to import.</source>
+<target>Select the file to import. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Select the file to import.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Seleziona il file da importare.</mrk></target></trans-unit><trans-unit
+        id="19"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Onshape automatically translates the file to the proper format and creates a new tab for the file, as well as a drawing, using the file name as the file tab name and the drawing tab name.</source>
+<target>Onshape automatically translates the file to the proper format and creates a new tab for the file, as well as a drawing, using the file name as the file tab name and the drawing tab name. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Onshape automatically translates the file to the proper format and creates a new tab for the file, as well as a drawing, using the file name as the file tab name and the drawing tab name.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Onshape converte automaticamente il file nel formato corretto e crea una nuova scheda per il file, nonché un disegno, utilizzando il nome del file come nome della scheda del file e nome della scheda di disegno.</mrk></target></trans-unit><trans-unit
+        id="20"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>To set the background color of model space for imported DWG and DXF files go to Account settings &gt; Preferences, and specify a background color under the Drawings section. Click Save drawing settings when done.
+      <ph
+            id="1"
+            ctype="lb" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;br /&gt;</ph>      See
+      <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="managestandardaccount.htm"&gt;</bpt>Managing Your Onshape Account<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>
+      for more info.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">To set the background color of model space for imported DWG and DXF files go to Account settings &gt; Preferences, and specify a background color under the Drawings section. Click Save drawing settings when done. <ph
+              id="1"
+              ctype="lb" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;br /&gt;</ph></mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk><mrk
+            mtype="seg"
+            mid="3">See <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="managestandardaccount.htm"&gt;</bpt>Managing Your Onshape Account<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept> for more info.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Per impostare il colore di sfondo dello spazio modello per i file DWG importati  e DXF  i file vanno alle impostazioni dell'account &gt; Preferenze e specifica un colore di sfondo nella sezione Disegni. Al termine, fate clic su Salva le impostazioni del disegno. <ph
+              id="1"
+              ctype="lb">&lt;br /&gt;</ph></mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="3"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="managestandardaccount.htm"&gt;</bpt> Gestione del tuo account Onshape <ept
+              id="1">&lt;/a&gt;</ept> per maggiori informazioni.</mrk></target></trans-unit></body>
+  </file>
+</xliff>

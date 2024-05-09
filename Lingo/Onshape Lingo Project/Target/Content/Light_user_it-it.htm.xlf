@@ -1,0 +1,2614 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xliff
+  version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-strict.xsd" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd"
+  MadCap:translationStatus="untranslated">
+  <file
+    xml:space="preserve"
+    original="Light_user.htm"
+    source-language="en"
+    target-language="it-it"
+    MadCap:file-filter=""
+    datatype="xhtml">
+    <header>
+      <skl><external-file
+          href="Light_user.htm.skl" /></skl>
+      <phase-group>
+        <phase
+          phase-name="translation"
+          process-name="translation" />
+        <phase
+          phase-name="completion"
+          process-name="translation" />
+        <phase
+          phase-name="approval"
+          process-name="review" />
+        <phase
+          phase-name="pretrans"
+          process-name="pre-translation" />
+      </phase-group>
+      <count-group
+        name="MadCap Statistics">
+        <count
+          count-type="total"
+          unit="segment">185</count>
+        <count
+          count-type="x-subflow"
+          unit="trans-unit">43</count>
+      </count-group>
+      <tool
+        tool-id="lingoproject"
+        tool-name="Lingo"
+        tool-version="11.2.8423.32284"
+        tool-company="MadCap Software" />
+    </header>
+    <body><trans-unit
+        id="1"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Light user homepage</source>
+<target>Light user homepage pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Light user homepage</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Homepage utente light</mrk></target></trans-unit><trans-unit
+        id="2"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of tabs bar located at bottom of your document</source>
+<target>Example of tabs bar located at bottom of your document pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of tabs bar located at bottom of your document</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di barra delle schede situata nella parte inferiore del documento</mrk></target></trans-unit><trans-unit
+        id="3"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Tab manager icon</source>
+<target>Tab manager icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Tab manager icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Icona Gestione schede</mrk></target></trans-unit><trans-unit
+        id="4"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of view when Part Studios icon is selected</source>
+<target>Example of view when Part Studios icon is selected pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of view when Part Studios icon is selected</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di vista quando è selezionata l'icona dei Part Studio</mrk></target></trans-unit><trans-unit
+        id="5"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Part Studios tab icon</source>
+<target>Part Studios tab icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Part Studios tab icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Icona della scheda Part Studio</mrk></target></trans-unit><trans-unit
+        id="6"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Drawings tab icon</source>
+<target>Drawings tab icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Drawings tab icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Icona della scheda Disegni</mrk></target></trans-unit><trans-unit
+        id="7"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>feature studio icon</source>
+<target>feature studio icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">feature studio icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">icona Feature Studio</mrk></target></trans-unit><trans-unit
+        id="8"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Application tab icon</source>
+<target>Application tab icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Application tab icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Icona scheda Applicazione</mrk></target></trans-unit><trans-unit
+        id="9"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Image tab icon</source>
+<target>Image tab icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Image tab icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Icona scheda Immagine</mrk></target></trans-unit><trans-unit
+        id="10"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Zip file tab icon</source>
+<target>Zip file tab icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Zip file tab icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Icona scheda File zip</mrk></target></trans-unit><trans-unit
+        id="11"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Material library tab icon</source>
+<target>Material library tab icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Material library tab icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Icona scheda Libreria materiali</mrk></target></trans-unit><trans-unit
+        id="12"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>PDF tab icon</source>
+<target>PDF tab icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">PDF tab icon</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="13"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Assemblies tab icon</source>
+<target>Assemblies tab icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Assemblies tab icon</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="14"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>X_T tab icon</source>
+<target>X_T tab icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">X_T tab icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Icona scheda X_T</mrk></target></trans-unit><trans-unit
+        id="15"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Light user home page, navigating the interface</source>
+<target>Light user home page, navigating the interface pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Light user home page, navigating the interface</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Home page per utenti light, navigazione nell'interfaccia</mrk></target></trans-unit><trans-unit
+        id="16"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Onshape Help menu icon</source>
+<target>Onshape Help menu icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Onshape Help menu icon</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="17"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Accessing the help files via the help menu</source>
+<target>Accessing the help files via the help menu pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Accessing the help files via the help menu</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Accesso ai file della guida tramite il menu Guida</mrk></target></trans-unit><trans-unit
+        id="18"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Account user button</source>
+<target>Account user button pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Account user button</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="19"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of Activity page button selected</source>
+<target>Example of Activity page button selected pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of Activity page button selected</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di pulsante della pagina Attività selezionato</mrk></target></trans-unit><trans-unit
+        id="20"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of view of Activity page</source>
+<target>Example of view of Activity page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of view of Activity page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di visualizzazione della pagina Attività</mrk></target></trans-unit><trans-unit
+        id="21"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of Documents page button selected</source>
+<target>Example of Documents page button selected pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of Documents page button selected</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di pulsante della pagina dei documenti selezionato</mrk></target></trans-unit><trans-unit
+        id="22"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of the Documents page</source>
+<target>Example of the Documents page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of the Documents page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio della pagina Documenti</mrk></target></trans-unit><trans-unit
+        id="23"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of Advanced Search bar outlined in red</source>
+<target>Example of Advanced Search bar outlined in red pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of Advanced Search bar outlined in red</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di barra di Ricerca avanzata delineata in rosso</mrk></target></trans-unit><trans-unit
+        id="24"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of Advanced Search bar dialog</source>
+<target>Example of Advanced Search bar dialog pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of Advanced Search bar dialog</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di finestra di dialogo della barra di Ricerca avanzata</mrk></target></trans-unit><trans-unit
+        id="25"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of Advanced Search dialog filled out</source>
+<target>Example of Advanced Search dialog filled out pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of Advanced Search dialog filled out</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di finestra di dialogo Ricerca avanzata compilata</mrk></target></trans-unit><trans-unit
+        id="26"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of view of Search results</source>
+<target>Example of view of Search results pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of view of Search results</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di visualizzazione dei risultati di ricerca</mrk></target></trans-unit><trans-unit
+        id="27"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Screenshot of Part Studio with view only toolbar outlined in blue</source>
+<target>Screenshot of Part Studio with view only toolbar outlined in blue pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Screenshot of Part Studio with view only toolbar outlined in blue</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Schermata di Part Studio con barra degli strumenti di sola visualizzazione delineata in blu</mrk></target></trans-unit><trans-unit
+        id="28"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of view of your document with one part selected</source>
+<target>Example of view of your document with one part selected pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of view of your document with one part selected</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di visualizzazione del documento con una parte selezionata</mrk></target></trans-unit><trans-unit
+        id="29"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of view of your document with three parts selected</source>
+<target>Example of view of your document with three parts selected pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of view of your document with three parts selected</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di visualizzazione del documento con tre parti selezionate</mrk></target></trans-unit><trans-unit
+        id="30"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of view of a part selected, with the Area outlined in red</source>
+<target>Example of view of a part selected, with the Area outlined in red pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of view of a part selected, with the Area outlined in red</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di vista di una parte selezionata, con l'area delineata in rosso</mrk></target></trans-unit><trans-unit
+        id="31"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of Mass properties icon outlined in red</source>
+<target>Example of Mass properties icon outlined in red pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of Mass properties icon outlined in red</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di icona Proprietà massa delineata in rosso</mrk></target></trans-unit><trans-unit
+        id="32"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Screenshot of the Create task option highlighted in a context menu</source>
+<target>Screenshot of the Create task option highlighted in a context menu pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Screenshot of the Create task option highlighted in a context menu</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Schermata dell'opzione Crea attività evidenziata in un menu contestuale</mrk></target></trans-unit><trans-unit
+        id="33"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Screenshot of the Create task dialog box</source>
+<target>Screenshot of the Create task dialog box pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Screenshot of the Create task dialog box</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Schermata della finestra di dialogo Crea attività</mrk></target></trans-unit><trans-unit
+        id="34"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>References icon</source>
+<target>References icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">References icon</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="35"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Priority and Dates icon</source>
+<target>Priority and Dates icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Priority and Dates icon</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="36"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of a created task</source>
+<target>Example of a created task pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of a created task</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di attività creata</mrk></target></trans-unit><trans-unit
+        id="37"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Comments icon</source>
+<target>Comments icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Comments icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Icona Commenti</mrk></target></trans-unit><trans-unit
+        id="38"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of Comments flyout</source>
+<target>Example of Comments flyout pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of Comments flyout</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di menu Commenti</mrk></target></trans-unit><trans-unit
+        id="39"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of right-click context menu in a document with Add comment...highlighted</source>
+<target>Example of right-click context menu in a document with Add comment...highlighted pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of right-click context menu in a document with Add comment...highlighted</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di menu contestuale a scelta rapida in un documento, con Aggiungi commento... evidenziato</mrk></target></trans-unit><trans-unit
+        id="40"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of view of right-click context menu Comments flyout in a document</source>
+<target>Example of view of right-click context menu Comments flyout in a document pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of view of right-click context menu Comments flyout in a document</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di visualizzazione del menu contestuale di scelta rapida Commenti in un documento</mrk></target></trans-unit><trans-unit
+        id="41"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of right-click context menu with Export...highlighted</source>
+<target>Example of right-click context menu with Export...highlighted pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of right-click context menu with Export...highlighted</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di menu contestuale con Esporta... evidenziato</mrk></target></trans-unit><trans-unit
+        id="42"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of Export dialog</source>
+<target>Example of Export dialog pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of Export dialog</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di finestra Esporta</mrk></target></trans-unit><trans-unit
+        id="43"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of right-click context menu</source>
+<target>Example of right-click context menu pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of right-click context menu</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di menu contestuale di scelta rapida</mrk></target></trans-unit><trans-unit
+        id="44"
+        restype="x-xml-title"
+        phase-name="pretrans"><source>Getting Started as a Light User</source>
+<target>Getting Started as a Light User pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Getting Started as a Light User</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="45"
+        restype="x-xml-meta-content"
+        phase-name="pretrans"><source>Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of  their enterprise data.</source>
+<target>Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of  their enterprise data. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of their enterprise data.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Gli account degli utenti light sono di solito utilizzati da membri della supply chain interna, manager o dirigenti, e possono essere anche a disposizione di fornitori esterni o clienti. Tutti gli utenti Onshape hanno accesso a una singola fonte di dati aziendali.</mrk></target></trans-unit><trans-unit
+        id="46"
+        restype="x-xml-h1"
+        phase-name="pretrans"><source>Getting Started as a Light User</source>
+<target>Getting Started as a Light User pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Getting Started as a Light User</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="47"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>What is a Light user?</source>
+<target>What is a Light user? pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">What is a Light user?</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Cos'è un utente Light?</mrk></target></trans-unit><trans-unit
+        id="48"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of their enterprise data. There are times, however, when some users don't need all the CAD functionality but rather just need to access, view, and export data. To better serve the needs of different users, Onshape provides two types of user accounts:</source>
+<target>Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of their enterprise data. There are times, however, when some users don't need all the CAD functionality but rather just need to access, view, and export data. To better serve the needs of different users, Onshape provides two types of user accounts: pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Light user accounts are typically used by members of the internal supply chain, managers or executives, and can even be provided to external suppliers or clients. All Onshape users have access to the one single source of their enterprise data. There are times, however, when some users don't need all the CAD functionality but rather just need to access, view, and export data. To better serve the needs of different users, Onshape provides two types of user accounts:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Gli account Utente light sono in genere utilizzati dai membri della supply chain interna, dai manager o dai dirigenti e possono anche essere utilizzati da fornitori o clienti esterni. Tutti gli utenti Onshape hanno accesso a un'unica fonte di dati aziendali. Tuttavia, ci sono casi in cui alcuni utenti non hanno bisogno di tutte le funzionalità CAD, ma solo di accedere, visualizzare ed esportare i dati. Per soddisfare al meglio le esigenze dei diversi utenti, Onshape fornisce due tipi di account utente:</mrk></target></trans-unit><trans-unit
+        id="49"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Full users<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            - Full users have the ability to access all of Onshape’s functionality to create, edit, and share data. Typically, Full user accounts are used by engineers, designers, or CAD specialists.</source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Full users<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> - Full users have the ability to access all of Onshape’s functionality to create, edit, and share data. Typically, Full user accounts are used by engineers, designers, or CAD specialists.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Utenti completi<ept
+              id="1">&lt;/b&gt;</ept> - Gli utenti completi possono accedere a tutte le funzionalità di Onshape per creare, modificare e condividere dati. In genere, gli account di utente completo vengono utilizzati da ingegneri, progettisti o specialisti CAD.</mrk></target></trans-unit><trans-unit
+        id="50"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Light users<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            - Light users can view, comment on, and export enterprise data that has been shared with them.</source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Light users<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> - Light users can view, comment on, and export enterprise data that has been shared with them.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Utenti light<ept
+              id="1">&lt;/b&gt;</ept> - Gli utenti light possono visualizzare ed esportare i dati aziendali condivisi con loro e aggiungervi commenti.</mrk></target></trans-unit><trans-unit
+        id="51"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>When you sign in to Onshape as a Light user, you experience a trimmed-down version of the Onshape user interface called the View only toolbar. Many features and toolbars are removed, leaving only the commands necessary for finding, opening, viewing, commenting on, and exporting data. These commands are conveniently accessed through the
+          <bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>View only toolbar<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">When you sign in to Onshape as a Light user, you experience a trimmed-down version of the Onshape user interface called the View only toolbar. Many features and toolbars are removed, leaving only the commands necessary for finding, opening, viewing, commenting on, and exporting data. These commands are conveniently accessed through the <bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>View only toolbar<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Quando accedi a Onshape come utente light, avrai a disposizione una versione ridotta dell'interfaccia utente Onshape denominata barra degli strumenti Sola lettura. Molte funzioni e barre degli strumenti vengono rimosse e sono disponibili solo i comandi necessari per trovare, aprire, visualizzare, commentare ed esportare i dati. Questi comandi sono comodamente accessibili tramite la barra degli strumenti <bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Sola lettura<ept
+              id="1">&lt;/b&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="52"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>In addition to the toolbar, you can also right-click on a sketch or part to access a menu of available commands like Show Dimensions, and other commands as well. Double-click on a feature in the Features list to see the settings and options used to create it.</source>
+<target>In addition to the toolbar, you can also right-click on a sketch or part to access a menu of available commands like Show Dimensions, and other commands as well. Double-click on a feature in the Features list to see the settings and options used to create it. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">In addition to the toolbar, you can also right-click on a sketch or part to access a menu of available commands like Show Dimensions, and other commands as well. Double-click on a feature in the Features list to see the settings and options used to create it.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Oltre alla barra degli strumenti, puoi anche fare clic con il pulsante destro del mouse su uno schizzo o su una parte per accedere a un menu di comandi disponibili come Mostra dimensioni e altri comandi. Fai doppio clic su una funzione nell'elenco Funzioni per visualizzare le impostazioni e le opzioni utilizzate per crearla.</mrk></target></trans-unit><trans-unit
+        id="53"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The default entry-point for a Light user upon sign-in is the Activity stream on the dashboard:</source>
+<target>The default entry-point for a Light user upon sign-in is the Activity stream on the dashboard: pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The default entry-point for a Light user upon sign-in is the Activity stream on the dashboard:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Il punto di ingresso predefinito per un utente light al momento dell'accesso è il flusso attività nella dashboard:</mrk></target></trans-unit><trans-unit
+        id="54"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>A typical entry-point for a Light user, see
+          <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="#Navigati"&gt;</bpt>Navigating the interface<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>
+          below for more information on this illustration</source><seg-source><mrk
+            mtype="seg"
+            mid="1">A typical entry-point for a Light user, see <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="#Navigati"&gt;</bpt>Navigating the interface<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept> below for more information on this illustration</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">Un tipico punto di ingresso per un utente Light, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="#Navigati"&gt;</bpt>Navigazione nell'interfaccia<ept
+              id="1">&lt;/a&gt;</ept> di seguito per ulteriori informazioni su questa illustrazione </mrk></target></trans-unit><trans-unit
+        id="55"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>An activity stream lists all the actions taken on all documents to which you have permissions.</source>
+<target>An activity stream lists all the actions taken on all documents to which you have permissions. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">An activity stream lists all the actions taken on all documents to which you have permissions.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Un flusso attività elenca tutte le azioni intraprese su tutti i documenti per i quali disponi delle autorizzazioni.</mrk></target></trans-unit><trans-unit
+        id="56"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The only time you will not land on the Activity stream page, is when you are shared directly into a document and access that document via the share link (sent via a notification in the product, an email, or a mobile notification if this type of notification is turned on).</source>
+<target>The only time you will not land on the Activity stream page, is when you are shared directly into a document and access that document via the share link (sent via a notification in the product, an email, or a mobile notification if this type of notification is turned on). pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The only time you will not land on the Activity stream page, is when you are shared directly into a document and access that document via the share link (sent via a notification in the product, an email, or a mobile notification if this type of notification is turned on).</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">L'unica volta in cui non viene indirizzato alla pagina Flusso attività è quando un documento è condiviso con te e accedi a tale documento tramite il collegamento di condivisione (inviato tramite una notifica nel prodotto, un'email o una notifica di dispositivo mobile se questo tipo di notifica è attivato).</mrk></target></trans-unit><trans-unit
+        id="57"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Signing in</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">Signing in</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Accesso</mrk></target></trans-unit><trans-unit
+        id="58"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>When working within an Enterprise in Onshape, be aware that you are in a separate, managed environment that has a subtle difference from other types of Onshape subscriptions. The Enterprise environment is owned and managed by an Enterprise Administrator and can include many users, called Members of the Enterprise.</source>
+<target>When working within an Enterprise in Onshape, be aware that you are in a separate, managed environment that has a subtle difference from other types of Onshape subscriptions. The Enterprise environment is owned and managed by an Enterprise Administrator and can include many users, called Members of the Enterprise. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">When working within an Enterprise in Onshape, be aware that you are in a separate, managed environment that has a subtle difference from other types of Onshape subscriptions. The Enterprise environment is owned and managed by an Enterprise Administrator and can include many users, called Members of the Enterprise.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Quando lavori all'interno di un account Enterprise su Onshape, tieni presente che ti trovi in un ambiente gestito e separato, che presenta alcune differenze con altri tipi di abbonamenti a Onshape. L'ambiente Enterprise è di proprietà e gestito da un amministratore Enterprise e può includere molti utenti, chiamati Membri dell'Enterprise.</mrk></target></trans-unit><trans-unit
+        id="59"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>All users belonging to a specific Enterprise plan access Onshape through a single URL, specifically for their Enterprise.</source>
+<target>All users belonging to a specific Enterprise plan access Onshape through a single URL, specifically for their Enterprise. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">All users belonging to a specific Enterprise plan access Onshape through a single URL, specifically for their Enterprise.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Tutti gli utenti appartenenti a un determinato piano Enterprise accedono a Onshape tramite un unico URL specifico per la propria impresa.</mrk></target></trans-unit><trans-unit
+        id="60"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Every Onshape Enterprise user has access to their particular Enterprise's account as well as an individual account.
+If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find yourself in your own account. You are able to use this account to create Onshape documents that are separate from the Enterprise and not seen or managed by the Enterprise. Regardless of what platform you use, when you sign into Onshape you access this individual account first unless you use your specific Enterprise URL. Use the User menu &gt; Switch to &lt;enterprise name&gt; to switch your sign in to the Enterprise account.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Every Onshape Enterprise user has access to their particular Enterprise's account as well as an individual account. If you sign in using cad.onshape.com in lieu of your Enterprise URL, you'll find yourself in your own account. You are able to use this account to create Onshape documents that are separate from the Enterprise and not seen or managed by the Enterprise. Regardless of what platform you use, when you sign into Onshape you access this individual account first unless you use your specific Enterprise URL. Use the User menu &gt; Switch to &lt;enterprise name&gt; to switch your sign in to the Enterprise account.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Ogni utente Onshape Enterprise ha accesso al proprio account Enterprise e a un account individuale. Se accedi utilizzando cad.onshape.com anziché il tuo URL Enterprise, ti troverai nel tuo account personale. Puoi utilizzare questo account per creare documenti Onshape separati dall'account Enterprise e non visualizzati o gestiti da esso. Indipendentemente dalla piattaforma utilizzata, quando accedi a Onshape accedi prima a questo account individuale, a meno che non utilizzi il tuo URL Enterprise specifico. Utilizza il menu Utente &gt; Passa a &lt;nome account Enterprise&gt; per accedere direttamente all'account Enterprise.</mrk></target></trans-unit><trans-unit
+        id="61"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          The structure of Onshape documents</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">The structure of Onshape documents</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">La struttura dei documenti Onshape</mrk></target></trans-unit><trans-unit
+        id="62"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>An Onshape document is a version-controlled container for potentially many types of data. A single document may contain parts, assemblies, drawings, and even uploaded files like PDFs, images, or videos. Every organization uses documents differently, but understanding how documents are structured and how to find different types of information will help you work with them effectively.</source>
+<target>An Onshape document is a version-controlled container for potentially many types of data. A single document may contain parts, assemblies, drawings, and even uploaded files like PDFs, images, or videos. Every organization uses documents differently, but understanding how documents are structured and how to find different types of information will help you work with them effectively. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">An Onshape document is a version-controlled container for potentially many types of data. A single document may contain parts, assemblies, drawings, and even uploaded files like PDFs, images, or videos. Every organization uses documents differently, but understanding how documents are structured and how to find different types of information will help you work with them effectively.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Un documento Onshape è un contenitore con controllo delle versioni che può potenzialmente includere vari tipi di dati. Un singolo documento può contenere parti, assiemi, disegni e persino file caricati come PDF, immagini o video. Ogni organizzazione utilizza i documenti in modo diverso, ma capire come sono strutturati i documenti e come trovare diversi tipi di informazioni ti aiuterà a lavorare in modo efficace.</mrk></target></trans-unit><trans-unit
+        id="63"
+        restype="x-xml-h3"
+        phase-name="pretrans"><source>Tabs</source>
+<target>Tabs pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Tabs</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Schede</mrk></target></trans-unit><trans-unit
+        id="64"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Each Onshape document may contain different types of information, broken down into different kinds of tabs which can be seen along the bottom of the window:</source>
+<target>Each Onshape document may contain different types of information, broken down into different kinds of tabs which can be seen along the bottom of the window: pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Each Onshape document may contain different types of information, broken down into different kinds of tabs which can be seen along the bottom of the window:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Ogni documento Onshape può contenere diversi tipi di informazioni, suddivise in diversi tipi di schede che possono essere visualizzate lungo la parte inferiore della finestra:</mrk></target></trans-unit><trans-unit
+        id="65"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Examples of the different types of tab data</source>
+<target>Examples of the different types of tab data pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Examples of the different types of tab data</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempi di diversi tipi di dati scheda</mrk></target></trans-unit><trans-unit
+        id="66"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Hover over a tab for a thumbnail of its contents. Click on a tab to access its contents. You are also able to click the Tab manager button
+          <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/Light user/Tab manager icon.bmp" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="3" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>
+          in the bottom left to see a vertical list of tabs, as well as search and filter for specific types or instances of data:</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Hover over a tab for a thumbnail of its contents. Click on a tab to access its contents. You are also able to click the Tab manager button <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/Light user/Tab manager icon.bmp" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="3" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph> in the bottom left to see a vertical list of tabs, as well as search and filter for specific types or instances of data:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Passa il cursore del mouse su una scheda per visualizzare la miniatura del suo contenuto. Fai clic su una scheda per accedere al contenuto. Puoi anche fare clic sul pulsante Gestione schede <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/Light user/Tab manager icon.bmp" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="3" />" class="InlineImage" /&gt;</ph> in basso a sinistra per visualizzare un elenco verticale di schede, nonché cercare e filtrare specifici tipi o istanze di dati:</mrk></target></trans-unit><trans-unit
+        id="67"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select a tab type filter to sort by tab type.</source>
+<target>Select a tab type filter to sort by tab type. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Select a tab type filter to sort by tab type.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Seleziona un filtro di tipo scheda per ordinare in base al tipo di scheda.</mrk></target></trans-unit><trans-unit
+        id="68"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Enter search criteria if you wish.</source>
+<target>Enter search criteria if you wish. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Enter search criteria if you wish.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Se lo desideri, inserisci i criteri di ricerca.</mrk></target></trans-unit><trans-unit
+        id="69"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>View the results of your search.</source>
+<target>View the results of your search. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">View the results of your search.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Visualizza i risultati della ricerca.</mrk></target></trans-unit><trans-unit
+        id="70"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The Tab manager with the Part Studio filter selected</source>
+<target>The Tab manager with the Part Studio filter selected pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The Tab manager with the Part Studio filter selected</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Gestione schede con il filtro Part Studio selezionato</mrk></target></trans-unit><trans-unit
+        id="71"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Tabs fall into 9 categories:</source>
+<target>Tabs fall into 9 categories: pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Tabs fall into 9 categories:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Le schede rientrano in 9 categorie:</mrk></target></trans-unit><trans-unit
+        id="72"
+        restype="x-xml-b"
+        phase-name="pretrans"><source>Part Studio -</source>
+<target>Part Studio - pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Part Studio -</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="84">Part Studio - </mrk></target></trans-unit><trans-unit
+        id="73"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Parts in Onshape are created in Part Studio tabs. A Part Studio may contain one part or multiple parts, depending on how the designer constructed them.</source>
+<target>Parts in Onshape are created in Part Studio tabs. A Part Studio may contain one part or multiple parts, depending on how the designer constructed them. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Parts in Onshape are created in Part Studio tabs. A Part Studio may contain one part or multiple parts, depending on how the designer constructed them.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Le parti in Onshape vengono create nelle schede Part Studio. Un Part Studio può contenere una o più parti, a seconda di come il progettista le ha costruite.</mrk></target></trans-unit><trans-unit
+        id="74"
+        restype="x-xml-b"
+        phase-name="pretrans"><source>Drawing -</source>
+<target>Drawing - pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Drawing -</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Disegno -</mrk></target></trans-unit><trans-unit
+        id="75"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Drawing tabs will be familiar if you have used drawing files in another system. Onshape drawings can have multiple sheets and reference multiple parts or assemblies.</source>
+<target>Drawing tabs will be familiar if you have used drawing files in another system. Onshape drawings can have multiple sheets and reference multiple parts or assemblies. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Drawing tabs will be familiar if you have used drawing files in another system. Onshape drawings can have multiple sheets and reference multiple parts or assemblies.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Le schede di disegno ti saranno familiari se hai mai usato file di disegno in un altro sistema. I disegni Onshape possono avere più fogli e fare riferimento a più parti o assiemi.</mrk></target></trans-unit><trans-unit
+        id="76"
+        restype="x-xml-b"
+        phase-name="pretrans"><source>Feature Studio -</source>
+<target>Feature Studio - pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Feature Studio -</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="87">Feature Studio - </mrk></target></trans-unit><trans-unit
+        id="77"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>A Feature Studio is a tab containing FeatureScript, a programming language used to define your own custom features in Onshape. (See
+              <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="featurestudios.htm"&gt;</bpt>Feature Studios<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>
+              for more information.)</source><seg-source><mrk
+            mtype="seg"
+            mid="1">A Feature Studio is a tab containing FeatureScript, a programming language used to define your own custom features in Onshape. (See <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="featurestudios.htm"&gt;</bpt>Feature Studios<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept> for more information.)</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Un Feature Studio è una scheda contenente FeatureScript, un linguaggio di programmazione utilizzato per definire le proprie funzioni personalizzate in Onshape (per ulteriori informazioni, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="featurestudios.htm"&gt;</bpt>Feature Studio<ept
+              id="1">&lt;/a&gt;</ept>).</mrk></target></trans-unit><trans-unit
+        id="78"
+        restype="x-xml-b"
+        phase-name="pretrans"><source>Application -</source>
+<target>Application - pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Application -</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Applicazione -</mrk></target></trans-unit><trans-unit
+        id="79"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Third-party applications from the Onshape App store may also appear as tabs in an Onshape document. These may be less relevant to your use of Onshape, but are nonetheless important to recognize if you encounter them.</source>
+<target>Third-party applications from the Onshape App store may also appear as tabs in an Onshape document. These may be less relevant to your use of Onshape, but are nonetheless important to recognize if you encounter them. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Third-party applications from the Onshape App store may also appear as tabs in an Onshape document. These may be less relevant to your use of Onshape, but are nonetheless important to recognize if you encounter them.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Le applicazioni di terze parti dell'App Store Onshape possono essere visualizzate anche come schede di un documento Onshape. Queste possono essere meno rilevanti per l'uso di Onshape, ma sono comunque importanti da riconoscere se li incontri.</mrk></target></trans-unit><trans-unit
+        id="80"
+        restype="x-xml-b"
+        phase-name="pretrans"><source>Image -</source>
+<target>Image - pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Image -</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Immagine -</mrk></target></trans-unit><trans-unit
+        id="81"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Images uploaded into Onshape are stored in a tab and are displayed both in the tab and the thumbnail of the tab.</source>
+<target>Images uploaded into Onshape are stored in a tab and are displayed both in the tab and the thumbnail of the tab. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Images uploaded into Onshape are stored in a tab and are displayed both in the tab and the thumbnail of the tab.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Le immagini caricate in Onshape sono memorizzate in una scheda e vengono visualizzate sia nella scheda che nella miniatura della scheda.</mrk></target></trans-unit><trans-unit
+        id="82"
+        restype="x-xml-b"
+        phase-name="pretrans"><source>Zip -</source>
+<target>Zip - pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Zip -</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">Zip - </mrk></target></trans-unit><trans-unit
+        id="83"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>A zip file is an import of compressed (or zipped) files for the purpose of storing information in Onshape along with the project data. See
+              <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="uploadfiles.htm"&gt;</bpt>Importing Files<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>
+              for more information.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">A zip file is an import of compressed (or zipped) files for the purpose of storing information in Onshape along with the project data. See <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="uploadfiles.htm"&gt;</bpt>Importing Files<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept> for more information.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Un file zip è un'importazione di file compressi (o zippati) allo scopo di memorizzare informazioni in Onshape insieme ai dati del progetto. Per ulteriori informazioni, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="uploadfiles.htm"&gt;</bpt>Importazione di file<ept
+              id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="84"
+        restype="x-xml-b"
+        phase-name="pretrans"><source>Material library -</source>
+<target>Material library - pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Material library -</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Libreria dei materiali -</mrk></target></trans-unit><trans-unit
+        id="85"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Users are able to upload their own company material libraries for use in Onshape. See
+              <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="material_library.htm"&gt;</bpt>Customizing Materials<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>
+              for more information.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Users are able to upload their own company material libraries for use in Onshape. See <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="material_library.htm"&gt;</bpt>Customizing Materials<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept> for more information.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Gli utenti possono caricare le proprie librerie dei materiali aziendali da utilizzare su Onshape. Per ulteriori informazioni, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="material_library.htm"&gt;</bpt>Personalizzazione dei materiali<ept
+              id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="86"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>PDFs<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            -
+            <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/Light user/pdf-icon@2x.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="12" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" /&gt;</ph><bpt
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt>PDFs generate a preview and may be viewed directly in the Onshape document.<ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>PDFs<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> - <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/Light user/pdf-icon@2x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="12" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" /&gt;</ph><bpt
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt>PDFs generate a preview and may be viewed directly in the Onshape document.<ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>PDF<ept
+              id="1">&lt;/b&gt;</ept> - <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/Light user/pdf-icon@2x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="12" />" /&gt;</ph><bpt
+              id="2">&lt;p&gt;</bpt>I PDF generano un'anteprima e possono essere visualizzati direttamente nel documento Onshape.<ept
+              id="2">&lt;/p&gt;</ept></mrk></target></trans-unit><trans-unit
+        id="87"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Assemblies -<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            (including BOMs)
+            <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/Light user/Assemblies_icon.bmp" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="13" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" /&gt;</ph><bpt
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt>Assemblies are created in Assembly tabs, very similar to the assembly files you may be familiar with from other systems. One key difference is that in Onshape, the assembly simultaneously contains the Bill of Materials (BOM).<ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Assemblies -<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> (including BOMs) <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/Light user/Assemblies_icon.bmp" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="13" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" /&gt;</ph><bpt
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt>Assemblies are created in Assembly tabs, very similar to the assembly files you may be familiar with from other systems. One key difference is that in Onshape, the assembly simultaneously contains the Bill of Materials (BOM).<ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt> Assiemi - <ept
+              id="1">&lt;/b&gt;</ept> (compresi i BOM) <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/Light user/Assemblies_icon.bmp" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="13" />" /&gt;</ph><bpt
+              id="2">&lt;p&gt;</bpt>Gli assiemi vengono creati nelle schede Assieme, che sono molto simili ai file di assiemi tipici di altri sistemi. Una differenza fondamentale è che in Onshape l'assieme contiene contemporaneamente la distinta base (BOM).<ept
+              id="2">&lt;/p&gt;</ept></mrk></target></trans-unit><trans-unit
+        id="88"
+        restype="x-xml-b"
+        phase-name="pretrans"><source>X_T -</source>
+<target>X_T - pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">X_T -</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">X_T -</mrk></target></trans-unit><trans-unit
+        id="89"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>X-T is translated or un-translated CAD data from another system. See
+              <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="uploadfiles.htm"&gt;</bpt>Importing files<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>
+              for more information.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">X-T is translated or un-translated CAD data from another system. See <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="uploadfiles.htm"&gt;</bpt>Importing files<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept> for more information.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">X-T è un CAD convertito o non convertito da un altro sistema. Per ulteriori informazioni, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="uploadfiles.htm"&gt;</bpt>Importazione di file<ept
+              id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="90"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>For more information on using the tab manager, see
+          <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="elementtabs.htm"&gt;</bpt>Document Tabs<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">For more information on using the tab manager, see <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="elementtabs.htm"&gt;</bpt>Document Tabs<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Per ulteriori informazioni sull'utilizzo del gestore schede, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="elementtabs.htm"&gt;</bpt>Schede documenti<ept
+              id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="91"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Navigating the interface</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">Navigating the interface</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Navigazione nell'interfaccia</mrk></target></trans-unit><trans-unit
+        id="92"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The Onshape Light user interface includes the following features (note that the numbers coincide with the numbers in the image above):</source>
+<target>The Onshape Light user interface includes the following features (note that the numbers coincide with the numbers in the image above): pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The Onshape Light user interface includes the following features (note that the numbers coincide with the numbers in the image above):</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">L'interfaccia utente di Onshape Light include le seguenti funzionalità (nota che i numeri coincidono con i numeri nell'immagine sopra):</mrk></target></trans-unit><trans-unit
+        id="93"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Go to Documents icon -<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            Your company icon is located in the top far left corner of the Onshape homepage and displays the Documents page. Click this icon from anywhere in Onshape.</source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Go to Documents icon -<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> Your company icon is located in the top far left corner of the Onshape homepage and displays the Documents page. Click this icon from anywhere in Onshape.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Icona Vai ai documenti -<ept
+              id="1">&lt;/b&gt;</ept> L'icona della tua azienda si trova nell'angolo in alto a sinistra della homepage di Onshape e mostra la pagina dei documenti. Fai clic su questa icona da qualsiasi punto di Onshape.</mrk></target></trans-unit><trans-unit
+        id="94"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Activity tab -<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            This tab is located in the top left corner of the Light user homepage and allows you to navigate to your Activity stream (a listing of the actions you and your colleagues have taken within Onshape).</source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Activity tab -<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> This tab is located in the top left corner of the Light user homepage and allows you to navigate to your Activity stream (a listing of the actions you and your colleagues have taken within Onshape).</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Scheda Attività -<ept
+              id="1">&lt;/b&gt;</ept> Questa scheda si trova nell'angolo in alto a sinistra della homepage per l'utente light e consente di navigare al flusso attività (un elenco delle azioni intraprese da te e dai tuoi colleghi in Onshape).</mrk></target></trans-unit><trans-unit
+        id="95"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Documents tab -<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            The Documents tab is located in the top left corner of the Light user homepage and allows you to navigate to your Documents page (identical to clicking your company logo).</source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Documents tab -<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> The Documents tab is located in the top left corner of the Light user homepage and allows you to navigate to your Documents page (identical to clicking your company logo).</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Scheda Documenti -<ept
+              id="1">&lt;/b&gt;</ept> La scheda Documenti si trova nell'angolo in alto a sinistra della homepage per l'utente light e consente di passare alla pagina dei documenti (la procedura corrisponde a fare clic sul logo dell'azienda).</mrk></target></trans-unit><trans-unit
+        id="96"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Analytics tab -<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            The Analytics tab allows you to navigate to your Analytics page to view reports about documents, user, and usage. For more information on Analytics, see
+            <bpt
+            id="2"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="EnterpriseHelp/Content/reports.htm"&gt;</bpt>Accessing Analytics<ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Analytics tab -<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> The Analytics tab allows you to navigate to your Analytics page to view reports about documents, user, and usage. For more information on Analytics, see <bpt
+              id="2"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="EnterpriseHelp/Content/reports.htm"&gt;</bpt>Accessing Analytics<ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Scheda Analisi dei dati<ept
+              id="1">&lt;/b&gt;</ept>: la scheda Analisi dei dati consente di accedere alla pagina Analisi dei dati per visualizzare i report su documenti, utente e utilizzo. Per ulteriori informazioni su Analisi dei dati, vedi <bpt
+              id="2"
+              ctype="link">&lt;a href="EnterpriseHelp/Content/reports.htm"&gt;</bpt>Accesso ad Analisi dei dati<ept
+              id="2">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="97"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Action items tab<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            - The Action items tab is located along the top left of the Light user homepage and allows you to navigate directly to your Action items (tasks and release management assignments) page.</source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Action items tab<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> - The Action items tab is located along the top left of the Light user homepage and allows you to navigate directly to your Action items (tasks and release management assignments) page.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Scheda Task Manager<ept
+              id="1">&lt;/b&gt;</ept>: la scheda Task Manager si trova in alto a sinistra della pagina iniziale per gli utenti light e consente di accedere direttamente alla pagina Task Manager (attività e assegnazioni di gestione delle versioni).</mrk></target></trans-unit><trans-unit
+        id="98"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Search bar -<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            The Search bar on the Documents page allows you to search through all documents. When a filter is selected (on the far left: Recently opened, Created by me, Shared with me), the Search is conducted on documents within that filter.</source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Search bar -<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> The Search bar on the Documents page allows you to search through all documents. When a filter is selected (on the far left: Recently opened, Created by me, Shared with me), the Search is conducted on documents within that filter.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Barra di ricerca -<ept
+              id="1">&lt;/b&gt;</ept> La barra di ricerca nella pagina dei documenti consente di cercare in tutti i documenti. Quando viene selezionato un filtro (all'estrema sinistra: Aperti di recente, Creati da me, Condivisi con me), la ricerca viene condotta sui documenti all'interno di quel filtro.</mrk></target></trans-unit><trans-unit
+        id="99"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>App Store button -<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            Onshape's App Store button, located at the top of your Light user homepage to the right of the Search bar, allows you to navigate to Onshape's App Store. Here you can purchase third-party apps to work with your Onshape data.</source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>App Store button -<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> Onshape's App Store button, located at the top of your Light user homepage to the right of the Search bar, allows you to navigate to Onshape's App Store. Here you can purchase third-party apps to work with your Onshape data.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Pulsante App Store -<ept
+              id="1">&lt;/b&gt;</ept> Il pulsante App Store di Onshape, situato nella parte superiore della home page della sezione utente con limitazioni a destra della barra di ricerca, consente di accedere all'App Store di Onshape. Qui puoi acquistare app di terze parti per lavorare con i tuoi dati Onshape.</mrk></target></trans-unit><trans-unit
+        id="100"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Learning Center button -<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            Onshape's Learning Center button is located at the top of the Light user homepage to the right of the App Store button, and allows you to navigate to Onshape's Learning Center, which includes self-paced courses and recorded webinars about how to use Onshape.</source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Learning Center button -<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> Onshape's Learning Center button is located at the top of the Light user homepage to the right of the App Store button, and allows you to navigate to Onshape's Learning Center, which includes self-paced courses and recorded webinars about how to use Onshape.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Pulsante Learning Center -<ept
+              id="1">&lt;/b&gt;</ept> Il pulsante Learning Center di Onshape si trova nella parte superiore della home page degli utenti Light, a destra dell'app. Pulsante Store che consente di accedere al Learning Center di Onshape, che include corsi di autoapprendimento e webinar registrati su come utilizzare Onshape.</mrk></target></trans-unit><trans-unit
+        id="101"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;&lt;img src="Resources/Images/icons/helpicon.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="16" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</bpt>
+              Help icon -
+            <ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            Onshape's Help menu icon is located at the top right of the page, to the right of the Learning Center button. Click on the icon to open the Help menu drop down. Select the Help option to access Onshape's Help center.
+            <ph
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;&lt;img src="Resources/Images/Light user/Help menu drop down.png" class="ContextMenu" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="17" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" /&gt;&lt;/p&gt;</ph><bpt
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt>
+              This menu also contains a way to contact support:
+              <bpt
+            id="4"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Contact Support<ept
+            id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+              opens a dialog in which you can enter a question, optionally add a screenshot of your problem, and select whether or not to share your document directly with an Onshape Support representative (this permission can be revoked at any time).
+            <ept
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;&lt;img src="Resources/Images/icons/helpicon.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="16" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</bpt> Help icon - <ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> Onshape's Help menu icon is located at the top right of the page, to the right of the Learning Center button. Click on the icon to open the Help menu drop down. Select the Help option to access Onshape's Help center.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk><mrk
+            mtype="seg"
+            mid="3"><ph
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;&lt;img src="Resources/Images/Light user/Help menu drop down.png" class="ContextMenu" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="17" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" /&gt;&lt;/p&gt;</ph></mrk><mrk
+            mtype="seg"
+            mid="4"><bpt
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt></mrk><mrk
+            mtype="protected"
+            mid="5"> </mrk><mrk
+            mtype="seg"
+            mid="6">This menu also contains a way to contact support: <bpt
+              id="4"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Contact Support<ept
+              id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> opens a dialog in which you can enter a question, optionally add a screenshot of your problem, and select whether or not to share your document directly with an Onshape Support representative (this permission can be revoked at any time). <ept
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;&lt;img src="Resources/Images/icons/helpicon.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="16" />" class="InlineImage" /&gt;</bpt> Icona di aiuto - <ept
+              id="1">&lt;/b&gt;</ept> L'icona del menu Aiuto di Onshape si trova in alto a destra della pagina, a destra del pulsante Learning Center. Fai clic sull'icona per aprire il menu a discesa Aiuto. Seleziona l'opzione Aiuto per accedere al centro assistenza di Onshape.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="3"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="4"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="5"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="6"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">Questo menu contiene anche un modo per contattare il supporto di assistenza: <bpt
+              id="4"
+              ctype="bold">&lt;b&gt;</bpt>Contatta il Supporto<ept
+              id="4">&lt;/b&gt;</ept> apre una finestra di dialogo in cui è possibile inserire una domanda, aggiungere facoltativamente una schermata del problema e selezionare se vuoi condividere il documento direttamente con un rappresentante del Supporto Onshape (questa autorizzazione può essere revocata in qualsiasi momento). <ept
+              id="3">&lt;/p&gt;</ept></mrk></target></trans-unit><trans-unit
+        id="102"
+        restype="x-xml-li"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;&lt;img src="Resources/Images/Light user/Account user icon.bmp" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="18" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</bpt>
+              Account user icon -
+            <ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+            The right-most icon at the top of your Onshape Light user page is the Account icon, usually followed by the name of the user. Click on this icon, or your name, to open a drop down menu with options to navigate to your account, your enterprise settings, and an option to sign out.</source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;&lt;img src="Resources/Images/Light user/Account user icon.bmp" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="18" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</bpt> Account user icon - <ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> The right-most icon at the top of your Onshape Light user page is the Account icon, usually followed by the name of the user. Click on this icon, or your name, to open a drop down menu with options to navigate to your account, your enterprise settings, and an option to sign out.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;&lt;img src="Resources/Images/Light user/Account user icon.bmp" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="18" />" class="InlineImage" /&gt;</bpt>Icona utente dell'account - <ept
+              id="1">&lt;/b&gt;</ept>L'icona più a destra nella parte superiore della pagina utente di Onshape Light è l'icona Account, di solito seguita dal nome dell'utente. Fai clic su questa icona o sul tuo nome per aprire un menu a discesa con le opzioni per accedere al tuo account, alle impostazioni aziendali e un'opzione per disconnetterti. </mrk></target></trans-unit><trans-unit
+        id="103"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>For more information on getting started with some common setup preferences and accessing commands, see
+          <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="Primer/setting_preferences.htm"&gt;</bpt>Setting Your Preferences<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">For more information on getting started with some common setup preferences and accessing commands, see <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="Primer/setting_preferences.htm"&gt;</bpt>Setting Your Preferences<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Per ulteriori informazioni su come iniziare a utilizzare alcune delle più comuni preferenze di configurazione e su come accedere ai comandi, consulta <bpt
+              id="1"
+              ctype="link">&lt;a href="Primer/setting_preferences.htm"&gt;</bpt>Impostazione delle preferenze<ept
+              id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="104"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Using the Activity page</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">Using the Activity page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Utilizzo della pagina Attività</mrk></target></trans-unit><trans-unit
+        id="105"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Click
+          <bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Activity<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+          at the top of the window.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Activity<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> at the top of the window.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fare clic su <bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Attività<ept
+              id="1">&lt;/b&gt;</ept> nella parte superiore della finestra.</mrk></target></trans-unit><trans-unit
+        id="106"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The Activity page is your Onshape home page and is your default starting point in Onshape. On this page you see document-related activity in a stream. Use the 'ellipsis' menu to access commands related to the activity entry.</source>
+<target>The Activity page is your Onshape home page and is your default starting point in Onshape. On this page you see document-related activity in a stream. Use the 'ellipsis' menu to access commands related to the activity entry. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The Activity page is your Onshape home page and is your default starting point in Onshape. On this page you see document-related activity in a stream. Use the 'ellipsis' menu to access commands related to the activity entry.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">La pagina Attività è la tua home page di Onshape ed è il punto di partenza predefinito in Onshape. In questa pagina puoi vedere le attività relative ai documenti in uno stream. Usa il menu 'ellissi' per accedere ai comandi relativi alla voce dell'attività.</mrk></target></trans-unit><trans-unit
+        id="107"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>For more information, see
+          <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="EnterpriseHelp/Content/activity_view.htm"&gt;</bpt>Monitoring User Activity<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">For more information, see <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="EnterpriseHelp/Content/activity_view.htm"&gt;</bpt>Monitoring User Activity<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Per ulteriori informazioni, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="EnterpriseHelp/Content/activity_view.htm"&gt;</bpt>Monitoraggio dell'attività utente<ept
+              id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="108"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>An activity stream (outlined in red), with the ellipsis menu (circled in blue)</source>
+<target>An activity stream (outlined in red), with the ellipsis menu (circled in blue) pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">An activity stream (outlined in red), with the ellipsis menu (circled in blue)</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Un flusso attività (delineato in rosso), con il menu puntini di sospensione (cerchiato in blu)</mrk></target></trans-unit><trans-unit
+        id="109"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Using the Documents page</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">Using the Documents page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Utilizzo della pagina dei documenti</mrk></target></trans-unit><trans-unit
+        id="110"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Click
+          <bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Documents<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+          at the top of the window to open the Documents page, a listing of all the documents to which you have permission.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Documents<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> at the top of the window to open the Documents page, a listing of all the documents to which you have permission.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fai clic su <bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Documenti<ept
+              id="1">&lt;/b&gt;</ept> nella parte superiore della finestra per aprire la pagina dei documenti, un elenco di tutti i documenti per i quali disponi dell'autorizzazione.</mrk></target></trans-unit><trans-unit
+        id="111"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The Documents page is where you'll likely start most of your work in Onshape. Click your company logo in the top left corner of the window to return to the Documents page from anywhere in Onshape.</source>
+<target>The Documents page is where you'll likely start most of your work in Onshape. Click your company logo in the top left corner of the window to return to the Documents page from anywhere in Onshape. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The Documents page is where you'll likely start most of your work in Onshape. Click your company logo in the top left corner of the window to return to the Documents page from anywhere in Onshape.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">La pagina dei documenti è dove probabilmente inizierai la maggior parte del tuo lavoro in Onshape. Fai clic sul logo dell'azienda nell'angolo in alto a sinistra della finestra per tornare alla pagina dei documenti da qualsiasi punto di Onshape.</mrk></target></trans-unit><trans-unit
+        id="112"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The Documents page lists all of the documents you have access to, sometimes listed singly, sometimes organized into projects and folders (shown below, outlined in red). This page also contains filters for narrowing the list of documents (outlined in orange), and a search box (outlined in yellow). Click on a project, folder, or document name to open it.</source>
+<target>The Documents page lists all of the documents you have access to, sometimes listed singly, sometimes organized into projects and folders (shown below, outlined in red). This page also contains filters for narrowing the list of documents (outlined in orange), and a search box (outlined in yellow). Click on a project, folder, or document name to open it. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The Documents page lists all of the documents you have access to, sometimes listed singly, sometimes organized into projects and folders (shown below, outlined in red). This page also contains filters for narrowing the list of documents (outlined in orange), and a search box (outlined in yellow). Click on a project, folder, or document name to open it.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">La pagina dei documenti elenca tutti i documenti a cui hai accesso, a volte elencati singolarmente, talvolta organizzati in progetti e cartelle (mostrati di seguito, delineati in rosso). Questa pagina contiene anche filtri per restringere l'elenco dei documenti (delineati in arancione) e una casella di ricerca (delineata in giallo). Fai clic sul nome di un progetto, di una cartella o di un documento per aprirlo.</mrk></target></trans-unit><trans-unit
+        id="113"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>In the above example, the icons outlined in blue represent Labels, Document details, and List and Grid view options.</source>
+<target>In the above example, the icons outlined in blue represent Labels, Document details, and List and Grid view options. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">In the above example, the icons outlined in blue represent Labels, Document details, and List and Grid view options.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Nell'esempio precedente, le icone delineate in blu rappresentano Etichette, dettagli del documento e opzioni di visualizzazione Elenco e Griglia.</mrk></target></trans-unit><trans-unit
+        id="114"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>For more information about using the Documents page, see
+          <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="documentspage.htm"&gt;</bpt>Documents Page<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">For more information about using the Documents page, see <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="documentspage.htm"&gt;</bpt>Documents Page<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Per ulteriori informazioni sull'utilizzo della pagina dei documenti, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="documentspage.htm"&gt;</bpt>Pagina dei documenti<ept
+              id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="115"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>Searching for information
+              </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Searching for information</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Ricerca di informazioni</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="116"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>You are able to access Onshape’s advanced search bar in your Light user Documents page, shown above outlined in red. To navigate there, click
+              <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/Light user/Documents button homepage.png" class="InlineImage" /&gt;</ph>, or the Go to documents icon (<bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>your company logo<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>), both located in the top left corner of the page. Onshape's advanced search tools may be used to find specific parts, assemblies and drawings by part number, release status, version and revision.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">You are able to access Onshape’s advanced search bar in your Light user Documents page, shown above outlined in red. To navigate there, click <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/Light user/Documents button homepage.png" class="InlineImage" /&gt;</ph>, or the Go to documents icon (<bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>your company logo<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>), both located in the top left corner of the page. Onshape's advanced search tools may be used to find specific parts, assemblies and drawings by part number, release status, version and revision.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Puoi accedere alla barra di ricerca avanzata di Onshape nella pagina dei documenti per utenti light, visualizzata sopra delineata in rosso. Per arrivare lì, fai clic su <ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/Light user/Documents button homepage.png" class="InlineImage" /&gt;</ph> o sull'icona Vai ai documenti (<bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>il tuo logo aziendale<ept
+              id="1">&lt;/b&gt;</ept>), entrambi situati nell'angolo in alto a sinistra della pagina. Gli strumenti di ricerca avanzati di Onshape possono essere utilizzati per trovare parti, assiemi e disegni specifici tramite numero di parte, stato di rilascio, versione e revisione.</mrk></target></trans-unit><trans-unit
+        id="117"
+        restype="x-xml-p"
+        phase-name="pretrans"><source><bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Click the down arrow in the search bar<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+              to open the advanced search dialog . From this dialog you can specify the different parameters for your search:</source><seg-source><mrk
+            mtype="seg"
+            mid="1"><bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Click the down arrow in the search bar<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> to open the advanced search dialog . From this dialog you can specify the different parameters for your search:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101"><bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Fai clic sulla freccia giù nella barra di ricerca <ept
+              id="1">&lt;/b&gt;</ept> per aprire la finestra di ricerca avanzata. Da qui puoi specificare i diversi parametri per la ricerca:</mrk></target></trans-unit><trans-unit
+        id="118"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>As an example, say you receive a work order specifying part number 00203 rev B and you need both the drawing and the 3D model of the part to complete the order. To find both, open the advanced search dialog and fill it out as shown:</source>
+<target>As an example, say you receive a work order specifying part number 00203 rev B and you need both the drawing and the 3D model of the part to complete the order. To find both, open the advanced search dialog and fill it out as shown: pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">As an example, say you receive a work order specifying part number 00203 rev B and you need both the drawing and the 3D model of the part to complete the order. To find both, open the advanced search dialog and fill it out as shown:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Ad esempio, supponi di ricevere un ordine di lavoro che specifica il numero di parte 00203 rev B e di aver bisogno sia del disegno sia del modello 3D della parte per completare l'ordine. Per trovare entrambi, apri la finestra di dialogo di ricerca avanzata e compilala come mostrato:</mrk></target></trans-unit><trans-unit
+        id="119"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Click
+              <bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Search<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+              to display the results (shown in the second example above), and click on a result to bring you directly to the drawing and the 3D model. From there you are able to perform any of the actions described previously to comment on, measure, or export objects as needed.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Search<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> to display the results (shown in the second example above), and click on a result to bring you directly to the drawing and the 3D model. From there you are able to perform any of the actions described previously to comment on, measure, or export objects as needed.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fai clic su <bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Cerca<ept
+              id="1">&lt;/b&gt;</ept> per visualizzare i risultati (mostrati nel secondo esempio sopra) e fai clic su un risultato per passare direttamente al disegno e al modello 3D. Da qui puoi eseguire una qualsiasi delle azioni descritte in precedenza per commentare, misurare o esportare oggetti secondo necessità.</mrk></target></trans-unit><trans-unit
+        id="120"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>For more information using the Onshape search functionality, see
+              <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="advanced_search.htm"&gt;</bpt>Advanced Search<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">For more information using the Onshape search functionality, see <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="advanced_search.htm"&gt;</bpt>Advanced Search<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Per ulteriori informazioni sull'uso della funzionalità di ricerca di Onshape, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="advanced_search.htm"&gt;</bpt>Ricerca avanzata<ept
+              id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="121"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Using the View only toolbar</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">Using the View only toolbar</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Utilizzo della barra degli strumenti Sola lettura</mrk></target></trans-unit><trans-unit
+        id="122"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The View only toolbar is the default presentation for all users who do not have edit permissions on a document.</source>
+<target>The View only toolbar is the default presentation for all users who do not have edit permissions on a document. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The View only toolbar is the default presentation for all users who do not have edit permissions on a document.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">La barra degli strumenti di sola visualizzazione è la presentazione predefinita per tutti gli utenti che non dispongono delle autorizzazioni di modifica per un documento.</mrk></target></trans-unit><trans-unit
+        id="123"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Upon entering a document, a Light user or a user with View only permissions will see this layout
+          <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>(note the View only toolbar outlined in red)<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>:</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Upon entering a document, a Light user or a user with View only permissions will see this layout <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>(note the View only toolbar outlined in red)<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Quando accede a un documento, un utente Light o un utente con autorizzazioni di sola visualizzazione vedrà questo layout <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>(nota la barra degli strumenti di sola visualizzazione delineata in rosso)<ept
+              id="1">&lt;/i&gt;</ept>:</mrk></target></trans-unit><trans-unit
+        id="124"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>A user in Enterprise and any other account will have this toolbar as well, when shared with the View only permissions. Only a company owner has the ability to change their company's settings to hide the View only toolbar in all documents. Users with editing permissions on a document will not see the View only toolbar.</source>
+<target>A user in Enterprise and any other account will have this toolbar as well, when shared with the View only permissions. Only a company owner has the ability to change their company's settings to hide the View only toolbar in all documents. Users with editing permissions on a document will not see the View only toolbar. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">A user in Enterprise and any other account will have this toolbar as well, when shared with the View only permissions. Only a company owner has the ability to change their company's settings to hide the View only toolbar in all documents. Users with editing permissions on a document will not see the View only toolbar.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Un utente in Enterprise e qualsiasi altro account avrà anche questa barra degli strumenti se condivisa con le autorizzazioni di sola visualizzazione. Solo il proprietario di un'azienda può modificare le impostazioni della propria azienda per nascondere la barra degli strumenti di sola visualizzazione in tutti i documenti. Gli utenti con autorizzazioni di modifica su un documento non vedranno la barra degli strumenti di sola visualizzazione.</mrk></target></trans-unit><trans-unit
+        id="125"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>For more information on how to operate the View only toolbar, see
+          <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="viewonlytoolbar.htm"&gt;</bpt>Using the View Only Toolbar.<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept></source><seg-source><mrk
+            mtype="seg"
+            mid="1">For more information on how to operate the View only toolbar, see <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="viewonlytoolbar.htm"&gt;</bpt>Using the View Only Toolbar.<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept></mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Per ulteriori informazioni su come utilizzare la barra degli strumenti di sola visualizzazione, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="viewonlytoolbar.htm"&gt;</bpt>Utilizzo della barra degli strumenti di sola visualizzazione.<ept
+              id="1">&lt;/a&gt;</ept></mrk></target></trans-unit><trans-unit
+        id="126"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The View only toolbar is located at the bottom of your Onshape Part Studio or Assembly (shown above outlined in red) and can have up to 18 tools or features, some of which depend on the tab type or the user's permissions:</source>
+<target>The View only toolbar is located at the bottom of your Onshape Part Studio or Assembly (shown above outlined in red) and can have up to 18 tools or features, some of which depend on the tab type or the user's permissions: pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The View only toolbar is located at the bottom of your Onshape Part Studio or Assembly (shown above outlined in red) and can have up to 18 tools or features, some of which depend on the tab type or the user's permissions:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">La barra degli strumenti di sola visualizzazione si trova nella parte inferiore del Part Studio o dell'Assieme di Onshape (visualizzata sopra delineata in rosso) e può contenere fino a 18 strumenti o funzioni, alcuni dei quali dipendono dal tipo di scheda o dalle autorizzazioni dell'utente:</mrk></target></trans-unit><trans-unit
+        id="127"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Links and Sharing</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">Links and Sharing</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Collegamenti e condivisione</mrk></target></trans-unit><trans-unit
+        id="128"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Everything in Onshape has a unique URL. Many organizations post links to specific versions of Onshape objects (Part Studios, Assemblies, Drawings, etc) in work orders or ERP software, allowing you to get to the exact version you need. These links can be easily copied from and to the address bar of your browser.</source>
+<target>Everything in Onshape has a unique URL. Many organizations post links to specific versions of Onshape objects (Part Studios, Assemblies, Drawings, etc) in work orders or ERP software, allowing you to get to the exact version you need. These links can be easily copied from and to the address bar of your browser. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Everything in Onshape has a unique URL. Many organizations post links to specific versions of Onshape objects (Part Studios, Assemblies, Drawings, etc) in work orders or ERP software, allowing you to get to the exact version you need. These links can be easily copied from and to the address bar of your browser.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Tutto in Onshape ha un URL univoco. Molte organizzazioni pubblicano collegamenti a versioni specifiche di oggetti Onshape (Part Studio, assiemi, disegni ecc.) in ordini di lavoro o software ERP, il che consente di accedere alla versione esatta di cui hai bisogno. Questi collegamenti possono essere facilmente copiati da e nella barra degli indirizzi del browser.</mrk></target></trans-unit><trans-unit
+        id="129"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Using the Share button is not available to Light users at this time as Light users are not permitted to share documents.</source>
+<target>Using the Share button is not available to Light users at this time as Light users are not permitted to share documents. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Using the Share button is not available to Light users at this time as Light users are not permitted to share documents.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">L'utilizzo del pulsante Condividi non è disponibile per gli utenti light in questo momento poiché agli utenti light non è consentito condividere documenti.</mrk></target></trans-unit><trans-unit
+        id="130"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Selection</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">Selection</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Selezione</mrk></target></trans-unit><trans-unit
+        id="131"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Selection in an Onshape document is additive. When you left click to select a piece of geometry and then click again on another piece of geometry, Onshape adds the second selection (and subsequent selections) rather than switching to it. You can clear your selection by tapping the spacebar on your keyboard (or clicking in empty space). The first example below is of the view of your document in a Part Studio with just one part selected. The second example shows how your document would look with three parts selected simultaneously, the parts all highlight in yellow when selected.</source>
+<target>Selection in an Onshape document is additive. When you left click to select a piece of geometry and then click again on another piece of geometry, Onshape adds the second selection (and subsequent selections) rather than switching to it. You can clear your selection by tapping the spacebar on your keyboard (or clicking in empty space). The first example below is of the view of your document in a Part Studio with just one part selected. The second example shows how your document would look with three parts selected simultaneously, the parts all highlight in yellow when selected. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Selection in an Onshape document is additive. When you left click to select a piece of geometry and then click again on another piece of geometry, Onshape adds the second selection (and subsequent selections) rather than switching to it. You can clear your selection by tapping the spacebar on your keyboard (or clicking in empty space). The first example below is of the view of your document in a Part Studio with just one part selected. The second example shows how your document would look with three parts selected simultaneously, the parts all highlight in yellow when selected.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">La selezione in un documento Onshape è additiva. Quando fate clic con il pulsante sinistro del mouse per selezionare un pezzo di geometria e poi fate nuovamente clic su un altro pezzo di geometria, Onshape aggiunge la seconda selezione (e le selezioni successive) anziché passare ad essa. Puoi cancellare la selezione toccando la barra spaziatrice sulla tastiera (o facendo clic nello spazio vuoto). Il primo esempio riportato di seguito riguarda la visualizzazione del documento in un Part Studio con una sola parte selezionata. Il secondo esempio mostra come apparirebbe il documento con tre parti selezionate contemporaneamente, tutte evidenziate in giallo quando selezionate.</mrk></target></trans-unit><trans-unit
+        id="132"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Measurement and Mass Properties</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">Measurement and Mass Properties</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Misura e Proprietà massa</mrk></target></trans-unit><trans-unit
+        id="133"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>You can use the Measurement and Mass properties tools in the View only toolbar, but also, the Onshape measure tool is automatic in Part Studios and Assemblies when any entity is selected. Measurement information appears automatically in the bottom right corner of the interface when you make a selection or selections. For more information on measuring, see
+          <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="measure-ps.htm"&gt;</bpt>Measure Tool.<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept></source><seg-source><mrk
+            mtype="seg"
+            mid="1">You can use the Measurement and Mass properties tools in the View only toolbar, but also, the Onshape measure tool is automatic in Part Studios and Assemblies when any entity is selected. Measurement information appears automatically in the bottom right corner of the interface when you make a selection or selections. For more information on measuring, see <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="measure-ps.htm"&gt;</bpt>Measure Tool.<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept></mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">Puoi utilizzare gli strumenti Proprietà misurazione e massa nella barra degli strumenti di sola visualizzazione, ma inoltre lo strumento di misura Onshape è automatico in Part Studio e assiemi quando è selezionata un'entità. Le informazioni di misurazione vengono visualizzate automaticamente nell'angolo in basso a destra dell'interfaccia quando effettui una o più selezioni. Per ulteriori informazioni sulla misurazione, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="measure-ps.htm"&gt;</bpt>Strumento di misura<ept
+              id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="134"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The measurement tool in a Part Studio displayed the area of the selected part.</source>
+<target>The measurement tool in a Part Studio displayed the area of the selected part. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The measurement tool in a Part Studio displayed the area of the selected part.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Lo strumento di misura in un Part Studio ha mostrato l'area della parte selezionata.</mrk></target></trans-unit><trans-unit
+        id="135"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The same is true for mass properties. Select a part or assembly and the mass properties icon appears in the bottom right corner of the interface:</source>
+<target>The same is true for mass properties. Select a part or assembly and the mass properties icon appears in the bottom right corner of the interface: pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The same is true for mass properties. Select a part or assembly and the mass properties icon appears in the bottom right corner of the interface:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Lo stesso vale per le proprietà massa. Seleziona una parte o un assieme e l'icona delle proprietà massa appare nell'angolo in basso a destra dell'interfaccia:</mrk></target></trans-unit><trans-unit
+        id="136"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Click the icon to display the properties for the selection.</source>
+<target>Click the icon to display the properties for the selection. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Click the icon to display the properties for the selection.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fai clic sull'icona per visualizzare le proprietà per la selezione.</mrk></target></trans-unit><trans-unit
+        id="137"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>For more information on mass properties, see
+          <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="massprops-ps.htm"&gt;</bpt>Mass Properties Tool.<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept></source><seg-source><mrk
+            mtype="seg"
+            mid="1">For more information on mass properties, see <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="massprops-ps.htm"&gt;</bpt>Mass Properties Tool.<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept></mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">Per ulteriori informazioni sulle proprietà massa, vedere <bpt
+              id="1"
+              ctype="link">&lt;a href="massprops-ps.htm"&gt;</bpt>Strumento proprietà massa<ept
+              id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="138"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>Creating a task</source>
+<target>Creating a task pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Creating a task</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Creazione di un'attività</mrk></target></trans-unit><trans-unit
+        id="139"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>While inside a document, right-click on a tab to access the context menu:</source>
+<target>While inside a document, right-click on a tab to access the context menu: pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">While inside a document, right-click on a tab to access the context menu:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">All'interno di un documento, fai clic con il pulsante destro del mouse su una scheda per accedere al menu contestuale:</mrk></target></trans-unit><trans-unit
+        id="140"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Click the <bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Create task<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> option from the menu to open the Create task dialog box:</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click the <bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Create task<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> option from the menu to open the Create task dialog box:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fai clic sul <bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Crea attività<ept
+              id="1">&lt;/b&gt;</ept> opzione dal menu per aprire la finestra di dialogo Crea attività:</mrk></target></trans-unit><trans-unit
+        id="141"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Specify a task name.</source>
+<target>Specify a task name. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Specify a task name.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Specificare un nome per l'attività.</mrk></target></trans-unit><trans-unit
+        id="142"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Optionally, specify a task description.</source>
+<target>Optionally, specify a task description. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Optionally, specify a task description.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Facoltativamente, specificare una descrizione dell'attività.</mrk></target></trans-unit><trans-unit
+        id="143"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>On the right side of the dialog, next to the Properties icon (<ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/properties-detailpane.png" alt="" title="" class="InlineImage"&gt;&lt;/img&gt;</ph>) a default category of Task is assigned. You can keep or delete this category and/or enter another.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">On the right side of the dialog, next to the Properties icon (<ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/properties-detailpane.png" alt="" title="" class="InlineImage"&gt;&lt;/img&gt;</ph>) a default category of Task is assigned. You can keep or delete this category and/or enter another.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sul lato destro della finestra di dialogo, accanto all'icona Proprietà (<ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/properties-detailpane.png" alt="" title="" class="InlineImage"&gt;&lt;/img&gt;</ph> ) è assegnata una categoria predefinita di Attività. Puoi mantenere o eliminare questa categoria e/o inserirne un'altra.</mrk></target></trans-unit><trans-unit
+        id="144"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Click the References icon (<ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/task-insert-reference@1x.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="34" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" title="" class="InlineImage"&gt;&lt;/img&gt;</ph>) to associate this task with a part, Assembly, Drawing, file, Feature Studio, or application in a particular document or version of a document. When the Reference dialog opens, click the Add reference icon (<ph
+            id="2"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/insertpartorassemblyicon.png" class="InlineImage"&gt;&lt;/img&gt;</ph>), search for a reference or paste a URL to a specific reference, or select from the list to find a reference in a particular document of a part, Assembly, Drawing, file, Feature Studio, or application. You can also create a version or view the version graph.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click the References icon (<ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/task-insert-reference@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="34" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" title="" class="InlineImage"&gt;&lt;/img&gt;</ph>) to associate this task with a part, Assembly, Drawing, file, Feature Studio, or application in a particular document or version of a document. When the Reference dialog opens, click the Add reference icon (<ph
+              id="2"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/insertpartorassemblyicon.png" class="InlineImage"&gt;&lt;/img&gt;</ph>), search for a reference or paste a URL to a specific reference, or select from the list to find a reference in a particular document of a part, Assembly, Drawing, file, Feature Studio, or application. You can also create a version or view the version graph.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fate clic sull'icona Riferimenti (<ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/task-insert-reference@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="34" />" title="" class="InlineImage"&gt;&lt;/img&gt;</ph>) per associare questa attività a una parte, un assieme, un disegno, un file, Feature Studio o un'applicazione in un particolare documento o versione di un documento. Quando si apre la finestra di dialogo Riferimento, fate clic sull'icona Aggiungi riferimento (<ph
+              id="2"
+              ctype="image">&lt;img src="Resources/Images/icons/insertpartorassemblyicon.png" class="InlineImage"&gt;&lt;/img&gt;</ph>), cerca un riferimento o incolla un URL su un riferimento specifico, oppure seleziona dall'elenco per trovare un riferimento in un particolare documento di una parte, un assieme, un disegno, un file, Feature Studio o un'applicazione. Potete anche creare una versione o visualizzare il grafico delle versioni.</mrk></target></trans-unit><trans-unit
+        id="145"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Click the Priority &amp; Dates icon (<ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/duedate@1x.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="35" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" title="" class="InlineImage"&gt;&lt;/img&gt;</ph>) and enter a due date.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click the Priority &amp; Dates icon (<ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/duedate@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="35" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" title="" class="InlineImage"&gt;&lt;/img&gt;</ph>) and enter a due date.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fai clic sull'cona Priorità e date (<ph
+              id="1"
+              ctype="image">&lt;img src="Resources/Images/icons/duedate@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="35" />" title="" class="InlineImage"&gt;&lt;/img&gt;</ph> ) e inserisci una data di scadenza.</mrk></target></trans-unit><trans-unit
+        id="146"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Click
+          <bpt
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span class="SWButton"&gt;</bpt>Save<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept>
+          to save the task and assign it later; click
+          <bpt
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span class="SWButton"&gt;</bpt>Assign<ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept>
+          to assign it to a particular user now, or click
+          <bpt
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span class="swButtonGrey"&gt;</bpt>Cancel<ept
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept>
+          to abort the creation of the task.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <bpt
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span class="SWButton"&gt;</bpt>Save<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept> to save the task and assign it later; click <bpt
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span class="SWButton"&gt;</bpt>Assign<ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept> to assign it to a particular user now, or click <bpt
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span class="swButtonGrey"&gt;</bpt>Cancel<ept
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept> to abort the creation of the task.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fai clic su <bpt
+              id="1">&lt;span class="SWButton"&gt;</bpt>Salva<ept
+              id="1">&lt;/span&gt;</ept> per salvare l'attività e assegnarla in un secondo momento; fai clic su <bpt
+              id="2">&lt;span class="SWButton"&gt;</bpt>Assegna<ept
+              id="2">&lt;/span&gt;</ept> per assegnarla subito a un determinato utente, oppure fai clic su <bpt
+              id="3">&lt;span class="swButtonGrey"&gt;</bpt>Annulla<ept
+              id="3">&lt;/span&gt;</ept> per interrompere la creazione dell'attività.</mrk></target></trans-unit><trans-unit
+        id="147"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>An example task in the Action items list after it is created.</source>
+<target>An example task in the Action items list after it is created. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">An example task in the Action items list after it is created.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Un'attività di esempio nell'elenco degli elementi di Task Manager dopo la sua creazione.</mrk></target></trans-unit><trans-unit
+        id="148"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>To re-assign a task to a different user after creating the task, select <bpt
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span class="SWButton"&gt;</bpt>View task<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept> to edit. Remove the user in the <bpt
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span class="SWButton"&gt;</bpt>Assigned to<ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept> field and select a different user. Click <bpt
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span class="SWButton"&gt;</bpt>Save<ept
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept> to re-assign the task.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">To re-assign a task to a different user after creating the task, select <bpt
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span class="SWButton"&gt;</bpt>View task<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept> to edit. Remove the user in the <bpt
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span class="SWButton"&gt;</bpt>Assigned to<ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept> field and select a different user. Click <bpt
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;span class="SWButton"&gt;</bpt>Save<ept
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/span&gt;</ept> to re-assign the task.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Per riassegnare un'attività a un altro utente dopo averla creata, seleziona <bpt
+              id="1">&lt;span class="SWButton"&gt;</bpt>Visualizza attività<ept
+              id="1">&lt;/span&gt;</ept> da modificare. Rimuovi l'utente nel <bpt
+              id="2">&lt;span class="SWButton"&gt;</bpt>Assegnato a<ept
+              id="2">&lt;/span&gt;</ept> campo e seleziona un altro utente. Fare clic su <bpt
+              id="3">&lt;span class="SWButton"&gt;</bpt>Salva<ept
+              id="3">&lt;/span&gt;</ept> per riassegnare l'attività.</mrk></target></trans-unit><trans-unit
+        id="149"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Commenting</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">Commenting</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Inserimento di commenti</mrk></target></trans-unit><trans-unit
+        id="150"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>You may be given permission to Comment on documents, which allows you to converse with other members of your organization directly in Onshape. To add a comment, open a document and click the Comment button
+          <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/lui-comment-new@1x.png" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="37" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph>
+          in the View only toolbar to open the Comments panel, shown below:</source><seg-source><mrk
+            mtype="seg"
+            mid="1">You may be given permission to Comment on documents, which allows you to converse with other members of your organization directly in Onshape. To add a comment, open a document and click the Comment button <ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/icons/lui-comment-new@1x.png" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="37" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" class="InlineImage" /&gt;</ph> in the View only toolbar to open the Comments panel, shown below:</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="151"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The Comment button will not appear if you do not have permission to comment.</source>
+<target>The Comment button will not appear if you do not have permission to comment. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The Comment button will not appear if you do not have permission to comment.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Il pulsante Commento non viene visualizzato se non disponi del permesso di commentare.</mrk></target></trans-unit><trans-unit
+        id="152"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>If you have permission to comment on the document, you can add comments to model geometry and features by right-clicking on it and selecting Add comment from the context menu, shown in the first example below. Selecting
+          <bpt
+            id="1"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Add comment<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+          opens a Comments dialog with the part selected tagged to the comment, shown in the second example below. You can also mention other users in a comment simply by typing @ before their username.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">If you have permission to comment on the document, you can add comments to model geometry and features by right-clicking on it and selecting Add comment from the context menu, shown in the first example below. Selecting <bpt
+              id="1"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Add comment<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> opens a Comments dialog with the part selected tagged to the comment, shown in the second example below. You can also mention other users in a comment simply by typing @ before their username.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Se disponi dell'autorizzazione per commentare il documento, puoi aggiungere commenti alla geometria del modello e alle funzioni facendo clic con il pulsante destro del mouse su di esso e selezionando Aggiungi commento dal menu contestuale, illustrato nel primo esempio riportato di seguito. Selezionando <bpt
+              id="1"
+              ctype="bold">&lt;b&gt;</bpt>Aggiungi commento<ept
+              id="1">&lt;/b&gt;</ept> apri una finestra di dialogo Commenti con la parte selezionata taggata al commento, mostrata nel secondo esempio riportato di seguito. Puoi anche menzionare altri utenti in un commento semplicemente digitando @ prima del nome utente.</mrk></target></trans-unit><trans-unit
+        id="153"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>For more information on commenting, see
+          <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="comments_on_workspaces.htm"&gt;</bpt>Commenting in Workspaces and Versions.<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept></source><seg-source><mrk
+            mtype="seg"
+            mid="1">For more information on commenting, see <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="comments_on_workspaces.htm"&gt;</bpt>Commenting in Workspaces and Versions.<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept></mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">Per ulteriori informazioni sui commenti, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="comments_on_workspaces.htm"&gt;</bpt>Commenti in aree di lavoro e versioni<ept
+              id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="154"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Exporting</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">Exporting</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esportazione</mrk></target></trans-unit><trans-unit
+        id="155"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>You can export parts, Assemblies and Drawings to a number of different file formats, which allows you to, for example, easily create the STEP files that your supplier needs to make your parts. If you have permission to export data, right-click on a part in the Parts list or graphics area of a Part Studio, an Assembly tab or a Drawing tab and select Export from the context menu (shown in first example below). An Export dialog will appear (second image below):</source>
+<target>You can export parts, Assemblies and Drawings to a number of different file formats, which allows you to, for example, easily create the STEP files that your supplier needs to make your parts. If you have permission to export data, right-click on a part in the Parts list or graphics area of a Part Studio, an Assembly tab or a Drawing tab and select Export from the context menu (shown in first example below). An Export dialog will appear (second image below): pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">You can export parts, Assemblies and Drawings to a number of different file formats, which allows you to, for example, easily create the STEP files that your supplier needs to make your parts. If you have permission to export data, right-click on a part in the Parts list or graphics area of a Part Studio, an Assembly tab or a Drawing tab and select Export from the context menu (shown in first example below). An Export dialog will appear (second image below):</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">È possibile esportare parti, assiemi e disegni in diversi formati di file. Questo consente, ad esempio, di creare facilmente i file STEP necessari al fornitore per realizzare le parti. Se disponi dell'autorizzazione per esportare i dati, fai clic con il pulsante destro del mouse su una parte nell'elenco delle parti o nell'area grafica di un Part Studio, nella scheda Assieme o nella scheda Disegno e seleziona Esporta dal menu contestuale (visualizzato nel primo esempio di seguito). Apparirà una finestra di dialogo di esportazione (seconda immagine qui di seguito):</mrk></target></trans-unit><trans-unit
+        id="156"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>For more information on exporting data and supported file formats, see
+          <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="exporting-files.htm"&gt;</bpt>Exporting Files.<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept></source><seg-source><mrk
+            mtype="seg"
+            mid="1">For more information on exporting data and supported file formats, see <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="exporting-files.htm"&gt;</bpt>Exporting Files.<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept></mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">Per ulteriori informazioni sull'esportazione di dati e formati di file supportati, vedi <bpt
+              id="1"
+              ctype="link">&lt;a href="exporting-files.htm"&gt;</bpt>Esportazione file<ept
+              id="1">&lt;/a&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="157"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Accessing command context menus</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">Accessing command context menus</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Accesso ai menu contestuali dei comandi</mrk></target></trans-unit><trans-unit
+        id="158"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Right-click, or context, menus appear everywhere in Onshape and contain many of the commands needed to complete your tasks. Right-click to activate context menus for entities in the graphics area (such as parts, surfaces, and sketches), entities in Feature lists (such as Extrude and Revolve features), Parts lists in both Part Studios and Assemblies (individual parts, surfaces, curves, and assemblies), and entities in Drawings. Key command like Export are found in context menus, so be sure to right-click throughout the interface to access the commands needed to accomplish your goals.</source>
+<target>Right-click, or context, menus appear everywhere in Onshape and contain many of the commands needed to complete your tasks. Right-click to activate context menus for entities in the graphics area (such as parts, surfaces, and sketches), entities in Feature lists (such as Extrude and Revolve features), Parts lists in both Part Studios and Assemblies (individual parts, surfaces, curves, and assemblies), and entities in Drawings. Key command like Export are found in context menus, so be sure to right-click throughout the interface to access the commands needed to accomplish your goals. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Right-click, or context, menus appear everywhere in Onshape and contain many of the commands needed to complete your tasks. Right-click to activate context menus for entities in the graphics area (such as parts, surfaces, and sketches), entities in Feature lists (such as Extrude and Revolve features), Parts lists in both Part Studios and Assemblies (individual parts, surfaces, curves, and assemblies), and entities in Drawings. Key command like Export are found in context menus, so be sure to right-click throughout the interface to access the commands needed to accomplish your goals.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">I menu contestuali, o di scelta rapida, vengono visualizzati ovunque in Onshape e contengono molti dei comandi necessari per completare le attività. Fai clic con il pulsante destro del mouse per attivare i menu contestuali per entità nell'area grafica (ad esempio parti, superfici e schizzi), entità negli elenchi funzioni (ad esempio, le funzioni Estrusione e Rivoluzione), elenchi delle parti sia in Part Studio sia negli Assiemi (singole parti, superfici, curve e assiemi) ed entità nei Disegni. I comandi fondamentali come Esporta si trovano nei menu contestuali, perciò assicurati di fare clic con il pulsante destro del mouse su tutta l'interfaccia per accedere ai comandi necessari per raggiungere i tuoi obiettivi.</mrk></target></trans-unit><trans-unit
+        id="159"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Example of a context menu generated by right-clicking on a document on the Documents page</source>
+<target>Example of a context menu generated by right-clicking on a document on the Documents page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Example of a context menu generated by right-clicking on a document on the Documents page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Esempio di menu contestuale generato facendo clic con il pulsante destro del mouse su un documento nella pagina dei documenti</mrk></target></trans-unit><trans-unit
+        id="160"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Users with release management responsibilities</source><seg-source><mrk
+            mtype="protected"
+            mid="1"> </mrk><mrk
+            mtype="seg"
+            mid="2">Users with release management responsibilities</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Utenti con responsabilità di gestione delle versioni</mrk></target></trans-unit><trans-unit
+        id="161"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>When a user has release management responsibilities (Enterprise or Professional users only), they cannot initiate a release, but they can and may have the responsibility to observe, comment, and approve a release candidate. There is no Light user tool on the toolbar for this purpose, however, the user must access the release candidate through the notification they received, which may be:</source>
+<target>When a user has release management responsibilities (Enterprise or Professional users only), they cannot initiate a release, but they can and may have the responsibility to observe, comment, and approve a release candidate. There is no Light user tool on the toolbar for this purpose, however, the user must access the release candidate through the notification they received, which may be: pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">When a user has release management responsibilities (Enterprise or Professional users only), they cannot initiate a release, but they can and may have the responsibility to observe, comment, and approve a release candidate. There is no Light user tool on the toolbar for this purpose, however, the user must access the release candidate through the notification they received, which may be:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Quando un utente ha responsabilità di gestione delle versioni (solo utenti Enterprise o Professional), non può avviare un rilascio, ma può avere o gli è consentito di avere la responsabilità di osservare, commentare e approvare una versione di pre-rilascio. Sulla barra degli strumenti non è presente uno strumento utenti Light per questo scopo, tuttavia, l'utente deve accedere alla versione di pre-rilascio tramite la notifica ricevuta, che può essere:</mrk></target></trans-unit><trans-unit
+        id="162"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Email notification with a link</source>
+<target>Email notification with a link pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Email notification with a link</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Notifica via email con un collegamento</mrk></target></trans-unit><trans-unit
+        id="163"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Internal notification in the document</source>
+<target>Internal notification in the document pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Internal notification in the document</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Notifica interna nel documento</mrk></target></trans-unit><trans-unit
+        id="164"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Mobile notification with a link</source>
+<target>Mobile notification with a link pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Mobile notification with a link</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Notifica su telefono cellulare con un collegamento</mrk></target></trans-unit><trans-unit
+        id="165"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>These notifications will contain a View release link that when clicked takes the user directly to the release candidate dialog.</source>
+<target>These notifications will contain a View release link that when clicked takes the user directly to the release candidate dialog. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">These notifications will contain a View release link that when clicked takes the user directly to the release candidate dialog.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Queste notifiche conterranno un collegamento a Visualizzazione versioni che, quando selezionato con un clic, porta l'utente direttamente alla finestra di dialogo della versione di pre-rilascio.</mrk></target></trans-unit><trans-unit
+        id="166"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>To learn more about organizing documents using folders, you can follow the self-paced course here:
+      <bpt
+            id="1"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="https://learn.onshape.com/courses/onshape-enterprise-for-light-users" target="_blank"&gt;</bpt>Onshape Enterprise for Light Users (Onshape account required)<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>. You can also follow the technical briefing article here:
+      <bpt
+            id="2"
+            ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="https://learn.onshape.com/learn/article/navigating-onshape-for-new-users" target="_blank"&gt;</bpt>Navigating Onshape for New Users (Onshape account required)<ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">To learn more about organizing documents using folders, you can follow the self-paced course here: <bpt
+              id="1"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="https://learn.onshape.com/courses/onshape-enterprise-for-light-users" target="_blank"&gt;</bpt>Onshape Enterprise for Light Users (Onshape account required)<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>. You can also follow the technical briefing article here: <bpt
+              id="2"
+              ctype="link" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;a href="https://learn.onshape.com/learn/article/navigating-onshape-for-new-users" target="_blank"&gt;</bpt>Navigating Onshape for New Users (Onshape account required)<ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/a&gt;</ept>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Per ulteriori informazioni sull'organizzazione dei documenti utilizzando le cartelle, puoi seguire il corso autogestito qui: <bpt
+              id="1"
+              ctype="link">&lt;a href="https://learn.onshape.com/courses/onshape-enterprise-for-light-users" target="_blank"&gt;</bpt>Onshape Enterprise per utenti poco esperti (è richiesto un account Onshape)<ept
+              id="1">&lt;/a&gt;</ept>. Puoi anche seguire l'articolo informativo del technical briefing qui: <bpt
+              id="2"
+              ctype="link">&lt;a href="https://learn.onshape.com/learn/article/navigating-onshape-for-new-users" target="_blank"&gt;</bpt>Navigazione su Onshape per nuovi utenti (è richiesto un account Onshape)<ept
+              id="2">&lt;/a&gt;</ept>.</mrk></target></trans-unit></body>
+  </file>
+</xliff>

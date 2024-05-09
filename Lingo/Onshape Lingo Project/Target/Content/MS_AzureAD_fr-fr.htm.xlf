@@ -1,0 +1,1867 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xliff
+  version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-strict.xsd" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd"
+  MadCap:translationStatus="untranslated">
+  <file
+    xml:space="preserve"
+    original="MS_AzureAD.htm"
+    source-language="en"
+    target-language="fr-fr"
+    MadCap:file-filter=""
+    datatype="xhtml">
+    <header>
+      <skl><external-file
+          href="MS_AzureAD.htm.skl" /></skl>
+      <phase-group>
+        <phase
+          phase-name="translation"
+          process-name="translation" />
+        <phase
+          phase-name="completion"
+          process-name="translation" />
+        <phase
+          phase-name="approval"
+          process-name="review" />
+        <phase
+          phase-name="pretrans"
+          process-name="pre-translation" />
+      </phase-group>
+      <count-group
+        name="MadCap Statistics">
+        <count
+          count-type="total"
+          unit="segment">147</count>
+        <count
+          count-type="x-subflow"
+          unit="trans-unit">34</count>
+      </count-group>
+      <tool
+        tool-id="lingoproject"
+        tool-name="Lingo"
+        tool-version="11.2.8423.32284"
+        tool-company="MadCap Software" />
+    </header>
+    <body><trans-unit
+        id="1"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Video example icon</source>
+<target>Video example icon pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:conditions="Default.ScreenOnly"
+            MadCap:parentConditions="||Default.ScreenOnly"
+            comment="img">Video example icon</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Video example icon</mrk></target></trans-unit><trans-unit
+        id="2"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Signing into the Microsoft Azure portal</source>
+<target>Signing into the Microsoft Azure portal pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Signing into the Microsoft Azure portal</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Connexion au portail Microsoft Azure</mrk></target></trans-unit><trans-unit
+        id="3"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Selecting the Azure Active directory from the navigation menu on the left</source>
+<target>Selecting the Azure Active directory from the navigation menu on the left pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Selecting the Azure Active directory from the navigation menu on the left</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sélection de l'annuaire Azure Active Directory dans le menu de navigation sur la gauche</mrk></target></trans-unit><trans-unit
+        id="4"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Selecting Enterprise applications from the navigation menu on the left</source>
+<target>Selecting Enterprise applications from the navigation menu on the left pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Selecting Enterprise applications from the navigation menu on the left</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sélection des applications d'entreprise dans le menu de navigation sur la gauche</mrk></target></trans-unit><trans-unit
+        id="5"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example selecting New application from the Enterprise applications page</source>
+<target>Example selecting New application from the Enterprise applications page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example selecting New application from the Enterprise applications page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Exemple de sélection d'une nouvelle application dans la page Applications d'entreprise</mrk></target></trans-unit><trans-unit
+        id="6"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example searching for Onshape in the Browse Azure AD Gallery page</source>
+<target>Example searching for Onshape in the Browse Azure AD Gallery page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example searching for Onshape in the Browse Azure AD Gallery page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Exemple de recherche d'Onshape dans la page Parcourir la galerie Azure AD</mrk></target></trans-unit><trans-unit
+        id="7"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Selecting and opening the Onshape application</source>
+<target>Selecting and opening the Onshape application pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Selecting and opening the Onshape application</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sélection et ouverture de l'application Onshape</mrk></target></trans-unit><trans-unit
+        id="8"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Selecting the Set up single sign on option</source>
+<target>Selecting the Set up single sign on option pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Selecting the Set up single sign on option</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sélection de l'option Configurer l'authentification unique</mrk></target></trans-unit><trans-unit
+        id="9"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Clicking the SAML option on the Single sign-on page</source>
+<target>Clicking the SAML option on the Single sign-on page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Clicking the SAML option on the Single sign-on page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Cliquer sur l'option SAML sur la page d'authentification unique</mrk></target></trans-unit><trans-unit
+        id="10"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Clicking Yes to Save the signle sign-on setting</source>
+<target>Clicking Yes to Save the signle sign-on setting pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Clicking Yes to Save the signle sign-on setting</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Cliquer sur Oui pour enregistrer le paramètre d'authentification unique</mrk></target></trans-unit><trans-unit
+        id="11"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Clicking to edit the User Attributes &amp; Claims on the SAML-based Sign-on page</source>
+<target>Clicking to edit the User Attributes &amp; Claims on the SAML-based Sign-on page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Clicking to edit the User Attributes &amp; Claims on the SAML-based Sign-on page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Cliquer pour modifier les attributs et revendications de l'utilisateur sur la page de connexion basée sur SAML</mrk></target></trans-unit><trans-unit
+        id="12"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Selecting the CompanyName claim on the User Attributes &amp; Claims page</source>
+<target>Selecting the CompanyName claim on the User Attributes &amp; Claims page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Selecting the CompanyName claim on the User Attributes &amp; Claims page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sélection de la revendication CompanyName sur la page Attributs et revendications de l'utilisateur</mrk></target></trans-unit><trans-unit
+        id="13"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of managing a claim</source>
+<target>Example of managing a claim pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of managing a claim</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Exemple de gestion d'une revendication</mrk></target></trans-unit><trans-unit
+        id="14"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example saving the claim from the Manage claim page</source>
+<target>Example saving the claim from the Manage claim page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example saving the claim from the Manage claim page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Exemple d'enregistrement de la revendication à partir de la page Gérer la revendication</mrk></target></trans-unit><trans-unit
+        id="15"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Closing the User Attributes &amp; Claims page</source>
+<target>Closing the User Attributes &amp; Claims page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Closing the User Attributes &amp; Claims page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fermeture de la page Attributs et revendications de l'utilisateur</mrk></target></trans-unit><trans-unit
+        id="16"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Clicking No I'll test later button on the SAML-based Sign-on page</source>
+<target>Clicking No I'll test later button on the SAML-based Sign-on page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Clicking No I'll test later button on the SAML-based Sign-on page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Cliquer sur le bouton Non, je testerai plus tard sur la page de connexion basée sur SAML</mrk></target></trans-unit><trans-unit
+        id="17"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example showing the completed claims</source>
+<target>Example showing the completed claims pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example showing the completed claims</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Exemple montrant les demandes de revendication complétées</mrk></target></trans-unit><trans-unit
+        id="18"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Downloading the Federation Metadata XML file</source>
+<target>Downloading the Federation Metadata XML file pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Downloading the Federation Metadata XML file</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Téléchargement du fichier XML des métadonnées de la fédération</mrk></target></trans-unit><trans-unit
+        id="19"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Closing the completed download notice</source>
+<target>Closing the completed download notice pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Closing the completed download notice</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fermeture de l'avis de téléchargement terminé</mrk></target></trans-unit><trans-unit
+        id="20"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Selecting Users and groups from the navigation on the left of the SAML-based Sign-on page</source>
+<target>Selecting Users and groups from the navigation on the left of the SAML-based Sign-on page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Selecting Users and groups from the navigation on the left of the SAML-based Sign-on page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sélection d'utilisateurs et de groupes dans la barre de navigation sur la gauche de la page de connexion basée sur SAML</mrk></target></trans-unit><trans-unit
+        id="21"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Clicking the add user/group button from the Users and groups page</source>
+<target>Clicking the add user/group button from the Users and groups page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Clicking the add user/group button from the Users and groups page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Cliquer sur le bouton Ajouter un utilisateur/groupe sur la page Utilisateurs et groupes</mrk></target></trans-unit><trans-unit
+        id="22"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Assigning users to the user group/team</source>
+<target>Assigning users to the user group/team pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Assigning users to the user group/team</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Affectation d'utilisateurs au groupe d'utilisateurs/à l'équipe</mrk></target></trans-unit><trans-unit
+        id="23"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Clicking the Assign button on the Add Assignment page</source>
+<target>Clicking the Assign button on the Add Assignment page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Clicking the Assign button on the Add Assignment page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Cliquer sur le bouton Attribuer sur la page Ajouter une mission</mrk></target></trans-unit><trans-unit
+        id="24"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>The new users added to the Users and groups page</source>
+<target>The new users added to the Users and groups page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">The new users added to the Users and groups page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Les nouveaux utilisateurs ajoutés à la page Utilisateurs et groupes</mrk></target></trans-unit><trans-unit
+        id="25"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Example of the Microsoft active directory application dashboard</source>
+<target>Example of the Microsoft active directory application dashboard pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Example of the Microsoft active directory application dashboard</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Exemple du tableau de bord de l'application Microsoft Active Directory</mrk></target></trans-unit><trans-unit
+        id="26"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Selecting my account: Enterprise settings</source>
+<target>Selecting my account: Enterprise settings pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Selecting my account: Enterprise settings</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sélection de mon compte : Paramètres d'entreprise</mrk></target></trans-unit><trans-unit
+        id="27"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Selecting Authentication from the left side navigation panel</source>
+<target>Selecting Authentication from the left side navigation panel pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Selecting Authentication from the left side navigation panel</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sélection de l'authentification dans le panneau de navigation de gauche</mrk></target></trans-unit><trans-unit
+        id="28"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Clicking the Configure SSO provider button on the Authentication page</source>
+<target>Clicking the Configure SSO provider button on the Authentication page pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Clicking the Configure SSO provider button on the Authentication page</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Cliquez sur le bouton Configurer le fournisseur SSO sur la page Authentification</mrk></target></trans-unit><trans-unit
+        id="29"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Create SSO provider dialog</source>
+<target>Create SSO provider dialog pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Create SSO provider dialog</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Boîte de dialogue Créer un fournisseur SSO</mrk></target></trans-unit><trans-unit
+        id="30"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Opening the XML metadata file</source>
+<target>Opening the XML metadata file pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Opening the XML metadata file</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Ouverture du fichier de métadonnées XML</mrk></target></trans-unit><trans-unit
+        id="31"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Clicking OK to finalize the creation of the SSO provider</source>
+<target>Clicking OK to finalize the creation of the SSO provider pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Clicking OK to finalize the creation of the SSO provider</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Cliquez sur OK pour finaliser la création du fournisseur SSO</mrk></target></trans-unit><trans-unit
+        id="32"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Receiving a notification that the XML file was successfully uploaded</source>
+<target>Receiving a notification that the XML file was successfully uploaded pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Receiving a notification that the XML file was successfully uploaded</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Réception d'une notification indiquant que le fichier XML a été chargé avec succès</mrk></target></trans-unit><trans-unit
+        id="33"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Signing into Onshape using the Sign in with Microsoft (SSO) button</source>
+<target>Signing into Onshape using the Sign in with Microsoft (SSO) button pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Signing into Onshape using the Sign in with Microsoft (SSO) button</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Connexion à Onshape à l'aide du bouton Connexion avec Microsoft (SSO)</mrk></target></trans-unit><trans-unit
+        id="34"
+        restype="x-xhtml-img-alt"
+        phase-name="pretrans"><source>Possible error message when signing in</source>
+<target>Possible error message when signing in pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            comment="img">Possible error message when signing in</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Message d'erreur possible lors de la connexion</mrk></target></trans-unit><trans-unit
+        id="35"
+        restype="x-xml-title"
+        phase-name="pretrans"><source>Integrating with Microsoft Azure AD</source>
+<target>Integrating with Microsoft Azure AD pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Integrating with Microsoft Azure AD</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Intégration avec Microsoft Azure AD</mrk></target></trans-unit><trans-unit
+        id="36"
+        restype="x-xml-meta-content"
+        phase-name="pretrans"><source>This section covers how to set up and integrate Onshape with Microsoft Azure AD single sign-on (SSO).</source>
+<target>This section covers how to set up and integrate Onshape with Microsoft Azure AD single sign-on (SSO). pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">This section covers how to set up and integrate Onshape with Microsoft Azure AD single sign-on (SSO).</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Cette section explique comment configurer et intégrer Onshape à l'authentification unique (SSO) Microsoft Azure AD.</mrk></target></trans-unit><trans-unit
+        id="37"
+        restype="x-xml-h1"
+        phase-name="pretrans"><source>Integrating with Microsoft Azure AD</source>
+<target>Integrating with Microsoft Azure AD pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Integrating with Microsoft Azure AD</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Intégration avec Microsoft Azure AD</mrk></target></trans-unit><trans-unit
+        id="38"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Before starting the integration process, you must have requested, and been approved for, an Onshape Enterprise account or trial, and have an Onshape Enterprise domain name.</source>
+<target>Before starting the integration process, you must have requested, and been approved for, an Onshape Enterprise account or trial, and have an Onshape Enterprise domain name. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Before starting the integration process, you must have requested, and been approved for, an Onshape Enterprise account or trial, and have an Onshape Enterprise domain name.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Avant de lancer le processus d'intégration, vous devez avoir demandé et approuvé un compte Onshape Entreprise ou une version d'essai, ainsi qu'un nom de domaine Onshape Entreprise.</mrk></target></trans-unit><trans-unit
+        id="39"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>An example of an Enterprise domain name might be: MyCompanyName.onshape.com.</source>
+<target>An example of an Enterprise domain name might be: MyCompanyName.onshape.com. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">An example of an Enterprise domain name might be: MyCompanyName.onshape.com.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Un exemple de nom de domaine d'entreprise peut être : MonEntreprise.onShape.com.</mrk></target></trans-unit><trans-unit
+        id="40"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>You can use only one (single sign-on) SSO provider at a time.</source>
+<target>You can use only one (single sign-on) SSO provider at a time. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">You can use only one (single sign-on) SSO provider at a time.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Vous ne pouvez utiliser qu'un seul fournisseur SSO (authentification unique) à la fois.</mrk></target></trans-unit><trans-unit
+        id="41"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>This configuration process might fail without parameter values customized for your organization. Use your Microsoft Azure AD single sign-on dashboard to add Onshape as an application and record the values that are specific for your organization. You need those values for the following procedure.</source>
+<target>This configuration process might fail without parameter values customized for your organization. Use your Microsoft Azure AD single sign-on dashboard to add Onshape as an application and record the values that are specific for your organization. You need those values for the following procedure. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">This configuration process might fail without parameter values customized for your organization. Use your Microsoft Azure AD single sign-on dashboard to add Onshape as an application and record the values that are specific for your organization. You need those values for the following procedure.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Ce processus de configuration risque d'échouer si vous ne disposez pas de valeurs de paramètres personnalisées pour votre organisation. Utilisez votre tableau de bord Microsoft Azure AD à authentification unique pour ajouter Onshape en tant qu'application et enregistrer les valeurs spécifiques à votre organisation. Vous avez besoin de ces valeurs pour la procédure suivante.</mrk></target></trans-unit><trans-unit
+        id="42"
+        restype="x-xml-madcap:dropdownhotspot"
+        phase-name="pretrans"><source>
+          Video example</source><seg-source><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:conditions="Default.ScreenOnly"
+            MadCap:parentConditions="|Default.ScreenOnly"> </mrk><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:conditions="Default.ScreenOnly"
+            MadCap:parentConditions="|Default.ScreenOnly">Video example</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="protected"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="2"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Exemple vidéo</mrk></target></trans-unit><trans-unit
+        id="43"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Azure Video example</source>
+<target>Azure Video example pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:conditions="Default.ScreenOnly"
+            MadCap:parentConditions="|Default.ScreenOnly">Azure Video example</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="44"
+        restype="x-xml-h2"
+        phase-name="pretrans"><source>Add Onshape to your Azure AD single sign-on account
+      </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Add Onshape to your Azure AD single sign-on account</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Ajouter Onshape à votre compte d'authentification unique Azure AD</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="45"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>To enable single sign-on for your company, you must first add the Onshape application to your Azure AD single sign-on account:</source>
+<target>To enable single sign-on for your company, you must first add the Onshape application to your Azure AD single sign-on account: pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">To enable single sign-on for your company, you must first add the Onshape application to your Azure AD single sign-on account:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Pour activer l'authentification unique pour votre entreprise, vous devez d'abord ajouter l'application Onshape à votre compte Azure AD Single Sign-on :</mrk></target></trans-unit><trans-unit
+        id="46"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Sign in to the Microsoft Azure portal. Click the menu icon at the top left corner to open the left side navigation pane.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Sign in to the Microsoft Azure portal. Click the menu icon at the top left corner to open the left side navigation pane.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Connectez-vous au portail Microsoft Azure. Cliquez sur l'icône de menu dans le coin supérieur gauche pour ouvrir le volet de navigation latéral gauche.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="47"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Azure Active Directory<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        in the navigation pane.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Select <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Azure Active Directory<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> in the navigation pane.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sélectionnez <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Azure Active Directory<ept
+              id="1">&lt;/i&gt;</ept> dans le volet de navigation.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="48"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Enterprise applications<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        in the new navigation pane that opens on the left.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Select <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Enterprise applications<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> in the new navigation pane that opens on the left.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sélectionnez <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Applications d'entreprise<ept
+              id="1">&lt;/i&gt;</ept> dans le nouveau volet de navigation qui s'ouvre sur la gauche.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="49"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>At the top of the All applications page, click
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>New application<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">At the top of the All applications page, click <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>New application<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">En haut de la page Toutes les applications, cliquez sur <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt> Nouvelle application<ept
+              id="1">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="50"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>On the Browse Azure AD Gallery page, search for Onshape in the Search application field. Then click the
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Onshape<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        button.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">On the Browse Azure AD Gallery page, search for Onshape in the Search application field. Then click the <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Onshape<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> button.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sur la page Parcourir la galerie Azure AD, recherchez Onshape dans le champ de l'application Rechercher. Cliquez ensuite sur le bouton <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Onshape<ept
+              id="1">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="51"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The Onshape application pane opens on the right. Click the
+          <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Create<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+          button at the bottom of the pane.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">The Onshape application pane opens on the right. Click the <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Create<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> button at the bottom of the pane.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Le volet Application Onshape s'ouvre sur la droite. Cliquez sur le bouton <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Créer<ept
+              id="1">&lt;/i&gt;</ept> en bas du volet.</mrk></target></trans-unit><trans-unit
+        id="52"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Microsoft Azure creates the new application for you. Be aware this can take a few seconds to set up.</source>
+<target>Microsoft Azure creates the new application for you. Be aware this can take a few seconds to set up. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Microsoft Azure creates the new application for you. Be aware this can take a few seconds to set up.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Microsoft Azure crée la nouvelle application pour vous. Sachez que cette configuration peut prendre quelques secondes.</mrk></target></trans-unit><trans-unit
+        id="53"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Once the app is created, click the
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>2. Set up single sign on<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        box.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Once the app is created, click the <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>2. Set up single sign on<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> box.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Une fois l'application créée, cliquez sur la case <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt> 2. Configurer un panneau unique<ept
+              id="1">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="54"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Since Onshape supports only SAML authentication, click the
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>SAML<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        box.
+        <bpt
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt>
+          <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img class="RoundedCorners" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="9" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" src="Resources/Images/SSO/azure-sso-007-02.png" /&gt;</ph>
+        <ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept>
+        <bpt
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt>
+          If the Save single sign-on setting opens, click
+          <bpt
+            id="4"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Yes<ept
+            id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.
+        <ept
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept>
+        <bpt
+            id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt>
+          <ph
+            id="2"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/SSO/azure-sso-036a.png" class="RoundedCorners" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="10" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" /&gt;</ph>
+        <ept
+            id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept>
+        <bpt
+            id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt>The SAML-based sign-on page opens.<ept
+            id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></source><seg-source><mrk
+            mtype="seg"
+            mid="1">Since Onshape supports only SAML authentication, click the <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>SAML<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> box. <bpt
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt></mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk><mrk
+            mtype="seg"
+            mid="3"><ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img class="RoundedCorners" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="9" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" src="Resources/Images/SSO/azure-sso-007-02.png" /&gt;</ph> <ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></mrk><mrk
+            mtype="protected"
+            mid="4"> </mrk><mrk
+            mtype="seg"
+            mid="5"><bpt
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt></mrk><mrk
+            mtype="protected"
+            mid="6"> </mrk><mrk
+            mtype="seg"
+            mid="7">If the Save single sign-on setting opens, click <bpt
+              id="4"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Yes<ept
+              id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="8"> </mrk><mrk
+            mtype="seg"
+            mid="9"><ept
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></mrk><mrk
+            mtype="protected"
+            mid="10"> </mrk><mrk
+            mtype="seg"
+            mid="11"><bpt
+              id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt></mrk><mrk
+            mtype="protected"
+            mid="12"> </mrk><mrk
+            mtype="seg"
+            mid="13"><ph
+              id="2"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img src="Resources/Images/SSO/azure-sso-036a.png" class="RoundedCorners" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="10" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" /&gt;</ph> <ept
+              id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></mrk><mrk
+            mtype="protected"
+            mid="14"> </mrk><mrk
+            mtype="seg"
+            mid="15"><bpt
+              id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="16">The SAML-based sign-on page opens.</mrk><mrk
+            mtype="seg"
+            mid="17"><ept
+              id="6" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">Étant donné qu'Onshape ne prend en charge que l'authentification SAML, cliquez sur la case <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>SAML<ept
+              id="1">&lt;/i&gt;</ept>. <bpt
+              id="2">&lt;p&gt;</bpt></mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="3"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="4"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="5"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="6"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="7"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">Si le paramètre Enregistrer l'authentification unique s'ouvre, cliquez sur <bpt
+              id="4"
+              ctype="italic">&lt;i&gt;</bpt>Oui<ept
+              id="4">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="8"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="9"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="10"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="11"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="12"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="13"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="14"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="15"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="16"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">La page d'authentification basée sur SAML s'ouvre.</mrk><mrk
+            mtype="seg"
+            mid="17"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="55"
+        restype="x-xml-h2"
+        phase-name="pretrans"><source>SAML configuration
+      </source><seg-source><mrk
+            mtype="seg"
+            mid="1">SAML configuration</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Configuration SAML</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="56"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>In the User Attributes &amp; Claims subsection, click
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Edit<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        at the top right corner of the box.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">In the User Attributes &amp; Claims subsection, click <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Edit<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> at the top right corner of the box.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Dans la sous-section Attributs utilisateur et Revendications, cliquez sur <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Modifier<ept
+              id="1">&lt;/i&gt;</ept> dans le coin supérieur droit du cadre.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="57"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>In the User Attributes &amp; Claims page that opens, double-click the
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>companyName<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        claim.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">In the User Attributes &amp; Claims page that opens, double-click the <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>companyName<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> claim.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Dans la page Attributs utilisateur et Revendications qui s'ouvre, double-cliquez sur la revendication<bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>CompanyName<ept
+              id="1">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="58"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Enter your domain name prefix into the
+          <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Source attribute<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+          field. For example, if your Onshape enterprise name is
+          <bpt
+            id="2"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Fishbowl.onshape.com<ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>, enter
+          <bpt
+            id="3"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Fishbowl<ept
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>
+          into the field. Once entered, you need to additionally click on the entry below the field (as shown by the cursor in the image below).</source><seg-source><mrk
+            mtype="seg"
+            mid="1">Enter your domain name prefix into the <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Source attribute<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> field. For example, if your Onshape enterprise name is <bpt
+              id="2"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Fishbowl.onshape.com<ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>, enter <bpt
+              id="3"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>Fishbowl<ept
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept> into the field. Once entered, you need to additionally click on the entry below the field (as shown by the cursor in the image below).</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Entrez votre préfixe de nom de domaine dans le champ <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Attribut source<ept
+              id="1">&lt;/i&gt;</ept>. Par exemple, si votre nom d'entreprise Onshape est <bpt
+              id="2"
+              ctype="bold">&lt;b&gt;</bpt>FishBowl.onShape.com<ept
+              id="2">&lt;/b&gt;</ept>, entrez <bpt
+              id="3"
+              ctype="bold">&lt;b&gt;</bpt>Fishbowl<ept
+              id="3">&lt;/b&gt;</ept> dans le champ. Une fois entré, vous devez également cliquer sur l'entrée située sous le champ (comme indiqué par le curseur dans l'image ci-dessous).</mrk></target></trans-unit><trans-unit
+        id="59"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Save<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Save<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Cliquez sur <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Enregistrer<ept
+              id="1">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="60"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>X<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        at the top right corner to close the page.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>X<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> at the top right corner to close the page.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Cliquez sur <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt> X <ept
+              id="1">&lt;/i&gt;</ept> dans le coin supérieur droit pour fermer la page.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="61"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>If you are asked if you want to Test the single sign-on, select
+          <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>No, I'll test later<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">If you are asked if you want to Test the single sign-on, select <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>No, I'll test later<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Si vous êtes invité à tester l'authentification unique, sélectionnez <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Non, je testerai plus tard<ept
+              id="1">&lt;/i&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="62"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The SAML-based Sign-on page is displayed again. Your page should look similar to the image below.</source>
+<target>The SAML-based Sign-on page is displayed again. Your page should look similar to the image below. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">The SAML-based Sign-on page is displayed again. Your page should look similar to the image below.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">La page de connexion basée sur SAML est affichée à nouveau. Votre page doit ressembler à l'image ci-dessous.</mrk></target></trans-unit><trans-unit
+        id="63"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Scroll down the page to subsection 3
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>SAML Signing Certificate<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>. At the bottom of this subsection, click the "Federation Metadata XML"
+        <bpt
+            id="2"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>download<ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        link. This XML file is used later in the Single sign-on configuration process.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Scroll down the page to subsection 3 <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>SAML Signing Certificate<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>. At the bottom of this subsection, click the "Federation Metadata XML" <bpt
+              id="2"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>download<ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> link. This XML file is used later in the Single sign-on configuration process.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Faites défiler la page jusqu'à la sous-section 3 <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Certificat de signature SAML<ept
+              id="1">&lt;/i&gt;</ept>. Au bas de cette sous-section, cliquez sur le lien <bpt
+              id="2"
+              ctype="italic">&lt;i&gt;</bpt>télécharger<ept
+              id="2">&lt;/i&gt;</ept> "Fédération métadonnées XML". Ce fichier XML est utilisé ultérieurement dans le processus de configuration de l'authentification unique.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="64"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>A message appears in the top right upon successful download of this file. Click
+          <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>X<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+          to dismiss the message.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">A message appears in the top right upon successful download of this file. Click <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>X<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> to dismiss the message.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Un message apparaît en haut à droite lors du téléchargement réussi de ce fichier. Cliquez sur <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>X<ept
+              id="1">&lt;/i&gt;</ept> pour ignorer le message.</mrk></target></trans-unit><trans-unit
+        id="65"
+        restype="x-xml-h2"
+        phase-name="pretrans"><source>Set up users and groups
+      </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Set up users and groups</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Configuration des utilisateurs et des groupes</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="66"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>In the left navigation pane, select
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Users and groups<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">In the left navigation pane, select <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Users and groups<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Dans le volet de navigation de gauche, sélectionnez <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Utilisateurs et groupes<ept
+              id="1">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="67"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>The Users and groups page appears. Click
+          <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Add user/group<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">The Users and groups page appears. Click <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Add user/group<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">La page Utilisateurs et groupes apparaît. Cliquez sur <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Ajouter un utilisateur/groupe<ept
+              id="1">&lt;/i&gt;</ept>.</mrk></target></trans-unit><trans-unit
+        id="68"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>The Add Assignment page opens. On the left, click
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Users - None Selected<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.
+        <bpt
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt>
+          The Users pane opens on the right. Search and then select the Users you would like to invite. Each user is moved into the
+          <bpt
+            id="3"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Selected Items<ept
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+          pane subsection below. Once all selected members are listed in this pane, click the
+          <bpt
+            id="4"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Select<ept
+            id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+          button.
+        <ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept>
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">The Add Assignment page opens. On the left, click <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Users - None Selected<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>. <bpt
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt></mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk><mrk
+            mtype="seg"
+            mid="3">The Users pane opens on the right. Search and then select the Users you would like to invite. Each user is moved into the <bpt
+              id="3"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Selected Items<ept
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> pane subsection below. Once all selected members are listed in this pane, click the <bpt
+              id="4"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Select<ept
+              id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> button. <ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></mrk><mrk
+            mtype="protected"
+            mid="4"> </mrk><mrk
+            mtype="protected"
+            mid="5" /></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">La page Ajouter une mission s'ouvre. Sur la gauche, cliquez sur <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Utilisateurs - Aucun sélectionné<ept
+              id="1">&lt;/i&gt;</ept>. <bpt
+              id="2">&lt;p&gt;</bpt></mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="3"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Le volet Utilisateurs s'ouvre sur la droite. Recherchez, puis sélectionnez les utilisateurs que vous souhaitez inviter. Chaque utilisateur est déplacé dans la sous-section de panneau <bpt
+              id="3"
+              ctype="italic">&lt;i&gt;</bpt>Éléments sélectionnés<ept
+              id="3">&lt;/i&gt;</ept> ci-dessous. Une fois que tous les membres sélectionnés sont répertoriés dans ce volet, cliquez sur le bouton <bpt
+              id="4"
+              ctype="italic">&lt;i&gt;</bpt>Sélectionner<ept
+              id="4">&lt;/i&gt;</ept>. <ept
+              id="2">&lt;/p&gt;</ept></mrk><mrk
+            mtype="protected"
+            mid="4"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="5"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="69"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Assign<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Assign<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Cliquez sur <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Attribuer<ept
+              id="1">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="70"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>The Users and groups page appears with the new users.
+        <bpt
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt>
+          <ph
+            id="1"
+            ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img class="RoundedCorners" alt="<sub
+              ctype="x-xhtml-img-alt"
+              datatype="xhtml"
+              xid="24" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" src="Resources/Images/SSO/azure-sso-024-01.png" /&gt;</ph>
+        <ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept>
+        <bpt
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt>At this point, you can leave the Azure portal and open your Microsoft active directory application dashboard.<ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept>
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">The Users and groups page appears with the new users. <bpt
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt></mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk><mrk
+            mtype="seg"
+            mid="3"><ph
+              id="1"
+              ctype="image" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;img class="RoundedCorners" alt="<sub
+                ctype="x-xhtml-img-alt"
+                datatype="xhtml"
+                xid="24" xmlns="urn:oasis:names:tc:xliff:document:1.2" />" src="Resources/Images/SSO/azure-sso-024-01.png" /&gt;</ph> <ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></mrk><mrk
+            mtype="protected"
+            mid="4"> </mrk><mrk
+            mtype="seg"
+            mid="5"><bpt
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;p&gt;</bpt></mrk><mrk
+            mtype="seg"
+            mid="6">At this point, you can leave the Azure portal and open your Microsoft active directory application dashboard.</mrk><mrk
+            mtype="seg"
+            mid="7"><ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/p&gt;</ept></mrk><mrk
+            mtype="protected"
+            mid="8"> </mrk><mrk
+            mtype="protected"
+            mid="9" /></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">La page Utilisateurs et groupes apparaît avec les nouveaux utilisateurs. <bpt
+              id="1">&lt;p&gt;</bpt></mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="3"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="4"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="5"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="6"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">À ce stade, vous pouvez quitter le portail Azure et ouvrir le tableau de bord de votre application Microsoft Active Directory.</mrk><mrk
+            mtype="seg"
+            mid="7"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="8"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="9"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="71"
+        restype="x-xml-h2"
+        phase-name="pretrans"><source>Upload the XML configuration file in Onshape
+      </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Upload the XML configuration file in Onshape</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Télécharger le fichier de configuration XML dans Onshape</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="72"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Sign in to your Onshape enterprise account, using your specialized domain name, as an administrator.
+Select
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Enterprise settings<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        from your account.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Sign in to your Onshape enterprise account, using your specialized domain name, as an administrator. Select <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Enterprise settings<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> from your account.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Connectez-vous à votre compte d'entreprise Onshape, en utilisant votre nom de domaine spécialisé, en tant qu'administrateur. Sélectionnez <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Paramètres d'entreprise<ept
+              id="1">&lt;/i&gt;</ept> dans votre compte.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="73"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Select
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Authentication<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        from the left navigation menu.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Select <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Authentication<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> from the left navigation menu.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Sélectionnez <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Authentification<ept
+              id="1">&lt;/i&gt;</ept> dans le menu de navigation de gauche.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="74"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>In the Single sign-on (SSO) subsection, click the
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Configure SSO provider<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        button.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">In the Single sign-on (SSO) subsection, click the <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Configure SSO provider<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> button.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Dans la sous-section Authentification unique (SSO), cliquez sur le bouton <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Configurer un fournisseur SSO<ept
+              id="1">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="75"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>The Create SSO provider dialog opens. In the
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Name<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        field, enter a three-letter name, such as
+        <bpt
+            id="2"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>MSA<ept
+            id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. In the
+        <bpt
+            id="3"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Provider type<ept
+            id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        drop-down, select
+        <bpt
+            id="4"
+            ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b style="font-style: italic; font-weight: normal;"&gt;</bpt>Microsoft Azure<ept
+            id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. Then click the
+        <bpt
+            id="5"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Upload configuration file<ept
+            id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        button.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">The Create SSO provider dialog opens. In the <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Name<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> field, enter a three-letter name, such as <bpt
+              id="2"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b&gt;</bpt>MSA<ept
+              id="2" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. In the <bpt
+              id="3"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Provider type<ept
+              id="3" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> drop-down, select <bpt
+              id="4"
+              ctype="bold" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;b style="font-style: italic; font-weight: normal;"&gt;</bpt>Microsoft Azure<ept
+              id="4" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/b&gt;</ept>. Then click the <bpt
+              id="5"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Upload configuration file<ept
+              id="5" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> button.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">La boîte de dialogue Créer un fournisseur SSO s'ouvre. Dans le champ <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Nom<ept
+              id="1">&lt;/i&gt;</ept>, entrez un nom à trois lettres, tel que <bpt
+              id="2"
+              ctype="bold">&lt;b&gt;</bpt>MSA<ept
+              id="2">&lt;/b&gt;</ept>. Dans le menu déroulant <bpt
+              id="3"
+              ctype="italic">&lt;i&gt;</bpt>Type de fournisseur<ept
+              id="3">&lt;/i&gt;</ept>, sélectionnez <bpt
+              id="4"
+              ctype="bold">&lt;b style="font-style: italic; font-weight: normal;"&gt;</bpt>Microsoft Azure<ept
+              id="4">&lt;/b&gt;</ept>. Cliquez ensuite sur le bouton <bpt
+              id="5"
+              ctype="italic">&lt;i&gt;</bpt>Charger le fichier de configuration<ept
+              id="5">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="76"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Locate and select the XML file you downloaded previously, and click
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Open<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Locate and select the XML file you downloaded previously, and click <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Open<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Localisez et sélectionnez le fichier XML que vous avez téléchargé précédemment, puis cliquez sur <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Ouvrir<ept
+              id="1">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="77"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Click
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>OK<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Click <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>OK<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Cliquez sur <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>OK<ept
+              id="1">&lt;/i&gt;</ept>.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="78"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>The file is uploaded. A notification appears when the upload is completed.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">The file is uploaded. A notification appears when the upload is completed.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Le fichier est téléchargé. Une notification s'affiche lorsque le téléchargement est terminé.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="79"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>You can disable the typical Onshape password sign-in for your users and show only the SSO provider sign-in prompt for the Onshape URL. However, do not perform this step at this time. Make sure you can sign in to Onshape yourself (as administrator) before disabling this additional sign-in option. You can return here later, once you verify you can sign in through your SSO provider.
+        <ph
+            id="1"
+            ctype="lb" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;br /&gt;</ph>
+        <ph
+            id="2"
+            ctype="lb" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;br /&gt;</ph>
+        Choosing to enforce signing in to Onshape via SSO also results in users not being able to sign in to non-enterprise domains directly, such as cad.onshape.com.</source><seg-source><mrk
+            mtype="seg"
+            mid="1">You can disable the typical Onshape password sign-in for your users and show only the SSO provider sign-in prompt for the Onshape URL. However, do not perform this step at this time. Make sure you can sign in to Onshape yourself (as administrator) before disabling this additional sign-in option. You can return here later, once you verify you can sign in through your SSO provider.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk><mrk
+            mtype="seg"
+            mid="3"><ph
+              id="1"
+              ctype="lb" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;br /&gt;</ph></mrk><mrk
+            mtype="protected"
+            mid="4"> </mrk><mrk
+            mtype="seg"
+            mid="5"><ph
+              id="2"
+              ctype="lb" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;br /&gt;</ph></mrk><mrk
+            mtype="protected"
+            mid="6"> </mrk><mrk
+            mtype="seg"
+            mid="7">Choosing to enforce signing in to Onshape via SSO also results in users not being able to sign in to non-enterprise domains directly, such as cad.onshape.com.</mrk></seg-source><target
+          state="needs-translation"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="0">Vous pouvez désactiver la connexion par mot de passe Onshape classique pour vos utilisateurs et afficher uniquement l'invite de connexion du fournisseur à authentification unique (SSO) pour l'URL Onshape. Cependant, n'effectuez pas cette étape pour le moment. Assurez-vous de pouvoir vous connecter à Onshape vous-même (en tant qu'administrateur) avant de désactiver cette option de connexion supplémentaire. Vous pouvez revenir ici plus tard, une fois que vous avez vérifié que vous pouvez vous connecter via votre fournisseur SSO.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="3"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="4"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="5"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="protected"
+            mid="6"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /><mrk
+            mtype="seg"
+            mid="7"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">En choisissant d'imposer la connexion à Onshape via l'authentification unique, les utilisateurs ne peuvent pas non plus se connecter directement à des domaines hors entreprise, tels que cad.onshape.com.</mrk></target></trans-unit><trans-unit
+        id="80"
+        restype="x-xml-li"
+        phase-name="pretrans"><source>Sign out of both your Onshape and Microsoft accounts. Be sure to do a hard refresh of both accounts. When you reach the Onshape sign-in page once again, the page has a new
+        <bpt
+            id="1"
+            ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Sign in<ept
+            id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept>
+        link at the bottom, for your Single sign-on provider.
+        </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Sign out of both your Onshape and Microsoft accounts. Be sure to do a hard refresh of both accounts. When you reach the Onshape sign-in page once again, the page has a new <bpt
+              id="1"
+              ctype="italic" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;i&gt;</bpt>Sign in<ept
+              id="1" xmlns="urn:oasis:names:tc:xliff:document:1.2">&lt;/i&gt;</ept> link at the bottom, for your Single sign-on provider.</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Déconnectez-vous de vos comptes Onshape et Microsoft. Assurez-vous de procéder à une actualisation des deux comptes. Lorsque vous atteignez à nouveau la page de connexion Onshape, la page comporte un nouveau lien <bpt
+              id="1"
+              ctype="italic">&lt;i&gt;</bpt>Se connecter<ept
+              id="1">&lt;/i&gt;</ept> en bas, pour votre fournisseur d'authentification unique.</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="81"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>In order to sign in to Onshape, administrators must provision their users (in their single sign-on account) to use the Onshape application.</source>
+<target>In order to sign in to Onshape, administrators must provision their users (in their single sign-on account) to use the Onshape application. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">In order to sign in to Onshape, administrators must provision their users (in their single sign-on account) to use the Onshape application.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Pour pouvoir se connecter à Onshape, les administrateurs doivent permettre à leurs utilisateurs (dans leur compte à authentification unique) d'utiliser l'application Onshape.</mrk></target></trans-unit><trans-unit
+        id="82"
+        restype="x-xml-h2"
+        phase-name="pretrans"><source>Troubleshooting
+      </source><seg-source><mrk
+            mtype="seg"
+            mid="1">Troubleshooting</mrk><mrk
+            mtype="protected"
+            mid="2"> </mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Dépannage</mrk><mrk
+            mtype="protected"
+            mid="2"
+            MadCap:segmentStatus="Untranslated"
+            MadCap:matchPercent="0" /></target></trans-unit><trans-unit
+        id="83"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>If you see the following error:</source>
+<target>If you see the following error: pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">If you see the following error:</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Si l'erreur suivante s'affiche :</mrk></target></trans-unit><trans-unit
+        id="84"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Close all tabs, fully sign out, and sign back into Microsoft.</source>
+<target>Close all tabs, fully sign out, and sign back into Microsoft. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Close all tabs, fully sign out, and sign back into Microsoft.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Fermez tous les onglets, déconnectez-vous complètement et connectez-vous à nouveau à Microsoft.</mrk></target></trans-unit><trans-unit
+        id="85"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Sign into Onshape again.</source>
+<target>Sign into Onshape again. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Sign into Onshape again.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="101">Connectez-vous à nouveau à Onshape.</mrk></target></trans-unit><trans-unit
+        id="86"
+        restype="x-xml-p"
+        phase-name="pretrans"><source>Be aware that the "test connection" button in the AD admin panel does not work.</source>
+<target>Be aware that the "test connection" button in the AD admin panel does not work. pseudo</target><seg-source><mrk
+            mtype="seg"
+            mid="1">Be aware that the "test connection" button in the AD admin panel does not work.</mrk></seg-source><target
+          state="translated"><mrk
+            mtype="seg"
+            mid="1"
+            MadCap:segmentStatus="Accepted"
+            MadCap:matchPercent="100">Sachez que le bouton "Test de connexion" du panneau d'administration AD ne fonctionne pas.</mrk></target></trans-unit></body>
+  </file>
+</xliff>
