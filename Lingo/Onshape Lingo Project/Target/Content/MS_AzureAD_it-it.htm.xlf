@@ -12,7 +12,7 @@
     datatype="xhtml">
     <header>
       <skl><external-file
-          href="MS_AzureAD.htm.skl" /></skl>
+          href="MS_AzureAD.htm.skl" />This commit should be picked up</skl>
       <phase-group>
         <phase
           phase-name="translation"
