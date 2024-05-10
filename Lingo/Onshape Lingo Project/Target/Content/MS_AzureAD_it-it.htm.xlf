@@ -16,6 +16,7 @@
       <phase-group>
         <phase
           phase-name="translation"
+          data="this should be picked up too"
           process-name="translation" />
         <phase
           phase-name="completion"
