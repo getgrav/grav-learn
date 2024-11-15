@@ -135,6 +135,7 @@ Here you can also choose the type of widget you want to use, it can be either `m
 ! Make sure you add any Domain you might need to use the Turnstile field on, this might include your local environment.
 
 Once you have created a site, you will be given a `site_key` and `site_secret` that you will need to configure in your form configuration file (typically `user/config/plugins/form.yaml`). You can ignore the script tag suggested, as Grav takes care of it for you.
+Add the [turnstile widget javascript](https://developers.cloudflare.com/turnstile/get-started/#add-the-turnstile-widget-to-your-site) file to your page.
 
 The default options are:
 
