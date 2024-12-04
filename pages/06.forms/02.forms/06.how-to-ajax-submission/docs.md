@@ -10,9 +10,9 @@ The default mechanism for form processing relies on standard HTML style form sub
 
 This involves a page reload, and that is sometimes undesirable.  This is where a form submitted via JavaScript using Ajax or XHR is the preferred option.  Luckily, Grav's form capabilities are up to the task.
 
-## Automatic Approach (From plugin >= `v7.3.0`)
+## Automatic Approach (Form plugin >= `v7.3.0`)
 
-With the release of From plugin version `7.3.0` the ability to submit forms with XHR to process the form in-place and not require an entire page reload is now available with a quick setup option.
+With the release of Form plugin version `7.3.0` the ability to submit forms with XHR to process the form in-place and not require an entire page reload is now available with a quick setup option.
 
 To enable this simply add this option to your Form blueprint:
 
