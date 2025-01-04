@@ -97,26 +97,31 @@ To achieve this you need to follow these steps:
 2. Copy the theme YAML file from the theme you're inheriting (or from the `user/config/themes` folder if you have customized it) to `/user/themes/mytheme/mytheme.yaml` and add the following content (replacing `user/themes/quark` with the name of the theme you are inheriting):
 
    [prism classes="language-yaml line-numbers"]
+   
    streams:
      schemes:
        theme:
          type: ReadOnlyStream
          prefixes:
            '':
-             - user/themes/mytheme
-             - user/themes/quark
+         - 'user://themes/mytheme'
+         - 'user://themes/quark'
+
    [/prism]
    
-3. Copy the `/user/themes/quark/blueprints.yaml` file into `/user/themes/mytheme/blueprints.yaml` in order to include the customizable elements of the theme in the admin.
+   NOTE: Your `mytheme.yaml` must single quote the prefixes in 1.7. Older documentation shows no single-quotes sunch as `- user/themes/mytheme
+         - user/themes/quark`. The incorrect quoting in the `mytheme.yaml` may result in a fatal error upon activating your new theme `Template "@images/grav-logo.svg" is not defined in "partials/logo.html.twig" at line 7.`
+   
+4. Copy the `/user/themes/quark/blueprints.yaml` file into `/user/themes/mytheme/blueprints.yaml` in order to include the customizable elements of the theme in the admin.
 
-4. Change your default theme to use your new **mytheme** by editing the `pages: theme:` option in your `user/config/system.yaml` configuration file:
+5. Change your default theme to use your new **mytheme** by editing the `pages: theme:` option in your `user/config/system.yaml` configuration file:
 
    [prism classes="language-yaml line-numbers"]
    pages:
      theme: mytheme
    [/prism]
 
-5. Create a new theme Class file that can be used to add advanced event-driven functionality. Create a `user/themes/mytheme/mytheme.php` file:
+6. Create a new theme Class file that can be used to add advanced event-driven functionality. Create a `user/themes/mytheme/mytheme.php` file:
 
    [prism classes="language-php line-numbers"]
    <?php
