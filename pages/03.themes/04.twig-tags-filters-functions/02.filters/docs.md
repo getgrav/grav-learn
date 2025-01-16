@@ -422,6 +422,12 @@ Translates a string in a specific language. For more details check out the [mult
 
 `'SIMPLE_TEXT'|tl(['fr'])`
 
+### `transliterate`
+
+To convert accented characters in a string to ASCII equivalents, use the `transliterate` filter:
+
+`'Czy możesz mi pomóc?'|transliterate` <i class="fa fa-long-arrow-right"></i> **{{ 'Czy możesz mi pomóc?'|transliterate }}**
+
 ### `truncate`
 
 You can easily generate a shortened, truncated, version of a string by using this filter.  It takes a number of characters as the only required field, but has some other options:
