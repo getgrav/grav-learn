@@ -633,6 +633,7 @@ header.some_field:
 | Attribute | Description                                                                                                                     |
 | :-----    | :-----                                                                                                                          |
 | `name`    | The field name. If missing, the field name is got from the field definition element (in the example above: `header.some_field`) |
+| `evaluate` | To make use of variables like `page.title` for the value, you have to set this to `true` |
 [/div]
 
 [div class="table"]
