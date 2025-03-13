@@ -114,7 +114,7 @@ User view of Wordpress "Sample Page" on left exported and rendered via Grav on t
 * Each post/page will be exported to directories matching metadata from the post, typically the post/ page title.
 * Library media will be copied to the `data/wp-content` and in-line content will (eventually) be included within the page's directory.
 
-### Importing Post Types to Grav
+### Importing Posts to Grav
 
 * Copy the `EXPORT/pages` directory to your `user` directory
 * Copy the `EXPORT/data` directory to your `user` directory
@@ -133,6 +133,6 @@ Admin view of WordPress General Settings on left exported to Grav Site Config on
 
 * Grav site metadata is stored in `EXPORT/config/site.yaml`.
 
-### Importing Post Types to Grav
+### Importing Site metadata to Grav
 
 * Copy the `EXPORT/config/site.yaml` directory to Grav at `user/config/site.yaml`.
