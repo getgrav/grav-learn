@@ -104,8 +104,8 @@ To achieve this you need to follow these steps:
          type: ReadOnlyStream
          prefixes:
            '':
-         - 'user://themes/mytheme'
-         - 'user://themes/quark'
+             - 'user://themes/mytheme'
+             - 'user://themes/quark'
 
    [/prism]
    
