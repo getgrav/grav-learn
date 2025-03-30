@@ -192,3 +192,16 @@ The max file size is limited by:
      accept:
        - 'image/*
    [/prism]
+
+   ### Legacy File Upload Processing and Manual Control
+
+   For basic file handling, all you need is the field defintion. The files get uploaded to a temporary location via the Dropzone widget via an XHR call to the server.  On form submission, the files are moved from their temporary location to their final location automatically.  You can however use the `upload: true` action in the `process:` block to manually trigger where in the workflow you want those files to be moved.
+
+   ##### Example:
+
+[prism classes="language-yaml line-numbers"]
+process:
+    upload: true
+    message: 'Thank you for your files'
+    reset: true 
+[/prism]
