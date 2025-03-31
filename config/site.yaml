@@ -28,6 +28,6 @@ redirects:
   '/(\d+)/advanced/grav-lifecycle': '/plugins/grav-lifecycle'
   '/(\d+)/hosting/(.*)': '/webservers-hosting/$1'
   '/(\d+)/themes/twig-tags': '/themes/twig-tags-filters-functions/tags'
-  '/advanced/grav-gpm': '/17/cli-console/grav-cli-gpm'
+  '/advanced/grav-gpm': '/cli-console/grav-cli-gpm'
 
 
