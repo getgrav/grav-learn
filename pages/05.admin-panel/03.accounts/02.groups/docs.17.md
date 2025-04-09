@@ -48,7 +48,7 @@ Here is a quick breakdown of the permissions options and what they enable someon
 
 #### Admin
 
-![Admin Permissions](accounts-groups3.png?width=2030&classes=shadow)
+![Admin Permissions](accounts-groups3b.png?width=2030&classes=shadow)
 
 [div class="table table-striped table-keycol"]
 
