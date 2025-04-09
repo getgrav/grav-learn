@@ -9,7 +9,7 @@ process:
     twig: true
 ---
 
-![Compatibility Tab](accounts-configuration.png?width=2030&classes=shadow)
+![Compatibility Tab](accounts-configuration1.png?width=2030&classes=shadow)
 
 [div class="table table-striped table-keycol"]
 | Option                        | Description |
@@ -17,7 +17,7 @@ process:
 | **Admin event compatibility** | Enables `onAdminSave` and `onAdminSaveAfter` events for plugins. Enabled by default. |
 [/div]
 
-![Caching Tab](accounts-configuration.png?width=2030&classes=shadow)
+![Caching Tab](accounts-configuration2.png?width=2030&classes=shadow)
 
 For more information, see Flex Objects.
 
