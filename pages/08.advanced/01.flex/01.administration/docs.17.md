@@ -22,7 +22,7 @@ Hit **Save** and the directory should show up after a page load.
 
 ## Directory Listing
 
-![Directories View](views-directories.png?width=2030&classes=shadow)
+![Directories View](./01.views-list/flex-objects-list.png?width=2030&classes=shadow)
 
 By default, the **Flex Objects** navigation menu item contains all the **Flex Directories** that have been enabled in your site.
 
