@@ -46,6 +46,8 @@ Here is a quick breakdown of the permissions options and what they enable someon
 | :-----                                | :-----                        | :-----                                                            |
 | **Login to Site**                     | *site.login*                  | Enables the user to log in to the front end. |
 
+[/div]
+
 #### Admin
 
 ![Admin Permissions](accounts-groups3b.png?width=2030&classes=shadow)
@@ -73,5 +75,4 @@ Here is a quick breakdown of the permissions options and what they enable someon
 | **User Accounts**                     | *admin.accounts*              | Gives the user full access to the [Accounts](/admin-panel/accounts) area of the admin.    |
 
 [/div]
-| **User Accounts**                     | *admin.accounts*              | Gives the user full access to the [Accounts](/admin-panel/accounts) area of the admin.    |
-[/div]
+
