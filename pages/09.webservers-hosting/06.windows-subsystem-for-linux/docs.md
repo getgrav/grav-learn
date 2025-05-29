@@ -1,7 +1,7 @@
 ---
 title: Windows Subsystem for Linux
 ---
-The Windows Subsystem for Linux lets developers run GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
+Windows Subsystem for Linux (WSL) lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a traditional virtual machine or dual-boot setup.
 
 You can:
 - Choose your favorite GNU/Linux distributions from the Windows Store.
@@ -14,18 +14,19 @@ You can:
 - Invoke Windows applications using a Unix-like command-line shell.
 - Invoke GNU/Linux applications on Windows.
 
-For more information visit: [Windows Subsustem for Linux Documentation](https://docs.microsoft.com/en-us/windows/wsl/about)
+For more information visit: [Windows Subsustem for Linux Documentation](https://learn.microsoft.com/en-us/windows/wsl/about?target=_blank)
 
 ## Installing Windows Subsystem for Linux
-The installation of *Windows Subsystem for Linux* is well described by Microsoft's own document [Install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10?target=_blank).
-Instead of the standard Ubuntu distro mentioned in the installation guide, search for and choose the latest Ubuntu 18.04 LTS.
+The installation of *Windows Subsystem for Linux* is well described by Microsoft's own document [Install the Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install?target=_blank).
 
-To initialize and update the Ubuntu installation follow [Initializing a newly installed distro](https://docs.microsoft.com/en-us/windows/wsl/initialize-distro?target=_blank).
-This step may be skipped if you have already initialized the Ubuntu distro in the previous step.
+#### Note on File Locations: WSL1 vs WSL2
 
-! An important aspect of WSL is that **Windows tools** are **not** able to access files stored inside Ubuntu. However, Ubuntu can (almost) freely read/write the Windows filesystem. Therefore, files that need to be accessed by Windows tools (e.g. your IDE, Backup) need to be stored on the Windows filesystem.<br><br>
+If you are using default **WSL2**, we recommend installing Grav inside the native Linux filesystem (e.g., `~/grav`) for optimal performance. Installing Grav under the Windows filesystem (e.g., `/mnt/c/...`) can result in slower performance due to inter-filesystem I/O latency.
+
+See [Microsoft's guidance](https://learn.microsoft.com/en-us/windows/wsl/compare-versions?target=_blank) for more information.
+
+! If you are using **WSL1**, an important aspect of WSL1 is that **Windows tools** are **not** able to access files stored inside Ubuntu. However, Ubuntu can (almost) freely read/write the Windows filesystem. Therefore, files that need to be accessed by Windows tools (e.g. your IDE, Backup) need to be stored on the Windows filesystem.<br><br>
 ! When accessing the Windows filesystem from within the bash shell, you need to prepend the path with `/mnt/c/`. Although not required, it is best to use the exact same file path casing when creating symlinks.
-
 
 ## Installing Apache
 Use the following command in the bash shell to install Apache:
@@ -36,13 +37,16 @@ sudo apt install apache2
 
 !!! The terminal used by WSL does not support the pasting of text as you are used to. Use **right-click** for pasting.
 
-Create a project folder for your websites. For reasons mentioned above, this folder needs to be outside of the WSL filesystem. You could use for example: `C:/Users/<Username>/Documents/Development/Web/webroot`, or simply `C:/webroot`.
-
+Create a project folder for your websites.  
 In Ubuntu, create a symbolic link to the `webroot` folder.
 
 [prism classes="language-bash command-line"]
-sudo ln -s /mnt/c/your/path/to/webroot /var/www/webroot
+cd ~/
+mkdir webroot/
+sudo ln -s ~/webroot /var/www/webroot
 [/prism]
+
+!!! When using WSL2, you can access the `webroot` directory from Windows File Explorer by entering the following path in the address bar:  `\\wsl.localhost\Ubuntu\home\your-username\webroot`
 
 Open the Apache default virtual host configuration file:
 
@@ -77,6 +81,25 @@ Insert the following VirtualHost configuration:
 !!! Save the file by pressing `Ctrl`<small>+</small>`O`, and hit `Enter` to confirm. Exit with `Ctrl`<small>+</small>`X`.<br>
 !!! (In the command bar: `^` meants `Ctrl` and `M` means `Alt`)
 
+By default, Apache runs as the `www-data` user and group, which may not have permission to access your Grav files, especially if they are located within your home directory (e.g., `/home/your-username/webroot`). 
+
+To avoid permission issues during development, you can configure Apache to run under your own user and group. This allows Apache to read and write files in your user space without needing to change file ownership or permissions.
+
+To do this, edit the `envvars` file:
+
+[prism classes="language-bash command-line"]
+sudo nano /etc/apache2/envvars
+[/prism]
+
+Replace the default values with your actual username and group:
+
+[prism classes="language-apacheconf line-numbers"]
+export APACHE_RUN_USER=your-user-name
+export APACHE_RUN_GROUP=your-group-name
+[/prism]
+
+!!! This approach is generally suitable for development environments. See [Troubleshooting > Permissions](/troubleshooting/permissions) for more information.
+
 Open your favorite Windows editor/IDE, and create an `index.html` file in your webroot folder with the following content:
 
 [prism classes="language-html line-numbers"]
@@ -97,9 +120,6 @@ Start the Apache service:
 [prism classes="language-bash command-line"]
 sudo service apache2 start
 [/prism]
-
-!! You will probably get the following known error message [which you can ignore](https://github.com/Microsoft/WSL/issues/1953?target=_blank):<br>
-!! *(92)Protocol not available: AH00076: Failed to enable APR_TCP_DEFER_ACCEPT*
 
 Open [http://localhost](http://localhost?target=_blank) in your browser and you should see the text 'It works!'.
 
@@ -124,9 +144,10 @@ php -v
 You should get a response similar to this:
 
 [prism classes="language-bash"]
-PHP 7.2.7-0ubuntu0.18.04.2 (cli) (built: Jul  4 2018 16:55:24) ( NTS )
-Copyright (c) 1997-2018 The PHP Group
-Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
+PHP 8.1.2-1ubuntu2.21 (cli) (built: Mar 24 2025 19:04:23) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.1.2, Copyright (c) Zend Technologies
+    with Zend OPcache v8.1.2-1ubuntu2.21, Copyright (c), by Zend Technologies
 [/prism]
 
 To meet Grav's PHP requirements, a few extra PHP extensions need to be installed:
@@ -142,16 +163,8 @@ sudo service apache2 restart
 [/prism]
 
 ## Installing Grav
-You can install Grav either from within Windows or from within Ubuntu.
+You can install Grav from within Ubuntu.
 
-#### Option 1: Windows
-Install Grav by downloading the ZIP package and extracting it:
-1. Download the latest-and-greatest [**Grav**](https://getgrav.org/download/core/grav/latest?target=_blank) or [**Grav + Admin**](https://getgrav.org/download/core/grav-admin/latest?target=_blank) package.
-1. Extract the ZIP file into the webroot you have created before.
-1. Rename the extracted folder to `mysite`.
-1. Open [http://localhost/mysite](http://localhost/mysite?target=_blank) in the browser and you should have a working Grav installation.
-
-#### Option 2: Ubuntu
 Run the following commands to install Grav inside the default webroot of Apache:
 
 [prism classes="language-bash command-line"]
@@ -163,7 +176,7 @@ mv /var/www/webroot/grav /var/www/webroot/mysite
 
 Open [http://localhost/mysite](http://localhost/mysite?target=_blank) in the browser and you should have a working Grav installation.
 
-For other installation options, visit Grav's [Installation](https://learn.getgrav.org/basics/installation?target=_blank) documentation.
+For other installation options, visit Grav's [Installation](/basics/installation) documentation.
 
 ## Installing XDebug (optional)
 If you are a developer and want to develop your own plugins and themes, you ~~probably~~ inevitably need to debug your code at some point...
@@ -209,7 +222,11 @@ In order to start debugging, you first need to activate the debugger on the serv
 When you want to switch on/off debugging for a website, just toggle 'Debug' in the browser extention.
 
 #### Launching debugger in Visual Studio Code (optional)
-When using Vistual Studio Code, the default PHP debug launchers won't work when Apache/PHP is running in WSL, because of the file mappings.
+
+If you're using **WSL2**, you can follow [Microsoft's official guide](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode?target=_blank) to set up Visual Studio Code with the **Remote - WSL** extension. This allows you to run VS Code directly within the WSL environment, enabling smooth debugging of PHP code running under Apache.
+
+If you're using **WSL1**, the following configuration may help address issues.
+When using Vistual Studio Code, the default PHP debug launchers won't work when Apache/PHP is running in WSL1, because of the file mappings.
 
 Insert the following configuration into an already created PHP [launch configuration](https://code.visualstudio.com/docs/editor/debugging?target=_blank#_launch-configurations) in `.vscode/launch.json`:
 
