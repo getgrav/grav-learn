@@ -334,7 +334,7 @@ form:
 
 !! The `context` and `type` should be in this form to avoid potential file- and naming-conflicts, and remain easily identifiable, and thus also use the seemingly superfluously long path above.
 
-The user can then add their changes in `user//blueprints/plugins/yourpluginname/options.yaml`:
+The user can then add their changes in `user/blueprints/plugins/yourpluginname/options.yaml`:
 
 [prism classes="language-yaml line-numbers"]
 form:
