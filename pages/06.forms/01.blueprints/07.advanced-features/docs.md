@@ -128,7 +128,7 @@ form:
         underline: true
         import@:
           type: partials/gallery
-          context: user://themes/your-theme/blueprints
+          context: theme://blueprints
 [/prism]
 
 ## Removing Fields / Properties (unset-*@)
