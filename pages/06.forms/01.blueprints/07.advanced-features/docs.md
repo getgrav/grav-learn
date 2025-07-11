@@ -117,6 +117,20 @@ form:
           context: blueprints://
 [/prism]
 
+By default, blueprints:// resolves to `/user/plugins/admin/blueprints/partials/sidebar.yaml` therefore please note that if you are working in the context of a theme, you would need to adjust the context of your import statement :
+
+[prism classes="language-yaml line-numbers"]
+form:
+  fields:
+    images:
+        type: section
+        title: Images
+        underline: true
+        import@:
+          type: partials/gallery
+          context: user://themes/your-theme/blueprints
+[/prism]
+
 ## Removing Fields / Properties (unset-*@)
 
 If you want to remove a field, you can add `unset@: true` inside of it.
