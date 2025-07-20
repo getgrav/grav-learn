@@ -117,7 +117,7 @@ form:
           context: blueprints://
 [/prism]
 
-By default, blueprints:// resolves to `/user/plugins/admin/blueprints/partials/sidebar.yaml` therefore please note that if you are working in the context of a theme, you would need to adjust the context of your import statement :
+By default, blueprints:// resolves to `/user/plugins/admin/blueprints/` therefore please note that if you are working in the context of a theme, you would need to adjust the context of your import statement :
 
 [prism classes="language-yaml line-numbers"]
 form:
