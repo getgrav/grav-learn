@@ -109,8 +109,12 @@ To achieve this you need to follow these steps:
 
    [/prism]
    
-   NOTE: Your `mytheme.yaml` must single quote the prefixes in 1.7. Older documentation shows no single-quotes sunch as `- user/themes/mytheme
-         - user/themes/quark`. The incorrect quoting in the `mytheme.yaml` may result in a fatal error upon activating your new theme `Template "@images/grav-logo.svg" is not defined in "partials/logo.html.twig" at line 7.`
+   NOTE: Your `mytheme.yaml` must single quote the prefixes in 1.7. Older documentation shows no single-quotes such as 
+```
+    - user/themes/mytheme
+    - user/themes/quark
+```
+The incorrect quoting in the `mytheme.yaml` may result in a fatal error upon activating your new theme `Template "@images/grav-logo.svg" is not defined in "partials/logo.html.twig" at line 7.`
    
 4. Copy the `/user/themes/quark/blueprints.yaml` file into `/user/themes/mytheme/blueprints.yaml` in order to include the customizable elements of the theme in the admin.
 
