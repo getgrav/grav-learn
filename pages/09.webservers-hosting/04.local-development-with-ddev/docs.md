@@ -20,6 +20,20 @@ Please see the [official ddev documentation](https://ddev.readthedocs.io/en/late
 * run `ddev start `from the \[GRAV_ROOT] folder.
 * Let ddev build out the containers it requires.  Root/ Sudo credentials may be required in order to make local hosts changes.
 
+### Symlinking
+With Grav it is handy to symlink configs, folders like themes or plugins.
+Unfortunately they are not resolved in the containers created by DDEV.
+For that you can add MOUNTS:
+  * in .ddev forlder add docker-compose.mounts.yaml
+  * add a mount (expl for themes):
+    ``` YAML
+        services:
+          web:
+            volumes:
+              - "$HOME/path/to/my/themes/repo:/var/www/html/user/themes"`
+    ```
+  * then `ddev restart`
+
 ## Note about ddev and the Feed plugin
 ddev defaults to using nginx and the default configuration as of 2020-09-18 is sufficient for most use cases.  However, if you plan on using the [feed plugin](https://github.com/getgrav/grav-plugin-feed), you'll need to make the following configuration changes:
   * Edit \[GRAV_ROOT]/.ddev/nginx_full/nginx-site.conf
