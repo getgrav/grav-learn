@@ -464,15 +464,41 @@ Converts a string into "under_scored" format
 
 ### `wordcount`
 
-Counts the number of words in a text string with support for multiple languages and improved accuracy for HTML content
-`page.content|wordcount` `<i class="fa fa-long-arrow-right"></i> {{ page.content|wordcount }}`
-`wordcount` also takes an optional locale parameter to handle different languages appropriately. For Western languages (English, Spanish, French, etc.), it counts individual words separated by spaces. For Asian languages like Chinese, Japanese, and Korean, it counts characters instead of words, which is more appropriate for these writing systems. For example:
-`page.content|wordcount('en')` <i class="fa fa-long-arrow-right"></i> **{{ page.content|wordcount('en') }}**
-Explicitly specifies English locale (same as default behavior).
-`page.content|wordcount('zh')` <i class="fa fa-long-arrow-right"></i> **{{ page.content|wordcount('zh') }}**
-For Chinese content - counts characters instead of words.
-You can also use it in JSON-LD structured data for SEO purposes:
-`"wordCount": {{ page.content|wordcount }}` <i class="fa fa-long-arrow-right"></i> **{{ page.content|wordcount }}**
+### `wordcount`
+Counts the number of words in a text string with support for multiple languages and improved accuracy for HTML content.
+
+{% verbatim %}
+[prism classes="language-twig line-numbers"]
+{{ page.content|wordcount }}
+[/prism]
+{% endverbatim %}
+
+[prism classes="language-text"]
+36
+[/prism]
+
+The `wordcount` filter also takes an optional locale parameter to handle different languages appropriately. For Western languages (English, Spanish, French, etc.), it counts individual words separated by spaces. For Asian languages like Chinese, Japanese, and Korean, it counts characters instead of words, which is more appropriate for these writing systems.
+
+{% verbatim %}
+[prism classes="language-twig line-numbers"]
+{# With specific locale for English content #}
+{{ page.content|wordcount('en') }}
+
+{# For Chinese content - counts characters instead of words #}
+{{ page.content|wordcount('zh') }}
+
+{# Usage in JSON-LD structured data #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "wordCount": {{ page.content|wordcount }},
+  "headline": "{{ page.title }}"
+}
+</script>
+[/prism]
+{% endverbatim %}
+
 !! **Supported locales:** `en` (English, default), `es` (Spanish), `fr` (French), `de` (German), and other Western languages use word-based counting. `zh`/`zh-cn`/`zh-tw`/`chinese` (Chinese), `ja`/`japanese` (Japanese), and `ko`/`korean` (Korean) use character-based counting.
 
 [version=16,17]
