@@ -463,8 +463,6 @@ Converts a string into "under_scored" format
 `'CamelCased'|underscorize` <i class="fa fa-long-arrow-right"></i> **{{ 'CamelCased'|underscorize }}**
 
 ### `wordcount`
-
-### `wordcount`
 Counts the number of words in a text string with support for multiple languages and improved accuracy for HTML content.
 
 {% verbatim %}
