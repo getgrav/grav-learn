@@ -30,7 +30,7 @@ For that you can add MOUNTS:
         services:
           web:
             volumes:
-              - "$HOME/path/to/my/themes/repo:/var/www/html/user/themes"`
+              - /absolute/path/to/my/themes_repo:/var/www/html/user/themes
     ```
   * then `ddev restart`
 
