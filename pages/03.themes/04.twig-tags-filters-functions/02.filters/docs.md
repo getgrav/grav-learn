@@ -490,8 +490,8 @@ The `wordcount` filter also takes an optional locale parameter to handle differe
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "wordCount": {{ page.content|wordcount }},
-  "headline": "{{ page.title }}"
+  "wordCount": page.content|wordcount,
+  "headline": page.title
 }
 </script>
 [/prism]
