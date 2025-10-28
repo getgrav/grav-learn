@@ -305,6 +305,64 @@ The purpose of this function is to give extra instructions how to handle the fie
 
 You can add any `key: value` pairs including dynamic properties like `data-options@` which will automatically get appended to the fields.
 
+## Override or extend a plugin's blueprint
+
+There are cases were you'd want to add a change a plugin's provided blueprint; to add, move, or delete the options there. This isn't straightforward: A plugin's blueprint contains more than just a `form`-property, and isn't implicitly declared as extendable. However, when building plugins it is worthwile to faciliate this for your [user's blueprints](/basics/folder-structure#user-blueprints).
+
+- Firstly, the plugin must declare that it supports blueprints by adding a public-property in it's PHP-file: `public $features = ['blueprints' => 10];`
+- Secondly, the plugin must `import@` it's form-fields from a file, for example:
+
+[prism classes="language-yaml line-numbers"]
+form:
+  validation: strict
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        import@:
+          type: options
+          context: blueprints://plugins/yourpluginname
+[/prism]
+
+This imports `user/plugins/yourpluginname/blueprints/plugins/yourpluginname/options.yaml`.
+
+- Thirdly, this file must declare default form-parts:
+
+[prism classes="language-yaml line-numbers"]
+form:
+  options:
+    type: tab
+    title: PLUGIN_ADMIN.OPTIONS
+    fields:
+      enabled:
+        type: toggle
+        label: PLUGIN_ADMIN.PLUGIN_STATUS
+        default: 1
+        options:
+          1: PLUGIN_ADMIN.ENABLED
+          0: PLUGIN_ADMIN.DISABLED
+        validate:
+          type: bool
+[/prism]
+
+!! The `context` and `type` should be in this form to avoid potential file- and naming-conflicts, and remain easily identifiable, and thus also use the seemingly superfluously long path above.
+
+The user can then add their changes in `user/blueprints/plugins/yourpluginname/options.yaml`:
+
+[prism classes="language-yaml line-numbers"]
+form:
+  options:
+    fields:
+      category:
+        type: selectize
+        label: Category
+        validate:
+          type: commalist
+[/prism]
+
+And this will be picked up in plugin's configuration-page.
+
 ## onBlueprintCreated or accessing blueprint data
 
 Because of blueprints consist of fields with dots, getting nested field from blueprint uses `/` notation instead of `.` notation.
