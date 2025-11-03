@@ -100,7 +100,7 @@ The source code for the package can be found [here](https://git.cloudron.io/clou
 
 ### Install through Linode Marketplace
 
-If you use Linode servers, there is an [easy, documented method using Linode Marketplace](https://www.linode.com/docs/guides/grav-marketplace-app/). This will set up a new Grav site on a new dedicated Linode virtual server. The virtual server will incur a periodic charge.
+If you use Linode servers, there is an [easy, documented method using Linode Marketplace](https://www.linode.com/docs/marketplace-docs/guides/grav/). This will set up a new Grav site on a new dedicated Linode virtual server. The virtual server will incur a periodic charge.
 
 ## Webservers
 

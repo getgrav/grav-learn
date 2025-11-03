@@ -109,4 +109,5 @@ For more information about YAML, including detailed documentation about how it w
 * [Official YAML 1.2 Documentation](https://yaml.org/spec/1.2/spec.html)
 * [YAML Reference Card](https://yaml.org/refcard.html)
 * [Xavier Shay's YAML Tutorial](http://rhnh.net/2011/01/31/yaml-tutorial)
-* [YAMLLint](http://www.yamllint.com/)
+* [YAMLLint](https://www.yamllint.com/)
+* [YAML Tools](https://yamline.com/)

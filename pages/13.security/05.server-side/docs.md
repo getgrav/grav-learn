@@ -19,7 +19,7 @@ Generally, PHP's configuration is changed through `php.ini`. You can find the lo
 Some general recommendations:
 
 - **Always keep your PHP-version up to date**: Use a [supported version](https://php.net/supported-versions.php) of PHP, preferably one that is in active, stable development. For instance, PHP 5.6 and PHP 7.0 will only have security-fixes implemented until December 2018, whilst PHP 7.1 remains in active development alongside PHP 7.2.
-- Consider disabling the display of errors and PHP-version publicly: [PHP.earth article](https://php.earth/doc/security/intro#php-configuration).
+- Consider disabling the display of errors and PHP-version publicly: [PHP.earth article](https://docs.php.earth/security/intro/#php-configuration).
 - Use a separate user with restricted permissions to execute PHP for Grav: [Permissions in Docs](https://learn.getgrav.org/troubleshooting/permissions).
 - Use Suhosin for [advanced protection of PHP](https://suhosin.org/stories/feature-list.html).
 
@@ -35,6 +35,6 @@ Common webserver, or HTTP server software includes Nginx and Apache, as well as 
 
 You should **always keep your Operating System (OS) up to date**. OS' are vulnerable to exploits and intrusions, even more so than PHP, and should be updated as frequently as possible. Also, you should **always keep other software up to date**: Your installation is never just OS, PHP, and Grav. Other software packages are also risk-factors, and should be updated frequently.
 
-To protect your users' connection to your site, you should enable and enforce [HTTPS with a SSL-certificate](https://php.earth/doc/security/ssl). This ensures that all communication between the server and browser remains private and encrypted. Free certificates and services are available through for example [Let's Encrypt](https://letsencrypt.org/about/) or [CloudFlare](https://www.cloudflare.com/ssl/).
+To protect your users' connection to your site, you should enable and enforce [HTTPS with a SSL-certificate](https://docs.php.earth/security/ssl/). This ensures that all communication between the server and browser remains private and encrypted. Free certificates and services are available through for example [Let's Encrypt](https://letsencrypt.org/about/) or [CloudFlare](https://www.cloudflare.com/ssl/).
 
 If your server runs on Linux, enable [Security Enhanced Linux](https://selinuxproject.org/page/Main_Page). SELinux is typically enabled by default, and [well worth the trouble](http://www.computerworld.com/article/2717423/security/why-selinux-is-more-work--but-well-worth-the-trouble.html) to have. Some more recommendations for SysAdmins are available on [nixCraft](https://www.cyberciti.biz/tips/php-security-best-practices-tutorial.html).

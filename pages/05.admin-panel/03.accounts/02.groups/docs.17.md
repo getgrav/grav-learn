@@ -17,7 +17,7 @@ After creating a User Group, you can assign it to user accounts from [Access Tab
 
 ## User Group
 
-![Edit Group](accounts-groups1.png?width=2030&classes=shadow)
+![Edit Group](accounts-groups2.png?width=2030&classes=shadow)
 
 [div class="table table-striped table-keycol"]
 | Option                        | Description |
@@ -38,19 +38,22 @@ Here is a quick breakdown of the permissions options and what they enable someon
 
 #### Site
 
-![Site Permissions](accounts-groups1.png?width=2030&classes=shadow)
+![Site Permissions](accounts-groups3.png?width=2030&classes=shadow)
 
 [div class="table table-striped table-keycol"]
+
 | Option                                | Value                         | Description                                                       |
 | :-----                                | :-----                        | :-----                                                            |
 | **Login to Site**                     | *site.login*                  | Enables the user to log in to the front end. |
+
 [/div]
 
 #### Admin
 
-![Admin Permissions](accounts-groups1.png?width=2030&classes=shadow)
+![Admin Permissions](accounts-groups3b.png?width=2030&classes=shadow)
 
 [div class="table table-striped table-keycol"]
+
 | Option                                | Value                         | Description                                                       |
 | :-----                                | :-----                        | :-----                                                            |
 | **Login to Admin**                    | *admin.login*                 | Enables the user to log in to the admin. This must be set to **Yes** to enable the user to log in. |
@@ -70,4 +73,6 @@ Here is a quick breakdown of the permissions options and what they enable someon
 | **Manage Themes**                     | *admin.themes*                | Gives the user access to the **Themes** area of the admin.                                                       |
 | **Access to Tools**                   | *admin.tools*                 | Access to Admin Tools. |
 | **User Accounts**                     | *admin.accounts*              | Gives the user full access to the [Accounts](/admin-panel/accounts) area of the admin.    |
+
 [/div]
+

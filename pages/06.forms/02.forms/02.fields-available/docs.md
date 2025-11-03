@@ -962,6 +962,7 @@ header.some_field:
 | Attribute | Description                                                                                                                     |
 | :-----    | :-----                                                                                                                          |
 | `name`    | The field name. If missing, the field name is got from the field definition element (in the example above: `header.some_field`) |
+| `evaluate` | To make use of variables like `page.title` for the value, you have to set this to `true` |
 [/div]
 
 [div class="table"]
@@ -1331,6 +1332,7 @@ Example:
 test:
     type: spacer
     title: A title
+    title_type: h2
     text: Some text
     underline: true
 [/prism]
@@ -1338,7 +1340,8 @@ test:
 [div class="table table-keycol"]
 | Attribute   | Description                                            |
 | :-----      | :-----                                                 |
-| `title`     | add a h3 title to the form                             |
+| `title`     | add a title to the form                             |
+| `title_type`  | Define the HTML tag for the title (e.g., `h1`, `h2`, `h3`, etc.). Defaults to `h3` if not specified. |
 | `text`      | Add some text. If title is set, add it after the title |
 | `underline` | boolean, add a `<hr>` tag if positive                  |
 [/div]

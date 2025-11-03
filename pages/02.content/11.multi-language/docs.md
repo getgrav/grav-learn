@@ -153,7 +153,7 @@ languages:
 
 ### Default Language Prefix
 
-By default, the default language code is prefixed in all URLs.  For example if you have support for English and French (`en` and `fr`), and the default is English.  A page route might look like `/en/my-page` in English and `/fr/ma-page` in French. However it's often preferrable to have the default language without the prefix, so you can just set this option to `false` and the English page would appear as `/my-page`.
+By default, the default language code is prefixed in all URLs.  For example if you have support for English and French (`en` and `fr`), and the default is English.  A page route might look like `/en/my-page` in English and `/fr/ma-page` in French. However it's often preferable to have the default language without the prefix, so you can just set this option to `false` and the English page would appear as `/my-page`.
 
 [prism classes="language-yaml line-numbers"]
 languages:
@@ -322,7 +322,7 @@ $translation = $this->grav['language']->translate(['HEADER.MAIN_TEXT']);
 You can also specify a language:
 
 [prism classes="language-php line-numbers"]
-$translation = $this->grav['language']->translate(['HEADER.MAIN_TEXT'], 'fr');
+$translation = $this->grav['language']->translate(['HEADER.MAIN_TEXT'], ['fr']);
 [/prism]
 
 To translate a specific item in an array use:
