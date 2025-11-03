@@ -71,35 +71,126 @@ Added in Forms `7.0.0` as an local alternative to the Google ReCaptcha field.  T
 
 ![Basic-Captcha](basic-captcha_field.gif)
 
-the `basic-captcha` field type is fully configurable via the `forms` configuration but comes with sensible defaults. The overall configuration of Basic-Captcha is configured in your global form configuration file (typically `user/config/plugins/form.yaml`).  The default options are:
+The `basic-captcha` field type is fully configurable both globally and per-field. Global configuration is set in your form configuration file (typically `user/config/plugins/form.yaml`), while field-level configuration allows you to customize individual captcha fields in your forms.
+
+#### Global Configuration
+
+The default global options are:
 
 [prism classes="language-yaml line-numbers"]
 basic_captcha:
-  type: characters            # options: [characters | math]
+  type: characters            # options: [characters | math | dotcount | position]
+  debug: false                # enable debug logging
+  image:
+    width: 135                # default image width (for math/dotcount/position types)
+    height: 40                # default image height (for math/dotcount/position types)
+    bg: '#ffffff'             # default background color
   chars:
     length: 6                 # number of chars to output
-    font: zxx-noise.ttf       # options: [zxx-noise.ttf | zxx-camo.ttf | zxx-xed.ttf | zxx-sans.ttf]
-    bg: '#cccccc'             # 6-char hex color
-    text: '#333333'           # 6-char hex color
+    font: zxx-xed.ttf         # options: [zxx-xed.ttf | zxx-sans.ttf | zxx-camo.ttf | zxx-noise.ttf]
     size: 24                  # font size in px
-    start_x: 5                # start position in x direction in px
-    start_y: 30               # start position in y direction in px
-    box_width: 135            # box width in px
-    box_height: 40            # box height in px
+    box_width: 200            # image width for character captchas (overrides image.width)
+    box_height: 70            # image height for character captchas (overrides image.height)
+    start_x: 10               # start position in x direction in px
+    start_y: 40               # start position in y direction in px
+    bg: '#ffffff'             # background color for character captchas
+    text: '#000000'           # text color (hex format)
   math:
     min: 1                    # smallest digit
     max: 12                   # largest digit
     operators: ['+','-','*']  # operators that can be used in math
 [/prism]
 
-Example:
+#### Field-Level Configuration
+
+As of Forms `7.1.0`, you can override the global configuration on a per-field basis. This allows different forms to have different captcha styles, fonts, colors, and types.
+
+! **Important**: Use `captcha_type` (not `type`) for the captcha type in field-level configuration to avoid conflict with the required `type: basic-captcha` field type declaration.
+
+**Simple Example:**
 
 [prism classes="language-yaml line-numbers"]
 basic-captcha:
     type: basic-captcha
-    placeholder: copy the 6 characters
+    placeholder: enter the characters
     label: Are you human?
 [/prism]
+
+**Advanced Example with Field-Level Configuration:**
+
+[prism classes="language-yaml line-numbers"]
+basic-captcha:
+    type: basic-captcha
+    placeholder: enter the characters
+    label: Are you human?
+    # Field-level configuration overrides global defaults
+    captcha_type: characters        # use 'captcha_type' not 'type'
+    chars:
+        font: zxx-sans.ttf          # cleaner font
+        size: 32                    # larger text
+        length: 6                   # 6 characters
+        box_width: 200              # wider image
+        box_height: 70              # taller image
+        bg: '#f0f8ff'               # light blue background
+        text: '#0066cc'             # dark blue text
+        start_x: 20                 # custom X position
+        start_y: 50                 # custom Y position
+[/prism]
+
+**Math Captcha Example:**
+
+[prism classes="language-yaml line-numbers"]
+basic-captcha:
+    type: basic-captcha
+    placeholder: enter the answer
+    label: Solve this math problem
+    captcha_type: math              # math problem instead of characters
+    math:
+        min: 1                      # use small numbers
+        max: 10
+        operators: ['+','-']        # only addition and subtraction
+[/prism]
+
+#### Available Captcha Types
+
+When using field-level configuration, set the captcha type with `captcha_type`:
+
+- **`characters`** - Random character string (default)
+- **`math`** - Simple math problem (e.g., "3 + 5 = ?")
+- **`dotcount`** - Count dots of a specific color
+- **`position`** - Identify position of a symbol
+
+#### Available Fonts
+
+The Basic-Captcha field includes four OCR-resistant fonts:
+
+- **`zxx-xed.ttf`** - Default, balanced readability and security
+- **`zxx-sans.ttf`** - Clean sans-serif, easier to read
+- **`zxx-camo.ttf`** - Camouflage style, more challenging
+- **`zxx-noise.ttf`** - Noisy style, highest security
+
+#### Configuration Options Reference
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `captcha_type` | string | `characters` | Type of captcha: `characters`, `math`, `dotcount`, or `position` |
+| `chars.font` | string | `zxx-xed.ttf` | Font file for character captchas |
+| `chars.size` | int | `24` | Font size in pixels |
+| `chars.length` | int | `6` | Number of characters to generate |
+| `chars.box_width` | int | `200` | Image width for character captchas |
+| `chars.box_height` | int | `70` | Image height for character captchas |
+| `chars.bg` | string | `#ffffff` | Background color (hex) for character captchas |
+| `chars.text` | string | `#000000` | Text color (hex) |
+| `chars.start_x` | int | `10` | Starting X position for text |
+| `chars.start_y` | int | `40` | Starting Y position for text |
+| `math.min` | int | `1` | Minimum number in math problems |
+| `math.max` | int | `12` | Maximum number in math problems |
+| `math.operators` | array | `['+','-','*']` | Available operators |
+| `image.width` | int | `135` | Default image width (non-character types) |
+| `image.height` | int | `40` | Default image height (non-character types) |
+| `image.bg` | string | `#ffffff` | Default background color |
+
+#### Form Processing
 
 This also requires a matching `process:` element to ensure the form is validated properly.
 
@@ -615,6 +706,244 @@ my_files:
 [/div]
 
 By default, in Admin the `file` field will overwrite an uploaded file that has the same name of a newer one, contained in the same folder you want to upload it, unless you set `avoid_overwriting` to `true` in the field definition.
+
+---
+
+### FilePond Field
+
+Added in Forms `7.0.0`, the `filepond` field type is a modern alternative to the File field, powered by the [FilePond JavaScript library](https://pqina.nl/filepond/). It provides a superior user experience with drag-and-drop uploads, image previews, built-in image editing (crop, resize, rotate), and smooth animations.
+
+**When to use FilePond:**
+- Image-heavy forms requiring preview and editing capabilities
+- Modern user interfaces with drag-and-drop functionality
+- Forms requiring client-side image optimization before upload
+- Projects prioritizing user experience over legacy browser support
+
+**When to use File field (Dropzone):**
+- General file uploads (non-image files)
+- Simpler implementation without image editing needs
+- Legacy browser compatibility requirements
+
+#### Basic Usage
+
+[prism classes="language-yaml line-numbers"]
+my_images:
+    type: filepond
+    label: Upload Images
+    destination: user/media/uploads
+    multiple: true
+    limit: 5
+    filesize: 10
+    accept:
+        - image/*
+[/prism]
+
+#### Configuration Options
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :-------- | :---------- |
+| `multiple` | Boolean. When `true`, allows multiple files to be selected simultaneously (default: `false`) |
+| `limit` | Integer. Maximum number of files allowed per field (default: `10`) |
+| `destination` | Upload destination. Options:<br>• `@self` - Upload to current page<br>• `@page:/route` - Upload to specific page route<br>• `user/path/to/folder` - Relative path from Grav root<br>• PHP streams like `user-data://uploads` |
+| `filesize` | Integer. Maximum file size in MB. `0` = unlimited, subject to server limits (default: `0`) |
+| `accept` | Array of MIME types/extensions allowed. Examples:<br>• `['image/*']` - All images<br>• `['image/jpeg', 'image/png']` - Specific types<br>• `['application/pdf']` - PDFs |
+| `avoid_overwriting` | Boolean. When `true`, adds date prefix to prevent file overwrite (default: `false`) |
+| `random_name` | Boolean. When `true`, generates random filename on upload (default: `false`) |
+| `validate.required` | Boolean. Makes the field required (default: `false`) |
+[/div]
+
+#### Image Transform & Resize Options
+
+FilePond includes powerful image processing capabilities through the `filepond` configuration key:
+
+[prism classes="language-yaml line-numbers"]
+my_images:
+    type: filepond
+    label: Upload and Edit Images
+    destination: user/media/uploads
+    multiple: true
+    filesize: 10
+    accept:
+        - image/jpeg
+        - image/png
+        - image/webp
+    filepond:
+        # Output Format
+        allowImageTransform: true
+        imageTransformOutputMimeType: 'image/jpeg'
+        imageTransformOutputQuality: 85
+        imageTransformOutputStripImageHead: true
+
+        # Resize Settings
+        allowImageResize: true
+        imageResizeTargetWidth: 1024
+        imageResizeTargetHeight: 768
+        imageResizeMode: 'contain'
+        imageResizeUpscale: false
+
+        # Crop Settings
+        allowImageCrop: true
+        imageCropAspectRatio: '16:9'
+
+        # Preview Settings
+        allowImagePreview: true
+        imagePreviewHeight: 256
+
+        # UI Customization
+        stylePanelLayout: 'compact'
+        labelIdle: '<span class="filepond--label-action">Browse</span> or drop images'
+[/prism]
+
+#### FilePond-Specific Options Reference
+
+[div class="table table-keycol"]
+| Option | Type | Default | Description |
+| :----- | :--- | :------ | :---------- |
+| **Image Transform** | | | |
+| `allowImageTransform` | boolean | `true` | Enable image transformation before upload |
+| `imageTransformOutputMimeType` | string | `image/jpeg` | Output format: `image/jpeg`, `image/png`, `image/webp` |
+| `imageTransformOutputQuality` | int | `90` | Output quality 0-100 (JPEG/WebP only) |
+| `imageTransformOutputStripImageHead` | boolean | `true` | Remove EXIF metadata from images |
+| **Image Resize** | | | |
+| `allowImageResize` | boolean | `true` | Enable automatic image resizing |
+| `imageResizeTargetWidth` | int | `null` | Target width in pixels (null = no resize) |
+| `imageResizeTargetHeight` | int | `null` | Target height in pixels (null = no resize) |
+| `imageResizeMode` | string | `cover` | Resize mode: `cover` (crop to fit), `contain` (fit within), `force` (exact size) |
+| `imageResizeUpscale` | boolean | `false` | Allow upscaling smaller images to target size |
+| **Image Crop** | | | |
+| `allowImageCrop` | boolean | `true` | Enable crop tool in preview |
+| `imageCropAspectRatio` | string | `null` | Aspect ratio like `16:9`, `4:3`, `1:1`, or `null` for free crop |
+| **Preview** | | | |
+| `allowImagePreview` | boolean | `true` | Show image preview with editing tools |
+| `imagePreviewHeight` | int | `256` | Preview panel height in pixels |
+| **UI & Style** | | | |
+| `stylePanelLayout` | string | `compact` | Panel layout style |
+| `styleLoadIndicatorPosition` | string | `center bottom` | Loading indicator position |
+| `styleProgressIndicatorPosition` | string | `center bottom` | Progress bar position |
+| `styleButtonRemoveItemPosition` | string | `right` | Remove button position |
+| **Labels** | | | |
+| `labelIdle` | string | `Browse or drop files` | Main drop zone label (supports HTML) |
+| `labelFileTypeNotAllowed` | string | `Invalid file type` | Error message for wrong file type |
+| `labelFileSizeNotAllowed` | string | `File is too large` | Error message for oversized files |
+[/div]
+
+#### Complete Form Example
+
+[prism classes="language-yaml line-numbers"]
+---
+title: 'Photo Upload Form'
+form:
+    id: photo-upload
+    xhr_submit: true
+    fields:
+        photos:
+            type: filepond
+            label: Upload Your Photos
+            help: Upload up to 5 photos. They will be automatically resized to 1920x1080.
+            destination: user/media/galleries
+            multiple: true
+            limit: 5
+            filesize: 15
+            accept:
+                - image/jpeg
+                - image/png
+                - image/webp
+            validate:
+                required: true
+            filepond:
+                # Optimize images for web
+                imageTransformOutputMimeType: 'image/jpeg'
+                imageTransformOutputQuality: 85
+                imageTransformOutputStripImageHead: true
+
+                # Resize to HD
+                allowImageResize: true
+                imageResizeTargetWidth: 1920
+                imageResizeTargetHeight: 1080
+                imageResizeMode: 'contain'
+
+                # Force 16:9 crop
+                allowImageCrop: true
+                imageCropAspectRatio: '16:9'
+
+                # Custom label
+                labelIdle: '<span class="filepond--label-action">Click to browse</span> or drag photos here'
+
+    buttons:
+        submit:
+            type: submit
+            value: Upload Photos
+
+    process:
+        upload: true
+        message: 'Thank you! Your photos have been uploaded successfully.'
+        reset: true
+---
+
+# Photo Gallery Upload
+
+Upload your photos and they will be automatically optimized and resized.
+[/prism]
+
+#### Form Processing
+
+The FilePond field requires the `upload` process action to save uploaded files:
+
+[prism classes="language-yaml line-numbers"]
+process:
+    upload: true
+    message: 'Files uploaded successfully!'
+[/prism]
+
+Files are processed via AJAX and saved to the specified `destination` folder. Image transformations (resize, crop, format conversion) happen in the browser before upload, reducing server load and upload time.
+
+#### XHR Form Integration
+
+FilePond works seamlessly with AJAX form submissions (`xhr_submit: true`). The field automatically:
+- Prevents form submission while files are uploading
+- Reinitializes after form updates
+- Preserves uploaded files during validation errors
+- Cleans up temporary files on successful submission
+
+#### Features Summary
+
+✅ **Modern drag-and-drop interface** - Smooth animations and visual feedback
+✅ **Image preview** - See images before upload with zoom and pan
+✅ **Built-in image editing** - Crop, resize, rotate images in the browser
+✅ **Client-side optimization** - Reduce file size before upload
+✅ **Format conversion** - Convert images to JPEG/PNG/WebP
+✅ **Real-time validation** - File type and size validation with instant feedback
+✅ **Progress indication** - Upload progress bars for each file
+✅ **Multiple file support** - Upload several files with one field
+✅ **Responsive design** - Works on desktop, tablet, and mobile devices
+✅ **Accessibility** - Keyboard navigation and screen reader support
+
+#### Comparison with File Field
+
+[div class="table"]
+| Feature | FilePond | File (Dropzone) |
+| :------ | :------- | :-------------- |
+| Image Preview | ✅ With zoom/pan | ✅ Thumbnail only |
+| Image Editing | ✅ Crop, resize, rotate | ❌ None |
+| Image Optimization | ✅ Client-side | ❌ Server-side only |
+| Format Conversion | ✅ JPEG/PNG/WebP | ❌ None |
+| Drag & Drop | ✅ Modern UI | ✅ Classic UI |
+| File Type Validation | ✅ Real-time | ✅ On upload |
+| Multiple Files | ✅ Yes | ✅ Yes |
+| XHR Form Support | ✅ Automatic | ✅ Requires config |
+| Best For | Images & UX | General files |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [help](#common-fields-attributes)              |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [outerclasses](#common-fields-attributes)      |
+| [validate](#common-fields-attributes)          |
+[/div]
 
 ---
 
