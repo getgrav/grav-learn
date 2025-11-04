@@ -14,7 +14,7 @@ Grav 1.8 introduces significant improvements including PHP 8.3 requirement, upda
 * **Enhanced Twig Support**: Updated to Twig 3.x (forked version for Defer compatibility)
 * **Symfony 7 Integration**: Upgraded to Symfony 7.x components for better performance and security
 * **Improved Caching**: Symfony Cache provider replaces Doctrine Cache (deprecated)
-* **Monolog Compatibility**: Switched to Monolog 3, but retains support for both Monolog 2.3+
+* **Monolog Compatibility**: Switched to Monolog 3, but retains support for Monolog 2.3+ syntax
 * **Code Quality**: PHPStan level 6 support and PHP 8.4 compatibility fixes
 
 !!!! **IMPORTANT:** Grav 1.8 requires **PHP 8.3** or later version. This is a major change from Grav 1.7's PHP 7.3.6+ requirement. Always **take a backup** of your site and **test the upgrade in a testing environment** before upgrading your live site, or use 'safe-upgrade' which automatically creates a restorable snapshot of Grav core.
