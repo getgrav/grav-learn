@@ -67,8 +67,9 @@ Grav 1.8 introduces significant improvements including PHP 8.3 requirement, upda
         "psr/log": "*"
     }
     ```
-    - Rebuild the plugin's `vendor/` directory after updating `composer.json`.
-    - The `bin/gpm preflight` command surfaces this issue under **PSR/log compatibility** warnings—resolve them before upgrading.
+    - Delete the plugin's `vendor/` directory after updating `composer.json` and rebuild it with `composer install`.
+    
+    The `bin/gpm preflight` command surfaces this issue under **PSR/log compatibility** warnings, resolve them before upgrading.
 
 5.  ###### Missing Settings Configuration
     **Issue**: Errors due to removed `system.umask_fix` setting
