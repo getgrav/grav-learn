@@ -27,6 +27,39 @@ Takes an HTML snippet containing a `src` or `href` attribute which uses a relati
 [/codesh]
 [/codesh-group]
 
+### array_group_by
+
+Groups items in an array or collection by a specified property or callback function. This filter is particularly useful for organizing blog posts, products, or any collection of items by common attributes like date, category, author, or custom criteria.
+
+**Basic usage with a property name:**
+
+`collection|array_group_by('category')` <i class="fa fa-long-arrow-right"></i> Groups items by their 'category' property
+
+**Example: Grouping by taxonomy category**
+
+[codesh=twig]
+{# Prepare collection with category #}
+{% set collection_with_category = [] %}
+{% for post in page.collection() %}
+    {% set category = post.taxonomy.category|first ?: 'uncategorized' %}
+    {% set collection_with_category = collection_with_category|merge([{
+        post: post,
+        category: category
+    }]) %}
+{% endfor %}
+
+{# Group by category #}
+{% set posts_by_category = collection_with_category|array_group_by('category') %}
+
+{# Display grouped posts #}
+{% for category, posts in posts_by_category %}
+    <h3>{{ category|capitalize }}</h3>
+    {% for item in posts %}
+        <div>{{ item.post.title }}</div>
+    {% endfor %}
+{% endfor %}
+[/codesh]
+
 ### array_unique
 
 Wrapper for PHP `array_unique()` that removes duplicates from an array.
