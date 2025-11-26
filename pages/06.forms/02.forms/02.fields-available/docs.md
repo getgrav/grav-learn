@@ -65,132 +65,119 @@ The above shown `attributes` and `datasets` definitions lead to the following fi
 
 ## Available Fields
 
+### Array Field
+
+The `array` field type allows you to create a list of key-value pairs that can be dynamically added, removed, or reordered. Each row in the array can either be a simple input or a textarea, depending on the configuration.
+
+Examples:
+
+A simple array of key-value pairs:
+
+[prism classes="language-yaml line-numbers"]
+my_array:
+  type: array
+  label: My Array Field
+  placeholder_key: Key
+  placeholder_value: Value
+  value_type: text # Can also be 'textarea' for multi-line input
+[/prism]
+
+In `value_only` mode, the array only accepts values without keys:
+
+[prism classes="language-yaml line-numbers"]
+my_array_values:
+  type: array
+  label: Values Only
+  value_only: true
+  placeholder_value: Enter a value
+[/prism]
+
+[div class="table table-keycol"]
+| Attribute            | Description                                                                                  |
+| :------------------  | :-------------------------------------------------------------------------------------------|
+| `placeholder_key`    | Placeholder text for the key input field.                                                   |
+| `placeholder_value`  | Placeholder text for the value input field.                                                 |
+| `value_type`         | Determines input type for values (`text` or `textarea`).                                     |
+| `value_only`         | If `true`, only value inputs are displayed without keys.                                     |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed             |
+| :-----                                |
+| [disabled](#common-fields-attributes) |
+| [readonly](#common-fields-attributes) |
+| [name](#common-fields-attributes)     |
+| [label](#common-fields-attributes)    |
+| [classes](#common-fields-attributes)  |
+| [size](#common-fields-attributes)     |
+[/div]
+
+---
+
+### Avatar Field
+
+The `avatar` field type displays a user's avatar image in the form. If the `avatar` field has a value, it will display that image; otherwise, it will generate a Gravatar based on the user's email.
+
+Examples:
+
+[prism classes="language-yaml line-numbers"]
+user_avatar:
+  type: avatar
+  label: User Avatar
+  classes: "avatar-label"
+  img_classes: "avatar-img"
+[/prism]
+
+[div class="table table-keycol"]
+| Attribute   | Description                                          |
+| :-----      | :-----                                               |
+| `classes`   | CSS classes applied to the label wrapping the image |
+| `img_classes` | CSS classes applied directly to the avatar image  |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed             |
+| :-----                                |
+| [classes](#common-fields-attributes)  |
+[/div]
+
+---
+
 ### Basic-Captcha Field
 
 Added in Forms `7.0.0` as an local alternative to the Google ReCaptcha field.  This field is particularly handy when dealing with SPAM in contact forms when you don't want to deal with the hassle or perhaps GPDR restrictions that come with Google's offering. It uses **OCR-resistant** fonts to deter attacks, and can be configured with codes to be copied, or simple math questions.
 
 ![Basic-Captcha](basic-captcha_field.gif)
 
-The `basic-captcha` field type is fully configurable both globally and per-field. Global configuration is set in your form configuration file (typically `user/config/plugins/form.yaml`), while field-level configuration allows you to customize individual captcha fields in your forms.
-
-#### Global Configuration
-
-The default global options are:
+the `basic-captcha` field type is fully configurable via the `forms` configuration but comes with sensible defaults. The overall configuration of Basic-Captcha is configured in your global form configuration file (typically `user/config/plugins/form.yaml`).  The default options are:
 
 [prism classes="language-yaml line-numbers"]
 basic_captcha:
-  type: characters            # options: [characters | math | dotcount | position]
-  debug: false                # enable debug logging
-  image:
-    width: 135                # default image width (for math/dotcount/position types)
-    height: 40                # default image height (for math/dotcount/position types)
-    bg: '#ffffff'             # default background color
+  type: characters            # options: [characters | math]
   chars:
     length: 6                 # number of chars to output
-    font: zxx-xed.ttf         # options: [zxx-xed.ttf | zxx-sans.ttf | zxx-camo.ttf | zxx-noise.ttf]
+    font: zxx-noise.ttf       # options: [zxx-noise.ttf | zxx-camo.ttf | zxx-xed.ttf | zxx-sans.ttf]
+    bg: '#cccccc'             # 6-char hex color
+    text: '#333333'           # 6-char hex color
     size: 24                  # font size in px
-    box_width: 200            # image width for character captchas (overrides image.width)
-    box_height: 70            # image height for character captchas (overrides image.height)
-    start_x: 10               # start position in x direction in px
-    start_y: 40               # start position in y direction in px
-    bg: '#ffffff'             # background color for character captchas
-    text: '#000000'           # text color (hex format)
+    start_x: 5                # start position in x direction in px
+    start_y: 30               # start position in y direction in px
+    box_width: 135            # box width in px
+    box_height: 40            # box height in px
   math:
     min: 1                    # smallest digit
     max: 12                   # largest digit
     operators: ['+','-','*']  # operators that can be used in math
 [/prism]
 
-#### Field-Level Configuration
-
-As of Forms `7.1.0`, you can override the global configuration on a per-field basis. This allows different forms to have different captcha styles, fonts, colors, and types.
-
-! **Important**: Use `captcha_type` (not `type`) for the captcha type in field-level configuration to avoid conflict with the required `type: basic-captcha` field type declaration.
-
-**Simple Example:**
+Example:
 
 [prism classes="language-yaml line-numbers"]
 basic-captcha:
     type: basic-captcha
-    placeholder: enter the characters
+    placeholder: copy the 6 characters
     label: Are you human?
 [/prism]
-
-**Advanced Example with Field-Level Configuration:**
-
-[prism classes="language-yaml line-numbers"]
-basic-captcha:
-    type: basic-captcha
-    placeholder: enter the characters
-    label: Are you human?
-    # Field-level configuration overrides global defaults
-    captcha_type: characters        # use 'captcha_type' not 'type'
-    chars:
-        font: zxx-sans.ttf          # cleaner font
-        size: 32                    # larger text
-        length: 6                   # 6 characters
-        box_width: 200              # wider image
-        box_height: 70              # taller image
-        bg: '#f0f8ff'               # light blue background
-        text: '#0066cc'             # dark blue text
-        start_x: 20                 # custom X position
-        start_y: 50                 # custom Y position
-[/prism]
-
-**Math Captcha Example:**
-
-[prism classes="language-yaml line-numbers"]
-basic-captcha:
-    type: basic-captcha
-    placeholder: enter the answer
-    label: Solve this math problem
-    captcha_type: math              # math problem instead of characters
-    math:
-        min: 1                      # use small numbers
-        max: 10
-        operators: ['+','-']        # only addition and subtraction
-[/prism]
-
-#### Available Captcha Types
-
-When using field-level configuration, set the captcha type with `captcha_type`:
-
-- **`characters`** - Random character string (default)
-- **`math`** - Simple math problem (e.g., "3 + 5 = ?")
-- **`dotcount`** - Count dots of a specific color
-- **`position`** - Identify position of a symbol
-
-#### Available Fonts
-
-The Basic-Captcha field includes four OCR-resistant fonts:
-
-- **`zxx-xed.ttf`** - Default, balanced readability and security
-- **`zxx-sans.ttf`** - Clean sans-serif, easier to read
-- **`zxx-camo.ttf`** - Camouflage style, more challenging
-- **`zxx-noise.ttf`** - Noisy style, highest security
-
-#### Configuration Options Reference
-
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `captcha_type` | string | `characters` | Type of captcha: `characters`, `math`, `dotcount`, or `position` |
-| `chars.font` | string | `zxx-xed.ttf` | Font file for character captchas |
-| `chars.size` | int | `24` | Font size in pixels |
-| `chars.length` | int | `6` | Number of characters to generate |
-| `chars.box_width` | int | `200` | Image width for character captchas |
-| `chars.box_height` | int | `70` | Image height for character captchas |
-| `chars.bg` | string | `#ffffff` | Background color (hex) for character captchas |
-| `chars.text` | string | `#000000` | Text color (hex) |
-| `chars.start_x` | int | `10` | Starting X position for text |
-| `chars.start_y` | int | `40` | Starting Y position for text |
-| `math.min` | int | `1` | Minimum number in math problems |
-| `math.max` | int | `12` | Maximum number in math problems |
-| `math.operators` | array | `['+','-','*']` | Available operators |
-| `image.width` | int | `135` | Default image width (non-character types) |
-| `image.height` | int | `40` | Default image height (non-character types) |
-| `image.bg` | string | `#ffffff` | Default background color |
-
-#### Form Processing
 
 This also requires a matching `process:` element to ensure the form is validated properly.
 
@@ -203,6 +190,8 @@ process:
     basic-captcha:
         message: Humanity verification failed, please try again...
 [/prism]
+
+---
 
 ### Turnstile Captcha Field (Cloudflare)
 
@@ -279,6 +268,7 @@ form:
     display: '/'
 [/prism]
 
+---
 
 ### Google Captcha Field (ReCaptcha)
 
@@ -456,7 +446,6 @@ my_field:
         - option1
 [/prism]
 
-
 [div class="table table-keycol"]
 | Attribute | Description                                                                                                                                    |
 | :-----    | :-----                                                                                                                                         |
@@ -488,8 +477,8 @@ my_field:
 !! NOTE: The checkboxes field does not support the `remember` process action.
 
 ---
-### Conditional Field
 
+### Conditional Field
 
 The `conditional` field type is used to conditionally display some other fields base on a condition.
 
@@ -531,6 +520,136 @@ my_conditional:
 | [disabled](#common-fields-attributes) |
 | [id](#common-fields-attributes)       |
 | [label](#common-fields-attributes)    |
+| [name](#common-fields-attributes)     |
+[/div]
+
+---
+
+### Color Field
+
+The `color` field type allows the user to select a color using a color picker. It is rendered as an HTML `input` of type `color`.
+
+Examples:
+
+[prism classes="language-yaml line-numbers"]
+background_color:
+  type: color
+  label: Background Color
+  default: "#ffffff"
+  classes: "color-picker"
+[/prism]
+
+[div class="table table-keycol"]
+| Attribute   | Description                  |
+| :-----      | :-----                       |
+| `default`   | Sets the default color value |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed             |
+| :-----                                |
+| [autocomplete](#common-fields-attributes) |
+| [autofocus](#common-fields-attributes)    |
+| [classes](#common-fields-attributes)      |
+| [default](#common-fields-attributes)      |
+| [disabled](#common-fields-attributes)     |
+| [help](#common-fields-attributes)         |
+| [id](#common-fields-attributes)           |
+| [label](#common-fields-attributes)        |
+| [display_label](#common-fields-attributes)|
+| [labelclasses](#common-fields-attributes) |
+| [sublabel](#common-fields-attributes)     |
+| [sublabelclasses](#common-fields-attributes)|
+| [name](#common-fields-attributes)         |
+| [novalidate](#common-fields-attributes)   |
+| [outerclasses](#common-fields-attributes) |
+| [wrapper_classes](#common-fields-attributes)|
+| [placeholder](#common-fields-attributes)  |
+| [readonly](#common-fields-attributes)     |
+| [size](#common-fields-attributes)         |
+| [style](#common-fields-attributes)        |
+| [title](#common-fields-attributes)        |
+| [type](#common-fields-attributes)         |
+| [validate.required](#common-fields-attributes) |
+| [validate.pattern](#common-fields-attributes)  |
+| [validate.message](#common-fields-attributes)  |
+[/div]
+
+---
+
+### Columns Field
+
+The `columns` field type is used to group multiple fields into a multi-column layout.  
+Each `columns` field contains one or more `column` fields, which determine how content is arranged horizontally.
+
+This field does **not** render inputs of its own. It simply organizes sub-fields into a structured, responsive layout.
+
+Examples:
+
+[prism classes="language-yaml line-numbers"]
+my_columns:
+  type: columns
+  fields:
+    column1:
+      type: column
+      fields:
+        header.title:
+          type: text
+          label: Title
+
+    column2:
+      type: column
+      fields:
+        header.subtitle:
+          type: text
+          label: Subtitle
+[/prism]
+
+[div class="table table-keycol"]
+| Attribute   | Description                          |
+| :-----      | :----------------------------------- |
+| `fields`    | Defines the list of column fields     |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed             |
+| :-----                                |
+| [classes](#common-fields-attributes)  |
+| [name](#common-fields-attributes)     |
+[/div]
+
+---
+
+### Column Field
+
+The `column` field type represents a single column inside a `columns` field.  
+It wraps a set of fields inside a `<div class="form-column">` container, allowing them to be displayed side by side.
+
+This field does not accept input itself; it only groups and structures other fields.
+
+Examples:
+
+[prism classes="language-yaml line-numbers"]
+my_column:
+  type: column
+  classes: "one-half"
+  fields:
+    header.description:
+      type: textarea
+      label: Description
+[/prism]
+
+[div class="table table-keycol"]
+| Attribute   | Description                        |
+| :-----      | :-------------------------------- |
+| `fields`    | Defines the fields inside the column |
+| `classes`   | CSS classes applied to the column wrapper |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed             |
+| :-----                                |
+| [classes](#common-fields-attributes)  |
 | [name](#common-fields-attributes)     |
 [/div]
 
@@ -590,7 +709,6 @@ Example:
 The `display` field type is used to show some text or instructions inside the form. Can accept markdown content
 
 Example:
-
 
 [prism classes="language-yaml line-numbers"]
 test:
@@ -672,6 +790,51 @@ header.email:
 
 ---
 
+### Fieldset Field
+
+The `fieldset` field type allows you to group multiple fields inside an HTML `<fieldset>` element.  
+It can optionally display a `<legend>` as the title of the field group.
+
+This field does not store a value by itself — it simply organizes other fields visually and semantically.
+
+Example:
+
+[prism classes="language-yaml line-numbers"]
+user_info:
+  type: fieldset
+  id: user-info
+  legend: User Information
+  classes: "group-box"
+  fields:
+    name:
+      type: text
+      label: Name
+
+    email:
+      type: email
+      label: Email Address
+[/prism]
+
+[div class="table table-keycol"]
+| Attribute   | Description                                      |
+| :---------- | :----------------------------------------------- |
+| `legend`    | The title displayed above the grouped fields     |
+| `fields`    | The list of fields contained inside the fieldset |
+| `id`        | Sets the `<fieldset>` element ID                 |
+| `classes`   | Adds CSS classes to the `<fieldset>`             |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed             |
+| :------------------------------------ |
+| [id](#common-fields-attributes)       |
+| [classes](#common-fields-attributes)  |
+| [name](#common-fields-attributes)     |
+| *(Most other common field attributes are not applicable)* |
+[/div]
+
+---
+
 ### File Field
 
 With the `file` field type, you can let users upload files through the form. The field by default allows **one file** only, of type **image** and will get uploaded to the **current** page where the form has been declared.
@@ -709,240 +872,36 @@ By default, in Admin the `file` field will overwrite an uploaded file that has t
 
 ---
 
-### FilePond Field
+### Formname Field
 
-Added in Forms `7.0.0`, the `filepond` field type is a modern alternative to the File field, powered by the [FilePond JavaScript library](https://pqina.nl/filepond/). It provides a superior user experience with drag-and-drop uploads, image previews, built-in image editing (crop, resize, rotate), and smooth animations.
+The `formname` field type inserts a hidden input that stores the name of the current form.  
+It is used internally by forms to keep track of which form was submitted, especially when multiple forms exist on the same page.
 
-**When to use FilePond:**
-- Image-heavy forms requiring preview and editing capabilities
-- Modern user interfaces with drag-and-drop functionality
-- Forms requiring client-side image optimization before upload
-- Projects prioritizing user experience over legacy browser support
+This field does not accept user input and does not allow customization beyond what the Twig explicitly supports.
 
-**When to use File field (Dropzone):**
-- General file uploads (non-image files)
-- Simpler implementation without image editing needs
-- Legacy browser compatibility requirements
-
-#### Basic Usage
+Example:
 
 [prism classes="language-yaml line-numbers"]
-my_images:
-    type: filepond
-    label: Upload Images
-    destination: user/media/uploads
-    multiple: true
-    limit: 5
-    filesize: 10
-    accept:
-        - image/*
+form_identifier:
+  type: formname
 [/prism]
 
-#### Configuration Options
+The generated HTML:
+
+[prism classes="language-html line-numbers"]
+<input type="hidden" name="__form-name__" value="my-form-name" />
+[/prism]
 
 [div class="table table-keycol"]
 | Attribute | Description |
-| :-------- | :---------- |
-| `multiple` | Boolean. When `true`, allows multiple files to be selected simultaneously (default: `false`) |
-| `limit` | Integer. Maximum number of files allowed per field (default: `10`) |
-| `destination` | Upload destination. Options:<br>• `@self` - Upload to current page<br>• `@page:/route` - Upload to specific page route<br>• `user/path/to/folder` - Relative path from Grav root<br>• PHP streams like `user-data://uploads` |
-| `filesize` | Integer. Maximum file size in MB. `0` = unlimited, subject to server limits (default: `0`) |
-| `accept` | Array of MIME types/extensions allowed. Examples:<br>• `['image/*']` - All images<br>• `['image/jpeg', 'image/png']` - Specific types<br>• `['application/pdf']` - PDFs |
-| `avoid_overwriting` | Boolean. When `true`, adds date prefix to prevent file overwrite (default: `false`) |
-| `random_name` | Boolean. When `true`, generates random filename on upload (default: `false`) |
-| `validate.required` | Boolean. Makes the field required (default: `false`) |
-[/div]
-
-#### Image Transform & Resize Options
-
-FilePond includes powerful image processing capabilities through the `filepond` configuration key:
-
-[prism classes="language-yaml line-numbers"]
-my_images:
-    type: filepond
-    label: Upload and Edit Images
-    destination: user/media/uploads
-    multiple: true
-    filesize: 10
-    accept:
-        - image/jpeg
-        - image/png
-        - image/webp
-    filepond:
-        # Output Format
-        allowImageTransform: true
-        imageTransformOutputMimeType: 'image/jpeg'
-        imageTransformOutputQuality: 85
-        imageTransformOutputStripImageHead: true
-
-        # Resize Settings
-        allowImageResize: true
-        imageResizeTargetWidth: 1024
-        imageResizeTargetHeight: 768
-        imageResizeMode: 'contain'
-        imageResizeUpscale: false
-
-        # Crop Settings
-        allowImageCrop: true
-        imageCropAspectRatio: '16:9'
-
-        # Preview Settings
-        allowImagePreview: true
-        imagePreviewHeight: 256
-
-        # UI Customization
-        stylePanelLayout: 'compact'
-        labelIdle: '<span class="filepond--label-action">Browse</span> or drop images'
-[/prism]
-
-#### FilePond-Specific Options Reference
-
-[div class="table table-keycol"]
-| Option | Type | Default | Description |
-| :----- | :--- | :------ | :---------- |
-| **Image Transform** | | | |
-| `allowImageTransform` | boolean | `true` | Enable image transformation before upload |
-| `imageTransformOutputMimeType` | string | `image/jpeg` | Output format: `image/jpeg`, `image/png`, `image/webp` |
-| `imageTransformOutputQuality` | int | `90` | Output quality 0-100 (JPEG/WebP only) |
-| `imageTransformOutputStripImageHead` | boolean | `true` | Remove EXIF metadata from images |
-| **Image Resize** | | | |
-| `allowImageResize` | boolean | `true` | Enable automatic image resizing |
-| `imageResizeTargetWidth` | int | `null` | Target width in pixels (null = no resize) |
-| `imageResizeTargetHeight` | int | `null` | Target height in pixels (null = no resize) |
-| `imageResizeMode` | string | `cover` | Resize mode: `cover` (crop to fit), `contain` (fit within), `force` (exact size) |
-| `imageResizeUpscale` | boolean | `false` | Allow upscaling smaller images to target size |
-| **Image Crop** | | | |
-| `allowImageCrop` | boolean | `true` | Enable crop tool in preview |
-| `imageCropAspectRatio` | string | `null` | Aspect ratio like `16:9`, `4:3`, `1:1`, or `null` for free crop |
-| **Preview** | | | |
-| `allowImagePreview` | boolean | `true` | Show image preview with editing tools |
-| `imagePreviewHeight` | int | `256` | Preview panel height in pixels |
-| **UI & Style** | | | |
-| `stylePanelLayout` | string | `compact` | Panel layout style |
-| `styleLoadIndicatorPosition` | string | `center bottom` | Loading indicator position |
-| `styleProgressIndicatorPosition` | string | `center bottom` | Progress bar position |
-| `styleButtonRemoveItemPosition` | string | `right` | Remove button position |
-| **Labels** | | | |
-| `labelIdle` | string | `Browse or drop files` | Main drop zone label (supports HTML) |
-| `labelFileTypeNotAllowed` | string | `Invalid file type` | Error message for wrong file type |
-| `labelFileSizeNotAllowed` | string | `File is too large` | Error message for oversized files |
-[/div]
-
-#### Complete Form Example
-
-[prism classes="language-yaml line-numbers"]
----
-title: 'Photo Upload Form'
-form:
-    id: photo-upload
-    xhr_submit: true
-    fields:
-        photos:
-            type: filepond
-            label: Upload Your Photos
-            help: Upload up to 5 photos. They will be automatically resized to 1920x1080.
-            destination: user/media/galleries
-            multiple: true
-            limit: 5
-            filesize: 15
-            accept:
-                - image/jpeg
-                - image/png
-                - image/webp
-            validate:
-                required: true
-            filepond:
-                # Optimize images for web
-                imageTransformOutputMimeType: 'image/jpeg'
-                imageTransformOutputQuality: 85
-                imageTransformOutputStripImageHead: true
-
-                # Resize to HD
-                allowImageResize: true
-                imageResizeTargetWidth: 1920
-                imageResizeTargetHeight: 1080
-                imageResizeMode: 'contain'
-
-                # Force 16:9 crop
-                allowImageCrop: true
-                imageCropAspectRatio: '16:9'
-
-                # Custom label
-                labelIdle: '<span class="filepond--label-action">Click to browse</span> or drag photos here'
-
-    buttons:
-        submit:
-            type: submit
-            value: Upload Photos
-
-    process:
-        upload: true
-        message: 'Thank you! Your photos have been uploaded successfully.'
-        reset: true
----
-
-# Photo Gallery Upload
-
-Upload your photos and they will be automatically optimized and resized.
-[/prism]
-
-#### Form Processing
-
-The FilePond field requires the `upload` process action to save uploaded files:
-
-[prism classes="language-yaml line-numbers"]
-process:
-    upload: true
-    message: 'Files uploaded successfully!'
-[/prism]
-
-Files are processed via AJAX and saved to the specified `destination` folder. Image transformations (resize, crop, format conversion) happen in the browser before upload, reducing server load and upload time.
-
-#### XHR Form Integration
-
-FilePond works seamlessly with AJAX form submissions (`xhr_submit: true`). The field automatically:
-- Prevents form submission while files are uploading
-- Reinitializes after form updates
-- Preserves uploaded files during validation errors
-- Cleans up temporary files on successful submission
-
-#### Features Summary
-
-✅ **Modern drag-and-drop interface** - Smooth animations and visual feedback
-✅ **Image preview** - See images before upload with zoom and pan
-✅ **Built-in image editing** - Crop, resize, rotate images in the browser
-✅ **Client-side optimization** - Reduce file size before upload
-✅ **Format conversion** - Convert images to JPEG/PNG/WebP
-✅ **Real-time validation** - File type and size validation with instant feedback
-✅ **Progress indication** - Upload progress bars for each file
-✅ **Multiple file support** - Upload several files with one field
-✅ **Responsive design** - Works on desktop, tablet, and mobile devices
-✅ **Accessibility** - Keyboard navigation and screen reader support
-
-#### Comparison with File Field
-
-[div class="table"]
-| Feature | FilePond | File (Dropzone) |
-| :------ | :------- | :-------------- |
-| Image Preview | ✅ With zoom/pan | ✅ Thumbnail only |
-| Image Editing | ✅ Crop, resize, rotate | ❌ None |
-| Image Optimization | ✅ Client-side | ❌ Server-side only |
-| Format Conversion | ✅ JPEG/PNG/WebP | ❌ None |
-| Drag & Drop | ✅ Modern UI | ✅ Classic UI |
-| File Type Validation | ✅ Real-time | ✅ On upload |
-| Multiple Files | ✅ Yes | ✅ Yes |
-| XHR Form Support | ✅ Automatic | ✅ Requires config |
-| Best For | Images & UX | General files |
+| :--------| :-----------|
+| *(none)* | This field has **no configurable attributes** |
 [/div]
 
 [div class="table"]
-| Common Attributes Allowed                      |
-| :-----                                         |
-| [help](#common-fields-attributes)              |
-| [label](#common-fields-attributes)             |
-| [name](#common-fields-attributes)              |
-| [outerclasses](#common-fields-attributes)      |
-| [validate](#common-fields-attributes)          |
+| Common Attributes Allowed |
+| :------------------------ |
+| *(none — all common attributes are ignored)* |
 [/div]
 
 ---
@@ -962,7 +921,6 @@ header.some_field:
 | Attribute | Description                                                                                                                     |
 | :-----    | :-----                                                                                                                          |
 | `name`    | The field name. If missing, the field name is got from the field definition element (in the example above: `header.some_field`) |
-| `evaluate` | To make use of variables like `page.title` for the value, you have to set this to `true` |
 [/div]
 
 [div class="table"]
@@ -1003,6 +961,129 @@ header.process:
 content:
   type: ignore
 [/prism]
+
+---
+
+### Key Field
+
+The `key` field type provides a text input that also exposes an observable attribute (`data-key-observe`) used internally by JavaScript to watch for changes in the field's value.  
+It works similarly to a standard text field but is designed specifically for use cases where the field's value must dynamically update other form elements.
+
+If the value is an array, it will automatically be converted into a comma-separated string.
+
+Example:
+
+[prism classes="language-yaml line-numbers"]
+my_key:
+  type: key
+  label: Identifier
+  placeholder: Enter an internal key
+[/prism]
+
+Generated HTML (simplified):
+
+[prism classes="language-html line-numbers"]
+<input type="text"
+       value="myvalue"
+       data-key-observe="data[header][my_key]"
+       placeholder="Enter an internal key" />
+[/prism]
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :--------| :-----------|
+| `placeholder` | Placeholder text shown when the field is empty |
+| `autocomplete` | Accepts `on` or `off` |
+| `autofocus` | Automatically focuses the field when the form loads |
+| `classes` | Adds custom CSS classes to the input |
+| `disabled` | Disables the field |
+| `id` | Sets the HTML `id` attribute |
+| `novalidate` | Disables native HTML validation |
+| `readonly` | Makes the input read-only |
+| `size` | Sets the input container size |
+| `style` | Inline CSS styles |
+| `tabindex` | Sets the tab order |
+| `title` | Sets a tooltip or validation message |
+| `validate.required` | Requires a value before submitting |
+| `validate.pattern` | Regex validation pattern |
+| `validate.message` | Message shown when validation fails |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed |
+| :------------------------ |
+| autocomplete |
+| autofocus |
+| classes |
+| disabled |
+| help |
+| id |
+| label |
+| display_label |
+| labelclasses |
+| sublabel |
+| sublabelclasses |
+| name |
+| novalidate |
+| outerclasses |
+| wrapper_classes |
+| placeholder |
+| readonly |
+| size |
+| style |
+| title |
+| type |
+| validate.required |
+| validate.pattern |
+| validate.message |
+[/div]
+
+---
+
+### Month Field
+
+The **month** field type allows users to select a **month and year**. It stores the value in `YYYY-MM` format. To display it as a readable date, you can append `-01` to create a full date (`YYYY-MM-DD`) and format it with Twig's `date` filter.
+
+Examples:
+
+[prism classes="language-yaml line-numbers"]
+header.billing_month:
+type: month
+label: Billing Month
+placeholder: Select month
+default: 2025-11
+[/prism]
+
+Display in Twig:
+
+[prism classes="language-twig line-numbers"]
+{% if page.header.billing_month %}
+{% set month_value = page.header.billing_month ~ '-01' %} <p>{{ month_value|date("F Y") }}</p>
+{% endif %}
+[/prism]
+
+This will render `2025-11` as **November 2025** on the site.
+
+[div class="table table-keycol"]
+
+| Attribute   | Description                                       |
+| :---------- | :------------------------------------------------ |
+| type        | Defines the field type as `month`                 |
+| label       | The label displayed above the field               |
+| placeholder | Optional text displayed when no value is selected |
+| default     | Optional default value in `YYYY-MM` format        |
+| [/div]      |                                                   |
+
+[div class="table"]
+
+| Common Attributes Allowed             |
+| :------------------------------------ |
+| [disabled](#common-fields-attributes) |
+| [id](#common-fields-attributes)       |
+| [label](#common-fields-attributes)    |
+| [name](#common-fields-attributes)     |
+| [required](#common-fields-attributes) |
+| [/div]                                |
 
 ---
 
@@ -1348,6 +1429,88 @@ test:
 
 ---
 
+### Switch Field
+
+The **switch** field type provides an ON/OFF toggle using the same logic as a checkbox.  
+It is functionally identical to a checkbox but offers clearer semantics and a modern toggle-style UI.
+
+Its Twig template simply extends the checkbox field:
+
+```
+{% extends 'forms/fields/checkbox/checkbox.html.twig' %}
+```
+
+This means the switch field supports **all attributes available to checkbox fields**, including validation options.
+
+### Example (Blueprint – default.yaml)
+
+[prism classes="language-yaml line-numbers"]
+header.enable_feature:
+  type: switch
+  label: Enable Feature
+  default: 1
+  highlight: 1
+  options:
+    1: Enabled
+    0: Disabled
+[/prism]
+
+This creates an ON/OFF switch where:
+- `1` = ON  
+- `0` = OFF  
+
+### Display in Twig (default.html.twig)
+
+[prism classes="language-twig line-numbers"]
+{% if page.header.enable_feature %}
+    <p>The feature is ENABLED.</p>
+{% else %}
+    <p>The feature is DISABLED.</p>
+{% endif %}
+[/prism]
+
+Raw output:
+
+[prism classes="language-twig line-numbers"]
+<p>Switch value: {{ page.header.enable_feature }}</p>
+[/prism]
+
+### Specific Attributes
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :----- | :----- |
+| type | Defines the field type as `switch` |
+| default | Initial value (`1` or `0`) |
+| highlight | Pre-selected value highlighted in the admin UI |
+| options | Text labels for ON/OFF values |
+[/div]
+
+### Common Attributes Allowed  
+
+The Switch field supports **all the same common attributes as Checkbox**, including validation:
+
+[div class="table"]
+| Common Attributes Allowed |
+| :----- |
+| autofocus |
+| classes |
+| default |
+| disabled |
+| id |
+| label |
+| name |
+| novalidate |
+| outerclasses |
+| size |
+| style |
+| validate.required |
+| validate.pattern |
+| validate.message |
+[/div]
+
+---
+
 ### Tabs / Tab Fields
 
 ![Tabs](tabs_field_bp.gif)
@@ -1535,6 +1698,80 @@ header.content:
 
 ---
 
+### Time Field
+
+The **time** field type allows users to select a time using the native HTML5 `<input type="time">` element.  
+This field is ideal for events, scheduling, or any scenario requiring a `HH:MM` time format.
+
+This template is used when the value is displayed in **list or summary views** (such as in the Admin panel), formatting the time as `3:45 PM` instead of `15:45`.
+
+### Example (Blueprint)
+
+[prism classes="language-yaml line-numbers"]
+header.event_time:
+  type: time
+  label: Event Time
+  default: "14:30"
+  placeholder: "HH:MM"
+  help: "Select the event time"
+  step: 60   # Minute interval (optional)
+  validate:
+    required: true
+[/prism]
+
+### Display in Twig
+
+Basic output:
+
+[prism classes="language-twig line-numbers"]
+{% if page.header.event_time %}
+    <p>Event Time: {{ page.header.event_time }}</p>
+{% endif %}
+[/prism]
+
+Formatted output examples:
+
+[prism classes="language-twig line-numbers"]
+<p>Event Time (12h): {{ page.header.event_time|date("g:i A") }}</p>
+<p>Event Time (24h): {{ page.header.event_time|date("H:i") }}</p>
+[/prism]
+
+### Specific Attributes
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :----- | :----- |
+| type | Defines the field type as `time` |
+| default | Initial value in `HH:MM` format |
+| placeholder | Suggestive text shown when empty |
+| step | Time interval in seconds (e.g. `60` = 1 minute) |
+[/div]
+
+### Common Attributes Allowed
+
+The Time field supports the same common attributes as the Checkbox field:
+
+[div class="table"]
+| Common Attributes Allowed |
+| :----- |
+| autofocus |
+| classes |
+| default |
+| disabled |
+| id |
+| label |
+| name |
+| novalidate |
+| outerclasses |
+| size |
+| style |
+| validate.required |
+| validate.pattern |
+| validate.message |
+[/div]
+
+---
+
 ### Toggle Field
 
 ![Toggle Field](toggle_field_bp.gif)
@@ -1576,6 +1813,56 @@ summary.enabled:
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes)     |
 | [disabled](#common-fields-attributes)          |
+[/div]
+
+---
+
+### Unique Id Field
+
+The **uniqueid** field type generates a unique identifier for a form.  
+It is rendered as a hidden input and is primarily used internally to differentiate form submissions.
+
+### Example (Blueprint)
+
+[prism classes="language-yaml line-numbers"]
+header.unique_form_id:
+  type: uniqueid
+[/prism]
+
+> Note: You generally do not need to set a label or default value for this field; it is automatically generated and hidden.
+
+### Display in Twig
+
+Since the field is hidden, it is not normally displayed in the template.  
+If needed, you can access it via:
+
+[prism classes="language-twig line-numbers"]
+{{ form.value('__unique_form_id__') }}
+[/prism]
+
+### Specific Attributes
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :----- | :----- |
+| type | Defines the field type as `uniqueid` |
+| name | The input field name (default is `__unique_form_id__`) |
+| value | Automatically generated unique value |
+[/div]
+
+### Common Attributes Allowed
+
+Since this is a hidden/internal field, common attributes are minimal:
+
+[div class="table"]
+| Common Attributes Allowed |
+| :----- |
+| id |
+| name |
+| classes |
+| disabled |
+| outerclasses |
+| style |
 [/div]
 
 ---
@@ -1622,6 +1909,136 @@ header.url:
 | [validate.message](#common-fields-attributes)  |
 [/div]
 
+---
+
+### Value Field
+
+The **value** field type is used to display a non-editable value within a form.  
+It does not render an input for the user to type; instead, it outputs a value according to optional formatting rules.
+
+### Example (Blueprint)
+
+[prism classes="language-yaml line-numbers"]
+header.display_name:
+  type: value
+  label: Display Name
+  default: "Guest"
+  filter: raw
+[/prism]
+
+Optional example using `date`:
+
+[prism classes="language-yaml line-numbers"]
+header.submission_date:
+  type: value
+  label: Submitted On
+  default: "2025-11-25"
+  filter: date
+[/prism]
+
+### Display in Twig
+
+Since the field is display-only, it is usually rendered automatically in the form.  
+You can also manually access it:
+
+[prism classes="language-twig line-numbers"]
+<p>Displayed Value: {{ page.header.display_name }}</p>
+<p>Submission Date: {{ page.header.submission_date|date("F j, Y") }}</p>
+[/prism]
+
+### Specific Attributes
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :----- | :----- |
+| type | Defines the field type as `value` |
+| default | Default value to display if none is provided |
+| options | Optional mapping of stored values to display labels |
+| filter | Optional formatting filter: `'date'`, `'raw'`, or default plain text |
+[/div]
+
+### Common Attributes Allowed
+
+[div class="table"]
+| Common Attributes Allowed |
+| :----- |
+| id |
+| classes |
+| label |
+| name |
+| style |
+| outerclasses |
+[/div]
+
+---
+
+### Week Field
+
+The **week** field type allows users to select a week number within a specific year.  
+It is rendered as an HTML `<input type="week">`, enabling browsers that support it to display a week picker.
+
+### Example in Blueprint
+
+[prism classes="language-yaml line-numbers"]
+header.billing_week:
+  type: week
+  label: Billing Week
+  placeholder: "Select week"
+  default: "2025-W48"
+[/prism]
+
+### Display in Twig
+
+Basic output (shows the stored value directly):
+
+[prism classes="language-twig line-numbers"]
+{% if page.header.billing_week %}
+    <p>Billing Week: {{ page.header.billing_week }}</p>
+{% endif %}
+[/prism]
+
+Human-readable output (showing the first day of the week):
+
+[prism classes="language-twig line-numbers"]
+{% if page.header.billing_week %}
+    {# Append '-1' to get the Monday of the week #}
+    {% set week_start = page.header.billing_week ~ '-1' %}
+    <p>Week starts on: {{ week_start|date("F j, Y") }}</p>
+{% endif %}
+[/prism]
+
+> Example: If `billing_week` is `2025-W48`, the output will be `Week starts on: November 24, 2025`.
+
+### Specific Attributes
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :----- | :----- |
+| type | Defines the field type as `week` |
+| default | Optional default value in `YYYY-Www` format |
+| placeholder | Optional text shown when the field is empty |
+[/div]
+
+### Common Attributes Allowed
+
+[div class="table"]
+| Common Attributes Allowed |
+| :----- |
+| autofocus |
+| classes |
+| default |
+| disabled |
+| id |
+| label |
+| name |
+| novalidate |
+| outerclasses |
+| size |
+| style |
+| validate.required |
+| validate.pattern |
+| validate.message |
+[/div]
 
 ## Currently Undocumented Fields
 
@@ -1629,20 +2046,6 @@ header.url:
 [div class="table table-keycol"]
 | Field                                             | Description                                                               |
 | :-----                                            | :-----                                                                    |
-| **Array**                                         |                                                                           |
-| **Avatar**                                        |                                                                           |
-| **Color**                                         |                                                                           |
-| **Columns**                                       |                                                                           |
-| **Column**                                        |                                                                           |
 | **Datetime**                                      |                                                                           |
-| **Fieldset**                                      |                                                                           |
-| **Formname**                                      |                                                                           |
-| **Key**                                           |                                                                           |
-| **Month**                                         |                                                                           |
 | **Signature**                                     |                                                                           |
-| **Switch**                                        |                                                                           |
-| **Time**                                          |                                                                           |
-| **Unique Id**                                     |                                                                           |
-| **Value**                                         |                                                                           |
-| **Week**                                          |                                                                           |
 [/div]
