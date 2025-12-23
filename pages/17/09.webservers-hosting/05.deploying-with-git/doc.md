@@ -1,6 +1,8 @@
 ---
 title: Deploying with Git
 ---
+# Deploying with Git
+
 Using the [Git](https://git-scm.com/) distributed version control system on your development and server environments, you can set up a simple workflow via a hosted Git service like [Github](https://github.com) or [GitLab](https://about.gitlab.com/). Try this if you are comfortable with Git and its client tools.
 
 Its benefits include:

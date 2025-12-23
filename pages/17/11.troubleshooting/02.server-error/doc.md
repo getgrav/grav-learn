@@ -3,6 +3,7 @@ title: Grav Server Error
 taxonomy:
     category: docs
 ---
+# Grav Server Error
 
 ![](grav-server-error.png?classes=center)
 

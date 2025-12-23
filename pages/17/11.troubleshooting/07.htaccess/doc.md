@@ -3,6 +3,7 @@ title: htaccess
 taxonomy:
     category: docs
 ---
+# htaccess
 
 Grav comes complete with its own `.htaccess` file. This file enables Grav to operate properly and should be kept in its root folder. You may encounter issues that can be resolved using the `.htaccess` file.
 

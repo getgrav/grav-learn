@@ -3,7 +3,7 @@ title: Getting Started
 taxonomy:
     category: docs
 ---
-
+# Getting Started
 
 This section contains a walk-through on how to quickly enable an existing **Flex Directory** and how to display it within the Grav admin. In our examples we are using the **Contacts** Flex Directory which comes included with the **Flex Objects Plugin** for demonstration purposes.
 

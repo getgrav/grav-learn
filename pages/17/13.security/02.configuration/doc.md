@@ -4,6 +4,7 @@ title: Recommended Configuration
 taxonomy:
     category: docs
 ---
+# Recommended Configuration
 
 Like with every other application, it is important that you check through the configuration options to secure and optimize your site.
 

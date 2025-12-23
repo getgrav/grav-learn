@@ -3,6 +3,7 @@ title: 'Example: Contact Form'
 taxonomy:
     category: docs
 ---
+# Example: Contact Form
 
 ## Simple Contact Form
 

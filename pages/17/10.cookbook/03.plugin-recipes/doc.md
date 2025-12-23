@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Plugin Recipes
 
 This page contains an assortment of problems and their respective solutions related to Grav plugins.
 

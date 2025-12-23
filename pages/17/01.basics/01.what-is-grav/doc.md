@@ -3,6 +3,7 @@ title: What is Grav?
 taxonomy:
     category: docs
 ---
+# What is Grav?
 
 Grav is a **Fast**, **Simple**, and **Flexible** file-based Web-platform. There is **Zero** installation required.  Just extract the ZIP archive, and you are already up and running.  Although Grav follows principles similar to other flat-file CMS platforms, it has a different design philosophy than most.
 

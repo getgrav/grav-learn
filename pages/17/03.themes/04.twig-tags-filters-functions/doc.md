@@ -1,13 +1,14 @@
 ---
 title: Twig Tags, Filters & Functions
 process:
-    twig: true
+    twig: false
 taxonomy:
     category: docs
 routes:
   aliases:
     - '/themes/twig-filters-functions'
 ---
+# Twig Tags, Filters & Functions
 
 Although Twig already provides an extensive list of [filters, functions, and tags](https://twig.symfony.com/doc/1.x/#reference), Grav also provides a selection of useful additions to make the process of theming easier.
 
@@ -16,7 +17,7 @@ Although Twig already provides an extensive list of [filters, functions, and tag
 
 ## Tags
 
-A tag provides high-level Twig functionality.  Examples of built-in tags include constructs such as `include`, `block`, `for`, `if` and many more. Tags are identified in Twig by the use of the {% verbatim %}`{% tagname %}`{% endverbatim %} syntax.  Also, most tags are closed with an {% verbatim %}`{% endtagname %}`{% endverbatim %}.
+A tag provides high-level Twig functionality.  Examples of built-in tags include constructs such as `include`, `block`, `for`, `if` and many more. Tags are identified in Twig by the use of the `{% tagname %}` syntax.  Also, most tags are closed with an `{% endtagname %}`.
 
 Grav includes several useful custom tags that provide functionality such as `cache`, `markdown`, `script`, `style`, `switch`, and more.
 
@@ -28,11 +29,11 @@ Twig filters allow to you to apply functionality to the variable that appears on
 
 Examples of built in Twig filters include `date`, `escape`, `join`, `lower`, `slice`, and many more. An example would be:
 
-{% verbatim %}
+
 ```twig
 {% set foo = "one,two,three,four,five"|split(',', 3) %}
 ```
-{% endverbatim %}
+
 
 Grav includes several useful custom filters that provide functionality such as `hyphenize`, `nicetime`, `starts_with`, `contains`, `base64_decode`, and many more.
 
@@ -44,11 +45,11 @@ Twig functions are another way to implement functionality in Twig. They are simi
 
 Examples of built in Twig filters include `block`, `dump`, `parent`, `random`, `range`, and more. An example would be:
 
-{% verbatim %}
+
 ```twig
 {{ random(['apple', 'orange', 'citrus']) }}
 ```
-{% endverbatim %}
+
 
 Grav includes several useful custom functions that provide functionality such as `authorize`, `debug`, `evaluate`, `regex_filter`, `media`, and many more.
 

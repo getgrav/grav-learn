@@ -3,6 +3,7 @@ title: 'How to: Forms in modular pages'
 taxonomy:
     category: docs
 ---
+# How to: Forms in modular pages
 
 ## Using forms in modular pages
 

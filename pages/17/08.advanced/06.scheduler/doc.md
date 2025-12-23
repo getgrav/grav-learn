@@ -3,6 +3,7 @@ title: Scheduler
 taxonomy:
     category: docs
 ---
+# Scheduler
 
 The Grav scheduler is a new feature that was added in Grav 1.6 that allows jobs to be run on a periodic basis.  The underlying processing relies on the server's **cron** scheduler, but once a single entry has been added to the cron service, all jobs and specific schedules can be configured via Grav.
 

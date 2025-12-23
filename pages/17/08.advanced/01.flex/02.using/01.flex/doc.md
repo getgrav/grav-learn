@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
   category: docs
 ---
+# Flex
 
 > [!WARNING]
 > **TIP:** Complete list of methods can be found from **Customizing Flex Objects** section.

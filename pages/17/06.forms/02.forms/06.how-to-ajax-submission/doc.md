@@ -3,6 +3,7 @@ title: 'How to: Ajax Submission'
 taxonomy:
     category: docs
 ---
+# How to: Ajax Submission
 
 ## Submitting forms via XHR/Ajax
 

@@ -8,6 +8,7 @@ process:
 taxonomy:
     category: docs
 ---
+# Cloudways - Managed Cloud for PHP Hosting
 
 [Cloudways](http://www.cloudways.com) is a Managed Cloud Platform for PHP-based web apps. On Cloudways, you can choose your server from four cloud providers: DigitalOcean, Vultr, Google Cloud Engine (GCE) and Amazon Web Services (AWS) to run your PHP work on it. It allows user to launch cloud servers with minutes for PHP app development. Cloud server management is the job of Cloudways; you're only responsible for your Grav CMS application. 
 

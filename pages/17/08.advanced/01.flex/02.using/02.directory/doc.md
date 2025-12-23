@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
   category: docs
 ---
+# Flex Directory
 
 ## getTitle()
 

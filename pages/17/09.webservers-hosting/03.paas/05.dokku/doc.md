@@ -5,6 +5,7 @@ visible: true
 taxonomy:
     category: docs
 ---
+# Dokku
 
 Dokku is a Docker-based, self-hosted "mini-Heroku" that you can run out of any Virtual Machine (VM), local or remote. The main advantages of using it would be:
 

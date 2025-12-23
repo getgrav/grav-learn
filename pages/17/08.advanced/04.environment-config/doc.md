@@ -3,6 +3,7 @@ title: Environment Configuration
 taxonomy:
      category: docs
 ---
+# Environment Configuration
 
 Grav has the ability to extend the [powerful configuration capabilities](../../basics/grav-configuration) for different environments to support different configuration for **development**, **staging**, and **production** scenarios.
 

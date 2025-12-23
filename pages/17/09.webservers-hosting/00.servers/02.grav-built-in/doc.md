@@ -3,6 +3,7 @@ title: Grav Built-in Web Server
 taxonomy:
     category: docs
 ---
+# Grav Built-in Web Server
 
 For the fastest way to get Grav up and running, you can run Grav using a simple command from Terminal / Command Prompt using the built-in PHP server available as long as you have PHP installed.
 

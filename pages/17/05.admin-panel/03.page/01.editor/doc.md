@@ -8,6 +8,7 @@ routes:
 process:
     twig: true
 ---
+# Editor (Content)
 
 ![Admin Page Editor](page-editor.png?width=2532&classes=shadow)
 

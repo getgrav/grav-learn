@@ -6,6 +6,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Admin Recipes
 
 This page contains an assortment of problems and their respective solutions related to Grav Admin modifications.
 

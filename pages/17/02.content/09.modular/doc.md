@@ -1,12 +1,18 @@
 ---
 title: Modular Pages
+description: Learn about Modular Pages in Grav
 taxonomy:
     category: docs
 process:
-    twig: true
+    twig: false
 ---
+# Modular Pages
 
-The concept of **Modular Pages** is a little tricky to get your head around at first, but when you do you'll see how convenient they are to use. A **Modular Page** is a collection of pages stacked on top of each other to create a unified, single page. This lets you create a complex page-structure by using the **LEGO building-brick**-approach, and who doesn't love LEGO?!
+The concept of **Modular Pages** is a little tricky to get your head around at first, but when you do you'll see how convenient they are to use. A **Modular Page** is a collection of pages stacked on top of each other to create a unified, single page. 
+
+===
+
+This lets you create a complex page-structure by using the **LEGO building-brick**-approach, and who doesn't love LEGO?!
 
 ## What are Modular Pages and what are they not?
 
@@ -32,13 +38,13 @@ Each subfolder contains a Markdown-file which acts as a page.
 
 The data within these Module-folders - including Markdown-files, images, etc. - is then pulled and displayed on the Modular page. This is accomplished by creating a primary page, defining a [Page Collection](/17/content/collections) in the primary page's YAML FrontMatter, then iterating over this Collection in a Twig-template to generate the combined HTML page. A theme should already have a `modular.html.twig` template that will do this and is used when you create a Modular Page type. Here's a simple example from a `modular.html.twig`:
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {% for module in page.collection() %}
     {{ module.content|raw }}
 {% endfor %}
 [/codesh]
-{% endverbatim %}
+
 
 Here is an example of the resulting modular page, highlighting the different modular folders which are used.
 
@@ -93,7 +99,7 @@ As you can see, the header of the page contains basic information you might find
 
 The template file for the `text.md` file should be located in the `/templates/modular`-folder of your theme, and should be named `text.html.twig`. This file, like any Twig-template file for any other page, defines the settings, as well as any styling-differences between it and the base page.
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 <div class="modular-row callout">
     {% set image = page.media.images|first %}
@@ -103,6 +109,6 @@ The template file for the `text.md` file should be located in the `/templates/mo
 {{ content|raw }}
 </div>
 [/codesh]
-{% endverbatim %}
+
 
 Generally, Modular Pages are very simple. You just have to get used to the idea that each section in your page is defined in a Module that has its own folder below the actual page. They are displayed all at once to your visitors, but organized slightly differently than regular pages. Feel free to experiment and discover just how much you can accomplish with a Modular Page in Grav.

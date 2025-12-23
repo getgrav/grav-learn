@@ -8,6 +8,7 @@ routes:
 process:
     twig: true
 ---
+# 2-Factor Authentication
 
 ![Admin Profile](auth3.gif?classes=shadow)
 

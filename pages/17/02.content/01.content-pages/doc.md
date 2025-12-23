@@ -1,16 +1,20 @@
 ---
 title: Pages
+description: Learn about Pages in Grav
 taxonomy:
     category: docs
 process:
-    twig: true
+    twig: false
 ---
+# Pages
 
 In Grav-speak, **Pages** are the fundamental building blocks of your site. They are how you write content and provide navigation in the Grav system.
 
 Combining content and navigation ensures that the system is intuitive to use for even the most inexperienced of content authors. However, this system, in conjunction with powerful taxonomy capabilities, is still powerful enough to handle complex content requirements.
 
 Grav natively supports **3 types of Pages** that allow you to create a rich selection of web content. Those types are:
+
+===
 
 ![Grav Page Types](page-types.png)
 
@@ -189,7 +193,7 @@ Grav has a useful feature that allows you to find another page and perform actio
 
 This allows you to perform a wide variety of functionality from any page on your Grav site. For example, you may want to provide a list of all current projects on a particular project detail page:
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 # All Projects
 <ul>
@@ -198,12 +202,10 @@ This allows you to perform a wide variety of functionality from any page on your
 {% endfor %}
 </ul>
 [/codesh]
-{% endverbatim %}
 
-{% verbatim %}
+
 > [!CAUTION]
 > The `pages`-object is unavailable when [processing Twig directly in Markdown-content](https://learn.getgrav.org/content/headers#process). However, the `page`-object and its inherited `find()`-method is, so you could use `{% for p in page.find('/projects').children %}` as a replacement for the above. Note that the **pages** refers to all the Pages available to Grav, and **page** refers to a single, and often the current, Page.
-{% endverbatim %}
 
 In the next sections, we will continue to dig into the specifics of a page and page collections in detail.
 
@@ -215,10 +217,10 @@ When Grav reads page content, it stores this content in cache. That way, the nex
 
 This is where `contentMeta()` comes in. We use ContentMeta in our [Shortcode](https://github.com/getgrav/grav-plugin-shortcode-core)-plugin to [retrieve sections from other pages](https://github.com/getgrav/grav-plugin-shortcode-core#sections-from-other-pages) using shortcodes. For example:
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 <div id="author">{{ page.find('/my/custom/page').contentMeta.shortcodeMeta.shortcode.section.author|e }}</div>
 [/codesh]
-{% endverbatim %}
+
 
 We used this in Shortcode Core to store CSS and JS assets that the shortcode on the page requires, however this feature can be used to store just about any data structure you need.

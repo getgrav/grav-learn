@@ -3,6 +3,7 @@ title: Overview
 taxonomy:
     category: docs
 ---
+# Overview
 
 If you discover a possible security issue related to Grav or one of its extensions, please send an email to the core team at [contact@getgrav.org](mailto:contact@getgrav.org) and we'll address it as soon as possible.
 

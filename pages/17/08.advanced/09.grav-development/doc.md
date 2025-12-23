@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Grav Development
 
 If you want to develop with Grav, you will benefit from a more sophisticated setup than the one required for a regular Grav user. This includes just about any type of development, such as: **Grav Core**, **Grav Plugins**, **Grav Skeletons**, or even **Grav Themes**.
 

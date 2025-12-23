@@ -3,6 +3,7 @@ title: Folder Structure
 taxonomy:
     category: docs
 ---
+# Folder Structure
 
 Because Grav is a **flat-file based CMS**, meaning no database underpins it, the folder structure of your site is very important.  At the **top level** of your Grav installation the folder structure looks like:
 

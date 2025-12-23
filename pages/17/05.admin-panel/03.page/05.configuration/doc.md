@@ -8,6 +8,7 @@ routes:
 process:
     twig: false
 ---
+# Configuration
 
 ![Compatibility Tab](page-configuration.png?width=2030&classes=shadow)
 
@@ -32,4 +33,4 @@ For more information, see Flex Objects.
 | **Render Cache Lifetime (seconds)** | Lifetime for render caching in seconds. |
 [/div]
 
-If the rendered HTML has dynamic content, render cache can be disabled from the Twig template by {% verbatim %}```{% do block.disableCache() %}```{% endverbatim %}.
+If the rendered HTML has dynamic content, render cache can be disabled from the Twig template by ```{% do block.disableCache() %}```.

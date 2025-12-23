@@ -1,10 +1,14 @@
 ---
 title: Routing
+description: Learn about Routing in Grav
 taxonomy:
     category: docs
 ---
+# Routing
 
 As we already described in the opening [Page -> Folders section](../content-pages#folders), **routing** in Grav is primarily controlled by the folder structure you use when you build your site content.
+
+===
 
 There are certain scenarios where you need more flexibility and Grav comes packed with a variety of tools and configuration options to make your life simpler in this regard.
 

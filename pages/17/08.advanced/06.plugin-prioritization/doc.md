@@ -3,6 +3,7 @@ title: Plugin Prioritization
 taxonomy:
     category: docs
 ---
+# Plugin Prioritization
 
 When multiple plugins listen to the same event hooks (see the [Plugins > Event Hooks page for details](../../plugins/event-hooks)), the various handlers are executed in order of "priority." Priority is simply a number. The higher the number, the earlier the handler will execute.
 

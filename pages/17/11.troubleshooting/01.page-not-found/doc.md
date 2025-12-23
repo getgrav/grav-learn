@@ -3,6 +3,7 @@ title: 404 Not Found
 taxonomy:
     category: docs
 ---
+# 404 Not Found
 
 There are a couple of reasons you might receive a **Not Found** error, and they are each caused by different factors.
 

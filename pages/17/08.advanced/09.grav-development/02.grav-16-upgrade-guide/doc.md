@@ -3,6 +3,7 @@ title: Upgrading to Grav 1.6
 taxonomy:
     category: docs
 ---
+# Upgrading to Grav 1.6
 
 Grav 1.6 is the largest update since the initial release of Grav. It introduces a few new features, improvements, bug fixes and provides many architectural changes which pave the road towards Grav 2.0.
 

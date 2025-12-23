@@ -4,6 +4,7 @@ taxonomy:
     category: docs
 last_checked: 1.7.0 (01/19/2021)
 ---
+# Upgrading to Grav 1.7
 
 Grav 1.7 introduces a few new features, improvements, bug fixes and provides many architectural changes which pave the road towards Grav 2.0. Here are a few highlights:
 

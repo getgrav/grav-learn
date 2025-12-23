@@ -6,10 +6,11 @@ page-toc:
   start: 3
   depth: 1
 process:
-    twig: true
+    twig: false
 taxonomy:
     category: docs
 ---
+# Twig Filters
 
 Twig filters are applied to Twig variables by using the `|` character followed by the filter name.  Parameters can be passed in just like Twig functions using parenthesis.
 
@@ -141,12 +142,12 @@ Converts a string into a hyphenated version.
 
 You can decode JSON by simply applying this filter:
 
-`array|json_decode` {% verbatim %}
+`array|json_decode` 
 [codesh=twig line-numbers="true"]
 {% set array = '{"first_name": "Guido", "last_name":"Rossum"}'|json_decode %}
 {{ print_r(array) }}
 [/codesh]
-{% endverbatim %}
+
 
 {% set array = '{"first_name": "Guido", "last_name":"Rossum"}'|json_decode %}
 [codesh=txt]
@@ -157,12 +158,12 @@ You can decode JSON by simply applying this filter:
 
 Sort an array map by each key
 
-`array|ksort` {% verbatim %}
+`array|ksort` 
 [codesh=twig line-numbers="true"]
 {% set items = {'orange':1, 'apple':2, 'peach':3}|ksort %}
 {{ print_r(items) }}
 [/codesh]
-{% endverbatim %}
+
 
 {% set items = {'orange':1, 'apple':2, 'peach':3}|ksort %}
 [codesh=txt]
@@ -186,7 +187,7 @@ Take an arbitrary string containing markdown and convert it to HTML using the ma
 string|markdown($is_block)
 ```
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 <div class="div">
 {{ 'A paragraph with **markdown** and [a link](http://www.cnn.com)'|markdown }}
@@ -194,7 +195,7 @@ string|markdown($is_block)
 
 <p class="paragraph">{{'A line with **markdown** and [a link](http://www.cnn.com)'|markdown(false) }}</p>
 [/codesh]
-{% endverbatim %}
+
 
 {% set var %}
 <div class="div">
@@ -279,11 +280,11 @@ Converts a string to the English plural version
 
 `pluralize` also takes an optional numeric parameter which you can pass in when you don't know in advance how many items the noun will refer to. It defaults to 2, so will provide the plural form if omitted. For example:
 
-{% verbatim %}
+
 [codesh=twig]
 <p>We have {{ num_vacancies }} {{ 'vacancy'|pluralize(num_vacancies) }} right now.</p>
 [/codesh]
-{% endverbatim %}
+
 
 ### `print_r`
 
@@ -299,12 +300,12 @@ Prints human-readable information about a variable
 
 Randomizes the list provided.  If a value is provided as a parameter, it will skip first n values and keep them in order.
 
-`array|randomize` {% verbatim %}
+`array|randomize` 
 [codesh=twig line-numbers="true"]
 {% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
 {{ print_r(ritems) }}
 [/codesh]
-{% endverbatim %}
+
 
 {% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
 [codesh=txt]
@@ -340,13 +341,13 @@ The safe email filter converts an email address into ASCII characters to make it
 
 Usage example with a mailto link:
 
-{% verbatim %}
+
 [codesh=html line-numbers="true"]
 <a href="mailto:{{ 'your.email@server.com'|safe_email }}">
   Email me
 </a>
 [/codesh]
-{% endverbatim %}
+
 
 You might not notice a difference at first, but examining the page source (not using the Browser Developer Tools, the actual page source) will reveal the underlying characters encoding.
 
@@ -354,12 +355,12 @@ You might not notice a difference at first, but examining the page source (not u
 
 Sort an array map by a particular key
 
-`array|sort_by_key` {% verbatim %}
+`array|sort_by_key` 
 [codesh=twig line-numbers="true"]
 {% set people = [{'email':'fred@yahoo.com', 'id':34}, {'email':'tim@exchange.com', 'id':21}, {'email':'john@apple.com', 'id':2}]|sort_by_key('id') %}
 {% for person in people %}{{ person.email }}:{{ person.id }}, {% endfor %}
 [/codesh]
-{% endverbatim %}
+
 
 <strong>
 {% set people = [{'email':'fred@yahoo.com', 'id':34}, {'email':'tim@exchange.com', 'id':21}, {'email':'john@apple.com', 'id':2}]|sort_by_key('id') %}
@@ -450,11 +451,11 @@ Converts a string into "under_scored" format
 ### `wordcount`
 Counts the number of words in a text string with support for multiple languages and improved accuracy for HTML content.
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {{ page.content|wordcount }}
 [/codesh]
-{% endverbatim %}
+
 
 [codesh=txt]
 36
@@ -462,7 +463,7 @@ Counts the number of words in a text string with support for multiple languages 
 
 The `wordcount` filter also takes an optional locale parameter to handle different languages appropriately. For Western languages (English, Spanish, French, etc.), it counts individual words separated by spaces. For Asian languages like Chinese, Japanese, and Korean, it counts characters instead of words, which is more appropriate for these writing systems.
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {# With specific locale for English content #}
 {{ page.content|wordcount('en') }}
@@ -480,7 +481,7 @@ The `wordcount` filter also takes an optional locale parameter to handle differe
 }
 </script>
 [/codesh]
-{% endverbatim %}
+
 
 > [!CAUTION]
 > **Supported locales:** `en` (English, default), `es` (Spanish), `fr` (French), `de` (German), and other Western languages use word-based counting. `zh`/`zh-cn`/`zh-tw`/`chinese` (Chinese), `ja`/`japanese` (Japanese), and `ko`/`korean` (Korean) use character-based counting.
@@ -489,12 +490,12 @@ The `wordcount` filter also takes an optional locale parameter to handle differe
 
 Dump/Encode a variable into YAML syntax
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {% set array = {foo: [0, 1, 2, 3], baz: 'qux' } %}
 {{ array|yaml_encode }}
 [/codesh]
-{% endverbatim %}
+
 
 {% set array = {foo: [0, 1, 2, 3], baz: 'qux' } %}
 [codesh=yaml]
@@ -505,12 +506,12 @@ Dump/Encode a variable into YAML syntax
 
 Decode/Parse a variable from YAML syntax
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}
 {{ yaml|yaml_decode|var_dump }}
 [/codesh]
-{% endverbatim %}
+
 
 {% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}
 [codesh]

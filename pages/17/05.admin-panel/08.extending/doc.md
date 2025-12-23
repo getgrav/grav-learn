@@ -8,6 +8,7 @@ process:
     markdown: true
     twig: false
 ---
+# Extending
 
 This page provides guides for how to extend the Administration Panel, as well as best practices when doing so.
 

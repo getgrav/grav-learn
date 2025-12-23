@@ -10,6 +10,7 @@ process:
 taxonomy:
     category: docs
 ---
+# Twig Tags
 
 Grav also provides a variety of custom Twig Tags that extend the already very capable Twig templating capabilities with some new tags that we've found useful.
 

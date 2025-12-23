@@ -3,6 +3,7 @@ title: Content Editor
 taxonomy:
     category: docs
 ---
+# Content Editor
 
 ![Edit View](flex-objects-edit.png?width=2030&classes=shadow)
 

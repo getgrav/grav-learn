@@ -3,6 +3,7 @@ title: Plugin Basics
 taxonomy:
     category: docs
 ---
+# Plugin Basics
 
 Grav was designed to be **simple** and **focused**, dealing with pages only.  The idea is that Grav itself is **super-lean**, providing just enough functionality to do the basics: routing, Markdown to HTML compiling, Twig templating, and caching.
 

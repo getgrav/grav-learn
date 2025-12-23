@@ -3,6 +3,7 @@ title: Requirements
 taxonomy:
     category: docs
 ---
+# Requirements
 
 Grav is intentionally designed with few requirements. You can easily run Grav on your local computer, as well as 99% of all Web hosting providers. If you have a pen handy, jot down the following Grav system requirements:
 

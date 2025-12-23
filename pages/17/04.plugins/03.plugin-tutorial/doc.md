@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Plugin Tutorial
 
 Plugins are usually developed because there is a task that can not be completed with Grav's core functionality.
 

@@ -6,6 +6,7 @@ taxonomy:
 page-toc:
     active: true
 ---
+# Migrating from WordPress to Grav
 
 ## Requirements
 

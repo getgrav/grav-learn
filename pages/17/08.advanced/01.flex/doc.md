@@ -5,6 +5,7 @@ taxonomy:
 algolia-pro:
     process_children: true
 ---
+# Flex Objects
 
 **Flex Objects** is a new concept in Grav 1.7 that adds support for custom data types which can be easily integrated to your site. **Flex Objects** are provided by the [**Flex Objects** Plugin](https://github.com/trilbymedia/grav-plugin-flex-objects) which is required by the [Admin Panel](/17/admin-panel) and included in the [**Grav Core + Admin Plugin**](https://getgrav.org/downloads) package. 
 

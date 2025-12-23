@@ -3,6 +3,7 @@ title: Proxy issues
 taxonomy:
     category: docs
 ---
+# Proxy issues
 
 Running GPM commands behind a proxy might result in an error.
 

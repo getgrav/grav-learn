@@ -3,6 +3,7 @@ title: Administration
 taxonomy:
     category: docs
 ---
+# Administration
 
 If you have been using **Admin Panel** in Grav 1.7, you have already used **Flex Objects**. The best examples are **Accounts** and **Pages**, which are great examples what can be done with **Flex**.
 

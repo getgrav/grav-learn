@@ -1,10 +1,14 @@
 ---
 title: Page Linking
+description: Learn about Page Linking in Grav
 taxonomy:
     category: docs
 ---
+# Page Linking
 
 Grav has a variety of flexible linking options that allow you to link from one page to another, and even to remote pages. If you have ever linked files using HTML or worked with a file system using a command line, a lot of this should be very easy to pick up.
+
+===
 
 We will run to some easy examples using this very basic, trimmed down model of what a Grav site's **Pages** directory might look like.
 

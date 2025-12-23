@@ -3,6 +3,7 @@ title: Plugin Installation
 taxonomy:
     category: docs
 ---
+# Plugin Installation
 
 ## Installation
 

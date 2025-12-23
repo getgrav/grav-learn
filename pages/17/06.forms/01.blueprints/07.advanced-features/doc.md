@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Advanced Blueprint Features
 
 There are advanced features in the blueprints which allow you to extend them and to have dynamic fields.
 

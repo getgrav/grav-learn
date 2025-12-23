@@ -3,6 +3,7 @@ title: "Report Template"
 published: false
 date: 17-06-2017
 ---
+# Report Template
 
 Short details including ID, Project's Full Name, Date, Risk-level. Eg:
 

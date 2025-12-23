@@ -3,8 +3,9 @@ title: Performance & Caching
 taxonomy:
     category: docs
 ---
+# Performance & Caching
 
- One of the core features that make Grav so compelling is just how fast it is.  This has always been a key consideration in the inherent design of Grav and is primarily due to caching, but does include several other components.
+One of the core features that make Grav so compelling is just how fast it is.  This has always been a key consideration in the inherent design of Grav and is primarily due to caching, but does include several other components.
 
 ## Performance
 

@@ -8,6 +8,7 @@ routes:
 process:
     twig: true
 ---
+# Editor (Security)
 
 ![Security Tab > Page Access](page-security.png?width=2030&classes=shadow)
 

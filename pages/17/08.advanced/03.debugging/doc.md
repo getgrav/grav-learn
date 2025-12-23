@@ -1,10 +1,11 @@
 ---
 title: Debugging & Logging
 process:
-    twig: true
+    twig: false
 taxonomy:
     category: docs
 ---
+# Debugging & Logging
 
 When developing themes and plugins, there is often a need to display **debugging** information. Grav has powerful debugging capabilities via a variety of features:
 
@@ -64,22 +65,22 @@ twig:
 
 For example, you can easily dump a Twig variable or object:
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {{ dump(page.header) }}
 [/codesh]
-{% endverbatim %}
+
 
 and see the results in the Debugbar:
 
 ![](twig-dump.png)
 
 It's possible to output multiple dump commands at the same time but it can get confusing to tell them apart. Add static text like this:
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {{ dump('page.header output:',page.header) }}
 [/codesh]
-{% endverbatim %}
+
 
 ![](twig-dump-text.png)
 
@@ -87,11 +88,11 @@ It's possible to output multiple dump commands at the same time but it can get c
 
 To display variables before a page is returned by Grav or in case no page refresh occurs such as when using AJAX there is another alternative. By using a single line of Javascript any variable can be displayed in your browser's developer console, for example:
 
-{% verbatim %}
+
 [codesh=twig]
 <script> console.log({{ page.header|json_encode|raw }}) </script>
 [/codesh]
-{% endverbatim %}
+
 
 Then examine the value in the browser console:
 

@@ -7,6 +7,7 @@ process:
 taxonomy:
     category: docs
 ---
+# alwaysdata
 
 [alwaysdata](https://www.alwaysdata.com) is a European hosting provider that offers different plans on shared platform or dedicated managed servers. They include lots of cool features such as automatic backups, free SSL certificates, SSH access, etc.
 

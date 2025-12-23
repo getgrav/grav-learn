@@ -1,5 +1,6 @@
 ---
 title: Media
+description: Learn about Media in Grav
 page-toc:
   active: true
   depth: 3
@@ -8,10 +9,15 @@ markdown:
 taxonomy:
     category: docs
 process:
-    twig: true
+    twig: false
 ---
+# Media
 
-When creating content in **Grav**, you often need to display different types of media like **images**, **videos**, and various other **files**. These files are automatically found and processed by Grav and are made available to use by any page.  This is particularly handy because you can then use the built-in functionality of the page to leverage thumbnails, access metadata and modify the media dynamically (e.g. resizing images, setting the display size for videos, etc.) as you need them.
+When creating content in **Grav**, you often need to display different types of media like **images**, **videos**, and various other **files**. These files are automatically found and processed by Grav and are made available to use by any page. 
+
+===
+
+This is particularly handy because you can then use the built-in functionality of the page to leverage thumbnails, access metadata and modify the media dynamically (e.g. resizing images, setting the display size for videos, etc.) as you need them.
 
 Grav uses a **smart-caching** system that automatically creates in-cache copies of the dynamically generated media when necessary. This way all subsequent requests can use the cached version instead of having to generate the media all over again.
 
@@ -42,11 +48,11 @@ Usually you'll use a media file within a page, so just put the file in the page 
 
 If you want to put all your images in a single folder, you can put them in a `user/pages/images` folder. That way, in Twig, you can reach them via
 
-{% verbatim %}
+
 ```twig
 {% set my_image = page.find('/images').media['my-image.jpg'] %}
 ```
-{% endverbatim %}
+
 
 and also you can find them easily via markdown and perform operations on them:
 
@@ -74,24 +80,24 @@ You can actually use any stream including any folder inside `user/` via the `use
 
 You can also do these same kinds of things using the Twig `Media` object:
 
-{% verbatim %}
+
 ```twig
 {{ media['user://themes/mytheme/images/my-image.jpg'].html()|raw }}
 ```
-{% endverbatim %}
+
 
 > [!TIP]
 > Grav has an `/images` folder. Do not put your own images in that folder, as it hosts Grav auto-generated, cached images.
 
 You may also want to put all the media files into their own folder, so that they can all be accessed at one go. For instance you might want to keep all your MP3 files in a folder `user/pages/mp3s` (not visible) and put the name of the MP3 file associated with a particular page in a header field called `thistrack`. If you then wish to access the file for a particular page and play it using the HTML5 audio element, you will need code like this:
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 <audio controls>
   <source src="{{ page.find('/mp3s').media[page.header.thistrack~'.mp3']|e }}">
 </audio>
 [/codesh]
-{% endverbatim %}
+
 
 ## Display modes
 
@@ -156,11 +162,11 @@ This returns **raw url path** to the media.
 
 [ui-tabs]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].url|e }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
@@ -184,11 +190,11 @@ The `html` action will output a valid HTML tag for the media based on the curren
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].html('My title', 'Some ALT text', 'myclass')|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
@@ -223,11 +229,11 @@ The following example will display a textual link (`display('text')`) to a sepia
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].sepia().link().display('text').html('Image link')|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
@@ -241,13 +247,13 @@ The following example will display a textual link (`display('text')`) to a sepia
 Grav can be set to cache all image files, this may increase the speed that files are served. However, images will go through the Grav image manipulation system which may lead to a considerably larger file size for images that have already been optimized prior to Grav. Image manipulation can be bypassed.
 
 Enable `cache_all` in `system/config/system.yaml`
-{% verbatim %}
+
 ```yaml
 images:
   default_image_quality: 85
   cache_all: false
 ```
-{% endverbatim %}
+
 
 Disable image manipulation with the `cache`option.
 
@@ -258,11 +264,11 @@ Disable image manipulation with the `cache`option.
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cache.html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
@@ -284,11 +290,11 @@ If possible (currently only in the case of images), Grav will resize your media 
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].lightbox(600,400).resize(200,200).html('Sample Image')|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
@@ -312,11 +318,11 @@ Manually choose the thumbnail Grav should use. You can choose between `page` and
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].thumbnail('default').display('thumbnail').html('Sample Image')|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
@@ -340,11 +346,11 @@ This adds an additional HTML attribute to the output.
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].attribute('myattribute', 'myvalue').html('Sample Image')|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
@@ -367,11 +373,11 @@ Resizing does exactly what you would expect it to do.  `resize` lets you create 
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].resize(400, 200).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -390,11 +396,11 @@ Resizes the image to the `width` and `height` as provided.  `forceResize` will n
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].forceResize(200, 300).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -415,11 +421,11 @@ For example, if you have an image that is `640` x `480` and you perform a `cropR
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropResize(300, 300).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -440,11 +446,11 @@ For example, an image that is `640` x `480` with `crop(0, 0, 400, 100)` will pro
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].crop(100,100,300,200).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -470,11 +476,11 @@ For example if you have an image that is `640` x `480` and you perform a `cropZo
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(600,200).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -496,11 +502,11 @@ Dynamically allows the setting of a **compression percentage** `value` for the i
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).quality(25).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -519,11 +525,11 @@ Applies a **negative filter** to the image where colors are inverted.
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).negate.html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -542,11 +548,11 @@ Applies a **brightness filter** to the image with a `value` from `-255` to `+255
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).brightness(-100).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -565,11 +571,11 @@ This applies a **contrast filter** to the image with a `value` from `-100` to `+
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).contrast(-50).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -586,11 +592,11 @@ This processes the image with a **grayscale filter**.
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).grayscale.html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -609,11 +615,11 @@ This processes the image with an **embossing filter**.
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).emboss.html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -632,11 +638,11 @@ This applies a **smoothing filter** to the image based on smooth `value` setting
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).smooth(5).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -655,11 +661,11 @@ This applies a **sharpening filter** on the image.
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).sharp.html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -678,11 +684,11 @@ This applies an **edge finding filter** on the image.
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).edge.html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -701,11 +707,11 @@ You can colorize the image based on adjusting the `red`, `green`, and `blue` val
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).colorize(100,-100,40).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -724,11 +730,11 @@ This applies a **sepia filter** on the image to produce a vintage look.
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).sepia.html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -747,11 +753,11 @@ This applies a **sepia filter** on the image to produce a vintage look.
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].gaussianBlur(3).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -770,11 +776,11 @@ This applies a **sepia filter** on the image to produce a vintage look.
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).rotate(-90).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -793,11 +799,11 @@ This applies a **sepia filter** on the image to produce a vintage look.
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].cropZoom(300,200).flip(0,1).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -816,11 +822,11 @@ Fixes the orientation of the image when rotation is made via EXIF data (applies 
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].fixOrientation().html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -838,11 +844,11 @@ The **watermark action** merges two images, a watermark image and a source image
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].watermark('user://pages/02.content/07.media/sample-watermark.png','top-left',50).html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -863,7 +869,7 @@ When value `auto` is chosen, no `loading` attribute is added and browser will de
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {# Using default value as defined in 'config.system.images.defaults.loading' #}
 {{ page.media['sample-image.jpg'].loading.html('Sample Image')|raw }}
@@ -871,7 +877,7 @@ When value `auto` is chosen, no `loading` attribute is added and browser will de
 {# Using explicit value #}
 {{ page.media['sample-image.jpg'].loading('lazy').html('Sample Image')|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
@@ -893,7 +899,7 @@ When value `auto` is chosen, no `decoding` attribute is added and browser will d
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {# Using default value as defined in `config.system.images.defaults.decoding` #}
 {{ page.media['sample-image.jpg'].decoding.html('Sample Image')|raw }}
@@ -901,7 +907,7 @@ When value `auto` is chosen, no `decoding` attribute is added and browser will d
 {# Using explicit value #}
 {{ page.media['sample-image.jpg'].decoding('async').html('Sample Image')|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
@@ -923,7 +929,7 @@ When value `auto` is chosen, no `fetchpriority` attribute is added and browser w
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {# Using default value as defined in `config.system.images.defaults.fetchpriority` #}
 {{ page.media['sample-image.jpg'].fetchpriority.html('Sample Image')|raw }}
@@ -931,7 +937,7 @@ When value `auto` is chosen, no `fetchpriority` attribute is added and browser w
 {# Using explicit value #}
 {{ page.media['sample-image.jpg'].fetchpriority('high').html('Sample Image')|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
@@ -953,11 +959,11 @@ Because PHP cannot handle dynamically resizing these types of media, the resize 
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-trailer.mov'].resize(400, 200).html('Sample Trailer')|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
@@ -1003,11 +1009,11 @@ Audio media will display an HTML5 audio link:
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['hal9000.mp3'].html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -1026,11 +1032,11 @@ Allows explicitly setting or removing the HTML5 default controls. Passing `0` hi
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['hal9000.mp3'].controls(0)|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 ```html
@@ -1056,11 +1062,11 @@ Allows setting of `preload` property, which defaults to `auto`. Permitted params
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['hal9000.mp3'].preload('metadata')|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -1078,11 +1084,11 @@ Allows setting whether audio will `autoplay` upon page load. Defaults to `false`
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['hal9000.mp3'].autoplay(1)|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -1101,11 +1107,11 @@ Allows setting of `controlsList` property, which takes one or more of three poss
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['hal9000.mp3'].controlsList('nodownload nofullscreen noremoteplayback')|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -1120,11 +1126,11 @@ Allows setting whether audio is `muted` on load. Defaults to `false` by omission
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['hal9000.mp3'].muted(1)|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -1139,11 +1145,11 @@ Allows setting whether audio will `loop` upon playing through completion. Defaul
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['hal9000.mp3'].loop(1)|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -1158,11 +1164,11 @@ Grav does not provide any custom actions on files at this point in time and ther
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 <a href="{{ page.media['acronyms.txt'].url()|raw }}">View Text File</a>
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -1181,11 +1187,11 @@ As you can see: Grav provides some powerful image manipulation functionality tha
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['sample-image.jpg'].negate.lightbox.cropZoom(200,200)|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [/ui-tabs]
 
@@ -1199,7 +1205,7 @@ When you access the same image multiple times in a single page, actions you have
 
 To combat this, you can reset the actions on the images by passing `false` to the `url()` method:
 
-{% verbatim %}
+
 ```twig
 {% for item in page.header.gallery %}
     {% set image = page.media[item.src].cropZoom(800, 600).quality(70) %}
@@ -1208,7 +1214,7 @@ To combat this, you can reset the actions on the images by passing `false` to th
     </a>
 {% endfor %}
 ```
-{% endverbatim %}
+
 
 ### Responsive images
 
@@ -1233,11 +1239,11 @@ Let's assume you have a file called `retina@2x.jpg`, you would actually referenc
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['retina.jpg'].sizes('80vw').html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 {% set code_sample %}
@@ -1267,11 +1273,11 @@ Grav also has support for media queries inside the `sizes` attribute, allowing y
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['retina.jpg'].sizes('(max-width:26em) 100vw, 50vw').html('Retina Image')|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 {% set code_sample %}
@@ -1306,11 +1312,11 @@ In our example, we set the maximum to `1600`. This will result in increments of 
 ```
 [/ui-tab]
 [ui-tab title="Twig"]
-{% verbatim %}
+
 ```twig
 {{ page.media['retina.jpg'].derivatives(320,1600,300).sizes('(max-width:26em) 100vw, 50vw').html()|raw }}
 ```
-{% endverbatim %}
+
 [/ui-tab]
 [ui-tab title="HTML Code"]
 {% set code_sample %}
@@ -1361,11 +1367,11 @@ If you are using this method to add file-specific styling or meta tags for a sin
 
 Let's say you wanted to just pull the `alt_text` value listed for the image file `sample-image.jpg`. You would then create a file called `sample-image.jpg.meta.yaml` and place it in the folder with the referenced image file. Then, insert the data used in the example above and save that YAML file. In the markdown file for the page, you can display this data by using the following line:
 
-{% verbatim %}
+
 ```yaml
 {{ page.media['sample-image.jpg'].meta.alt_text|e }}
 ```
-{% endverbatim %}
+
 
 This will pull up the example phrase `My Alt Text` instead of the image. This is just a basic example. You can use this method for a number of things, including creating a gallery with multiple unique data points you want to have referenced for each image. Your images, in essence, have a set of data unique to them that can be easily referenced and pulled as needed.
 

@@ -1,10 +1,14 @@
 ---
 title: Image Linking
+description: Learn about Image Linking in Grav
 taxonomy:
     category: docs
 ---
+# Image Linking
 
 Grav has a variety of flexible linking options that allow you to link images from one page to another, and even from remote sources. If you have ever linked files using HTML or worked with a file system using a command line, a lot of this should be elementary to pick up.
+
+===
 
 We will run to some easy examples using this very basic, trimmed down model of what a Grav site's **Pages** directory might look like.
 

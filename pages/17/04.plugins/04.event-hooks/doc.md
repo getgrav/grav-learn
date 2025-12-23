@@ -6,6 +6,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Event Hooks
 
 In the previous [Plugin Tutorial](../plugin-tutorial) chapter, you might have noticed that our plugin logic was encompassed in two methods.  Each of these methods `onPluginsInitialized` and `onPageInitialized` correspond to **event hooks** that are available throughout the Grav life cycle.
 

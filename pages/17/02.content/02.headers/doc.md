@@ -1,12 +1,16 @@
 ---
 title: Headers / Frontmatter
+description: Learn about Headers / Frontmatter in Grav
 page-toc:
   active: true
 taxonomy:
     category: docs
 ---
+# Headers / Frontmatter
 
 The page headers (alternatively known as frontmatter) at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers.
+
+===
 
 > [!WARNING]
 > Headers are also known as **Page Frontmatter** and are commonly referred to as such so as not to be confused with HTTP Headers.

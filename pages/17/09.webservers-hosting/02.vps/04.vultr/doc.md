@@ -7,6 +7,7 @@ process:
 taxonomy:
     category: docs
 ---
+# Vultr
 
 [Vultr](https://www.vultr.com) is another entry in the **SSD-Powered VPS** market and offers similar features and functionality as the other VPS providers, but for slightly less money. You get **100% SSD Storage**, **Ultra fast Intel CPUs** and **14 low latency locations**.
 

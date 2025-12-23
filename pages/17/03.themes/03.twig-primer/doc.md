@@ -3,6 +3,7 @@ title: Twig Primer
 taxonomy:
     category: docs
 ---
+# Twig Primer
 
 Twig is a quick, optimized template engine for PHP. It is designed from the ground up to make creating templates easier on both the developer and the designer.
 

@@ -3,6 +3,7 @@ title: Backups
 taxonomy:
     category: docs
 ---
+# Backups
 
 The backup system in Grav has been completely rewritten for Grav 1.6 to provide more features and functionality. The improvements include:
 

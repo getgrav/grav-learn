@@ -3,6 +3,7 @@ title: Updating Grav & Plugins
 taxonomy:
     category: docs
 ---
+# Updating Grav & Plugins
 
 The preferred method for keeping Grav, Plugins and Themes up to date is to use the **Grav Package Manager (GPM)**. Full information can be found in the [Grav GPM Documentation](/17/advanced/grav-gpm).
 

@@ -3,6 +3,7 @@ title: Multisite Setup
 taxonomy:
     category: docs
 ---
+# Multisite Setup
 
 > [!CAUTION]
 > Grav has preliminary multisite support available.  However, the Admin plugin still need to be updated to fully support multisite configurations.  We will continue to work on this in subsequent releases of Grav.

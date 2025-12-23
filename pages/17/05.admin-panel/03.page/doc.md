@@ -8,6 +8,7 @@ routes:
 process:
     twig: true
 ---
+# Pages
 
 ![Admin Pages](pages.png?width=2520&classes=shadow)
 

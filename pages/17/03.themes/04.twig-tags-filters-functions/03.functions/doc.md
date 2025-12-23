@@ -6,10 +6,11 @@ page-toc:
   start: 3
   depth: 1
 process:
-    twig: true
+    twig: false
 taxonomy:
     category: docs
 ---
+# Twig Functions
 
 Twig functions are called directly with any parameters being passed in via parenthesis.
 
@@ -17,33 +18,33 @@ Twig functions are called directly with any parameters being passed in via paren
 
 Cast a value to array
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {% set value = array(value) %}
 [/codesh]
-{% endverbatim %}
+
 
 ### `array_diff`
 
 Computes the difference of arrays.
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {% set diff = array_diff(array1, array2...) %}
 [/codesh]
-{% endverbatim %}
+
 
 ### `array_key_value`
 
 The `array_key_value` function allows you to add a key/value pair to an associate array
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {% set my_array = {fruit: 'apple'} %}
 {% set my_array = array_key_value('meat','steak', my_array) %}
 {{ print_r(my_array)}}
 [/codesh]
-{% endverbatim %}
+
 
 {% set my_array = {fruit: 'apple'} %}
 {% set my_array = array_key_value('meat','steak', my_array) %}
@@ -53,12 +54,12 @@ outputs: ** {{ print_r(my_array) }} **
 
 Wrapper for PHP's `array_key_exists` function that returns whether or not a key exists in an associative array.
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {% set my_array = {fruit: 'apple', meat: 'steak'} %}
 {{ array_key_exists('meat', my_array) }}
 [/codesh]
-{% endverbatim %}
+
 
 {% set my_array = {fruit: 'apple', meat: 'steak'} %}
 outputs: **{{ array_key_exists('meat', my_array) }}**
@@ -67,13 +68,13 @@ outputs: **{{ array_key_exists('meat', my_array) }}**
 
 The `array_intersect` function provides the intersection of two arrays or Grav collections.
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {% set array_1 = {fruit: 'apple', meat: 'steak'} %}
 {% set array_2 = {fish: 'tuna', meat: 'steak'} %}
 {{ print_r(array_intersect(array_1, array_2)) }}
 [/codesh]
-{% endverbatim %}
+
 
 {% set array_1 = {fruit: 'apple', meat: 'steak'} %}
 {% set array_2 = {fish: 'tuna', meat: 'steak'} %}
@@ -124,23 +125,23 @@ The evaluate function can be used to evaluate a string as Twig:
 
 Similar to evaluate, but will evaluate and process with Twig
 
-{% verbatim %}
+
 `evaluate_twig('This is a twig variable: {{ foo }}', {foo: 'bar'})`)  <i class="fa fa-long-arrow-right"></i> **This is a twig variable: bar**
-{% endverbatim %}
+
 
 ### `exif`
 
 Output the EXIF data from an image based on its filepath. This requires that `media: auto_metadata_exif: true` is set in `system.yaml`. For example, in a Twig-template:
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {% set image = page.media['sample-image.jpg'] %}
 {% set exif = exif(image.filepath, true) %}
 {{ exif.MaxApertureValue }}
 [/codesh]
-{% endverbatim %}
 
-This would write the `MaxApertureValue`-value set in the camera, for example "40/10". You can always use {% verbatim %}`{{ dump(exif) }}`{% endverbatim %} to show all the available data in the debugger.
+
+This would write the `MaxApertureValue`-value set in the camera, for example "40/10". You can always use `{{ dump(exif) }}` to show all the available data in the debugger.
 
 ### `get_cookie`
 
@@ -239,12 +240,12 @@ Checks the type of a variable to the param:
 
 Parses a path into an array.
 
-{% verbatim %}
+
 [codesh=twig]
 {% set parts = pathinfo('/www/htdocs/inc/lib.inc.php') %}
 {{ print_r(parts) }}
 [/codesh]
-{% endverbatim %}
+
 
 {% set parts = pathinfo('/www/htdocs/inc/lib.inc.php') %}
 
@@ -313,9 +314,9 @@ Performs a `preg_grep` on an array with a regex pattern
 
 A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
 
-{% verbatim %}
+
 `regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])`
-{% endverbatim %}
+
 
 {% set var = regex_replace('The quick brown fox jumps over the lazy dog.', ['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) %}
 [codesh=txt]
@@ -326,9 +327,9 @@ A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/functio
 
 A helpful wrapper for the PHP [preg_match()](https://php.net/manual/en/function.preg-match.php) method, you can perform complex regular expression match on text via this filter:
 
-{% verbatim %}
+
 `regex_match('http://www.php.net/index.html', '@^(?:http://)?([^/]+)@i')`
-{% endverbatim %}
+
 
 {% set var = regex_match('http://www.php.net/index.html', '@^(?:http://)?([^/]+)@i') %}
 [codesh=txt]
@@ -339,9 +340,9 @@ A helpful wrapper for the PHP [preg_match()](https://php.net/manual/en/function.
 
 A helpful wrapper for the PHP [preg_split()](https://php.net/manual/en/function.preg-split.php) method. Split string by a regular expression on text via this filter:
 
-{% verbatim %}
+
 `regex_split('hypertext language, programming', '/\\s*,\\s*/u')`
-{% endverbatim %}
+
 
 {% set var = regex_split('hypertext language    ,    programming', '/\\s*,\\s*/u') %}
 [codesh=txt]
@@ -366,17 +367,17 @@ Returns a string from a value. If the value is array, return it json encoded
 
 Returns the content of an SVG image and adds extra classes as needed. Provides the benefits of inline svg without having to paste the code directly on the page. Useful for reusable images such as social media icons.
 
-{% verbatim %}
+
 `{{ svg_image(path, classes, strip_style) }}`
-{% endverbatim %}
+
 
 strip_style = remove the svg inline styling - useful for styling with css classes.
 
 example:
 
-{% verbatim %}
+
 `{{ svg_image('theme://images/something.svg', 'my-class-here mb-10', true) }}`
-{% endverbatim %}
+
 
 ### `theme_var`
 `theme_var($variable, $default = null, $page = null)`
@@ -417,12 +418,12 @@ Will create a URL and convert any PHP URL streams into a valid HTML resources. A
 
 The `vardump()` function outputs the current variable to the screen (rather than in the debugger as with `dump()`)
 
-{% verbatim %}
+
 [codesh=twig line-numbers="true"]
 {% set my_array = {foo: 'bar', baz: 'qux'} %}
 {{ vardump(my_array) }}
 [/codesh]
-{% endverbatim %}
+
 
 {% set my_array = {foo: 'bar', baz: 'qux'} %}
 

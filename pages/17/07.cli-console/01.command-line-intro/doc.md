@@ -3,6 +3,7 @@ title: Command Line Intro
 taxonomy:
     category: docs
 ---
+# Command Line Intro
 
 It's no secret that Grav was built with the command line in mind. While the Admin plugin is certainly making it easier to get more done without opening a Terminal (MacOS and Linux) or Command Prompt (Windows), there's a lot to be said about the speed and level of control that comes with working from the command line.
 

@@ -3,6 +3,7 @@ title: 500 Internal Server Error
 taxonomy:
     category: docs
 ---
+# 500 Internal Server Error
 
 > The server encountered an internal error or misconfiguration and was unable to complete your request.
 >

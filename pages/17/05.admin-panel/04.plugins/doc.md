@@ -5,6 +5,7 @@ taxonomy:
 process:
     twig: true
 ---
+# Plugins
 
 ![Admin Plugins](plugins.png?width=2532&classes=shadow)
 

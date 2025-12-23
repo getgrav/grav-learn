@@ -3,6 +3,7 @@ title: 'Example: Config Blueprints'
 taxonomy:
     category: docs
 ---
+# Example: Config Blueprints
 
 It's common to add some configuration options to site.yaml, to be shown in the site content.
 

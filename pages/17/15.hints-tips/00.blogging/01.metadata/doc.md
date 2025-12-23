@@ -7,6 +7,7 @@ process:
 taxonomy:
     category: docs
 ---
+# Blogging Metadata
 
 When you use Grav as your blogging platform you will want to include metadata that helps to populate descriptions and images when people share your post on Social Media such as Facebook, Twitter, etc. 
 

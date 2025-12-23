@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Plugin Command
 
 Plugins can integrate to Grav's CLI `bin/plugin` and enhance the plugin functionalities via Terminal by executing specific tasks.
 

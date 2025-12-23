@@ -3,6 +3,7 @@ title: 'How to: Add a file upload'
 taxonomy:
     category: docs
 ---
+# How to: Add a file upload
 
 ### File Uploads
 

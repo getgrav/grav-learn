@@ -5,6 +5,7 @@ taxonomy:
 process:
     twig: true
 ---
+# Dashboard
 
 ![Admin Dashboard](grav-dashboard.png?width=1264&classes=shadow)
 

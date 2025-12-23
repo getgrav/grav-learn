@@ -8,6 +8,8 @@ process:
 taxonomy:
     category: docs
 ---
+# Microsoft Azure
+
 [Microsoft Azure](https://azure.microsoft.com) is an enterprise-grade cloud computing platform that is open and flexible.  There are multiple ways to deploy Grav within Azure however this tutorial will walk through using Azure's Web App (PaaS).
 
 ## Things you'll need

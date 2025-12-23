@@ -3,6 +3,7 @@ title: Using Flex in a Plugin
 taxonomy:
     category: docs
 ---
+# Using Flex in a Plugin
 
 ## Introduction
 

@@ -3,6 +3,7 @@ title: Change the site URL
 taxonomy:
     category: docs
 ---
+# Change the site URL
 
 By setting `custom_base_url` in system.yaml (or Custom Base URL in the System Settings, in Admin), we can have Grav in a folder but have it run in the domain root.
 

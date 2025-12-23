@@ -3,6 +3,7 @@ title: Theme Configuration
 taxonomy:
     category: docs
 ---
+# Theme Configuration
 
 In Grav you can easily access theme configuration and blueprint information from your Twig and PHP files.
 

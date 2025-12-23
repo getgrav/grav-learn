@@ -7,6 +7,7 @@ process:
 taxonomy:
     category: docs
 ---
+# Dreamhost
 
 [Dreamhost](http://dreamhost.com) is a famous hosting provider that offers various levels of service ranging from SSD-powered shared hosting to dedicated servers.
 

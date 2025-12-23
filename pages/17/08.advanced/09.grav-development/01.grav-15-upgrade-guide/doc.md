@@ -3,6 +3,7 @@ title: Upgrading from Grav <1.6
 taxonomy:
     category: docs
 ---
+# Upgrading from Grav <1.6
 
 > [!NOTE]
 > This guide has been tested for Grav v1.2.0 and all the later versions.

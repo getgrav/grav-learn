@@ -3,6 +3,7 @@ title: Developers
 taxonomy:
     category: docs
 ---
+# Developers
 
 When creating a plugin or theme for Grav, it is not only important to follow best practices, but to consider whether your work opens up any avenues of attack for potential intruders to a site. As Grav is a flat-file CMS and reliant on few dependencies, it is by nature more secure than similar systems, but insecure channels can be created inadvertently.
 

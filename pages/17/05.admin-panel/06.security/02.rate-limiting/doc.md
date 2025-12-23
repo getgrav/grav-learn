@@ -6,6 +6,7 @@ routes:
     aliases:
       - '/admin-panel/rate-limiting'
 ---
+# Flood Protection
 
 ![](login.gif?classes=shadow)
 

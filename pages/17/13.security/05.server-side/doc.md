@@ -3,6 +3,7 @@ title: Server-side
 taxonomy:
     category: docs
 ---
+# Server-side
 
 Protecting your Grav-installation server-side consists of using sensible options for your server and PHP. This guide does not cover settings for the server you run Grav on, nor ideal conditions, but rather highlights some tips and best practices in securing Grav or links to resources which detail how to secure the server. **This is relevant for a production-server, not local development, and not recommended for novice users!**
 

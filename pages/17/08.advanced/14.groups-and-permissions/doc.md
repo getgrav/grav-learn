@@ -3,6 +3,7 @@ title: Groups and Permissions
 taxonomy:
   category: docs
 ---
+# Groups and Permissions
 
 > [!CAUTION]
 > See the [Grav Admin FAQ](https://learn.getgrav.org/admin-panel/faq#adding-and-managing-users), to learn how to manage users

@@ -5,6 +5,7 @@ taxonomy:
 process:
     twig: true
 ---
+# FAQ
 
 This FAQ is intended to provide useful tutorials, tips, and tricks to help you get the most out of the Admin plugin.
 

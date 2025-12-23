@@ -3,8 +3,9 @@ title: Configuration
 taxonomy:
     category: docs
 process:
-    twig: true
+    twig: false
 ---
+# Configuration
 
 **Configuration** has common settings for the **Flex Directory**.
 
@@ -33,4 +34,4 @@ Along the top of the page, you will find the administrative controls.
 | **Render Cache Lifetime (seconds)** | Lifetime for render caching in seconds. |
 [/div]
 
-If the rendered HTML has dynamic content, render cache can be disabled from the Twig template by {% verbatim %}```{% do block.disableCache() %}```{% endverbatim %}.
+If the rendered HTML has dynamic content, render cache can be disabled from the Twig template by ```{% do block.disableCache() %}```.

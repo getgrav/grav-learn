@@ -3,6 +3,7 @@ title: Basic Tutorial
 taxonomy:
     category: docs
 ---
+# Basic Tutorial
 
 Assuming you successfully [installed Grav](/17/basics/installation) with the instructions listed in the previous chapter, we can continue and play around with Grav a little to get you more comfortable.
 

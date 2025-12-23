@@ -3,6 +3,7 @@ title: "Grav Admin: Moderately Critical, Access Bypass, ADMIN-2018-001"
 published: true
 date: 11-07-2018
 ---
+# Grav Admin: Moderately Critical, Access Bypass, ADMIN-2018-001
 
 - ID: ADMIN-2018-001
 - Project: Grav Admin plugin

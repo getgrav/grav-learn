@@ -3,6 +3,7 @@ title: Frontend Forms
 taxonomy:
     category: docs
 ---
+# Frontend Forms
 
 The **Form** plugin gives you the ability to create virtually any type of frontend form. It is essentially a form construction kit, available for you to use in your own pages. Before going any further, don't forget to install the [**Form** plugin](https://github.com/getgrav/grav-plugin-form) with `bin/gpm install form` if it's not installed yet.
 

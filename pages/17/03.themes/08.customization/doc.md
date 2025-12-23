@@ -3,6 +3,7 @@ title: Customization
 taxonomy:
     category: docs
 ---
+# Customization
 
 There are many ways to customize a theme, and Grav really doesn't limit your creativity regarding this. However, there are several features and some functionality that Grav provides to make this process easier.
 

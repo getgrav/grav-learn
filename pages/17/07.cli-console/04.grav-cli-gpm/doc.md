@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# GPM Command
 
 Since the release of version **0.9.3**, Grav includes a _GPM_ (Grav Package Manager) which allows you to install, update, uninstall and list all the themes and plugins available on the Grav repository, as well as upgrade Grav itself to the latest version.
 

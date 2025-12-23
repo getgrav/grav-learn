@@ -8,6 +8,7 @@ taxonomy:
 shortcode-core:
     parser: regex
 ---
+# Nginx
 
 *Nginx* is a HTTP server software with focus on core web server and proxy features. It is very common because of its resource efficiency and responsiveness under load. Nginx spawns worker processes, each of which can handle thousands of connections. Each of the connections handled by the worker get placed within an event loop where they exist with other connections. Within the loop, events get processed asynchronously, allowing work to be handled in a non-blocking manner. When the connection closes, it gets removed from the loop. This style of connection processing allows Nginx to scale incredibly far with limited resources.
 

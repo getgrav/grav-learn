@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Theme Tutorial
 
 Often, the best way to learn a new thing is to use an example, and then try to build your own creation from it. We are going to use this same methodology for creating a new Grav theme.
 

@@ -3,6 +3,7 @@ title: Scripted Upgrades
 taxonomy:
     category: docs
 ---
+# Scripted Upgrades
 
 Or: Upgrading multiple Grav-installations at once.
 

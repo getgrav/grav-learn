@@ -8,6 +8,7 @@ routes:
 process:
     twig: true
 ---
+# Configuration (System)
 
 ![Admin Configuration](configuration.png?width=2530&classes=shadow)
 

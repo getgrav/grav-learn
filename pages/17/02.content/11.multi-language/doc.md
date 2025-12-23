@@ -1,12 +1,16 @@
 ---
 title: Multi-Language
+description: Learn about Multi-Language in Grav
 page-toc:
   active: true
 taxonomy:
     category: docs
 ---
+# Multi-Language
 
 Multi-Language support in Grav is a direct result of a great [community discussion](https://github.com/getgrav/grav/issues/170) on the subject. We will now break these down and provide examples on how you can setup your Grav site with multiple languages.
+
+===
 
 ## Single language different than English
 

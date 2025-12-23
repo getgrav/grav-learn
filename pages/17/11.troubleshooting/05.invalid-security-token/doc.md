@@ -3,7 +3,7 @@ title: Invalid Security Token
 taxonomy:
     category: docs
 ---
-
+# Invalid Security Token
 
 **Problem:** You get this error in the Admin panel when logging in on performing operations
 

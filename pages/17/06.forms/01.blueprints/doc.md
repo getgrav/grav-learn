@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Blueprints
 
 ## What is a Blueprint?
 

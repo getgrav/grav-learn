@@ -3,6 +3,7 @@ title: 403 Forbidden
 taxonomy:
     category: docs
 ---
+# 403 Forbidden
 
 ![](forbidden-403.png?classes=border,shadow)
 

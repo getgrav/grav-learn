@@ -3,6 +3,7 @@ title: Getting Help
 taxonomy:
     category: docs
 ---
+# Getting Help
 
 Although we have done our best to cover as much as possible here in the documentation, it is inevitable that there will be questions about Grav that we have not answered.  We want to be as accessible as possible, so we have several methods to get help directly from the developers:
 

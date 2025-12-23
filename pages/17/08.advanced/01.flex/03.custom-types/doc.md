@@ -3,6 +3,7 @@ title: Custom Directory Types
 taxonomy:
     category: docs
 ---
+# Custom Directory Types
 
 For many sites, the main reason for using **Flex Directories** is to be able to define your own custom data types, which are neither simple or small enough to fit into configuration or suitable to be represented as individual pages.
 

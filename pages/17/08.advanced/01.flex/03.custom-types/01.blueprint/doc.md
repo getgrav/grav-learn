@@ -3,6 +3,7 @@ title: Blueprint
 taxonomy:
     category: docs
 ---
+# Blueprint
 
 Basic structure of **Flex Blueprint** contains `title`, `description` and `type`, which describe the type and three sections: `config`, `blueprints` and `form`, which describe different aspects from the directory type.
 

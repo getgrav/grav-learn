@@ -3,6 +3,7 @@ title: Content Listing
 taxonomy:
     category: docs
 ---
+# Content Listing
 
 ![List View](flex-objects-list.png?width=2030&classes=shadow)
 

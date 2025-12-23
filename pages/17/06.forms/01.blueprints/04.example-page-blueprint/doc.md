@@ -3,6 +3,7 @@ title: 'Example: Page Blueprints'
 taxonomy:
     category: docs
 ---
+# Example: Page Blueprints
 
 **Page Blueprints** extend from the default page, and give you the ability to add options. Basically, custom pages can come to life by using page blueprints. With a page blueprint, you can 100% configure the editing form for a page as it appears in the Admin.
 

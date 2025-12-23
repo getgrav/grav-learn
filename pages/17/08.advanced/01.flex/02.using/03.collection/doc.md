@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Flex Collection
 
 **Flex Collection** is an **ordered map of objects** that can also be used like a list.
 

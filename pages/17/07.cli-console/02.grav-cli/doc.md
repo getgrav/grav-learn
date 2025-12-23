@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Grav command
 
 Grav comes with a built-in command-line interface (CLI) which can be found at `bin/grav`. The CLI is extremely useful for running recurring tasks such as **clearing the cache**, making **backups**, and more.
 

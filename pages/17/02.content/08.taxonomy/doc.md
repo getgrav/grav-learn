@@ -1,10 +1,14 @@
 ---
 title: Taxonomy
+description: Learn about Taxonomy in Grav
 taxonomy:
     category: docs
 ---
+# Taxonomy
 
 With **Grav**, the ability to group or tag pages is baked right into the system with **Taxonomy**.
+
+===
 
 > **Taxonomy (general),** the practice and science (study) of classification of things or concepts, including the principles that underlie such classification.
 >

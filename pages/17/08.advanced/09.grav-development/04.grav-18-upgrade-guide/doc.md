@@ -4,6 +4,7 @@ taxonomy:
     category: docs
 last_checked: 1.8.0 (11/04/2025)
 ---
+# Upgrading to Grav 1.8 beta
 
 > [!CAUTION]
 > **NOTICE:** This is a work in progress, it may contain content that is not in sync with latest released versions of Grav 1.7 or 1.8 beta

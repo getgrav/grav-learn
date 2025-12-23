@@ -3,6 +3,7 @@ title: Installation
 taxonomy:
     category: docs
 ---
+# Installation
 
 Installation of Grav is a trivial process. In fact, there is no real installation. You have several options for installing Grav. The first – and simplest – way is to download the **zip** archive, and extract it. The second way is to install with **Composer**. The third way is to clone the source project directly from **GitHub**, and then run an included script command to install needed dependencies. There are [more ways](#further-options) that involve running bundled scripts.
 

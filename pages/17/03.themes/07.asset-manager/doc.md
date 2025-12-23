@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Asset Manager
 
 In Grav 1.6, the **Asset Manager** has been completely rewritten to provide a more flexible mechanism for managing **CSS** and **JavaScript** assets in themes. The primary purpose of the Asset Manager is to simplify the process of adding assets from themes and plugins while providing enhanced capabilities such as priority, and providing an **Asset Pipeline** that can be used to **minify**, **compress** and **inline** assets to reduce the number of browser requests, and also the overall size of the assets.
 

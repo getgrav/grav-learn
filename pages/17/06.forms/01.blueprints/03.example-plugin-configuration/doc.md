@@ -3,6 +3,7 @@ title: 'Example: Plugin Configuration'
 taxonomy:
     category: docs
 ---
+# Example: Plugin Configuration
 
 We saw in [the previous example](../example-plugin-blueprint) how to define a blueprint for a plugin and/or theme.
 

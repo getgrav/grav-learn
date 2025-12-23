@@ -3,6 +3,7 @@ title: 'Example: Plugin Blueprint'
 taxonomy:
     category: docs
 ---
+# Example: Plugin Blueprint
 
 A Plugin's blueprint gives Grav insight into what a plugin is, its source, support and author information, dependencies, and form fields used to administer the plugin in the Grav Admin.
 

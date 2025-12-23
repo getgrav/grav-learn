@@ -5,6 +5,7 @@ page-toc:
 taxonomy:
     category: docs
 ---
+# Theme Variables
 
 When you are designing a theme, Grav gives you access to all sorts of objects and variables from within your Twig templates.  The Twig templating framework provides powerful ways to read and manipulate these objects and variables.  This is [fully explained in their own documentation](https://twig.symfony.com/doc/1.x/templates.html) as well as [summarized succinctly in our own documentation](../twig-primer).
 
