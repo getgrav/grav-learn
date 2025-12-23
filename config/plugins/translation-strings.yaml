@@ -1,0 +1,6 @@
+enabled: true
+languages:
+  - code: en
+    content: |
+      THEME_HELIOS:
+        VERSION_LATEST: "Current"

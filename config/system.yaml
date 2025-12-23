@@ -1,8 +1,8 @@
 home:
-  alias: '/basics'
+  alias: '/17/basics'
 
 pages:
-  theme: learn4
+  theme: helios
   markdown:
     extra: false
   process:
@@ -11,13 +11,10 @@ pages:
   hide_empty_folders: true
 
 languages:
-    supported: [17,16,15]
-    default_lang: 17
+    supported: []
+    default_lang: en
     include_default_lang: true
-    content_fallback:
-        15: ['15', '']
-        16: ['16', '15', '']
-        17: ['17', '16', '15', '']
+
 
 cache:
   enabled: true

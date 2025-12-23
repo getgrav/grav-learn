@@ -1,0 +1,23 @@
+# Search
+search:
+  provider: yetisearch-pro
+
+# Enable versioning for demo
+versioning:
+  enabled: true
+  mode: explicit
+  auto_detect: true
+  default_version: 17
+  labels:
+    17: "1.7 (Stable)"
+    18: "1.8 (Beta)"
+
+# Header menu
+header:
+  menu:
+    - route: /privacy
+      label: Privacy
+    - route: /contact
+      label: Contact
+    - route: /copyright
+      label: Copyright

@@ -25,3 +25,4 @@ Thumbs.db
 .idea/*
 
 /env/**/config/plugins/algolia-pro.yaml
+/themes/helios
