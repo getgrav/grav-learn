@@ -4,9 +4,11 @@ taxonomy:
     category: docs
 ---
 
-!!! This guide has been tested for Grav v1.2.0 and all the later versions.
+> [!NOTE]
+> This guide has been tested for Grav v1.2.0 and all the later versions.
 
-!! **WARNING**: Upgrading Grav directly to the latest version works, but is not fully supported and will likely cause your site to break!
+> [!CAUTION]
+> **WARNING**: Upgrading Grav directly to the latest version works, but is not fully supported and will likely cause your site to break!
 
 ## Preparations
 
@@ -75,7 +77,9 @@ You may also want to update other plugins one by one to the latest version, but 
 
 
 
-!!! If you do not have broken plugins, Administration Panel and the site should be fully operational at this point.
+> [!NOTE]
+> If you do not have broken plugins, Administration Panel and the site should be fully operational at this point.
 
-!! **WARNING**: Avoid upgrading Grav or Admin plugin any further before you have read **[Upgrading to Grav 1.7](/17/advanced/grav-development/grav-17-upgrade-guide)**. You may end up breaking both your site and Admin Panel.
+> [!CAUTION]
+> **WARNING**: Avoid upgrading Grav or Admin plugin any further before you have read **[Upgrading to Grav 1.7](/17/advanced/grav-development/grav-17-upgrade-guide)**. You may end up breaking both your site and Admin Panel.
 

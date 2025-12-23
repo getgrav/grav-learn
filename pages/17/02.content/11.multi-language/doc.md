@@ -56,7 +56,8 @@ If no language is explicitly asked for (via the URL or by code), Grav will use t
 
 By default, all languages fall back to default language. If you do not want to do that, you can override language fallbacks by using `content_fallback`, where key is the language and value is array of languages.
 
-!! You can of course provide as many languages as you like and you may even use locale type codes such as `en-GB`, `en-US` and `fr-FR`.  If you use this locale based naming, you will have to replace all the short language codes with the locale versions.
+> [!CAUTION]
+> You can of course provide as many languages as you like and you may even use locale type codes such as `en-GB`, `en-US` and `fr-FR`.  If you use this locale based naming, you will have to replace all the short language codes with the locale versions.
 
 ### Multiple Language Pages
 
@@ -64,7 +65,8 @@ By default in Grav, each page is represented by a markdown file, for example `de
 
 If that file is not found, it will fall-back to the Grav default and look for `default.md` to provide information for the page.
 
-!! This default behavior has changed in **Grav 1.7**. In the past Grav displayed non-existing English page in French, now all languages fall back only to default language if not specified otherwise in `content_fallback`. So if the page cannot be found in any fallback languages, **404 Error Page** is displayed instead.
+> [!CAUTION]
+> This default behavior has changed in **Grav 1.7**. In the past Grav displayed non-existing English page in French, now all languages fall back only to default language if not specified otherwise in `content_fallback`. So if the page cannot be found in any fallback languages, **404 Error Page** is displayed instead.
 
 If we had the most basic of Grav sites, with a single `01.home/default.md` file, we could start by renaming `default.md` to `default.en.md`, and its contents might look like this:
 
@@ -88,7 +90,8 @@ Ceci est ma page d'accueil générée par Grav !
 
 Now you have defined two pages for your current homepage in multiple languages.
 
-! If you are converting existing site to use multi-language, you can alternatively set `include_default_lang_file_extension: false` to keep on using the plain `.md` file extension for your primary language. [Read More...](/17/content/multi-language#default-file-extension).
+> [!WARNING]
+> If you are converting existing site to use multi-language, you can alternatively set `include_default_lang_file_extension: false` to keep on using the plain `.md` file extension for your primary language. [Read More...](/17/content/multi-language#default-file-extension).
 
 ### Active Language via URL
 
@@ -104,7 +107,8 @@ To access the French version, you would of course, use
 http://yoursite.com/fr
 [/codesh]
 
-! If you prefer not to use language prefix for the default language, set `include_default_lang: false`. [Read More...](/17/content/multi-language#default-language-prefix).
+> [!WARNING]
+> If you prefer not to use language prefix for the default language, set `include_default_lang: false`. [Read More...](/17/content/multi-language#default-language-prefix).
 
 ### Active Language via Browser
 
@@ -218,7 +222,8 @@ This will look for a template located at `templates/default.fr.html.twig`
 
 This provides you with two options for providing language specific Twig overrides.
 
-!! If no language-specific Twig template is provided, the default one will be used.
+> [!CAUTION]
+> If no language-specific Twig template is provided, the default one will be used.
 
 ### Translation via Twig
 
@@ -327,7 +332,8 @@ fr:
     DESCRIPTION: Le plugin d'erreur fournit un mécanisme simple de manipulation des pages d'erreur au sein de Grav.
 [/codesh]
 
-! The convention for plugins is to use PLUGIN_PLUGINNAME.* as a prefix for all language strings, to avoid any name conflict. Themes are less likely to introduce language strings conflicts, but it's a good idea to prefix strings added in themes with THEME_THEMENAME.*
+> [!WARNING]
+> The convention for plugins is to use PLUGIN_PLUGINNAME.* as a prefix for all language strings, to avoid any name conflict. Themes are less likely to introduce language strings conflicts, but it's a good idea to prefix strings added in themes with THEME_THEMENAME.*
 
 ### Translation Overrides
 
@@ -418,7 +424,8 @@ languages:
   translations_fallback: true
 [/codesh]
 
-!!! Help Grav reach a wider community of users by providing translations in **your language**. We use the [Crowdin Translation Platform](https://crowdin.com/) to facilitate translating the [Grav Core](https://crowdin.com/project/grav-core) and [Grav Admin Plugin](https://crowdin.com/project/grav-admin). [Sign-up](https://crowdin.com/join) and get started translating today!
+> [!NOTE]
+> Help Grav reach a wider community of users by providing translations in **your language**. We use the [Crowdin Translation Platform](https://crowdin.com/) to facilitate translating the [Grav Core](https://crowdin.com/project/grav-core) and [Grav Admin Plugin](https://crowdin.com/project/grav-admin). [Sign-up](https://crowdin.com/join) and get started translating today!
 
 ### Language Switcher
 
@@ -476,7 +483,8 @@ RewriteRule ^(en|de)/(.*)$ "http://grav-site.$1/$2" [R=302,L]
 [/codesh]
 This simplified version combines the rewrite rules for redirecting sub-pages for "en" and "de" into a single rule using grouping. Additionally, it consolidates the RewriteCond for the admin path to reduce duplication.
 
-! Make sure to add these rules before the default rules that come with Grav CMS.
+> [!WARNING]
+> Make sure to add these rules before the default rules that come with Grav CMS.
 
 ### Language Logic in Twig Templates
 

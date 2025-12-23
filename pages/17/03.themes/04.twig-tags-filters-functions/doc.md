@@ -11,7 +11,8 @@ routes:
 
 Although Twig already provides an extensive list of [filters, functions, and tags](https://twig.symfony.com/doc/1.x/#reference), Grav also provides a selection of useful additions to make the process of theming easier.
 
-!! For information about developing your own custom Twig Filters, check out the [Custom Twig Filter/Function](/17/cookbook/twig-recipes/#custom-twig-filter-function) example in the **Twig Recipes** section of the **Cookbook** chapter.
+> [!CAUTION]
+> For information about developing your own custom Twig Filters, check out the [Custom Twig Filter/Function](/17/cookbook/twig-recipes/#custom-twig-filter-function) example in the **Twig Recipes** section of the **Cookbook** chapter.
 
 ## Tags
 

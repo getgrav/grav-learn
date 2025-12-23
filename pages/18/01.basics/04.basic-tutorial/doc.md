@@ -49,7 +49,8 @@ body_classes: title-center title-h1h2
 
 Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **Quark** theme to get you started.
 
-!! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
+> [!CAUTION]
+> If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
 [/codesh]
 [/div]
 
@@ -76,14 +77,16 @@ Congratulations! You have installed the **Base Grav Package** that provides a **
 This is a simple paragraph that would have been wrapped in regular `<p>` tags when converted to HTML.  The `**` markers indicate bold text or `<strong>`, formerly `<b>`, in HTML.  Italic text is indicated by wrapping text in `_` markers.
 
 [codesh=markdown line-numbers="true"]
-!! If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
+> [!CAUTION]
+> If you see a **404 Error** when you click `Typography` in the menu, please refer to the [troubleshooting guide](https://learn.getgrav.org/troubleshooting/page-not-found).
 [/codesh]
 
 This section uses a custom markdown feature that is provided by the included `markdown-notices` plugin.  This allows you to create simple notices by prefix a paragraph of text with a number of `!` (exclamation mark) symbols, from `!` to `!!!!`.
 
 This overview should provide you with a few key pointers for writing Markdown, but you should check out our more [detailed explanation](/18/content/markdown) to get a thorough understanding.
 
-!! Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
+> [!CAUTION]
+> Ensure you save your `.md` files as `UTF8` files.  This will ensure they work with language-specific special characters.
 
 ## Adding a New Page
 
@@ -114,4 +117,5 @@ The page will automatically show up in the menu after the **"Typography"** menu 
 
 **Congratulations**, you have now successfully created a new page in Grav.  There is much more you can do with Grav, so please continue reading to find out about more advanced capabilities and in-depth features.
 
-!! If you have any issues accessing this new page, you are either missing an `.htaccess` file (Apache web server only) or you may need to edit the `RewriteBase` command in the `.htaccess` file. Please consult the [Troubleshooting](/18/troubleshooting) chapter for more information.
+> [!CAUTION]
+> If you have any issues accessing this new page, you are either missing an `.htaccess` file (Apache web server only) or you may need to edit the `RewriteBase` command in the `.htaccess` file. Please consult the [Troubleshooting](/18/troubleshooting) chapter for more information.

@@ -8,7 +8,8 @@ The **Form** plugin gives you the ability to create virtually any type of fronte
 
 To get an understanding of how the **Form** plugin works, let's start by going over how to create a simple form.
 
-!!!! With **Form 2.0** release, it is now required to pass the **name of the form** as a hidden field.  If you are using the form-plugin-provided `forms.html.twig`, this is handled automatically, however, if you have overridden the default `forms.html.twig` in your theme or plugin, you should manually add `{% include "forms/fields/formname/formname.html.twig" %}` in your form-rendering Twig file.
+> [!TIP]
+> With **Form 2.0** release, it is now required to pass the **name of the form** as a hidden field.  If you are using the form-plugin-provided `forms.html.twig`, this is handled automatically, however, if you have overridden the default `forms.html.twig` in your theme or plugin, you should manually add `{% include "forms/fields/formname/formname.html.twig" %}` in your form-rendering Twig file.
 
 ## Create a simple single form
 
@@ -71,7 +72,8 @@ form:
 Regular **markdown** content goes here...
 [/codesh]
 
-!!! This is the content of the `form.md` file, when viewed via file-system. To do this via Admin Plugin, open the page in **Expert Mode**, copy the part between the triple dashes `---`, and paste it in the Frontmatter field.
+> [!NOTE]
+> This is the content of the `form.md` file, when viewed via file-system. To do this via Admin Plugin, open the page in **Expert Mode**, copy the part between the triple dashes `---`, and paste it in the Frontmatter field.
 
 This is enough to show a form in the page, below the page's content. It is a simple form with a name, email field, two buttons: one to submit the form and one to reset the fields. For more information on the available fields that are provided by the Form plugin, [check out the next section](fields-available).
 
@@ -83,7 +85,8 @@ What happens when you press the `Submit` button?  It executes the `process` acti
 
 3. The `thankyou` subpage is shown, along with the passed message. The `thankyou` page must be a subpage of the page containing the form.
 
-!!! Make sure you configured the **Email** plugin to ensure it has the correct configuration in order to send email successfully.
+> [!NOTE]
+> Make sure you configured the **Email** plugin to ensure it has the correct configuration in order to send email successfully.
 
 ## Multiple Forms
 
@@ -162,7 +165,8 @@ This will find the first form from the page with route `/forms/contact`
 
 You can also display a form from within your page content (for example `default.md`) directly without that page even having a form defined within it. Simply pass the name or route to the form.
 
-!!  **Twig processing** should be enabled and **page cache** should be disabled to ensure the form is dynamically processed on the page and not statically cached and form handling can occur.
+> [!CAUTION]
+>  **Twig processing** should be enabled and **page cache** should be disabled to ensure the form is dynamically processed on the page and not statically cached and form handling can occur.
 
 [codesh=twig line-numbers="true"]
 ---
@@ -187,7 +191,8 @@ In **Form v2.0**, you can now define the form directly in the modular sub-page j
 
 You can also configure your Modular sub-page's Twig template to use a form from another page, like the examples above.
 
-! When using a form defined in a modular sub-page you should set the **action:** to the parent modular page and configure your form with a **redirect:** or **display:** action, as this modular sub-page is not a suitable page to load on form submission because it is **not routable**, and therefore not reachable by a browser.  
+> [!WARNING]
+> When using a form defined in a modular sub-page you should set the **action:** to the parent modular page and configure your form with a **redirect:** or **display:** action, as this modular sub-page is not a suitable page to load on form submission because it is **not routable**, and therefore not reachable by a browser.  
 
 Here's an example that exists at `form/modular/_form/form.md`:
 

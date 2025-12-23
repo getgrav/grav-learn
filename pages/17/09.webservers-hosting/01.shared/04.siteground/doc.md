@@ -28,7 +28,8 @@ First, you will have to open the **SSH/Shell Access** option in the **ADVANCED**
 
 SiteGround provides a very thorough [tutorial for using SSH](http://www.siteground.com/tutorials/ssh/), however it's simpler to create your public/private key pair locally on your computer, and then just upload the DSA Public Key.
 
-!! Windows users will first need to install [Cygwin](https://www.cygwin.com/) to provide many useful GNU and open source tools that are available on Mac and Linux platforms. When prompted to choose packages, ensure you check the SSH option. After installation, launch the `Cygwin Terminal`.
+> [!CAUTION]
+> Windows users will first need to install [Cygwin](https://www.cygwin.com/) to provide many useful GNU and open source tools that are available on Mac and Linux platforms. When prompted to choose packages, ensure you check the SSH option. After installation, launch the `Cygwin Terminal`.
 
 Fire up a terminal window and type:
 
@@ -52,7 +53,8 @@ Obviously, you will need to put in your SiteGround-provided username for `sitegr
 
 ## Enabling PHP OPcache
 
-!!! Update [2016-03]: Siteground Support advised that OPCache is available from PHP7 and not 5.5. This then had OPCache enabled by default, and so no further configuration was required in this stage of the setup, so some of the below instructions may no longer be required.
+> [!NOTE]
+> Update [2016-03]: Siteground Support advised that OPCache is available from PHP7 and not 5.5. This then had OPCache enabled by default, and so no further configuration was required in this stage of the setup, so some of the below instructions may no longer be required.
 
 By default, SiteGround hosting comes with **support** for **Zend OPcache**, but it is **not enabled**.  You must manually enable it by creating a `php.ini` file in your `public_html/` folder with the contents:
 
@@ -88,7 +90,8 @@ $ cd ~/public_html
 
 You should now be able to point your browser to `http://mysiteground.com/grav` using the appropriate URL of course.
 
-!!! Update [2016-03]: The path to the CLI for PHP 7 on Siteground shared hosting at this time appears to be: `/usr/local/php70/bin/php-cli`, and so for command line use of gpm/grav you could make an alias and then reference the php-cli directly via terminal, e.g. `alias php-cli="/usr/local/php70/bin/php-cli"`. Then you can use it as: `$php-cli bin/grav list`
+> [!NOTE]
+> Update [2016-03]: The path to the CLI for PHP 7 on Siteground shared hosting at this time appears to be: `/usr/local/php70/bin/php-cli`, and so for command line use of gpm/grav you could make an alias and then reference the php-cli directly via terminal, e.g. `alias php-cli="/usr/local/php70/bin/php-cli"`. Then you can use it as: `$php-cli bin/grav list`
 
 Because you have followed these instructions diligently, you will also be able to use the [Grav CLI](../../advanced/grav-cli) and [Grav GPM](../../advanced/grav-gpm) commands such as:
 

@@ -49,7 +49,8 @@ With **list** you can access all the available commands and view a quick descrip
 
 Here is an example with the **login** plugin when we run the command `bin/plugin login list`.
 
-! Not specifying any command after the plugin slug defaults automatically to `list`. This means that both `bin/plugin [slug] list` and `bin/plugin [slug]` are equivalents.
+> [!WARNING]
+> Not specifying any command after the plugin slug defaults automatically to `list`. This means that both `bin/plugin [slug] list` and `bin/plugin [slug]` are equivalents.
 
 ![](bin-plugin-login.png)
 
@@ -164,4 +165,5 @@ class HelloCommand extends ConsoleCommand
 
 ![](grav-plugin-hello.png)
 
-! Another good simple example can be found in the [Error Plugin (LogCommand.php)](https://github.com/getgrav/grav-plugin-error/blob/develop/cli/LogCommand.php), If you are looking for a more complex example, you should have a look at the [Login Plugin (NewUserCommand.php)](https://github.com/getgrav/grav-plugin-login/blob/develop/cli/NewUserCommand.php)
+> [!WARNING]
+> Another good simple example can be found in the [Error Plugin (LogCommand.php)](https://github.com/getgrav/grav-plugin-error/blob/develop/cli/LogCommand.php), If you are looking for a more complex example, you should have a look at the [Login Plugin (NewUserCommand.php)](https://github.com/getgrav/grav-plugin-login/blob/develop/cli/NewUserCommand.php)

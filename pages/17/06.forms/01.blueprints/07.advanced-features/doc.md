@@ -275,7 +275,8 @@ form:
 
 In the example above, we used the name of another field to set the ordering. In this example, we have set it up so that the `author` field appears after the `title` field in the form.
 
-!! When ordering fields in a page blueprint, you still need to reference the field names prefixed with `header.`, eg: `header.title` for the ordering to work.
+> [!CAUTION]
+> When ordering fields in a page blueprint, you still need to reference the field names prefixed with `header.`, eg: `header.title` for the ordering to work.
 
 ## Creating new form field type
 
@@ -346,7 +347,8 @@ form:
           type: bool
 [/codesh]
 
-!! The `context` and `type` should be in this form to avoid potential file- and naming-conflicts, and remain easily identifiable, and thus also use the seemingly superfluously long path above.
+> [!CAUTION]
+> The `context` and `type` should be in this form to avoid potential file- and naming-conflicts, and remain easily identifiable, and thus also use the seemingly superfluously long path above.
 
 The user can then add their changes in `user/blueprints/plugins/yourpluginname/options.yaml`:
 

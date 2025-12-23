@@ -10,7 +10,8 @@ Plugins are usually developed because there is a task that can not be completed 
 
 In this tutorial, we will create a plugin that helps Grav to deliver a random page to the user.  You have probably seen similar functionality on blog sites as a way to provide a random blog-post when you click a button.
 
-! Because there is already a plugin that performs this job named `Random`, we'll call this test plugin `Randomizer`.
+> [!WARNING]
+> Because there is already a plugin that performs this job named `Random`, we'll call this test plugin `Randomizer`.
 
 This feature is not possible **out-of-the-box**, but is **easily** provided via a plugin.  As is the case with a great many aspects of Grav, there is no _one-way_ to do this. Instead, you have many options.  We will cover just one approach...
 
@@ -29,7 +30,8 @@ OK! This sounds simple enough, right? So, let us get cracking!
 
 ## Step 1 - Install DevTools plugin
 
-!! Previous versions of this tutorial required creating a plugin manually.  This whole process can be skipped thanks to our new **DevTools Plugin**
+> [!CAUTION]
+> Previous versions of this tutorial required creating a plugin manually.  This whole process can be skipped thanks to our new **DevTools Plugin**
 
 The first step in creating a new plugin is to **install the DevTools Plugin**.  This can be done in two ways.
 
@@ -73,7 +75,8 @@ Path: /www/user/plugins/randomizer
 Make sure to run `composer update` to initialize the autoloader
 [/codesh]
 
-! At this point you **need to run** `composer update` in the newly created plugin folder.
+> [!WARNING]
+> At this point you **need to run** `composer update` in the newly created plugin folder.
 
 The DevTools command tells you where this new plugin was created. This created plugin is fully functional but will not automatically have the logic to perform the function we wish.  We will have to modify it to suit our needs.
 
@@ -128,7 +131,8 @@ will never be initialized by Grav. All plugins also have the `active` option. If
 configuration, each page will need to activate your plugin. Note that multiple plugins also support `enabled`/`active` in
 page frontmatter by using `mergeConfig`, detailed below.
 
-!!!! The Grav default install has taxonomy defined for `category` and `tag` by default.  This configuration can be modified in your `user/config/site.yaml` file.
+> [!TIP]
+> The Grav default install has taxonomy defined for `category` and `tag` by default.  This configuration can be modified in your `user/config/site.yaml` file.
 
 Of course, as with all other configurations in Grav, it is advised not to touch this default configuration for day-to-day control. Rather, you should create an override in a file called `/user/config/plugins/randomizer.yaml` to house any custom settings.  This plugin-provided `randomizer.yaml` is really intended to set some sensible defaults for your plugin.
 
@@ -197,7 +201,8 @@ public static function getSubscribedEvents(): array
 
 In this plugin we are going to tell Grav we're subscribing to the `onPluginsInitialized` event.  This way we can use that event (which is the first event available to plugins) to determine if we should subscribe to other events.
 
-!!! **Note:** The first `autoload` event listener is only needed in Grav 1.6. Grav 1.7 automatically calls the method.
+> [!NOTE]
+> **Note:** The first `autoload` event listener is only needed in Grav 1.6. Grav 1.7 automatically calls the method.
 
 ## Step 7 - Determine if the plugin should run
 

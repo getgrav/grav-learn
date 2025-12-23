@@ -94,7 +94,8 @@ My name is {{ name|e }} and I love cookies.
 
 The variable `name` has been inserted into this line and will appear to the end user as `My name is Jake and I love cookies.` as `Jake` was the value of the name variable.
 
-!! It is very important to either turn on `autoescape` setting from your [System Configuration](/17/basics/grav-configuration#twig) or to remember to escape every single variable in template files by using `|e` filter to make your site safe against XSS attacks. For safe HTML content, use `|raw` filter.
+> [!CAUTION]
+> It is very important to either turn on `autoescape` setting from your [System Configuration](/17/basics/grav-configuration#twig) or to remember to escape every single variable in template files by using `|e` filter to make your site safe against XSS attacks. For safe HTML content, use `|raw` filter.
 
 #### Action Tags
 

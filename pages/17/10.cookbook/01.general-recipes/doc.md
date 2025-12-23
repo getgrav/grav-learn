@@ -150,7 +150,8 @@ Phasellus id eleifend risus. In dui tellus, dignissim id viverra non, convallis 
 ---
 Praesent eleifend commodo purus, sit amet viverra nunc dictum nec. Mauris vehicula, purus sed convallis blandit, massa sem egestas ex, a congue odio lacus non quam. Donec vitae metus vitae enim imperdiet tempus vitae sit amet quam. Nam sed aliquam justo, in semper eros. Suspendisse magna turpis, mollis quis dictum sit amet, luctus id tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eu rutrum mi.
 [/codesh]
-!! Note: the extra line after the column and before the `---`.  This is because if you put a triple dash right underneath text, it's actually interpreted as a header.
+> [!CAUTION]
+> Note: the extra line after the column and before the `---`.  This is because if you put a triple dash right underneath text, it's actually interpreted as a header.
 
 Then we simply need to render this content with a `columns.html.twig` template (as the page file was named `columns.md`):
 
@@ -170,7 +171,8 @@ Then we simply need to render this content with a `columns.html.twig` template (
 
 You can see how the content is being **split** by the `<hr />` tag and converted into an array of 3 columns which we loop over and render.  In this example we are using a simple HTML table tag, but you could use anything you wish.
 
-!! Note: When using plugin page-toc, you'll need use `|split('<hr>')` since the page-toc plugin cleanses the HTML code.
+> [!CAUTION]
+> Note: When using plugin page-toc, you'll need use `|split('<hr>')` since the page-toc plugin cleanses the HTML code.
 
 ## Really simple css image slider
 

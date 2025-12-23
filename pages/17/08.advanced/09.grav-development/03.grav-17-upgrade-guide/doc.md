@@ -17,7 +17,8 @@ Grav 1.7 introduces a few new features, improvements, bug fixes and provides man
 * **XSS Detection in Forms**: Forms will not submit if potential XSS is detected in them. Check the [documentation](/17/forms/forms/form-options#xss-checks) on how to disable the checks.
 * **Better Debugging Tools**: [Clockwork](https://underground.works/clockwork/) integration, Twig profiling and support for [Tideways XHProf](https://github.com/tideways/php-xhprof-extension) PHP Extension for performance profiling.
 
-!!!! **IMPORTANT:** For most people, Grav 1.7 should be a simple upgrade without any issues, but like any upgrade, it is recommended to **take a backup** of your site and **test the upgrade in a testing environment** before upgrading your live site.
+> [!TIP]
+> **IMPORTANT:** For most people, Grav 1.7 should be a simple upgrade without any issues, but like any upgrade, it is recommended to **take a backup** of your site and **test the upgrade in a testing environment** before upgrading your live site.
 
 ### Most Common Issues
 
@@ -53,11 +54,13 @@ Grav 1.7 introduces a few new features, improvements, bug fixes and provides man
 
 ### Quick Update Guide
 
-!! **Grav 1.7** requires **PHP 7.3.6** or later version. The recommended version is the latest **PHP 7.4** release.
+> [!CAUTION]
+> **Grav 1.7** requires **PHP 7.3.6** or later version. The recommended version is the latest **PHP 7.4** release.
 
 ### YAML
 
-!!!! **IMPORTANT:** Grav 1.7 YAML parser is more strict and your site may break if you have syntax errors in your configuration files or page headers. However, if you update your existing site using `bin/gpm` or `Admin Plugin` upgrade process keeps most of the broken YAML syntax working.
+> [!TIP]
+> **IMPORTANT:** Grav 1.7 YAML parser is more strict and your site may break if you have syntax errors in your configuration files or page headers. However, if you update your existing site using `bin/gpm` or `Admin Plugin` upgrade process keeps most of the broken YAML syntax working.
 
 To revert to the old behavior you need to make sure you have following setting in `user/config/system.yaml`:
 
@@ -70,15 +73,18 @@ or in Admin under **Configuration** → **Advanced** -> **YAML Compatibility**
 
 ![Yaml Compatibility](yaml-compat.png?classes=shadow)
 
-!!! **TIP:** **Grav 1.6 Upgrade Guide** has a dedicated **[YAML Parsing](/17/advanced/grav-development/grav-16-upgrade-guide#yaml-parsing)** section to help you to fix these issues.
+> [!NOTE]
+> **TIP:** **Grav 1.6 Upgrade Guide** has a dedicated **[YAML Parsing](/17/advanced/grav-development/grav-16-upgrade-guide#yaml-parsing)** section to help you to fix these issues.
 
 By default, Grav 1.7 uses a **Symfony 4.4 YAML parser**, which follows the [YAML standard specification](https://yaml.org/spec?target=_blank) more closely than the older versions of Grav. This means that YAML files which previously worked just fine, may cause errors resulting from being invalid YAML. However, Grav will by default still fall back to the older 3.4 version of the parser to keep your site up and running.
 
-!!! **TIP:** You should run **CLI command** `bin/grav yamllinter` or visit in **Admin** > **Tools** > **Reports** before and after upgrade and fix all the YAML related warnings and errors.
+> [!NOTE]
+> **TIP:** You should run **CLI command** `bin/grav yamllinter` or visit in **Admin** > **Tools** > **Reports** before and after upgrade and fix all the YAML related warnings and errors.
 
 ### Twig
 
-!!!! **IMPORTANT:** Grav 1.7 enables **Twig Auto-Escaping** by default. However, if you update your existing site using `bin/gpm` or `Admin Plugin` upgrade process keeps the existing auto-escape settings.
+> [!TIP]
+> **IMPORTANT:** Grav 1.7 enables **Twig Auto-Escaping** by default. However, if you update your existing site using `bin/gpm` or `Admin Plugin` upgrade process keeps the existing auto-escape settings.
 
 To revert to the old behavior you need to make sure you have following settings in `user/config/system.yaml`:
 
@@ -95,7 +101,8 @@ And please remember to clear cache after doing this!
 
 ![Twig Compatibility](twig-compat.png?classes=shadow)
 
-!!! **TIP:** **Grav 1.6 Upgrade Guide** has a dedicated **[Twig](/17/advanced/grav-development/grav-16-upgrade-guide#twig)** section. It is very important to read it first!
+> [!NOTE]
+> **TIP:** **Grav 1.6 Upgrade Guide** has a dedicated **[Twig](/17/advanced/grav-development/grav-16-upgrade-guide#twig)** section. It is very important to read it first!
 
 Twig template engine has been updated to version 1.43, but it also supports Twig 2.13. In order to support this newer version of Twig, you need to update any old syntax in your Twig templates. **Grav 1.6 Upgrade Guide** helps you to do this.
 
@@ -114,7 +121,8 @@ Additional changes in templating are:
 
 ## Forms
 
-!!!! **IMPORTANT:** Grav 1.7 changes the behavior of **Strict Validation**. However, if you update your existing site using `bin/gpm` or `Admin Plugin` upgrade process keeps the existing strict mode behaviour.
+> [!TIP]
+> **IMPORTANT:** Grav 1.7 changes the behavior of **Strict Validation**. However, if you update your existing site using `bin/gpm` or `Admin Plugin` upgrade process keeps the existing strict mode behaviour.
 
 **Strict mode Improvements**: Inside forms, declaring `validation: strict` was not as strict as we hoped because of a bug. The strict mode should prevent forms from sending any extra fields and this was fixed into Grav 1.7. Unfortunately many of the old forms declared to be strict even if they had extra data in them.
 
@@ -129,11 +137,13 @@ strict_mode:
 
 Because of this, we added new configuration option `system.strict_mode.blueprint_compat: true` to maintain old `validation: strict` behavior. It is recommended to turn off this setting to improve site security, but before doing that, please search through all your forms if you were using `validation: strict` feature. If you were, either remove the line or test if the form still works.
 
-! **NOTE:** This backwards compatibility fallback mechanism will be removed in Grav 2.0
+> [!WARNING]
+> **NOTE:** This backwards compatibility fallback mechanism will be removed in Grav 2.0
 
 ### Environments and Multi-Site
 
-!!!! **Important:** Grav 1.7 moves [environments](/17/advanced/environment-config) into `user://env` folder. The old location still works, but it is better to move environments into a single location future features may rely on it.
+> [!TIP]
+> **Important:** Grav 1.7 moves [environments](/17/advanced/environment-config) into `user://env` folder. The old location still works, but it is better to move environments into a single location future features may rely on it.
 
 Grav 1.7 also adds support for [Server Based Environment Configuration](/17/advanced/environment-config#server-based-environment-configuration) and [Server Based Multi-Site Configuration](/17/advanced/multisite-setup#server-based-multi-site-configuration). This feature comes handy if you want to use for example docker containers and you want to make them independent of the domain you happen to use. Or if do not want to store secrets in the configuration, but to store them in your server setup.
 
@@ -146,7 +156,8 @@ Admin has now new [Accounts Administration](/17/admin-panel/accounts) using **Fl
 * [User Accounts Manager](/17/admin-panel/accounts/users)
 * [User Groups Manager](/17/admin-panel/accounts/groups)
 
-!!! **NOTE:** Flex Users feature is not yet used in the frontend of your site.
+> [!NOTE]
+> **NOTE:** Flex Users feature is not yet used in the frontend of your site.
 
 ### Pages
 
@@ -156,9 +167,11 @@ The existing [Pages Administration](/17/admin-panel/page) has been greatly impro
 * Better access control: [CRUD ACL](/17/admin-panel/page/permissions) support with page owners
 * Better multi-language support
 
-!! **BACKWARDS COMPATIBILITY BREAK**: We fixed 404 error page when you go to non-routable page with routable, visible child pages under it. Now you get redirected to the first routable, visible child page instead. This is probably what you wanted in the first place.
+> [!CAUTION]
+> **BACKWARDS COMPATIBILITY BREAK**: We fixed 404 error page when you go to non-routable page with routable, visible child pages under it. Now you get redirected to the first routable, visible child page instead. This is probably what you wanted in the first place.
 
-!!! **NOTE:** Flex Pages feature is not yet used in the frontend of your site.
+> [!NOTE]
+> **NOTE:** Flex Pages feature is not yet used in the frontend of your site.
 
 ### Multi-language
 
@@ -170,7 +183,8 @@ The new behavior is to fall back only to the default language of the site. This 
 
 If the page does not exist in any of the fallback languages, **404 Not Found** will be displayed instead.
 
-!! **BACKWARDS COMPATIBILITY BREAK**: Please add correct fallback languages for the page content in `system.yaml` or admin: **Configuration** > **System** > **Languages** > **Content Language Fallback**.
+> [!CAUTION]
+> **BACKWARDS COMPATIBILITY BREAK**: Please add correct fallback languages for the page content in `system.yaml` or admin: **Configuration** > **System** > **Languages** > **Content Language Fallback**.
 
 ### Media
 

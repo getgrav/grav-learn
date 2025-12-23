@@ -22,9 +22,11 @@ xhr_submit: true
 
 You are not required to provide `action:`, `template:`, or even `id:`.  The plugin will just 'work' even with multiple ajax forms on a single page. This uses a new `form-xhr.html.twig` template that the plugin provides as well as including some vanilla JS code to make the request.
 
-!! This approach submits the whole form via an XHR request and replaces the entire form HTML from the response. This is intended to be a simple approach, you can still create your own more advanced solutions if required.
+> [!CAUTION]
+> This approach submits the whole form via an XHR request and replaces the entire form HTML from the response. This is intended to be a simple approach, you can still create your own more advanced solutions if required.
 
-!!! The Javacript code used for the XHR request is located in `form/layouts/xhr.html.twig`. If you require, you can copy this to your theme's `templates` folder (maintaining the path structure) and modify as needed.
+> [!NOTE]
+> The Javacript code used for the XHR request is located in `form/layouts/xhr.html.twig`. If you require, you can copy this to your theme's `templates` folder (maintaining the path structure) and modify as needed.
 
 ## Manual Approach (required for Form plugin < `v7.3.0`)
 
@@ -58,7 +60,8 @@ form:
 
 As you can see this is a very basic form that simply asks for your name and provides a submit button.  The only thing that stands out is the `template: form-messages` part.  As outlined in the [Frontend Forms](../../forms) section, you can provide a custom Twig template with which to display the result of the form processing.  This is a great way for us to process the form, and then simply return the messages via Ajax and inject them into the page.  There is already a `form-messages.html.twig` template provided with the forms plugin that does just this.
 
-!! NOTE: We use a hard-coded `action: '/forms/ajax-test'` so the ajax has a consistent URL rather than letting the form set the action to the current page route. This resolves an issue with the Ajax request not handling redirects properly. This can otherwise cause issues on the 'home' page. It doesn't have to be the current form page, it just needs to be a consistent, reachable route.
+> [!CAUTION]
+> NOTE: We use a hard-coded `action: '/forms/ajax-test'` so the ajax has a consistent URL rather than letting the form set the action to the current page route. This resolves an issue with the Ajax request not handling redirects properly. This can otherwise cause issues on the 'home' page. It doesn't have to be the current form page, it just needs to be a consistent, reachable route.
 
 ![](simple-form.png?classes=shadow)
 

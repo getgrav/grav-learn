@@ -127,7 +127,8 @@ form:
 
 [/codesh]
 
-!! **WARNING:** `route` field has changed in Grav 1.7. Please update your existing blueprints to use the new `type: parents`.
+> [!CAUTION]
+> **WARNING:** `route` field has changed in Grav 1.7. Please update your existing blueprints to use the new `type: parents`.
 
 ### A note for Expert mode
 

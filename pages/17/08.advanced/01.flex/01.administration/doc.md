@@ -8,7 +8,8 @@ If you have been using **Admin Panel** in Grav 1.7, you have already used **Flex
 
 By default, **Flex Administration** is invisible to the user. In order to see a **Directory**, it has to be enabled. Enabled directories can show up either on **Navigation Menu**, inside a **Flex Objects** menu item, or even inside other plugins.
 
-!! **Flex Objects** Plugin has to be enabled in order to use any custom directories.
+> [!CAUTION]
+> **Flex Objects** Plugin has to be enabled in order to use any custom directories.
 
 ## Enabling a Directory
 
@@ -18,7 +19,8 @@ We are interested in the **Directories** option inside the plugin, which lists a
 
 Hit **Save** and the directory should show up after a page load.
 
-! **TIP:** Check **[Introduction](/17/advanced/flex/administration/introduction)** for full walkthrough on how to create a page for your directory.
+> [!WARNING]
+> **TIP:** Check **[Introduction](/17/advanced/flex/administration/introduction)** for full walkthrough on how to create a page for your directory.
 
 ## Directory Listing
 
@@ -26,7 +28,8 @@ Hit **Save** and the directory should show up after a page load.
 
 By default, the **Flex Objects** navigation menu item contains all the **Flex Directories** that have been enabled in your site.
 
-!! Some Flex Directories choose to hide from this list and show up elsewhere. **Accounts** and **Pages** are good examples of this.
+> [!CAUTION]
+> Some Flex Directories choose to hide from this list and show up elsewhere. **Accounts** and **Pages** are good examples of this.
 
 #### Controls
 

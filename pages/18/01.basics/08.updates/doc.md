@@ -35,7 +35,8 @@ For upgrading to the next version, there are special guides to help you to make 
 - **[Upgrading to Grav 1.7](/18/advanced/grav-development/grav-17-upgrade-guide)**
 - **[Upgrading to Grav 1.6](/18/advanced/grav-development/grav-16-upgrade-guide)**
 
-! **NOTE:** It is recommended to read the upgrade guides before you install the next version of Grav.
+> [!WARNING]
+> **NOTE:** It is recommended to read the upgrade guides before you install the next version of Grav.
 
 ### Grav CMS Updates
 
@@ -45,7 +46,8 @@ The preferred method for updating Grav is to use the **Grav Package Manager (GPM
 bin/gpm selfupgrade -f
 [/codesh]
 
-!!! **TIP:** More information about the command can be found from [GPM Command > Self-upgrade](/18/cli-console/grav-cli-gpm#self-upgrade).
+> [!NOTE]
+> **TIP:** More information about the command can be found from [GPM Command > Self-upgrade](/18/cli-console/grav-cli-gpm#self-upgrade).
 
 ### Plugin and Theme Updates
 
@@ -55,4 +57,5 @@ Plugins and Themes can be kept up to date by running following command from the 
 bin/gpm update
 [/codesh]
 
-!!! **TIP:** More information about the command can be found from [GPM Command > Update](/18/cli-console/grav-cli-gpm#update).
+> [!NOTE]
+> **TIP:** More information about the command can be found from [GPM Command > Update](/18/cli-console/grav-cli-gpm#update).

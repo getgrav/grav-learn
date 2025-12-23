@@ -32,7 +32,8 @@ The most straightforward approach to setting this up is to create **child-pages*
 
 There is also some configuration settings to **control the order** of the listing as well as a **limit on the number of items**, and whether or not **pagination** should be enabled.
 
-!! A sample **Blog Skeleton** using a **Listing Page** can be found in the [Grav Downloads](https://getgrav.org/downloads/skeletons).
+> [!CAUTION]
+> A sample **Blog Skeleton** using a **Listing Page** can be found in the [Grav Downloads](https://getgrav.org/downloads/skeletons).
 
 #### Modular Page
 
@@ -40,17 +41,20 @@ There is also some configuration settings to **control the order** of the listin
 
 A **Modular Page** is a special type of listing page because it builds a **single page** from its **child pages** or **modules**. This allows for the ability to build very complex **one-page layouts** from Modules. This is accomplished by constructing the **Modular Page** from multiple **Modules** found in the modular page's primary folder.
 
-!! A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](https://getgrav.org/downloads/skeletons).
+> [!CAUTION]
+> A sample **One-Page Skeleton** using a **Modular Page** can be found in the [Grav Downloads](https://getgrav.org/downloads/skeletons).
 
 Each of these page types follows the same basic structure, so before we can get into the nitty-gritty of each type, we must explain how pages in Grav are constructed.
 
-!! A Module, because it is intended to be part of another page, is inherently not a page you can reach directly via a URL. Because of this, all module pages are by default set as **non-routable**.
+> [!CAUTION]
+> A Module, because it is intended to be part of another page, is inherently not a page you can reach directly via a URL. Because of this, all module pages are by default set as **non-routable**.
 
 ## Folders
 
 All content pages are located in the `/user/pages` folder. Each **Page** should be placed in its own folder.
 
-!! Folder names should also be valid **slugs**. Slugs are entirely lowercase, with accented characters replaced by letters from the Latin alphabet and whitespace characters replaced by a dash or an underscore, to avoid being encoded.
+> [!CAUTION]
+> Folder names should also be valid **slugs**. Slugs are entirely lowercase, with accented characters replaced by letters from the Latin alphabet and whitespace characters replaced by a dash or an underscore, to avoid being encoded.
 
 Grav understands that any integer value followed by a period will be solely for ordering, and is removed internally in the system. For example, if you have a folder named `01.home`, Grav will treat this folder as `home`, but will ensure that with default ordering, it comes before `02.blog`.
 
@@ -79,7 +83,8 @@ The textual name of each folder defaults to the _slug_ that the system uses as p
 
 If no number is provided as a prefix of the folder name, the page is considered to be **invisible**, and will not show up in the navigation. An example of this would be the `error` page in the above folder-structure.
 
-!! This can actually be overridden in the page itself by setting the [visible parameter](/17/content/headers#visible) in the headers.
+> [!CAUTION]
+> This can actually be overridden in the page itself by setting the [visible parameter](/17/content/headers#visible) in the headers.
 
 ## Ordering
 
@@ -101,7 +106,8 @@ When dealing with collections, there are several options available to control ho
 
 You can specifically define a manual order by providing a list of options to the `content.order.custom` configuration setting. This will work in conjunction with the `content.order.by` because it first tries to order the pages manually, but any pages not specified in the manual order, will fall through and be ordered by the ordering provided.
 
-!! You can override the **default behavior** for folder ordering and the direction in which the ordering occurs by setting the `pages.order.dir` and the `pages.order.by` options in the [Grav system configuration file](/17/basics/grav-configuration).
+> [!CAUTION]
+> You can override the **default behavior** for folder ordering and the direction in which the ordering occurs by setting the `pages.order.dir` and the `pages.order.by` options in the [Grav system configuration file](/17/basics/grav-configuration).
 
 ## Page File
 
@@ -111,7 +117,8 @@ The important thing to understand is the name of the file directly references th
 
 You can, of course, name your file whatever you like, for example: `document.md`, which would make Grav look for a template file in the theme that matches, such as the **document.html.twig** Twig-template.
 
-!! This behavior can be overridden in the page by setting the [template parameter](/17/content/headers#template) in the headers.
+> [!CAUTION]
+> This behavior can be overridden in the page by setting the [template parameter](/17/content/headers#template) in the headers.
 
 An example page file could look like this:
 
@@ -142,7 +149,8 @@ The settings between the pair of `---` markers are known as the YAML FrontMatter
 
 In this example, we are explicitly setting the title, as well the taxonomy to **blog** so we can filter it later.  The content after the second `---` is the actual content that will be compiled and rendered as HTML on your site.  This is written in [Markdown](/17/content/markdown), which will be covered in detail in a future chapter. Just know that the `#`, `**`, and `_` markers translate to **heading 1**, **bold**, and **italics**, respectively.
 
-!! Ensure you save your `.md` files as `UTF-8`-encoded files. This will ensure they work with language-specific special characters.
+> [!CAUTION]
+> Ensure you save your `.md` files as `UTF-8`-encoded files. This will ensure they work with language-specific special characters.
 
 ### Summary Size and Separator
 
@@ -172,7 +180,8 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 This will use the text above the separator when referenced by `page.summary()` and the full page content when referenced by `page.content()`.
 
-!! When using `page.summary()`, the summary size setting will be used if the separator is not found in the page content.
+> [!CAUTION]
+> When using `page.summary()`, the summary size setting will be used if the separator is not found in the page content.
 
 ### Finding other Pages
 
@@ -192,7 +201,8 @@ This allows you to perform a wide variety of functionality from any page on your
 {% endverbatim %}
 
 {% verbatim %}
-!! The `pages`-object is unavailable when [processing Twig directly in Markdown-content](https://learn.getgrav.org/content/headers#process). However, the `page`-object and its inherited `find()`-method is, so you could use `{% for p in page.find('/projects').children %}` as a replacement for the above. Note that the **pages** refers to all the Pages available to Grav, and **page** refers to a single, and often the current, Page.
+> [!CAUTION]
+> The `pages`-object is unavailable when [processing Twig directly in Markdown-content](https://learn.getgrav.org/content/headers#process). However, the `page`-object and its inherited `find()`-method is, so you could use `{% for p in page.find('/projects').children %}` as a replacement for the above. Note that the **pages** refers to all the Pages available to Grav, and **page** refers to a single, and often the current, Page.
 {% endverbatim %}
 
 In the next sections, we will continue to dig into the specifics of a page and page collections in detail.

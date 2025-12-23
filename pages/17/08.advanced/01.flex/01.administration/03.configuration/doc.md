@@ -10,7 +10,8 @@ process:
 
 These settings are typically used for changing the behaviour of the directory, setting defaults for the objects or alter rendering of the layouts.
 
-!! The settings are different in every Directory, this document contains only the common settings found in every directory.
+> [!CAUTION]
+> The settings are different in every Directory, this document contains only the common settings found in every directory.
 
 #### Controls
 

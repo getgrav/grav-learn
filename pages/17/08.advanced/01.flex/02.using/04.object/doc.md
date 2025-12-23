@@ -19,7 +19,8 @@ Parameters:
 Returns:
 - **Block** (`object`) HtmlBlock class containing the output
 
-!!! **NOTE:** In twig there is a `{% render %}` tag, which should be used instead of calling the method directly. This will allow JS/CSS assets from the object to work properly.
+> [!NOTE]
+> **NOTE:** In twig there is a `{% render %}` tag, which should be used instead of calling the method directly. This will allow JS/CSS assets from the object to work properly.
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -102,7 +103,8 @@ Parameters:
 Returns:
 - **Object** (`object`) The object for chaining the method calls
 
-!! **WARNING:** This method modifies the object instance shared between all the collections. If that is not intended, please `clone` the object before using this method.
+> [!CAUTION]
+> **WARNING:** This method modifies the object instance shared between all the collections. If that is not intended, please `clone` the object before using this method.
 
 ## defProperty()
 
@@ -115,7 +117,8 @@ Parameters:
 Returns:
 - **Object** (`object`) The object for chaining the method calls
 
-!! **WARNING:** This method modifies the object instance shared between all the collections. If that is not intended, please `clone` the object before using this method.
+> [!CAUTION]
+> **WARNING:** This method modifies the object instance shared between all the collections. If that is not intended, please `clone` the object before using this method.
 
 ## unsetProperty()
 
@@ -127,7 +130,8 @@ Parameters:
 Returns:
 - **Object** (`object`) The object for chaining the method calls
 
-!! **WARNING:** This method modifies the object instance shared between all the collections. If that is not intended, please `clone` the object before using this method.
+> [!CAUTION]
+> **WARNING:** This method modifies the object instance shared between all the collections. If that is not intended, please `clone` the object before using this method.
 
 ## isAuthorized()
 
@@ -145,7 +149,8 @@ Returns:
 - `false` Deny action
 - `null` Not set (acts as Deny)
 
-!!! **Note:** There are two deny values: denied (false), not set (null). This allows chaining multiple rules together when the previous rules were not matched.`
+> [!NOTE]
+> **Note:** There are two deny values: denied (false), not set (null). This allows chaining multiple rules together when the previous rules were not matched.`
 
 ## getFlexDirectory()
 
@@ -178,7 +183,8 @@ Returns:
 - `float` Search weight between 0 and 1, used for ordering the results
 - `0` Object does not match the search
 
-!!! **Note:** If you override this function, make sure you return value in range 0...1!
+> [!NOTE]
+> **Note:** If you override this function, make sure you return value in range 0...1!
 
 ## getFlexKey()
 
@@ -215,7 +221,8 @@ Parameters:
 Returns:
 - **Object** (`object`) The object for chaining the method calls
 
-! **TIP:** You need to save the object after calling this method.
+> [!WARNING]
+> **TIP:** You need to save the object after calling this method.
 
 ## create()
 

@@ -375,7 +375,8 @@ This plugin simple subscribes to the `onTwigTemplatePaths()` event, and then in 
 
 This allows you to drop in a Twig template called `foo.html.twig` and then any page called `foo.md` will be able to use this template.
 
-! NOTE: This will add the plugin's custom template path to the **end** of the Twig template path array. This means the theme (which is always first), will have precedence over the plugin's templates of the same name.  To resolve this, simply put the plugin's template path in the front of the array by modifying the event method:
+> [!WARNING]
+> NOTE: This will add the plugin's custom template path to the **end** of the Twig template path array. This means the theme (which is always first), will have precedence over the plugin's templates of the same name.  To resolve this, simply put the plugin's template path in the front of the array by modifying the event method:
 
 [codesh=twig line-numbers="true"]
     /**

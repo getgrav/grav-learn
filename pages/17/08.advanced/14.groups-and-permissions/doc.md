@@ -4,7 +4,8 @@ taxonomy:
   category: docs
 ---
 
-!! See the [Grav Admin FAQ](https://learn.getgrav.org/admin-panel/faq#adding-and-managing-users), to learn how to manage users
+> [!CAUTION]
+> See the [Grav Admin FAQ](https://learn.getgrav.org/admin-panel/faq#adding-and-managing-users), to learn how to manage users
 
 ## Defining groups
 
@@ -95,4 +96,5 @@ access:
 
 to a user’s yaml file.
 
-!! See the [Grav Admin FAQs](https://learn.getgrav.org/16/admin-panel/faq#managing-acl) to learn more about available Permissions
+> [!CAUTION]
+> See the [Grav Admin FAQs](https://learn.getgrav.org/16/admin-panel/faq#managing-acl) to learn more about available Permissions

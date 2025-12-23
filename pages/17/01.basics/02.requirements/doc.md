@@ -14,7 +14,8 @@ Grav is intentionally designed with few requirements. You can easily run Grav on
 
 Grav is built with plain text files for your content. There is no database needed.
 
-!! A PHP user cache such as APCu, Memcached, or Redis is highly recommended for optimal performance. Not to worry though, these are usually already part of your hosting package!
+> [!CAUTION]
+> A PHP user cache such as APCu, Memcached, or Redis is highly recommended for optimal performance. Not to worry though, these are usually already part of your hosting package!
 
 ## Web Servers
 
@@ -173,4 +174,5 @@ Although there are many ways to deploy **Grav**, fundamentally you only need to 
 
 If you run the [Git](https://git-scm.com/) distributed version control system on your development and server environments, you can set up a simple workflow via a hosted Git service like [Github](https://github.com) or [GitLab](https://about.gitlab.com/). This is slightly more work to set up, but provides a cleaner, more robust workflow that takes care of backups for you. Try this only if you are comfortable with Git and its client tools.
 
-!!! We provide more details about using Git in your workflow later under [Deploying with Git](/17/webservers-hosting/deploying-with-git) section in the [Web Servers & Hosting chapter](/17/webservers-hosting).
+> [!NOTE]
+> We provide more details about using Git in your workflow later under [Deploying with Git](/17/webservers-hosting/deploying-with-git) section in the [Web Servers & Hosting chapter](/17/webservers-hosting).

@@ -28,7 +28,8 @@ Grav ships with built-in support for [Markdown](https://daringfireball.net/proje
 
 Without further delay, let us go over the main elements of Markdown and what the resulting HTML looks like:
 
-!! <i class="fa fa-bookmark"></i> Bookmark this page for easy future reference!
+> [!CAUTION]
+> <i class="fa fa-bookmark"></i> Bookmark this page for easy future reference!
 
 ## Headings
 
@@ -227,7 +228,8 @@ odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac 
 
 ## Notices
 
-! The old mechanism for notices overriding the block quote syntax (`>>>`) has been deprecated.  Notices are now handled via a dedicated plugin called [Markdown Notices](https://github.com/getgrav/grav-plugin-markdown-notices)
+> [!WARNING]
+> The old mechanism for notices overriding the block quote syntax (`>>>`) has been deprecated.  Notices are now handled via a dedicated plugin called [Markdown Notices](https://github.com/getgrav/grav-plugin-markdown-notices)
 
 ## Lists
 
@@ -483,7 +485,8 @@ grunt.initConfig({
 };
 [/codesh]
 
-!!! For syntax highlighting to work, the [Highlight plugin](https://github.com/getgrav/grav-plugin-highlight) needs to be installed and enabled. It in turn utilizes a jquery plugin, so jquery needs to be loaded in your theme too.
+> [!NOTE]
+> For syntax highlighting to work, the [Highlight plugin](https://github.com/getgrav/grav-plugin-highlight) needs to be installed and enabled. It in turn utilizes a jquery plugin, so jquery needs to be loaded in your theme too.
 
 ## Tables
 

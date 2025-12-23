@@ -15,7 +15,8 @@ The backup system in Grav has been completely rewritten for Grav 1.6 to provide 
 
 For backwards compatibility, the default configuration mimics the system prior to Grav 1.6, however, it does now have a 5GB limit by default for backup space.  You should copy the default configuration file (`system/config/backups.yaml`) to your `user/config/
 
-!! If you use the **admin plugin**, and save the configuration, the `user/config/backups.yaml` file will be created automatically.
+> [!CAUTION]
+> If you use the **admin plugin**, and save the configuration, the `user/config/backups.yaml` file will be created automatically.
 
 The default configuration is as follows:
 

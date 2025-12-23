@@ -6,11 +6,13 @@ taxonomy:
 
 Grav 1.6 is the largest update since the initial release of Grav. It introduces a few new features, improvements, bug fixes and provides many architectural changes which pave the road towards Grav 2.0.
 
-!!!! **IMPORTANT:** For most people, Grav 1.6 should be a simple upgrade without any issues, but like any upgrade, it is recommended to **take a backup** of your site and **test the upgrade in a testing environment** before upgrading your live site.
+> [!TIP]
+> **IMPORTANT:** For most people, Grav 1.6 should be a simple upgrade without any issues, but like any upgrade, it is recommended to **take a backup** of your site and **test the upgrade in a testing environment** before upgrading your live site.
 
 Whether you are a developer or administrator of your site, your test site should have [Debug Bar](/17/advanced/debugging#debug-bar) enabled. This is because of Debug Bar has some useful tools which help you to ensure your site will be better prepared to run on later versions of Grav.
 
-!!! **TIP:** For more information how to enable the feature, please see [Debugging & Logging](https://learn.getgrav.org/16/advanced/debugging) section in the documentation.
+> [!NOTE]
+> **TIP:** For more information how to enable the feature, please see [Debugging & Logging](https://learn.getgrav.org/16/advanced/debugging) section in the documentation.
 
 ## Deprecated Debug Bar Tab
 
@@ -18,7 +20,8 @@ For our purposes, we are looking **Deprecated** tab in the Debug Bar, which allo
 
 ![Deprecated Tab](deprecated-tab.png?classes=shadow)
 
-! **NOTE:** that **Deprecated** tab shows up only if deprecated calls are detected in the page
+> [!WARNING]
+> **NOTE:** that **Deprecated** tab shows up only if deprecated calls are detected in the page
 
 To make sure that you catch all the issues, you should either clear the cache and run Grav with caching disabled to maximize the chance you will catch all the errors. Even by following these steps, you may notice that some of the YAML/Twig errors appear only after clearing the cache.
 
@@ -36,11 +39,13 @@ There are a few types of deprecation issues:
 
 ## YAML Parsing
 
-! **NOTE:** In Grav 1.6 YAML has stricter parsing with a fallback for backwards compatibility
+> [!WARNING]
+> **NOTE:** In Grav 1.6 YAML has stricter parsing with a fallback for backwards compatibility
 
 Grav 1.6 uses a **Symfony 4.2 YAML parser**, which follows the [YAML standard specification](https://yaml.org/spec?target=_blank) much more closely than the previously parser from Symfony **3.4**. This means that YAML files which previously worked just fine, may cause errors resulting from being invalid YAML. However, if the file fails to load with the new **4.2** version of the parser, Grav will by default still fall back to the older **3.4** version of the parser to keep your site up and running. However this will decrease the performance of the site and you should catch and fix the issues to ensure optimal performance.
 
-! **NOTE:** This backwards compatibility fallback mechanism will be removed in Grav 2.0
+> [!WARNING]
+> **NOTE:** This backwards compatibility fallback mechanism will be removed in Grav 2.0
 
 **Grav 1.6.7** and all later versions have a new CLI command to detect YAML parsing issues, please run `bin/grav yamllinter` to find and fix any YAML parsing errors in your site. It is recommended to run this command right after upgrading to Grav 1.6 or later version.
 
@@ -56,9 +61,11 @@ Grav 1.6 uses a **Symfony 4.2 YAML parser**, which follows the [YAML standard sp
 
 Also the Debug Bar can be used to spot any deprecated YAML. Just open the Debug Bar and look at the **Deprecated** tab. If the tab cannot be found, no issues were detected.
 
-!!! **TIP:** You can filter any **YAML** issues by looking at the **badges in the bottom-right corner** of the Debug Bar. Simply filter to only show **YAML** issues by clicking the other buttons to disable them.
+> [!NOTE]
+> **TIP:** You can filter any **YAML** issues by looking at the **badges in the bottom-right corner** of the Debug Bar. Simply filter to only show **YAML** issues by clicking the other buttons to disable them.
 
-! **NOTE:** YAML errors require you to clear cache the errors will only be picked up when the YAML files are decoded.
+> [!WARNING]
+> **NOTE:** YAML errors require you to clear cache the errors will only be picked up when the YAML files are decoded.
 
 ### YAML Compatibility Mode
 

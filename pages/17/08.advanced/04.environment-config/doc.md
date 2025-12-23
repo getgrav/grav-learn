@@ -6,7 +6,8 @@ taxonomy:
 
 Grav has the ability to extend the [powerful configuration capabilities](../../basics/grav-configuration) for different environments to support different configuration for **development**, **staging**, and **production** scenarios.
 
-!! Up to Grav 1.6 environments were stored in `user/` folder. Grav 1.7 moves environments to `user/env/` to make environments easier to maintain. It is highly recommended that you move all the environments into this new location on your existing sites.
+> [!CAUTION]
+> Up to Grav 1.6 environments were stored in `user/` folder. Grav 1.7 moves environments to `user/env/` to make environments easier to maintain. It is highly recommended that you move all the environments into this new location on your existing sites.
 
 ### Automatic Environment Configuration
 
@@ -46,7 +47,8 @@ If your production server was reachable via `http://www.mysite.com` then you cou
 
 Of course, you are not limited to changes to `system.yaml`, you can actually provide overrides for **any** Grav setting in the `site.yaml` or even in any [plugin configuration](../../plugins/plugin-basics)!
 
-!! If you are using the Grav [Scheduler](/17/advanced/scheduler), be aware of it using the `localhost` environment and therefore its configuration.
+> [!CAUTION]
+> If you are using the Grav [Scheduler](/17/advanced/scheduler), be aware of it using the `localhost` environment and therefore its configuration.
 
 #### Plugin Overrides
 

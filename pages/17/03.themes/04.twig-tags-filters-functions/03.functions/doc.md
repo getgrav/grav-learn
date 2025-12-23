@@ -165,12 +165,14 @@ Takes a Github Gist ID and creates appropriate Gist embed code
 
 Returns `page.header.<variable>`.
 
-! **NOTE:** Deprecated since Grav 1.7. `theme_var` should be used.
+> [!WARNING]
+> **NOTE:** Deprecated since Grav 1.7. `theme_var` should be used.
 
-! The logic of finding the variable has changed, which might lead to unexptected results:
-! - If an array of lookup pages is provided as second parameter, only the first page will be used.
-! - If `<variable>` is not defined in het header of the page, Grav will search for the variable in the tree of parents of the page.
-! - If still not found, Grav will search for the variable in the config file of the theme
+> [!WARNING]
+> The logic of finding the variable has changed, which might lead to unexptected results:
+> - If an array of lookup pages is provided as second parameter, only the first page will be used.
+> - If `<variable>` is not defined in het header of the page, Grav will search for the variable in the tree of parents of the page.
+> - If still not found, Grav will search for the variable in the config file of the theme
 
 Given frontmatter of
 ```

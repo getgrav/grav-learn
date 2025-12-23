@@ -31,7 +31,8 @@ If you want more advanced automation, you can set up [Git Hooks](https://git-scm
 
 The tools available support all kinds of multi-environment workflows and automations.
 
-!!! You can also exploit Git for your content workflow using the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync), so that your content editors can deploy changes via the Administration console.
+> [!NOTE]
+> You can also exploit Git for your content workflow using the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync), so that your content editors can deploy changes via the Administration console.
 
 Here is a suggestion for your `.gitignore` file in your `user` folder repository. This will help keep your deployment clean:
 
@@ -50,4 +51,5 @@ themes/*
 **/config/security.yaml
 [/codesh]
 
-!! If you are using a custom or inherited theme that you want to include in your source control, subsitute `MY_CUSTOM_THEME` above with the theme name. Consider doing the same for any site-specific custom plugins.
+> [!CAUTION]
+> If you are using a custom or inherited theme that you want to include in your source control, subsitute `MY_CUSTOM_THEME` above with the theme name. Consider doing the same for any site-specific custom plugins.

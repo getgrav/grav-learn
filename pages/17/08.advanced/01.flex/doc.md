@@ -8,7 +8,8 @@ algolia-pro:
 
 **Flex Objects** is a new concept in Grav 1.7 that adds support for custom data types which can be easily integrated to your site. **Flex Objects** are provided by the [**Flex Objects** Plugin](https://github.com/trilbymedia/grav-plugin-flex-objects) which is required by the [Admin Panel](/17/admin-panel) and included in the [**Grav Core + Admin Plugin**](https://getgrav.org/downloads) package. 
 
-!! **Flex Directories** in this documentation has nothing to do with the older **Flex Directories Plugin**. In fact the old plugin has been superseded with this feature together with **Flex Objects Plugin**.
+> [!CAUTION]
+> **Flex Directories** in this documentation has nothing to do with the older **Flex Directories Plugin**. In fact the old plugin has been superseded with this feature together with **Flex Objects Plugin**.
 
 ## Introduction
 
@@ -21,7 +22,8 @@ algolia-pro:
 
 This gives a single access point for all the data in the site, given that the data is inside a Flex Directory. This makes all the objects available to every page and plugin in your site.
 
-! **TIP:** Even if Flex *User Accounts* or *Pages* are not enabled, you can still access Flex versions of them in both frontend and Admin Panel.
+> [!WARNING]
+> **TIP:** Even if Flex *User Accounts* or *Pages* are not enabled, you can still access Flex versions of them in both frontend and Admin Panel.
 
 #### Flex Type
 

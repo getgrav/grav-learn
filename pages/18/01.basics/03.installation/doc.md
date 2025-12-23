@@ -25,7 +25,8 @@ The easiest way to install Grav is to download the ZIP package and extract it:
 1. Download the latest-and-greatest **[Grav](https://getgrav.org/download/core/grav/latest)** or **[Grav + Admin](https://getgrav.org/download/core/grav-admin/latest)** package.
 2. Extract the ZIP file in the [webroot](https://www.wordnik.com/words/webroot) of your web server, e.g. `~/webroot/grav`
 
-!!! There are [Skeleton](https://getgrav.org/downloads/skeletons)-packages available, which include the core Grav system, sample pages, plugins, and configuration. They are a great way to get started; all you have to do is [download the Skeleton](https://getgrav.org/downloads/skeletons)-package you prefer, and follow the steps above.
+> [!NOTE]
+> There are [Skeleton](https://getgrav.org/downloads/skeletons)-packages available, which include the core Grav system, sample pages, plugins, and configuration. They are a great way to get started; all you have to do is [download the Skeleton](https://getgrav.org/downloads/skeletons)-package you prefer, and follow the steps above.
 
 You can also download any pre-packaged installation of a [tagged release](https://github.com/getgrav/grav/tags) from getgrav.org. Use the format `https://getgrav.org/download/TYPE/PACKAGE/VERSION`.
 
@@ -37,7 +38,8 @@ You can also download any pre-packaged installation of a [tagged release](https:
 - [getgrav.org/download/plugins/flex-objects-json/0.1.0](https://getgrav.org/download/plugins/flex-objects-json/0.1.0) downloads the Flex Objects JSON plugin at v0.1.0
 - [getgrav.org/download/themes/quark/2.0.3](https://getgrav.org/download/themes/quark/2.0.3) downloads the Quark theme at v2.0.3
 
-!!!! If you downloaded the ZIP file and then plan to move it to your webroot, please move the **ENTIRE FOLDER** because it contains several hidden files (such as .htaccess) that will not be selected by default. The omission of these hidden files can cause problems when running Grav.
+> [!TIP]
+> If you downloaded the ZIP file and then plan to move it to your webroot, please move the **ENTIRE FOLDER** because it contains several hidden files (such as .htaccess) that will not be selected by default. The omission of these hidden files can cause problems when running Grav.
 
 ## Option 2: Install with composer
 
@@ -108,7 +110,8 @@ Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extra
 
 If your web root is, for example, `~/public_html` then you could extract it into this folder and reach it via `http://localhost`. If you extracted it into `~/public_html/grav` you would reach it via `http://localhost/grav`.
 
-!!! Every web server must be configured. Grav ships with .htaccess by default, for Apache, and comes with some [default server configuration files](https://github.com/getgrav/grav/tree/master/webserver-configs), for `nginx`, `caddy server`, `iis`, and `lighttpd`. Use them accordingly when needed.
+> [!NOTE]
+> Every web server must be configured. Grav ships with .htaccess by default, for Apache, and comes with some [default server configuration files](https://github.com/getgrav/grav/tree/master/webserver-configs), for `nginx`, `caddy server`, `iis`, and `lighttpd`. Use them accordingly when needed.
 
 #### Running Grav with the Built-in PHP Webserver
 
@@ -116,7 +119,8 @@ You can run Grav using a simple command from Terminal / Command Prompt using the
 
 All you need to do is navigate to the root of your Grav install using the Terminal or Command Prompt and enter `bin/grav server`.
 
-!! While technically all you need is PHP installed, if you install the [Symfony CLI application](https://symfony.com/download) the server will provide an SSL certificate so you can use `https://` and make use of PHP-FPM for better performance.
+> [!CAUTION]
+> While technically all you need is PHP installed, if you install the [Symfony CLI application](https://symfony.com/download) the server will provide an SSL certificate so you can use `https://` and make use of PHP-FPM for better performance.
 
 Entering this command will present you with output similar to the following:
 
@@ -153,7 +157,8 @@ Your terminal will also give you real-time updates of any activity on this ad ho
 https://127.0.0.1:8000
 ```
 
-!!!! This is a useful tool for quick development, and should **not** be used in place of a dedicated web server such as Apache or Nginx.
+> [!TIP]
+> This is a useful tool for quick development, and should **not** be used in place of a dedicated web server such as Apache or Nginx.
 
 ## Successful Installation
 
@@ -161,7 +166,8 @@ The first time it loads, Grav pre-compiles some files. If you now refresh your b
 
 ![Grav Installed](install.png)
 
-!! In the previous examples, **$** represents the command prompt. This may look different on various platforms.
+> [!CAUTION]
+> In the previous examples, **$** represents the command prompt. This may look different on various platforms.
 
 By default, Grav comes with some sample pages to give you something to get started with. Your site is already fully functional and you can configure it, add content, extend it, or customize it as much as you like.
 
@@ -173,7 +179,8 @@ If any issues are discovered during the initial page load (or after a cache-flus
 
 Please consult the [Troubleshooting](/18/troubleshooting) section for help regarding specific issues.
 
-! If you have issues with file permissions, please check the [Permissions Troubleshooting documentation](/18/troubleshooting/permissions). Also, you could look at the [Hosting Guides documentation](/18/webservers-hosting) that has specific instructions for various hosting environments
+> [!WARNING]
+> If you have issues with file permissions, please check the [Permissions Troubleshooting documentation](/18/troubleshooting/permissions). Also, you could look at the [Hosting Guides documentation](/18/webservers-hosting) that has specific instructions for various hosting environments
 
 ## Grav Updates
 

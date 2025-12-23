@@ -22,7 +22,8 @@ custom_file:
     - image/*
 [/codesh]
 
-! In order to add a file upload, you must have a bottom javascript render command in your base Twig template.  `{{ assets.js('bottom') }}`
+> [!WARNING]
+> In order to add a file upload, you must have a bottom javascript render command in your base Twig template.  `{{ assets.js('bottom') }}`
 
 ## Options
 
@@ -59,7 +60,8 @@ destination: 'self@' # [<path> | <stream> | self@ | page@:<path>]
 
 Destination is the location where uploaded files should be stored. This can be either a regular `path` (relative to the root of Grav), a `stream` (such as `theme://images`), `self@` or the special  `page@:` prefix. You can also reference a subfolder relative to the current page with `self@/path`. 
 
-!! `self@` is not allowed outside the Pages or Flex Objects scope, an error will be thrown. If you use a file field outside a Page or Flex Object, you should always change the `destination` setting.
+> [!CAUTION]
+> `self@` is not allowed outside the Pages or Flex Objects scope, an error will be thrown. If you use a file field outside a Page or Flex Object, you should always change the `destination` setting.
 
 ##### Examples
 
@@ -116,7 +118,8 @@ When the [`multiple`](#multiple) setting is enabled, `limit` allows to constrain
 
 When `limit` is set to **0**, it means that there are no restrictions on the amount of allowed files that can be uploaded.
 
-!! It is good practice to always ensure you have a set limit of allowed files that can be uploaded. This way you have more control over your server resources utilizations.
+> [!CAUTION]
+> It is good practice to always ensure you have a set limit of allowed files that can be uploaded. This way you have more control over your server resources utilizations.
 
 #### `accept`
 

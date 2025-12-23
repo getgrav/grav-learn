@@ -125,7 +125,8 @@ or
 bin/grav composer --update
 [/codesh]
 
-!! These all use the `--no-dev` composer option, so to be able to perform testing you should use composer directly: `bin/composer.phar`
+> [!CAUTION]
+> These all use the `--no-dev` composer option, so to be able to perform testing you should use composer directly: `bin/composer.phar`
 
 ## Install
 

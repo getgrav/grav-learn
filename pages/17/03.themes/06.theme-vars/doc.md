@@ -8,7 +8,8 @@ taxonomy:
 
 When you are designing a theme, Grav gives you access to all sorts of objects and variables from within your Twig templates.  The Twig templating framework provides powerful ways to read and manipulate these objects and variables.  This is [fully explained in their own documentation](https://twig.symfony.com/doc/1.x/templates.html) as well as [summarized succinctly in our own documentation](../twig-primer).
 
-!!!! In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provide those after the method name.  `page.content` is equivalent to `page.content()`
+> [!TIP]
+> In Twig, you can call methods that take no parameters by just calling the method name, and omitting the parentheses `()`.  If you need to pass parameters, you also need to provide those after the method name.  `page.content` is equivalent to `page.content()`
 
 ## Core Objects
 
@@ -50,7 +51,8 @@ The `{{ theme_dir }}` variable returns the file directory folder of the current 
 
 The `{{ theme_url }}` returns the relative URL to the current theme.
 
-!! When linking to assets like images or JavaScript and CSS files, it's recommended to use the `url()` function in combination with the `theme://` stream as described on the [Twig Filters & Functions](/17/themes/twig-filters-functions#url) page. For JavaScript and CSS, the [Asset Manager](/17/themes/asset-manager) is even easier to use but in some cases like dynamic or conditional loading of assets, it will not work.
+> [!CAUTION]
+> When linking to assets like images or JavaScript and CSS files, it's recommended to use the `url()` function in combination with the `theme://` stream as described on the [Twig Filters & Functions](/17/themes/twig-filters-functions#url) page. For JavaScript and CSS, the [Asset Manager](/17/themes/asset-manager) is even easier to use but in some cases like dynamic or conditional loading of assets, it will not work.
 
 ### language_codes variable
 
@@ -69,7 +71,8 @@ The `{{ language_codes }}` returns list of available languages of the site.
 
 Read more about [Asset Manager](/17/themes/asset-manager).
 
-! **TIP:** It is recommended to use **[styles tag](/17/themes/twig-tags#css-styles)** and **[script tag](/17/themes/twig-tags#scripts)** instead.
+> [!WARNING]
+> **TIP:** It is recommended to use **[styles tag](/17/themes/twig-tags#css-styles)** and **[script tag](/17/themes/twig-tags#scripts)** instead.
 
 ### config object
 
@@ -97,7 +100,8 @@ Because Grav is built using the structure defined in the `pages/` folder, each p
 
 The **page object** is probably _the_ most important object you will work with as it contains all the information about the current page you are currently on.
 
-!! The whole list of the Page object methods is available on the [API site](https://learn.getgrav.org/api#class-gravcommonpagepage). Here's a list of the methods you'll find most useful.
+> [!CAUTION]
+> The whole list of the Page object methods is available on the [API site](https://learn.getgrav.org/api#class-gravcommonpagepage). Here's a list of the methods you'll find most useful.
 
 ##### summary([size])
 
@@ -285,7 +289,8 @@ This returns the next page from the array of siblings based on the current posit
 
 This returns the previous page from the array of siblings based on the current position.
 
-!! nextSibling() and prevSibling() order pages in a stack-like structure. It works best in a blog situation, where the first blog post has nextSibling null and prevSibling is the previous blog post. If this ordering direction confuses you, we suggest using page.adjacentSibling(-1) to point to the next page instead of page.nextSibling() to reduce the confusion that the terminology might make. You can also define a constant in the theme and use that for better readability, like page.adjacentSibling(NEXT_PAGE)
+> [!CAUTION]
+> nextSibling() and prevSibling() order pages in a stack-like structure. It works best in a blog situation, where the first blog post has nextSibling null and prevSibling is the previous blog post. If this ordering direction confuses you, we suggest using page.adjacentSibling(-1) to point to the next page instead of page.nextSibling() to reduce the confusion that the terminology might make. You can also define a constant in the theme and use that for better readability, like page.adjacentSibling(NEXT_PAGE)
 
 ##### children()
 
@@ -389,7 +394,8 @@ This returns an array of the taxonomy associated with a page.  These can be iter
 
 The **pages** object is the root page which represents a nested tree of every **page** object that Grav knows about. This is particularly useful for creating a sitemap, navigation, or if you wish to find a particular **page**.
 
-!! This object is not the same as `grav.pages` which is an instance of `Pages` class.
+> [!CAUTION]
+> This object is not the same as `grav.pages` which is an instance of `Pages` class.
 
 ##### children method
 
@@ -417,7 +423,8 @@ There is a new object that allows you to access [media](../../content/media) tha
 
 ### uri object
 
-!! The whole list of the Uri object methods is available on the [API site](https://learn.getgrav.org/api#class-gravcommonuri). Here's a list of the methods you'll find most useful.
+> [!CAUTION]
+> The whole list of the Uri object methods is available on the [API site](https://learn.getgrav.org/api#class-gravcommonuri). Here's a list of the methods you'll find most useful.
 
 The Uri object has several methods to access parts of the current URI. For the full URL `http://mysite.com/grav/section/category/page.json/param1:foo/param2:bar/?query1=baz&query2=qux`:
 
@@ -493,7 +500,8 @@ The global Taxonomy object that contains all the taxonomy information for the si
 
 ### browser object
 
-!! The whole list of the Browser object methods is available on the [API site](https://learn.getgrav.org/api#class-grav-common-browser). Here's a list of the methods you'll find most useful.
+> [!CAUTION]
+> The whole list of the Browser object methods is available on the [API site](https://learn.getgrav.org/api#class-grav-common-browser). Here's a list of the methods you'll find most useful.
 
 Grav has built-in support for programmatically determining the platform, browser, and version of the user.
 

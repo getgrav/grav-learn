@@ -52,7 +52,8 @@ flex:
 
 When you are happy with the page, hit **Save**.
 
-! **TIP:** If you do not specify `Flex Directory`, the page will list all directories instead of displaying entries from a single directory.
+> [!WARNING]
+> **TIP:** If you do not specify `Flex Directory`, the page will list all directories instead of displaying entries from a single directory.
 
 ## Display the Page
 

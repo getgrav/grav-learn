@@ -10,9 +10,11 @@ In Grav 1.6, the **Asset Manager** has been completely rewritten to provide a mo
 
 It's much more flexible and more reliable than before. Also it's considerably 'cleaner' and easier to follow if you start poking through the code. The Asset Manager is available throughout Grav and can be accessed in plugin event hooks, but also directly in themes via Twig calls.
 
-! **Technical Details**: The primary Assets class has been greatly simplified and reduced. Much of the logic has been broken out into 3 traits. A _testing trait_ which contains functions primarily used in our test suite, a _utils trait_ which contains methods that are shared between regular asset types (js, inline_js, css, inline_css) and the assets pipeline which can minify and compress, and lastly a _legacy trait_ which contains methods that are shortcuts or workarounds, and should generally not be used going forward.
+> [!WARNING]
+> **Technical Details**: The primary Assets class has been greatly simplified and reduced. Much of the logic has been broken out into 3 traits. A _testing trait_ which contains functions primarily used in our test suite, a _utils trait_ which contains methods that are shared between regular asset types (js, inline_js, css, inline_css) and the assets pipeline which can minify and compress, and lastly a _legacy trait_ which contains methods that are shortcuts or workarounds, and should generally not be used going forward.
 
-!!! The Asset manager is fully backwards compatible with syntax used in versions prior to Grav 1.6, however, the documentation below will cover the new **preferred syntax**.
+> [!NOTE]
+> The Asset manager is fully backwards compatible with syntax used in versions prior to Grav 1.6, however, the documentation below will cover the new **preferred syntax**.
 
 ## Configuration
 
@@ -126,10 +128,11 @@ JS assets are handled similarly with `assets.addJs()` and `assets.addInlineJs()`
 
 Since version 1.7.27, Grav's Assets Manager also supports JS Modules. These assets work exactly like JS assets but their type is `type="module"` and they are handled with `assets.addJsModule()` and `assets.addInlineJsModule()` calls. The generic `assets.add()` method will only fallback to JS Module if the extension detected is `.mjs`. Otherwise, any `.js` file will be treated as regular JS.
 
-! To learn more about JS Modules
-! * [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules?target=_blank)
-! * [https://v8.dev/features/modules](https://v8.dev/features/modules?target=_blank)
-! * [https://javascript.info/modules-intro](https://javascript.info/modules-intro?target=_blank)
+> [!WARNING]
+> To learn more about JS Modules
+> * [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules?target=_blank)
+> * [https://v8.dev/features/modules](https://v8.dev/features/modules?target=_blank)
+> * [https://javascript.info/modules-intro](https://javascript.info/modules-intro?target=_blank)
 
 The Asset Manager also supports:
 
@@ -182,7 +185,8 @@ The `{% do %}` tag is actually [one built in to Twig](https://twig.symfony.com/d
 
 The `addCss()` method adds CSS assets to the Asset Manager. If you specify a second numeric parameter, that sets the priority of the stylesheet. If you do not specify a priority, the priority that the assets are added will dictate the order they are rendered.  You will notice the use of a **PHP stream wrapper** `theme://` to provide an easy way for Grav to determine the current theme's relative path.
 
-!! The `assets.addJs('jquery', 101)` will include the `jquery` collection defined in the global Assets configuration. The optional param here of `101` sets the priority to be quite high to ensure it renderes first.  The default priority when not provided is a value of `10`. A more flexible way of writing this would be `assets.addJs('jquery', {priority: 101})`.  This allows you to add other parameters alongside the priority.
+> [!CAUTION]
+> The `assets.addJs('jquery', 101)` will include the `jquery` collection defined in the global Assets configuration. The optional param here of `101` sets the priority to be quite high to ensure it renderes first.  The default priority when not provided is a value of `10`. A more flexible way of writing this would be `assets.addJs('jquery', {priority: 101})`.  This allows you to add other parameters alongside the priority.
 
 The `assets.css()|raw` call renders the CSS assets as HTML tags. As there is no parameter supplied to this method, the group is by default set to `head`. Note how this is wrapped in an `assets deferred` block.  This is a new feature in Grav 1.6 that allows you to add assets from other Twig templates that are included further down the page (or anywhere really), and still ensure that they can render in this `head` block if required.
 
@@ -194,7 +198,8 @@ The `bottom` block at the very end of your theme output, renders JavaScript that
 
 The add method does its best attempt to match an asset based on file extension.  It is a convenience method, it's better to call one of the direct methods for CSS, Link, JS and JS Module.  See the direct methods for details.
 
-!! The options array is the preferred approach for passing multiple options. However, as in the previous example with `jquery`, you can use a shortcut and pass in an integer for the **second argument** in the method if all you wish to set is the **priority**.
+> [!CAUTION]
+> The options array is the preferred approach for passing multiple options. However, as in the previous example with `jquery`, you can use a shortcut and pass in an integer for the **second argument** in the method if all you wish to set is the **priority**.
 
 #### addCss(asset, [options])
 

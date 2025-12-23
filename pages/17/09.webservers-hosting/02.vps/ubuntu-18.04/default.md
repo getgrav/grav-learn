@@ -8,7 +8,8 @@ title: Ubuntu 18.04 VPS Installation
 At this point, you might want to either setup a local `/etc/hosts` entry to give the IP provided a nice friendly name such as `{{ page.header.localname }}`.  That way you can more easily SSH to your server with `ssh root@{{ page.header.localname }}{% if ssh_port %} -p{{ ssh_port }}{% endif %}`.
 
 {% if ssh_port %}
-!!! The `-p{{ ssh_port}}` configuration option is required in order to be able to the non-standard SSH port
+> [!NOTE]
+> The `-p{{ ssh_port}}` configuration option is required in order to be able to the non-standard SSH port
 {% endif %}
 
 After successfully SSH'ing to your server as **root**, the first thing you will want to do is update and upgrade all the installed packages.  This will ensure you are running the _latest-and-greatest_:
@@ -27,7 +28,8 @@ Before we go any further, let's remove **Apache2** which we will replace with **
 # apt autoremove
 [/codesh]
 
-!! NOTE: You might not have this installed.  But better safe than sorry!
+> [!CAUTION]
+> NOTE: You might not have this installed.  But better safe than sorry!
 
 Next you will want to install some essential packages:
 

@@ -25,7 +25,8 @@ So let us dig a little deeper into each of these top-level folders and explain w
 
 The `assets` folder is used by the new asset management system within Grav to store processed `.css` and `.js` files.
 
-!! This folder should not be used to store any user data, as it is routinely flushed of all data.
+> [!CAUTION]
+> This folder should not be used to store any user data, as it is routinely flushed of all data.
 
 ### /backup
 
@@ -41,7 +42,8 @@ The `cache` folder is used to store temporary cached files that are automaticall
 
 If Grav decides that the **filesystem** is the best caching method, the cached files it generates will be stored here.  The Twig template engine also uses this location to store its pre-compiled template files.  Again, this is done to ensure that Grav performs at its optimum speed.
 
-!! This folder should not be used to store any user data, as it is routinely flushed of all data.
+> [!CAUTION]
+> This folder should not be used to store any user data, as it is routinely flushed of all data.
 
 ### /images
 
@@ -49,7 +51,8 @@ Grav comes with a built-in powerful yet very [easy-to-use image manipulation lib
 
 This folder acts like an image cache and is intended for automatically generated files.  User provided media should be stored in the `user/pages/`, `user/themes/` or even a custom `user/images/` folder.
 
-!! This folder should not be used to store any user data, as it is routinely flushed of all data.
+> [!CAUTION]
+> This folder should not be used to store any user data, as it is routinely flushed of all data.
 
 ### /logs
 
@@ -63,7 +66,8 @@ The `system` folder is where the files that make Grav actually function live.  Y
 
 The `tmp` folder is used by Grav and plugins to store temporary files.
 
-!! This folder should not be used to store any user data, as it is routinely flushed of all data.
+> [!CAUTION]
+> This folder should not be used to store any user data, as it is routinely flushed of all data.
 
 ### /vendor
 
@@ -103,7 +107,8 @@ The [files in the config directory](/17/basics/grav-configuration) are used to c
 
 The `data` folder can be used by plugins to store data that you can reference later.  A good example of a plugin that utilizes this folder is the **Forms** plugin that can take a web form and store the submitted data in a text file in this folder.  You can also store other things such as user-uploads or anything you wish to really.
 
-!! This folder is not accessible via a browser by default.
+> [!CAUTION]
+> This folder is not accessible via a browser by default.
 
 ### /user/images
 

@@ -46,7 +46,8 @@ float: 25.0
 boolean: true
 [/codesh]
 
-! **TIP:** Words `true`, `false`, `null`, `~` and dates have special meaning in YAML. Please quote them if you do not want to use them as a boolean, null or datetime type. Same is true with version numbers, they should be quoted to separate them from float values.
+> [!WARNING]
+> **TIP:** Words `true`, `false`, `null`, `~` and dates have special meaning in YAML. Please quote them if you do not want to use them as a boolean, null or datetime type. Same is true with version numbers, they should be quoted to separate them from float values.
 
 ## Sequences
 

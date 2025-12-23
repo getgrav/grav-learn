@@ -59,7 +59,8 @@ The above shown `attributes` and `datasets` definitions lead to the following fi
 <input name="data[name]" value="" type="text" class="form-input " key="value" data-key="value">
 ```
 
-!!! NOTE: You can set positive values in multiple ways: `'on'`, `true`, `1`. Other values are interpreted as negative.
+> [!NOTE]
+> NOTE: You can set positive values in multiple ways: `'on'`, `true`, `1`. Other values are interpreted as negative.
 
 ---
 
@@ -105,7 +106,8 @@ basic_captcha:
 
 As of Forms `7.1.0`, you can override the global configuration on a per-field basis. This allows different forms to have different captcha styles, fonts, colors, and types.
 
-! **Important**: Use `captcha_type` (not `type`) for the captcha type in field-level configuration to avoid conflict with the required `type: basic-captcha` field type declaration.
+> [!WARNING]
+> **Important**: Use `captcha_type` (not `type`) for the captcha type in field-level configuration to avoid conflict with the required `type: basic-captcha` field type declaration.
 
 **Simple Example:**
 
@@ -194,7 +196,8 @@ The Basic-Captcha field includes four OCR-resistant fonts:
 
 This also requires a matching `process:` element to ensure the form is validated properly.
 
-! This must be the first entry in the `process:` section of the form to ensure the form is not processed if captcha validation fails.
+> [!WARNING]
+> This must be the first entry in the `process:` section of the form to ensure the form is not processed if captcha validation fails.
 
 Example:
 
@@ -223,7 +226,8 @@ As of Form `v7.1.0`, Grav adds support for the new Cloudflare Turnstile field.  
 Before integrating Grav Forms with Turnstile, you must first [create a new Turnstile site](https://dash.cloudflare.com/?to=/:account/turnstile?target=_blank), you can also follow the [official "get started" tutorial](https://developers.cloudflare.com/turnstile/get-started/?target=_blank).
 Here you can also choose the type of widget you want to use, it can be either `managed`, `non-interactive` or `invisible`. It is important to note that you can only change the type of widget from Cloudflare, you won't be able to configure this via Grav. However, if not happy with one choice, you will be able to change it later if you need to. [Learn more about the different widget types](https://developers.cloudflare.com/turnstile/reference/widget-types/?target=_blank).
 
-! Make sure you add any Domain you might need to use the Turnstile field on, this might include your local environment.
+> [!WARNING]
+> Make sure you add any Domain you might need to use the Turnstile field on, this might include your local environment.
 
 Once you have created a site, you will be given a `site_key` and `site_secret` that you will need to configure in your form configuration file (typically `user/config/plugins/form.yaml`). You can ignore the script tag suggested, as Grav takes care of it for you.
 
@@ -238,7 +242,8 @@ turnstile:
 
 Finally, you will also requires a matching `process:` element to ensure the form is validated properly.
 
-! This must be the first entry in the `process:` section of the form to ensure the form is not processed if captcha validation fails.
+> [!WARNING]
+> This must be the first entry in the `process:` section of the form to ensure the form is not processed if captcha validation fails.
 
 ##### Example
 A typical example for a contact form would look like the following.
@@ -284,7 +289,8 @@ form:
 
 The `captcha` field type is used to add a Google reCAPTCHA element to your form. Unlike other elements, it can only be used once in a form.
 
-! You should configure your Google reCAPTCHA configurations in the [reCAPTCHA Admin Console](https://www.google.com/recaptcha/admin?target=_blank)
+> [!WARNING]
+> You should configure your Google reCAPTCHA configurations in the [reCAPTCHA Admin Console](https://www.google.com/recaptcha/admin?target=_blank)
 
 As of version `3.0`, the field supports 3 variations of reCAPTCHA.  The overall configuration of reCAPTCHA is best set in your global form configuration file (typically `user/config/plugins/form.yaml`).  The default options are:
 
@@ -307,7 +313,8 @@ These options should be set based on the following:
 | secret_key | Your Google Secret Key |
 [/div]
 
-!! Please ensure the domain of the site is listed in Google's reCAPTCHA configuration
+> [!CAUTION]
+> Please ensure the domain of the site is listed in Google's reCAPTCHA configuration
 
 In the form definition, the `name` attribute of the captcha field must be `g-recaptcha-response`. The reason is that Google reCAPTCHA stores the Captcha confirmation code in a field named `g-recaptcha-response`.
 
@@ -349,7 +356,8 @@ g-recaptcha-response:
 
 This also requires a matching `process:` element to ensure the form is validated properly.
 
-! This must be the first entry in the `process:` section of the form to ensure the form is not processed if ReCaptcha validation fails.
+> [!WARNING]
+> This must be the first entry in the `process:` section of the form to ensure the form is not processed if ReCaptcha validation fails.
 
 Example:
 
@@ -485,7 +493,8 @@ my_field:
 | [validate.message](#common-fields-attributes)  |
 [/div]
 
-!! NOTE: The checkboxes field does not support the `remember` process action.
+> [!CAUTION]
+> NOTE: The checkboxes field does not support the `remember` process action.
 
 ---
 ### Conditional Field
@@ -629,7 +638,8 @@ test:
 
 The `email` field type is used to present a text input field that accepts an email, using the [email HTML5 input](http://html5doctor.com/html5-forms-input-types/#input-email).
 
-!! Emails are case-insensitive by design. Ensure that your application logic handles upper-, lower- or mixed case emails properly.
+> [!CAUTION]
+> Emails are case-insensitive by design. Ensure that your application logic handles upper-, lower- or mixed case emails properly.
 
 Example:
 [codesh=yaml line-numbers="true"]
@@ -694,7 +704,8 @@ my_files:
 | `accept`      | Takes an array of MIME types that are allowed. For instance to allow only gifs and mp4 files: `accept: ['image/gif', 'video/mp4']`                                                                                                                                                                                                                                                                                                                                                       |
 [/div]
 
-!!! The File field in the admin is a bit different, allowing also to delete a file uploaded to a form, because the use-case in admin is to upload and then associate a file to a field.
+> [!NOTE]
+> The File field in the admin is a bit different, allowing also to delete a file uploaded to a form, because the use-case in admin is to upload and then associate a file to a field.
 
 [div class="table"]
 | Common Attributes Allowed                      |

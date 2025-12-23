@@ -10,7 +10,8 @@ This is especially true for folks that are running their own development servers
 
 In the end, it all comes down to personal preference. On this page, we will list some great resources out there to help you become familiar with the command line.
 
-!! Not all operating systems are compatible with one another when it comes to commands. There are minor differences between MacOS and many Linux distros, with Windows' Command Prompt having a very different set of commands from the other two.
+> [!CAUTION]
+> Not all operating systems are compatible with one another when it comes to commands. There are minor differences between MacOS and many Linux distros, with Windows' Command Prompt having a very different set of commands from the other two.
 
 ## MacOS
 
@@ -41,7 +42,8 @@ Windows sits apart from the pack for a number of reasons. Many of the commands i
 * [MakeUseOf's Beginner's Guide to the Windows Command Line](http://www.makeuseof.com/tag/a-beginners-guide-to-the-windows-command-line/) - A well-written introduction to the command line for Windows.
 * [DOSPrompt.info](http://dosprompt.info/) - An entire site devoted to familiarizing users with the Command Prompt.
 
-!! All of Grav's CLI commands rely on PHP, but this is not immediately available in Windows. You can find out whether it is installed by opening a console and typing `php -v` to check. If `'php' is not recognized as an internal or external command ...` returns, it is not.
+> [!CAUTION]
+> All of Grav's CLI commands rely on PHP, but this is not immediately available in Windows. You can find out whether it is installed by opening a console and typing `php -v` to check. If `'php' is not recognized as an internal or external command ...` returns, it is not.
 
 If you want to add PHP to your Windows system, you need to find your "Environment Variables", either by searching for it in the Start-Menu or going to Control Panel -> Advanced System Settings -> Click the "Environment Variables"-button.
 
@@ -78,7 +80,8 @@ All of the commands listed below are compatible with <strong>any operating syste
 | `bin/gpm scheduler`               | Manage the scheduled jobs and manually run the scheduler process if required                                                       |
 [/div]
 
-!! These commands are explained in greater detail within the [Grav CLI](../grav-cli) and [Grav GPM](../grav-cli-gpm) documentation.
+> [!CAUTION]
+> These commands are explained in greater detail within the [Grav CLI](../grav-cli) and [Grav GPM](../grav-cli-gpm) documentation.
 
 The commands listed below, are compatible with <strong>mac or unix systems.</strong>
 

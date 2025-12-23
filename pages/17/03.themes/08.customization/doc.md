@@ -60,7 +60,8 @@ brew install wellington
 
 To take advantage of it to compile an `scss` folder into a `css-compiled` folder as in the example above you can [use this gist](https://gist.github.com/rhukster/bcfe030e419028422d5e7cdc9b8f75a8).
 
-!! Wellington is what we have been using for all _Team Grav_ themes and it's been working great!
+> [!CAUTION]
+> Wellington is what we have been using for all _Team Grav_ themes and it's been working great!
 
 
 ## Theme Inheritance

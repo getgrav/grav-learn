@@ -91,9 +91,11 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 | `'@taxonomy': {tag: birds, category: blog}`   | taxonomy with tag=`birds` && category=`blog`              |
 [/div]
 
-! This document outlines the use of `@page`, `@taxonomy.category` etc, but a more YAML-safe alternative format is `page@`, `taxonomy@.category`.  All the `@` commands can be written in either prefix or postfix format.
+> [!WARNING]
+> This document outlines the use of `@page`, `@taxonomy.category` etc, but a more YAML-safe alternative format is `page@`, `taxonomy@.category`.  All the `@` commands can be written in either prefix or postfix format.
 
-!! Collection options have been improved and changed since **Grav 1.6**. The old versions will still work, but are not recommended to use.
+> [!CAUTION]
+> Collection options have been improved and changed since **Grav 1.6**. The old versions will still work, but are not recommended to use.
 
 We will cover these more in detail.
 
@@ -141,7 +143,8 @@ content:
 
 An alias of `'@self.self'` is also valid.
 
-! Empty collection will be returned if the page has not been published.
+> [!WARNING]
+> Empty collection will be returned if the page has not been published.
 
 ##### @self.parent - The parent page of the current page
 
@@ -152,7 +155,8 @@ content:
     items: '@self.parent'
 [/codesh]
 
-! Empty collection will be returned if the page is in the top level.
+> [!WARNING]
+> Empty collection will be returned if the page is in the top level.
 
 ##### @self.siblings - Siblings of the current page
 
@@ -217,7 +221,8 @@ content:
 
 An alias of `'@page.self': '/blog'` is also valid.
 
-! Empty collection will be returned if the page has not been published.
+> [!WARNING]
+> Empty collection will be returned if the page has not been published.
 
 ##### @page.parent - The parent page of a specific page
 
@@ -229,7 +234,8 @@ content:
       '@page.parent': '/blog'
 [/codesh]
 @
-! Empty collection will be returned if the page is in the top level.
+> [!WARNING]
+> Empty collection will be returned if the page is in the top level.
 
 ##### @page.siblings - Siblings of a specific page
 
@@ -306,7 +312,8 @@ content:
 
 The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. Published pages that have **both** `foo` **and** `bar` tags will be collected.  The [Taxonomy](../taxonomy) chapter will cover this concept in more detail.
 
-!! If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `'@taxonomy': {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the hierarchy, each with listed values placed within `[]` brackets. Pages must meet **all** these requirements to be found.
+> [!CAUTION]
+> If you wish to place multiple variables inline, you will need to separate sub-variables from their parents with `{}` brackets. You can then separate individual variables on that level with a comma. For example: `'@taxonomy': {category: [blog, featured], tag: [foo, bar]}`. In this example, the `category` and `tag` sub-variables are placed under `@taxonomy` in the hierarchy, each with listed values placed within `[]` brackets. Pages must meet **all** these requirements to be found.
 
 If you have multiple variables in a single parent to set, you can do this using the inline method, but for simplicity, we recommend using the standard method. Here is an example:
 
@@ -354,7 +361,8 @@ The type can also be negative: `non-published`, `non-visible`, `non-page` (=modu
     published: false
 [/codesh]
 
-!! Collection filters have been simplified since **Grav 1.6**. The old `modular` and `non-modular` variants will still work, but are not recommended to use. Use `module` and `page` instead.
+> [!CAUTION]
+> Collection filters have been simplified since **Grav 1.6**. The old `modular` and `non-modular` variants will still work, but are not recommended to use. Use `module` and `page` instead.
 
 ## Ordering Options
 
@@ -493,7 +501,8 @@ Also has several useful Collection-specific methods:
 | `Collection::ofOneOfTheseAccessLevels($levels)` | Filters the current collection to include only pages where page access is in the array of `$levels` |
 [/div]
 
-!! The following methods have been deprecated in **Grav 1.7**: `Collection::modular()` and `Collection::nonModular()`. Use `Collection::modules()` and `Collection::pages()` respectively.
+> [!CAUTION]
+> The following methods have been deprecated in **Grav 1.7**: `Collection::modular()` and `Collection::nonModular()`. Use `Collection::modules()` and `Collection::pages()` respectively.
 
 Here is an example taken from the **Learn2** theme's **docs.html.twig** that defines a collection based on taxonomy (and optionally tags if they exist) and uses the `Collection::isFirst` and `Collection::isLast` methods to conditionally add page navigation:
 

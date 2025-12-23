@@ -35,7 +35,8 @@ The `/var/www` directory and all contained files and folders should be owned by 
 
 The following configuration is an improved version of the default `/etc/nginx/nginx.conf` file, mainly with improvements from [github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx). See their repository for explanations on these settings or the Nginx [core module](http://nginx.org/en/docs/ngx_core_module.html) and [http module](http://nginx.org/en/docs/http/ngx_http_core_module.html) documentation to look up specific directives.
 
-!! It is recommended to use an updated MIME types definition file (`mime.types`) from [github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx). This will make sure that the types are correctly set for gzip compression.
+> [!CAUTION]
+> It is recommended to use an updated MIME types definition file (`mime.types`) from [github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx). This will make sure that the types are correctly set for gzip compression.
 
 **nginx.conf**:
 
@@ -141,7 +142,8 @@ ln -s /etc/nginx/sites-available/grav-site /etc/nginx/sites-enabled/grav-site
 [/codesh]
 
 <!--
-!! It is recommended to use the file `expires.conf` from [github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx) (in the directory `h5bp/location/`). It will set "Expires" headers for different file types, so the browser can cache them. Save the file somewhere in your `/etc/nginx/` directory and include it in your site config, e.g. before the first location directive in `/etc/nginx/sites-available/grav-site`.
+> [!CAUTION]
+> It is recommended to use the file `expires.conf` from [github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx) (in the directory `h5bp/location/`). It will set "Expires" headers for different file types, so the browser can cache them. Save the file somewhere in your `/etc/nginx/` directory and include it in your site config, e.g. before the first location directive in `/etc/nginx/sites-available/grav-site`.
 -->
 
 Finally let Nginx reload its configuration:

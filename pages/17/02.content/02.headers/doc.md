@@ -8,7 +8,8 @@ taxonomy:
 
 The page headers (alternatively known as frontmatter) at the top of a page are completely optional, you do not need them at all for a page to display within Grav. There are 3 primary types of pages (**Standard**, **Listing**, and **Modular**) within Grav, and each has relevant headers.
 
-! Headers are also known as **Page Frontmatter** and are commonly referred to as such so as not to be confused with HTTP Headers.
+> [!WARNING]
+> Headers are also known as **Page Frontmatter** and are commonly referred to as such so as not to be confused with HTTP Headers.
 
 ## Basic Page Headers
 
@@ -32,7 +33,8 @@ date: 01/01/2020 3:14pm
 
 The `date` variable allows you to specifically set a date associated with this page.  This is often used to indicate when a post was created and can be used for display or sort-order purposes.  If not set, this defaults to the last **modified time** of the page.
 
-! Dates in the `m/d/y` or `d-m-y` formats are disambiguated by looking at the separator between the various components: if the separator is a slash (`/`), then the **American** `m/d/y` is assumed; whereas if the separator is a dash (`-`) or a dot (`.`), then the **European** `d.m.y` format is assumed.
+> [!WARNING]
+> Dates in the `m/d/y` or `d-m-y` formats are disambiguated by looking at the separator between the various components: if the separator is a slash (`/`), then the **American** `m/d/y` is assumed; whereas if the separator is a dash (`-`) or a dot (`.`), then the **European** `d.m.y` format is assumed.
 
 ### Menu
 
@@ -104,7 +106,8 @@ cache_control: max-age=604800
 
 Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value.
 
-! Make sure you're using `no-cache` if the page contains information that can change based on the user. Otherwise the content can leak to other users. [Expires](/17/content/headers#expires) setting if set to `expires: 0` has the same effect.
+> [!WARNING]
+> Make sure you're using `no-cache` if the page contains information that can change based on the user. Otherwise the content can leak to other users. [Expires](/17/content/headers#expires) setting if set to `expires: 0` has the same effect.
 
 ### Date Format
 
@@ -138,7 +141,8 @@ expires: 604800
 
 Page expires time in seconds (604800 seconds = 7 days).
 
-! Make sure you're using `expires: 0` if the page contains information that can change based on the user. Otherwise the content can leak to other users. See also [Cache-Control](/17/content/headers#Cache-Control) setting.
+> [!WARNING]
+> Make sure you're using `expires: 0` if the page contains information that can change based on the user. Otherwise the content can leak to other users. See also [Cache-Control](/17/content/headers#Cache-Control) setting.
 
 ### External Url
 
@@ -234,7 +238,8 @@ Enabling this will allow you to add a processing logic that can change dynamical
 
 This is a subtle change, but one that is especially useful in modular pages as it keeps you from having to constantly disable caching when you're working with it. The page is still cached, but not the Twig. The Twig is processed after the cached content is retrieved. For modular forms, it now works with just this setting rather than having to disable the modular page cache.
 
-!! This is not compatible with `twig_first: true` currently because all processing is happening in the one Twig call.
+> [!CAUTION]
+> This is not compatible with `twig_first: true` currently because all processing is happening in the one Twig call.
 
 ### Process
 
@@ -543,6 +548,8 @@ metadata:
     description: Give your page a powerup with Grav!
 [/codesh]
 
-! If a header is defined in both frontmatter.yaml and in page frontmatter, the page values is used, frontmatter.yaml values are overridden.
+> [!WARNING]
+> If a header is defined in both frontmatter.yaml and in page frontmatter, the page values is used, frontmatter.yaml values are overridden.
 
-!!!! Utilizing frontmatter.yaml is a file-side feature and is **not supported** by the admin plugin.
+> [!TIP]
+> Utilizing frontmatter.yaml is a file-side feature and is **not supported** by the admin plugin.

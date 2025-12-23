@@ -9,7 +9,8 @@ twig_first: true
 
 All Grav configuration files are written in [YAML syntax](/17/advanced/yaml) with a `.yaml` file extension.  YAML is very intuitive which makes it very easy to both read and write, however, you can check out the [YAML page in the Advanced chapter](/17/advanced/yaml) to get a complete understanding of the syntax available.
 
-!!! **TIP:** See [Security > Configuration](/17/security/configuration) for a quick guide how to secure and optimize your production site.
+> [!NOTE]
+> **TIP:** See [Security > Configuration](/17/security/configuration) for a quick guide how to secure and optimize your production site.
 
 ## System Configuration
 
@@ -17,7 +18,8 @@ Grav focuses on making things as easy as possible for the user, and the same goe
 
 However, **you should never change this file**, instead any configuration changes you need to make should be stored in a file called `user/config/system.yaml`.  Any setting in this file with the same structure and naming will override the setting provided in the default system configuration file.
 
-!!!! Generally speaking you should **NEVER** change anything in the `system/` folder.  All things the user does (creating content, installing plugins, editing configuration, etc.) should be done in the `user/` folder.  This way it allows simpler upgrading and also keeps your changes all in one location for backing up, synchronizing, etc.
+> [!TIP]
+> Generally speaking you should **NEVER** change anything in the `system/` folder.  All things the user does (creating content, installing plugins, editing configuration, etc.) should be done in the `user/` folder.  This way it allows simpler upgrading and also keeps your changes all in one location for backing up, synchronizing, etc.
 
 Here are the variables found in the default `system/config/system.yaml` file:
 
@@ -589,7 +591,8 @@ Strict mode allows for a cleaner migration to future versions of Grav by moving 
 | **blueprint_compat:** | Enables backward compatible strict support for blueprints |
 [/div]
 
-!! You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
+> [!CAUTION]
+> You do not need to copy the **entire** configuration file to override it, you can override as little or as much as you like.  Just ensure you have the **exact same naming structure** for the particular setting you want to override.
 
 ## Site Configuration
 
@@ -652,7 +655,8 @@ Let's break down the elements of this sample file:
 | **(custom options)** | You can create any option you like in this file and a good example is the `blog: route: '/blog'` option that is accessible in your Twig templates with `site.blog.route` |
 [/div]
 
-!! For most people, the most important element of this file is the `Taxonomy` list.  The taxonomies in this list **must** be defined here if you wish to use them in your content.
+> [!CAUTION]
+> For most people, the most important element of this file is the `Taxonomy` list.  The taxonomies in this list **must** be defined here if you wish to use them in your content.
 
 ## Security
 
@@ -728,7 +732,8 @@ It would also be accessible via PHP from any plugin with the code:
 $count_var = Grav::instance()['config']->get('data.count');
 ```
 
-! You can also provide a custom blueprint to enable your custom file to be editable in the admin plugin. Check out the relevant [recipe in the Admin Cookbook section](/17/admin-panel/admin-recipes#add-a-custom-yaml-file).
+> [!WARNING]
+> You can also provide a custom blueprint to enable your custom file to be editable in the admin plugin. Check out the relevant [recipe in the Admin Cookbook section](/17/admin-panel/admin-recipes#add-a-custom-yaml-file).
 
 ### Config Variable Namespacing
 
@@ -749,7 +754,8 @@ Some example configuration files could be structured:
 | **user/config/themes/mytheme.yaml**   | Individual configuration file for mytheme theme   |
 [/div]
 
-!! Having a namespaced configuration file will override or mask all options having the same path in the default configuration files
+> [!CAUTION]
+> Having a namespaced configuration file will override or mask all options having the same path in the default configuration files
 
 ### Plugins Configuration
 

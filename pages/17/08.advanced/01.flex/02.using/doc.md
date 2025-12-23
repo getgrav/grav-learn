@@ -8,7 +8,8 @@ algolia-pro:
 
 **Flex Objects** is designed to be easy to use. Displaying collection and groups in your pages can mostly be done from Twig templates.
 
-! **TIP:** To enable and display Flex Directory, please read **[Enabling a Directory](/17/advanced/flex/administration/introduction)**
+> [!WARNING]
+> **TIP:** To enable and display Flex Directory, please read **[Enabling a Directory](/17/advanced/flex/administration/introduction)**
 
 ## Using `flex-objects` Page Type
 
@@ -90,7 +91,8 @@ https://www.domain.com/directories/directory:contacts/id:ki2ts4cbivggmtlj
 https://www.domain.com/contacts/id:ki2ts4cbivggmtlj
 ```
 
-! **TIP:** You can pass your own parameters inside `flex` and use them in your collection and object template files.
+> [!WARNING]
+> **TIP:** You can pass your own parameters inside `flex` and use them in your collection and object template files.
 
 ## Rendering Collections and Objects
 
@@ -124,7 +126,8 @@ Each type has two folders, one for rendering collection and one for rendering ob
 
 Collection template `flex/contacts/collection/default.html.twig` is responsible for rendering all the objects in the collection. Rendered output is cached by default. Cache key is defined by the collection and the context passed to the `render()` method.
 
-!! **WARNING:** If context contains non-scalar values, caching will be turned off. Try to keep the context as simple as possible!
+> [!CAUTION]
+> **WARNING:** If context contains non-scalar values, caching will be turned off. Try to keep the context as simple as possible!
 
 Here is an example from Contacts Type:
 ```twig
@@ -153,13 +156,15 @@ Here is an example from Contacts Type:
 </script>
 ```
 
-! **TIP:** If the rendered HTML has dynamic content, render cache can be disabled from the Twig template by `{% do block.disableCache() %}`.
+> [!WARNING]
+> **TIP:** If the rendered HTML has dynamic content, render cache can be disabled from the Twig template by `{% do block.disableCache() %}`.
 
 ### Object Template
 
 Object template `flex/contacts/object/default.html.twig` is responsible for rendering a single object. Rendered output is cached by default. Cache key is defined by the object and the context passed to the `render()` method.
 
-!! **WARNING:** If context contains non-scalar values, caching will be turned off. Try to keep the context as simple as possible!
+> [!CAUTION]
+> **WARNING:** If context contains non-scalar values, caching will be turned off. Try to keep the context as simple as possible!
 
 Here is an example from Contacts Type:
 ```twig
@@ -180,7 +185,8 @@ Here is an example from Contacts Type:
 </div>
 ```
 
-! **TIP:** If the rendered HTML has dynamic content, render cache can be disabled from the Twig template by `{% do block.disableCache() %}`.
+> [!WARNING]
+> **TIP:** If the rendered HTML has dynamic content, render cache can be disabled from the Twig template by `{% do block.disableCache() %}`.
 
 ### Custom Layouts
 
@@ -188,4 +194,5 @@ By using custom layouts, you can create an infinite amount of different views in
 
 You can create your custom layouts by just adding a new file next to `default.html.twig` file. The basename of the file is the same as your layout name.
 
-! **TIP:** In collection layouts, it is recommended to call `{% render object layout: 'xxx' %}` instead of outputting the object variables directly into the collection template.
+> [!WARNING]
+> **TIP:** In collection layouts, it is recommended to call `{% render object layout: 'xxx' %}` instead of outputting the object variables directly into the collection template.

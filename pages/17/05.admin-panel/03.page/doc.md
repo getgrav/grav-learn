@@ -13,7 +13,8 @@ process:
 
 The **Pages** page gives you quick editorial access to your site's content. This is where you can access a page's editor, delete pages, create new pages, and find out if a page is visible at a glance.
 
-!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages.list` permission, see [User Accounts](/17/admin-panel/accounts/users) and [User Groups](/17/admin-panel/accounts/groups)
+> [!CAUTION]
+> Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages.list` permission, see [User Accounts](/17/admin-panel/accounts/users) and [User Groups](/17/admin-panel/accounts/groups)
 
 If you frequently create or modify content on your site, this area of the admin will become very familiar to you.
 
@@ -43,7 +44,8 @@ The **Add Page** button creates a non-modular page for your site. Once selected,
 
 Once you have filled out this information, selecting **Continue** will take you to the new page's editor. We will cover the Page Editor in more detail in [a following guide](../page-editor).
 
-!! Whether a page is visible or not in these settings only has an effect on navigation. A page's ability to be visited by a browser is determined by the page's [publishing settings](../../content/headers#published).
+> [!CAUTION]
+> Whether a page is visible or not in these settings only has an effect on navigation. A page's ability to be visited by a browser is determined by the page's [publishing settings](../../content/headers#published).
 
 #### Add Modular Page
 

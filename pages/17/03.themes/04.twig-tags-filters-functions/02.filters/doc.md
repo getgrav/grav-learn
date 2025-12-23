@@ -317,7 +317,8 @@ A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/functio
 
 `'The quick brown fox jumps over the lazy dog.'|regex_replace(['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])` <i class="fa fa-long-arrow-right"></i> **{{ 'The quick brown fox jumps over the lazy dog.'|regex_replace(['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) }}**
 
-! Use the `~`-delimiter rather than the `/`-delimiter where possible. Otherwise you'll most likely have to [double-escape certain characters](https://github.com/getgrav/grav/issues/833). Eg. `~\/\#.*~` rather than `'/\\/\\#.*/'`, which conforms more closely to the [PCRE-syntax](https://www.php.net/manual/en/regexp.reference.delimiters.php) used by PHP.
+> [!WARNING]
+> Use the `~`-delimiter rather than the `/`-delimiter where possible. Otherwise you'll most likely have to [double-escape certain characters](https://github.com/getgrav/grav/issues/833). Eg. `~\/\#.*~` rather than `'/\\/\\#.*/'`, which conforms more closely to the [PCRE-syntax](https://www.php.net/manual/en/regexp.reference.delimiters.php) used by PHP.
 
 ### `rtrim`
 
@@ -416,7 +417,8 @@ Simply truncates to 5 characters.
 
 `'one sentence. two sentences'|truncate(5, true)|raw` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5, true)|raw }}**
 
-!! The `|raw` Twig filter should be used with the default `&hellip;` (elipsis) padding element in order for it to render with Twig auto-escaping
+> [!CAUTION]
+> The `|raw` Twig filter should be used with the default `&hellip;` (elipsis) padding element in order for it to render with Twig auto-escaping
 
 Truncates to closest sentence-end after 5 characters.
 
@@ -480,7 +482,8 @@ The `wordcount` filter also takes an optional locale parameter to handle differe
 [/codesh]
 {% endverbatim %}
 
-!! **Supported locales:** `en` (English, default), `es` (Spanish), `fr` (French), `de` (German), and other Western languages use word-based counting. `zh`/`zh-cn`/`zh-tw`/`chinese` (Chinese), `ja`/`japanese` (Japanese), and `ko`/`korean` (Korean) use character-based counting.
+> [!CAUTION]
+> **Supported locales:** `en` (English, default), `es` (Spanish), `fr` (French), `de` (German), and other Western languages use word-based counting. `zh`/`zh-cn`/`zh-tw`/`chinese` (Chinese), `ja`/`japanese` (Japanese), and `ko`/`korean` (Korean) use character-based counting.
 
 ### `yaml_encode`
 

@@ -43,9 +43,11 @@ Grav has a powerful regex-based mechanism for handling **route aliases** and **r
 
 These are handled via the [Site Configuration](../../basics/grav-configuration#site-configuration). Grav comes with a sample `system/config/site.yaml` but you can override or add any of your own settings by editing the `user/config/site.yaml` file.
 
-!! All redirect rules apply on the slug-path beginning after the language part (if you use multi-language pages)
+> [!CAUTION]
+> All redirect rules apply on the slug-path beginning after the language part (if you use multi-language pages)
 
-!!!! You must escape certain characters in any routes that you want to match. This is especially important to know if you are migrating an old site that used links containing legacy file extensions (e.g. `.php`) or URL parameters (`?foo=bar`). In these examples, the period and question mark **must be escaped** like `/index\.php\?foo=bar: '/new/location'`.
+> [!TIP]
+> You must escape certain characters in any routes that you want to match. This is especially important to know if you are migrating an old site that used links containing legacy file extensions (e.g. `.php`) or URL parameters (`?foo=bar`). In these examples, the period and question mark **must be escaped** like `/index\.php\?foo=bar: '/new/location'`.
 
 ### Route Aliases
 
@@ -53,7 +55,8 @@ These are handled via the [Site Configuration](../../basics/grav-configuration#s
 
 The most basic kind of alias is a direct one-to-one mapping. In the `routes:` section of the `site.yaml`, you can create a list of mappings to indicate the alias and the actual route that should be used.
 
-!! It's important to note that these aliases are only used if no valid page is found with the route provided
+> [!CAUTION]
+> It's important to note that these aliases are only used if no valid page is found with the route provided
 
 [codesh=yaml line-numbers="true"]
 routes:
@@ -62,7 +65,8 @@ routes:
 
 If you requested a URL `http://mysite.com/something/else` and that was not a valid page, the routes definition would actually serve you the page located at `/blog/focus-and-blur`, assuming it exists. This does not actually **redirect** the user to the provided page, it simply displays the page when you request the alias.
 
-!! The indentation is key here, without it the route redirect will not work. 
+> [!CAUTION]
+> The indentation is key here, without it the route redirect will not work. 
 
 #### Regex-Based Aliases
 

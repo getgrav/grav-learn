@@ -10,7 +10,8 @@ taxonomy:
 
 Collection provides a few useful methods, which can be used to render the output, fetch objects, filter and sort and so on.
 
-! **TIP:** Flex Collection extends **[Doctrine Collections](https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/index.html)**.
+> [!WARNING]
+> **TIP:** Flex Collection extends **[Doctrine Collections](https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/index.html)**.
 
 # Render Collection
 
@@ -25,7 +26,8 @@ Parameters:
 Returns:
 - **Block** (`object`) HtmlBlock class containing the output
 
-!!! **NOTE:** In twig there is a `{% render %}` tag, which should be used instead of calling the method directly. This will allow JS/CSS assets from the collection to work properly.
+> [!NOTE]
+> **NOTE:** In twig there is a `{% render %}` tag, which should be used instead of calling the method directly. This will allow JS/CSS assets from the collection to work properly.
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -78,7 +80,8 @@ Parameters:
 Returns:
 - **[Collection](/17/advanced/flex/using/collection)** (`object`) New sorted instance of the collection
 
-! **TIP:** Default sort order can be set for the frontend in the **Flex Type** blueprints.
+> [!WARNING]
+> **TIP:** Default sort order can be set for the frontend in the **Flex Type** blueprints.
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -163,7 +166,8 @@ Parameters:
 Returns:
 - **[Collection](/17/advanced/flex/using/collection)** (`object`) New filtered instance of the collection
 
-! **TIP:** Default filtering can be set for the frontend in the **Flex Type** blueprints.
+> [!WARNING]
+> **TIP:** Default filtering can be set for the frontend in the **Flex Type** blueprints.
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -203,7 +207,8 @@ if ($collection) {
 Returns:
 - **[Collection](/17/advanced/flex/using/collection)** (`object`) New reversed instance of the collection
 
-! **TIP:** If you're using `sort()`, it is recommended to reverse the ordering in there as it saves an extra step.
+> [!WARNING]
+> **TIP:** If you're using `sort()`, it is recommended to reverse the ordering in there as it saves an extra step.
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -405,7 +410,8 @@ if ($collection) {
 Returns:
 - **[Collection](/17/advanced/flex/using/collection)** (`object`) New instance of the collection, now with cloned objects
 
-!! **WARNING:** If you modify objects in your collection, you should always use copies!
+> [!CAUTION]
+> **WARNING:** If you modify objects in your collection, you should always use copies!
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -700,7 +706,8 @@ if ($collection) {
 
 **Collections** can be accessed just like associative arrays or maps.
 
-!!! **NOTE:** `null` is being returned if object with given key is not in the collection.
+> [!NOTE]
+> **NOTE:** `null` is being returned if object with given key is not in the collection.
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -930,7 +937,8 @@ Parameters:
 Returns:
 - `array` List of `key: Object` pairs
 
-! **TIP:** This method can be used for pagination.
+> [!WARNING]
+> **TIP:** This method can be used for pagination.
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -977,7 +985,8 @@ Parameters:
 Returns:
 - `array` Two dimensional list of `key: Object` pairs
 
-! **TIP:** This method can be used to split content into rows and columns.
+> [!WARNING]
+> **TIP:** This method can be used to split content into rows and columns.
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -1192,7 +1201,8 @@ Parameters:
 Returns:
 - **Collection** (`object`) The collection for chaining the method calls.
 
-!! **WARNING:** This method modifies the object instances shared between all the collections, if that is not intended, please  [copy()](#copy) collection before using this method.
+> [!CAUTION]
+> **WARNING:** This method modifies the object instances shared between all the collections, if that is not intended, please  [copy()](#copy) collection before using this method.
 
 ## defProperty()
 
@@ -1205,7 +1215,8 @@ Parameters:
 Returns:
 - **Collection** (`object`) The collection for chaining the method calls.
 
-!! **WARNING:** This method modifies the object instances shared between all the collections, if that is not intended, please  [copy()](#copy) collection before using this method.
+> [!CAUTION]
+> **WARNING:** This method modifies the object instances shared between all the collections, if that is not intended, please  [copy()](#copy) collection before using this method.
 
 ## unsetProperty()
 
@@ -1217,7 +1228,8 @@ Parameters:
 Returns:
 - **Collection** (`object`) The collection for chaining the method calls.
 
-!! **WARNING:** This method modifies the object instances shared between all the collections, if that is not intended, please  [copy()](#copy) collection before using this method.
+> [!CAUTION]
+> **WARNING:** This method modifies the object instances shared between all the collections, if that is not intended, please  [copy()](#copy) collection before using this method.
 
 ## call()
 
@@ -1230,7 +1242,8 @@ Parameters:
 Returns:
 - List of `key: result` pairs (`array`)
 
-!! **WARNING:** If the method modifies the object, please  [copy()](#copy) collection before using this method.
+> [!CAUTION]
+> **WARNING:** If the method modifies the object, please  [copy()](#copy) collection before using this method.
 
 ## getTimestamps()
 
@@ -1333,7 +1346,8 @@ Parameters:
 Returns:
 - **Collection** (`object`) New collection with objects matching the criteria.
 
-! **TIP:** Check Doctrine documentation for **[Expression Builder](https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/expression-builder.html#expression-builder)** and** [Expressions](https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/expressions.html#expressions)**.
+> [!WARNING]
+> **TIP:** Check Doctrine documentation for **[Expression Builder](https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/expression-builder.html#expression-builder)** and** [Expressions](https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/expressions.html#expressions)**.
 
 ## orderBy()
 

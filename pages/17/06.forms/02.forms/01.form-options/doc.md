@@ -108,7 +108,8 @@ form:
     xss_check: false
 [/codesh]
 
-!! **WARNING** It is not recommended to disable all the XSS checks, but to override specific rules per field basis. All the examples here will also work inside a form field.
+> [!CAUTION]
+> **WARNING** It is not recommended to disable all the XSS checks, but to override specific rules per field basis. All the examples here will also work inside a form field.
 
 You can enable or disable individual rules by overriding the main configuration. The rules which are not overridden will fall back to use security configuration:
 

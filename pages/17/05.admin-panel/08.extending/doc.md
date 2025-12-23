@@ -39,7 +39,8 @@ public function onAdminTwigTemplatePaths($event): void
 
 It is important to remember that the theme used in the Admin plugin is sensitive to the templates available. As a general rule, you should only modify templates with *low impact*, that is, make changes that will not break the interface for any user who installs your plugin. In this sense it is better to override `nav-user-avatar.html.twig` than `nav.html.twig`, as the latter contains much more functionality but uses `{% include 'partials/nav-user-details.html.twig' %}` to include the former.
 
-! **TIP:** Admin template files have autoescaping turned on. You do not need to add `|e` filters to escape HTML content, but you do need to add `|raw` if your input is valid HTML.
+> [!WARNING]
+> **TIP:** Admin template files have autoescaping turned on. You do not need to add `|e` filters to escape HTML content, but you do need to add `|raw` if your input is valid HTML.
 
 ### Adding a custom field
 
@@ -106,7 +107,8 @@ We could extend this further by using the `prepend` or `append` blocks available
 
 Thus we append an `<output>`-tag which will hold the selected value, and add to it and the field itself simple styling to align them properly. We also add an `oninput`-attribute to the field, so that changing values automatically updates the `<output>`-tag with the value. This requires that each field using the range-slider has an unique `id`-property, like the `id: radius` we declared above, which should be something like `id: myadminplugin_radius` to avoid conflicts.
 
-!! If this new template will be shared between frontend and Admin Panel (e.g. using `PLUGIN_TEMPLATES` folder), you need to escape all variables with `|e`. Alternatively you can just go to `Configuration` > `Twig Templating` > `Autoescape variables` and turn it to `Yes`.
+> [!CAUTION]
+> If this new template will be shared between frontend and Admin Panel (e.g. using `PLUGIN_TEMPLATES` folder), you need to escape all variables with `|e`. Alternatively you can just go to `Configuration` > `Twig Templating` > `Autoescape variables` and turn it to `Yes`.
 
 ### Creating custom page templates
 

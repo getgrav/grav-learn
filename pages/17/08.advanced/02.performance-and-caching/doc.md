@@ -22,7 +22,8 @@ taxonomy:
 
 7. **PECL Yaml Parser**.  Installing the native PHP PECL Yaml parser can increase YAML parsing speed by as much as 400%!  This is well worth looking at if you are looking for some extra speed.
 
-!! The getgrav.org runs on a single dedicated server with quad core processors, 16GB of memory and 6G SSD drives. We also run PHP 7.4 with Zend opcache and APCu user cache. The web servers do run a few other websites but not as many as you would find in a shared-hosting environment.
+> [!CAUTION]
+> The getgrav.org runs on a single dedicated server with quad core processors, 16GB of memory and 6G SSD drives. We also run PHP 7.4 with Zend opcache and APCu user cache. The web servers do run a few other websites but not as many as you would find in a shared-hosting environment.
 
 ## Caching Options
 
@@ -74,11 +75,13 @@ By default, Grav uses the `file` check method for its caching.  What this means 
 
 If automatic re-caching of changed pages is not critical to you (or if your site is rather large), then setting this value to `none` will speed up a production environment even more. You will just need to manually [clear the cache](../grav-cli#clearing-grav-cache) after changes are made. This is intended as a **Production-only** setting.
 
-!!!! Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
+> [!TIP]
+> Deleting a page does not clear the cache as cache clears are based on folder-modified timestamps.
 
 <!-- -->
 
-!!! You can easily force the cache to clear by just touching/saving a configuration file.
+> [!NOTE]
+> You can easily force the cache to clear by just touching/saving a configuration file.
 
 #### Memcache Specific Options
 

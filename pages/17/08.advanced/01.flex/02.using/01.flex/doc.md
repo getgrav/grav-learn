@@ -6,7 +6,8 @@ taxonomy:
   category: docs
 ---
 
-! **TIP:** Complete list of methods can be found from **Customizing Flex Objects** section.
+> [!WARNING]
+> **TIP:** Complete list of methods can be found from **Customizing Flex Objects** section.
 
 ## count()
 
@@ -47,7 +48,8 @@ Parameters:
 Returns:
 - `array` list of **[Directories](/17/advanced/flex/using/directory)**
 
-! **TIP:** If no list of names was provided, method returns all directories registered to Flex.
+> [!WARNING]
+> **TIP:** If no list of names was provided, method returns all directories registered to Flex.
 
 [ui-tabs]
 [ui-tab title="Twig"]
@@ -87,7 +89,8 @@ $listedDirectoriesWithMissing = $flex->getDirectories(['contacts', 'phonebook'],
 [/ui-tab]
 [/ui-tabs]
 
-! **TIP:** You may want to make sure you return only the directories you want to.
+> [!WARNING]
+> **TIP:** You may want to make sure you return only the directories you want to.
 
 ## hasDirectory()
 
@@ -161,7 +164,8 @@ if ($directory) {
 [/ui-tab]
 [/ui-tabs]
 
-!!! Check what you can do with **[Flex Directory](/17/advanced/flex/using/directory)**
+> [!NOTE]
+> Check what you can do with **[Flex Directory](/17/advanced/flex/using/directory)**
 
 ## getObject()
 
@@ -209,7 +213,8 @@ if ($object) {
 [/ui-tab]
 [/ui-tabs]
 
-!!! Check what you can do with **[Flex Object](/17/advanced/flex/using/object)**
+> [!NOTE]
+> Check what you can do with **[Flex Object](/17/advanced/flex/using/object)**
 
 ## getCollection()
 
@@ -256,4 +261,5 @@ if ($collection) {
 [/ui-tab]
 [/ui-tabs]
 
-!!! Check what you can do with **[Flex Collection](/17/advanced/flex/using/collection)**
+> [!NOTE]
+> Check what you can do with **[Flex Collection](/17/advanced/flex/using/collection)**

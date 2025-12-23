@@ -550,7 +550,8 @@ header.fieldset:
 
 !Fieldsets have to be saved in the frontmatter too, with `header.`, in order for their sub-field states to be correctly remembered!
 
-!! **Known issue :** if fields in a fieldset use a `toggleable:`, their state won't be memorized if the fieldset named isn't prefixed with `header.`. Here's an example of a valid structure with a modification of the *pagination* option :
+> [!CAUTION]
+> **Known issue :** if fields in a fieldset use a `toggleable:`, their state won't be memorized if the fieldset named isn't prefixed with `header.`. Here's an example of a valid structure with a modification of the *pagination* option :
 
 [codesh=yaml line-numbers="true"]
 header.fieldset:
@@ -598,11 +599,14 @@ You can use an icon to place in the header of the fieldset. The icon system used
 
 ![File Field](file_field_bp.gif)
 
-!! The `file` field is intended to be used by **configuration**, **theme**, and **plugins** blueprints, **NOT page blueprints**.  For pages, you should use the existing `pagemedia` field and then utilize the [filepicker](#filepicker-field) field to select the files.
+> [!CAUTION]
+> The `file` field is intended to be used by **configuration**, **theme**, and **plugins** blueprints, **NOT page blueprints**.  For pages, you should use the existing `pagemedia` field and then utilize the [filepicker](#filepicker-field) field to select the files.
 
-!! The `file` field does not currently work as expected in a list field. Use a single `pagemedia` field separate from the list with one or more `filepicker` fields in the list.
+> [!CAUTION]
+> The `file` field does not currently work as expected in a list field. Use a single `pagemedia` field separate from the list with one or more `filepicker` fields in the list.
 
-! More details can be found in the dedicated [How To: Add a File Upload](../how-to-add-file-upload) section. Also note that displaying an image uploaded in a file field is not done the same way as with a filepicker field. More details about how to access images uploaded in a file field can be found on this [cookbook entry](https://learn.getgrav.org/cookbook/twig-recipes#displaying-an-image-uploaded-in-a-file-field).
+> [!WARNING]
+> More details can be found in the dedicated [How To: Add a File Upload](../how-to-add-file-upload) section. Also note that displaying an image uploaded in a file field is not done the same way as with a filepicker field. More details about how to access images uploaded in a file field can be found on this [cookbook entry](https://learn.getgrav.org/cookbook/twig-recipes#displaying-an-image-uploaded-in-a-file-field).
 
 Example:
 

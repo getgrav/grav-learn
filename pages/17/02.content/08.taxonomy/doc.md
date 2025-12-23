@@ -72,7 +72,8 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 As you can see in the YAML configuration, each page is assigning **values** to the **taxonomy types** we defined in our user `site.yaml` configuration. This information is used by Grav when the pages are processed and creates an internal **taxonomy map** which can be used to find pages based on the taxonomy you defined.
 
-!!!! Your pages do not have to use every taxonomy you define in your `site.yaml`, but you must define any taxonomy you use.
+> [!TIP]
+> Your pages do not have to use every taxonomy you define in your `site.yaml`, but you must define any taxonomy you use.
 
 In your theme, you can easily display a list of pages that are written by `ksmith` by using `taxonomy.findTaxonomy()` to find them and iterate over them:
 

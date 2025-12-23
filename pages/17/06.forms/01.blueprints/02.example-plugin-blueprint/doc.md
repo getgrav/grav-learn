@@ -57,7 +57,8 @@ There are different properties that you can use to give your resource an identit
 | _gpm_            | _(optional)_ Whether to get updates from the GPM. Set to `false` to disable GPM updates for non-GPM resources. |
 [/div]
 
-!! Note that dependencies must use the the name defined in the plugin's or theme's `blueprints.yaml` in the `slug`-property.
+> [!CAUTION]
+> Note that dependencies must use the the name defined in the plugin's or theme's `blueprints.yaml` in the `slug`-property.
 
 Here is an example of the identity portion of the [GitHub plugin](https://github.com/getgrav/grav-plugin-github) blueprints:
 

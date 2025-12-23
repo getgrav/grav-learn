@@ -26,9 +26,11 @@ To create your own custom Directory, you need to start by naming your `type` (fi
 
 After creating the file and filling in the basic information, the next step is to either copy your existing form or to add some fields into the file.
 
-! **TIP:** We assume that you already know how to create your own **[Forms and Blueprints](/17/forms)**.
+> [!WARNING]
+> **TIP:** We assume that you already know how to create your own **[Forms and Blueprints](/17/forms)**.
 
-!! **WARNING:** It is better not to use the simple list format to describe the fields as described in **[Create a simple single form](/17/forms/forms#create-a-simple-single-form)**. Also do not pass `process` section of the form to this file, it will not be used by Flex.
+> [!CAUTION]
+> **WARNING:** It is better not to use the simple list format to describe the fields as described in **[Create a simple single form](/17/forms/forms#create-a-simple-single-form)**. Also do not pass `process` section of the form to this file, it will not be used by Flex.
 
 ## Form
 
@@ -85,7 +87,8 @@ form:
 
 The form looks the same regardless if it was taken from a page or from a configuration, plugin or theme blueprint file. This is the main blueprint for every object in your directory and it should contain all the fields defined in the object. Think it as a form that is displayed to the administrator.
 
-!! **WARNING:** Be careful when you modify a blueprint for existing Flex Type. Make sure objects you have already saved are compatible with the new version of the blueprint - meaning that you should be able to both save and display the older objects.
+> [!CAUTION]
+> **WARNING:** Be careful when you modify a blueprint for existing Flex Type. Make sure objects you have already saved are compatible with the new version of the blueprint - meaning that you should be able to both save and display the older objects.
 
 We are not quite done yet. There is still two things that needs to be done to make the Directory to work: we need to configure the data storage layer and define the fields to display in the Admin List view. We can do both of those inside `config` section.
 
@@ -329,7 +332,8 @@ Search options can be:
 
 Search function returns 0 if the field does not match and weight between 0 and 1 if there is a match. Weight is used for ordering the search results. Object which gets the highest core has better match than one with a lower score.
 
-!!! Currently, search does not support having different weights or strategies per field.
+> [!NOTE]
+> Currently, search does not support having different weights or strategies per field.
 
 ### Config > Admin
 
@@ -606,6 +610,8 @@ blueprints:
               type: bool
 ```
 
-! **TIP:** These configuration options can be modified in **[Configuration](/17/advanced/flex/administration/configuration)** section of the **[Flex Directory Administration](/17/advanced/flex/administration)**.
+> [!WARNING]
+> **TIP:** These configuration options can be modified in **[Configuration](/17/advanced/flex/administration/configuration)** section of the **[Flex Directory Administration](/17/advanced/flex/administration)**.
 
-!!! **NOTE:** Currently the only used configuration options are inside the cache section. For your custom settings, you need to add logic to use them by yourself.
+> [!NOTE]
+> **NOTE:** Currently the only used configuration options are inside the cache section. For your custom settings, you need to add logic to use them by yourself.

@@ -5,7 +5,8 @@ taxonomy:
 last_checked: 1.8.0 (11/04/2025)
 ---
 
-!! **NOTICE:** This is a work in progress, it may contain content that is not in sync with latest released versions of Grav 1.7 or 1.8 beta
+> [!CAUTION]
+> **NOTICE:** This is a work in progress, it may contain content that is not in sync with latest released versions of Grav 1.7 or 1.8 beta
 
 Grav 1.8 introduces significant improvements including PHP 8.3 requirement, updated dependencies, and a new safe upgrade system. Here are a few highlights:
 
@@ -17,7 +18,8 @@ Grav 1.8 introduces significant improvements including PHP 8.3 requirement, upda
 * **Monolog Compatibility**: Switched to Monolog 3, but retains support for Monolog 2.3+ syntax
 * **Code Quality**: PHPStan level 6 support and PHP 8.4 compatibility fixes
 
-!!!! **IMPORTANT:** Grav 1.8 requires **PHP 8.3** or later version. This is a major change from Grav 1.7's PHP 7.3.6+ requirement. Always **take a backup** of your site and **test the upgrade in a testing environment** before upgrading your live site, or use 'safe-upgrade' which automatically creates a restorable snapshot of Grav core.
+> [!TIP]
+> **IMPORTANT:** Grav 1.8 requires **PHP 8.3** or later version. This is a major change from Grav 1.7's PHP 7.3.6+ requirement. Always **take a backup** of your site and **test the upgrade in a testing environment** before upgrading your live site, or use 'safe-upgrade' which automatically creates a restorable snapshot of Grav core.
 
 ### Most Common Issues
 
@@ -77,7 +79,8 @@ Grav 1.8 introduces significant improvements including PHP 8.3 requirement, upda
 
 ### Quick Update Guide
 
-!! **Grav 1.8** requires **PHP 8.3** or later version. The recommended version is the latest **PHP 8.4** release.
+> [!CAUTION]
+> **Grav 1.8** requires **PHP 8.3** or later version. The recommended version is the latest **PHP 8.4** release.
 
 ### Critical Breaking Changes
 

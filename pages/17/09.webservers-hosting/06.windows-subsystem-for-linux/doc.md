@@ -23,8 +23,9 @@ Instead of the standard Ubuntu distro mentioned in the installation guide, searc
 To initialize and update the Ubuntu installation follow [Initializing a newly installed distro](https://docs.microsoft.com/en-us/windows/wsl/initialize-distro?target=_blank).
 This step may be skipped if you have already initialized the Ubuntu distro in the previous step.
 
-! An important aspect of WSL is that **Windows tools** are **not** able to access files stored inside Ubuntu. However, Ubuntu can (almost) freely read/write the Windows filesystem. Therefore, files that need to be accessed by Windows tools (e.g. your IDE, Backup) need to be stored on the Windows filesystem.<br><br>
-! When accessing the Windows filesystem from within the bash shell, you need to prepend the path with `/mnt/c/`. Although not required, it is best to use the exact same file path casing when creating symlinks.
+> [!WARNING]
+> An important aspect of WSL is that **Windows tools** are **not** able to access files stored inside Ubuntu. However, Ubuntu can (almost) freely read/write the Windows filesystem. Therefore, files that need to be accessed by Windows tools (e.g. your IDE, Backup) need to be stored on the Windows filesystem.<br><br>
+> When accessing the Windows filesystem from within the bash shell, you need to prepend the path with `/mnt/c/`. Although not required, it is best to use the exact same file path casing when creating symlinks.
 
 
 ## Installing Apache
@@ -34,7 +35,8 @@ Use the following command in the bash shell to install Apache:
 sudo apt install apache2
 [/codesh]
 
-!!! The terminal used by WSL does not support the pasting of text as you are used to. Use **right-click** for pasting.
+> [!NOTE]
+> The terminal used by WSL does not support the pasting of text as you are used to. Use **right-click** for pasting.
 
 Create a project folder for your websites. For reasons mentioned above, this folder needs to be outside of the WSL filesystem. You could use for example: `C:/Users/<Username>/Documents/Development/Web/webroot`, or simply `C:/webroot`.
 
@@ -50,7 +52,8 @@ Open the Apache default virtual host configuration file:
 sudo nano /etc/apache2/sites-available/000-default.conf
 [/codesh]
 
-!!! Remove existing content by keeping the `Shift`-key pressed and scroll down using the `↓`-key. Then press `Ctrl`<small>+</small>`K` to cut the selection.
+> [!NOTE]
+> Remove existing content by keeping the `Shift`-key pressed and scroll down using the `↓`-key. Then press `Ctrl`<small>+</small>`K` to cut the selection.
 
 Insert the following VirtualHost configuration:
 
@@ -74,8 +77,9 @@ Insert the following VirtualHost configuration:
 </VirtualHost>
 [/codesh]
 
-!!! Save the file by pressing `Ctrl`<small>+</small>`O`, and hit `Enter` to confirm. Exit with `Ctrl`<small>+</small>`X`.<br>
-!!! (In the command bar: `^` meants `Ctrl` and `M` means `Alt`)
+> [!NOTE]
+> Save the file by pressing `Ctrl`<small>+</small>`O`, and hit `Enter` to confirm. Exit with `Ctrl`<small>+</small>`X`.<br>
+> (In the command bar: `^` meants `Ctrl` and `M` means `Alt`)
 
 Open your favorite Windows editor/IDE, and create an `index.html` file in your webroot folder with the following content:
 
@@ -98,8 +102,9 @@ Start the Apache service:
 sudo service apache2 start
 [/codesh]
 
-!! You will probably get the following known error message [which you can ignore](https://github.com/Microsoft/WSL/issues/1953?target=_blank):<br>
-!! *(92)Protocol not available: AH00076: Failed to enable APR_TCP_DEFER_ACCEPT*
+> [!CAUTION]
+> You will probably get the following known error message [which you can ignore](https://github.com/Microsoft/WSL/issues/1953?target=_blank):<br>
+> *(92)Protocol not available: AH00076: Failed to enable APR_TCP_DEFER_ACCEPT*
 
 Open [http://localhost](http://localhost?target=_blank) in your browser and you should see the text 'It works!'.
 
@@ -188,7 +193,8 @@ And add the following lines to the end of the file:
 xdebug.remote_enable = 1
 [/codesh]
 
-!!! In Nano, you can use `Alt`<small>+</small>`/` to jump to the bottom of the file.
+> [!NOTE]
+> In Nano, you can use `Alt`<small>+</small>`/` to jump to the bottom of the file.
 
 Restart Apache again:
 

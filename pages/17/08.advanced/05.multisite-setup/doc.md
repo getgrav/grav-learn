@@ -4,7 +4,8 @@ taxonomy:
     category: docs
 ---
 
-!! Grav has preliminary multisite support available.  However, the Admin plugin still need to be updated to fully support multisite configurations.  We will continue to work on this in subsequent releases of Grav.
+> [!CAUTION]
+> Grav has preliminary multisite support available.  However, the Admin plugin still need to be updated to fully support multisite configurations.  We will continue to work on this in subsequent releases of Grav.
 
 ### What is a Multisite Setup?
 
@@ -50,7 +51,8 @@ Either way, decide which setup suits you best.
 
 For subsites accessible via sub-domains copy the `setup_subdomain.php` file, otherwise for subsites accessible via sub-directories the `setup_subdirectory.php` file into your `setup.php`.
 
-!!! The `setup.php` file must be put in the Grav root folder, the same folder where you can find `index.php`, `README.md` and the other Grav files.
+> [!NOTE]
+> The `setup.php` file must be put in the Grav root folder, the same folder where you can find `index.php`, `README.md` and the other Grav files.
 
 **setup_subdomain.php**:
 [codesh=php line-numbers="true"]
@@ -225,7 +227,8 @@ return [
 
 [/codesh]
 
-!!!! Please be aware that a this very early stage you neither have access to the configuration nor to the URI instance and thus any call to a non-initialized class might end in a freeze of the system, in unexpected errors or in (complete) data loss.
+> [!TIP]
+> Please be aware that a this very early stage you neither have access to the configuration nor to the URI instance and thus any call to a non-initialized class might end in a freeze of the system, in unexpected errors or in (complete) data loss.
 
 #### Streams
 
@@ -300,7 +303,8 @@ This feature comes handy if you want to use for example docker containers and yo
 
 The following environment variables can be used to customize the default paths which Grav uses to setup the environment. After initialization the streams may point to different location.
 
-!!! **Note:** You can use either environment variables or PHP constants, but they need to be set before Grav runs.
+> [!NOTE]
+> **Note:** You can use either environment variables or PHP constants, but they need to be set before Grav runs.
 
 [div class="table-keycol"]
 | Variable | Default | Description |
@@ -315,7 +319,8 @@ The following environment variables can be used to customize the default paths w
 
 In addition there are variables to customize the environments. Better documentation for these can be found in [Server Based Environment Configuration](/17/advanced/environment-config#server-based-environment-configuration).
 
-!!! **Note:** These work also from `setup.php` file. You can either make them constants by using `define()` or environment variables with `putenv()`. Constants are preferred over environment variables.
+> [!NOTE]
+> **Note:** These work also from `setup.php` file. You can either make them constants by using `define()` or environment variables with `putenv()`. Constants are preferred over environment variables.
 
 [div class="table-keycol"]
 | Variable | Default | Description |
@@ -375,7 +380,8 @@ return [
 ];
 ```
 
-!! **WARNING:** `setup.php` is used to set initial configuration. If the plugin or your configuration later override these settings, the initial values get lost.
+> [!CAUTION]
+> **WARNING:** `setup.php` is used to set initial configuration. If the plugin or your configuration later override these settings, the initial values get lost.
 
 After defining the variables in `setup.php`, you can then set those in your server:
 

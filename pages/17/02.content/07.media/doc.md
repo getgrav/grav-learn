@@ -80,7 +80,8 @@ You can also do these same kinds of things using the Twig `Media` object:
 ```
 {% endverbatim %}
 
-!!!! Grav has an `/images` folder. Do not put your own images in that folder, as it hosts Grav auto-generated, cached images.
+> [!TIP]
+> Grav has an `/images` folder. Do not put your own images in that folder, as it hosts Grav auto-generated, cached images.
 
 You may also want to put all the media files into their own folder, so that they can all be accessed at one go. For instance you might want to keep all your MP3 files in a folder `user/pages/mp3s` (not visible) and put the name of the MP3 file associated with a particular page in a header field called `thistrack`. If you then wish to access the file for a particular page and play it using the HTML5 audio element, you will need code like this:
 
@@ -104,7 +105,8 @@ Grav provides a few different display modes for every kind of media object.
 | thumbnail | The thumbnail image for this media object                                       |
 [/div]
 
-!!!! **Data / Information** type media do not support `source` mode, they will default to `text` mode if another mode is not explicitly chosen.
+> [!TIP]
+> **Data / Information** type media do not support `source` mode, they will default to `text` mode if another mode is not explicitly chosen.
 
 ## Thumbnail Location
 
@@ -115,13 +117,15 @@ There are three locations Grav will look for your thumbnail.
 2. Your user folder: `user/images/media/thumb-[media-extension].png` where `media-extension` is the extension of the original media file. Examples are `thumb-mp4.png` and `thumb-jpg.jpg`
 3. The system folder: `system/images/media/thumb-[media-extension].png` where `media-extension` is the extension of the original media file. **The thumbnails in the system folders are pre-provided by Grav.**
 
-!! You can also manually select the desired thumbnail with the actions explained below.
+> [!CAUTION]
+> You can also manually select the desired thumbnail with the actions explained below.
 
 ## Links and Lightboxes
 
 The display modes above can also be used in combination with links and lightboxes, which are explained in more detail later. Important to note however is:
 
-!!!! Grav does not provide lightbox-functionality out of the box, you need a plugin for this. You can use the [FeatherLight Grav plugin](https://github.com/getgrav/grav-plugin-featherlight) to achieve this.
+> [!TIP]
+> Grav does not provide lightbox-functionality out of the box, you need a plugin for this. You can use the [FeatherLight Grav plugin](https://github.com/getgrav/grav-plugin-featherlight) to achieve this.
 
 When you use Grav's media functionality to render a lightbox, all Grav does is output an **anchor** tag that has some attributes for the lightbox plugin to read. If you are interested in using a lightbox library that is not in our plugin repository or you want to create your own plugin, you can use the table below as a reference.
 
@@ -145,7 +149,8 @@ These actions are available for all media types.
 
 #### url
 
-!! This method is only intended to be used in **Twig** templates, hence the lack of Markdown syntax.
+> [!CAUTION]
+> This method is only intended to be used in **Twig** templates, hence the lack of Markdown syntax.
 
 This returns **raw url path** to the media.
 
@@ -167,7 +172,8 @@ This returns **raw url path** to the media.
 
 #### html
 
-!! In Markdown this method is implicitly called when using the `![]` syntax.
+> [!CAUTION]
+> In Markdown this method is implicitly called when using the `![]` syntax.
 
 The `html` action will output a valid HTML tag for the media based on the current display mode.
 
@@ -198,13 +204,15 @@ Use this action to switch between the various display modes that Grav provides. 
 
 For example, the thumbnail that results from calling `page.media['sample-image.jpg'].sepia().display('thumbnail').html()` will not have the `sepia()` action applied, but `page.media['sample-image.jpg'].display('thumbnail').sepia().html()` will.
 
-! Once you switch to thumbnail mode, you will be manipulating an image. This means that even if your current media is a video, you can use all the image-type actions on the thumbnail.
+> [!WARNING]
+> Once you switch to thumbnail mode, you will be manipulating an image. This means that even if your current media is a video, you can use all the image-type actions on the thumbnail.
 
 #### link
 
 Turn your media object into a link. All actions that you call before `link()` will be applied to the target of the link, while any actions called after will apply to what's displayed on your page.
 
-!! After calling `link()`, Grav will automatically switch the display mode to **thumbnail**.
+> [!CAUTION]
+> After calling `link()`, Grav will automatically switch the display mode to **thumbnail**.
 
 The following example will display a textual link (`display('text')`) to a sepia version of the `sample-image.jpg` file:
 
@@ -448,7 +456,8 @@ For example, an image that is `640` x `480` with `crop(0, 0, 400, 100)` will pro
 
 Similar to regular `cropResize`, `cropZoom` also takes a `width` and a `height` but will **resize and crop** the image to ensure the resulting image is the exact size you requested.  The aspect ratio is maintained but parts of the image may be cropped, however the resulting image is centered.
 
-!! The primary difference between **cropResize** and **cropZoom** is that in cropResize, the image is resized maintaining aspect ratio so that the entire image is shown, and any extra space is considered background.
+> [!CAUTION]
+> The primary difference between **cropResize** and **cropZoom** is that in cropResize, the image is resized maintaining aspect ratio so that the entire image is shown, and any extra space is considered background.
 
 With **cropZoom**, the image is resized so that there is no background visible, and the extra image area of the image outside of the new image size is cropped.
 
@@ -469,7 +478,8 @@ For example if you have an image that is `640` x `480` and you perform a `cropZo
 [/ui-tab]
 [/ui-tabs]
 
-!! Folks familiar with using `zoomCrop` for this purpose will find that it also works in Grav.
+> [!CAUTION]
+> Folks familiar with using `zoomCrop` for this purpose will find that it also works in Grav.
 
 ##### Result:
 
@@ -818,7 +828,8 @@ Fixes the orientation of the image when rotation is made via EXIF data (applies 
 
 The **watermark action** merges two images, a watermark image and a source image, into a final watermarked image. This is a very specific action that needs a more detailed description than other actions or filters. In particular, the specific behavior when [combining filters](#combinations) must be taken into account. For those interested, there is a very detailed [blog post about the watermark action](https://www.grav.cz/blog/vodoznak-aneb-nepokrades-kelisova), written by [Vít Petira](https://github.com/petira), but only in Czech. However, the instructions are easy to understand.
 
-! If you are using a page-level [stream](/17/content/image-linking#php-streams), then page prefixes must also be specified.
+> [!WARNING]
+> If you are using a page-level [stream](/17/content/image-linking#php-streams), then page prefixes must also be specified.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
@@ -1032,9 +1043,11 @@ Allows explicitly setting or removing the HTML5 default controls. Passing `0` hi
 
 Allows setting of `preload` property, which defaults to `auto`. Permitted params are `auto`, `metadata`, and `none`.
 
-!! <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#attr-preload">If not set, its default value is browser-defined (i.e. each browser may have its own default value). The spec advises it to be set to <code>metadata</code>.</q>
+> [!CAUTION]
+> <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#attr-preload">If not set, its default value is browser-defined (i.e. each browser may have its own default value). The spec advises it to be set to <code>metadata</code>.</q>
 
-!! The `preload` attribute is ignored if `autoplay` is present.
+> [!CAUTION]
+> The `preload` attribute is ignored if `autoplay` is present.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
@@ -1055,7 +1068,8 @@ Allows setting of `preload` property, which defaults to `auto`. Permitted params
 
 Allows setting whether audio will `autoplay` upon page load. Defaults to `false` by omission if not set.
 
-!! If `autoplay` and `preload` are both present on a given `audio` element, `preload` will be ignored.
+> [!CAUTION]
+> If `autoplay` and `preload` are both present on a given `audio` element, `preload` will be ignored.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
@@ -1077,7 +1091,8 @@ Allows setting whether audio will `autoplay` upon page load. Defaults to `false`
 
 Allows setting of `controlsList` property, which takes one or more of three possible values: `nodownload`, `nofullscreen`, and `noremoteplayback`.
 
-!! If setting more than one parameter in markdown, separate each with a dash (`-`). These will be replaced by spaces in the output HTML.
+> [!CAUTION]
+> If setting more than one parameter in markdown, separate each with a dash (`-`). These will be replaced by spaces in the output HTML.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
@@ -1201,11 +1216,13 @@ To combat this, you can reset the actions on the images by passing `false` to th
 
 Grav has built-in support for responsive images for higher density displays (e.g. **Retina** screens). Grav accomplishes this by implementing `srcset` from the [Picture element HTML proposal](https://html.spec.whatwg.org/multipage/embedded-content.html#the-picture-element). A good article to read if you want to understand this better is [this blog post by Eric Portis](http://ericportis.com/posts/2014/srcset-sizes/).
 
-!! Grav sets the `sizes` argument mentioned in the posts above to full viewport width by default. Use the `sizes` action showcased below to choose yourself.
+> [!CAUTION]
+> Grav sets the `sizes` argument mentioned in the posts above to full viewport width by default. Use the `sizes` action showcased below to choose yourself.
 
 To start using responsive images, all you need to do is add higher density images to your pages by adding a suffix to the file name. If you only provide higher density images, Grav will automatically generate lower quality versions for you. Naming works as follows: `[image-name]@[density-ratio]x.[image-extension]`, so for example adding `sample-image@3x.jpg` to your page will result in Grav creating a `2x` and a `1x` (regular size) version by default.
 
-! These files generated by Grav will be stored in the `images/` cache folder, not your page folder.
+> [!WARNING]
+> These files generated by Grav will be stored in the `images/` cache folder, not your page folder.
 
 Let's assume you have a file called `retina@2x.jpg`, you would actually reference this in your links as `retina.jpg`, and then Grav will not find this image, and start looking for retina image sizes.  It will find `retina@2x.jpg` and then realize it needs to make a `@1x` variant and display the appropriate `srcset` output:
 
@@ -1236,7 +1253,8 @@ Let's assume you have a file called `retina@2x.jpg`, you would actually referenc
 
 ![Retina Image](retina.jpg?sizes=80vw)
 
-!!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the third tab so you can see what's happening behind the screens.
+> [!TIP]
+> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the third tab so you can see what's happening behind the screens.
 
 ##### Sizes with media queries
 
@@ -1269,7 +1287,8 @@ Grav also has support for media queries inside the `sizes` attribute, allowing y
 
 ![Retina Image](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 
-!!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
+> [!TIP]
+> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
 
 ##### Sizes with media queries using derivatives
 
@@ -1277,7 +1296,8 @@ If you want to customize the sizes of the automatically created files, you can u
 
 In our example, we set the maximum to `1600`. This will result in increments of 300 being met from `320` to `1520` as `1620` would be above the threshold.
 
-!! For the moment it does not work inside markdown, only in your ```twig``` files.
+> [!CAUTION]
+> For the moment it does not work inside markdown, only in your ```twig``` files.
 
 [ui-tabs]
 [ui-tab title="Markdown"]
@@ -1306,7 +1326,8 @@ In our example, we set the maximum to `1600`. This will result in increments of 
 
 ![Retina Image](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 
-!!!! Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
+> [!TIP]
+> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
 
 
 #### Manual size definition

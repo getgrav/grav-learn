@@ -126,5 +126,6 @@ This area of the file creates any administrative options accessible in the Grav 
 
 Errors in Blueprint files may cause unexpected results.
 
-!!! **TIP:** You can run **CLI command** `bin/grav yamllinter` to get a report on an errors in yaml files. This can be an invaluable when modifiying yaml files.
+> [!NOTE]
+> **TIP:** You can run **CLI command** `bin/grav yamllinter` to get a report on an errors in yaml files. This can be an invaluable when modifiying yaml files.
 

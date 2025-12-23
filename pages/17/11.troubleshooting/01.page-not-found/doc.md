@@ -8,7 +8,8 @@ There are a couple of reasons you might receive a **Not Found** error, and they 
 
 ![404 Not Found](404-not-found.png?classes=shadow)
 
-!! The examples below are for the Apache Web Server which is the most common server software used.
+> [!CAUTION]
+> The examples below are for the Apache Web Server which is the most common server software used.
 
 ### IIS use of .htaccess file
 After adding URL Rewrite to the IIS server using the Web Platform Installer, restart the IIS server. Go to the management interface, IIS, double-click on URL Rewrite, under Inbound Rules, click on Import Rules, under Rules to Import, browse to the Configuration file, choosing the .htaccess file in the root, and then click on Import. Restart the IIS server. Access Grav now.

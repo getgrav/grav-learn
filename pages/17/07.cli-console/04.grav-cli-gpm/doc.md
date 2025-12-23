@@ -22,7 +22,8 @@ To receive help for a specific command, you can add help to the line before the 
 bin/gpm help install
 [/codesh]
 
-!! To be able to perform **install**, **upgrade**, and **selfupgrade**, PHP must have the `php_openssl` extension enabled.  If you get a fatal error while downloading, this is probably the cause.
+> [!CAUTION]
+> To be able to perform **install**, **upgrade**, and **selfupgrade**, PHP must have the `php_openssl` extension enabled.  If you get a fatal error while downloading, this is probably the cause.
 
 #### PHP CGI-FCGI Information
 
@@ -64,7 +65,8 @@ For instance, if we had a very old version of Antimatter (v1.1.1), but the lates
 
 ![](index-outdated.jpg)
 
-!! You can use --installed-only` option to show the state of **only your installed** plugins and themes.
+> [!CAUTION]
+> You can use --installed-only` option to show the state of **only your installed** plugins and themes.
 
 ## Info
 
@@ -72,7 +74,8 @@ The `info` command displays the details of the desired package, such as descript
 
 ![](info.jpg)
 
-!! You will also be prompted to view the plugin/theme **Changelog** via this option.
+> [!CAUTION]
+> You will also be prompted to view the plugin/theme **Changelog** via this option.
 
 ## Install
 
@@ -84,7 +87,8 @@ You can also install multiple resources at once by separating the slugs with a s
 
 [plugin:youtube](https://www.youtube.com/watch?v=SUUtcYl2xrE)
 
-!! You can use the option `--all-yes (-y)` to skip any prompts. Existing resources will be overridden and if they are symbolic links will automatically be skipped.
+> [!CAUTION]
+> You can use the option `--all-yes (-y)` to skip any prompts. Existing resources will be overridden and if they are symbolic links will automatically be skipped.
 
 ## Update
 
@@ -108,7 +112,8 @@ The command will also detect if a resource is symbolically linked, and prompts y
 
 You can also uninstall multiple resources at once by separating the slugs with a space.
 
-!! You can use the option `--all-yes (-y)` to skip any prompts. If a resource is detected as symbolic link, it will automatically be skipped.
+> [!CAUTION]
+> You can use the option `--all-yes (-y)` to skip any prompts. If a resource is detected as symbolic link, it will automatically be skipped.
 
 ## Self-upgrade
 
@@ -116,7 +121,8 @@ The `self-upgrade` (or selfupgrade) allows you to update Grav to the latest avai
 
 It is strongly advised to always do a backup before performing a self-upgrade (see _Creating a Backup_ in the [CLI section](../grav-cli)).
 
-!! The self-upgrade only upgrades portions of your Grav instance, like `system/` folder, `vendor/` folder, `index.php`, and others. Your **`user`** and **`images`** folders will never be touched.
+> [!CAUTION]
+> The self-upgrade only upgrades portions of your Grav instance, like `system/` folder, `vendor/` folder, `index.php`, and others. Your **`user`** and **`images`** folders will never be touched.
 
 ![](upgrade.jpg)
 

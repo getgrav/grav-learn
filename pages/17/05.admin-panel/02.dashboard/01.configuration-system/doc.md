@@ -13,7 +13,8 @@ process:
 
 The **Configuration** page gives you access to your site's **System** and **Site** configuration settings. Additionally, you can view a breakdown of your server's properties in a number of areas including PHP, server environment, and other various components that determine how your site operates.
 
-!! The Configuration requires an `access.admin.super` or `access.admin.configuration` access level.
+> [!CAUTION]
+> The Configuration requires an `access.admin.super` or `access.admin.configuration` access level.
 
 The **System** tab enables you to customize the settings found in the `/user/config/system.yaml` file. These settings affect how many of the primary system-related features of Grav operate. The site's home page, caching settings, and more can be configured here.
 
@@ -184,7 +185,8 @@ This section determines how Grav handles media content. Image quality and other 
 | **Enable Timestamps on Media** | Appends a timestamp based on last modified date to each media item.                                       |
 [/div]
 
-!! Caching images that have already been optimised (outside of Grav) could result in the output file being a much larger filesize than the original. This is due to a bug in the Gregwar image library and not directly related to Grav (see this [open issue](https://github.com/Gregwar/Image/issues/115) for more information). The alternative is to set "Cache All Images" to No
+> [!CAUTION]
+> Caching images that have already been optimised (outside of Grav) could result in the output file being a much larger filesize than the original. This is due to a bug in the Gregwar image library and not directly related to Grav (see this [open issue](https://github.com/Gregwar/Image/issues/115) for more information). The alternative is to set "Cache All Images" to No
 
 ### Session
 

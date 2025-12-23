@@ -17,9 +17,11 @@ It's essentially a one-stop-shop for managing a specific page.
 
 In this page, we will go over the features and functionality found in the **Options** tab of the **Page Editor**.
 
-!! Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages.list` permission, see [User Accounts](/17/admin-panel/accounts/users) and [User Groups](/17/admin-panel/accounts/groups)
+> [!CAUTION]
+> Accessing the Pages functionality requires an `access.admin.super` or `access.admin.pages.list` permission, see [User Accounts](/17/admin-panel/accounts/users) and [User Groups](/17/admin-panel/accounts/groups)
 
-! You might notice the check boxes to the left of some of the options in this area of the admin. These boxes indicate that you would like to override the default values for this page. Leaving them unchecked reverts to blank or default states.
+> [!WARNING]
+> You might notice the check boxes to the left of some of the options in this area of the admin. These boxes indicate that you would like to override the default values for this page. Leaving them unchecked reverts to blank or default states.
 
 ### Publishing
 

@@ -118,7 +118,8 @@ if ($directory) {
 [/ui-tab]
 [/ui-tabs]
 
-!!! Check what you can do with **[Flex Object](/17/advanced/flex/using/object)**
+> [!NOTE]
+> Check what you can do with **[Flex Object](/17/advanced/flex/using/object)**
 
 ## getCollection()
 
@@ -163,4 +164,5 @@ if ($directory) {
 [/ui-tab]
 [/ui-tabs]
 
-!!! Check what you can do with **[Flex Collection](/17/advanced/flex/using/collection)**
+> [!NOTE]
+> Check what you can do with **[Flex Collection](/17/advanced/flex/using/collection)**

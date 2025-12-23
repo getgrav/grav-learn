@@ -40,7 +40,8 @@ Antimatter sets it to
 
 In short, it just loops the values and prints them in the email body.
 
-!! Refer to the email plugin documentation for additional [important form email options](https://github.com/getgrav/grav-plugin-email#emails-sent-with-forms) including [multipart message bodies](https://github.com/getgrav/grav-plugin-email#multi-part-mime-messages) (good for anti-spam scores), `reply_to`, and [attachments](https://github.com/getgrav/grav-plugin-email#sending-attachments).
+> [!CAUTION]
+> Refer to the email plugin documentation for additional [important form email options](https://github.com/getgrav/grav-plugin-email#emails-sent-with-forms) including [multipart message bodies](https://github.com/getgrav/grav-plugin-email#multi-part-mime-messages) (good for anti-spam scores), `reply_to`, and [attachments](https://github.com/getgrav/grav-plugin-email#sending-attachments).
 
 ##### Dynamic email attribute
 
@@ -144,7 +145,8 @@ You could use any page type you want, as a destination page. Just create your ow
 
 Saves the form data to a file. The file is saved to the `user/data` folder, in a subfolder named as the `form.name` parameter. The form **must** have a name for this action to succeed, and the subfolder must be created with appropriate permissions before data can be saved in it, as a new directory will not be created if one does not exist. For example:
 
-!! The `fileprefix` and `body` can contain Twig markup.
+> [!CAUTION]
+> The `fileprefix` and `body` can contain Twig markup.
 
 [codesh=yaml line-numbers="true"]
 process:
@@ -158,9 +160,11 @@ process:
 
 The body is taken from the theme's `templates/forms/data.html.twig` file, provided by Antimatter and updated themes.
 
-! the `operation` can be either `create` (default) to create a new file per-form-submission or `add` to append to a single file.
+> [!WARNING]
+> the `operation` can be either `create` (default) to create a new file per-form-submission or `add` to append to a single file.
 
-! note that the `add` operation now requires a static filename: to be defined see the example below.
+> [!WARNING]
+> note that the `add` operation now requires a static filename: to be defined see the example below.
 
 [codesh=yaml line-numbers="true"]
 process:
@@ -180,7 +184,8 @@ To also validate the captcha server-side, add the captcha process action.
             recaptcha_secret: ENTER_YOUR_CAPTCHA_SECRET_KEY
 [/codesh]
 
-!! The `recaptcha_secret` is optional and will use the Form plugin's configuration values if you have provided them there.
+> [!CAUTION]
+> The `recaptcha_secret` is optional and will use the Form plugin's configuration values if you have provided them there.
 
 ### User IP Address
 
@@ -215,9 +220,11 @@ process:
 
 Using the `remember` action, you can allow your users to have _some_ field values "recalled" from the last time a form was submitted. This is especially useful for forms which are submitted repeatedly, like an anonymous submission that requires information about the submitter.
 
-! [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) and [Grav's Form plugin](../fields-available#common-field-attributes) already provide this in limited ways through the browser, so do make use of this. However, you may find that autocomplete doesn't work reliably for some users and fields.
+> [!WARNING]
+> [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) and [Grav's Form plugin](../fields-available#common-field-attributes) already provide this in limited ways through the browser, so do make use of this. However, you may find that autocomplete doesn't work reliably for some users and fields.
 
-! The `remember` action **uses cookies** to store the last value, so it will only work on the same device and browser where the browser is configured to allow them from your site.
+> [!WARNING]
+> The `remember` action **uses cookies** to store the last value, so it will only work on the same device and browser where the browser is configured to allow them from your site.
 
 To use this action, simply list the names of the fields you would like to be remembered.
 

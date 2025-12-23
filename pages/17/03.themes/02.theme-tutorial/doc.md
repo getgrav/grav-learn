@@ -30,7 +30,8 @@ Also, you should read the [Important Theme Updates](https://getgrav.org/blog/imp
 
 ## Step 1 - Install DevTools Plugin
 
-!! Previous versions of this tutorial required creating a base theme by default.  This whole process can be skipped thanks to our new **DevTools Plugin**
+> [!CAUTION]
+> Previous versions of this tutorial required creating a base theme by default.  This whole process can be skipped thanks to our new **DevTools Plugin**
 
 The first step in creating a new theme is to **install the DevTools Plugin**.  This can be done in two ways.
 
@@ -60,7 +61,8 @@ bin/plugin devtools new-theme
 
 This process will ask you a few questions that are required to create the new theme:
 
-! We're going to use **pure-blank** to create a new theme, but you can create a simple **inheritance** style template that inherits from another base theme
+> [!WARNING]
+> We're going to use **pure-blank** to create a new theme, but you can create a simple **inheritance** style template that inherits from another base theme
 
 [codesh=bash]
 bin/plugin devtools new-theme
@@ -161,11 +163,13 @@ There are really two things going on here.
 
 First, the template extends a template located in `partials/base.html.twig`.
 
-! You don't need to include `templates/` within Twig templates as Twig is already looking in `templates/` as the root level for any template.
+> [!WARNING]
+> You don't need to include `templates/` within Twig templates as Twig is already looking in `templates/` as the root level for any template.
 
 Second, the `content` block is overridden from the base template, and the page's content is output in its place.
 
-!! For consistency, it's a good idea to use the `templates/partials` folder to contain Twig templates that represent either little chunks of HTML, or are shared. We also use `templates/modular` for modular templates, and `templates/forms` for any forms.  You can create any sub-folders you like if you prefer to organize your templates differently.
+> [!CAUTION]
+> For consistency, it's a good idea to use the `templates/partials` folder to contain Twig templates that represent either little chunks of HTML, or are shared. We also use `templates/modular` for modular templates, and `templates/forms` for any forms.  You can create any sub-folders you like if you prefer to organize your templates differently.
 
 If you look at the `templates/partials/base.html.twig` you will see the meat of the HTML layout:
 
@@ -243,9 +247,11 @@ If you look at the `templates/partials/base.html.twig` you will see the meat of 
 </body>
 [/codesh]
 
-! **TIP:** If a variable is safe to render and contains HTML, always use the `|raw` filter to make the template work with `autoescape` turned on.
+> [!WARNING]
+> **TIP:** If a variable is safe to render and contains HTML, always use the `|raw` filter to make the template work with `autoescape` turned on.
 
-!! It is very important to either turn on the `autoescape` setting in [System Configuration](/17/basics/grav-configuration#twig) or to remember to escape every single variable in template files to make your site safe against [XSS attacks](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting).
+> [!CAUTION]
+> It is very important to either turn on the `autoescape` setting in [System Configuration](/17/basics/grav-configuration#twig) or to remember to escape every single variable in template files to make your site safe against [XSS attacks](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting).
 
 ## Step 5 - Breaking it Down
 

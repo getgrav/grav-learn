@@ -8,7 +8,8 @@ For the fastest way to get Grav up and running, you can run Grav using a simple 
 
 All you need to do is navigate to the root of your Grav install using the Terminal or Command Prompt and enter `bin/grav server`.
 
-!! While technically all you need is PHP installed, if you install the [Symfony CLI application](https://symfony.com/download) the server will provide an SSL certificate so you can use `https://` and make use of PHP-FPM for better performance.
+> [!CAUTION]
+> While technically all you need is PHP installed, if you install the [Symfony CLI application](https://symfony.com/download) the server will provide an SSL certificate so you can use `https://` and make use of PHP-FPM for better performance.
 
 Entering this command will present you with output similar to the following:
 
@@ -46,7 +47,8 @@ Your terminal will also give you real-time updates of any activity on this ad ho
 https://127.0.0.1:8000
 ```
 
-!!!! This is a useful tool for quick development, and should **not** be used in place of a dedicated web server such as Apache or Nginx.
+> [!TIP]
+> This is a useful tool for quick development, and should **not** be used in place of a dedicated web server such as Apache or Nginx.
 
 To specify a different port than the default 8000, use the -p option. For example, to set the port to 8001:
 [codesh=bash]

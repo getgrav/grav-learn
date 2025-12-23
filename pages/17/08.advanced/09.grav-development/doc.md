@@ -124,7 +124,8 @@ When you have created your new theme or plugin and would like to see it added to
 6. [Create a release](https://help.github.com/articles/creating-releases) for your finished plugin/theme. The Grav repository system requires a release and will not find your plugin/theme unless there is a release that contains all of the above.
 7. [Add an issue to the Grav issues tracker](https://github.com/getgrav/grav/issues/new?title=[add-resource]%20New%20Plugin/Theme&body=I%20would%20like%20to%20add%20my%20new%20plugin/theme%20to%20the%20Grav%20Repository.%0AHere%20are%20the%20project%20details:%20**user/repository**) with details about your plugin, and we will give it a quick test to ensure it functions, and then add it. Note that you don't have to do this if you're releasing a new version of plugin or theme that's already in the repository. It will be picked up automatically.
 
-! Ensure your **naming for each tag is consistent**. GPM uses this information to determine if your plugin/theme is newer than the last.  We recommend using [Semantic Version Numbers](http://semver.org/) for tags.  E.g. `1.2.4`. Consistency for all tags is paramount!
+> [!WARNING]
+> Ensure your **naming for each tag is consistent**. GPM uses this information to determine if your plugin/theme is newer than the last.  We recommend using [Semantic Version Numbers](http://semver.org/) for tags.  E.g. `1.2.4`. Consistency for all tags is paramount!
 
 ## ChangeLog Format
 
@@ -149,7 +150,8 @@ The GetGrav.org site uses a custom ChangeLog format that is written in standard 
 
 Each section `#new, #improved, #bugfix` are optional, just include the sections you need.
 
-! Dates can use either the **American** `m/d/y` [date format](/17/content/headers#date), or the **European** `d-m-y` format. Also make sure there is an empty newline between the headers (version and date) and lists (new, improved, bugfix).
+> [!WARNING]
+> Dates can use either the **American** `m/d/y` [date format](/17/content/headers#date), or the **European** `d-m-y` format. Also make sure there is an empty newline between the headers (version and date) and lists (new, improved, bugfix).
 
 ## GitHub Setup
 
@@ -157,11 +159,13 @@ As is the way of things these days, GitHub is going to be your best friend when 
 
 Clone all the repositories you plan to work with into a single `Projects` or `Development` folder on your computer. This will allow our provided tools to find the repositories they need.
 
-!! We use the [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) branching model for all our Grav development.  The core concept of the GitFlow methodology is that development happens in the `develop` branch, but new features and functionality are created in separate `feature` branches that are merged into `develop` when complete.  Releases merge `develop` into `master`, and you can apply `hotfix` branches as needed during the release process. Most modern git clients support this. However, we recommend [Atlassian SourceTree](https://www.atlassian.com/software/sourcetree/overview) as it's free, cross-platform, and easy to use.
+> [!CAUTION]
+> We use the [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) branching model for all our Grav development.  The core concept of the GitFlow methodology is that development happens in the `develop` branch, but new features and functionality are created in separate `feature` branches that are merged into `develop` when complete.  Releases merge `develop` into `master`, and you can apply `hotfix` branches as needed during the release process. Most modern git clients support this. However, we recommend [Atlassian SourceTree](https://www.atlassian.com/software/sourcetree/overview) as it's free, cross-platform, and easy to use.
 
 Grav also has some dependencies (dictated by the `.dependencies` file) which include the **Error** and **Problems** plugins, as well as the **Antimatter** theme.  You can follow these instructions to clone these bits on your own computer.
 
-!!!! If you wish to make additions or changes to any of the `getgrav` repositories, you will need to **fork** the appropriate repository and then clone **your fork's url** rather than the `getgrav` repository directly. The example below is using the direct `getgrav` repositories for example only.
+> [!TIP]
+> If you wish to make additions or changes to any of the `getgrav` repositories, you will need to **fork** the appropriate repository and then clone **your fork's url** rather than the `getgrav` repository directly. The example below is using the direct `getgrav` repositories for example only.
 
 [codesh=bash]
 cd
