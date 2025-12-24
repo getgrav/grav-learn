@@ -2,10 +2,5 @@
 title: Advanced
 taxonomy:
     category: docs
+description: In this chapter we will cover some advanced features and capabilities of Grav.
 ---
-
-### Chapter 8
-
-# Advanced
-
-In this chapter we will cover some advanced features and capabilities of **Grav**.

@@ -2,10 +2,5 @@
 title: Hints and Tips
 taxonomy:
     category: docs
+description: Discover hints and tips from Grav users.
 ---
-
-### Chapter 15
-
-# Hints and Tips
-
-Discover hints and tips from Grav users. 

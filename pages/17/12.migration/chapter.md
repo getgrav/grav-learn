@@ -2,10 +2,5 @@
 title: Migration
 taxonomy:
     category: docs
+description: This chapter is dedicated to support migrations from other CMSes like Drupal and WordPress.
 ---
-
-### Chapter 12
-
-# Migration
-
-This chapter is dedicated to support migrations from other CMSes like Drupal and WordPress.
