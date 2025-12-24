@@ -1,6 +1,7 @@
 # Search
 search:
   provider: yetisearch-pro
+  min_chars: 2
 
 # Enable versioning for demo
 versioning:
@@ -12,12 +13,18 @@ versioning:
     17: "1.7 (Stable)"
     18: "1.8 (Beta)"
 
+# GitHub integration
+github:
+  enabled: true                                   # Enable GitHub integration
+  repo: getgrav/grav-learn                                           # Repository in format 'owner/repo'
+  branch: develop                                     # Branch for edit links
+  edit_link: true                                  # Show "Edit on GitHub" link
+  edit_text: 'Edit this page on Github'                      # Edit link text
+
 # Header menu
 header:
   menu:
-    - route: /privacy
-      label: Privacy
-    - route: /contact
-      label: Contact
-    - route: /copyright
-      label: Copyright
+    - route: https://getgrav.org
+      label: Grav CMS
+    - route: https://github.com/getgrav/grav
+      label: Github

@@ -19,7 +19,7 @@ Grav also provides a variety of custom Twig Tags that extend the already very ca
 The Markdown tag provides a powerful new way to embed markdown in Twig template.  You could use a variable and render that variable with the `|markdown` filter, but the `{% markdown %}` syntax makes creating blocks of markdown text even simpler.
 
 [codesh-group]
-[codesh=twig title="Twig"]
+[codesh=twig line-numbers="true" title="Twig"]
 {% markdown %}
 This is **bold** and this _underlined_
 
@@ -27,7 +27,7 @@ This is **bold** and this _underlined_
 2. This is another item in that same list
 {% endmarkdown %}
 [/codesh]
-[codesh=html title="Output"]
+[codesh=html line-numbers="true" title="Output"]
 <p>This is <strong>bold</strong> and this <em>underlined</em></p>
 <ol>
 <li>This is a bullet list</li>
@@ -123,7 +123,7 @@ Grav 1.7.28 adds also support for modules:
 In most programming language, using a `switch` statement is a common way to make a bunch of `if else` statements cleaner and more readabile.  Also they may prove to be marginally faster.  We just provide a simple way of creating these as they were missing in the base Twig functionality.
 
 [codesh-group]
-[codesh=twig title="Twig"]
+[codesh=twig line-numbers="true" highlight="2-4" title="Twig"]
 {% switch type %}
   {% case 'foo' %}
      {{ my_data.foo }}

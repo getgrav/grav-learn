@@ -4,3 +4,4 @@ languages:
     content: |
       THEME_HELIOS:
         VERSION_LATEST: "Current"
+        POWERED_BY_GRAV: Powered by <a href="https://getgrav.org" class="text-primary hover:underline" target="_blank" rel="noopener">Grav</a> + <a href="https://getgrav.org/premium/helios" class="text-primary hover:underline" target="_blank" rel="noopener">Helios</a>
