@@ -9,7 +9,7 @@ Grav is intentionally designed with few requirements. You can easily run Grav on
 
 1. Web Server (Apache, Nginx, LiteSpeed, Lightly, IIS, etc.)
 
-2. PHP 7.3.6 or higher
+2. PHP 8.3.11 or higher
 
 3. hmm... that's it really, (but please look at PHP requirements for a smooth experience)!
 
@@ -20,7 +20,7 @@ Grav is built with plain text files for your content. There is no database neede
 
 ## Web Servers
 
-Grav is so simple and versatile that you don't even need a web server to run it. You can run it directly off the built-in PHP webserver, as long as you're running **PHP 7.3.6** or later.
+Grav is so simple and versatile that you don't even need a web server to run it. You can run it directly off the built-in PHP webserver, as long as you're running **PHP 8.3.11** or later.
 
 Testing with the built-in webservers is a useful way to check a Grav install and perform some brief development, but it is **not** recommended for a live site or even for advanced development tasks. We've outlined how in our [Installation guide](/18/basics/installation#running-grav-with-the-built-in-php-webserver-using-routerphp).
 
@@ -28,7 +28,6 @@ Even though technically you do not need a standalone web server, it is better to
 
 ### Mac
 
-* MacOS 10.14 Mojave already ships with the Apache Web server and PHP 7.1, so job done!
 * [MAMP/MAMP Pro](https://www.mamp.info/en/mac/) comes with Apache, MySQL and of course PHP. It is a great way to get more control over which version of PHP you are running, setting up virtual hosts, plus other useful features such as automatically handling dynamic DNS.
 * [DDEV](https://ddev.com/) for docker-based PHP development environments.
 * [AMPPS](https://www.ampps.com/downloads) is a software stack from Softaculous enabling Apache, PHP, Perl, Python,.. This includes everything you need (and more) for GRAV development.
