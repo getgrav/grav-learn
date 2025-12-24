@@ -14,169 +14,297 @@ taxonomy:
 
 Twig filters are applied to Twig variables by using the `|` character followed by the filter name.  Parameters can be passed in just like Twig functions using parenthesis.
 
-### `absolute_url`
+### absolute_url
 
 Takes an HTML snippet containing a `src` or `href` attribute which uses a relative path. Converts the path string to an absolute URL format including hostname.
 
-`'<img src="/some/path/to/image.jpg" />'|absolute_url` <i class="fa fa-long-arrow-right"></i> &lt;img src=&quot;https://learn.getgrav.org/some/path/to/image.jpg&quot;&gt;
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ '<img src="/some/path/to/image.jpg" />'|absolute_url }}
+[/codesh]
+[codesh=html title="Output"]
+<img src="https://learn.getgrav.org/some/path/to/image.jpg">
+[/codesh]
+[/codesh-group]
 
-### `array_unique`
+### array_unique
 
 Wrapper for PHP `array_unique()` that removes duplicates from an array.
 
-`['foo', 'bar', 'foo', 'baz']|array_unique` <i class="fa fa-long-arrow-right"></i> **{{ print_r(['foo', 'bar', 'foo', 'baz']|array_unique) }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ ['foo', 'bar', 'foo', 'baz']|array_unique }}
+[/codesh]
+[codesh=txt title="Output"]
+['foo', 'bar', 'baz']
+[/codesh]
+[/codesh-group]
 
-### `base32_encode`
+### base32_encode
 
 Performs a base32 encoding on variable
-`'some variable here'|base32_encode` <i class="fa fa-long-arrow-right"></i> **{{ 'some variable here'|base32_encode }}**
 
-### `base32_decode`
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'some variable here'|base32_encode }}
+[/codesh]
+[codesh=txt title="Output"]
+ONXW2ZJAOZQXE2LBMJWGKIDIMVZGK
+[/codesh]
+[/codesh-group]
+
+### base32_decode
 
 Performs a base32 decoding on variable
-`'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGK'|base32_decode` <i class="fa fa-long-arrow-right"></i> **{{ 'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGK'|base32_decode }}**
 
-### `base64_encode`
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGK'|base32_decode }}
+[/codesh]
+[codesh=txt title="Output"]
+some variable here
+[/codesh]
+[/codesh-group]
+
+### base64_encode
 
 Performs a base64 encoding on variable
-`'some variable here'|base64_encode` <i class="fa fa-long-arrow-right"></i> **{{ 'some variable here'|base64_encode }}**
 
-### `base64_decode`
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'some variable here'|base64_encode }}
+[/codesh]
+[codesh=txt title="Output"]
+c29tZSB2YXJpYWJsZSBoZXJl
+[/codesh]
+[/codesh-group]
+
+### base64_decode
 
 Performs a base64 decoding on variable
-`'c29tZSB2YXJpYWJsZSBoZXJl'|base64_decode` <i class="fa fa-long-arrow-right"></i> **{{ 'c29tZSB2YXJpYWJsZSBoZXJl'|base64_decode }}**
 
-### `basename`
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'c29tZSB2YXJpYWJsZSBoZXJl'|base64_decode }}
+[/codesh]
+[codesh=txt title="Output"]
+some variable here
+[/codesh]
+[/codesh-group]
+
+### basename
 
 Return the basename of a path.
 
-`'/etc/sudoers.d'|basename` <i class="fa fa-long-arrow-right"></i> **{{ '/etc/sudoers.d'|basename }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ '/etc/sudoers.d'|basename }}
+[/codesh]
+[codesh=txt title="Output"]
+sudoers.d
+[/codesh]
+[/codesh-group]
 
-### `camelize`
+### camelize
 
 Converts a string into "CamelCase" format
 
-`'send_email'|camelize` <i class="fa fa-long-arrow-right"></i> **{{ 'send_email'|camelize }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'send_email'|camelize }}
+[/codesh]
+[codesh=txt title="Output"]
+SendEmail
+[/codesh]
+[/codesh-group]
 
-### `chunk_split`
+### chunk_split
 
 Splits a string into smaller chunks of a certain sizeOf
 
-`'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGKA'|chunk_split(6, '-')` <i class="fa fa-long-arrow-right"></i> **{{ 'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGKA'|chunk_split(6, '-') }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'ONXW2ZJAOZQXE2LBMJWGKIDIMVZGKA'|chunk_split(6, '-') }}
+[/codesh]
+[codesh=txt title="Output"]
+ONXW2Z-JAOZQX-E2LBMJ-WGKIDI-MVZGKA-
+[/codesh]
+[/codesh-group]
 
-### `contains`
+### contains
 
 Determine if a particular string contains another string
 
-`'some string with things in it'|contains('things')` <i class="fa fa-long-arrow-right"></i> **{{ 'some string with things in it'|contains('things') }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'some string with things in it'|contains('things') }}
+[/codesh]
+[codesh=txt title="Output"]
+true
+[/codesh]
+[/codesh-group]
 
 #### Casting Values
 
 PHP 7 is getting more strict type checks, which means that passing a value of wrong type may now throw an exception. To avoid this, you should use filters which ensure that the value passed to a method is valid:
 
-### `string`
+### string
 
 Use `|string` to cast value to string.
 
-### `int`
+### int
 
 Use `|int` to cast value to integer.
 
-### `bool`
+### bool
 
 Use `|bool` to cast value to boolean.
 
-### `float`
+### float
 
 Use `|float` to cast value to floating point number.
 
-### `array`
+### array
 
 Use `|array` to cast value to an array.
 
-### `defined`
+### defined
 
 Sometimes you want to check if some variable is defined, and if it's not, provide a default value.  For example:
 
-`set header_image_width  = page.header.header_image_width|defined(900)`
+[codesh=twig]
+set header_image_width = page.header.header_image_width|defined(900)
+[/codesh]
 
 This will set the variable `header_image_width` to the value `900` if it's not defined in the page header.
 
-### `dirname`
+### dirname
 
 Return the dirname of a path.
 
-`'/etc/sudoers.d'|dirname` <i class="fa fa-long-arrow-right"></i> **{{ '/etc/sudoers.d'|dirname }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ '/etc/sudoers.d'|dirname }}
+[/codesh]
+[codesh=txt title="Output"]
+/etc
+[/codesh]
+[/codesh-group]
 
-### `ends_with`
+### ends_with
 
 Takes a needle and a haystack and determines if the haystack ends with the needle.  Also now works with an array of needles and will return `true` if **any** haystack ends with the needle.
 
-`'the quick brown fox'|ends_with('fox')` <i class="fa fa-long-arrow-right"></i> {{  'the quick brown fox'|ends_with('fox') ? 'true' : 'false' }}
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'the quick brown fox'|ends_with('fox') }}
+[/codesh]
+[codesh=txt title="Output"]
+true
+[/codesh]
+[/codesh-group]
 
-### `fieldName`
+### fieldName
 
 Filters field name by changing dot notation into array notation
 
-`'field.name'|fieldName` <i class="fa fa-long-arrow-right"></i> **{{ 'field.name'|fieldName }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'field.name'|fieldName }}
+[/codesh]
+[codesh=txt title="Output"]
+field[name]
+[/codesh]
+[/codesh-group]
 
-### `get_type`
+### get_type
 
 Gets the type of a variable:
 
-`page|get_type` <i class="fa fa-long-arrow-right"></i> **{{ page|get_type }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ page|get_type }}
+[/codesh]
+[codesh=txt title="Output"]
+Grav\Common\Page\Page
+[/codesh]
+[/codesh-group]
 
-### `humanize`
+### humanize
 
 Converts a string into a more "human readable" format
 
-`'something_text_to_read'|humanize` <i class="fa fa-long-arrow-right"></i> **{{ 'something_text_to_read'|humanize }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'something_text_to_read'|humanize }}
+[/codesh]
+[codesh=txt title="Output"]
+Something text to read
+[/codesh]
+[/codesh-group]
 
-### `hyphenize`
+### hyphenize
 
 Converts a string into a hyphenated version.
 
-`'Something Text to Read'|hyphenize` <i class="fa fa-long-arrow-right"></i> **{{ 'Something Text to Read'|hyphenize }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'Something Text to Read'|hyphenize }}
+[/codesh]
+[codesh=txt title="Output"]
+something-text-to-read
+[/codesh]
+[/codesh-group]
 
-### `json_decode`
+### json_decode
 
 You can decode JSON by simply applying this filter:
 
-`array|json_decode` 
-[codesh=twig line-numbers="true"]
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set array = '{"first_name": "Guido", "last_name":"Rossum"}'|json_decode %}
 {{ print_r(array) }}
 [/codesh]
-
-
-{% set array = '{"first_name": "Guido", "last_name":"Rossum"}'|json_decode %}
-[codesh=txt]
-{{ print_r(array) }}
+[codesh=txt title="Output"]
+[
+    "first_name" => "Guido"
+    "last_name" => "Rossum"
+]
 [/codesh]
+[/codesh-group]
 
-### `ksort`
+### ksort
 
 Sort an array map by each key
 
-`array|ksort` 
-[codesh=twig line-numbers="true"]
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set items = {'orange':1, 'apple':2, 'peach':3}|ksort %}
 {{ print_r(items) }}
 [/codesh]
-
-
-{% set items = {'orange':1, 'apple':2, 'peach':3}|ksort %}
-[codesh=txt]
-{{ print_r(items) }}
+[codesh=txt title="Output"]
+[
+    "apple" => 2
+    "orange" => 1
+    "peach" => 3
+]
 [/codesh]
+[/codesh-group]
 
-### `ltrim`
-
-`'/strip/leading/slash/'|ltrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/leading/slash/'|ltrim('/') }}
+### ltrim
 
 Left trim removes trailing spaces at the beginning of a string. It can also remove other characters by setting the character mask (see [https://php.net/manual/en/function.ltrim.php](https://php.net/manual/en/function.ltrim.php))
 
-### `markdown`
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ '/strip/leading/slash/'|ltrim('/') }}
+[/codesh]
+[codesh=txt title="Output"]
+strip/leading/slash/
+[/codesh]
+[/codesh-group]
+
+### markdown
 
 Take an arbitrary string containing markdown and convert it to HTML using the markdown parser of Grav. Optional `boolean` parameter:
 
@@ -187,284 +315,439 @@ Take an arbitrary string containing markdown and convert it to HTML using the ma
 string|markdown($is_block)
 ```
 
-
-[codesh=twig line-numbers="true"]
+[codesh-group]
+[codesh=twig title="Twig"]
 <div class="div">
 {{ 'A paragraph with **markdown** and [a link](http://www.cnn.com)'|markdown }}
 </div>
 
 <p class="paragraph">{{'A line with **markdown** and [a link](http://www.cnn.com)'|markdown(false) }}</p>
 [/codesh]
-
-
-{% set var %}
+[codesh=html title="Output"]
 <div class="div">
-{{ 'A paragraph with **markdown** and [a link](http://www.cnn.com)'|markdown }}
+<p>A paragraph with <strong>markdown</strong> and <a href="http://www.cnn.com">a link</a></p>
 </div>
 
-<p class="paragraph">{{'A line with **markdown** and [a link](http://www.cnn.com)'|markdown(false) }}</p>
-{% endset %}
-[codesh=txt]
-{{ var|e }}
+<p class="paragraph">A line with <strong>markdown</strong> and <a href="http://www.cnn.com">a link</a></p>
 [/codesh]
+[/codesh-group]
 
-### `md5`
+### md5
 
 Creates an md5 hash for the string
 
-`'anything'|md5` <i class="fa fa-long-arrow-right"></i> **{{ 'anything'|md5 }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'anything'|md5 }}
+[/codesh]
+[codesh=txt title="Output"]
+f0e166dc34d14d6c228ffac576c9a43c
+[/codesh]
+[/codesh-group]
 
-### `modulus`
+### modulus
 
 Performs the same functionality as the Modulus `%` symbol in PHP. It operates on a number by passing in a numeric divider and an optional array of items to select from.
 
-`7|modulus(3, ['red', 'blue', 'green'])` <i class="fa fa-long-arrow-right"></i> **{{ 7|modulus(3, ['red', 'blue', 'green']) }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 7|modulus(3, ['red', 'blue', 'green']) }}
+[/codesh]
+[codesh=txt title="Output"]
+blue
+[/codesh]
+[/codesh-group]
 
-### `monthize`
+### monthize
 
 Converts an integer number of days into the number of months
 
-`'181'|monthize` <i class="fa fa-long-arrow-right"></i> **{{ '181'|monthize }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ '181'|monthize }}
+[/codesh]
+[codesh=txt title="Output"]
+6
+[/codesh]
+[/codesh-group]
 
-### `nicecron`
+### nicecron
 
 Gets a human readable output for cron syntax
 
-`"2 * * * *"|nicecron` <i class="fa fa-long-arrow-right"></i> **{{ '2 * * * *'|nicecron }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ "2 * * * *"|nicecron }}
+[/codesh]
+[codesh=txt title="Output"]
+At 2 minutes past the hour
+[/codesh]
+[/codesh-group]
 
-### `nicefilesize`
+### nicefilesize
 
 Output a file size in a human readable nice size format
 
-`612394|nicefilesize` <i class="fa fa-long-arrow-right"></i> **{{ 612394|nicefilesize }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 612394|nicefilesize }}
+[/codesh]
+[codesh=txt title="Output"]
+598.04 KB
+[/codesh]
+[/codesh-group]
 
-### `nicenumber`
+### nicenumber
 
 Output a number in a human readable nice number format
 
-`12430|nicenumber` <i class="fa fa-long-arrow-right"></i> **{{ 12430|nicenumber }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 12430|nicenumber }}
+[/codesh]
+[codesh=txt title="Output"]
+12K
+[/codesh]
+[/codesh-group]
 
-### `nicetime`
+### nicetime
 
 Output a date in a human readable nice time format
 
-`page.date|nicetime(false)` <i class="fa fa-long-arrow-right"></i> **{{ page.date|nicetime(false) }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ page.date|nicetime(false) }}
+[/codesh]
+[codesh=txt title="Output"]
+1 month ago
+[/codesh]
+[/codesh-group]
 
 The first argument specifies whether to use a full format date description. It's `true` by default.
 
 You can provide a second argument of `false` if you want to remove the time relative descriptor (like 'ago' or 'from now' in your language) from the result.
 
-### `of_type`
+### of_type
 
 Checks the type of a variable to the param:
 
-`page|of_type('string')` <i class="fa fa-long-arrow-right"></i> **{{ page|of_type('string') ? 'true' : 'false' }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ page|of_type('string') }}
+[/codesh]
+[codesh=txt title="Output"]
+false
+[/codesh]
+[/codesh-group]
 
-### `ordinalize`
+### ordinalize
 
 Adds an ordinal to the integer (such as 1st, 2nd, 3rd, 4th)
 
-`'10'|ordinalize` <i class="fa fa-long-arrow-right"></i> **{{ '10'|ordinalize }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ '10'|ordinalize }}
+[/codesh]
+[codesh=txt title="Output"]
+10th
+[/codesh]
+[/codesh-group]
 
-### `pad`
+### pad
 
 Pads a string to a certain length with another character. This is a wrapper for the PHP [str_pad()](https://php.net/manual/en/function.str-pad.php) function.
 
-`'foobar'|pad(10, '-')` <i class="fa fa-long-arrow-right"></i> **{{ 'foobar'|pad(10, '-') }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'foobar'|pad(10, '-') }}
+[/codesh]
+[codesh=txt title="Output"]
+foobar----
+[/codesh]
+[/codesh-group]
 
-### `pluralize`
+### pluralize
 
 Converts a string to the English plural version
 
-`'person'|pluralize` <i class="fa fa-long-arrow-right"></i> **{{ 'person'|pluralize }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'person'|pluralize }}
+[/codesh]
+[codesh=txt title="Output"]
+people
+[/codesh]
+[/codesh-group]
 
 `pluralize` also takes an optional numeric parameter which you can pass in when you don't know in advance how many items the noun will refer to. It defaults to 2, so will provide the plural form if omitted. For example:
-
 
 [codesh=twig]
 <p>We have {{ num_vacancies }} {{ 'vacancy'|pluralize(num_vacancies) }} right now.</p>
 [/codesh]
 
-
-### `print_r`
+### print_r
 
 Prints human-readable information about a variable
 
-`page.header|print_r`
-
-[codesh=txt]
-{{ page.header|print_r }}
+[codesh=twig]
+page.header|print_r
 [/codesh]
 
-### `randomize`
+### randomize
 
 Randomizes the list provided.  If a value is provided as a parameter, it will skip first n values and keep them in order.
 
-`array|randomize` 
-[codesh=twig line-numbers="true"]
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
 {{ print_r(ritems) }}
 [/codesh]
-
-
-{% set ritems = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']|randomize(2) %}
-[codesh=txt]
-{{ print_r(ritems) }}
+[codesh=txt title="Output"]
+['one', 'two', 'eight', 'four', 'ten', 'seven', 'nine', 'three', 'six', 'five']
 [/codesh]
+[/codesh-group]
 
-### `regex_replace`
+Note: The first two items ('one', 'two') remain in order, while the rest are randomized.
+
+### regex_replace
 
 A helpful wrapper for the PHP [preg_replace()](https://php.net/manual/en/function.preg-replace.php) method, you can perform complex Regex replacements on text via this filter:
 
-`'The quick brown fox jumps over the lazy dog.'|regex_replace(['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle'])` <i class="fa fa-long-arrow-right"></i> **{{ 'The quick brown fox jumps over the lazy dog.'|regex_replace(['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'The quick brown fox jumps over the lazy dog.'|regex_replace(['/quick/','/brown/','/fox/','/dog/'], ['slow','black','bear','turtle']) }}
+[/codesh]
+[codesh=txt title="Output"]
+The slow black bear jumps over the lazy turtle.
+[/codesh]
+[/codesh-group]
 
 > [!WARNING]
 > Use the `~`-delimiter rather than the `/`-delimiter where possible. Otherwise you'll most likely have to [double-escape certain characters](https://github.com/getgrav/grav/issues/833). Eg. `~\/\#.*~` rather than `'/\\/\\#.*/'`, which conforms more closely to the [PCRE-syntax](https://www.php.net/manual/en/regexp.reference.delimiters.php) used by PHP.
 
-### `rtrim`
-
-`'/strip/trailing/slash/'|rtrim('/')` <i class="fa fa-long-arrow-right"></i> {{ '/strip/trailing/slash/'|rtrim('/') }}
+### rtrim
 
 Removes trailing spaces at the end of a string. It can also remove other characters by setting the character mask (see [https://php.net/manual/en/function.rtrim.php](https://php.net/manual/en/function.rtrim.php))
 
-### `singularize`
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ '/strip/trailing/slash/'|rtrim('/') }}
+[/codesh]
+[codesh=txt title="Output"]
+/strip/trailing/slash
+[/codesh]
+[/codesh-group]
+
+### singularize
 
 Converts a string to the English singular version
 
-`'shoes'|singularize` <i class="fa fa-long-arrow-right"></i> **{{ 'shoes'|singularize }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'shoes'|singularize }}
+[/codesh]
+[codesh=txt title="Output"]
+shoe
+[/codesh]
+[/codesh-group]
 
-### `safe_email`
+### safe_email
 
 The safe email filter converts an email address into ASCII characters to make it harder for email spam bots to recognize and capture.
 
-`"someone@domain.com"|safe_email` <i class="fa fa-long-arrow-right"></i> **{{ "someone@domain.com"|safe_email }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ "someone@domain.com"|safe_email }}
+[/codesh]
+[codesh=txt title="Output"]
+&#115;&#111;&#109;&#101;&#111;&#110;&#101;&#64;&#100;&#111;&#109;&#97;&#105;&#110;&#46;&#99;&#111;&#109;
+[/codesh]
+[/codesh-group]
 
 Usage example with a mailto link:
 
-
-[codesh=html line-numbers="true"]
+[codesh=html]
 <a href="mailto:{{ 'your.email@server.com'|safe_email }}">
   Email me
 </a>
 [/codesh]
 
-
 You might not notice a difference at first, but examining the page source (not using the Browser Developer Tools, the actual page source) will reveal the underlying characters encoding.
 
-### `sort_by_key`
+### sort_by_key
 
 Sort an array map by a particular key
 
-`array|sort_by_key` 
-[codesh=twig line-numbers="true"]
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set people = [{'email':'fred@yahoo.com', 'id':34}, {'email':'tim@exchange.com', 'id':21}, {'email':'john@apple.com', 'id':2}]|sort_by_key('id') %}
 {% for person in people %}{{ person.email }}:{{ person.id }}, {% endfor %}
 [/codesh]
+[codesh=txt title="Output"]
+john@apple.com:2, tim@exchange.com:21, fred@yahoo.com:34,
+[/codesh]
+[/codesh-group]
 
-
-<strong>
-{% set people = [{'email':'fred@yahoo.com', 'id':34}, {'email':'tim@exchange.com', 'id':21}, {'email':'john@apple.com', 'id':2}]|sort_by_key('id') %}
-{% for person in people %}{{ person.email }}:{{ person.id }}, {% endfor %}
-</strong>
-
-### `starts_with`
+### starts_with
 
 Takes a needle and a haystack and determines if the haystack starts with the needle.  Also now works with an array of needles and will return `true` if **any** haystack starts with the needle.
 
-`'the quick brown fox'|starts_with('the')` <i class="fa fa-long-arrow-right"></i> **{{ 'the quick brown fox'|starts_with('the') ? 'true' : 'false' }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'the quick brown fox'|starts_with('the') }}
+[/codesh]
+[codesh=txt title="Output"]
+true
+[/codesh]
+[/codesh-group]
 
-### `titleize`
+### titleize
 
 Converts a string to "Title Case" format
 
-`'welcome page'|titleize` <i class="fa fa-long-arrow-right"></i> **{{ 'welcome page'|titleize }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'welcome page'|titleize }}
+[/codesh]
+[codesh=txt title="Output"]
+Welcome Page
+[/codesh]
+[/codesh-group]
 
-### `t`
+### t
 
 Translate a string into the current language
 
-`'MY_LANGUAGE_KEY_STRING'|t` <i class="fa fa-long-arrow-right"></i> **'Some Text in English'**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'MY_LANGUAGE_KEY_STRING'|t }}
+[/codesh]
+[codesh=txt title="Output"]
+Some Text in English
+[/codesh]
+[/codesh-group]
 
-This assumes you have these language strings translated in your site and have enabled 
--language support.  Please refer to the [multi-language documentation](../../../content/multi-language) for more detailed information.
+This assumes you have these language strings translated in your site and have enabled multi-language support.  Please refer to the [multi-language documentation](../../../content/multi-language) for more detailed information.
 
-### `tu`
+### tu
 
 Translate a string into the current language set in the admin interface user preferences
 
-`'MY_LANGUAGE_KEY_STRING'|tu` <i class="fa fa-long-arrow-right"></i> **'Some Text in English'**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'MY_LANGUAGE_KEY_STRING'|tu }}
+[/codesh]
+[codesh=txt title="Output"]
+Some Text in English
+[/codesh]
+[/codesh-group]
 
 This uses the language field set in the user yaml.
 
-### `ta`
+### ta
 
 Translates an array with a language use the `|ta` filter. See the [multi-language documentation](../../../content/multi-language) for a detailed example.
 
-`'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1)` <i class="fa fa-long-arrow-right"></i> **{{ now|date('F') }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }}
+[/codesh]
+[codesh=txt title="Output"]
+December
+[/codesh]
+[/codesh-group]
 
-### `tl`
+### tl
 
 Translates a string in a specific language. For more details check out the [multi-language documentation](../../../content/multi-language#complex-translations).
 
-`'SIMPLE_TEXT'|tl(['fr'])`
+[codesh=twig]
+'SIMPLE_TEXT'|tl(['fr'])
+[/codesh]
 
-### `truncate`
+### truncate
 
 You can easily generate a shortened, truncated, version of a string by using this filter.  It takes a number of characters as the only required field, but has some other options:
 
-`'one sentence. two sentences'|truncate(5)|raw` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5)|raw }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+'one sentence. two sentences'|truncate(5)|raw
+[/codesh]
+[codesh=txt title="Output"]
+one s&hellip;
+[/codesh]
+[/codesh-group]
 
 Simply truncates to 5 characters.
 
-`'one sentence. two sentences'|truncate(5, true)|raw` <i class="fa fa-long-arrow-right"></i> **{{ 'one sentence. two sentences'|truncate(5, true)|raw }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+'one sentence. two sentences'|truncate(5, true)|raw
+[/codesh]
+[codesh=txt title="Output"]
+one sentence.&hellip;
+[/codesh]
+[/codesh-group]
+
+Truncates to closest sentence-end after 5 characters.
 
 > [!CAUTION]
 > The `|raw` Twig filter should be used with the default `&hellip;` (elipsis) padding element in order for it to render with Twig auto-escaping
 
-Truncates to closest sentence-end after 5 characters.
-
 You can also truncate HTML text, but should first use the `|striptags` filter to remove any HTML formatting that could get broken if you end between tags:
 
-`'<span>one <strong>sentence</strong>. two sentences</span>'
-|raw|striptags|truncate(25)` <i class="fa fa-long-arrow-right"></i> **{{ '<span>one <strong>sentence</strong>. two sentences</span>'|raw|striptags|truncate(25) }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+'<span>one <strong>sentence</strong>. two sentences</span>'|raw|striptags|truncate(25)
+[/codesh]
+[codesh=txt title="Output"]
+one sentence. two senten&hellip;
+[/codesh]
+[/codesh-group]
 
 #### Specialized versions:
 
-### `safe_truncate`
+### safe_truncate
 
 Use `|safe_truncate` to truncate text by number of characters in a "word-safe" manner.
 
-### `truncate_html`
+### truncate_html
 
 Use `|truncate_html` to truncate HTML by number of characters. not "word-safe"!
 
-### `safe_truncate_html`
+### safe_truncate_html
 
 Use `|safe_truncate_html` to truncate HTML by number of characters in a "word-safe" manner.
 
-### `underscorize`
+### underscorize
 
 Converts a string into "under_scored" format
 
-`'CamelCased'|underscorize` <i class="fa fa-long-arrow-right"></i> **{{ 'CamelCased'|underscorize }}**
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ 'CamelCased'|underscorize }}
+[/codesh]
+[codesh=txt title="Output"]
+camel_cased
+[/codesh]
+[/codesh-group]
 
-### `wordcount`
+### wordcount
+
 Counts the number of words in a text string with support for multiple languages and improved accuracy for HTML content.
 
-
-[codesh=twig line-numbers="true"]
+[codesh-group]
+[codesh=twig title="Twig"]
 {{ page.content|wordcount }}
 [/codesh]
-
-
-[codesh=txt]
+[codesh=txt title="Output"]
 36
 [/codesh]
+[/codesh-group]
 
 The `wordcount` filter also takes an optional locale parameter to handle different languages appropriately. For Western languages (English, Spanish, French, etc.), it counts individual words separated by spaces. For Asian languages like Chinese, Japanese, and Korean, it counts characters instead of words, which is more appropriate for these writing systems.
 
-
-[codesh=twig line-numbers="true"]
+[codesh=twig]
 {# With specific locale for English content #}
 {{ page.content|wordcount('en') }}
 
@@ -482,38 +765,41 @@ The `wordcount` filter also takes an optional locale parameter to handle differe
 </script>
 [/codesh]
 
-
 > [!CAUTION]
 > **Supported locales:** `en` (English, default), `es` (Spanish), `fr` (French), `de` (German), and other Western languages use word-based counting. `zh`/`zh-cn`/`zh-tw`/`chinese` (Chinese), `ja`/`japanese` (Japanese), and `ko`/`korean` (Korean) use character-based counting.
 
-### `yaml_encode`
+### yaml_encode
 
 Dump/Encode a variable into YAML syntax
 
-
-[codesh=twig line-numbers="true"]
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set array = {foo: [0, 1, 2, 3], baz: 'qux' } %}
 {{ array|yaml_encode }}
 [/codesh]
-
-
-{% set array = {foo: [0, 1, 2, 3], baz: 'qux' } %}
-[codesh=yaml]
-{{ array|yaml_encode|e }}
+[codesh=yaml title="Output"]
+foo:
+    - 0
+    - 1
+    - 2
+    - 3
+baz: qux
 [/codesh]
+[/codesh-group]
 
-### `yaml_decode`
+### yaml_decode
 
 Decode/Parse a variable from YAML syntax
 
-
-[codesh=twig line-numbers="true"]
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}
 {{ yaml|yaml_decode|var_dump }}
 [/codesh]
-
-
-{% set yaml = "foo: [0, 1, 2, 3]\nbaz: qux" %}
-[codesh]
-{{ yaml|yaml_decode|var_dump }}
+[codesh=txt title="Output"]
+array(2) {
+  ["foo"]=> array(4) { [0]=> int(0) [1]=> int(1) [2]=> int(2) [3]=> int(3) }
+  ["baz"]=> string(3) "qux"
+}
 [/codesh]
+[/codesh-group]
