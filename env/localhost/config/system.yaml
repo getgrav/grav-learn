@@ -15,10 +15,6 @@ twig:
   cache: true
   debug: true
 
-debugger:
-  enabled: true
-  provider: phpdebugbar
-
 strict_mode:
     yaml_compat: false
     twig_compat: false

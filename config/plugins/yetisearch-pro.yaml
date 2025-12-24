@@ -1,0 +1,116 @@
+enabled: true
+
+engine:
+  storage_dir: 'user://data/yetisearch-pro'
+  index_prefix: 'grav_'
+  timeout: 5
+  max_batch_size: 5
+  search:
+    snippet_length: 75
+    prefix_last_token: true
+    fuzzy_last_token_only: true
+  analyzer:
+    min_word_length: 1
+
+indexes:
+  pages:
+    strategy: per_language # per_language | single
+    languages: []          # empty = derive from Grav languages (or versions)
+    fields:
+      - title
+      - url
+      - taxonomy.*
+      - meta.description
+      - content
+    facets:
+      - taxonomy.category
+      - taxonomy.tag
+    geo_fields: []
+    options:
+      fuzzy: true
+      typo_tolerance: 2
+      indexer:
+        fields:
+          title: { boost: 3.0, store: true }
+          content: { boost: 1.0, store: true }
+          excerpt: { boost: 2.0, store: true }
+          tags: { boost: 2.5, store: true }
+          category: { boost: 2.0, store: true }
+          headers: { boost: 1.5, store: true }
+          headers_h1: { boost: 2.0, store: true }
+          headers_h2: { boost: 1.5, store: true }
+          headers_h3: { boost: 1.2, store: true }
+          headers_h4: { boost: 1.0, store: true }
+          url: { store: true, index: false }
+          route: { store: true, index: false }
+    query_defaults:
+      per_page: 10
+
+search:
+  enable_fuzzy: true
+  # Use a balanced algorithm for general docs; switch to 'levenshtein' for tighter distance,
+  # or 'jaro_winkler' for better typo tolerance on shorter strings.
+  fuzzy_algorithm: trigram
+  # Only fuzz the last token during typeahead-like usage; keeps early tokens precise
+  fuzzy_last_token_only: true
+  # Slightly more permissive threshold for trigrams
+  trigram_threshold: 0.45
+  # Keep reasonable bounds to avoid exploding candidate space
+  min_term_frequency: 1
+  max_fuzzy_variations: 20
+  max_indexed_terms: 50000
+  cache:
+    enabled: true
+    ttl: 300
+    max_size: 1000
+
+environment:
+  mode: auto # auto|production|staging|development
+  append_environment_to_index: true
+  disable_realtime_in_development: true
+
+indexing:
+  realtime: true
+  smart_indexing: true
+  state_dir: 'user://data/yetisearch-pro/state'
+  progress_log_limit: 200
+  log_batches: true
+
+admin:
+  cache:
+    enabled: true
+    ttl: 30
+
+analytics:
+  recent_search_limit: 50
+  recent_click_limit: 50
+  popular_limit: 10
+
+scheduler:
+  reindex:
+    enabled: false
+    at: '0 3 * * *'
+    flush: false
+    indexes: []
+  maintenance:
+    enabled: false
+    at: '30 3 * * *'
+    indexes: []
+
+modal:
+  type: full # full | simple
+  branding: true # Show "Powered by YetiSearch" in footer
+  custom_css: |
+    /* Custom CSS variable overrides for YetiSearch modals.
+       Override any --ys-* variable to customize the theme.
+
+       Example: Change accent color to green
+       :root {
+         --ys-accent: #10b981;
+         --ys-accent-hover: #059669;
+       }
+
+       Available variables (see yetisearch-pro-theme.css for full list):
+       --ys-accent, --ys-panel-bg, --ys-dialog-bg, --ys-text, --ys-text-secondary,
+       --ys-text-muted, --ys-border, --ys-highlight-bg, --ys-kbd-bg, etc.
+    */
