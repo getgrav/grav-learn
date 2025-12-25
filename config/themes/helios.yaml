@@ -89,6 +89,7 @@ github:
   branch: develop
   edit_link: true
   edit_text: 'Edit this page on Github'
+  path_prefix: 'user/'
 htmx:
   enabled: true
 body_classes: null
