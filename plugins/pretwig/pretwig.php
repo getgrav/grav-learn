@@ -3,7 +3,7 @@
 namespace Grav\Plugin;
 
 use Grav\Common\Plugin;
-use Grav\Common\Http\Response;
+use Grav\Common\HTTP\Response;
 use RocketTheme\Toolbox\Event\Event;
 
 /**
