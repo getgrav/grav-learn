@@ -45,7 +45,7 @@ For **bugs, features, improvements**, please ensure you [create issues in the ad
 
 ### Installation
 
-First ensure you are running the latest Grav version, **{{ grav_version }} or later**.  This is required for the admin plugin to run properly.  Check for and upgrade to new Grav versions like this (`-f` forces a refresh of the GPM index):
+First ensure you are running the latest Grav version, **1.7.49 or later**.  This is required for the admin plugin to run properly.  Check for and upgrade to new Grav versions like this (`-f` forces a refresh of the GPM index):
 
 [codesh=bash]
 bin/gpm version -f

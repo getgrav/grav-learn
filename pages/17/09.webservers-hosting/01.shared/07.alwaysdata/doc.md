@@ -1,9 +1,6 @@
 ---
 title: alwaysdata
 visible: true
-twig_first: true
-process:
-    twig: true
 taxonomy:
     category: docs
 ---

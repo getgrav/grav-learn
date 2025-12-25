@@ -1,9 +1,6 @@
 ---
 title: Vultr
 localname: vultr.dev
-twig_first: true
-process:
-    twig: true
 taxonomy:
     category: docs
 ---

@@ -1,9 +1,6 @@
 ---
 title: DigitalOcean
 localname: digitalocean.dev
-twig_first: true
-process:
-    twig: true
 taxonomy:
     category: docs
 ---

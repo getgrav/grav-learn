@@ -1,9 +1,6 @@
 ---
 title: RoseHosting
 localname: rose.dev
-twig_first: true
-process:
-    twig: true
 ssh_port: '7022'
 taxonomy:
     category: docs
