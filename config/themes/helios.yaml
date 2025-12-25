@@ -1,30 +1,95 @@
-# Search
-search:
-  provider: yetisearch-pro
-  min_chars: 2
-
-# Enable versioning for demo
+enabled: true
+appearance:
+  theme: system
+  selector: true
+colors:
+  primary: '#953aad'
+  primary_hover: '#2563EB'
+  accent: '#3b2ef5'
+  primary_dark: '#ad74c2'
+  primary_dark_hover: '#93C5FD'
+  accent_dark: '#A78BFA'
+  gray_preset: zinc
+  gray_custom: null
+fonts:
+  body: inter
+  body_size: medium
+  code: jetbrains-mono
+  code_size: medium
+logo:
+  image:
+    user/assets/helios/grav-logo.svg:
+      name: grav-logo.svg
+      full_path: grav-logo.svg
+      type: image/svg+xml
+      size: 3518
+      path: user/assets/helios/grav-logo.svg
+  image_dark:
+    user/assets/helios/grav-logo-inverted.svg:
+      name: grav-logo-inverted.svg
+      full_path: grav-logo-inverted.svg
+      type: image/svg+xml
+      size: 5497
+      path: user/assets/helios/grav-logo-inverted.svg
+  text: 'Grav Learn'
+  height: h-8
+header:
+  menu:
+    -
+      route: 'https://getgrav.org'
+      label: 'Grav CMS'
+      external: '0'
+    -
+      route: 'https://github.com/getgrav/grav'
+      label: Github
+      external: '0'
+custom_favicon:
+  user/assets/helios/favicon.png:
+    name: favicon.png
+    full_path: favicon.png
+    type: image/png
+    size: 20092
+    path: user/assets/helios/favicon.png
+sidebar:
+  powered_by: '1'
+navigation:
+  sidebar_width: 280
+  toc_width: 240
+  content_width: 768
+  toc_start: 2
+  toc_depth: 3
+  toc_position: right
+  breadcrumbs: true
+  prev_next: true
+  scroll_spy: true
 versioning:
   enabled: true
   mode: explicit
   auto_detect: true
-  default_version: 17
+  root: null
+  versions: null
+  default_version: '17'
+  current_version: null
+  version_pattern: '/^v?\d+(\.\d+)*$/'
+  show_badge: true
+  show_dropdown: true
   labels:
-    17: "1.7 (Stable)"
-    18: "1.8 (Beta)"
-
-# GitHub integration
+    17: '1.7 (Stable)'
+    18: '1.8 (Beta)'
+search:
+  enabled: true
+  provider: yetisearch-pro
+  keyboard_shortcut: true
+  shortcut_key: k
+  placeholder: 'Search documentation...'
+  min_chars: 2
 github:
-  enabled: true                                   # Enable GitHub integration
-  repo: getgrav/grav-learn                                           # Repository in format 'owner/repo'
-  branch: develop                                     # Branch for edit links
-  edit_link: true                                  # Show "Edit on GitHub" link
-  edit_text: 'Edit this page on Github'                      # Edit link text
-
-# Header menu
-header:
-  menu:
-    - route: https://getgrav.org
-      label: Grav CMS
-    - route: https://github.com/getgrav/grav
-      label: Github
+  enabled: true
+  repo: getgrav/grav-learn
+  branch: develop
+  edit_link: true
+  edit_text: 'Edit this page on Github'
+htmx:
+  enabled: true
+body_classes: null
+append_site_title: true
