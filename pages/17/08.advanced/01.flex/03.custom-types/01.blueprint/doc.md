@@ -216,9 +216,8 @@ Additionally you can provide file format with `options.formatter.class`:
 
 Configuration options (with defaults) for the default formatters can be found below inside the tabs:
 
-[ui-tabs]
-[ui-tab title="JSON"]
-```yaml
+[codesh-group]
+[codesh=yaml title="JSON"]
 # JSON
 formatter:
   class: 'Grav\Framework\File\Formatter\JsonFormatter'
@@ -228,10 +227,8 @@ formatter:
     decode_assoc: true # Decode objects as arrays
     decode_depth: 512  # Decode up to 512 levels
     decode_options: '' # See https://www.php.net/manual/en/function.json-decode.php (separate options with space)
-```
-[/ui-tab]
-[ui-tab title="YAML"]
-```yaml
+[/codesh]
+[codesh=yaml title="YAML"]
 # YAML
 formatter:
   class: 'Grav\Framework\File\Formatter\YamlFormatter'
@@ -241,10 +238,8 @@ formatter:
     indent: 2           # Indent with 2 spaces
     native: true        # Use native YAML decoder if available
     compat: true        # If YAML cannot be decoded, use compatibility mode (SLOW)
-```
-[/ui-tab]
-[ui-tab title="Markdown"]
-```yaml
+[/codesh]
+[codesh=yaml title="Markdown"]
 # Markdown
 formatter:
   class: 'Grav\Framework\File\Formatter\MarkdownFormatter'
@@ -255,10 +250,8 @@ formatter:
     raw: 'frontmatter'  # RAW YAML variable
     yaml:
       inline: 20        # YAML options, see YAML formatter from above
-```
-[/ui-tab]
-[ui-tab title="Serialize"]
-```yaml
+[/codesh]
+[codesh=yaml title="Serialize"]
 # PHP Serialize
 formatter:
   class: 'Grav\Framework\File\Formatter\SerializeFormatter'
@@ -266,19 +259,15 @@ formatter:
     file_extension: '.ser'
     decode_options:
       allowed_classes: ['stdClass'] # List of allowed / safe classes during unserialize
-```
-[/ui-tab]
-[ui-tab title="INI"]
-```yaml
+[/codesh]
+[codesh=yaml title="INI"]
 # INI
 formatter:
   class: 'Grav\Framework\File\Formatter\IniFormatter'
   options:
     file_extension: '.ini'
-```
-[/ui-tab]
-[ui-tab title="CSV"]
-```yaml
+[/codesh]
+[codesh=yaml title="CSV"]
 # CSV
 formatter:
   class: 'Grav\Framework\File\Formatter\CsvFormatter'
@@ -286,9 +275,8 @@ formatter:
     file_extension: ['.csv', '.tsv']
     delimiter: ','      # Delimiter to separate the values
     mime: 'text/x-csv'  # MIME type for downloading file
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 You can also set default ordering, which is defined by `key: ASC|DESC` pairs:
 

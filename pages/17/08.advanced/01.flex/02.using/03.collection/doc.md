@@ -30,9 +30,8 @@ Returns:
 > [!NOTE]
 > **NOTE:** In twig there is a `{% render %}` tag, which should be used instead of calling the method directly. This will allow JS/CSS assets from the collection to work properly.
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 {% set page = 2 %}
 {% set limit = 10 %}
@@ -41,10 +40,8 @@ Returns:
 <h2>Contacts:</h2>
 
 {% render contacts.limit(start, limit) layout: 'cards' with { background: 'gray', color: 'white' } %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\ContentBlock\HtmlBlock;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
@@ -63,9 +60,8 @@ if ($collection) {
     $block = $collection->render('cards', ['background' =>'gray', 'color' => 'white']);
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 # Collection Manipulation
 
@@ -84,19 +80,16 @@ Returns:
 > [!WARNING]
 > **TIP:** Default sort order can be set for the frontend in the **Flex Type** blueprints.
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contacts = contacts.sort({last_name: 'ASC', first_name: 'ASC'}) %}
 
 <div>Displaying all contacts in alphabetical order:</div>
 {% render contacts layout: 'cards' %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 
@@ -108,9 +101,8 @@ if ($collection) {
     // Collection has now be sorted by last name, first name...
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## limit()
 
@@ -123,9 +115,8 @@ Parameters:
 Returns:
 - **[Collection](/17/advanced/flex/using/collection)** (`object`) New filtered instance of the collection
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 {% set page = 3 %}
 {% set limit = 6 %}
@@ -135,10 +126,8 @@ Returns:
 
 <div>Displaying page {{ page|e }}:</div>
 {% render contacts layout: 'cards' %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 
@@ -153,9 +142,8 @@ if ($collection) {
     // Collection contains only the objects in the current page...
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## filterBy()
 
@@ -170,19 +158,16 @@ Returns:
 > [!WARNING]
 > **TIP:** Default filtering can be set for the frontend in the **Flex Type** blueprints.
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contacts = contacts.filterBy({'published': true}) %}
 
 <div>Displaying only published contacts:</div>
 {% render contacts layout: 'cards' %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 
@@ -197,9 +182,8 @@ if ($collection) {
     // Collection contains only published objects...
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## reverse()
 
@@ -211,19 +195,16 @@ Returns:
 > [!WARNING]
 > **TIP:** If you're using `sort()`, it is recommended to reverse the ordering in there as it saves an extra step.
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contacts = contacts.reverse() %}
 
 <div>Displaying contacts in reverse ordering:</div>
 {% render contacts layout: 'cards' %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 
@@ -238,9 +219,8 @@ if ($collection) {
     // Collection is now in reverse ordering...
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## shuffle()
 
@@ -249,19 +229,16 @@ if ($collection) {
 Returns:
 - **[Collection](/17/advanced/flex/using/collection)** (`object`) New randomly ordered instance of the collection
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contacts = contacts.shuffle().limit(0, 6) %}
 
 <div>Displaying 6 random contacts:</div>
 {% render contacts layout: 'cards' %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 
@@ -273,9 +250,8 @@ if ($collection) {
     // Collection contains 6 random contacts...
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## select()
 
@@ -287,9 +263,8 @@ Parameters:
 Returns:
 - **[Collection](/17/advanced/flex/using/collection)** (`object`) New instance of the collection
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 {% set selected = ['gizwsvkyo5xtms2s', 'gjmva53uoncdo4sb', 'mfzwwtcugv5hkocd', 'k5nfctkeoftwi4zu'] %}
 
@@ -297,10 +272,8 @@ Returns:
 
 <div>Displaying 4 selected contacts:</div>
 {% render contacts layout: 'cards' %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 
@@ -314,9 +287,8 @@ if ($collection) {
     // Collection now contains the 4 selected contacts...
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## unselect()
 
@@ -329,9 +301,8 @@ Returns:
 - **[Collection](/17/advanced/flex/using/collection)** (`object`) New instance of the collection
 
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 {% set ignore = ['gizwsvkyo5xtms2s', 'gjmva53uoncdo4sb', 'mfzwwtcugv5hkocd', 'k5nfctkeoftwi4zu'] %}
 
@@ -339,10 +310,8 @@ Returns:
 
 <div>Displaying all but 4 ignored contacts:</div>
 {% render contacts layout: 'cards' %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 
@@ -356,9 +325,8 @@ if ($collection) {
     // Collection now contains all but 4 ignored contacts...
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## search()
 
@@ -376,19 +344,16 @@ Parameters:
 Returns:
 - **[Collection](/17/advanced/flex/using/collection)** (`object`) New filtered instance of the collection
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contacts = contacts.search('Jack', ['first_name', 'last_name', 'email'], {'contains': true}) %}
 
 <div>Displaying all search results for 'Jack':</div>
 {% render contacts layout: 'cards' %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 
@@ -400,9 +365,8 @@ if ($collection) {
     // Collection now contains all search results...
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## copy()
 
@@ -414,9 +378,8 @@ Returns:
 > [!CAUTION]
 > **WARNING:** If you modify objects in your collection, you should always use copies!
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contacts = contacts.shuffle().limit(0, 10) %}
@@ -429,10 +392,8 @@ Returns:
 
 <h2>Original cards</h2>
 {% render contacts layout: 'cards' %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 
@@ -444,17 +405,15 @@ if ($collection) {
     // Collection now contains all search results...
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 # Iterate Through Collection
 
 **Collections** can be iterated over.
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 <h2>All contacts:</h2>
@@ -463,10 +422,8 @@ if ($collection) {
     <li>{{ contact.first_name|e }} {{ contact.last_name|e }}</li>
   {% endfor %}
 </ul>
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -481,9 +438,8 @@ if ($collection) {
     }
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## first()
 
@@ -493,9 +449,8 @@ Returns:
 - **[Object](/17/advanced/flex/using/object)** (`object`) First object
 - `false` No objects in the Collection
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contact = contacts.first() %}
@@ -504,10 +459,8 @@ Returns:
     <h2>First contact:</h2>
     <div>{{ contact.first_name|e }} {{ contact.last_name|e }}</div>
 {% endif %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -523,9 +476,8 @@ if ($collection) {
     }
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## last()
 
@@ -536,9 +488,8 @@ Returns:
 - `false` No objects in the Collection
 
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contact = contacts.last() %}
@@ -547,10 +498,8 @@ Returns:
     <h2>Last contact:</h2>
     <div>{{ contact.first_name|e }} {{ contact.last_name|e }}</div>
 {% endif %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -566,9 +515,8 @@ if ($collection) {
     }
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## next()
 
@@ -579,9 +527,8 @@ Returns:
 - `false` No more objects in the Collection
 
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 {% set first = contacts.first() %}
 ...
@@ -592,10 +539,8 @@ Returns:
     <h2>Next contact is:</h2>
     <div>{{ contact.first_name|e }} {{ contact.last_name|e }}</div>
 {% endif %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -610,9 +555,8 @@ if ($collection) {
     }
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## current()
 
@@ -622,9 +566,8 @@ Returns:
 - **[Object](/17/advanced/flex/using/object)** (`object`) Current object
 - `false` No more objects in the Collection
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 {% do contacts.next() %}
 {% do contacts.next() %}
@@ -636,10 +579,8 @@ Returns:
     <h2>Current contact is:</h2>
     <div>{{ contact.first_name|e }} {{ contact.last_name|e }}</div>
 {% endif %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -655,9 +596,8 @@ if ($collection) {
 
     }
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## key()
 
@@ -667,9 +607,8 @@ Returns:
 - **key** (`string`) Object key
 - `null` No more objects in the Collection
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 {% do contacts.next() %}
 {% do contacts.next() %}
@@ -680,10 +619,8 @@ Returns:
 {% if key %}
     Current contact key is: <strong>{{ key|e }}</strong>
 {% endif %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 
@@ -697,9 +634,8 @@ if ($collection) {
 
     }
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 # Get Object / Key
 
@@ -710,9 +646,8 @@ if ($collection) {
 > [!NOTE]
 > **NOTE:** `null` is being returned if object with given key is not in the collection.
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contact = contacts['ki2ts4cbivggmtlj']
@@ -724,10 +659,8 @@ if ($collection) {
 {% else %}
   Oops, contact has been removed!
 {% endif %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -743,9 +676,8 @@ if ($collection) {
     }
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## get()
 
@@ -760,9 +692,8 @@ Returns:
 
 Alternative to [Array Access](#array-access)
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set contact = contacts.get('ki2ts4cbivggmtlj')
@@ -774,10 +705,8 @@ Alternative to [Array Access](#array-access)
 {% else %}
   Oops, contact has been removed!
 {% endif %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -793,9 +722,8 @@ if ($collection) {
     }
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 # Collection as Array
 
@@ -806,18 +734,15 @@ if ($collection) {
 Returns:
 - `array` List of keys
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set keys = contacts.keys() %}
 
 Keys are: {{ keys|join(', ')|e }}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 
@@ -830,9 +755,8 @@ if ($collection) {
     $keysList = implode(', ', $keys);
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## GetObjectKeys()
 
@@ -850,9 +774,8 @@ Converts collection into an array. Keys are not preserved.
 Returns:
 - List of **Objects** (`array`)
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set list = contacts.values() %}
@@ -861,10 +784,8 @@ Returns:
     <li>#{{ (i+1)|e }}: {{ object.email|e }}</li>
 {% endfor %}
 </ol>
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -880,9 +801,8 @@ if ($collection) {
     }
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## toArray()
 
@@ -893,9 +813,8 @@ Similar to `getValues()` but preserves the keys.
 Returns:
 - `array` List of `key: Object` pairs
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set list = contacts.toArray() %}
@@ -904,10 +823,8 @@ Returns:
     <li>ID: {{ key|e }}: {{ object.email|e }}</li>
 {% endfor %}
 </ol>
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -923,9 +840,8 @@ if ($collection) {
     }
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## slice()
 
@@ -941,9 +857,8 @@ Returns:
 > [!WARNING]
 > **TIP:** This method can be used for pagination.
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set list = contacts.slice(10, 5) %}
@@ -954,10 +869,8 @@ Returns:
     <li>ID: {{ key|e }}: {{ object.email|e }}</li>
 {% endfor %}
 </ol>
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -972,9 +885,8 @@ if ($collection) {
     // Do something with the object and its key...
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## chunk()
 
@@ -989,9 +901,8 @@ Returns:
 > [!WARNING]
 > **TIP:** This method can be used to split content into rows and columns.
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set columns = contacts.limit(0, 10).chunk(5) %}
@@ -1006,10 +917,8 @@ Returns:
     </div>
 {% endfor %}
 </div>
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -1030,9 +939,8 @@ if ($collection) {
 }
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## group()
 
@@ -1044,9 +952,8 @@ Parameters:
 Returns:
 - `array` Two dimensional list of `key: Object` pairs, where value of the property is the key of the first level
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contacts = grav.get('flex').collection('contacts') %}
 
 {% set by_name = contacts.sort({last_name: 'ASC', first_name: 'ASC'}).group('last_name') %}
@@ -1062,10 +969,8 @@ Returns:
     </ul>
 {% endfor %}
 </div>
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -1086,9 +991,8 @@ if ($collection) {
 }
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 # Adding and Removing Objects
 

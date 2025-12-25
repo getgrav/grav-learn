@@ -160,20 +160,11 @@ These actions are available for all media types.
 
 This returns **raw url path** to the media.
 
-[ui-tabs]
-[ui-tab title="Twig"]
-
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].url|e }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```html
-{{ page.media['sample-image.jpg'].url|e }}
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 
 #### html
@@ -183,25 +174,14 @@ This returns **raw url path** to the media.
 
 The `html` action will output a valid HTML tag for the media based on the current display mode.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Some ALT text](sample-image.jpg?classes=myclass "My title")
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].html('My title', 'Some ALT text', 'myclass')|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```html
-{{ page.media['sample-image.jpg'].html('My title', 'Some ALT text', 'myclass')|e }}
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 
 #### display
@@ -222,25 +202,14 @@ Turn your media object into a link. All actions that you call before `link()` wi
 
 The following example will display a textual link (`display('text')`) to a sepia version of the `sample-image.jpg` file:
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Image link](sample-image.jpg?sepia&link&display=text)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].sepia().link().display('text').html('Image link')|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```html
-{{ page.media['sample-image.jpg'].sepia().link().display('text').html('Image link')|e }}
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 #### Cache only
 
@@ -257,25 +226,14 @@ images:
 
 Disable image manipulation with the `cache`option.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![](sample-image.jpg?cache)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cache.html()|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```html
-{{ page.media['sample-image.jpg'].cache.html()|e }}
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 #### lightbox
 
@@ -283,25 +241,14 @@ The lightbox action is essentially the same as the link action but with a few ex
 
 If possible (currently only in the case of images), Grav will resize your media to the requested width and height. Otherwise it will simply add a `data-width` and `data-height` attribute to the link.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?lightbox=600,400&resize=200,200)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].lightbox(600,400).resize(200,200).html('Sample Image')|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```html
-{{ page.media['sample-image.jpg'].lightbox(600,400).resize(200,200).html('Sample Image')|e }}
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -311,25 +258,14 @@ If possible (currently only in the case of images), Grav will resize your media 
 
 Manually choose the thumbnail Grav should use. You can choose between `page` and `default` for any type of media as well as `media` for image media if you want to use the media object itself as your thumbnail.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?thumbnail=default&display=thumbnail)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].thumbnail('default').display('thumbnail').html('Sample Image')|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```html
-{{ page.media['sample-image.jpg'].thumbnail('default').display('thumbnail').html('Sample Image')|e }}
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -339,25 +275,14 @@ Manually choose the thumbnail Grav should use. You can choose between `page` and
 
 This adds an additional HTML attribute to the output.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?attribute=myattribute,myvalue)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].attribute('myattribute', 'myvalue').html('Sample Image')|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```html
-{{ page.media['sample-image.jpg'].attribute('myattribute', 'myvalue').html('Sample Image')|e }}
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 
 ## Image Actions
@@ -366,20 +291,14 @@ This adds an additional HTML attribute to the output.
 
 Resizing does exactly what you would expect it to do.  `resize` lets you create a new image based on the `width` and the `height`.  The aspect ratio is maintained and the new image will contain blank areas in the color of the **optional** background color provided as a `hex value`, e.g. `0xffffff`. The background parameter is optional, and if not provided will default to **transparent** if the image is a PNG, or **white** if it is a JPEG.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?resize=400,200)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].resize(400, 200).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -389,20 +308,14 @@ Resizing does exactly what you would expect it to do.  `resize` lets you create 
 
 Resizes the image to the `width` and `height` as provided.  `forceResize` will not respect original aspect-ratio and will stretch the image as needed to fit the new image size.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?forceResize=200,300)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].forceResize(200, 300).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -414,20 +327,14 @@ Resizes the image to the `width` and `height` as provided.  `forceResize` will n
 
 For example, if you have an image that is `640` x `480` and you perform a `cropResize(100, 100)` action upon it, you will end up with an image that is `100` x `75`.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropResize=300,300)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropResize(300, 300).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -439,20 +346,14 @@ For example, if you have an image that is `640` x `480` and you perform a `cropR
 
 For example, an image that is `640` x `480` with `crop(0, 0, 400, 100)` will produce an image with a width of `400` and a height of `100` originating from the top-left corner as described by `0, 0`.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?crop=100,100,300,200)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].crop(100,100,300,200).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -469,20 +370,14 @@ With **cropZoom**, the image is resized so that there is no background visible, 
 
 For example if you have an image that is `640` x `480` and you perform a `cropZoom(400, 100)` action, the resulting image will be resized to `400` x `300` and then the height is cropped resulting in a `400` x `100` image.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=600,200)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(600,200).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 > [!CAUTION]
 > Folks familiar with using `zoomCrop` for this purpose will find that it also works in Grav.
@@ -495,20 +390,14 @@ For example if you have an image that is `640` x `480` and you perform a `cropZo
 
 Dynamically allows the setting of a **compression percentage** `value` for the image between `0` and `100`. A lower number means less quality, where `100` means maximum quality.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&quality=25)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).quality(25).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -518,20 +407,14 @@ Dynamically allows the setting of a **compression percentage** `value` for the i
 
 Applies a **negative filter** to the image where colors are inverted.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&negate)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).negate.html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -541,20 +424,14 @@ Applies a **negative filter** to the image where colors are inverted.
 
 Applies a **brightness filter** to the image with a `value` from `-255` to `+255`. Larger negative numbers will make the image darker, while larger positive numbers will make the image brighter.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&brightness=-100)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).brightness(-100).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -564,20 +441,14 @@ Applies a **brightness filter** to the image with a `value` from `-255` to `+255
 
 This applies a **contrast filter** to the image with a `value` from `-100` to `+100`. Larger negative numbers will increase the contrast, while larger positive numbers will reduce the contrast.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&contrast=-50)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).contrast(-50).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ![Sample Image](sample-image.jpg?cropZoom=300,200&contrast=-50)
 
@@ -585,20 +456,14 @@ This applies a **contrast filter** to the image with a `value` from `-100` to `+
 
 This processes the image with a **grayscale filter**.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&grayscale)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).grayscale.html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -608,20 +473,14 @@ This processes the image with a **grayscale filter**.
 
 This processes the image with an **embossing filter**.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&emboss)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).emboss.html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -631,20 +490,14 @@ This processes the image with an **embossing filter**.
 
 This applies a **smoothing filter** to the image based on smooth `value` setting from `-10` to `10`.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&smooth=5)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).smooth(5).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -654,20 +507,14 @@ This applies a **smoothing filter** to the image based on smooth `value` setting
 
 This applies a **sharpening filter** on the image.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sharp)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).sharp.html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -677,20 +524,14 @@ This applies a **sharpening filter** on the image.
 
 This applies an **edge finding filter** on the image.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&edge)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).edge.html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -700,20 +541,14 @@ This applies an **edge finding filter** on the image.
 
 You can colorize the image based on adjusting the `red`, `green`, and `blue` values for the image from `-255` to `+255` for each color.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&colorize=100,-100,40)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).colorize(100,-100,40).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -723,20 +558,14 @@ You can colorize the image based on adjusting the `red`, `green`, and `blue` val
 
 This applies a **sepia filter** on the image to produce a vintage look.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&sepia)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).sepia.html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -746,20 +575,14 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 **blurs** the image by an Factor, that defines how often the blur filter is applied to the image. Default is 1 time.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?gaussianBlur=3)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].gaussianBlur(3).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -769,20 +592,14 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 **rotates** the image by `angle` degrees counterclockwise, negative values rotate clockwise.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&rotate=-90)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).rotate(-90).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -792,20 +609,14 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 **flips** the image in the given directions. Both params can be `0|1`.  Both `0` is equivalent to no flipping in either direction.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?cropZoom=300,200&flip=0,1)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].cropZoom(300,200).flip(0,1).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -815,20 +626,14 @@ This applies a **sepia filter** on the image to produce a vintage look.
 
 Fixes the orientation of the image when rotation is made via EXIF data (applies to jpeg images taken with phones and cameras).
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?fixOrientation)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].fixOrientation().html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 #### watermark
 
@@ -837,24 +642,18 @@ The **watermark action** merges two images, a watermark image and a source image
 > [!WARNING]
 > If you are using a page-level [stream](/17/content/image-linking#php-streams), then page prefixes must also be specified.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
-![Sample Image](sample-image.jpg?watermark=user://pages/02.content/07.media/sample-watermark.png,top-left,50)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
-{{ page.media['sample-image.jpg'].watermark('user://pages/02.content/07.media/sample-watermark.png','top-left',50).html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[codesh-group]
+[codesh=markdown title="Markdown"]
+![Sample Image](sample-image.jpg?watermark=user://pages/17/02.content/07.media/sample-watermark.png,top-left,50)
+[/codesh]
+[codesh=twig title="Twig"]
+{{ page.media['sample-image.jpg'].watermark('user://pages/17/02.content/07.media/sample-watermark.png','top-left',50).html()|raw }}
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
-![Sample Image](sample-image.jpg?watermark=user://pages/02.content/07.media/sample-watermark.png,top-left,50)
+![Sample Image](sample-image.jpg?watermark=user://pages/17/02.content/07.media/sample-watermark.png,top-left,50)
 
 #### loading
 
@@ -862,29 +661,18 @@ The loading attributing on images gives authors control over when the browser sh
 Value can be set in `system.images.defaults.loading` as default value, or per md image with `?loading=lazy`
 When value `auto` is chosen, no `loading` attribute is added and browser will determine which strategy to use.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?loading=lazy)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {# Using default value as defined in 'config.system.images.defaults.loading' #}
 {{ page.media['sample-image.jpg'].loading.html('Sample Image')|raw }}
 
 {# Using explicit value #}
 {{ page.media['sample-image.jpg'].loading('lazy').html('Sample Image')|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```html
-<img loading="lazy" title="Sample Image"  src="/images/e/f/1/0/5/ef10554cd3a99f2e65136e79dce170d4f8a7a1b9-sample-image.jpg" />
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 #### decoding
 
@@ -892,29 +680,18 @@ The decoding attributing on images gives authors control over when the browser s
 Value can be set in `system.images.defaults.decoding` as default value, or per md image with `?decoding=async`
 When value `auto` is chosen, no `decoding` attribute is added and browser will determine which strategy to use.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?decoding=async)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {# Using default value as defined in `config.system.images.defaults.decoding` #}
 {{ page.media['sample-image.jpg'].decoding.html('Sample Image')|raw }}
 
 {# Using explicit value #}
 {{ page.media['sample-image.jpg'].decoding('async').html('Sample Image')|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```html
-<img decoding="async" title="Sample Image"  src="/images/e/f/1/0/5/ef10554cd3a99f2e65136e79dce170d4f8a7a1b9-sample-image.jpg" />
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 #### fetchpriority
 
@@ -922,29 +699,18 @@ The fetchpriority attributing gives authors control over when the browser should
 Value can be set in `system.images.defaults.fetchpriority` as default value, or per md image with `?fetchpriority=high`
 When value `auto` is chosen, no `fetchpriority` attribute is added and browser will determine which strategy to use.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?fetchpriority=high)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {# Using default value as defined in `config.system.images.defaults.fetchpriority` #}
 {{ page.media['sample-image.jpg'].fetchpriority.html('Sample Image')|raw }}
 
 {# Using explicit value #}
 {{ page.media['sample-image.jpg'].fetchpriority('high').html('Sample Image')|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```html
-<img fetchpriority="high" title="Sample Image"  src="/images/e/f/1/0/5/ef10554cd3a99f2e65136e79dce170d4f8a7a1b9-sample-image.jpg" />
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## Animated / Vectorized Actions
 
@@ -952,70 +718,52 @@ When value `auto` is chosen, no `fetchpriority` attribute is added and browser w
 
 Because PHP cannot handle dynamically resizing these types of media, the resize action will only make sure that a `width` and `height` or `data-width` and `data-height` attribute are set on your `<img>`/`<video>` or `<a>` tag respectively. This means your image or video will be displayed in the requested size, but the actual image or video file will not be converted in any way.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Trailer](sample-trailer.mov?resize=400,200)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-trailer.mov'].resize(400, 200).html('Sample Trailer')|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```html
-{{ page.media['sample-trailer.mov'].resize(400, 200).html('Sample Trailer')|e }}
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 
 #### examples
 
 Some examples of this:
 
-[ui-tabs]
-[ui-tab title="Vector Image"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Vector Image"]
 ![Sample Vector](sample-vector.svg?resize=300,300)
-```
+[/codesh]
+[codesh=markdown title="Animated Image"]
+![Animated Gif](sample-animated.gif?resize=300,300)
+[/codesh]
+[codesh=markdown title="Video"]
+![Sample Trailer](sample-trailer.mov?resize=400,200)
+[/codesh]
+[/codesh-group]
+
+##### Results:
+
 ![Sample Vector](sample-vector.svg?resize=300,300)
-[/ui-tab]
-[ui-tab title="Animated Image"]
-```markdown
+
 ![Animated Gif](sample-animated.gif?resize=300,300)
-```
-![Animated Gif](sample-animated.gif?resize=300,300)
-[/ui-tab]
-[ui-tab title="Video"]
-```markdown
+
 ![Sample Trailer](sample-trailer.mov?resize=400,200)
-```
-![Sample Trailer](sample-trailer.mov?resize=400,200)
-[/ui-tab]
-[/ui-tabs]
 
 ## Audio Actions
 
 Audio media will display an HTML5 audio link:
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['hal9000.mp3'].html()|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -1025,25 +773,14 @@ Audio media will display an HTML5 audio link:
 
 Allows explicitly setting or removing the HTML5 default controls. Passing `0` hides browser's controls for playback, volume, etc..
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3?controls=0)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['hal9000.mp3'].controls(0)|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-```html
-{{ page.media['hal9000.mp3'].controls(0)|e }}
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 #### preload
 
@@ -1055,20 +792,14 @@ Allows setting of `preload` property, which defaults to `auto`. Permitted params
 > [!CAUTION]
 > The `preload` attribute is ignored if `autoplay` is present.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3?preload=metadata)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['hal9000.mp3'].preload('metadata')|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 #### autoplay
 
@@ -1077,20 +808,14 @@ Allows setting whether audio will `autoplay` upon page load. Defaults to `false`
 > [!CAUTION]
 > If `autoplay` and `preload` are both present on a given `audio` element, `preload` will be ignored.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3?autoplay=1)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['hal9000.mp3'].autoplay(1)|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 
 #### controlsList
@@ -1100,77 +825,53 @@ Allows setting of `controlsList` property, which takes one or more of three poss
 > [!CAUTION]
 > If setting more than one parameter in markdown, separate each with a dash (`-`). These will be replaced by spaces in the output HTML.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3?controlsList=nodownload-nofullscreen-noremoteplayback)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['hal9000.mp3'].controlsList('nodownload nofullscreen noremoteplayback')|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 #### muted
 
 Allows setting whether audio is `muted` on load. Defaults to `false` by omission if not set.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3?muted=1)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['hal9000.mp3'].muted(1)|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 #### loop
 
 Allows setting whether audio will `loop` upon playing through completion. Defaults to `false` by omission if not set.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Hal 9000: I'm Sorry Dave](hal9000.mp3?loop=1)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['hal9000.mp3'].loop(1)|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## File Actions
 
 Grav does not provide any custom actions on files at this point in time and there are no plans to add any. Should you think of something, please contact us.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 [View Text File](acronyms.txt)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 <a href="{{ page.media['acronyms.txt'].url()|raw }}">View Text File</a>
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -1180,20 +881,14 @@ Grav does not provide any custom actions on files at this point in time and ther
 
 As you can see: Grav provides some powerful image manipulation functionality that makes it really easy to work with images!  The real power comes when you combine multiple effects and produce some very sophisticated dynamic image manipulations.  For example, this is totally valid:
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Sample Image](sample-image.jpg?negate&lightbox&cropZoom=200,200)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['sample-image.jpg'].negate.lightbox.cropZoom(200,200)|raw }}
-```
-
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
@@ -1232,69 +927,41 @@ To start using responsive images, all you need to do is add higher density image
 
 Let's assume you have a file called `retina@2x.jpg`, you would actually reference this in your links as `retina.jpg`, and then Grav will not find this image, and start looking for retina image sizes.  It will find `retina@2x.jpg` and then realize it needs to make a `@1x` variant and display the appropriate `srcset` output:
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Retina Image](retina.jpg?sizes=80vw)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['retina.jpg'].sizes('80vw').html()|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-{% set code_sample %}
-![Retina Image](retina.jpg?sizes=80vw)
-{% endset %}
-```html
-{{ code_sample|e }}
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
 ![Retina Image](retina.jpg?sizes=80vw)
 
 > [!TIP]
-> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the third tab so you can see what's happening behind the screens.
+> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference.
 
 ##### Sizes with media queries
 
 Grav also has support for media queries inside the `sizes` attribute, allowing you to use different widths depending on the device's screen size. In contrast to the first method, you don't have to create multiple images; they will get created automatically. The fallback image is the current image, so a browser without support for `srcset`, will display the original image.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Retina Image](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['retina.jpg'].sizes('(max-width:26em) 100vw, 50vw').html('Retina Image')|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-{% set code_sample %}
-![Retina Image](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
-{% endset %}
-```html
-{{ code_sample|e }}
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
 ![Retina Image](retina.jpg?sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 
 > [!TIP]
-> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
+> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference.
 
 ##### Sizes with media queries using derivatives
 
@@ -1305,35 +972,21 @@ In our example, we set the maximum to `1600`. This will result in increments of 
 > [!CAUTION]
 > For the moment it does not work inside markdown, only in your ```twig``` files.
 
-[ui-tabs]
-[ui-tab title="Markdown"]
-```markdown
+[codesh-group]
+[codesh=markdown title="Markdown"]
 ![Retina Image](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
-```
-[/ui-tab]
-[ui-tab title="Twig"]
-
-```twig
+[/codesh]
+[codesh=twig title="Twig"]
 {{ page.media['retina.jpg'].derivatives(320,1600,300).sizes('(max-width:26em) 100vw, 50vw').html()|raw }}
-```
-
-[/ui-tab]
-[ui-tab title="HTML Code"]
-{% set code_sample %}
-![Retina Image](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
-{% endset %}
-```html
-{{ code_sample|e }}
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ##### Result:
 
 ![Retina Image](retina.jpg?derivatives=320,1600,300&sizes=%28max-width%3A26em%29+100vw%2C+50vw)
 
 > [!TIP]
-> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference. We included the HTML markup in the fourth tab so you can see what's happening behind the screens.
+> Depending on your display and your browser's implementation and support for `srcset`, you might never see a difference.
 
 
 #### Manual size definition

@@ -386,9 +386,8 @@ return [
 
 After defining the variables in `setup.php`, you can then set those in your server:
 
-[ui-tabs]
-[ui-tab title="Apache 2"]
-[codesh=apache line-numbers="true"]
+[codesh-group]
+[codesh=apache title="Apache 2" line-numbers="true"]
 <VirtualHost 127.0.0.1:80>
     ...
 
@@ -400,9 +399,7 @@ After defining the variables in `setup.php`, you can then set those in your serv
     SetEnv GOOGLE_MAPS_KEY         XWIozB2R2GmYInTqZ6jnKuUrdELounUb4BIxYmp
 </VirtualHost>
 [/codesh]
-[/ui-tab]
-[ui-tab title="NGINX php-fpm"]
-[codesh=nginx line-numbers="true"]
+[codesh=nginx title="NGINX php-fpm" line-numbers="true"]
 location / {
     ...
 
@@ -414,9 +411,7 @@ location / {
     fastcgi_param GOOGLE_MAPS_KEY         XWIozB2R2GmYInTqZ6jnKuUrdELounUb4BIxYmp;
 }
 [/codesh]
-[/ui-tab]
-[ui-tab title="NGINX php-cgi"]
-[codesh=nginx line-numbers="true"]
+[codesh=nginx title="NGINX php-cgi" line-numbers="true"]
 location / {
 ...
 
@@ -428,9 +423,7 @@ location / {
     env[GGOOGLE_MAPS_KEY]         = XWIozB2R2GmYInTqZ6jnKuUrdELounUb4BIxYmp
 }
 [/codesh]
-[/ui-tab]
-[ui-tab title="Docker"]
-[codesh=yaml line-numbers="true"]
+[codesh=yaml title="Docker" line-numbers="true"]
 web:
   environment:
     - GRAV_SETUP_PATH=user/setup.php
@@ -440,9 +433,7 @@ web:
     - DYNAMODB_SESSION_REGION=us-east-1
     - GOOGLE_MAPS_KEY=XWIozB2R2GmYInTqZ6jnKuUrdELounUb4BIxYmp
 [/codesh]
-[/ui-tab]
-[ui-tab title="PHP"]
-[codesh=php line-numbers="true"]
+[codesh=php title="PHP" line-numbers="true"]
 putenv('GRAV_SETUP_PATH', 'user/setup.php');
 putenv('GRAV_ENVIRONMENT', 'production');
 putenv('DYNAMODB_SESSION_KEY', 'JBGARDQ06UNJV00DL0R9');
@@ -450,7 +441,6 @@ putenv('DYNAMODB_SESSION_SECRET', 'CVjwH+QkfnPhKgVvJvrG24s0ABi343cJ7WTPxvb7');
 putenv('DYNAMODB_SESSION_REGION', 'us-east-1');
 putenv('GOOGLE_MAPS_KEY', 'XWIozB2R2GmYInTqZ6jnKuUrdELounUb4BIxYmp');
 [/codesh]
-[/ui-tab]
-[/ui-tabs]
+[/codesh-group]
 
 In this example, server will also use `production` environment stored in `user/env/production` folder.

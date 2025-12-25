@@ -100,48 +100,38 @@ The simplest way to set environment is by using `GRAV_ENVIRONMENT`. Value of `GR
 
 The following example selects **development** environment for the localhost:
 
-[ui-tabs]
-[ui-tab title="Apache 2"]
-[codesh=apache line-numbers="true"]
+[codesh-group]
+[codesh=apache title="Apache 2" line-numbers="true"]
 <VirtualHost 127.0.0.1:80>
     ...
 
     SetEnv GRAV_ENVIRONMENT development
 </VirtualHost>
 [/codesh]
-[/ui-tab]
-[ui-tab title="NGINX php-fpm"]
-[codesh=nginx line-numbers="true"]
+[codesh=nginx title="NGINX php-fpm" line-numbers="true"]
 location / {
     ...
 
    fastcgi_param GRAV_ENVIRONMENT development;
 }
 [/codesh]
-[/ui-tab]
-[ui-tab title="NGINX php-cgi"]
-[codesh=nginx line-numbers="true"]
+[codesh=nginx title="NGINX php-cgi" line-numbers="true"]
 location / {
    ...
 
     env[GRAV_ENVIRONMENT] = development
 }
 [/codesh]
-[/ui-tab]
-[ui-tab title="Docker"]
-[codesh=yaml line-numbers="true"]
+[codesh=yaml title="Docker" line-numbers="true"]
 web:
   environment:
     - GRAV_ENVIRONMENT=development
 [/codesh]
-[/ui-tab]
-[ui-tab title="PHP"]
-[codesh=php line-numbers="true"]
+[codesh=php title="PHP" line-numbers="true"]
 // Set environment in setup.php or make sure it runs before Grav.
 define('GRAV_ENVIRONMENT', 'development');
 [/codesh]
-[/ui-tab]
-[/ui-tabs]
+[/codesh-group]
 
 ### Custom Environment Paths
 
@@ -155,48 +145,38 @@ Value of `GRAV_ENVIRONMENTS_PATH` has to be existing path under `GRAV_ROOT`. Do 
 
 In the next example, all the environments will be located in `user/sites/GRAV_ENVIRONMENT`, where `GRAV_ENVIRONMENT` is either automatically detected or manually set in the server configuration:
 
-[ui-tabs]
-[ui-tab title="Apache 2"]
-[codesh=apache line-numbers="true"]
+[codesh-group]
+[codesh=apache title="Apache 2" line-numbers="true"]
 <VirtualHost 127.0.0.1:80>
 ...
 
     SetEnv GRAV_ENVIRONMENTS_PATH user://sites
 </VirtualHost>
 [/codesh]
-[/ui-tab]
-[ui-tab title="NGINX php-fpm"]
-[codesh=nginx line-numbers="true"]
+[codesh=nginx title="NGINX php-fpm" line-numbers="true"]
 location / {
     ...
 
 fastcgi_param GRAV_ENVIRONMENTS_PATH user://sites;
 }
 [/codesh]
-[/ui-tab]
-[ui-tab title="NGINX php-cgi"]
-[codesh=nginx line-numbers="true"]
+[codesh=nginx title="NGINX php-cgi" line-numbers="true"]
 location / {
 ...
 
     env[GRAV_ENVIRONMENTS_PATH] = user://sites
 }
 [/codesh]
-[/ui-tab]
-[ui-tab title="Docker"]
-[codesh=yaml line-numbers="true"]
+[codesh=yaml title="Docker" line-numbers="true"]
 web:
   environment:
     - GRAV_ENVIRONMENTS_PATH=user://sites
 [/codesh]
-[/ui-tab]
-[ui-tab title="PHP"]
-[codesh=php line-numbers="true"]
+[codesh=php title="PHP" line-numbers="true"]
 // Set environments path in setup.php or make sure that the following code runs before Grav.
 define('GRAV_ENVIRONMENTS_PATH', 'user://sites');
 [/codesh]
-[/ui-tab]
-[/ui-tabs]
+[/codesh-group]
 
 #### Custom location for the current environment
 
@@ -206,48 +186,38 @@ Value of `GRAV_ENVIRONMENT_PATH` has to be existing path under `GRAV_ROOT`. Do n
 
 In the next example, only the current environment will be located in `user/development`:
 
-[ui-tabs]
-[ui-tab title="Apache 2"]
-[codesh=apache line-numbers="true"]
+[codesh-group]
+[codesh=apache title="Apache 2" line-numbers="true"]
 <VirtualHost 127.0.0.1:80>
 ...
 
     SetEnv GRAV_ENVIRONMENT_PATH user://development
 </VirtualHost>
 [/codesh]
-[/ui-tab]
-[ui-tab title="NGINX php-fpm"]
-[codesh=nginx line-numbers="true"]
+[codesh=nginx title="NGINX php-fpm" line-numbers="true"]
 location / {
     ...
 
 fastcgi_param GRAV_ENVIRONMENT_PATH user://development;
 }
 [/codesh]
-[/ui-tab]
-[ui-tab title="NGINX php-cgi"]
-[codesh=nginx line-numbers="true"]
+[codesh=nginx title="NGINX php-cgi" line-numbers="true"]
 location / {
 ...
 
     env[GRAV_ENVIRONMENT_PATH] = user://development
 }
 [/codesh]
-[/ui-tab]
-[ui-tab title="Docker"]
-[codesh=yaml line-numbers="true"]
+[codesh=yaml title="Docker" line-numbers="true"]
 web:
   environment:
     - GRAV_ENVIRONMENT_PATH=user://development
 [/codesh]
-[/ui-tab]
-[ui-tab title="PHP"]
-[codesh=php line-numbers="true"]
+[codesh=php title="PHP" line-numbers="true"]
 // Set environment path in setup.php or make sure that the following code runs before Grav.
 define('GRAV_ENVIRONMENT_PATH', 'user://development');
 [/codesh]
-[/ui-tab]
-[/ui-tabs]
+[/codesh-group]
 
 Note that `GRAV_ENVIRONMENT_PATH` is separate from `GRAV_ENVIRONMENT`, so you may also want to set the environment name if you don't want it to be automatically set to match the current domain name.
 

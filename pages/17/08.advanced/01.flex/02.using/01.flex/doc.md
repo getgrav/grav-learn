@@ -17,16 +17,13 @@ taxonomy:
 Returns:
 - `int` Number of **[Directories](/17/advanced/flex/using/directory)**
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set flex = grav.get('flex') %}
 
 Flex has {{ flex.count() }} enabled directories.
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexInterface;
 
@@ -35,9 +32,8 @@ $flex = Grav::instance()->get('flex');
 
 /** @var int $count */
 $count = $flex->count();
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## getDirectories()
 
@@ -52,9 +48,8 @@ Returns:
 > [!WARNING]
 > **TIP:** If no list of names was provided, method returns all directories registered to Flex.
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set flex = grav.get('flex') %}
 
 {# Get all directories #}
@@ -64,10 +59,8 @@ Returns:
 {% set listed_directories = flex.directories(['contacts', 'phonebook']) %}
 
 {# Do something with the directories #}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexInterface;
 use Grav\Framework\Flex\Interfaces\FlexDirectoryInterface;
@@ -86,9 +79,8 @@ $listedDirectories = $flex->getDirectories(['contacts', 'phonebook']);
 /** @var array<FlexDirectoryInterface|null> $directories */
 $listedDirectoriesWithMissing = $flex->getDirectories(['contacts', 'phonebook'], true);
 // = ['contacts' => FlexDirectory, 'phonebook' => null]
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 > [!WARNING]
 > **TIP:** You may want to make sure you return only the directories you want to.
@@ -103,16 +95,13 @@ Parameters:
 Returns:
 - `bool` True if found, false otherwise
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set flex = grav.get('flex') %}
 
 Flex has {{ not flex.hasDirectory('contacts') ? 'not' }} contacts directory.
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexInterface;
 
@@ -121,9 +110,8 @@ $flex = Grav::instance()->get('flex');
 
 /** @var bool $exists */
 $exists = $flex->hasDirectory('contacts');
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## getDirectory()
 
@@ -136,19 +124,16 @@ Returns:
 - **[Directory](/17/advanced/flex/using/directory)** (`object`)
 - `null` Directory not found
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set flex = grav.get('flex') %}
 
 {# Get contacts directory (null if not found) #}
 {% set directory = flex.directory('contacts') %}
 
 {# Do something with the contacts directory #}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexInterface;
 use Grav\Framework\Flex\Interfaces\FlexDirectoryInterface;
@@ -161,9 +146,8 @@ $directory = $flex->getDirectory('contacts');
 if ($directory) {
     // Directory exists, do something with it...
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 > [!NOTE]
 > Check what you can do with **[Flex Directory](/17/advanced/flex/using/directory)**
@@ -180,9 +164,8 @@ Returns:
 - **[Object](/17/advanced/flex/using/object)** (`object`)
 - `null` Object not found
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set flex = grav.get('flex') %}
 
 {% set contact = flex.object('ki2ts4cbivggmtlj', 'contacts') %}
@@ -194,10 +177,8 @@ Returns:
 {% else %}
   Oops, contact has been removed!
 {% endif %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -210,9 +191,8 @@ $object = $flex->getObject('ki2ts4cbivggmtlj', 'contacts');
 if ($object) {
     // Object exists, do something with it...
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 > [!NOTE]
 > Check what you can do with **[Flex Object](/17/advanced/flex/using/object)**
@@ -228,9 +208,8 @@ Returns:
 - **[Collection](/17/advanced/flex/using/collection)** (`object`)
 - `null` Directory not found
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set flex = grav.get('flex') %}
 
 {% set contacts = flex.collection('contacts') %}
@@ -242,10 +221,8 @@ Returns:
     <li>{{ contact.first_name|e }} {{ contact.last_name|e }}</li>
   {% endfor %}
 </ul>
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
 use Grav\Framework\Flex\Interfaces\FlexInterface;
@@ -258,9 +235,8 @@ $collection = $flex->getCollection('contacts');
 if ($collection) {
     // Collection exists, do something with it...
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 > [!NOTE]
 > Check what you can do with **[Flex Collection](/17/advanced/flex/using/collection)**

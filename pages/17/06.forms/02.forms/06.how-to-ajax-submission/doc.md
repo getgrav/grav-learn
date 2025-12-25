@@ -70,10 +70,8 @@ As you can see this is a very basic form that simply asks for your name and prov
 
 In this same page, we need to put a little HTML and JavaScript:
 
-[ui-tabs]
-
-[ui-tab title="Vanilla JS"]
-[codesh=twig line-numbers="true"]
+[codesh-group]
+[codesh=twig title="Vanilla JS" line-numbers="true"]
 <div id="form-result"></div>
 
 <script>
@@ -81,11 +79,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('#ajax-test-form');
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-        
+
         const result = document.querySelector('#form-result');
         const action = form.getAttribute('action');
         const method = form.getAttribute('method');
-        
+
         fetch(action, {
             method: method,
             body: new FormData(form)
@@ -106,17 +104,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (result) {
                 result.innerHTML = 'Error: ' + error;
             }
-                
+
             throw new Error(error);
         });
     });
 });
 </script>
 [/codesh]
-[/ui-tab]
-
-[ui-tab title="jQuery"]
-[codesh=twig line-numbers="true"]
+[codesh=twig title="jQuery" line-numbers="true"]
 <div id="form-result"></div>
 
 <script>
@@ -142,9 +137,7 @@ $(document).ready(function(){
 });
 </script>
 [/codesh]
-[/ui-tab]
-
-[/ui-tabs]
+[/codesh-group]
 
 First we define a div placeholder with the ID `#form-result` to use as a location to inject the form results.
 

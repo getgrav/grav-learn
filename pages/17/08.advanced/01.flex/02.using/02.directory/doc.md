@@ -14,16 +14,13 @@ taxonomy:
 Returns:
 - `string` Title
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set directory = grav.get('flex').directory('contacts') %}
 
 <h2>{{ directory.title|e }}</h2>
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexDirectoryInterface;
 
@@ -35,9 +32,8 @@ if ($directory) {
     $title = $directory->getTitle();
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## getDescription()
 
@@ -46,16 +42,13 @@ if ($directory) {
 Returns:
 - `string` Description
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set directory = grav.get('flex').directory('contacts') %}
 
 <p>{{ directory.description|e }}</p>
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexDirectoryInterface;
 
@@ -67,9 +60,8 @@ if ($directory) {
     $description = $directory->getDescription();
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 ## getObject()
 
@@ -82,9 +74,8 @@ Returns:
 - **[Object](/17/advanced/flex/using/object)** (`object`)
 - `null` Object not found
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set directory = grav.get('flex').directory('contacts') %}
 
 {% set contact = directory.object('ki2ts4cbivggmtlj') %}
@@ -96,10 +87,8 @@ Returns:
 {% else %}
   Oops, contact has been removed!
 {% endif %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexDirectoryInterface;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -115,9 +104,8 @@ if ($directory) {
     }
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 > [!NOTE]
 > Check what you can do with **[Flex Object](/17/advanced/flex/using/object)**
@@ -129,9 +117,8 @@ if ($directory) {
 Returns:
 - **[Collection](/17/advanced/flex/using/collection)** (`object`)
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set directory = grav.get('flex').directory('contacts') %}
 
 {% set contacts = directory.collection() %}
@@ -143,10 +130,8 @@ Returns:
     <li>{{ contact.first_name|e }} {{ contact.last_name|e }}</li>
   {% endfor %}
 </ul>
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\Flex\Interfaces\FlexDirectoryInterface;
 use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
@@ -161,9 +146,8 @@ if ($directory) {
     // Do something with the collection...
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 > [!NOTE]
 > Check what you can do with **[Flex Collection](/17/advanced/flex/using/collection)**

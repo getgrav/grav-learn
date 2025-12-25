@@ -22,16 +22,13 @@ Returns:
 > [!NOTE]
 > **NOTE:** In twig there is a `{% render %}` tag, which should be used instead of calling the method directly. This will allow JS/CSS assets from the object to work properly.
 
-[ui-tabs]
-[ui-tab title="Twig"]
-```twig
+[codesh-group]
+[codesh=twig title="Twig"]
 {% set contact = grav.get('flex').object('gizwsvkyo5xtms2s', 'contacts') %}
 
 {% render contact layout: 'details' with { my_variable: true } %}
-```
-[/ui-tab]
-[ui-tab title="PHP"]
-```php
+[/codesh]
+[codesh=php title="PHP"]
 use Grav\Common\Grav;
 use Grav\Framework\ContentBlock\HtmlBlock;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
@@ -44,9 +41,8 @@ if ($object) {
     $block = $object->render('details', ['my_variable' => true]);
 
 }
-```
-[/ui-tab]
-[/ui-tabs]
+[/codesh]
+[/codesh-group]
 
 # Other
 
