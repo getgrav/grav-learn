@@ -1,0 +1,31 @@
+name: PreTwig
+slug: pretwig
+type: plugin
+version: 1.0.0
+description: Pre-processes alternative Twig syntax (<< >> and <% %>) before standard Twig processing, allowing dynamic content on pages with Twig code examples.
+icon: code
+author:
+  name: RocketTheme
+  email: support@rockettheme.com
+  url: https://getgrav.org
+homepage: https://getgrav.org
+keywords: twig, preprocessing, documentation, code examples
+bugs: https://github.com/getgrav/grav-plugin-pretwig/issues
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool

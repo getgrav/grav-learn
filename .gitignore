@@ -7,6 +7,7 @@ data/*
 !data/.*
 plugins/*
 !plugins/.*
+!plugins/pretwig
 themes/learn2
 themes/learn4
 accounts/admin.yaml
