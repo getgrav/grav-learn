@@ -1,5 +1,5 @@
 ---
 menu: PaaS Hosting
-redirect: '/webservers-hosting/paas/fortrabbit'
+redirect: '/17/webservers-hosting/paas/fortrabbit'
 class: subtitle
 ---

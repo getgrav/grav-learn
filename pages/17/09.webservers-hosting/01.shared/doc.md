@@ -1,5 +1,5 @@
 ---
 menu: Shared Hosting
-redirect: '/webservers-hosting/shared/rochen'
+redirect: '/17/webservers-hosting/shared/rochen'
 class: subtitle
 ---

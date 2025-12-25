@@ -1,5 +1,5 @@
 ---
 menu: Hints and Tips
-redirect: '/hints-tips/blogging/metadata'
+redirect: '/17/hints-tips/blogging/metadata'
 class: subtitle
 ---
