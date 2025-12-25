@@ -31,12 +31,12 @@ When you add a new domain, Dreamhost creates a folder for it under your account 
 Access the server using SSH and go into that folder, then download Grav into it:
 
 [codesh=bash]
-wget https://github.com/getgrav/grav/releases/download/1.7.49/grav-v1.7.49.zip
+wget https://github.com/getgrav/grav/releases/download/<< grav_version >>/grav-v<< grav_version >>.zip
 [/codesh]
 
 (Please check on [](https://github.com/getgrav/grav/releases/) the latest version available)
 
-Unzip with `unzip grav-v1.7.49.zip`. This will create a `grav` folder, so we need to move the files up to the current folder.
+Unzip with `unzip grav-v<< grav_version >>.zip`. This will create a `grav` folder, so we need to move the files up to the current folder.
 Just type:
 
 [codesh=bash]
@@ -46,7 +46,7 @@ mv grav/* grav/.htaccess ./; rmdir grav
 You can now also delete the zip file:
 
 [codesh=bash]
-rm grav-v1.7.49.zip
+rm grav-v<< grav_version >>.zip
 [/codesh]
 
 Grav has now been successfully installed. Try accessing the site from the browser, you should see a Grav welcome message.

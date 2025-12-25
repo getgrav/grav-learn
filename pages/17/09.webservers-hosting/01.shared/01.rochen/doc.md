@@ -93,7 +93,7 @@ We will extract Grav into a `/grav` subfolder, but you could unzip directly into
 [codesh=bash]
 cd ~/www
 wget https://getgrav.org/download/core/grav/latest
-unzip grav-v1.7.49.zip
+unzip grav-v<< grav_version >>.zip
 [/codesh]
 
 You should now be able to point your browser to `http://myrochenserver.com/grav` using the appropriate URL of course.

@@ -1,5 +1,6 @@
 ---
 title: Ubuntu 18.04 VPS Installation
+published: false
 ---
 <% set ssh_port = page.header.ssh_port %>
 

@@ -3,6 +3,7 @@
 namespace Grav\Plugin;
 
 use Grav\Common\Plugin;
+use Grav\Common\Http\Response;
 use RocketTheme\Toolbox\Event\Event;
 
 /**
@@ -26,14 +27,69 @@ use RocketTheme\Toolbox\Event\Event;
  */
 class PretwigPlugin extends Plugin
 {
+    /** @var string Cache key for GPM version data */
+    private const CACHE_KEY = 'pretwig_grav_stable_version';
+
+    /** @var int Cache TTL in seconds (24 hours) */
+    private const CACHE_TTL = 86400;
+
+    /** @var string GPM repository URL */
+    private const GPM_URL = 'https://getgrav.org/downloads/grav.json?stable=1';
+
     /**
      * @return array
      */
     public static function getSubscribedEvents(): array
     {
         return [
-            'onPluginsInitialized' => ['onPluginsInitialized', 0]
+            'onPluginsInitialized' => ['onPluginsInitialized', 0],
+            'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
         ];
+    }
+
+    /**
+     * Add Twig variables including cached stable Grav version
+     */
+    public function onTwigSiteVariables(): void
+    {
+        $stableVersion = $this->getStableGravVersion();
+        $this->grav['twig']->twig_vars['grav_version'] = $stableVersion;
+    }
+
+    /**
+     * Get the latest stable Grav version from GPM with caching
+     */
+    protected function getStableGravVersion(): string
+    {
+        $cache = $this->grav['cache'];
+
+        // Try to get from cache first
+        $cached = $cache->fetch(self::CACHE_KEY);
+        if ($cached !== false) {
+            return $cached;
+        }
+
+        // Fetch from GPM
+        try {
+            $response = Response::get(self::GPM_URL, [], null, 5);
+
+            if ($response) {
+                $data = json_decode($response, true);
+                if (isset($data['version'])) {
+                    $version = $data['version'];
+
+                    // Cache for 24 hours
+                    $cache->save(self::CACHE_KEY, $version, self::CACHE_TTL);
+
+                    return $version;
+                }
+            }
+        } catch (\Exception $e) {
+            $this->grav['log']->warning('PreTwig: Failed to fetch stable Grav version: ' . $e->getMessage());
+        }
+
+        // Fallback to installed version if fetch fails
+        return GRAV_VERSION;
     }
 
     /**

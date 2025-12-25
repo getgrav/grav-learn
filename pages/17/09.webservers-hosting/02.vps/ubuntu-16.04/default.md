@@ -1,16 +1,16 @@
 ---
 title: Ubuntu 16.04 VPS Installation
 ---
-{% set ssh_port = page.header.ssh_port %}
+<% set ssh_port = page.header.ssh_port %>
 
 ### Update and Upgrade Packages
 
-At this point, you might want to either setup a local `/etc/hosts` entry to give the IP provided a nice friendly name such as `{{ page.header.localname }}`.  That way you can more easily SSH to your server with `ssh root@{{ page.header.localname }}{% if ssh_port %} -p{{ ssh_port }}{% endif %}`.
+At this point, you might want to either setup a local `/etc/hosts` entry to give the IP provided a nice friendly name such as `<< page.header.localname >>`.  That way you can more easily SSH to your server with `ssh root@<< page.header.localname >><% if ssh_port %> -p<< ssh_port >><% endif %>`.
 
-{% if ssh_port %}
+<% if ssh_port %>
 > [!NOTE]
-> The `-p{{ ssh_port}}` configuration option is required in order to be able to the non-standard SSH port
-{% endif %}
+> The `-p<< ssh_port >>` configuration option is required in order to be able to the non-standard SSH port
+<% endif %>
 
 After successfully SSH'ing to your server as **root**, the first thing you will want to do is update and upgrade all the installed packages.  This will ensure you are running the _latest-and-greatest_:
 
@@ -137,7 +137,7 @@ server {
 
     ## Begin - Server Info
     root /home/grav/www/html;
-    server_name {{ page.header.localname }};
+    server_name localhost;
     ## End - Server Info
 
     ## Begin - Index
@@ -196,13 +196,13 @@ $ service nginx restart
 $ service php7.0-fpm restart
 ```
 
-Now point your browser at your server: `http://{{ page.header.localname }}` and you should see the text: **Working!**
+Now point your browser at your server: `http://<< page.header.localname >>` and you should see the text: **Working!**
 
-You can also test to ensure that PHP is installed and working correctly by pointing your browser to: `http://{{ page.header.localname }}/info.php`.  You should see a standard PHP info page with APCu, Opcache, etc listed.
+You can also test to ensure that PHP is installed and working correctly by pointing your browser to: `http://<< page.header.localname >>/info.php`.  You should see a standard PHP info page with APCu, Opcache, etc listed.
 
 ### Installing Grav
 
-This is the easy part!  First we need to jump back over to the Grav user, so either SSH as `grav@{{ page.header.localname }}` or `su - grav` from the root login. then follow these steps:
+This is the easy part!  First we need to jump back over to the Grav user, so either SSH as `grav@<< page.header.localname >>` or `su - grav` from the root login. then follow these steps:
 
 ```
 $ cd ~/www
@@ -212,7 +212,7 @@ $ rm -Rf html
 $ mv grav html
 ```
 
-Now That's done you can confirm Grav is installed by pointing your browser to `http://{{ page.header.localname }}` and you should be greeted with the **Grav is Running!** page.
+Now That's done you can confirm Grav is installed by pointing your browser to `http://<< page.header.localname >>` and you should be greeted with the **Grav is Running!** page.
 
 Because you have followed these instructions diligently, you will also be able to use the [Grav CLI](../../advanced/grav-cli) and [Grav GPM](../../advanced/grav-gpm) commands such as:
 

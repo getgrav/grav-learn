@@ -107,8 +107,8 @@ We will extract Grav into a `/grav` subfolder, but you could unzip directly into
 
 [codesh=bash]
 $ cd ~/public_html
-[~/public_html]$ curl -L -O https://github.com/getgrav/grav/releases/download/1.7.49/grav-v1.7.49.zip
-[~/public_html]$ unzip grav-v1.7.49.zip
+[~/public_html]$ curl -L -O https://github.com/getgrav/grav/releases/download/<< grav_version >>/grav-v<< grav_version >>.zip
+[~/public_html]$ unzip grav-v<< grav_version >>.zip
  [/codesh]
 
 You should now be able to point your browser to `http://myarvixe.com/grav` using the appropriate URL of course.
