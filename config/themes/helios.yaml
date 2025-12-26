@@ -3,12 +3,12 @@ appearance:
   theme: system
   selector: true
 colors:
-  primary: '#bb0fd6'
-  primary_hover: '#da07fc'
-  accent: '#3b2ef5'
-  primary_dark: '#da07fc'
-  primary_dark_hover: '#e55ffa'
-  accent_dark: '#5e52ff'
+  primary: '#397ae3'
+  primary_hover: '#0f52cf'
+  accent: '#da07fc'
+  primary_dark: '#6ba4ff'
+  primary_dark_hover: '#57bcff'
+  accent_dark: '#da07fc'
   gray_preset: zinc
   gray_custom: null
 fonts:
