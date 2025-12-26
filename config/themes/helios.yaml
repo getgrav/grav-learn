@@ -8,7 +8,7 @@ colors:
   accent: '#da07fc'
   primary_dark: '#6ba4ff'
   primary_dark_hover: '#57bcff'
-  accent_dark: '#da07fc'
+  accent_dark: '#c678dd'
   gray_preset: zinc
   gray_custom: null
 fonts:
