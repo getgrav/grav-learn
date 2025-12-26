@@ -144,7 +144,7 @@ assets:
   js_module_pipeline_include_externals: true
   js_module_pipeline_before_excludes: true
   js_minify: true
-  enable_asset_timestamp: false
+  enable_asset_timestamp: true
   enable_asset_sri: false
   collections:
     jquery: 'system://assets/jquery/jquery-3.x.min.js'
