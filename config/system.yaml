@@ -111,7 +111,7 @@ cache:
   lifetime: 604800
   purge_max_age_days: 30
   gzip: false
-  allow_webserver_gzip: false
+  allow_webserver_gzip: true
   redis:
     socket: '0'
     password: null
