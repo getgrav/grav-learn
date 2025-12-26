@@ -3,12 +3,12 @@ appearance:
   theme: system
   selector: true
 colors:
-  primary: '#953aad'
-  primary_hover: '#2563EB'
+  primary: '#bb0fd6'
+  primary_hover: '#da07fc'
   accent: '#3b2ef5'
-  primary_dark: '#ad74c2'
-  primary_dark_hover: '#93C5FD'
-  accent_dark: '#A78BFA'
+  primary_dark: '#da07fc'
+  primary_dark_hover: '#e55ffa'
+  accent_dark: '#5e52ff'
   gray_preset: zinc
   gray_custom: null
 fonts:
@@ -89,7 +89,7 @@ github:
   branch: develop
   edit_link: true
   edit_text: 'Edit this page on Github'
-  path_prefix: 'user/'
+  path_prefix: user/
 htmx:
   enabled: true
 body_classes: null

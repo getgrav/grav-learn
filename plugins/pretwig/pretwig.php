@@ -52,6 +52,11 @@ class PretwigPlugin extends Plugin
      */
     public function onTwigSiteVariables(): void
     {
+        // Don't run in admin
+        if ($this->isAdmin()) {
+            return;
+        }
+
         $stableVersion = $this->getStableGravVersion();
         $this->grav['twig']->twig_vars['grav_version'] = $stableVersion;
     }
