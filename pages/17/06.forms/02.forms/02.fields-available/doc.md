@@ -67,6 +67,84 @@ The above shown `attributes` and `datasets` definitions lead to the following fi
 
 ## Available Fields
 
+### Array Field
+
+The `array` field type allows you to create a list of key-value pairs that can be dynamically added, removed, or reordered. Each row in the array can either be a simple input or a textarea, depending on the configuration.
+
+Examples:
+
+A simple array of key-value pairs:
+
+[codesh=yaml line-numbers="true"]
+my_array:
+  type: array
+  label: My Array Field
+  placeholder_key: Key
+  placeholder_value: Value
+  value_type: text # Can also be 'textarea' for multi-line input
+[/codesh]
+
+In `value_only` mode, the array only accepts values without keys:
+
+[codesh=yaml line-numbers="true"]
+my_array_values:
+  type: array
+  label: Values Only
+  value_only: true
+  placeholder_value: Enter a value
+[/codesh]
+
+[div class="table table-keycol"]
+| Attribute            | Description                                                                                  |
+| :------------------  | :-------------------------------------------------------------------------------------------|
+| `placeholder_key`    | Placeholder text for the key input field.                                                   |
+| `placeholder_value`  | Placeholder text for the value input field.                                                 |
+| `value_type`         | Determines input type for values (`text` or `textarea`).                                     |
+| `value_only`         | If `true`, only value inputs are displayed without keys.                                     |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed             |
+| :-----                                |
+| [disabled](#common-fields-attributes) |
+| [readonly](#common-fields-attributes) |
+| [name](#common-fields-attributes)     |
+| [label](#common-fields-attributes)    |
+| [classes](#common-fields-attributes)  |
+| [size](#common-fields-attributes)     |
+[/div]
+
+---
+
+### Avatar Field
+
+The `avatar` field type displays a user's avatar image in the form. If the `avatar` field has a value, it will display that image; otherwise, it will generate a Gravatar based on the user's email.
+
+Examples:
+
+[codesh=yaml line-numbers="true"]
+user_avatar:
+  type: avatar
+  label: User Avatar
+  classes: "avatar-label"
+  img_classes: "avatar-img"
+[/codesh]
+
+[div class="table table-keycol"]
+| Attribute   | Description                                          |
+| :-----      | :-----                                               |
+| `classes`   | CSS classes applied to the label wrapping the image |
+| `img_classes` | CSS classes applied directly to the avatar image  |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed             |
+| :-----                                |
+| [classes](#common-fields-attributes)  |
+[/div]
+
+---
+
 ### Basic-Captcha Field
 
 Added in Forms `7.0.0` as an local alternative to the Google ReCaptcha field.  This field is particularly handy when dealing with SPAM in contact forms when you don't want to deal with the hassle or perhaps GPDR restrictions that come with Google's offering. It uses **OCR-resistant** fonts to deter attacks, and can be configured with codes to be copied, or simple math questions.
@@ -498,8 +576,138 @@ my_field:
 > NOTE: The checkboxes field does not support the `remember` process action.
 
 ---
-### Conditional Field
 
+### Color Field
+
+The `color` field type allows the user to select a color using a color picker. It is rendered as an HTML `input` of type `color`.
+
+Examples:
+
+[codesh=yaml line-numbers="true"]
+background_color:
+  type: color
+  label: Background Color
+  default: "#ffffff"
+  classes: "color-picker"
+[/codesh]
+
+[div class="table table-keycol"]
+| Attribute   | Description                  |
+| :-----      | :-----                       |
+| `default`   | Sets the default color value |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed             |
+| :-----                                |
+| [autocomplete](#common-fields-attributes) |
+| [autofocus](#common-fields-attributes)    |
+| [classes](#common-fields-attributes)      |
+| [default](#common-fields-attributes)      |
+| [disabled](#common-fields-attributes)     |
+| [help](#common-fields-attributes)         |
+| [id](#common-fields-attributes)           |
+| [label](#common-fields-attributes)        |
+| [display_label](#common-fields-attributes)|
+| [labelclasses](#common-fields-attributes) |
+| [sublabel](#common-fields-attributes)     |
+| [sublabelclasses](#common-fields-attributes)|
+| [name](#common-fields-attributes)         |
+| [novalidate](#common-fields-attributes)   |
+| [outerclasses](#common-fields-attributes) |
+| [wrapper_classes](#common-fields-attributes)|
+| [placeholder](#common-fields-attributes)  |
+| [readonly](#common-fields-attributes)     |
+| [size](#common-fields-attributes)         |
+| [style](#common-fields-attributes)        |
+| [title](#common-fields-attributes)        |
+| [type](#common-fields-attributes)         |
+| [validate.required](#common-fields-attributes) |
+| [validate.pattern](#common-fields-attributes)  |
+| [validate.message](#common-fields-attributes)  |
+[/div]
+
+---
+
+### Columns Field
+
+The `columns` field type is used to group multiple fields into a multi-column layout.  
+Each `columns` field contains one or more `column` fields, which determine how content is arranged horizontally.
+
+This field does **not** render inputs of its own. It simply organizes sub-fields into a structured, responsive layout.
+
+Examples:
+
+[codesh=yaml line-numbers="true"]
+my_columns:
+  type: columns
+  fields:
+    column1:
+      type: column
+      fields:
+        header.title:
+          type: text
+          label: Title
+
+    column2:
+      type: column
+      fields:
+        header.subtitle:
+          type: text
+          label: Subtitle
+[/codesh]
+
+[div class="table table-keycol"]
+| Attribute   | Description                          |
+| :-----      | :----------------------------------- |
+| `fields`    | Defines the list of column fields     |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed             |
+| :-----                                |
+| [classes](#common-fields-attributes)  |
+| [name](#common-fields-attributes)     |
+[/div]
+
+---
+
+### Column Field
+
+The `column` field type represents a single column inside a `columns` field.  
+It wraps a set of fields inside a `<div class="form-column">` container, allowing them to be displayed side by side.
+
+This field does not accept input itself; it only groups and structures other fields.
+
+Examples:
+
+[codesh=yaml line-numbers="true"]
+my_column:
+  type: column
+  classes: "one-half"
+  fields:
+    header.description:
+      type: textarea
+      label: Description
+[/codesh]
+
+[div class="table table-keycol"]
+| Attribute   | Description                        |
+| :-----      | :-------------------------------- |
+| `fields`    | Defines the fields inside the column |
+| `classes`   | CSS classes applied to the column wrapper |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed             |
+| :-----                                |
+| [classes](#common-fields-attributes)  |
+| [name](#common-fields-attributes)     |
+[/div]
+
+---
+
+### Conditional Field
 
 The `conditional` field type is used to conditionally display some other fields base on a condition.
 
@@ -679,6 +887,51 @@ header.email:
 | [validate.required](#common-fields-attributes) |
 | [validate.pattern](#common-fields-attributes)  |
 | [validate.message](#common-fields-attributes)  |
+[/div]
+
+---
+
+### Fieldset Field
+
+The `fieldset` field type allows you to group multiple fields inside an HTML `<fieldset>` element.  
+It can optionally display a `<legend>` as the title of the field group.
+
+This field does not store a value by itself — it simply organizes other fields visually and semantically.
+
+Example:
+
+[codesh=yaml line-numbers="true"]
+user_info:
+  type: fieldset
+  id: user-info
+  legend: User Information
+  classes: "group-box"
+  fields:
+    name:
+      type: text
+      label: Name
+
+    email:
+      type: email
+      label: Email Address
+[/codesh]
+
+[div class="table table-keycol"]
+| Attribute   | Description                                      |
+| :---------- | :----------------------------------------------- |
+| `legend`    | The title displayed above the grouped fields     |
+| `fields`    | The list of fields contained inside the fieldset |
+| `id`        | Sets the `<fieldset>` element ID                 |
+| `classes`   | Adds CSS classes to the `<fieldset>`             |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed             |
+| :------------------------------------ |
+| [id](#common-fields-attributes)       |
+| [classes](#common-fields-attributes)  |
+| [name](#common-fields-attributes)     |
+| *(Most other common field attributes are not applicable)* |
 [/div]
 
 ---
@@ -959,6 +1212,40 @@ FilePond works seamlessly with AJAX form submissions (`xhr_submit: true`). The f
 
 ---
 
+## Formname Field
+
+The `formname` field type inserts a hidden input that stores the name of the current form.  
+It is used internally by forms to keep track of which form was submitted, especially when multiple forms exist on the same page.
+
+This field does not accept user input and does not allow customization beyond what the Twig explicitly supports.
+
+Example:
+
+[codesh=yaml line-numbers="true"]
+form_identifier:
+  type: formname
+[/codesh]
+
+The generated HTML:
+
+[codesh=html line-numbers="true"]
+<input type="hidden" name="__form-name__" value="my-form-name" />
+[/codesh]
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :--------| :-----------|
+| *(none)* | This field has **no configurable attributes** |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed |
+| :------------------------ |
+| *(none — all common attributes are ignored)* |
+[/div]
+
+---
+
 ### Hidden Field
 
 The `hidden` field type is used to add a hidden element to a form.
@@ -1015,6 +1302,129 @@ header.process:
 content:
   type: ignore
 [/codesh]
+
+---
+
+### Key Field
+
+The `key` field type provides a text input that also exposes an observable attribute (`data-key-observe`) used internally by JavaScript to watch for changes in the field's value.  
+It works similarly to a standard text field but is designed specifically for use cases where the field's value must dynamically update other form elements.
+
+If the value is an array, it will automatically be converted into a comma-separated string.
+
+Example:
+
+[codesh=yaml line-numbers="true"]
+my_key:
+  type: key
+  label: Identifier
+  placeholder: Enter an internal key
+[/codesh]
+
+Generated HTML (simplified):
+
+[codesh=html line-numbers="true"]
+<input type="text"
+       value="myvalue"
+       data-key-observe="data[header][my_key]"
+       placeholder="Enter an internal key" />
+[/codesh]
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :--------| :-----------|
+| `placeholder` | Placeholder text shown when the field is empty |
+| `autocomplete` | Accepts `on` or `off` |
+| `autofocus` | Automatically focuses the field when the form loads |
+| `classes` | Adds custom CSS classes to the input |
+| `disabled` | Disables the field |
+| `id` | Sets the HTML `id` attribute |
+| `novalidate` | Disables native HTML validation |
+| `readonly` | Makes the input read-only |
+| `size` | Sets the input container size |
+| `style` | Inline CSS styles |
+| `tabindex` | Sets the tab order |
+| `title` | Sets a tooltip or validation message |
+| `validate.required` | Requires a value before submitting |
+| `validate.pattern` | Regex validation pattern |
+| `validate.message` | Message shown when validation fails |
+[/div]
+
+[div class="table"]
+| Common Attributes Allowed |
+| :------------------------ |
+| autocomplete |
+| autofocus |
+| classes |
+| disabled |
+| help |
+| id |
+| label |
+| display_label |
+| labelclasses |
+| sublabel |
+| sublabelclasses |
+| name |
+| novalidate |
+| outerclasses |
+| wrapper_classes |
+| placeholder |
+| readonly |
+| size |
+| style |
+| title |
+| type |
+| validate.required |
+| validate.pattern |
+| validate.message |
+[/div]
+
+---
+
+### Month Field
+
+The **month** field type allows users to select a **month and year**. It stores the value in `YYYY-MM` format. To display it as a readable date, you can append `-01` to create a full date (`YYYY-MM-DD`) and format it with Twig's `date` filter.
+
+Examples:
+
+[codesh=yaml line-numbers="true"]
+header.billing_month:
+type: month
+label: Billing Month
+placeholder: Select month
+default: 2025-11
+[/codesh]
+
+Display in Twig:
+
+[codesh=twig line-numbers="true"]
+{% if page.header.billing_month %}
+{% set month_value = page.header.billing_month ~ '-01' %} <p>{{ month_value|date("F Y") }}</p>
+{% endif %}
+[/codesh]
+
+This will render `2025-11` as **November 2025** on the site.
+
+[div class="table table-keycol"]
+
+| Attribute   | Description                                       |
+| :---------- | :------------------------------------------------ |
+| type        | Defines the field type as `month`                 |
+| label       | The label displayed above the field               |
+| placeholder | Optional text displayed when no value is selected |
+| default     | Optional default value in `YYYY-MM` format        |
+[/div]
+
+[div class="table"]
+
+| Common Attributes Allowed             |
+| :------------------------------------ |
+| [disabled](#common-fields-attributes) |
+| [id](#common-fields-attributes)       |
+| [label](#common-fields-attributes)    |
+| [name](#common-fields-attributes)     |
+| [required](#common-fields-attributes) |
+[/div]
 
 ---
 
@@ -1360,6 +1770,64 @@ test:
 
 ---
 
+### Switch Field
+
+The **switch** field type provides an ON/OFF toggle using the same logic as a checkbox.  
+It is functionally identical to a checkbox but offers clearer semantics and a modern toggle-style UI.
+
+### Example
+
+[codesh=yaml line-numbers="true"]
+header.enable_feature:
+  type: switch
+  label: Enable Feature
+  default: 1
+  highlight: 1
+  options:
+    1: Enabled
+    0: Disabled
+[/codesh]
+
+This creates an ON/OFF switch where:
+- `1` = ON  
+- `0` = OFF  
+
+### Specific Attributes
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :----- | :----- |
+| type | Defines the field type as `switch` |
+| default | Initial value (`1` or `0`) |
+| highlight | Pre-selected value highlighted in the admin UI |
+| options | Text labels for ON/OFF values |
+[/div]
+
+### Common Attributes Allowed  
+
+The Switch field supports **all the same common attributes as Checkbox**, including validation:
+
+[div class="table"]
+| Common Attributes Allowed |
+| :----- |
+| autofocus |
+| classes |
+| default |
+| disabled |
+| id |
+| label |
+| name |
+| novalidate |
+| outerclasses |
+| size |
+| style |
+| validate.required |
+| validate.pattern |
+| validate.message |
+[/div]
+
+---
+
 ### Tabs / Tab Fields
 
 ![Tabs](tabs_field_bp.gif)
@@ -1547,6 +2015,63 @@ header.content:
 
 ---
 
+### Time Field
+
+The **time** field type allows users to select a time using the native HTML5 `<input type="time">` element.  
+This field is ideal for events, scheduling, or any scenario requiring a `HH:MM` time format.
+
+This template is used when the value is displayed in **list or summary views** (such as in the Admin panel), formatting the time as `3:45 PM` instead of `15:45`.
+
+### Example
+
+[codesh=yaml line-numbers="true"]
+header.event_time:
+  type: time
+  label: Event Time
+  default: "14:30"
+  placeholder: "HH:MM"
+  help: "Select the event time"
+  step: 60   # Minute interval (optional)
+  validate:
+    required: true
+[/codesh]
+
+### Specific Attributes
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :----- | :----- |
+| type | Defines the field type as `time` |
+| default | Initial value in `HH:MM` format |
+| placeholder | Suggestive text shown when empty |
+| step | Time interval in seconds (e.g. `60` = 1 minute) |
+[/div]
+
+### Common Attributes Allowed
+
+The Time field supports the same common attributes as the Checkbox field:
+
+[div class="table"]
+| Common Attributes Allowed |
+| :----- |
+| autofocus |
+| classes |
+| default |
+| disabled |
+| id |
+| label |
+| name |
+| novalidate |
+| outerclasses |
+| size |
+| style |
+| validate.required |
+| validate.pattern |
+| validate.message |
+[/div]
+
+---
+
 ### Toggle Field
 
 ![Toggle Field](toggle_field_bp.gif)
@@ -1588,6 +2113,47 @@ summary.enabled:
 | [validate.required](#common-fields-attributes) |
 | [validate.type](#common-fields-attributes)     |
 | [disabled](#common-fields-attributes)          |
+[/div]
+
+---
+
+### Unique Id Field
+
+The **uniqueid** field type generates a unique identifier for a form.  
+It is rendered as a hidden input and is primarily used internally to differentiate form submissions.
+
+### Example
+
+[codesh=yaml line-numbers="true"]
+header.unique_form_id:
+  type: uniqueid
+[/codesh]
+
+> Note: You generally do not need to set a label or default value for this field; it is automatically generated and hidden.
+
+### Specific Attributes
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :----- | :----- |
+| type | Defines the field type as `uniqueid` |
+| name | The input field name (default is `__unique_form_id__`) |
+| value | Automatically generated unique value |
+[/div]
+
+### Common Attributes Allowed
+
+Since this is a hidden/internal field, common attributes are minimal:
+
+[div class="table"]
+| Common Attributes Allowed |
+| :----- |
+| id |
+| name |
+| classes |
+| disabled |
+| outerclasses |
+| style |
 [/div]
 
 ---
@@ -1634,27 +2200,120 @@ header.url:
 | [validate.message](#common-fields-attributes)  |
 [/div]
 
+### Value Field
+
+The **value** field type is used to display a non-editable value within a form.  
+It does not render an input for the user to type; instead, it outputs a value according to optional formatting rules.
+
+### Example
+
+[codesh=yaml line-numbers="true"]
+header.display_name:
+  type: value
+  label: Display Name
+  default: "Guest"
+  filter: raw
+[/codesh]
+
+Optional example using `date`:
+
+[codesh=yaml line-numbers="true"]
+header.submission_date:
+  type: value
+  label: Submitted On
+  default: "2025-11-25"
+  filter: date
+[/codesh]
+
+### Specific Attributes
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :----- | :----- |
+| type | Defines the field type as `value` |
+| default | Default value to display if none is provided |
+| options | Optional mapping of stored values to display labels |
+| filter | Optional formatting filter: `'date'`, `'raw'`, or default plain text |
+[/div]
+
+### Common Attributes Allowed
+
+[div class="table"]
+| Common Attributes Allowed |
+| :----- |
+| id |
+| classes |
+| label |
+| name |
+| style |
+| outerclasses |
+[/div]
+
+---
+
+### Week Field
+
+The **week** field type allows users to select a week number within a specific year.  
+It is rendered as an HTML `<input type="week">`, enabling browsers that support it to display a week picker.
+
+### Example
+
+[codesh=yaml line-numbers="true"]
+header.billing_week:
+  type: week
+  label: Billing Week
+  placeholder: "Select week"
+  default: "2025-W48"
+[/codesh]
+
+Human-readable output (showing the first day of the week):
+
+[codesh=twig line-numbers="true"]
+{% if page.header.billing_week %}
+    {# Append '-1' to get the Monday of the week #}
+    {% set week_start = page.header.billing_week ~ '-1' %}
+    <p>Week starts on: {{ week_start|date("F j, Y") }}</p>
+{% endif %}
+[/codesh]
+
+> Example: If `billing_week` is `2025-W48`, the output will be `Week starts on: November 24, 2025`.
+
+### Specific Attributes
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :----- | :----- |
+| type | Defines the field type as `week` |
+| default | Optional default value in `YYYY-Www` format |
+| placeholder | Optional text shown when the field is empty |
+[/div]
+
+### Common Attributes Allowed
+
+[div class="table"]
+| Common Attributes Allowed |
+| :----- |
+| autofocus |
+| classes |
+| default |
+| disabled |
+| id |
+| label |
+| name |
+| novalidate |
+| outerclasses |
+| size |
+| style |
+| validate.required |
+| validate.pattern |
+| validate.message |
+[/div]
 
 ## Currently Undocumented Fields
-
 
 [div class="table table-keycol"]
 | Field                                             | Description                                                               |
 | :-----                                            | :-----                                                                    |
-| **Array**                                         |                                                                           |
-| **Avatar**                                        |                                                                           |
-| **Color**                                         |                                                                           |
-| **Columns**                                       |                                                                           |
-| **Column**                                        |                                                                           |
 | **Datetime**                                      |                                                                           |
-| **Fieldset**                                      |                                                                           |
-| **Formname**                                      |                                                                           |
-| **Key**                                           |                                                                           |
-| **Month**                                         |                                                                           |
 | **Signature**                                     |                                                                           |
-| **Switch**                                        |                                                                           |
-| **Time**                                          |                                                                           |
-| **Unique Id**                                     |                                                                           |
-| **Value**                                         |                                                                           |
-| **Week**                                          |                                                                           |
 [/div]
