@@ -1,7 +1,5 @@
 ---
 title: 'Reference: Blueprint Form Fields'
-shortcode-core:
-    parser: regex
 page-toc:
   active: true
 taxonomy:
