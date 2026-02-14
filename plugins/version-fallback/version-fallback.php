@@ -43,17 +43,10 @@ class VersionFallbackPlugin extends Plugin
      */
     public function onPagesInitialized(Event $event): void
     {
-        $debug = [];
-        $debug[] = '=== VF DEBUG ' . date('Y-m-d H:i:s') . ' SAPI=' . php_sapi_name() . ' ===';
-
         $fallbackConfig = (array)$this->config->get('plugins.version-fallback.fallback', []);
         if (empty($fallbackConfig)) {
-            $debug[] = 'EARLY EXIT: empty fallbackConfig';
-            $this->writeDebugLog($debug);
             return;
         }
-
-        $debug[] = 'fallbackConfig: ' . json_encode($fallbackConfig);
 
         /** @var Pages $pages */
         $pages = $this->grav['pages'];
@@ -66,32 +59,11 @@ class VersionFallbackPlugin extends Plugin
         $cacheKey = 'version-fallback-' . md5($pagesHash . json_encode($fallbackConfig) . json_encode($suppressConfig));
         $cachedMap = $cache->fetch($cacheKey);
 
-        $debug[] = 'pagesHash: ' . $pagesHash;
-        $debug[] = 'cacheKey: ' . $cacheKey;
-        $debug[] = 'cachedMap type: ' . gettype($cachedMap) . ' count: ' . (is_array($cachedMap) ? count($cachedMap) : 'N/A');
-
         if (is_array($cachedMap) && !empty($cachedMap)) {
-            $debug[] = 'CACHE HIT - calling rebuildFromCache with ' . count($cachedMap) . ' entries';
             $this->rebuildFromCache($cachedMap, $pages, $fallbackConfig);
-
-            // Verify after rebuild
-            $page18 = $pages->find('/18');
-            if ($page18) {
-                $children = $page18->children();
-                $debug[] = 'After rebuild: /18 children count=' . $children->count();
-                $debug[] = 'After rebuild: /18 visible children count=' . $page18->children()->visible()->count();
-                $debug[] = '/18 path()=' . $page18->path();
-            } else {
-                $debug[] = 'After rebuild: /18 NOT FOUND';
-            }
-            $debug[] = 'fallbackMap count: ' . count($this->fallbackMap);
-            $debug[] = 'Pages spl_object_id=' . spl_object_id($pages);
-
-            $this->writeDebugLog($debug);
             return;
         }
 
-        $debug[] = 'CACHE MISS - building fresh';
         $this->fallbackMap = [];
 
         foreach ($fallbackConfig as $targetVersion => $sourceVersions) {
@@ -104,14 +76,10 @@ class VersionFallbackPlugin extends Plugin
                 $sourceRoot = $pages->find('/' . $sourceVersion);
 
                 if (!$sourceRoot) {
-                    $debug[] = "sourceRoot /$sourceVersion: NOT FOUND";
                     continue;
                 }
 
-                $debug[] = "sourceRoot /$sourceVersion: FOUND path=" . $sourceRoot->path() . " children=" . $sourceRoot->children()->count();
-
                 $targetRoot = $pages->find('/' . $targetVersion);
-                $debug[] = "targetRoot /$targetVersion: " . ($targetRoot ? 'FOUND path=' . $targetRoot->path() . ' children=' . $targetRoot->children()->count() : 'NOT FOUND');
 
                 $this->recursiveAugment(
                     $pages,
@@ -124,33 +92,9 @@ class VersionFallbackPlugin extends Plugin
             }
         }
 
-        $debug[] = 'After augment: fallbackMap count=' . count($this->fallbackMap);
-
-        // Verify /18 children after augment
-        $page18 = $pages->find('/18');
-        if ($page18) {
-            $debug[] = 'After augment: /18 children count=' . $page18->children()->count();
-            $debug[] = 'After augment: /18 visible children count=' . $page18->children()->visible()->count();
-            foreach ($page18->children() as $child) {
-                $debug[] = '  child: ' . $child->route() . ' class=' . get_class($child) . ' visible=' . ($child->visible() ? 'Y' : 'N');
-            }
-        }
-
-        $debug[] = 'Pages spl_object_id=' . spl_object_id($pages);
-
         // Cache the fallback map
         if (!empty($this->fallbackMap)) {
             $cache->save($cacheKey, $this->fallbackMap, 604800); // 1 week, invalidates via pagesHash
-        }
-
-        $this->writeDebugLog($debug);
-    }
-
-    protected function writeDebugLog(array $lines): void
-    {
-        $logDir = $this->grav['locator']->findResource('log://');
-        if ($logDir) {
-            file_put_contents($logDir . '/vf-debug.log', implode("\n", $lines) . "\n\n", FILE_APPEND);
         }
     }
 
@@ -422,14 +366,6 @@ class VersionFallbackPlugin extends Plugin
      */
     protected function rebuildFromCache(array $cachedMap, Pages $pages, array $fallbackConfig): void
     {
-        $debug = [];
-        $debug[] = 'rebuildFromCache: ' . count($cachedMap) . ' entries';
-        $skippedExists = 0;
-        $skippedNoSource = 0;
-        $skippedNoConfig = 0;
-        $skippedNoVirtual = 0;
-        $created = 0;
-
         // Sort by route depth to ensure parents are created before children
         uksort($cachedMap, function ($a, $b) {
             return substr_count($a, '/') <=> substr_count($b, '/');
@@ -438,16 +374,11 @@ class VersionFallbackPlugin extends Plugin
         foreach ($cachedMap as $targetRoute => $sourceRoute) {
             // Skip if target already exists (real page was added since cache was built)
             if ($pages->find($targetRoute)) {
-                $skippedExists++;
                 continue;
             }
 
             $sourcePage = $pages->find($sourceRoute);
             if (!$sourcePage) {
-                $skippedNoSource++;
-                if ($skippedNoSource <= 5) {
-                    $debug[] = "  NO SOURCE: $sourceRoute (target: $targetRoute)";
-                }
                 continue;
             }
 
@@ -456,27 +387,16 @@ class VersionFallbackPlugin extends Plugin
             $targetVersion = $segments[0] ?? '';
 
             if (!isset($fallbackConfig[$targetVersion])) {
-                $skippedNoConfig++;
                 continue;
             }
 
             $virtualPage = $this->createVirtualPage($pages, $sourcePage, $targetVersion, $targetRoute);
             if ($virtualPage) {
                 $pages->addPage($virtualPage, $targetRoute);
-                $created++;
-            } else {
-                $skippedNoVirtual++;
             }
         }
 
-        $debug[] = "Results: created=$created skippedExists=$skippedExists skippedNoSource=$skippedNoSource skippedNoConfig=$skippedNoConfig skippedNoVirtual=$skippedNoVirtual";
-
         $this->fallbackMap = $cachedMap;
-
-        $logDir = $this->grav['locator']->findResource('log://');
-        if ($logDir) {
-            file_put_contents($logDir . '/vf-debug.log', implode("\n", $debug) . "\n", FILE_APPEND);
-        }
     }
 
     /**
