@@ -1,0 +1,55 @@
+name: Version Fallback
+slug: version-fallback
+type: plugin
+version: 1.0.0
+description: "Provides version fallback for multi-version documentation sites. Automatically creates virtual pages for missing version content by falling back to source versions."
+icon: code-branch
+author:
+  name: Trilby Media
+  email: devs@getgrav.org
+homepage: https://github.com/getgrav/grav-plugin-version-fallback
+keywords: versioning, fallback, documentation
+license: MIT
+
+dependencies:
+    - { name: grav, version: '>=1.7.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin Status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+
+    fallback:
+      type: array
+      label: Fallback Chain
+      help: "Map target versions to their fallback source versions (e.g., 18: [17])"
+      placeholder_key: Target Version
+      placeholder_value: Source Versions (comma-separated)
+
+    suppress:
+      type: array
+      label: Suppressed Routes
+      help: "Routes to exclude from fallback per version (e.g., 18: [/migration])"
+      placeholder_key: Version
+      placeholder_value: Routes (comma-separated)
+
+    admin_pages:
+      type: toggle
+      label: Augment Admin Pages
+      help: "Whether to add virtual pages in the admin panel (experimental)"
+      highlight: 0
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool

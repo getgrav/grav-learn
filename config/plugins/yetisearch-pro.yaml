@@ -4,7 +4,7 @@ engine:
   storage_dir: 'user://data/yetisearch-pro'
   index_prefix: 'grav_'
   timeout: 5
-  max_batch_size: 5
+  max_batch_size: 50
   search:
     snippet_length: 75
     prefix_last_token: true
@@ -98,7 +98,7 @@ scheduler:
     indexes: []
 
 modal:
-  type: full # full | simple
+  type: simple # full | simple
   branding: true # Show "Powered by YetiSearch" in footer
   custom_css: |
     /* Custom CSS variable overrides for YetiSearch modals.

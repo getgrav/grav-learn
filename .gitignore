@@ -8,6 +8,7 @@ data/*
 plugins/*
 !plugins/.*
 !plugins/pretwig
+!plugins/version-fallback
 themes/learn2
 themes/learn4
 accounts/admin.yaml
