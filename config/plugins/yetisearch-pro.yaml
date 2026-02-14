@@ -43,6 +43,7 @@ indexes:
           headers_h4: { boost: 1.0, store: true }
           url: { store: true, index: false }
           route: { store: true, index: false }
+          version: { store: true, index: false }
     query_defaults:
       per_page: 10
 
