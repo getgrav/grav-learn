@@ -85,6 +85,7 @@ class VersionFallbackPlugin extends Plugin
                 $debug[] = 'After rebuild: /18 NOT FOUND';
             }
             $debug[] = 'fallbackMap count: ' . count($this->fallbackMap);
+            $debug[] = 'Pages spl_object_id=' . spl_object_id($pages);
 
             $this->writeDebugLog($debug);
             return;
@@ -134,6 +135,8 @@ class VersionFallbackPlugin extends Plugin
                 $debug[] = '  child: ' . $child->route() . ' class=' . get_class($child) . ' visible=' . ($child->visible() ? 'Y' : 'N');
             }
         }
+
+        $debug[] = 'Pages spl_object_id=' . spl_object_id($pages);
 
         // Cache the fallback map
         if (!empty($this->fallbackMap)) {
