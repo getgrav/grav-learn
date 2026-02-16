@@ -11,6 +11,8 @@ summary:
   size: 300
 
 redirects:
+  '/15/(.*)': '/17/$1'
+  '/16/(.*)': '/17/$1'
   '/(\d+)/hosting/rochen': '/hosting/shared/rochen'
   '/(\d+)/hosting/wirenine': '/hosting/shared/wirenine'
   '/(\d+)/hosting/crucial': '/hosting/shared/crucial'
