@@ -1,6 +1,8 @@
+title: Grav API
 metadata:
     description: All the Grav classes in one location for easy reference
     keywords: "grav api, api, classes"
+cache_enable: false
 shortcode-core:
   active: false
 yetisearch:
