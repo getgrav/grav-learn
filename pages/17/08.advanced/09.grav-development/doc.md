@@ -133,7 +133,7 @@ When you have created your new theme or plugin and would like to see it added to
 The GetGrav.org site uses a custom ChangeLog format that is written in standard markdown but can be manipulated with some simple CSS and [displayed in an attractive format](https://getgrav.org/downloads#changelog).  In order to ensure your ChangeLogs can be parsed and formatted properly, please use this syntax:
 
 [codesh=markdown line-numbers="true"]
-# vX.Y.Z
+# X.Y.Z
 ## 01/01/2015
 
 1. [](#new)
@@ -150,6 +150,9 @@ The GetGrav.org site uses a custom ChangeLog format that is written in standard 
 [/codesh]
 
 Each section `#new, #improved, #bugfix` are optional, just include the sections you need.
+
+> [!TIP]
+> Versions can be either `vX.Y.Z` or `X.Y.Z`, just ensure they are consistent between releases.  Make sure you have the version with `#` the date (ensure US format) `##` and then a newline. Also make sure you indent your bullet items the same amount.
 
 > [!WARNING]
 > Dates can use either the **American** `m/d/y` [date format](/17/content/headers#date), or the **European** `d-m-y` format. Also make sure there is an empty newline between the headers (version and date) and lists (new, improved, bugfix).
