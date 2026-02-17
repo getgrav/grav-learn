@@ -43,6 +43,10 @@ header:
       route: 'https://github.com/getgrav/grav'
       label: Github
       external: '0'
+    -
+      route: '/api'
+      label: API
+      external: '0'  
 custom_favicon:
   user/assets/helios/favicon.png:
     name: favicon.png
