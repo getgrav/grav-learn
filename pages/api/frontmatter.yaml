@@ -7,3 +7,5 @@ shortcode-core:
   active: false
 yetisearch:
   process: false
+process:
+  markdown: false
