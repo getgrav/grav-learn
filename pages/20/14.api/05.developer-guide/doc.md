@@ -457,6 +457,171 @@ The web component (`admin-next/fields/products-status.js`) calls `GET /licenses/
 6. The form renders with standard fields (array for licenses) and a custom field (products-status web component)
 7. The Save button sends a PATCH to `/licenses`; Import/Export trigger their respective endpoints
 
+## Other Admin2 Extension Points
+
+Beyond full plugin pages and custom fields, Admin2 exposes several smaller surfaces plugins can contribute to. Each one follows the same pattern: a GET endpoint that fires an event, plugins append items to the event data, and Admin2 renders the collected results. Web-component payloads (where applicable) live under `admin-next/{subdir}/{slug}.js` inside the plugin and are served on demand by dedicated script endpoints.
+
+| Surface | Endpoint | Registration event | Web component (if any) | Script endpoint |
+|---------|----------|-------------------|------------------------|-----------------|
+| Full plugin page | `GET /gpm/plugins/{slug}/page` | `onApiPluginPageInfo` | `admin-next/pages/{slug}.js` | `GET /gpm/plugins/{slug}/page-script` |
+| Custom blueprint field | (automatic discovery) | (filesystem) | `admin-next/fields/{type}.js` | `GET /gpm/plugins/{slug}/field/{type}` |
+| Sidebar item | `GET /sidebar/items` | `onApiSidebarItems` | (none — links to a plugin page) | — |
+| Settings panel | `GET /settings/panels` | `onApiAdminSettingsPanels` | (blueprint-mode only) | — |
+| Menubar item | `GET /menubar/items` | `onApiMenubarItems` | (none — POSTs to action endpoint) | — |
+| Menubar action | `POST /menubar/actions/{plugin}/{action}` | `onApiMenubarAction` | — | — |
+| Floating widget | `GET /floating-widgets` | `onApiFloatingWidgets` | `admin-next/widgets/{slug}.js` | `GET /gpm/plugins/{slug}/widget-script` |
+| Context panel | `GET /context-panels` | `onApiContextPanels` | `admin-next/panels/{slug}.js` | `GET /gpm/plugins/{slug}/panel-script` |
+| Custom report | `GET /reports` | `onApiGenerateReports` | `admin-next/reports/{reportId}.js` | `GET /gpm/plugins/{slug}/report-script/{reportId}` |
+
+The current authenticated user is always passed in the event data — use it to skip registrations when the user doesn't have the permissions required to use that feature.
+
+### Settings Panels
+
+Settings panels render as cards inside Admin2's Settings page, rather than as standalone sidebar entries. Use them for configuration that belongs with other system settings. The payload shape is the same as a blueprint-mode plugin-page definition — a blueprint file plus `data_endpoint` / `save_endpoint` — no component support.
+
+```php
+public static function getSubscribedEvents()
+{
+    return [
+        'onApiAdminSettingsPanels' => ['onApiAdminSettingsPanels', 0],
+    ];
+}
+
+public function onApiAdminSettingsPanels(Event $event): void
+{
+    $user = $event['user'];
+    if (!$user->authorize('api.config.write')) {
+        return;
+    }
+
+    $panels = $event['panels'] ?? [];
+    $panels[] = [
+        'id'            => 'login-settings',
+        'plugin'        => 'my-plugin',
+        'label'         => 'Login & Security',
+        'description'   => 'Authentication timeouts and 2FA policy.',
+        'icon'          => 'fa-shield-alt',
+        'blueprint'     => 'login-settings',
+        'data_endpoint' => '/my-plugin/login-settings/data',
+        'save_endpoint' => '/my-plugin/login-settings/save',
+        'priority'      => 10,
+    ];
+    $event['panels'] = $panels;
+}
+```
+
+Panels are sorted by `priority` descending, then by insertion order for ties.
+
+### Menubar Items & Actions
+
+Menubar items are one-click buttons in Admin2's top toolbar. Each item declares an `action` key; when the user clicks, Admin2 POSTs to `/menubar/actions/{plugin}/{action}`, which fires `onApiMenubarAction`. Use this for quick tasks like "warm cache", "clear opcache", or "purge CDN".
+
+```php
+public static function getSubscribedEvents()
+{
+    return [
+        'onApiMenubarItems'  => ['onApiMenubarItems', 0],
+        'onApiMenubarAction' => ['onApiMenubarAction', 0],
+    ];
+}
+
+public function onApiMenubarItems(Event $event): void
+{
+    $items = $event['items'] ?? [];
+    $items[] = [
+        'id'      => 'warm-cache',
+        'plugin'  => 'warm-cache',
+        'label'   => 'Warm Cache',
+        'icon'    => 'fa-tachometer',
+        'action'  => 'warm',
+        'confirm' => 'Warm the cache now?',
+    ];
+    $event['items'] = $items;
+}
+
+public function onApiMenubarAction(Event $event): void
+{
+    if ($event['plugin'] !== 'warm-cache') {
+        return;
+    }
+
+    // $event['body'] and $event['user'] are available.
+    $result = $this->warmCache();
+
+    $event['result'] = [
+        'status'  => 'success',
+        'message' => "Warmed {$result['pages']} pages in {$result['duration']}s.",
+    ];
+}
+```
+
+Handlers **must** check `$event['plugin']` before responding — every plugin listening to `onApiMenubarAction` receives every request. `status: 'success'` returns HTTP 200; `status: 'error'` returns 400.
+
+### Floating Widgets
+
+Floating widgets are persistent UI — chat assistants, live notification panels, AI helpers — that stay mounted across page navigation in Admin2. Each widget ships a web component at `admin-next/widgets/{slug}.js`.
+
+```php
+public function onApiFloatingWidgets(Event $event): void
+{
+    $widgets = $event['widgets'] ?? [];
+    $widgets[] = [
+        'id'       => 'ai-pro-chat',
+        'plugin'   => 'ai-pro',
+        'label'    => 'AI Assistant',
+        'icon'     => 'bot',
+        'priority' => 10,
+    ];
+    $event['widgets'] = $widgets;
+}
+```
+
+### Context Panels
+
+Context panels are slide-in panels triggered by toolbar buttons inside Admin2 editors (e.g., the page editor). Use them for editor-scoped tools like revision history, SEO analysis, AI suggestions, or link checking.
+
+```php
+public function onApiContextPanels(Event $event): void
+{
+    $panels = $event['panels'] ?? [];
+    $panels[] = [
+        'id'            => 'revisions',
+        'plugin'        => 'revisions-pro',
+        'label'         => 'Revision History',
+        'icon'          => 'history',
+        'contexts'      => ['pages'],           // show in page editor only
+        'priority'      => 10,
+        'width'         => 900,
+        'badgeEndpoint' => '/revisions-pro/badge', // optional {count: N}
+    ];
+    $event['panels'] = $panels;
+}
+```
+
+`contexts` controls which Admin2 editors surface the trigger button. `badgeEndpoint` is polled for a `{count: N}` response to drive a numeric badge on the button.
+
+### Custom Reports
+
+Plugins can contribute cards to Admin2's Reports page, either as pre-rendered Markdown/HTML or as interactive web components. Report web components live at `admin-next/reports/{reportId}.js` and are loaded on demand.
+
+```php
+public function onApiGenerateReports(Event $event): void
+{
+    $reports = $event['reports'] ?? [];
+    $reports[] = [
+        'id'        => 'seo-summary',
+        'plugin'    => 'seo-magic',
+        'title'     => 'SEO Summary',
+        'icon'      => 'fa-search',
+        'component' => 'seo-summary',           // resolved to admin-next/reports/seo-summary.js
+        'priority'  => 20,
+    ];
+    $event['reports'] = $reports;
+}
+```
+
+Set `component` to `null` to use Admin2's default renderer with a pre-computed `items` array; set it to an id matching the filename to ship a custom web component.
+
 ## Compatibility Declaration
 
 Declare API compatibility in your plugin's `blueprints.yaml`:
@@ -476,16 +641,26 @@ This signals to the ecosystem that your plugin:
 
 ## Webhooks
 
-The API plugin can dispatch webhooks for all mutation events. Plugins don't need to do anything special — the API's `WebhookDispatcher` listens for `onApi*` events and forwards them to configured webhook URLs.
+The API plugin can dispatch outgoing webhooks for every mutation event. Plugins don't need to do anything special — the API's `WebhookDispatcher` listens for `onApi*` events and forwards them to every configured webhook URL whose event filter matches. Users manage webhooks via the [Webhooks endpoints](/20/api/endpoints/webhooks) (or the Admin2 webhooks UI).
 
-Webhook events map directly to API events:
+Webhook events map to API events as follows:
 
 | API Event | Webhook Event |
 |-----------|---------------|
 | `onApiPageCreated` | `page.created` |
 | `onApiPageUpdated` | `page.updated` |
 | `onApiPageDeleted` | `page.deleted` |
+| `onApiPageMoved` | `page.moved` |
+| `onApiPageTranslated` | `page.translated` |
+| `onApiPagesReordered` | `pages.reordered` |
 | `onApiMediaUploaded` | `media.uploaded` |
+| `onApiMediaDeleted` | `media.deleted` |
 | `onApiUserCreated` | `user.created` |
+| `onApiUserUpdated` | `user.updated` |
+| `onApiUserDeleted` | `user.deleted` |
 | `onApiConfigUpdated` | `config.updated` |
 | `onApiPackageInstalled` | `gpm.installed` |
+| `onApiPackageRemoved` | `gpm.removed` |
+| `onApiGravUpgraded` | `grav.upgraded` |
+
+Webhook POSTs are signed with HMAC-SHA256 of the body using the per-webhook secret and sent as `X-Hub-Signature-256: sha256=...`. Deliveries are logged per-webhook; use `GET /webhooks/{id}/deliveries` to inspect history.
