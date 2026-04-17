@@ -241,18 +241,64 @@ class TestCommand extends ConsoleCommand
                 $errors++;
             }
 
-            // Check child counts match
-            $mismatch = false;
+            // Check child counts: v18 should have >= v17 (v18 can add new pages)
+            $deficit = false;
             foreach ($v17Children as $slug => $count) {
                 $v18Count = $v18Children[$slug] ?? 0;
-                if ($v18Count !== $count) {
-                    $io->text("  <comment>{$slug}: v17={$count} vs v18={$v18Count}</comment>");
-                    $mismatch = true;
+                if ($v18Count < $count) {
+                    $io->error("  {$slug}: v18 has fewer children ({$v18Count}) than v17 ({$count})");
+                    $deficit = true;
+                    $errors++;
+                } elseif ($v18Count > $count) {
+                    $io->text("  <info>{$slug}: v18 has {$v18Count} children (v17 has {$count}, v18 adds " . ($v18Count - $count) . " new)</info>");
                 }
             }
-            if (!$mismatch) {
-                $io->text("  Children counts match between v17 and v18: <info>OK</info>");
+            if (!$deficit) {
+                $io->text("  All v17 children present in v18: <info>OK</info>");
             }
+        }
+
+        // Test: v18-only pages appear in merged tree
+        $io->section('11. Version-Specific Pages (Merge)');
+        $v18OnlyRoutes = ['/18/plugins/plugin-api-integration'];
+        foreach ($v18OnlyRoutes as $route) {
+            $page = $pages->find($route);
+            if ($page) {
+                $isFallback = ($page->header()->version_fallback ?? false);
+                if ($isFallback) {
+                    $io->error("  {$route}: should be a REAL v18 page but is marked as fallback");
+                    $errors++;
+                } else {
+                    $io->text("  {$route}: <info>correctly real (v18-only page merged into tree)</info>");
+                }
+                // Verify parent is the plugins chapter
+                $parent = $page->parent();
+                if ($parent && $parent->route() === '/18/plugins') {
+                    $io->text("    parent: <info>/18/plugins (correct)</info>");
+                } else {
+                    $io->error("    parent: " . ($parent ? $parent->route() : 'null') . " (expected /18/plugins)");
+                    $errors++;
+                }
+            } else {
+                $io->error("  {$route}: NOT FOUND — v18-only page not merged");
+                $errors++;
+            }
+        }
+
+        // Test: Bare folder upgrade (e.g. /18/plugins from v17 chapter.md)
+        $io->section('12. Bare Folder Upgrade');
+        $pluginsPage = $pages->find('/18/plugins');
+        if ($pluginsPage) {
+            if ($pluginsPage->routable()) {
+                $io->text("  /18/plugins: <info>routable (upgraded from v17 chapter.md)</info>");
+            } else {
+                $io->error("  /18/plugins: NOT routable — bare folder was not upgraded");
+                $errors++;
+            }
+            $io->text("  /18/plugins children: <info>" . $pluginsPage->children()->count() . "</info>");
+        } else {
+            $io->error("  /18/plugins: NOT FOUND");
+            $errors++;
         }
 
         // Summary

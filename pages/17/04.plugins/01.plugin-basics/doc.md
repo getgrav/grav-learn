@@ -5,6 +5,9 @@ taxonomy:
 ---
 # Plugin Basics
 
+> [!TIP]
+> **Grav 1.8 Compatibility:** If you are a plugin author, you should add the new `compatibility:` property to your `blueprints.yaml` to declare which Grav versions your plugin has been tested on. This is used by the Safe Upgrade system to ensure all plugins are ready before a major Grav upgrade. See the [Plugin Compatibility](/18/plugins/plugin-compatibility) documentation for details.
+
 Grav was designed to be **simple** and **focused**, dealing with pages only.  The idea is that Grav itself is **super-lean**, providing just enough functionality to do the basics: routing, Markdown to HTML compiling, Twig templating, and caching.
 
 However, we knew that we wanted to ensure Grav could grow and provide powerful functionality when required, so we built **event hooks** throughout the system so that everything could be extended with **plugins**.

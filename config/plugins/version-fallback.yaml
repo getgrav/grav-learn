@@ -1,5 +1,5 @@
 enabled: true
 fallback:
-  18: [17]
+  20: [17]
 suppress:
-  18: []
+  20: []

@@ -31,14 +31,14 @@ form:
     fallback:
       type: array
       label: Fallback Chain
-      help: "Map target versions to their fallback source versions (e.g., 18: [17])"
+      help: "Map target versions to their fallback source versions. Versions are tried in order (e.g., 18: [17] or 19: [18, 17]). Works like multilang fallback — pages merge from source into target, with target pages taking priority."
       placeholder_key: Target Version
       placeholder_value: Source Versions (comma-separated)
 
     suppress:
       type: array
       label: Suppressed Routes
-      help: "Routes to exclude from fallback per version (e.g., 18: [/migration])"
+      help: "Routes to exclude from fallback per version (e.g., 18: [/migration]). For per-page removal, create a `removed.md` file or set `version_removed: true` in the page frontmatter."
       placeholder_key: Version
       placeholder_value: Routes (comma-separated)
 

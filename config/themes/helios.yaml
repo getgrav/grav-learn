@@ -79,7 +79,7 @@ versioning:
   show_dropdown: true
   labels:
     17: '1.7 (Stable)'
-    18: '1.8 (Beta)'
+    20: '2.0 (Beta)'
 search:
   enabled: true
   provider: yetisearch-pro

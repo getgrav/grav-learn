@@ -13556,7 +13556,7 @@ process:
 </tr>
 <tr>
 <td style="text-align: left;">protected</td>
-<td style="text-align: left;"><strong>detectPsrLogConflicts()</strong> : <em>array&lt;string, array&gt;</em><br /><em>Check plugins for psr/log requirements that conflict with Grav 1.8 vendor stack.</em></td>
+<td style="text-align: left;"><strong>detectPsrLogConflicts()</strong> : <em>array&lt;string, array&gt;</em><br /><em>Check plugins for psr/log requirements that conflict with Grav 2.0 vendor stack.</em></td>
 </tr>
 <tr>
 <td style="text-align: left;">protected</td>
