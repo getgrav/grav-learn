@@ -184,6 +184,277 @@ language.
 - **Don't auto-detect.** The format is opt-in by namespace, not by inspecting
   the value. Keep the contract obvious so debugging is easy.
 
+## Auditing Blueprints
+
+Plugin blueprint files are the single biggest source of UI text in any Grav
+plugin. Every `label`, `title`, `description`, `help`, `placeholder`, and
+`hint` field in `blueprints.yaml` (and any file under `blueprints/`) ends up
+rendered in the admin UI. To be translatable, those values need to be
+translation key references (`PLUGIN_FOO.SOMETHING`) rather than hardcoded
+English strings.
+
+The [Grav Devtools plugin][devtools] ships a CLI command that audits any
+plugin or theme for hardcoded blueprint values, and can rewrite them to
+translation keys for you.
+
+### Installation
+
+[codesh=bash]
+bin/gpm install devtools
+[/codesh]
+
+### Auditing
+
+Run with no arguments inside a Grav site to audit every installed plugin and
+theme:
+
+[codesh=bash]
+bin/plugin devtools i18n-blueprints
+[/codesh]
+
+Output (truncated):
+
+```
+Plugin/Theme                                         Hardcoded   Keys   Ratio
+--------------------------------------------------  ----------  -----  ------
+admin2                                                       5      0    100%
+api                                                         35      0    100%
+editor-pro                                                  10      1     91%
+flex-objects                                                24      6     80%
+ai-pro                                                      40     46     47%
+admin                                                        6    192      3%
+--------------------------------------------------  ----------  -----  ------
+TOTAL                                                      818   1286     39%
+```
+
+The **ratio** column is the percentage of `label`/`title`/`description`/`help`
+fields that are still hardcoded English (red ≥ 50%, yellow ≥ 20%, green
+otherwise). Lower is better.
+
+You can scope the scan in several ways:
+
+[codesh=bash]
+# Single plugin or theme
+bin/plugin devtools i18n-blueprints user/plugins/my-plugin
+
+# A directory of plugins (e.g. just plugins, no themes)
+bin/plugin devtools i18n-blueprints user/plugins
+
+# A specific Grav installation root
+bin/plugin devtools i18n-blueprints /path/to/another/grav-site
+[/codesh]
+
+Add `--details` to list every individual hardcoded value with its file/line:
+
+[codesh=bash]
+bin/plugin devtools i18n-blueprints user/plugins/my-plugin --details
+[/codesh]
+
+```
+### my-plugin
+  blueprints.yaml:38  label: Default for All Users
+  blueprints.yaml:49  title: Editor Configuration
+  blueprints.yaml:55  label: Toolbar Items
+  blueprints.yaml:56  help: Configure which tools appear in the toolbar
+  ...
+```
+
+Add `--threshold 0.5` to hide plugins below 50% hardcoded — useful when
+auditing a whole install and only wanting to see the worst offenders.
+
+### Auto-fixing with `--fix`
+
+The `--fix` flag does two things atomically:
+
+1. **Rewrites the blueprint YAML in place**, replacing each hardcoded value
+   with a generated translation key (e.g. `label: Default for All Users` →
+   `label: PLUGIN_MYPLUGIN.DEFAULT_FOR_ALL_USERS`).
+2. **Updates the plugin's language file**, adding the new
+   `KEY: "Original string"` entries under the appropriate prefix block.
+
+The lang-file update respects whichever storage style the plugin already
+uses:
+
+| Existing file               | Behaviour                                                              |
+|-----------------------------|------------------------------------------------------------------------|
+| `languages.yaml`            | Append entries under the existing `en:` → `PLUGIN_FOO:` block          |
+| `languages/en.yaml`         | Append entries to the existing top-level `PLUGIN_FOO:` block           |
+| Neither                     | Create `languages/en.yaml` from scratch with the new block             |
+
+If the prefix block doesn't yet exist in the file, the missing structure is
+created in place — the command never produces duplicate top-level keys.
+
+> [!IMPORTANT]
+> `--fix` modifies your blueprint files **and** your lang file. **Always run
+> with `--dry-run` first** to preview the changes, and make sure your work
+> is committed to git so a revert is one command away if anything looks
+> wrong.
+
+[codesh=bash]
+# Preview — no files are modified
+bin/plugin devtools i18n-blueprints user/plugins/my-plugin --fix --dry-run
+
+# Apply — rewrites blueprints AND updates the plugin's lang file
+bin/plugin devtools i18n-blueprints user/plugins/my-plugin --fix
+[/codesh]
+
+Example output:
+
+```
+=== i18n blueprint fix ===
+
+### my-plugin  (prefix: PLUGIN_MYPLUGIN, lang file: languages/en.yaml [per-locale-file])
+Blueprint changes: 1 file(s), 4 line(s)
+  blueprints.yaml  (4 lines)
+Lang file changes: Append to languages/en.yaml (+4 entries)
+# Lang file additions:
+PLUGIN_MYPLUGIN:
+  DEFAULT_FOR_ALL_USERS: "Default for All Users"
+  EDITOR_CONFIGURATION: "Editor Configuration"
+  TOOLBAR_ITEMS: "Toolbar Items"
+  CONFIGURE_WHICH_TOOLS_APPEAR_IN_THE_TOOLBAR: "Configure which tools appear in the toolbar"
+```
+
+After running `--fix`, your `blueprints.yaml` reads:
+
+[codesh=yaml]
+default_for_all:
+  type: toggle
+  label: PLUGIN_MYPLUGIN.DEFAULT_FOR_ALL_USERS
+
+editor_section:
+  type: section
+  title: PLUGIN_MYPLUGIN.EDITOR_CONFIGURATION
+[/codesh]
+
+…and the four new entries are appended under `PLUGIN_MYPLUGIN:` in
+`languages/en.yaml`. The admin will resolve them through Grav's normal
+translation pipeline immediately. Re-running `--fix` is idempotent — keys
+that are already present (with the same value) are skipped.
+
+### Interactive review with `--interactive`
+
+For more cautious workflows, add `--interactive` (or `-i`) to review each
+hardcoded value individually before it's converted. The command pauses on
+each finding, shows you the file/line/field/value, and waits for a single
+keystroke:
+
+[codesh=bash]
+bin/plugin devtools i18n-blueprints user/plugins/my-plugin --fix --interactive
+[/codesh]
+
+```
+### my-plugin  (4 hardcoded values to review)
+
+  [1/4] blueprints.yaml:5  description:
+     Provides webhook and health check endpoints for Grav's Modern Scheduler
+   Translate? [Y/n/a/s/q/?]: y
+
+  [2/4] blueprints.yaml:35  label:
+     Enable CORS
+   Translate? [Y/n/a/s/q/?]: n
+
+  [3/4] blueprints.yaml:36  help:
+     Allow cross-origin requests to webhook endpoints
+   Translate? [Y/n/a/s/q/?]: a
+
+  3 accepted, 1 skipped
+```
+
+The available actions:
+
+| Key | Action                                               |
+|-----|------------------------------------------------------|
+| `y` | Yes — translate this one (default)                   |
+| `n` | No — leave hardcoded                                 |
+| `a` | Yes to all remaining in this plugin                  |
+| `s` | Skip all remaining in this plugin                    |
+| `q` | Quit this plugin entirely (apply no changes)         |
+| `?` | Show this help                                       |
+
+When auditing across multiple plugins, `q` only quits the current plugin —
+the next plugin will still prompt fresh.
+
+### Filtering data-shaped values
+
+The classifier deliberately skips a few patterns that look like data, not
+user-facing text — these are still listed under `identifier` in totals but
+won't show up as hardcoded:
+
+- URLs (`https://example.com`, `mailto:a@b.com`)
+- Email addresses (`user@example.com`)
+- Filenames (`logo.svg`, `theme.css`, `app.js`, …)
+- Phone-shaped strings (`+1 (555) 123-4567`)
+- API key sentinels with runs of `xxxx`
+- CSS class lists (multi-token all-lowercase-hyphen, no capitals)
+- Pure punctuation/symbols (`===`, `---`)
+
+A value is only skipped if the **entire** string matches a non-translatable
+pattern. Sentences that *contain* a URL or filename ("For example: myimage.jpg")
+remain translatable.
+
+### How keys and prefixes are chosen
+
+The command picks the plugin prefix in this order:
+
+1. If the plugin has an existing `languages/en.yaml`, it uses whatever
+   top-level `PLUGIN_*` (or `THEME_*`) key it finds there. This preserves
+   the convention you've already established.
+2. Otherwise it derives one from the directory name —
+   `editor-pro` → `PLUGIN_EDITOR_PRO`, `quark2` → `THEME_QUARK2`. The
+   `PLUGIN_` vs `THEME_` choice depends on whether the path is under
+   `user/plugins/` or `user/themes/`.
+
+Each unique hardcoded value gets a key derived from its content
+(`"Default for All Users"` → `DEFAULT_FOR_ALL_USERS`). Long values are
+truncated at the last underscore boundary, capped at 40 characters by
+default. Override with `--key-length=N` (minimum 10) if you want longer or
+shorter:
+
+[codesh=bash]
+bin/plugin devtools i18n-blueprints user/plugins/foo --fix --key-length=30
+[/codesh]
+
+If two different values would produce the same key, the second gets a `_2`
+suffix (and so on). Existing keys in your lang file are reused when both
+the key *and* its value match — so re-running `--fix` after editing
+translations is idempotent.
+
+### Targeting Admin2 with `--icu`
+
+By default, generated keys go under the legacy top-level prefix
+(`PLUGIN_FOO:`), so they work on both Grav 1 and Grav 2 admins. For
+plugins that only target Grav 2.0 / Admin2, add `--icu` to emit them
+under the `ICU.` block instead, unlocking ICU MessageFormat features:
+
+[codesh=bash]
+bin/plugin devtools i18n-blueprints user/plugins/my-plugin --fix --icu
+[/codesh]
+
+The output then looks like:
+
+[codesh=yaml]
+ICU:
+  PLUGIN_MYPLUGIN:
+    DEFAULT_FOR_ALL_USERS: "Default for All Users"
+    EDITOR_CONFIGURATION: "Editor Configuration"
+[/codesh]
+
+> [!TIP]
+> If your plugin needs to support both Grav 1.7 and Grav 2.0 from one release,
+> run without `--icu` first (so the keys live in the legacy block where Grav 1
+> can find them), then later add a parallel `ICU:` block by hand for any keys
+> you want to enrich with placeholders or plural rules.
+
+### JSON output
+
+For tooling integration, `--json` emits a machine-readable summary instead
+of the table:
+
+[codesh=bash]
+bin/plugin devtools i18n-blueprints --json
+[/codesh]
+
 ## Background
 
 This scheme was introduced for Grav 2.0 to address long-running community
@@ -198,3 +469,4 @@ anything that already works.
 [icu-tools]: https://formatjs.github.io/docs/core-concepts/icu-syntax
 [issue4064]: https://github.com/getgrav/grav/issues/4064
 [issue2947]: https://github.com/getgrav/grav/issues/2947
+[devtools]: https://github.com/getgrav/grav-plugin-devtools
