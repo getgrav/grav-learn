@@ -15,10 +15,13 @@ This involves a page reload, and that is sometimes undesirable.  This is where a
 
 With the release of Form plugin version `7.3.0` the ability to submit forms with XHR to process the form in-place and not require an entire page reload is now available with a quick setup option.
 
-To enable this simply add this option to your Form blueprint:
+To enable this, add `xhr_submit: true` to your Form blueprint. For example:
 
 ```yaml
-xhr_submit: true
+title: My XHR Form
+form:
+    name: my-xhr-form
+    xhr_submit: true
 ```
 
 You are not required to provide `action:`, `template:`, or even `id:`.  The plugin will just 'work' even with multiple ajax forms on a single page. This uses a new `form-xhr.html.twig` template that the plugin provides as well as including some vanilla JS code to make the request.
