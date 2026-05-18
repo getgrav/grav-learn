@@ -7,7 +7,15 @@ taxonomy:
 
 Porting a plugin or theme from Grav 1.7 to Grav 2.0 is mostly mechanical work: declare a compatibility flag, expose your functionality as API endpoints if you have admin features, port your blueprints and language files to work with Admin 2.0, and adjust to Symfony, Twig, and PHP version bumps.
 
-Mechanical work is exactly the kind of work AI agents are good at. The Grav team ships a set of **Claude Code Skills** that encode the patterns, conventions, and gotchas of Grav 2.0 plugin development. With these skills installed, an AI agent like [Claude Code](https://www.anthropic.com/claude-code) has the project-specific knowledge it needs to do this work correctly the first time.
+Mechanical work is exactly the kind of work AI agents are good at. The Grav team ships a set of **Claude Code Skills** — published at [github.com/getgrav/grav-skills](https://github.com/getgrav/grav-skills) — that encode the patterns, conventions, and gotchas of Grav 2.0 plugin development. With these skills installed, an AI agent like [Claude Code](https://www.anthropic.com/claude-code) has the project-specific knowledge it needs to do this work correctly the first time.
+
+Although this page lives in the migration section, the skills are not porting-only. They are equally useful for:
+
+- **Porting an existing Grav 1.7 plugin to be 2.0-compatible** (compatibility flags, PHP 8.3+ deprecations, removing ties to the classic admin)
+- **Building a new Grav 2.0 plugin from scratch** that integrates with the API and/or Admin Next
+- **Adding Admin Next integration** to a plugin that previously had a classic-admin UI (custom form fields, admin pages, sidebar nav, panels, menu bar items)
+
+The skills also include reference points to the **Grav Premium** plugins (Yeti Search Pro, SEO Magic, AI Pro, AI Translate, Quick Links) so the agent has real-world examples to look at when generating code.
 
 This page documents what each skill covers, when to invoke it, and roughly what to expect from the agent.
 
@@ -87,9 +95,27 @@ Translation strings in a Grav 2.0 plugin: `languages/<lang>.yaml`, `languages.ya
 - The disabled-plugin filter that keeps stale strings out of Admin 2.0
 - The `i18n-blueprint-audit.mjs` script for spotting gaps
 
+## Installing the Skills
+
+The skills are distributed as a Claude Code plugin marketplace. Inside Claude Code, run:
+
+```
+/plugin marketplace add getgrav/grav-skills
+```
+
+That registers the repository as a skill marketplace. The three skills below become available immediately and Claude will load them automatically when their triggers match (for example, when you open a file under `user/plugins/<plugin>/` or ask for help with API or Admin Next integration). You can also invoke a skill explicitly by name, e.g. *"use the `grav-api-admin-next-integration` skill."*
+
+To remove the marketplace later:
+
+```
+/plugin marketplace remove getgrav/grav-skills
+```
+
+**Requirements:** the plugin code these skills produce targets **PHP 8.3+** and **Grav 2.0** (or a 2.0 RC during the release-candidate period). The skills assume the modern stack throughout.
+
 ## A Typical Porting Workflow
 
-Once Claude Code is installed and you have the skills available in your home directory's skills folder, porting an existing plugin looks roughly like this:
+Once Claude Code is installed and the `grav-skills` marketplace is registered, porting an existing plugin looks roughly like this:
 
 1. Open the plugin's working directory in a terminal.
 2. Start Claude Code: `claude`.
@@ -104,9 +130,11 @@ Once Claude Code is installed and you have the skills available in your home dir
 
 ## Where to Find the Skills
 
-The official skill files live in the [Grav documentation repository](https://github.com/getgrav/grav-learn) under `skills/`. Drop them in your Claude Code skills directory (typically `~/.claude/skills/`) and they will be available in every Claude Code session.
+The official skill files live at [github.com/getgrav/grav-skills](https://github.com/getgrav/grav-skills). The recommended install is the `/plugin marketplace add getgrav/grav-skills` command shown above; the README in that repo also documents manual installation and contribution guidelines.
 
 For details on the Skills format itself, including how to write your own, see Anthropic's [Skills documentation](https://docs.claude.com/en/docs/claude-code/skills).
+
+For questions about Grav 2.0 development or the skills themselves, the [Grav Discord](https://chat.getgrav.org) is the fastest place to reach the team and the wider community.
 
 ## What These Skills Are Not
 
