@@ -1,5 +1,5 @@
 ---
-title: 'Migrating from Drupal 7 to Grav'
+title: 'Migrating from Drupal 7'
 taxonomy:
     category:
         - docs

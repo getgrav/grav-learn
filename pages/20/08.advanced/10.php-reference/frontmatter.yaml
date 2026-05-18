@@ -1,0 +1,11 @@
+title: PHP Reference
+metadata:
+    description: All the Grav classes in one location for easy reference
+    keywords: "reference, api, classes"
+cache_enable: false
+shortcode-core:
+  active: false
+yetisearch:
+  process: false
+process:
+  markdown: false

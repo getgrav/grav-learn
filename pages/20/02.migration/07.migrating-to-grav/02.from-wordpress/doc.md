@@ -1,5 +1,5 @@
 ---
-title: 'Migrating from WordPress to Grav'
+title: 'Migrating from WordPress'
 taxonomy:
     category:
         - docs

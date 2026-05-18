@@ -1,5 +1,5 @@
 ---
-title: API
+title: REST API
 icon: tabler/cloud.svg
 taxonomy:
     category: docs

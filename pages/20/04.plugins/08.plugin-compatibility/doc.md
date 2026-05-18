@@ -5,11 +5,11 @@ taxonomy:
 ---
 # Plugin Compatibility
 
-Starting with Grav 2.0, plugins and themes can declare which major Grav versions they are compatible with using the `compatibility:` property in their `blueprints.yaml`. This allows the upgrade system to verify that all installed extensions are ready before performing a major version upgrade.
+Starting with Grav 2.0, plugins and themes can declare which major Grav versions they are compatible with using the `compatibility:` property in their `blueprints.yaml`. This declaration is read by the **Migrate to Grav 2.0** wizard when bringing existing 1.x sites across, and by **GPM** when installing or updating packages on a 2.0 site.
 
 ## The Problem
 
-A major Grav upgrade (e.g., 1.7 → 2.0) may introduce PHP version requirements, API changes, or internal refactoring that breaks plugins. The existing `dependencies:` property only declares minimum requirements — it cannot express "this plugin has been tested and confirmed working on Grav 2.0."
+A major Grav upgrade (e.g., 1.7 → 2.0) may introduce PHP version requirements, API changes, or internal refactoring that breaks plugins. The existing `dependencies:` property only declares minimum requirements; it cannot express "this plugin has been tested and confirmed working on Grav 2.0."
 
 ## The `compatibility:` Property
 
@@ -30,21 +30,36 @@ compatibility:
     - '2.0'
 [/codesh]
 
-The `grav:` key contains a list of major.minor Grav versions the extension has been tested on. Only major.minor versions are used (e.g., `1.7`, `2.0`) — patch versions are not relevant here.
+The `grav:` key contains a list of major.minor Grav versions the extension has been tested on. Only major.minor versions are used (e.g., `1.7`, `2.0`); patch versions are not relevant here.
 
 The property is nested under a top-level `compatibility:` key to allow future expansion (e.g., `php:` for PHP version compatibility).
 
-## How It Works During Upgrades
+## How It Works
 
-When a user initiates a major Grav upgrade through the Admin panel, the **Safe Upgrade** preflight checks will:
+The compatibility flag is read at two distinct points: during a 1.x to 2.0 migration, and during plugin install/update operations on a 2.0 site.
 
-1. Scan all installed plugins and themes
-2. Read the `compatibility:` property from each package's `blueprints.yaml`
-3. Compare against the target Grav version
-4. **Block the upgrade** if any **enabled** plugin or theme is not compatible
-5. **Warn** (but not block) about **disabled** packages that are not compatible
+### During the 1.x to 2.0 Migration
 
-The user is presented with a list of incompatible extensions and can choose to **disable** them directly from the upgrade screen before proceeding.
+The **Migrate to Grav 2.0** plugin runs every installed plugin and theme through a compatibility check during its **Step 2 (Copy & Migrate)** wizard pass. For each package the wizard:
+
+1. Reads the `compatibility:` property from the package's `blueprints.yaml`
+2. Falls back to inference (see below) if no property is set
+3. Compares against the target Grav 2.0 version
+4. For 2.0-compatible packages, runs **GPM** to pull the latest 2.0-ready release
+5. For incompatible packages, applies the **plugin policy** the user has selected: **Skip** removes the package from the staged install, **Disable** keeps the files in place but writes a config entry that disables the plugin in 2.0
+
+The user also picks between **strict** and **permissive** compatibility modes:
+
+- **Strict** trusts the flags as declared
+- **Permissive** promotes inferred-incompatibles to "compatible" so the user can test them on the staged 2.0 site even if their authors haven't formally flagged them yet
+
+Plugins that have been explicitly marked as incompatible always block, in either mode.
+
+The migration runs in a fresh, side-by-side staged install. The user's live 1.x site is untouched until they choose to promote.
+
+### During GPM Installs on a 2.0 Site
+
+Once a site is running Grav 2.0, **GPM** reads the `compatibility:` flag whenever a plugin or theme is installed or updated. A package that doesn't list `2.0` in its compatibility block (either explicitly or via inference) will not install cleanly on a 2.0 site, and the user is told why.
 
 ## Inference Rules
 
@@ -76,7 +91,7 @@ compatibility:
     - '2.0'
 [/codesh]
 
-Then release a new version of your plugin. Users who update the plugin will have the compatibility declaration, and the upgrade gate will allow them to proceed.
+Then release a new version of your plugin. Users who update the plugin will have the compatibility declaration, and the migration wizard (or GPM, on an already-migrated 2.0 site) will accept it without falling back to the skip-or-disable policy.
 
 ### Testing Checklist
 
@@ -101,20 +116,27 @@ A plugin can depend on `>=1.7.0` (it needs at least 1.7 to run) while declaring 
 
 ## For Site Administrators
 
-### During a Major Upgrade
+### During the Migration to 2.0
 
-When upgrading Grav to a new major version, the Admin panel's Safe Upgrade screen will show:
+When migrating from Grav 1.x to 2.0 via the **Migrate to Grav 2.0** plugin, the wizard's Step 2 will show:
 
-- **Blocking** — Enabled plugins/themes not compatible with the target version. You must disable these before the upgrade can proceed. A "Disable" button is provided for each.
-- **Warnings** — Disabled plugins/themes not compatible with the target version. These won't block the upgrade, but you should verify compatibility before re-enabling them.
+- **Compatible** packages: kept and updated to their latest 2.0-ready release via GPM.
+- **Incompatible** packages: routed through the **plugin policy** you've chosen (**Skip** or **Disable**).
 
-### After Upgrading
+You also choose between **strict** and **permissive** compatibility modes:
 
-Once on the new Grav version:
+- **Strict** is the default. Trusts the `compatibility:` flag and the inference rules as-is.
+- **Permissive** promotes inferred-incompatible packages to "compatible" so you can test them on the staged 2.0 site even if their authors haven't formally flagged them yet. Curated explicit incompatibilities still block in either mode.
 
-1. Check for updated versions of your disabled plugins — authors may have released compatible versions
+Because the migration runs as a side-by-side staged install, you can iterate (Reset, Restart, Re-run a step) and try different policy and mode combinations without touching your live 1.x site.
+
+### After Migrating
+
+Once your staged 2.0 site has been promoted and is live:
+
+1. Check for updated versions of any plugins your policy disabled. Authors may have released 2.0-flagged versions since you migrated.
 2. Update plugins via GPM: `bin/gpm update`
-3. Re-enable plugins one at a time, verifying each works correctly
+3. Re-enable disabled plugins one at a time, verifying each works correctly
 4. If a plugin causes issues, disable it and contact the plugin author
 
 > [!WARNING]

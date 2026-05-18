@@ -1,6 +1,10 @@
 ---
 process:
     markdown: false
+page-toc:
+    active: false
+yetisearch:
+  index-page: false
 ---
 
 <h2>Table of contents</h2>

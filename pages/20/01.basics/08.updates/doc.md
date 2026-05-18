@@ -17,31 +17,24 @@ There are multiple ways to find out which version of Grav and plugins the site i
 * **CLI**: Run command `bin/gpm version grav`. To get list of theme and plugin versions, you can list them by their names.
 * **Filesystem**: Easiest way to see the version is to look for `CHANGELOG.md` file in the root of the Grav installation. Same is true for plugins and themes, they can usually be found in `user/plugins` and `user/themes` folders.
 
-### Upgrading from Grav 1.5 or older version
+### Migrating from Grav 1.x to 2.0
 
-Updating an older version of Grav may need some extra preparations and work because of the increased minimum requirements and potential incompatibilities.
+Grav 2.0 is not an in-place upgrade from 1.x. The minimum PHP version, vendor stack, admin, and API all change, so the supported path is a fresh install plus content import.
 
-The basic workflow is following:
+See the [Migration](/20/migration) chapter for the full process, including:
 
-- Copy the site to a server with **PHP 7.3** and **CLI** support
-- Upgrade manually **to Grav 1.6.31**
-- Upgrade to the latest version
+- The [Assisted Migration](/20/migration/assisted-migration) workflow via the Migrate to Grav 2.0 plugin
+- The [Manual Migration](/20/migration/manual-migration) procedure for complex setups
+- The [Developer Upgrade Guide](/20/migration/developer-upgrade-guide) for plugin and theme authors
 
-A detailed guide **[Upgrading from Grav <1.6](/20/advanced/grav-development/grav-15-upgrade-guide)** should help you in the process.
-
-### Upgrading to the Next Version
-
-For upgrading to the next version, there are special guides to help you to make sure everything still works after upgrade.
-
-- **[Upgrading to Grav 1.7](/20/advanced/grav-development/grav-17-upgrade-guide)**
-- **[Upgrading to Grav 1.6](/20/advanced/grav-development/grav-16-upgrade-guide)**
-
-> [!WARNING]
-> **NOTE:** It is recommended to read the upgrade guides before you install the next version of Grav.
+If you are running Grav 1.5 or older, upgrade through GPM to the final 1.7 release (`1.7.51`) first, then migrate to 2.0 from there.
 
 ### Plugin Compatibility Checks
 
-When performing a major Grav upgrade (e.g., 1.7 → 2.0), the Safe Upgrade system will check that all your installed plugins and themes have been marked as compatible with the target version. If any enabled extensions are not compatible, the upgrade will be blocked until you disable them.
+Grav 2.0 introduces a `compatibility:` property in plugin and theme `blueprints.yaml`, declaring which major Grav versions a package has been tested against. The flag is read in two places:
+
+- The **Migrate to Grav 2.0** wizard, when bringing a 1.x site across into a staged 2.0 install. Incompatible packages are routed through the user's skip-or-disable policy, with **strict** and **permissive** mode options for handling unflagged packages.
+- **GPM**, when installing or updating plugins on an already-migrated 2.0 site. Packages without a 2.0-compatible flag won't install cleanly.
 
 Plugin authors declare compatibility in their `blueprints.yaml` using the `compatibility:` property. See [Plugin Compatibility](/20/plugins/plugin-compatibility) for full details.
 
