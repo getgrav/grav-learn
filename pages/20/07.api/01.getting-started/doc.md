@@ -147,3 +147,7 @@ curl -X PATCH \
 ```
 
 If the resource was modified since your last fetch, you'll receive a 409 Conflict response.
+
+## Using the API with AI
+
+The API is what powers AI integration in Grav 2.0. The first-party [Grav MCP Server](/20/advanced/mcp-server) connects agentic AI clients (Claude Code, Claude Desktop, Cursor, and other [Model Context Protocol](https://modelcontextprotocol.io) clients) to your site, exposing pages, media, configuration, users, and system management as AI-callable tools. It authenticates with the same API keys described here and respects the same permission model. See the [MCP Server](/20/advanced/mcp-server) documentation to get started.

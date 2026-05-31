@@ -93,45 +93,94 @@ customElements.define(TAG, YourFieldType);
 **Events** (emitted by your component):
 - `change` — `CustomEvent` with `detail` set to the new value
 
+### Injected Globals
+
+Before Admin2 executes your field script, it sets a small set of globals on `window`. These are the entire interface between your component and the admin runtime. The first four are injected immediately before your script runs; the rest are set once at app boot and are available to every component.
+
+| Global | Description |
+|--------|-------------|
+| `window.__GRAV_FIELD_TAG` | The Custom Element tag name assigned to this field, in the form `grav-{plugin}--{fieldType}`. Always `customElements.define()` with this value. |
+| `window.__GRAV_API_SERVER_URL` | Base URL of the Grav site (e.g. `https://mysite.com`). |
+| `window.__GRAV_API_PREFIX` | API prefix (default `/api/v1`). |
+| `window.__GRAV_API_TOKEN` | JWT access token already obtained by Admin2, ready to send as `X-API-Token`. |
+| `window.__GRAV_DIALOGS` | Admin2's confirm-dialog helper. Use it instead of native `confirm()`/`alert()`/`prompt()`. |
+| `window.__GRAV_ADMIN_BASE` | Base path of Admin2, useful for building internal links. |
+| `window.__GRAV_NAVIGATE` | Function for SPA navigation (falls back to `window.location.href` if absent). |
+| `window.__GRAV_I18N` | Locale/direction bridge: `__GRAV_I18N.dir` is `'ltr'` or `'rtl'`, and `__GRAV_I18N.subscribe(fn)` fires on language change. See [RTL and Internationalization](#rtl-and-internationalization). |
+| `window.__GRAV_CONTENT_LANG` | The active content language. |
+
+> [!NOTE]
+> There is **no** `window.__GRAV_ENVIRONMENT` global for field components. Admin2 manages the active environment through its own authenticated session, so you do not need to send an `X-Grav-Environment` header from a field. If you have seen that header in older field code, it was a no-op.
+
 ### Accessing the API
 
-Your web component can call API endpoints. Authentication details are available via globals:
+Your web component can call any API endpoint, including custom endpoints your plugin registers. Authentication is already handled for you via the injected globals:
 
 ```javascript
-// API connection details (set by Admin2 before loading your script)
-const serverUrl = window.__GRAV_API_SERVER_URL;  // e.g. "https://mysite.com"
-const apiPrefix = window.__GRAV_API_PREFIX;       // e.g. "/api/v1"
-const apiToken  = window.__GRAV_API_TOKEN;        // JWT access token (pre-set by Admin2)
-
-// Read auth token from Admin2's localStorage (alternative to __GRAV_API_TOKEN)
-function getAuth() {
-  try {
-    const auth = JSON.parse(localStorage.getItem('grav_admin_auth') || '{}');
-    return {
-      token: auth.accessToken || '',
-      env: auth.environment || ''
-    };
-  } catch {
-    return { token: '', env: '' };
-  }
+function apiUrl(path) {
+  const base = window.__GRAV_API_SERVER_URL || '';
+  const prefix = window.__GRAV_API_PREFIX || '/api/v1';
+  return `${base}${prefix}${path}`;
 }
 
-// Make authenticated API calls
-async function apiGet(path) {
-  const { token, env } = getAuth();
+function apiHeaders(json = false) {
   const headers = {};
+  const token = window.__GRAV_API_TOKEN;
   // Use X-API-Token instead of Authorization: Bearer. FastCGI / PHP-FPM / CGI
   // setups (MAMP's mod_fastcgi is the common culprit) silently strip the
   // Authorization header before it reaches PHP; X-* headers pass through
   // cleanly. The server also accepts Authorization: Bearer as a fallback.
   if (token) headers['X-API-Token'] = token;
-  if (env) headers['X-Grav-Environment'] = env;
+  if (json) headers['Content-Type'] = 'application/json';
+  return headers;
+}
 
-  const resp = await fetch(`${serverUrl}${apiPrefix}${path}`, { headers });
+async function apiGet(path) {
+  const resp = await fetch(apiUrl(path), { headers: apiHeaders() });
   const json = await resp.json();
   return json.data || json;
 }
 ```
+
+### Light DOM vs Shadow DOM
+
+You can render your field into either light DOM (`this.innerHTML`) or a shadow root (`this.attachShadow({ mode: 'open' })`). The trade-off:
+
+- **Light DOM** inherits Admin2's typography and color tokens automatically, so simple read-only or text fields need almost no styling. The cost is that the host page's styles can leak into your markup.
+- **Shadow DOM** gives you complete style isolation, which is what you want for anything with significant custom UI. The cost is that you provide all of your own CSS inside a `<style>` block, and Admin2's theme tokens are not inherited (read them explicitly via CSS custom properties such as `var(--foreground)`, `var(--background)`, `var(--border)`, `var(--primary)`, `var(--muted-foreground)`).
+
+As a rule of thumb: read-only displays usually want light DOM; interactive pickers usually want Shadow DOM.
+
+### Dialogs: Never Use Native `confirm()` / `alert()` / `prompt()`
+
+Native browser dialogs break the Admin2 visual language and block the event loop. Admin2 exposes `window.__GRAV_DIALOGS` for confirmations instead:
+
+```javascript
+async _deleteItem(slug) {
+  const ok = await window.__GRAV_DIALOGS?.confirm({
+    title: 'Delete item?',
+    message: `"${slug}" will be permanently removed. This cannot be undone.`,
+    confirmLabel: 'Delete',
+    variant: 'destructive',     // adds a warning icon and red confirm button
+  });
+  if (!ok) return;
+  // ... proceed
+}
+```
+
+The signature is:
+
+```typescript
+window.__GRAV_DIALOGS.confirm({
+  title?: string;          // default: "Are you sure?"
+  message: string;         // required body text
+  confirmLabel?: string;   // default: "Confirm"
+  cancelLabel?: string;    // default: "Cancel"
+  variant?: 'destructive' | 'default';
+}): Promise<boolean>       // true on confirm, false on cancel / Escape / backdrop click
+```
+
+Always use optional chaining (`?.`) so your component degrades gracefully if it is ever loaded outside Admin2. Keep `message` to a sentence or two, put the noun in `title` ("Delete page?") and the consequence in `message` ("All revisions will be lost.").
 
 ### Modals and Overlays
 
@@ -153,25 +202,57 @@ _closeModal() {
 > [!WARNING]
 > When rendering in `document.body`, your CSS will be affected by the host page's styles (including Tailwind CSS). Use unique class prefixes and explicit property values to avoid conflicts. In particular, Tailwind v4 sets `* { min-height: 0 }` which can collapse elements — add `min-height: auto` to your containers.
 
-### Sharing Code Between Classic Admin and Admin2
+### RTL and Internationalization
 
-Plugin authors can share business logic between the classic Twig/jQuery admin (deprecated in 2.0) and Admin2 web components:
+Admin2 runs in both left-to-right and right-to-left, following the user's admin language (Arabic, Hebrew, Persian, Urdu, and anything else flagged RTL). Field components should honor the active direction.
+
+The contract lives on `window.__GRAV_I18N`:
+
+```javascript
+window.__GRAV_I18N.dir              // 'ltr' | 'rtl' — read-only snapshot
+window.__GRAV_I18N.subscribe(fn)    // fires on locale (and direction) change; returns an unsubscribe fn
+```
+
+`<html dir>` is also set, so anything in the normal CSS cascade picks up the direction for free. Inside Shadow DOM you read it explicitly:
+
+```javascript
+_getDir() {
+  if (window.__GRAV_I18N?.dir) return window.__GRAV_I18N.dir;
+  return document.documentElement.getAttribute('dir') === 'rtl' ? 'rtl' : 'ltr';
+}
+
+connectedCallback() {
+  this._render();
+  // Admin2 can switch language without a full reload — re-apply on change.
+  this._i18nUnsub = window.__GRAV_I18N?.subscribe?.(() => this._applyDir());
+}
+
+disconnectedCallback() {
+  this._i18nUnsub?.();
+}
+```
+
+Prefer logical CSS properties (`padding-inline-start`, `margin-inline-end`, `inset-inline-start`, `text-align: start`) so a single rule works in both directions. Pin any embedded code/source editor to `dir="ltr"` regardless of admin direction, since code is always left-to-right.
+
+### Accessibility
+
+Treat your custom element like any other interactive control. Use semantic HTML (`<button>` rather than a clickable `<div>`), wire up keyboard handlers, set `aria-label` / `aria-describedby` where appropriate, and respect `prefers-reduced-motion` for animations. If your field is interactive and uses Shadow DOM, test it with at least one screen reader.
+
+### Supporting Both Classic Admin and Admin2
+
+Plugins that need to keep working in the classic Twig/jQuery admin (for sites still on Grav 1.7) as well as Admin2 will carry two field implementations for a while. The core Team plugins keep these as separate files rather than sharing a layer. The **codesh** plugin, for example, ships `admin/js/codeshtheme-field.js` for classic admin and `admin-next/fields/codeshtheme.js` for Admin2, side by side:
 
 ```
 your-plugin/
   admin/
-    lib/
-      data-utils.js         # Shared: API calls, data parsing
-      validation.js          # Shared: input validation
     js/
-      my-field.js            # Classic admin: jQuery-based UI
+      codeshtheme-field.js     # Classic admin: jQuery-based UI
   admin-next/
     fields/
-      myfieldtype.js         # Admin2: Web Component UI
-                             # Can import from ../../admin/lib/
+      codeshtheme.js           # Admin2: Web Component UI
 ```
 
-The `admin/lib/` directory holds framework-agnostic logic. Both the jQuery-based fields and web components import from it.
+For most fields that small amount of duplication is the simplest path. If a field has substantial shared logic (input validation, data parsing, a non-trivial API client), you can factor that into a plain ESM module under your plugin and import it from both sides: the web-component side imports it at runtime, the classic side bundles it through whatever build it already uses. No new toolchain is required either way.
 
 ## Real-World Example: Code Syntax Highlighter
 
