@@ -235,6 +235,29 @@ Where Twig processes a page directly, i.e. when you set `process: twig: true` in
 
 Where Twig processes the full site template hierarchy.  This is where you should add any variables to Twig that need to be available to Twig during this process.
 
+<a name="onBuildTwigSandboxPolicy"></a>
+#### onBuildTwigSandboxPolicy (2.0)
+
+Fired while Grav builds the Twig content sandbox policy. Editor-authored Twig in **page content** runs inside this sandbox (theme and plugin template files on disk are trusted and never sandboxed). If your plugin provides a Twig function, filter, tag, method, or property that authors are meant to call from page content, allow it here, otherwise the sandbox blocks it.
+
+The event passes the same allow-lists used in `security.yaml`: flat lists for `tags`, `filters`, and `functions`, and a list of `class`/`methods` rows for `methods` and `properties`. Append to the relevant one with a read-modify-write (the arguments are returned by value). It fires only when the policy is built, once per request and cached, so there is no per-render cost.
+
+Only allow members that are safe to run against content authored by anyone with page-edit access. Registering a member here is the same trust decision as exposing it in the first place.
+
+**Example**
+
+[codesh=php line-numbers="true"]
+/**
+ * Allow this plugin's Twig function inside sandboxed page content.
+ */
+public function onBuildTwigSandboxPolicy(Event $event)
+{
+    $functions = $event['functions'];
+    $functions[] = 'unite_gallery';
+    $event['functions'] = $functions;
+}
+[/codesh]
+
 ## Collection Event Hooks
 
 <a name="onCollectionProcessed"></a>

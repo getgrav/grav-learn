@@ -26,6 +26,7 @@ For the end-user migration process itself (moving an existing site from 1.7 or 1
 - **First-party REST API** as a core component
 - **`compatibility:` blueprint flag** for plugins and themes
 - **Quark 2** is the new default theme
+- **Twig content sandbox** for editor-authored Twig in page content, with an `onBuildTwigSandboxPolicy` event for plugins
 
 ## Critical Breaking Changes
 
@@ -142,6 +143,53 @@ Twig 3 expects a map instead of two string arguments:
 
 ```twig
 {{ title|replace({'_': ' '}) }}
+```
+
+## Twig Content Sandbox
+
+Grav 2.0 runs editor-authored Twig in **page content** through a security sandbox. This only applies to content (`process.twig` on a page, and string templates rendered via `Twig::processString()`). Theme and plugin **template files** on disk are trusted and are never sandboxed, so nothing changes for normal `.html.twig` development.
+
+Inside the sandbox, only an allow-list of tags, filters, functions, methods, and properties is permitted. The defaults live in `system/config/security.yaml` under `twig_sandbox`. If your plugin registers a Twig function, filter, or tag that authors are meant to call from page content, the sandbox blocks it by default, because it has no way to know the member is safe to run against untrusted input.
+
+### Allowing your plugin's Twig members
+
+Subscribe to the `onBuildTwigSandboxPolicy` event and append to the relevant list. The event hands you the same lists used in `security.yaml`: flat lists for `tags`, `filters`, and `functions`, and a list of `class`/`methods` rows for `methods` and `properties`.
+
+```php
+use RocketTheme\Toolbox\Event\Event;
+
+public static function getSubscribedEvents(): array
+{
+    return [
+        'onBuildTwigSandboxPolicy' => ['onBuildTwigSandboxPolicy', 0],
+    ];
+}
+
+public function onBuildTwigSandboxPolicy(Event $event): void
+{
+    // Allow this plugin's Twig function inside sandboxed page content.
+    $functions = $event['functions'];
+    $functions[] = 'unite_gallery';
+    $event['functions'] = $functions;
+
+    // Allow specific methods on one of the plugin's own classes (same
+    // structure as security.yaml: a list of class/methods rows).
+    $methods = $event['methods'];
+    $methods[] = ['class' => \Grav\Plugin\MyGallery\Gallery::class, 'methods' => 'render, thumbnail'];
+    $event['methods'] = $methods;
+}
+```
+
+The read-modify-write pattern is required because the event arguments are returned by value. The event fires only when the policy is built (once per request and cached), so registering members here has no per-render cost.
+
+!! Only allow members that are safe to run against content authored by anyone with page-edit access. Registering a member here is the same trust decision as exposing it in the first place. If a function reads files, evaluates strings, or reaches into the container, leave it off the list.
+
+A site administrator can also allow a function without touching plugin code by adding it to `user/config/security.yaml`, which merges on top of the defaults:
+
+```yaml
+twig_sandbox:
+  allowed_functions:
+    - unite_gallery
 ```
 
 ## Monolog 3 Migration
