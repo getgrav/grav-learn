@@ -192,6 +192,35 @@ twig_sandbox:
     - unite_gallery
 ```
 
+### Calling PHP functions from templates: `undefined_functions` removed
+
+Grav 1.7 let a template call almost any PHP function by name, because `system.twig.undefined_functions` (and `undefined_filters`) defaulted to **on**. Grav 2.0 removes that auto-allow. Calling a PHP function that Grav or a plugin has not registered is now a hard error, in trusted templates as well as in sandboxed page content.
+
+The `safe_functions` / `safe_filters` allow-lists remain as an **explicit opt-in**, empty by default. List the specific functions a trusted template needs:
+
+```yaml
+system:
+  twig:
+    safe_functions:
+      - strtoupper
+      - basename
+    safe_filters:
+      - md5
+```
+
+Command and code-execution functions (`system`, `exec`, `assert`, and the like) are always refused and can never be added to these lists. The allow-lists apply only to trusted templates; editor-authored page content is governed by the [Twig content sandbox](#twig-content-sandbox) instead.
+
+Most common cases already have a Twig or Grav equivalent, for example the `upper` filter in place of `strtoupper`. You can also register a function in PHP through `onTwigExtensions`:
+
+```php
+public function onTwigExtensions(): void
+{
+    $this->grav['twig']->twig()->addFunction(
+        new \Twig\TwigFunction('basename', 'basename')
+    );
+}
+```
+
 ## Monolog 3 Migration
 
 The `addInfo()`, `addError()`, etc. methods on the logger have been removed in Monolog 3. Use the PSR-3 method names instead. These also work on Monolog 2.3+ if your code targets both:
