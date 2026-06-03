@@ -27,6 +27,7 @@ For the end-user migration process itself (moving an existing site from 1.7 or 1
 - **`compatibility:` blueprint flag** for plugins and themes
 - **Quark 2** is the new default theme
 - **Twig content sandbox** for editor-authored Twig in page content, with an `onBuildTwigSandboxPolicy` event for plugins
+- **Native `.env` support** built into the core, so the DotEnv plugin is no longer needed (see [Configuration](/20/basics/grav-configuration#environment-variables-and-env-files))
 
 ## Critical Breaking Changes
 

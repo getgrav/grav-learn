@@ -769,3 +769,104 @@ The YAML file that exists within the plugin's primary directory will act as a fa
 ### Themes Configuration
 
 The same rules for **themes** apply as they did for plugins.  So if you have a theme called `user/themes/mytheme` that has a configuration file called `user/themes/mytheme/mytheme.yaml` then you would copy this file to `user/config/themes/mytheme.yaml` and edit the file there.
+
+### Environment Variables and `.env` Files
+
+Grav reads environment variables while it starts up and uses them in several ways. They are useful for values you would rather not commit to your configuration files, such as API keys and database passwords, and for settings that differ between your development, staging, and production servers.
+
+Grav 2.0 can load these variables from a `.env` file in your site root automatically. This is built into the core, so the separate DotEnv plugin is no longer required (and is not available for Grav 2.0).
+
+#### The `.env` file
+
+Create a `.env` file in the root of your Grav install, alongside `index.php`. Each line sets one variable:
+
+```
+GRAV_ENVIRONMENT=production
+MY_API_KEY=super-secret-value
+```
+
+Every new install ships with a `.env.example` template in the root. Copy it to `.env` and uncomment the entries you need as a starting point.
+
+> [!CAUTION]
+> **WARNING:** A `.env` file usually holds secrets, so it should never be committed to version control or be reachable from the web. Grav's default `.gitignore` already excludes `.env` and the `.env.local` files, and the bundled web server configurations deny requests for `.env` files. If you run your own server configuration, make sure those requests are blocked.
+
+#### Layered `.env` files
+
+For more involved setups you can split your variables across several files. They are loaded in the order below, and each one overrides values set by the files before it:
+
+[div class="table-keycol"]
+| File | Purpose |
+| ---- | ------- |
+| `.env`                     | Base defaults, safe to share |
+| `.env.local`               | Machine-specific overrides, not committed |
+| `.env.<environment>`       | Per-environment values, for example `.env.production` |
+| `.env.<environment>.local` | Per-environment machine overrides |
+[/div]
+
+The `<environment>` suffix comes from the `GRAV_ENVIRONMENT` variable. When it is not set, the per-environment files are skipped and Grav falls back to its usual hostname-based environment detection. The `.env.local` file is skipped when `GRAV_ENVIRONMENT` is `test`, so test runs stay predictable.
+
+> [!NOTE]
+> **TIP:** Variables that are already set in the real server environment always take precedence over anything in a `.env` file, so a `.env` never clobbers credentials provided by your hosting platform.
+
+#### Overriding configuration
+
+Setting the `GRAV_CONFIG` variable to a truthy value lets you override any configuration option through environment variables. Use the `GRAV_CONFIG__` prefix, where a double underscore (`__`) represents a nested level that would be a dot (`.`) in YAML:
+
+```
+GRAV_CONFIG=true                            # Turn the override feature on
+
+GRAV_CONFIG__system__cache__enabled=true    # Sets system.cache.enabled
+GRAV_CONFIG__plugins__github__auth__token=xxxxxxxx
+```
+
+To keep long variable names readable, you can define aliases with the `GRAV_CONFIG_ALIAS__` prefix:
+
+```
+GRAV_CONFIG_ALIAS__GITHUB=plugins.github    # GITHUB now stands for plugins.github
+
+GRAV_CONFIG__GITHUB__auth__method=api       # Sets plugins.github.auth.method
+GRAV_CONFIG__GITHUB__auth__token=xxxxxxxx   # Sets plugins.github.auth.token
+```
+
+#### Grav environment and path variables
+
+A handful of Grav's own variables are read very early during startup, so they can be set in `.env` too:
+
+[div class="table-keycol"]
+| Variable | Purpose |
+| -------- | ------- |
+| `GRAV_ENVIRONMENT`       | Selects the active environment for configuration under `user/env/` |
+| `GRAV_ENVIRONMENT_PATH`  | Path to a specific environment folder |
+| `GRAV_ENVIRONMENTS_PATH` | Base path that holds all environment folders |
+| `GRAV_SETUP_PATH`        | Location of a custom `setup.php` file |
+| `GRAV_USER_PATH`         | Location of the `user` folder |
+[/div]
+
+#### Setting variables on the server
+
+A `.env` file is one way to provide these variables. You can also set them directly in your server configuration, which takes precedence over the file:
+
+[codesh-group]
+[codesh=apache title="Apache 2" line-numbers="true"]
+<VirtualHost 127.0.0.1:80>
+    ...
+
+    SetEnv GRAV_ENVIRONMENT  production
+    SetEnv MY_API_KEY        super-secret-value
+</VirtualHost>
+[/codesh]
+[codesh=nginx title="NGINX php-fpm" line-numbers="true"]
+location ~ \.php$ {
+    ...
+
+    fastcgi_param GRAV_ENVIRONMENT  production;
+    fastcgi_param MY_API_KEY        super-secret-value;
+}
+[/codesh]
+[/codesh-group]
+
+Your own variables (anything that is not a Grav setting) are available to plugins and themes through PHP's `getenv()`:
+
+```php
+$key = getenv('MY_API_KEY') ?: null;
+```
