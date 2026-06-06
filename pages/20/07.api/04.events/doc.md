@@ -144,6 +144,31 @@ For a page create operation, events fire in this order:
 4. `onAdminAfterSave` — admin post-save (indexing, notifications)
 5. `onApiPageCreated` — API after event (triggers webhooks)
 
+### Subscribing from a Plugin
+
+Do **not** gate the subscription of these admin-compatible events behind an `isAdmin()` check in `onPluginsInitialized()`. When a save comes through the API (which is how Admin2 saves everything), the request is not handled by the classic Admin plugin, so `$grav['admin']` is registered later during request dispatch by the API's `AdminProxy`. At `onPluginsInitialized()` time it is not yet set, so `isAdmin()` still returns `false` and any handlers you register inside an `isAdmin()` block are never subscribed. The result is a plugin whose save/delete logic silently never runs under Admin2.
+
+!!! A common 1.7-era pattern was to register `onAdminAfterSave` only when `isAdmin()` was true. That no longer works for API/Admin2 writes. These events only fire during admin/API write operations anyway, so it is safe to subscribe to them unconditionally.
+
+Register them directly in `getSubscribedEvents()`, or unconditionally in `onPluginsInitialized()`:
+
+```php
+public static function getSubscribedEvents(): array
+{
+    return [
+        'onPluginsInitialized'    => ['onPluginsInitialized', 0],
+        // Always registered — these only fire during admin/API writes:
+        'onAdminAfterSave'        => ['onObjectSave', 0],
+        'onAdminAfterDelete'      => ['onObjectDelete', 0],
+        'onAdminAfterSaveAs'      => ['onObjectMove', 0],
+        'onFlexObjectAfterSave'   => ['onObjectSave', 0],
+        'onFlexObjectAfterDelete' => ['onObjectDelete', 0],
+    ];
+}
+```
+
+Note that Flex objects (and Flex Pages) fire `onFlexObjectAfterSave` / `onFlexObjectAfterDelete` — the `*After*` variants — not the bare `onFlexObjectSave` / `onFlexObjectDelete` names. Subscribe to the variant that matches the data you need.
+
 ## Route Registration
 
 Plugins extend the API with custom endpoints by subscribing to one event:
