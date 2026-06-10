@@ -828,6 +828,17 @@ GRAV_CONFIG__GITHUB__auth__method=api       # Sets plugins.github.auth.method
 GRAV_CONFIG__GITHUB__auth__token=xxxxxxxx   # Sets plugins.github.auth.token
 ```
 
+Aliases are also the way to reach a config path that contains a hyphen. Environment variable names allow only letters, digits, and underscores, so a plugin whose slug contains a hyphen, such as `translation-service`, cannot be named directly. Put the hyphenated path in the alias value, where hyphens are allowed, then reference the alias:
+
+```
+GRAV_CONFIG_ALIAS__TRANSLATIONSERVICE=plugins.translation-service
+
+GRAV_CONFIG__TRANSLATIONSERVICE__anthropic__api_key=xxxxxxxx   # Sets plugins.translation-service.anthropic.api_key
+```
+
+> [!NOTE]
+> **TIP:** The alias name is matched as plain text within the key, so choose a distinctive all-caps name that will not accidentally appear in another part of the path.
+
 #### Grav environment and path variables
 
 A handful of Grav's own variables are read very early during startup, so they can be set in `.env` too:
