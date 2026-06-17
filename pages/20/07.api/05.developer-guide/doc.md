@@ -23,6 +23,8 @@ Admin2 renders plugin configuration forms using blueprint schemas, just like the
 
 For **custom field types** — fields with specialized UI that standard types can't handle — plugins can ship **Web Components** that Admin2 loads on demand.
 
+> **Themes can provide custom fields too.** Everything in this section applies equally to a theme: place the file at `your-theme/admin-next/fields/yourfieldtype.js`. Admin2 tracks which provider supplies each field type and fetches its script from the matching route (`/gpm/themes/{slug}/field/{type}` for a theme, `/gpm/plugins/{slug}/field/{type}` for a plugin), so a theme-provided field loads correctly when used in any blueprint.
+
 ### How It Works
 
 1. Admin2 encounters an unknown field type in a blueprint
@@ -358,9 +360,46 @@ public function onApiSidebarItems(Event $event): void
 | `icon`     | string  | yes      | FontAwesome icon class (e.g. `fa-key`) |
 | `route`    | string  | yes      | Admin2 route path (e.g. `/plugin/license-manager`) |
 | `priority` | integer | no       | Sort order; higher values appear earlier (default: 0) |
-| `badge`    | string  | no       | Optional badge text or count shown next to the label |
+| `badge`    | string  | no       | Static badge text or count shown next to the label |
+| `badgeEndpoint` | string | no  | API path returning `{ count: N }` for a badge that refreshes at runtime |
+| `authorize` | string\|array | no | Permission(s) required to see the item; an array is an any-of test. Stripped before the item reaches the client |
 
 Admin2 calls `GET /sidebar/items` on load. The API fires `onApiSidebarItems`, collects all items from plugins, and returns them.
+
+#### Dynamic badges
+
+A `badge` value is static — it only changes when the sidebar is fully reloaded. For a count that updates on its own (pending items, unread messages, and so on), add a `badgeEndpoint` instead:
+
+```php
+$items[] = [
+    'id'            => 'pushy',
+    'plugin'        => 'pushy',
+    'label'         => 'Pushy',
+    'icon'          => 'fa-key',
+    'route'         => '/plugin/pushy',
+    'priority'      => 10,
+    'badgeEndpoint' => '/pushy/badge',   // returns { count: N }
+];
+```
+
+The endpoint returns a count:
+
+```php
+public function badge(ServerRequestInterface $request): ResponseInterface
+{
+    return ApiResponse::create(['count' => $this->pendingCount()]);
+}
+```
+
+Admin2 fetches it when the sidebar loads and re-fetches on content, config, plugin, and theme changes. The live count overrides the static `badge`. For an immediate update from your own plugin page or widget — without waiting for a refresh event — dispatch a window event:
+
+```js
+window.dispatchEvent(new CustomEvent('grav:sidebar:badge', {
+    detail: { id: 'pushy', count: 42 },
+}));
+```
+
+This is the same badge mechanism context panels use (see [Context Panels](#context-panels)).
 
 ### Page Definition
 
@@ -454,6 +493,54 @@ Admin2 fetches the script via `GET /gpm/plugins/{slug}/page-script`, sets the ta
 
 You can also use **both modes together**: set `page_type` to `'blueprint'` and also ship a `pages/{slug}.js` file. The API response will include `has_custom_component: true`, letting Admin2 render the blueprint form alongside custom component sections.
 
+##### Communicating with the toolbar
+
+A component-mode page has no blueprint form, so Admin2 can't track its changes the way it does for blueprint pages. Instead, the component and the header toolbar talk through two DOM events dispatched on the component's own element:
+
+- **`page-action`** (toolbar → component) — Admin2 dispatches this when a toolbar action that your component owns is clicked: any action without an `endpoint`, **including the `primary` action**. The event `detail` is `{ id, label }`.
+- **`page-state`** (component → toolbar) — your component dispatches this to report its own state, which drives the `primary` action button. The `detail` accepts `{ dirty, valid, busy }` (all keys optional, merged on each dispatch):
+    - `dirty` — set `true` once there are unsaved changes. The `primary` button stays **disabled until the component reports `dirty: true`**.
+    - `valid` — set `false` to keep the `primary` button disabled while the component's input is invalid.
+    - `busy` — set `true` to show a spinner on the `primary` button while a save is in flight.
+
+```js
+class MyPluginPage extends HTMLElement {
+    connectedCallback() {
+        this.attachShadow({ mode: 'open' });
+        // Run our save when the primary (or any endpoint-less) action fires
+        this.addEventListener('page-action', (e) => {
+            if (e.detail?.id === 'save') this._save();
+        });
+        this._render();
+    }
+
+    _onChange() {
+        // Enable the primary Save button
+        this.dispatchEvent(new CustomEvent('page-state', { detail: { dirty: true } }));
+    }
+
+    async _save() {
+        this.dispatchEvent(new CustomEvent('page-state', { detail: { busy: true } }));
+        try {
+            await this._persist();
+            window.__GRAV_TOAST?.success('Saved');
+            // Re-disable Save until the next edit
+            this.dispatchEvent(new CustomEvent('page-state', { detail: { dirty: false, busy: false } }));
+        } catch (err) {
+            window.__GRAV_TOAST?.error('Save failed');
+            this.dispatchEvent(new CustomEvent('page-state', { detail: { busy: false } }));
+        }
+    }
+}
+```
+
+A component that never dispatches `page-state` leaves the `primary` button permanently disabled, so a component page that needs a working Save button must report `dirty: true` at least once.
+
+Toasts and dialogs are available globally to any web component, so you don't need to roll your own:
+
+- `window.__GRAV_TOAST.{success,error,info,warning}(message, options)` — `options` is forwarded to the toaster (e.g. `{ duration: 6000 }`).
+- `window.__GRAV_DIALOGS.confirm({ title, message, variant })` — returns a `Promise<boolean>`. Use `variant: 'destructive'` for delete/clear actions. Never use native `confirm()` / `alert()` / `prompt()`.
+
 ### Action Buttons
 
 The `actions` array defines buttons rendered in the page header toolbar. Each action is an object with these properties:
@@ -463,7 +550,7 @@ The `actions` array defines buttons rendered in the page header toolbar. Each ac
 | `id`       | string  | Unique action identifier |
 | `label`    | string  | Button text |
 | `icon`     | string  | FontAwesome icon class |
-| `primary`  | boolean | If `true`, this is the main save action (uses form data, calls `save_endpoint`) |
+| `primary`  | boolean | If `true`, this is the main save action. In **blueprint mode** it submits the form data to `save_endpoint`. In **component mode** it dispatches a `page-action` event to your component and is enabled only while the component reports `dirty: true` via `page-state` (see [Communicating with the toolbar](#communicating-with-the-toolbar)) |
 | `upload`   | boolean | If `true`, clicking opens a file picker and POSTs the file to `endpoint` |
 | `download` | boolean | If `true`, clicking triggers a file download from `endpoint` |
 | `endpoint` | string  | API path for upload/download actions |

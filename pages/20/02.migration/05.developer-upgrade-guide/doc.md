@@ -150,6 +150,8 @@ Twig 3 expects a map instead of two string arguments:
 
 Grav 2.0 runs editor-authored Twig in **page content** through a security sandbox. This only applies to content (`process.twig` on a page, and string templates rendered via `Twig::processString()`). Theme and plugin **template files** on disk are trusted and are never sandboxed, so nothing changes for normal `.html.twig` development.
 
+!! For the site-owner side of this (enabling Twig in content, the default allow-list, and what happens when something is blocked), see [Twig in Content](../../content/twig-in-content).
+
 Inside the sandbox, only an allow-list of tags, filters, functions, methods, and properties is permitted. The defaults live in `system/config/security.yaml` under `twig_sandbox`. If your plugin registers a Twig function, filter, or tag that authors are meant to call from page content, the sandbox blocks it by default, because it has no way to know the member is safe to run against untrusted input.
 
 ### Allowing your plugin's Twig members
