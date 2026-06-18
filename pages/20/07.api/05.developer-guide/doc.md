@@ -105,7 +105,7 @@ Before Admin2 executes your field script, it sets a small set of globals on `win
 | `window.__GRAV_API_SERVER_URL` | Base URL of the Grav site (e.g. `https://mysite.com`). |
 | `window.__GRAV_API_PREFIX` | API prefix (default `/api/v1`). |
 | `window.__GRAV_API_TOKEN` | JWT access token already obtained by Admin2, ready to send as `X-API-Token`. |
-| `window.__GRAV_DIALOGS` | Admin2's confirm-dialog helper. Use it instead of native `confirm()`/`alert()`/`prompt()`. |
+| `window.__GRAV_DIALOGS` | Admin2's dialog helper: `confirm()` for yes/no, plus `form()` and `open()` for richer modals (see [Modals and Overlays](#modals-and-overlays)). Use it instead of native `confirm()`/`alert()`/`prompt()`. |
 | `window.__GRAV_ADMIN_BASE` | Base path of Admin2, useful for building internal links. |
 | `window.__GRAV_NAVIGATE` | Function for SPA navigation (falls back to `window.location.href` if absent). |
 | `window.__GRAV_I18N` | Locale/direction bridge: `__GRAV_I18N.dir` is `'ltr'` or `'rtl'`, and `__GRAV_I18N.subscribe(fn)` fires on language change. See [RTL and Internationalization](#rtl-and-internationalization). |
@@ -186,7 +186,49 @@ Always use optional chaining (`?.`) so your component degrades gracefully if it 
 
 ### Modals and Overlays
 
-If your field needs a modal (e.g., a picker dialog), append it to `document.body` rather than rendering it inside the shadow DOM. This avoids overflow constraints from the form layout:
+The same `window.__GRAV_DIALOGS` object that provides `confirm()` also opens richer modals, so you rarely need to hand-roll one. Both methods resolve a result, or `null` if the user dismisses the modal (Escape, backdrop, or Cancel), and only one modal shows at a time — extra calls queue.
+
+!! Requires grav-plugin-api `1.0.0-rc.16` / Admin2 `2.0.0-rc.16` or later. Older builds only have `__GRAV_DIALOGS.confirm()`.
+
+**`form()` — an inline-field form, no component to ship.** Define the fields in JS and get the values back:
+
+```javascript
+const values = await window.__GRAV_DIALOGS.form({
+  title: 'New Article',
+  fields: [
+    { name: 'title',   label: 'Title', required: true },
+    { name: 'section', label: 'Section', type: 'select',
+      options: [{ value: 'news', label: 'News' }, { value: 'blog', label: 'Blog' }] },
+    { name: 'pinned',  label: 'Pinned', type: 'toggle' },   // text | textarea | select | toggle | number
+  ],
+  submitLabel: 'Create',
+  size: 'md',                                               // sm | md | lg | xl
+});
+if (values) { /* { title, section, pinned } — e.g. POST /pages */ }
+```
+
+**`open()` — your own modal web component.** Ship it at `admin-next/modals/{id}.js` (mounted as `grav-{slug}--modal-{id}`, served by `GET /gpm/plugins/{slug}/modal-script/{id}`):
+
+```javascript
+const result = await window.__GRAV_DIALOGS.open({
+  plugin: 'my-plugin',
+  component: 'my-modal',         // → admin-next/modals/my-modal.js
+  title: 'My Modal',
+  props: { route: '/blog' },     // set as properties on the element
+  size: 'lg',
+});
+```
+
+Inside the component, hand a result back by dispatching `resolve` (with your value as `detail`), or dismiss with `cancel` / `close` — the same idiom as the floating-widget `close` event:
+
+```javascript
+this.dispatchEvent(new CustomEvent('resolve', { detail: { id: 42 } }));
+```
+
+> [!NOTE]
+> For "create a page of type X under Y", you usually don't need a modal at all — deep-link Admin2's own new-page form instead. See [Menubar Items & Actions](#menubar-items-actions) for the `route` intent and the `/pages/new` query params.
+
+**Hand-rolled overlays (fallback).** If you need an overlay neither method covers, append it to `document.body` rather than the shadow DOM, to avoid overflow constraints from the form layout:
 
 ```javascript
 _openModal() {
@@ -724,6 +766,46 @@ public function onApiMenubarAction(Event $event): void
 ```
 
 Handlers **must** check `$event['plugin']` before responding — every plugin listening to `onApiMenubarAction` receives every request. `status: 'success'` returns HTTP 200; `status: 'error'` returns 400.
+
+#### Client-side intents: `route` and `modal`
+
+Instead of a server `action`, a menubar item can carry a **client-side intent** that runs in Admin2 with no round-trip. When `route` or `modal` is present it takes precedence over `action` (a `confirm`, if set, still runs first). Both fields pass straight through the API, so no `onApiMenubarAction` handler is needed.
+
+```php
+public function onApiMenubarItems(Event $event): void
+{
+    $items = $event['items'] ?? [];
+
+    // `route` navigates the SPA. Deep-link the native new-page form with a
+    // preset parent and a locked template — the Admin2 replacement for the
+    // classic "custom page creation modal" cookbook recipe. /pages/new reads
+    // three optional query params: parent, template (locks the picker), title.
+    $items[] = [
+        'id'     => 'new-article',
+        'plugin' => 'my-plugin',
+        'label'  => 'New Article',
+        'icon'   => 'fa-plus',
+        'route'  => '/pages/new?parent=/blog&template=item&title=New%20Article',
+    ];
+
+    // `modal` opens one of the plugin's own modal web components
+    // (admin-next/modals/{component}.js — see "Modals and Overlays").
+    $items[] = [
+        'id'     => 'quick-thing',
+        'plugin' => 'my-plugin',
+        'label'  => 'Quick Thing',
+        'icon'   => 'fa-bolt',
+        'modal'  => [
+            'component' => 'quick-thing',
+            'title'     => 'Quick Thing',
+            'size'      => 'lg',            // sm | md | lg | xl
+            // 'props' => [...], 'useStandardHeader' => false,
+        ],
+    ];
+
+    $event['items'] = $items;
+}
+```
 
 ### Floating Widgets
 

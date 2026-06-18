@@ -204,8 +204,17 @@ Example:
 
 [codesh=yaml line-numbers="true"]
 process:
+    basic-captcha: true
+[/codesh]
+
+To customize the message shown when validation fails, set `captcha_not_validated` on the field itself (if omitted, the Form plugin provides a default):
+
+[codesh=yaml line-numbers="true"]
+fields:
     basic-captcha:
-        message: Humanity verification failed, please try again...
+        type: basic-captcha
+        label: Are you human?
+        captcha_not_validated: Humanity verification failed, please try again...
 [/codesh]
 
 ### Turnstile Captcha Field (Cloudflare)
@@ -328,21 +337,21 @@ g-recaptcha-response:
 
 [/codesh]
 
-You can also provide a custom failure `recaptcha_not_validated` message, but if you don't the default one is provided by the Form plugin.  If you want to set a form-specific `recaptcha_site_key` rather than setting it globally in the form configuration, you can set that also.
+You can also provide a custom failure `captcha_not_validated` message, but if you don't the default one is provided by the Form plugin.  If you want to set a form-specific `recaptcha_site_key` rather than setting it globally in the form configuration, you can set that also.
 
 [codesh=yaml line-numbers="true"]
 g-recaptcha-response:
   type: captcha
   label: Captcha
   recaptcha_site_key: ENTER_YOUR_CAPTCHA_PUBLIC_KEY
-  recaptcha_not_validated: 'Captcha not valid!'
+  captcha_not_validated: 'Captcha not valid!'
 [/codesh]
 
 [div class="table table-keycol"]
-| Attribute                 | Description                                     |
-| :-----                    | :-----                                          |
-| `recaptcha_site_key`      | The Google reCAPTCHA Site Key (optional)                   |
-| `recaptcha_not_validated` | The message to show if the captcha is not valid |
+| Attribute                | Description                                     |
+| :-----                   | :-----                                          |
+| `recaptcha_site_key`     | The Google reCAPTCHA Site Key (optional)                   |
+| `captcha_not_validated`  | The message to show if the captcha is not valid |
 [/div]
 
 [div class="table"]

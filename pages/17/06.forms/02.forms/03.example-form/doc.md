@@ -60,7 +60,7 @@ form:
         g-recaptcha-response:
           label: Captcha
           type: captcha
-          recaptcha_not_validated: 'Captcha not valid!'
+          captcha_not_validated: 'Captcha not valid!'
 
     buttons:
         submit:
