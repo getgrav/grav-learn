@@ -30,7 +30,7 @@ Tell Grav which host to use. You only need **one** of the two options below. Set
 
 This is the broadest fix. It sets a trusted base address for the whole site, not just for emails, so it also makes other absolute links consistent.
 
-In the admin, go to **Configuration → System → URLs → Custom Base URL** and enter your full site address, for example:
+In the admin, go to **Configuration → System → Advanced → Custom Base URL** and enter your full site address, for example:
 
 ```
 https://www.example.com
