@@ -1,96 +1,94 @@
 enabled: true
 appearance:
-  theme: system
-  selector: true
+    theme: system
+    selector: true
 colors:
-  primary: '#397ae3'
-  primary_hover: '#0f52cf'
-  accent: '#da07fc'
-  primary_dark: '#6ba4ff'
-  primary_dark_hover: '#57bcff'
-  accent_dark: '#c678dd'
-  gray_preset: zinc
-  gray_custom: null
+    primary: "#397ae3"
+    primary_hover: "#0f52cf"
+    accent: "#da07fc"
+    primary_dark: "#6ba4ff"
+    primary_dark_hover: "#57bcff"
+    accent_dark: "#c678dd"
+    gray_preset: zinc
+    gray_custom: null
 fonts:
-  body: inter
-  body_size: medium
-  code: jetbrains-mono
-  code_size: medium
+    body: inter
+    body_size: medium
+    code: jetbrains-mono
+    code_size: medium
 logo:
-  image:
-    user/assets/helios/grav-logo.svg:
-      name: grav-logo.svg
-      full_path: grav-logo.svg
-      type: image/svg+xml
-      size: 3518
-      path: user/assets/helios/grav-logo.svg
-  image_dark:
-    user/assets/helios/grav-logo-inverted.svg:
-      name: grav-logo-inverted.svg
-      full_path: grav-logo-inverted.svg
-      type: image/svg+xml
-      size: 5497
-      path: user/assets/helios/grav-logo-inverted.svg
-  text: 'Grav Learn'
-  height: h-8
+    image:
+        user/assets/helios/grav-logo.svg:
+            name: grav-logo.svg
+            full_path: grav-logo.svg
+            type: image/svg+xml
+            size: 3518
+            path: user/assets/helios/grav-logo.svg
+    image_dark:
+        user/assets/helios/grav-logo-inverted.svg:
+            name: grav-logo-inverted.svg
+            full_path: grav-logo-inverted.svg
+            type: image/svg+xml
+            size: 5497
+            path: user/assets/helios/grav-logo-inverted.svg
+    text: "Grav Learn"
+    height: h-8
 header:
-  menu:
-    -
-      route: 'https://getgrav.org'
-      label: 'Grav CMS'
-      external: '0'
-    -
-      route: 'https://github.com/getgrav/grav'
-      label: Github
-      external: '0'
+    menu:
+        - route: "https://getgrav.org"
+          label: "Grav CMS"
+          external: "0"
+        - route: "https://github.com/getgrav/grav"
+          label: Github
+          external: "0"
 custom_favicon:
-  user/assets/helios/favicon.png:
-    name: favicon.png
-    full_path: favicon.png
-    type: image/png
-    size: 20092
-    path: user/assets/helios/favicon.png
+    user/assets/helios/favicon.png:
+        name: favicon.png
+        full_path: favicon.png
+        type: image/png
+        size: 20092
+        path: user/assets/helios/favicon.png
 sidebar:
-  powered_by: '1'
+    powered_by: "1"
 navigation:
-  sidebar_width: 280
-  toc_width: 240
-  content_width: 768
-  toc_start: 2
-  toc_depth: 3
-  toc_position: right
-  breadcrumbs: true
-  prev_next: true
-  scroll_spy: true
+    sidebar_width: 280
+    toc_width: 240
+    content_width: 768
+    toc_start: 2
+    toc_depth: 3
+    toc_position: right
+    breadcrumbs: true
+    prev_next: true
+    scroll_spy: true
 versioning:
-  enabled: true
-  mode: explicit
-  auto_detect: true
-  root: null
-  versions: null
-  default_version: '17'
-  current_version: null
-  version_pattern: '/^v?\d+(\.\d+)*$/'
-  show_badge: true
-  show_dropdown: true
-  labels:
-    17: '1.7 (Stable)'
-    20: '2.0 (Beta)'
+    enabled: true
+    mode: explicit
+    auto_detect: true
+    root: null
+    versions: null
+    default_version: "20"
+    current_version: null
+    version_pattern: '/^v?\d+(\.\d+)*$/'
+    show_badge: true
+    show_dropdown: true
+    labels:
+        17: "1.7 (Legacy)"
+        20: "2.0 (Stable)"
 search:
-  enabled: true
-  provider: yetisearch-pro
-  keyboard_shortcut: true
-  shortcut_key: k
-  placeholder: 'Search documentation...'
-  min_chars: 2
+    enabled: true
+    provider: yetisearch-pro
+    keyboard_shortcut: true
+    shortcut_key: k
+    placeholder: "Search documentation..."
+    min_chars: 2
 github:
-  enabled: true
-  repo: getgrav/grav-learn
-  branch: develop
-  edit_link: true
-  edit_text: 'Edit this page on Github'
-  path_prefix: user/
+    enabled: true
+    repo: getgrav/grav-learn
+    branch: develop
+    edit_link: true
+    edit_text: "Edit this page on Github"
+    path_prefix: user/
 htmx:
-  enabled: true
+    enabled: true
 body_classes: null
 append_site_title: true
