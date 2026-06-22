@@ -126,13 +126,47 @@ This matches the behaviour of the wizard's "disable" policy.
 
 ## Step 4: Copy User Accounts
 
-Accounts copy across directly:
+Copy the account files across:
 
 ```bash
 cp -a user/accounts/. grav-2/user/accounts/
 ```
 
-Roles and permissions are stored inside each account file, so nothing else needs to change.
+The account file format itself is unchanged, but the **access control permissions inside each file are not.** This is the one part of the accounts copy that needs hand editing, and it's easy to miss because the files load without error either way — the user just silently can't get in.
+
+In Grav 1.7 with admin-classic, admin permissions live under the `admin.*` namespace:
+
+```yaml
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+```
+
+Grav 2.0's admin2 is a client of the [API plugin](/20/api/authentication#permissions), and it checks the `api.*` namespace instead. An account that only grants `admin.login` will be refused at the admin2 login screen. For each account file, mirror every `admin.*` key to a matching `api.*` key with the same value:
+
+```yaml
+access:
+  admin:
+    login: true
+    super: true
+  api:
+    login: true
+    super: true
+  site:
+    login: true
+```
+
+A few details worth knowing:
+
+- **Mirror, don't rename.** Keep the `admin.*` entries in place and add `api.*` alongside them. Leaving both means the account works whether a given plugin still checks the old namespace or the new one.
+- **Both YAML shapes occur.** Older accounts sometimes use the dotted-flat form (`admin.login: true` as a single key under `access:`) rather than the nested block above. The rule is the same: each `admin.X` gets a sibling `api.X`.
+- **`site.*` permissions are untouched.** Only the `admin.*` namespace moves; front-end `site.*` access carries over as-is.
+
+> [!NOTE]
+> The [Migrate to Grav 2.0 plugin](../02.assisted-migration) does this conversion for you automatically as it copies the accounts across — it walks each file's `access:` block and adds the mirrored `api.*` keys. This manual step exists only because you're doing the copy by hand.
 
 ## Step 5: Copy Content and Configuration
 
