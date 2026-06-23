@@ -93,6 +93,47 @@ These are called while Admin2 composes the UI. Plugins append items/widgets/pane
 | `onApiAdminSettingsPanels` | `GET /settings/panels` | `panels`, `user` |
 | `onApiPluginPageInfo` | `GET /gpm/plugins/{slug}/page` | `plugin`, `definition` (mutable), `user` |
 | `onApiGenerateReports` | `GET /reports` | `reports`, `user` |
+| `onApiUserListFilters` | `GET /users/filters` | `filters`, `user` |
+| `onApiUserListFilter` | `GET /users?filter={id}` | `filter`, `collection` (mutable), `query`, `user` |
+
+### Users list filter tabs
+
+These two events let a plugin add a tab to the Users list that shows a filtered set of accounts — the Admin Next equivalent of admin-classic's Users-page tabs.
+
+`onApiUserListFilters` collects the tabs for the nav row. Append a tab descriptor to the `filters` array; the core endpoint always prepends the built-in `all` ("All Users") tab and drops any tab the caller isn't authorized for:
+
+```php
+public function onApiUserListFilters(Event $event): void
+{
+    // Event has no by-reference offsetGet — append via read-modify-write,
+    // the same idiom as onApiSidebarItems / onApiMenubarItems.
+    $filters = $event['filters'];
+    $filters[] = [
+        'id'        => 'active',           // selected via ?filter=active; 'all' is reserved
+        'plugin'    => 'my-plugin',
+        'label'     => 'Active',           // plain text, not a translation key
+        'icon'      => 'fa-bolt',          // optional
+        'priority'  => 10,                 // optional, higher sorts earlier
+        'authorize' => 'api.users.read',   // optional, string or any-of array
+    ];
+    $event['filters'] = $filters;
+}
+```
+
+`onApiUserListFilter` runs while `GET /users?filter={id}` builds the listing — after search and sort, but **before** permission/group filtering and pagination. The plugin owning the active `filter` id narrows the collection and assigns it back; the core endpoint still applies the caller's access scope and paginates, so a tab can only narrow what's already visible, never widen it:
+
+```php
+public function onApiUserListFilter(Event $event): void
+{
+    if ($event['filter'] !== 'active') {
+        return;
+    }
+    $collection = $event['collection']; // FlexCollectionInterface
+    $event['collection'] = $collection->filterBy(['state' => 'enabled']);
+}
+```
+
+Filter tabs require the Flex-accounts backend (the Grav default); the legacy filesystem account store degrades to the `all` tab only.
 
 ## Webhook Event Mapping
 
