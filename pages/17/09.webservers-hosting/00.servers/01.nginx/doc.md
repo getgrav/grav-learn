@@ -5,8 +5,6 @@ routes:
         - '/webservers-hosting/local/nginx'
 taxonomy:
     category: docs
-shortcode-core:
-    parser: regex
 ---
 # Nginx
 
