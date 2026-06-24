@@ -45,17 +45,21 @@ twig_content:
   editor_enabled: true
 ```
 
-### 2. Opt in per page
+### 2. Know what the gate turns on
 
-Enabling the gate does not turn Twig on everywhere. Each page still has to opt in through its front matter, exactly as in 1.7:
+With **Process Enabled** on, the gate is the single source of truth for content Twig, and **every page processes Twig in its content by default**. This is a change from 1.7, where each page opted in individually through its front matter. You no longer flag pages one at a time.
+
+If you want to keep a specific page from running Twig in its content, opt that page *out* in its front matter:
 
 ```yaml
 ---
 title: My Page
 process:
-    twig: true
+    twig: false
 ---
 ```
+
+An explicit `process.twig` value on a page (`true` or `false`) always wins over the gate, so you can still force Twig on for a single page, but you rarely need to. Because the switch enables content Twig across the whole site, turn it on deliberately.
 
 ### 3. Clear the cache
 
@@ -90,28 +94,32 @@ So if a page shows raw `{{ something() }}` after you've enabled the gate, the sa
 
 ## Customizing the Sandbox
 
-If you have decided that a particular Twig member is safe to run against content your authors could write, you can add it to the allow-list in `user/config/security.yaml`. Your additions merge on top of the defaults:
+If you have decided that a particular Twig member is safe to run against content your authors could write, you can add it to the allow-list. First, an important caveat about how these lists merge.
+
+The sandbox allow-lists are **not additive when edited by hand.** The flat lists (`allowed_functions`, `allowed_filters`, `allowed_tags`) are each replaced wholesale by whatever you put under that key in `user/config/security.yaml`, and the per-class lists (`allowed_methods`, `allowed_properties`) merge by position, so a partial list silently overwrites the existing entries. Writing this:
 
 ```yaml
 twig_sandbox:
   allowed_functions:
     - my_safe_function
-  allowed_filters:
-    - my_safe_filter
-  allowed_tags:
-    - my_safe_tag
 ```
 
-Methods and properties are allowed per class, using a list of `class`/`methods` (or `class`/`properties`) rows:
+would drop every built-in safe function (`url`, `t`, and the rest) and leave only `my_safe_function`, breaking far more than it fixes. There are two safe ways to add a member:
+
+* **Use Admin (recommended).** Under **Configuration → Security → Twig Sandbox**, each field is pre-loaded with the current full list. Add your entry and save, and Grav writes the complete list back, so the defaults are never lost.
+* **Edit by hand with the full list.** Copy the entire default list for that key out of `system/config/security.yaml` into your `user/config/security.yaml`, then append your addition, keeping every existing entry intact.
+
+The same rule applies to the per-class methods and properties lists: include every existing `class`/`methods` (or `class`/`properties`) row alongside any you add.
 
 ```yaml
 twig_sandbox:
   allowed_methods:
     - class: 'Grav\Plugin\MyGallery\Gallery'
       methods: 'render, thumbnail'
+    # ...plus every default row copied from system/config/security.yaml
 ```
 
-Plugin developers can register their own safe members programmatically through the `onBuildTwigSandboxPolicy` event, so a plugin works in sandboxed content without each site having to edit `security.yaml`. See the [Developer Upgrade Guide](../../migration/developer-upgrade-guide#twig-content-sandbox) for the event signature and a worked example.
+Plugin developers can register their own safe members programmatically through the `onBuildTwigSandboxPolicy` event, so a plugin works in sandboxed content without each site having to edit `security.yaml` at all. **This is the durable fix for plugin-provided members**, and it avoids the full-list maintenance burden entirely. See the [Developer Upgrade Guide](../../migration/developer-upgrade-guide#twig-content-sandbox) for the event signature and a worked example.
 
 !!! Only allow members that are safe to run against content authored by anyone with page-edit access. Adding a member to the allow-list is the same trust decision as exposing it in the first place. If a function reads files, evaluates strings, or reaches into Grav's container, leave it off the list.
 

@@ -187,13 +187,15 @@ The read-modify-write pattern is required because the event arguments are return
 
 !! Only allow members that are safe to run against content authored by anyone with page-edit access. Registering a member here is the same trust decision as exposing it in the first place. If a function reads files, evaluates strings, or reaches into the container, leave it off the list.
 
-A site administrator can also allow a function without touching plugin code by adding it to `user/config/security.yaml`, which merges on top of the defaults:
+A site administrator can also allow a function without touching plugin code by adding it to `user/config/security.yaml`. Note that the sandbox allow-lists are **not additive when edited by hand**: the flat lists (`allowed_functions`, `allowed_filters`, `allowed_tags`) are replaced wholesale, so a snippet like this:
 
 ```yaml
 twig_sandbox:
   allowed_functions:
     - unite_gallery
 ```
+
+would drop every built-in safe function and leave only `unite_gallery`. Add the entry through **Admin → Configuration → Security → Twig Sandbox** (which round-trips the full list), or, if editing the file by hand, copy the complete default list out of `system/config/security.yaml` and append to it. For plugin-provided functions, registering via `onBuildTwigSandboxPolicy` above is the better path, since it needs no per-site config and survives default-list changes.
 
 ### Calling PHP functions from templates: `undefined_functions` removed
 
