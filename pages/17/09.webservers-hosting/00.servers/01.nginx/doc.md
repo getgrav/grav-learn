@@ -134,7 +134,7 @@ Grav gets shipped with a configuration file for your site in the `webserver-conf
 cp /var/www/grav/webserver-configs/nginx.conf /etc/nginx/sites-available/grav-site
 [/codesh]
 
-Open that file with an editor and replace "example.com" with your domain/IP (or "localhost" if you want to just run it locally), replace the "root" line with "root /var/www/grav/;" and then create a symbolic link of your site-config in `sites-enabled`:
+Open that file with an editor and replace the default `server_name localhost;` with your domain/IP (or leave it as "localhost" if you want to just run it locally), replace the `root /home/USER/www/html;` line with `root /var/www/grav/;` and then create a symbolic link of your site-config in `sites-enabled`:
 
 [codesh=bash]
 ln -s /etc/nginx/sites-available/grav-site /etc/nginx/sites-enabled/grav-site

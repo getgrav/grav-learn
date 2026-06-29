@@ -93,6 +93,7 @@ These are called while Admin2 composes the UI. Plugins append items/widgets/pane
 | `onApiAdminSettingsPanels` | `GET /settings/panels` | `panels`, `user` |
 | `onApiPluginPageInfo` | `GET /gpm/plugins/{slug}/page` | `plugin`, `definition` (mutable), `user` |
 | `onApiGenerateReports` | `GET /reports` | `reports`, `user` |
+| `onApiDashboardNotifications` | `GET /dashboard/notifications` | `notifications` (mutable, grouped by location), `user`, `force` |
 | `onApiUserListFilters` | `GET /users/filters` | `filters`, `user` |
 | `onApiUserListFilter` | `GET /users?filter={id}` | `filter`, `collection` (mutable), `query`, `user` |
 

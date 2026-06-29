@@ -29,7 +29,7 @@ For **custom field types** — fields with specialized UI that standard types ca
 
 1. Admin2 encounters an unknown field type in a blueprint
 2. It checks if the plugin declared custom fields in its API response
-3. If found, it fetches the JavaScript file from the API
+3. If found, it fetches the plugin's field bundle from the API — **all** of that plugin's field scripts in a single request (see [Loading, Bundling & Caching](#loading-bundling-caching))
 4. The JavaScript defines a Custom Element
 5. Admin2 mounts the element and communicates via properties and events
 
@@ -54,6 +54,28 @@ When Admin2 loads a plugin's detail page, the API automatically discovers files 
   }
 }
 ```
+
+### Loading, Bundling & Caching
+
+You don't have to do anything to opt into this, but it's worth understanding how Admin2 actually fetches your field scripts — because it shapes one rule you must follow.
+
+**One request per plugin, not per field.** When a blueprint puts several of your custom fields on the same screen, Admin2 does **not** fetch them one at a time. It requests the whole plugin's field set in a single call:
+
+```
+GET /api/v1/gpm/{plugins|themes}/{slug}/fields
+```
+
+The API reads every file in your `admin-next/fields/` directory and returns them as one JSON map of `{ "fieldType": "<javascript source>", … }`. Admin2 fetches this bundle once per plugin, then evaluates each field's source locally — so a plugin shipping seven custom fields costs **one** round-trip, not seven. (The original per-field route, `GET …/field/{type}`, still exists and is used by the classic admin and as a fallback.)
+
+> [!IMPORTANT]
+> Because each field's source is evaluated **separately** — each in its own scope with its own `window.__GRAV_FIELD_TAG` — every file in `admin-next/fields/` must be **self-contained**. Don't share top-level variables between two field files and don't `import` one field file from another; treat each as a standalone script that ends in `customElements.define(TAG, …)`. Pull shared logic into a build step that inlines it into each output file, or duplicate the small bit you need.
+
+**Cached aggressively, revalidated cheaply.** The bundle (and the per-field route) carry an `ETag` derived from your files' modification time and size, and Admin2 also caches the response body in `localStorage`. On every later load it revalidates with `If-None-Match`, so an unchanged bundle comes back as a tiny `304 Not Modified` and is served from cache — your multi‑megabyte editor field is downloaded once per release, not on every page open. Because the validator tracks file mtime and size, rebuilding a field during development invalidates it immediately, so you always get fresh code while iterating.
+
+**No rate-limit cost, bounded concurrency.** These script routes are exempt from the API's per-user rate limit (they're static assets, not actions), and Admin2 caps how many requests it runs in parallel. So even a page that pulls in fields from many plugins at once won't trip the limiter or flood the server with a burst of simultaneous downloads.
+
+> [!NOTE]
+> This pattern — discover a plugin's contributions on disk, serve them in **one** conditionally-cached bundle, and fan out the work on the client — is the recommended shape for any plugin that ships a fleet of admin-next assets (fields, and by the same token your own grouped config/bootstrap endpoints). It keeps the editor's first paint fast no matter how many plugins are installed.
 
 ### Web Component Contract
 
@@ -807,6 +829,51 @@ public function onApiMenubarItems(Event $event): void
 }
 ```
 
+#### Presentation & placement
+
+Beyond the required fields, an item accepts optional keys that control how and where it renders. All pass straight through the API (no allowlist) and apply to action buttons, `route`/`modal` intents, and `href` links alike.
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `variant` | string | no | Color emphasis: `default` (muted icon, the default), `primary`, `success`, `warning`, or `danger`. Maps to Admin2 theme tokens, never a raw color, so buttons stay readable in light and dark. |
+| `showLabel` | bool | no | Render the `label` text beside the icon instead of using it only as a tooltip. Turns a small icon into a readable labelled button. Default: `false`. |
+| `size` | string | no | `sm` (default, a compact icon) or `md` (taller, with roomier padding). |
+| `placement` | string | no | Which toolbar zone the button renders in. `start` (the default) is the open space on the left of the header, kept clear of the destructive Clear Cache action — use it for everyday plugin actions. `end` places the button beside the core actions (View site / Clear Cache), behind a divider, for buttons that genuinely belong with system maintenance. The core actions themselves are never plugin-movable. |
+| `priority` | integer | no | Order within the zone; higher values appear earlier (further left). Ties keep plugin registration order. Default: `0`. |
+
+```php
+public function onApiMenubarItems(Event $event): void
+{
+    $items = $event['items'] ?? [];
+
+    // An everyday action: labelled, left-hand zone, ordered ahead of others.
+    $items[] = [
+        'id'        => 'new-article',
+        'plugin'    => 'my-plugin',
+        'label'     => 'New Article',
+        'icon'      => 'fa-plus',
+        'route'     => '/pages/new?parent=/blog&template=item',
+        'variant'   => 'primary',
+        'showLabel' => true,
+        'placement' => 'start',   // left zone, away from Clear Cache
+        'priority'  => 10,
+    ];
+
+    // A maintenance action that belongs beside the core controls.
+    $items[] = [
+        'id'        => 'purge-cdn',
+        'plugin'    => 'my-plugin',
+        'label'     => 'Purge CDN',
+        'icon'      => 'fa-cloud',
+        'action'    => 'purge',
+        'confirm'   => 'Purge the CDN cache?',
+        'placement' => 'end',     // beside View site / Clear Cache
+    ];
+
+    $event['items'] = $items;
+}
+```
+
 ### Floating Widgets
 
 Floating widgets are persistent UI — chat assistants, live notification panels, AI helpers — that stay mounted across page navigation in Admin2. Each widget ships a web component at `admin-next/widgets/{slug}.js`.
@@ -871,6 +938,124 @@ public function onApiGenerateReports(Event $event): void
 ```
 
 Set `component` to `null` to use Admin2's default renderer with a pre-computed `items` array; set it to an id matching the filename to ship a custom web component.
+
+### Notifications & Toasts
+
+There are two ways a plugin tells the user something in Admin2, and they serve different purposes:
+
+- **Notifications** are persistent and dismissible — a banner above the dashboard or an item in the dashboard's Notifications widget. Use them for standing conditions ("an untrusted host is configured", "a backup is overdue").
+- **Toasts** are transient — they pop in, then fade. Use them for the immediate result of an action ("Cache warmed", "Save failed").
+
+#### Persistent notifications (`onApiDashboardNotifications`)
+
+Listen for `onApiDashboardNotifications` and append to the `notifications` array, which is **grouped by location**. The location is the array key you push into:
+
+- `top` — a rotating banner shown above the dashboard. Best for one important standing notice.
+- `dashboard` (and `feed`) — items in the dashboard's Notifications widget list.
+
+```php
+public static function getSubscribedEvents()
+{
+    return [
+        'onApiDashboardNotifications' => ['onApiDashboardNotifications', 0],
+    ];
+}
+
+public function onApiDashboardNotifications(Event $event): void
+{
+    // Only raise the notice while the condition actually holds.
+    if ($this->hostIsTrusted()) {
+        return;
+    }
+
+    // Event has no by-reference offsetGet — read, modify, write back.
+    $notifications = $event['notifications'] ?? [];
+    $notifications['top'][] = [
+        'id'             => 'my-plugin-untrusted-host', // unique; dismissal keys off this
+        'date'           => date('c'),                  // ISO 8601
+        'message'        => $this->grav['language']->translate('PLUGIN_MY_PLUGIN.UNTRUSTED_HOST_NOTICE'),
+        'icon'           => 'shield-alert',             // Lucide icon name, or an emoji
+        'title'          => 'Security',                 // optional bold lead-in
+        'reappear_after' => '+7 days',                  // optional; see below
+        // 'action'      => ['label' => 'Fix it', 'url' => '/admin/config/system'],
+    ];
+    $event['notifications'] = $notifications;
+}
+```
+
+Item fields:
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `id` | yes | Unique id. Dismissal and `reappear_after` key off this. |
+| `message` | yes | The text. Inline Markdown is rendered (links, emphasis). |
+| `date` | yes | ISO 8601 timestamp (`date('c')`). Shown beside dashboard-widget items. |
+| `icon` | no | A [Lucide](https://lucide.dev) icon name (`shield-alert`, kebab or PascalCase) or an emoji. |
+| `title` | no | Bold lead-in shown before the message. |
+| `action` | no | `['label' => '…', 'url' => '…']` — renders a button that opens the URL in a new tab. |
+| `link` | no | Makes a dashboard-widget item's whole row a link (opens in a new tab). |
+| `reappear_after` | no | A `strtotime()` interval (`+7 days`, `+1 month`). After the user dismisses the notice, it returns once this interval elapses. Without it, dismissal is permanent for that user. |
+| `type` | no | `info`, `notice`, `warning`, or `promo` (default behavior for unknown values matches a plain item). `promo` renders in the Notifications widget as a gradient card and additionally honors `image` and `accent` (`purple`, `blue`, `teal`, `amber`, `rose`). |
+
+Dismissal is per-user and automatic: when the user closes a notice, Admin2 POSTs to `/dashboard/notifications/{id}/hide`, which records the time in `user://data/notifications/{username}.yaml`. Plugin notices are merged fresh on every request (never cached), but they still flow through this dismiss + `reappear_after` handling, so a notice stays gone until the condition recurs or the interval elapses.
+
+> The visual treatment is driven by `type`, `icon`, and (for promos) `accent`/`image` — there is no per-level color on a standard notice, so reach for a clear `icon` and `title` to signal severity.
+
+#### Transient toasts
+
+From a **web component** (custom field, plugin page, widget, panel, modal), use the injected global — never a native `alert()`:
+
+```javascript
+window.__GRAV_TOAST.success('Settings saved');
+window.__GRAV_TOAST.error('Could not reach the service', { duration: 8000 });
+// also: .info(msg, opts), .warning(msg, opts). `duration` is ms; omit for the default.
+```
+
+From a **save or action endpoint**, return a toast hint so the server controls the message instead of Admin2's generic "saved" toast. Put a top-level `toast` object (or a bare `message` string) in the response body:
+
+```php
+return ApiResponse::create([
+    'toast' => [
+        'message'     => 'Settings saved — reindexing in the background.',
+        'type'        => 'success',   // success | error | info | warning
+        'duration'    => 8000,        // ms; 0 (or dismissible: true) = stays until closed
+        'dismissible' => true,
+    ],
+]);
+```
+
+For the **menubar action** path (`onApiMenubarAction`), the `result` envelope already drives a toast — `status: 'success'` shows a success toast with `message`, `status: 'error'` shows an error toast:
+
+```php
+$event['result'] = ['status' => 'success', 'message' => 'CDN cache purged.'];
+```
+
+#### Blocking a save with an error
+
+To **stop** a save and tell the user why, throw from your controller. A `ValidationException` (HTTP 422) carries field-level errors; Admin2 shows the message, points at the offending field, and keeps the form open so nothing is lost:
+
+```php
+use Grav\Plugin\Api\Exceptions\ValidationException;
+
+if ($problem) {
+    throw new ValidationException('Content failed validation.', [
+        ['field' => 'header.markdown', 'message' => 'Unbalanced code fence.'],
+    ]);
+}
+```
+
+For a non-field error with a longer-lived toast, use `ErrorResponse` with a toast hint (the 5th argument):
+
+```php
+use Grav\Plugin\Api\Response\ErrorResponse;
+
+return ErrorResponse::create(422, 'Validation failed', 'Content failed validation.', [], [
+    'duration'    => 0,      // stays until dismissed
+    'dismissible' => true,
+]);
+```
+
+Either way the save does not complete and the editor stays open — the answer to "show a warning but let the user fix it" versus "let it through": throw to block, return a `toast` hint to inform.
 
 ## Compatibility Declaration
 

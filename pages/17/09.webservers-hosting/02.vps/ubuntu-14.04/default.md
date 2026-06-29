@@ -119,13 +119,23 @@ server {
 
     ## Begin - Security
     # deny all direct access for these folders
-    location ~* /(.git|cache|bin|logs|backups)/.*$ { return 403; }
+    location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 403; }
+    # deny all direct access to these sensitive user folders, whatever the file type
+    location ~* /user/(accounts|config|env)/.*$ { return 403; }
+    # allow public media uploads under user/data (e.g. Flex Object images) to be
+    # served directly; this must come before the user/data deny so it wins the
+    # first-match. SVG is intentionally excluded as a stored-XSS vector.
+    location ~* /user/data/.*\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$ { try_files $uri =404; }
+    # deny everything else under user/data, whatever the file type
+    location ~* /user/data/.*$ { return 403; }
     # deny running scripts inside core system folders
-    location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|php|pl|py|cgi|twig|sh|bat)$ { return 403; }
+    location ~* /(system|vendor)/.*\.(txt|xml|md|html|htm|shtml|shtm|json|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$ { return 403; }
     # deny running scripts inside user folder
-    location ~* /user/.*\.(txt|md|yaml|php|pl|py|cgi|twig|sh|bat)$ { return 403; }
+    location ~* /user/.*\.(txt|md|json|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$ { return 403; }
     # deny access to specific files in the root folder
-    location ~ /(LICENSE|composer.lock|composer.json|nginx.conf|web.config|htaccess.txt|\.htaccess) { return 403; }
+    location ~ /(LICENSE\.txt|composer\.lock|composer\.json|nginx\.conf|web\.config|htaccess\.txt|\.htaccess) { return 403; }
+    # deny access to .env environment files
+    location ~ /\.env(\.|$) { return 403; }
     ## End - Security
 }
 ```
