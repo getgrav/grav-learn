@@ -195,7 +195,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 | **publish_dates:** | Automatically publish/unpublish based on dates. Can be set `true` or `false` |
 | **process:** | |
 | ... **markdown:** | Enable or disable the processing of markdown on the front end. Can be set `true` or `false` |
-| ... **twig:** | Enable or disable the processing of twig on the front end. Can be set `true` or `false` |
+| ... **twig:** | Enable or disable the processing of twig on the front end. Can be set `true` or `false`. **Grav 2.0:** Twig in page **content** is also gated by a security switch and runs inside a sandbox; this `process.twig` flag alone is no longer enough to render content Twig. See [Twig in Content](/20/content/twig-in-content) |
 | **twig_first:** | Process Twig before markdown when processing both on a page. Can be set `true` or `false` |
 | **never_cache_twig:** | Enabling this will allow you to add a processing logic that can change dynamically on each page load, rather than caching the results and storing it for each page load. This can be enabled/disabled site-wide in the **system.yaml**, or on a specific page. Can be set `true` or `false` |
 | **events:** | |

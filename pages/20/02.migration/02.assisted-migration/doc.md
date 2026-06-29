@@ -124,6 +124,7 @@ Things worth checking before you proceed:
 - Admin login works with your existing credentials
 - Configured plugins load without errors
 - The active theme renders correctly (or has been replaced with [Quark 2](https://github.com/getgrav/grav-theme-quark2) if your old theme has no 2.0-compatible version yet)
+- Pages that used **Twig in their content** (`{{ ... }}` or `{% ... %}` in the page body) still render as intended. In 2.0 this is gated off by default, so such pages show raw Twig until you re-enable it. The **Tools → Reports → Twig in Content** report flags every affected page. See [Twig in Content](/20/content/twig-in-content) for how to re-enable it and the safer alternatives.
 
 ### Promote
 

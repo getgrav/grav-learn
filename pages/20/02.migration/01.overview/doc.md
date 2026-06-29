@@ -44,6 +44,17 @@ The plugin and the manual procedure both handle the same set of inputs:
 - **Accounts**: `user/accounts/*` including roles and permissions.
 - **Plugins and themes**: handled through the [`compatibility:` blueprint property](/20/plugins/plugin-compatibility). 2.0-flagged packages are pulled fresh from GPM; everything else is either skipped or installed disabled, depending on the policy you choose.
 
+## A Behavior Change to Watch For: Twig in Content
+
+Your pages copy across byte-for-byte, but one rendering behavior changed in 2.0 and it is the most common "why did this stop working?" question after a migration. If any of your pages put Twig (`{{ ... }}` or `{% ... %}`) directly in their Markdown content, that Twig **no longer runs by default**.
+
+In Grav 1.7, a page with `process.twig: true` in its front matter ran its content through Twig with no restrictions. Because page content is authored by anyone with edit access, that was a Server-Side Template Injection risk. Grav 2.0 closes it with two layers: Twig in content is **off until an administrator enables it**, and when enabled it runs inside a **security sandbox** that permits only an allow-list of safe tags, filters, and functions.
+
+The practical effect on a migrated site: a page that relied on Twig in its body will show the raw `{{ ... }}` markup as literal text until you re-enable the feature. This affects **content only** — the `.html.twig` files in your theme and plugins are trusted code and are never sandboxed, so normal theme and plugin rendering is unaffected.
+
+> [!NOTE]
+> [Twig in Content](/20/content/twig-in-content) is the full guide: how to turn it back on, how the sandbox works, and the recommended alternatives (page templates and shortcodes). After migrating, the **Tools → Reports → Twig in Content** report in Admin lists every page whose content would leak raw Twig, so you can find affected pages without hunting. Plugin and theme authors should also read the [Twig Content Sandbox](../05.developer-upgrade-guide#twig-content-sandbox) section of the Developer Upgrade Guide.
+
 ## For Plugin and Theme Developers
 
 If you maintain a plugin or theme, the migration only succeeds for your users if your package is 2.0-ready. Three reference pages cover the work involved:

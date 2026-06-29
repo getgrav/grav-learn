@@ -202,6 +202,7 @@ Verify:
 - Each enabled plugin loads without errors (check `logs/grav.log`)
 - The active theme renders correctly (Grav 2.0 ships with [Quark 2](https://github.com/getgrav/grav-theme-quark2) as the default theme; if your old theme has no 2.0 version yet, you may want to switch)
 - Form submissions, login flows, and any plugin-specific functionality work as expected
+- Pages that used **Twig in their content** (`{{ ... }}` or `{% ... %}` in the page body) still render as intended. Grav 2.0 gates this off by default, so those pages show raw Twig until you re-enable it; the **Tools → Reports → Twig in Content** report lists every affected page. See [Twig in Content](/20/content/twig-in-content) for how to re-enable it and the safer alternatives
 
 > [!IMPORTANT]
 > Do not skip this step. Once you promote, rolling back means restoring from the backup zip. Catching issues in the stage is much cheaper.

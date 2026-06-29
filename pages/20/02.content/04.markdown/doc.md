@@ -904,3 +904,7 @@ The `gfm` options change how existing content renders (checkboxes, `<mark>`/`<su
 
 > [!TIP]
 > Plugin developers can add their own Markdown syntax — custom blocks and inline marks — through the [Markdown Extensions API](../../plugins/markdown-extensions).
+
+## Twig in Content
+
+You can also process **Twig** inside a page's Markdown content. In Grav 2.0 this is **off by default** and, when enabled, runs inside a security sandbox — a change from earlier versions, where `process.twig: true` on a page ran content Twig with no restrictions. See [Twig in Content](../twig-in-content) for how it works, how to enable it, and the recommended alternatives ([page templates](../twig-in-content#use-a-page-template) and [shortcodes](../creating-a-shortcode)).

@@ -115,6 +115,18 @@ If your active theme has no 2.0-compatible release, your two options are:
 1. **Switch to [Quark 2](https://github.com/getgrav/grav-theme-quark2)**, the new default theme that ships with Grav 2.0. Pages render with Quark 2's defaults until you customise.
 2. **Port the theme.** Theme structure has not changed dramatically; the most common issues are Twig syntax that was deprecated in older versions and is now removed, asset references that depended on plugin-classic admin output, and PHP type errors in theme `.php` files under the new minimum PHP version. The [AI-Assisted Development](../04.ai-assisted-development) skills cover the porting work for plugins; the same patterns apply to themes.
 
+## Twig in My Page Content Renders as Literal Text
+
+After migrating, a page that used to render `{{ ... }}` or `{% ... %}` from its Markdown body now shows that markup as plain text. This is expected: Grav 2.0 turns **Twig in content off by default** as a security measure (Server-Side Template Injection protection), and when re-enabled it runs inside a sandbox that allows only a known-safe set of Twig members.
+
+To find and fix affected pages:
+
+1. Open **Tools → Reports → Twig in Content** in Admin. It lists every page whose content would leak raw Twig, with a plain-language reason and a link to the page editor.
+2. If you genuinely need the feature, re-enable it under **Configuration → Security** (or set `twig_content.process_enabled: true` in `user/config/security.yaml`) and clear the cache with `bin/grav cache`.
+3. If a specific expression still renders raw after enabling it, the sandbox blocked it. The report and `logs/security.log` name the exact tag, filter, function, method, or property, and the report offers an **Add to allowlist** button.
+
+The full guide, including the recommended alternatives (move the logic into a page template or a shortcode), is on the [Twig in Content](/20/content/twig-in-content) page. This affects page **content** only; theme and plugin `.html.twig` files are trusted and never sandboxed.
+
 ## I Want to Start Over
 
 At any point **before the promote step**, you can abandon the migration without affecting your live site. Click **Reset** in the wizard, or manually remove:
