@@ -292,6 +292,56 @@ If your plugin previously had admin-classic UI, the replacement story lives in t
 
 The `grav-api-admin-next-integration` Claude Code Skill ([AI-Assisted Development](../04.ai-assisted-development)) documents the full set.
 
+### Don't Gate Event Subscriptions on `isAdmin()`
+
+A common 1.x pattern is to decide *inside* `onPluginsInitialized()` whether to subscribe to an admin-context event, gating it on `$this->isAdmin()`:
+
+```php
+public function onPluginsInitialized(): void
+{
+    if ($this->isAdmin()) {
+        // Only register the admin-facing handlers when we're in the admin.
+        $this->enable([
+            'onGetPageTemplates' => ['onGetPageTemplates', 0],
+        ]);
+        return;
+    }
+    // ...frontend handlers...
+}
+```
+
+This worked under the classic admin because the Admin plugin set `$grav['admin']` very early, in its *own* `onPluginsInitialized()`. By the time any other plugin initialized, `isAdmin()` was already `true`.
+
+**Admin 2.0 has no classic admin in the request.** Admin 2.0 is a SPA that talks to the [Grav API plugin](/20/api), and API requests run through that plugin. The API plugin establishes the admin context (it registers a lightweight proxy as `$grav['admin']` so that `isAdmin()` returns `true`) only when it *dispatches the matched route*, which is much later than `onPluginsInitialized()`. So during plugin initialization on an API request, `$grav['admin']` is not set yet and `isAdmin()` returns `false`. The gated `enable()` block never runs, the handler is never subscribed, and when the event finally fires during dispatch there is nothing listening.
+
+The most visible casualty is the page-template list. `Pages::getTypes()` fires `onGetPageTemplates` (and `onGetPageBlueprints`) to let plugins register page types. A plugin that registers its template inside an `isAdmin()`-gated block will have its template **silently missing from the Add Page dropdown in Admin 2.0**, even though the same plugin worked fine in classic admin. (If the active theme happens to ship a template file of the same name, the theme copy masks the bug, which makes it easy to miss.)
+
+The fix is to subscribe to these events **unconditionally**, in `getSubscribedEvents()`:
+
+```php
+public static function getSubscribedEvents()
+{
+    return [
+        'onPluginsInitialized' => ['onPluginsInitialized', 0],
+        'onTwigTemplatePaths'  => ['onTwigTemplatePaths', 0],
+        // Register the page template in every context. The handler is
+        // context-free, and the event only fires when Grav builds the
+        // type list, so there is no cost to subscribing unconditionally.
+        'onGetPageTemplates'   => ['onGetPageTemplates', 0],
+    ];
+}
+
+public function onGetPageTemplates(Event $event): void
+{
+    $event->types->register('my-template');
+}
+```
+
+This works regardless of *how* the admin context is established, because the listener is attached before any request is dispatched.
+
+> [!NOTE]
+> The rule is broader than these two events: never decide whether to subscribe to an event based on `isAdmin()` evaluated inside `onPluginsInitialized()`. If a handler is cheap and context-free, subscribe to it statically. If it genuinely must run only in an admin/API context, perform the `isAdmin()` check *inside the handler*, where it runs at dispatch time and the admin context is already in place, not at subscription time.
+
 ## The `compatibility:` Blueprint Flag
 
 Plugins and themes now declare which major Grav versions they have been tested on:
@@ -369,6 +419,8 @@ Before declaring 2.0 compatibility:
 - [ ] Composer dependencies install cleanly with PHP 8.3+
 - [ ] Blueprints render correctly in Admin 2.0
 - [ ] If the plugin previously had admin-classic UI: equivalent functionality is registered through `onApi*` events for Admin 2.0
+- [ ] No event subscriptions are gated on `isAdmin()` inside `onPluginsInitialized()` (page templates/blueprints registered this way go missing in Admin 2.0); subscribe statically instead
+- [ ] Any custom page templates the plugin provides appear in the Add Page dropdown in Admin 2.0
 - [ ] Language strings render correctly in Admin 2.0 (no humanised fallbacks for keys that exist)
 - [ ] `compatibility:` flag in `blueprints.yaml` lists `'2.0'`
 - [ ] Plugin works against the migration wizard's dry-run / strict mode
