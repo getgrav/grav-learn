@@ -1,6 +1,8 @@
 ---
 title: Typhoon
 description: Learn how to use the full power of Typhoon
+process:
+    twig: true
 taxonomy:
     category: docs
 ---
@@ -36,7 +38,7 @@ Due to the nature of this theme, we don't recommend modifying this theme directl
 
 When upgrading from Typhoon 2.x to Typhoon 4+, the changes are significant and while there are some new files in the latest version, so some manual cleanup is required.
 
-Typhoon 4 has been completely overhauled for TailwindCSS 4 due to the fundamental architectural changes made in the framework.  As such after upgrading form Typhoon 2.x to Typhoon 4+, you will have some extra files that are no longer needed and can be removed.  
+Typhoon 4 has been completely overhauled for TailwindCSS 4 due to the fundamental architectural changes made in the framework.  As such after upgrading form Typhoon 2.x to Typhoon 4+, you will have some extra files that are no longer needed and can be removed.
 
 **Manually remove these files:**
 
@@ -56,26 +58,17 @@ If you have already created you own custom theme in the past with Tailwind, and 
 
 Looking for Typhoon skeleton packages to get you started? You can **download them directly from GitHub** and follow the instructions in the `README.md` file of each repository.
 
-<div class="premium__skeletons">
-    <a href="https://github.com/trilbymedia/grav-skeleton-typhoon-onepage" target="_blank">
-        <figure>
-            <img alt="One-Page Skeleton" src="{{ page.media['onepage.jpg'].url }}" />
-            <figcaption>One-Page Skeleton</figcaption>
-        </figure>
-    </a>
-    <a href="https://github.com/trilbymedia/grav-skeleton-typhoon-blog" target="_blank">
-        <figure>
-            <img alt="Blog Skeleton" src="{{ page.media['blog.jpg'].url }}" />
-            <figcaption>Blog Skeleton</figcaption>
-        </figure>
-    </a>
-    <a href="https://github.com/trilbymedia/grav-skeleton-typhoon-rockets" target="_blank">
-        <figure>
-            <img alt="Rockets Skeleton" src="{{ page.media['rockets.jpg'].url }}" />
-            <figcaption>Rockets Skeleton</figcaption>
-        </figure>
-    </a>
-</div>
+[doc-grid columns=3]
+[doc-card title="One-Page Skeleton" link="https://github.com/trilbymedia/grav-skeleton-typhoon-onepage"]
+[doc-image src="onepage.jpg" alt="One-Page Skeleton" lightbox=false /]
+[/doc-card]
+[doc-card title="Blog Skeleton" link="https://github.com/trilbymedia/grav-skeleton-typhoon-blog"]
+[doc-image src="blog.jpg" alt="Blog Skeleton" lightbox=false /]
+[/doc-card]
+[doc-card title="Rockets Skeleton" link="https://github.com/trilbymedia/grav-skeleton-typhoon-rockets"]
+[doc-image src="rockets.jpg" alt="Rockets Skeleton" lightbox=false /]
+[/doc-card]
+[/doc-grid]
 
 The quickest way to download the files is to simply click the green **Code** button then click the **Download ZIP**.
 
@@ -91,7 +84,7 @@ There are many configuration options for the Typhoon theme. They are broken out 
 
 ![Theme Defaults](theme-defaults.png?class=image-shadow)
 
-Typhoon comes out-of-the box with both light and dark themes.  
+Typhoon comes out-of-the box with both light and dark themes.
 
 * **Theme** → You can configure Typhoon to use the current `System` setting (i.e. if your desktop computer is set to a specific option already, or automatically show light or dark theme depending on the time of day), `Light` or `Dark`.
 
@@ -179,23 +172,23 @@ These options provide a level of control over the structure of your layout by ut
 * **Text** → The color the text to be used.  This is either **Automatic**, **Dark** or **Light** whichever provides the most contrast.
 
 * **Primary Header Levels** → By default this is set to `3`.  That means that the main menu supports 3 levels of navigation.  The first is a horizontal menu, and the 2nd and 3rd levels will be dropdown menus.  A 4th level will automatically be available as a side menu.  If you change this value to `1`, you will simply have a row of top-level menu items with no drop down menus.  All other levels of navigation will be displayed as a side menu.
- 
+
  ! A particular page can choose if it's children should be shown in a side-menu even if they are not at that configured level.
- 
+
  #### Hero Defaults
- 
+
  ![Hero Defaults](hero-defaults.png?class=image-shadow)
- 
+
  The Hero is the header section that appears below the logo/menu section at the top of the page.  This can be enabled by default for all pages, or disabled by default, then enabled on a page-by-page basis. The defaults just control the look of the overall hero section, the contents of the hero are always controlled per-page.
- 
+
  * **Display** → Toggle to control if the hero is always displayed per page. This can be overridden per-page.
- 
- * **Hero Alignment** → The alignment of the text within the hero section. Options are **Left**, **Center**, or **Right**. 
- 
+
+ * **Hero Alignment** → The alignment of the text within the hero section. Options are **Left**, **Center**, or **Right**.
+
  * **Image** → While you will most likely set a hero image per-page, you can also set a default image to be used when a specific image is not set. Using a stream is a safe bet, this could be `theme://...` to reference a location inside the current theme or `page://...` to reference an image in the user/pages directory structure.
- 
+
  * **Padding Classes** → The padding classes used to provide space in the Hero section. The default provides a variety of padding and generally increases the padding as the responsive breakpoints increase.  These are tailwind padding classes.  More information in the [Tailwind Documentation](https://tailwindcss.com/docs/padding)
-  
+
 #### Hero Overlay
 
 ![Hero Overlay](hero-overlay.png?class=image-shadow)
@@ -209,7 +202,7 @@ These options are used to control an optional overlay that can cover the image a
 * **Overlay Gradient Opacity** → The overlay is gradient by default, so provide a start and end opacity (between 0 and 1).
 
 * **Overlay Gradient Direction** → Choose from **Right**, **Bottom**, **Left** and **Top** directions
-  
+
 #### Footer
 
 ![Footer Modal](footer-modal.png?class=image-shadow)
@@ -379,7 +372,7 @@ To create your new custom theme, simply install the `devtools` plugin for Grav. 
 bin/plugin devtools new-theme
 ```
 
-This will then ask you for some information about your new theme.  When it asks you how to create the new theme select **copy** (_STRONGLY RECOMMENDED_) or **Inheritance**, then choose **Typhoon** as the theme to copy/inherit.  Of course this means you must have Typhoon already installed in your Grav installation.  
+This will then ask you for some information about your new theme.  When it asks you how to create the new theme select **copy** (_STRONGLY RECOMMENDED_) or **Inheritance**, then choose **Typhoon** as the theme to copy/inherit.  Of course this means you must have Typhoon already installed in your Grav installation.
 
 ###### If you chose **copy** (RECOMMENDED)
 This will then create a copy of Typhoon but with your new theme name.  From this point forward, make all your changes in the new theme.
@@ -393,7 +386,7 @@ While Typhoon is highly customizable, you will undoubtedly want to make your own
 
 #### Installing NPM to Compile CSS
 
-99% of everything you need to make modifications is actually already available in Tailwind's utility classes, and you can apply these directly in your Twig templates, or even directly in your content using HTML or shortcodes.  
+99% of everything you need to make modifications is actually already available in Tailwind's utility classes, and you can apply these directly in your Twig templates, or even directly in your content using HTML or shortcodes.
 
 Depending on your platform, installing NPM is different. So please follow the official [NPM Installation Instructions](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm?target=_blank) to accomplish this. After you have NPM installed you will first need to install the required packages, you can do this by just typing `npm install` in the root of the typhoon theme:
 
@@ -419,12 +412,12 @@ npm update
 If you chose to inherit from Typhoon when [creating your theme](#create-a-custom-theme-from-typhoon), a few more steps are required for NPM to work properly.
 
 1. From the original Typhoon theme folder, copy the following files into your new theme's folder: `package.json`, `vite.config.ts`
-2. Create a new file `css/site.css` in your new theme, with the following content: 
+2. Create a new file `css/site.css` in your new theme, with the following content:
   ```sass
   @import '../../typhoon/css/site.css';
   ```
   You will also be able to add your own CSS declarations and imports in this file, going forward.
-3. Finally, run the `npm install` command as explained in the previous section, and you are ready to continue on. 
+3. Finally, run the `npm install` command as explained in the previous section, and you are ready to continue on.
 
 
 #### Developing Custom CSS
@@ -462,7 +455,7 @@ A good example of this approach can be found in the `css/custom/typography.css` 
 
 #### Building Tailwind for Production
 
-Prior to JIT support in Tailwind CSS it was essential to compile your CSS for production before using. The `site.css` file is always **purged** and is already optimized to only include the required CSS files.  This means that you no longer have to build a specific production version of your CSS.  You can simply use the default `site.css`. 
+Prior to JIT support in Tailwind CSS it was essential to compile your CSS for production before using. The `site.css` file is always **purged** and is already optimized to only include the required CSS files.  This means that you no longer have to build a specific production version of your CSS.  You can simply use the default `site.css`.
 
 However, you still should use `npm run dev` or `npm run prod` to ensure that the site.css always contains the Tailwind CSS classes you are using.
 
@@ -478,7 +471,7 @@ The Tailwind CSS file which is compiled into `build/css/site.css` file is built 
 @source "../../../plugins/sandbox-support/templates";
 ```
 
-Feel free to edit or adjust this file to include paths and files that need to be inspected for possible Tailwind CSS classes. 
+Feel free to edit or adjust this file to include paths and files that need to be inspected for possible Tailwind CSS classes.
 
 At the root of your Typhoon theme you can find an `available-classes.md` file that you can consult at any time. This file also allows keeping certain classes upon purge which is used for the build of the production css, even if they have never been used.
 
@@ -489,7 +482,7 @@ At the root of your Typhoon theme you can find an `available-classes.md` file th
 
 Most modifications will take the form of editing the [Twig templates](https://twig.symfony.com/doc/3.x/templates.html) which controls the HTML but also is used for setting the Tailwind utility classes for CSS. These are organized in the `templates/` folder of the theme.
 
-If you have already created a new custom theme based on Typhoon, then you can edit this as you need.  Also, you can override other twig files that come from plugins for example, simply copy the Twig file from the plugin (including any folder structure inside the plugin's templates folder) and copy into your theme's templates folder.  Then you can modify the twig as you need to get the desired result. 
+If you have already created a new custom theme based on Typhoon, then you can edit this as you need.  Also, you can override other twig files that come from plugins for example, simply copy the Twig file from the plugin (including any folder structure inside the plugin's templates folder) and copy into your theme's templates folder.  Then you can modify the twig as you need to get the desired result.
 
 A good example of this can be seen in the `templates/partials/pagination.html.twig` where the `pagination` plugin's existing twig partial, has been copied to Typhoon and modified to make use of Tailwind's CSS utility classes.  No custom CSS was required because all the modifications were made directly by modifying the Twig file.
 
@@ -611,7 +604,7 @@ but this CSS code:
 .has-submenu:hover {
     @apply bg-gray-100 dark:bg-gray-800 transition duration-300;
 }
-``` 
+```
 
 Should just be edited to remove the `dark:` entries only:
 
@@ -619,7 +612,7 @@ Should just be edited to remove the `dark:` entries only:
 .has-submenu:hover {
     @apply bg-gray-100 transition duration-300;
 }
-``` 
+```
 
 When there are no remaining `dark:` entries left, you should be able to compile the CSS with:
 
@@ -637,7 +630,7 @@ There are situations where you want to control things above and beyond the built
 
 Let's assume you have already used the **devtools** plugin and [created your own theme using the instructions above](#create-a-custom-theme-from-typhoon).  Make sure you are have read the section on [developing custom css](#developing-custom-css) and are in **watch** mode so that any CSS modifications are picked up and compiled.
 
-For this example we'll write some custom CSS to make the **header height smaller** when it's scrolled. 
+For this example we'll write some custom CSS to make the **header height smaller** when it's scrolled.
 
 First let's create a new css file: `css/custom/headerbar.css` and add a reference to this in the `css/site.css` file:
 
@@ -649,7 +642,7 @@ First let's create a new css file: `css/custom/headerbar.css` and add a referenc
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-``` 
+```
 
 Then we now create the custom CSS:
 

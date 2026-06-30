@@ -526,7 +526,7 @@ Create card-based layouts:
 
 [raw]
 ```text
-[doc-card-grid cols=3]
+[doc-grid columns=3]
 [doc-card title="Getting Started" icon="tabler/rocket.svg"]
 Quick introduction to get up and running.
 [/doc-card]
@@ -536,7 +536,7 @@ Detailed configuration options.
 [doc-card title="API Reference" icon="tabler/code.svg"]
 Complete API documentation.
 [/doc-card]
-[/doc-card-grid]
+[/doc-grid]
 ```
 [/raw]
 
