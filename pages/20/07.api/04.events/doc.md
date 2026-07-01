@@ -94,14 +94,14 @@ These are called while Admin2 composes the UI. Plugins append items/widgets/pane
 | `onApiPluginPageInfo` | `GET /gpm/plugins/{slug}/page` | `plugin`, `definition` (mutable), `user` |
 | `onApiGenerateReports` | `GET /reports` | `reports`, `user` |
 | `onApiDashboardNotifications` | `GET /dashboard/notifications` | `notifications` (mutable, grouped by location), `user`, `force` |
-| `onApiUserListFilters` | `GET /users/filters` | `filters`, `user` |
+| `onApiUserListFilters` | `GET /users/filters` | `filters`, `defaultFilter`, `showAll`, `user` |
 | `onApiUserListFilter` | `GET /users?filter={id}` | `filter`, `collection` (mutable), `query`, `user` |
 
 ### Users list filter tabs
 
 These two events let a plugin add a tab to the Users list that shows a filtered set of accounts — the Admin Next equivalent of admin-classic's Users-page tabs.
 
-`onApiUserListFilters` collects the tabs for the nav row. Append a tab descriptor to the `filters` array; the core endpoint always prepends the built-in `all` ("All Users") tab and drops any tab the caller isn't authorized for:
+`onApiUserListFilters` collects the tabs for the nav row. Append a tab descriptor to the `filters` array; the core endpoint prepends the built-in `all` ("All Users") tab and drops any tab the caller isn't authorized for. The event also carries two page-level policies — `defaultFilter` (the tab the client opens on when the URL has no `filter`) and `showAll` (set it to `false` to suppress the "All Users" tab when showing every account isn't a useful landing view):
 
 ```php
 public function onApiUserListFilters(Event $event): void
@@ -118,8 +118,14 @@ public function onApiUserListFilters(Event $event): void
         'authorize' => 'api.users.read',   // optional, string or any-of array
     ];
     $event['filters'] = $filters;
+
+    // Optional page-level policy.
+    $event['defaultFilter'] = 'active';    // land here with no ?filter in the URL
+    $event['showAll'] = false;             // hide the built-in "All Users" tab
 }
 ```
+
+`defaultFilter` is honoured only when it maps to a tab the caller can actually see, otherwise it falls back to the first tab in the row. `showAll => false` drops "All Users" only once at least one of the plugin's own tabs survives authorization, so the row can never end up empty.
 
 `onApiUserListFilter` runs while `GET /users?filter={id}` builds the listing — after search and sort, but **before** permission/group filtering and pagination. The plugin owning the active `filter` id narrows the collection and assigns it back; the core endpoint still applies the caller's access scope and paginates, so a tab can only narrow what's already visible, never widen it:
 
