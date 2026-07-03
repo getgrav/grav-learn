@@ -104,6 +104,22 @@ The sandbox fails gently rather than throwing a fatal error:
 
 So if a page shows raw `{{ something() }}` after you've enabled the gate, the sandbox blocked `something()`. The report names the exact member it did not recognize and how to allow it.
 
+## The content XSS scan
+
+The blueprint XSS validator inspects the **raw** content you save, so a payload assembled at render time (for example `{{ "on" ~ "error" }}`, which only becomes `onerror` once Twig runs) slips past it. To close that gap Grav re-scans the **resolved content** for XSS after its own Twig has run, and blanks the content if it finds any. A blanked render is logged to `logs/security.log` as `[TwigContentXss]` and shown in the report above.
+
+The scan runs on the editor's content **before** the theme or modular template wraps it, so trusted template markup, such as a form's reCAPTCHA script or a provider embed, is never scanned and cannot be blanked by mistake.
+
+It is controlled by a single setting, on by default:
+
+```yaml
+security:
+  content:
+    xss_scan_output: true
+```
+
+!! This is a **content** setting, not a Twig-in-content one, so it also applies to modular pages (whose bodies are always Twig-processed). In earlier 2.0 releases it lived at `security.twig_content.xss_scan_output`; that location still works and is moved to `security.content.xss_scan_output` automatically the next time Grav upgrades.
+
 ## The Twig in Content Report
 
 Every silent failure on this page (a gated page, a sandbox block, a page leaking raw Twig) is collected into one place in Admin: **Tools → Reports → Twig in Content**. It saves you from reading `logs/security.log` by hand. The report shows:
