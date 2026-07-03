@@ -184,6 +184,29 @@ cache_enable: false
 {% include "forms/form.html.twig" with {form: forms( {route: '/newsletter-signup'} ) } %}
 [/codesh]
 
+## Form Nonces and Caching
+
+Every form the plugin renders includes a hidden `form-nonce` field. This is a security token (a CSRF nonce) that Grav checks on submission. If the nonce is missing or no longer valid, the submission is rejected with a **`403 Forbidden`** response rather than being processed.
+
+The nonce is time-based and valid for roughly a 12-hour window. This is normally invisible, but it can cause submissions to fail with a `403` in two common situations:
+
+* The page containing the form was **served from a cache** (Grav's page cache, or a CDN/proxy in front of the site) with a nonce that has since expired.
+* A visitor **left the page open** for longer than the nonce lifetime before submitting.
+
+Both cases produce the same symptom: the form worked a moment ago, but a submission from a stale page returns a `403`.
+
+To avoid this on cached or long-lived pages, enable the **`refresh_nonce`** option in the Form plugin configuration (`user/config/plugins/form.yaml`):
+
+[codesh=yaml line-numbers="true"]
+enabled: true
+refresh_nonce: true
+[/codesh]
+
+With `refresh_nonce` enabled, the plugin loads a small JavaScript helper that periodically fetches a fresh nonce in the background (before the current one expires) and updates the form field. This keeps forms on aggressively cached or long-open pages submittable without the visitor needing to reload.
+
+> [!NOTE]
+> The refresh interval is derived from your `system.session.timeout` (capped to the ~12h nonce lifetime), so there is no separate interval to configure.
+
 ## Modular Forms
 
 With previous versions of the Form plugin, to get a form to display in a modular sub-page of your overall **modular** page, you had to define the form in the **top-level modular page**.  This way the form would be processed and available to display in the modular sub-page.
