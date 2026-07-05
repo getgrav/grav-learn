@@ -96,6 +96,8 @@ These are called while Admin2 composes the UI. Plugins append items/widgets/pane
 | `onApiDashboardNotifications` | `GET /dashboard/notifications` | `notifications` (mutable, grouped by location), `user`, `force` |
 | `onApiUserListFilters` | `GET /users/filters` | `filters`, `defaultFilter`, `showAll`, `user` |
 | `onApiUserListFilter` | `GET /users?filter={id}` | `filter`, `collection` (mutable), `query`, `user` |
+| `onApiUserListColumns` | `GET /users/columns` | `columns`, `user` |
+| `onApiUserListColumnData` | `GET /users` | `usernames`, `data` (mutable), `user` |
 
 ### Users list filter tabs
 
@@ -125,6 +127,8 @@ public function onApiUserListFilters(Event $event): void
 }
 ```
 
+The `icon` field accepts the shared `IconSpec` format: a Font Awesome shorthand (`fa-bolt`, `fa-regular:clock`, `fa-brands:github`), any icon CSS classes Admin2 already loads (`class:ti ti-user`), or a safe structured SVG object (`['type' => 'svg', 'path' => '…']`). Raw SVG markup is not accepted — SVG icons are rebuilt from whitelisted tags and attributes.
+
 `defaultFilter` is honoured only when it maps to a tab the caller can actually see, otherwise it falls back to the first tab in the row. `showAll => false` drops "All Users" only once at least one of the plugin's own tabs survives authorization, so the row can never end up empty.
 
 `onApiUserListFilter` runs while `GET /users?filter={id}` builds the listing — after search and sort, but **before** permission/group filtering and pagination. The plugin owning the active `filter` id narrows the collection and assigns it back; the core endpoint still applies the caller's access scope and paginates, so a tab can only narrow what's already visible, never widen it:
@@ -141,6 +145,51 @@ public function onApiUserListFilter(Event $event): void
 ```
 
 Filter tabs require the Flex-accounts backend (the Grav default); the legacy filesystem account store degrades to the `all` tab only.
+
+### Users list columns
+
+These two events let a plugin add its own columns to the Users list — a WhatsApp link, a subscription expiry date, a login count — without touching the table markup. The contract is deliberately narrow: a plugin *declares* a column and *supplies scalar values*, but Admin2 owns rendering, layout, refreshes and list state. There is no path for a plugin to inject markup or a renderer.
+
+`onApiUserListColumns` collects the extra columns, exposed as `GET /users/columns` (mirroring `/users/filters`, gated by `api.users.read`). Append a column descriptor to the `columns` array:
+
+```php
+public function onApiUserListColumns(Event $event): void
+{
+    // Event has no by-reference offsetGet — append via read-modify-write,
+    // the same idiom as onApiUserListFilters / onApiSidebarItems.
+    $columns = $event['columns'];
+    $columns[] = [
+        'id'        => 'my-plugin-valid-till', // required, unique
+        'plugin'    => 'my-plugin',
+        'label'     => 'Valid until',          // plain text, not a translation key
+        'field'     => 'subscription.valid_till', // key into each user's data map
+        'formatter' => 'datetime',             // one of the built-in formatters below
+        'sortable'  => false,                  // optional; client-side, current page only
+        'priority'  => 50,                     // optional, higher sorts earlier
+        'authorize' => 'api.users.read',       // optional, string or any-of array
+    ];
+    $event['columns'] = $columns;
+}
+```
+
+The `formatter` is validated against a fixed whitelist — `text`, `link`, `date`, `datetime`, `boolean`, `number`, `badge` — and an unknown value falls back to `text`. The server only ever names a formatter; the client renders it, so no renderer function or HTML crosses the wire. A `link` value is href-validated on the client (relative or `http(s)` only; anything else renders as inert text). The `authorize` check is re-run server-side and the field is stripped from the response.
+
+`onApiUserListColumnData` supplies the per-user values. It fires **once per list response**, and its `usernames` list contains only the accounts already selected after search, filter, permission scoping and pagination — so a plugin resolves data for the current page, never for every account. Return a `username => [ field => value ]` map:
+
+```php
+public function onApiUserListColumnData(Event $event): void
+{
+    $data = $event['data'];
+    foreach ($event['usernames'] as $username) {   // current page only
+        $data[$username] = [
+            'subscription.valid_till' => $this->validTill($username),
+        ];
+    }
+    $event['data'] = $data;
+}
+```
+
+Those values are merged into each serialized user under an `extra` map on `GET /users`, keyed by the column's `field`, so there is no second endpoint to call and no client-side join. Only scalars (and null) survive the merge — arrays, objects and oversized values are dropped — and the event is isolated, so a listener that throws degrades to missing values rather than breaking the listing. Like filter tabs, columns require the Flex-accounts backend.
 
 ## Webhook Event Mapping
 
