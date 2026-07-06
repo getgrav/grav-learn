@@ -67,6 +67,7 @@ class VersionFallbackPlugin extends Plugin
             $this->fixChildParentReferences($pages);
             foreach ($fallbackConfig as $tv => $sv) {
                 $this->sortVersionChildren($pages, (string)$tv);
+                $this->refreshIndexFlags($pages, (string)$tv);
             }
             return;
         }
@@ -109,6 +110,7 @@ class VersionFallbackPlugin extends Plugin
         // later), so the insertion order no longer matches the numeric folder order.
         foreach ($fallbackConfig as $targetVersion => $sourceVersions) {
             $this->sortVersionChildren($pages, (string)$targetVersion);
+            $this->refreshIndexFlags($pages, (string)$targetVersion);
         }
 
         // Cache the fallback map and removed routes
@@ -359,6 +361,63 @@ class VersionFallbackPlugin extends Plugin
 
         foreach ($children[$parentPath] as $childPath => $data) {
             $this->recursiveSortChildren($children, $childPath);
+        }
+    }
+
+    /**
+     * Refresh the frozen page-flag metadata in the children index for a target
+     * version subtree.
+     *
+     * Grav's Pages::enrichChildrenIndex() freezes each child's visible/routable/
+     * published/module flags into $pages->children[$parent][$child] at build time
+     * (so Collection filters like ->visible() can prune without hydrating pages).
+     * That happens BEFORE this plugin's onPagesInitialized runs, so a bare folder
+     * page (no chapter.md) is frozen as visible=false/routable=false. When we then
+     * upgrade it in-place with source content, the live Page object becomes visible
+     * but the frozen index flag stays false — so the chapter renders on its own URL
+     * yet vanishes from any ->visible()/->routable() collection (e.g. the sidebar
+     * nav). Re-freeze the flags from the live pages to keep the index in sync.
+     */
+    protected function refreshIndexFlags(Pages $pages, string $targetVersion): void
+    {
+        $targetRoot = $pages->find('/' . $targetVersion);
+        if (!$targetRoot || !$targetRoot->path()) {
+            return;
+        }
+
+        $reflection = new \ReflectionProperty(get_class($pages), 'children');
+        $reflection->setAccessible(true);
+        $children = $reflection->getValue($pages);
+
+        $this->recursiveRefreshFlags($pages, $children, $targetRoot->path());
+
+        $reflection->setValue($pages, $children);
+    }
+
+    /**
+     * Recursively re-freeze visible/routable/published/module flags from live pages.
+     */
+    protected function recursiveRefreshFlags(Pages $pages, array &$children, string $parentPath): void
+    {
+        if (!isset($children[$parentPath])) {
+            return;
+        }
+
+        foreach ($children[$parentPath] as $childPath => $info) {
+            // Only touch entries that carry frozen flags. Virtual pages added via
+            // addPage() store just ['slug' => ...] with no flags, so their filters
+            // already resolve against the live page — leave those untouched.
+            if (is_array($info) && array_key_exists('visible', $info)) {
+                $page = $pages->get($childPath);
+                if ($page instanceof PageInterface) {
+                    $children[$parentPath][$childPath]['visible'] = $page->visible();
+                    $children[$parentPath][$childPath]['routable'] = $page->routable();
+                    $children[$parentPath][$childPath]['published'] = $page->published();
+                    $children[$parentPath][$childPath]['module'] = $page->isModule();
+                }
+            }
+
+            $this->recursiveRefreshFlags($pages, $children, $childPath);
         }
     }
 

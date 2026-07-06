@@ -27,7 +27,7 @@ languages:
     pages_fallback_only: false
     debug: false
 home:
-    alias: /17/basics
+    alias: /20/basics
     hide_in_urls: false
 pages:
     type: regular
