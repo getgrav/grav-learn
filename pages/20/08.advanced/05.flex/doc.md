@@ -15,7 +15,8 @@ Flex has two halves that work together:
 * The core **Flex framework** (`Grav\Framework\Flex`), which ships with Grav itself. It defines the objects, collections, indexes, and storage layers that everything else is built on.
 * The **Flex Objects** plugin, which turns that framework into a product you can use without writing PHP. The plugin provides custom directory registration, the **Admin Next** UI for CRUD management, a REST API, the `[flex-objects]` shortcode, and frontend page routing and templates.
 
-!!! **Flex Directories** in this documentation has nothing to do with the old **Flex Directories** plugin. That plugin was superseded by the Flex framework together with the Flex Objects plugin.
+> [!NOTE]
+> **Flex Directories** in this documentation has nothing to do with the old **Flex Directories** plugin. That plugin was superseded by the Flex framework together with the Flex Objects plugin.
 
 ## What problem does Flex solve?
 

@@ -8,7 +8,8 @@ process:
 
 When a Flex directory misbehaves, the cause is almost always one of a handful of usual suspects: a directory that was never enabled, a permissions block that was never declared, a storage strategy that cannot hold media, or a cache that needs clearing. This page is a symptom-cause-fix reference. Find the heading that matches what you are seeing, then work through the checks in order.
 
-!!! Most Flex problems clear up after a `bin/grav clear`. If something looks wrong right after you edit a blueprint or config, run the cache clear first, then re-check before you go any deeper.
+> [!TIP]
+> Most Flex problems clear up after a `bin/grav clear`. If something looks wrong right after you edit a blueprint or config, run the cache clear first, then re-check before you go any deeper.
 
 ### My directory does not appear in the Admin Next sidebar
 
@@ -42,7 +43,8 @@ config:
 
 The actions Flex uses are `list`, `create`, `read`, `update`, and `delete`. To let an editor browse and view records without changing them, grant `api.contacts.list` and `api.contacts.read`. Add `create`, `update`, and `delete` as the role requires.
 
-!!! Super admins always pass. Admin Next sessions carry `api.super` and classic accounts carry `admin.super`; either one grants full access to every directory. If a request works as a super admin but 403s for an editor, the missing piece is a per-type grant, not a bug.
+> [!NOTE]
+> Super admins always pass. Admin Next sessions carry `api.super` and classic accounts carry `admin.super`; either one grants full access to every directory. If a request works as a super admin but 403s for an editor, the missing piece is a per-type grant, not a bug.
 
 See the [Blueprint Reference permissions section](/20/advanced/flex/custom-types/blueprint-reference#permissions) for the full permission block structure, and the [Flex Objects API docs](/20/api/endpoints/flex-objects) for how tokens and grants are checked per endpoint.
 
@@ -71,7 +73,8 @@ config:
         folder: 'user-data://contacts'
 [/codesh]
 
-!!! Changing storage strategy does not migrate existing records for you. If you already have objects under `SimpleStorage`, plan a data conversion (see `bin/plugin flex-objects convert-data`) before switching, or you will end up with records the new strategy cannot read.
+> [!CAUTION]
+> Changing storage strategy does not migrate existing records for you. If you already have objects under `SimpleStorage`, plan a data conversion (see `bin/plugin flex-objects convert-data`) before switching, or you will end up with records the new strategy cannot read.
 
 ### My data is stale, or edits do not show up
 
@@ -93,7 +96,8 @@ Editing a blueprint changes how objects are read and written, but it does not re
 - **Keep old objects loadable and savable.** If you rename or remove fields, remember that existing files still contain the old keys. As long as the object can still be loaded and saved, those values are preserved on save even when they are no longer shown in the form. Avoid changes that make previously valid data unreadable.
 - **Corrupt files get skipped.** When Flex builds its index, a file it cannot parse (invalid YAML/JSON/Markdown, a truncated write, a wrong extension for the configured formatter) is skipped rather than aborting the whole collection. That is why a single bad file makes one object "disappear" from the list while the rest load fine. Check the file that vanished for a syntax error, and confirm its format matches the directory's configured formatter (`Json`, `Yaml`, `Markdown`, `Serialize`, `Ini`, or `Csv`).
 
-!!! If an object vanished right after a hand-edit, open its file and validate it. A stray tab, an unquoted colon, or a half-written save is the usual culprit, and fixing the file brings the object straight back after a cache clear.
+> [!TIP]
+> If an object vanished right after a hand-edit, open its file and validate it. A stray tab, an unquoted colon, or a half-written save is the usual culprit, and fixing the file brings the object straight back after a cache clear.
 
 ### List columns are empty
 
@@ -130,4 +134,5 @@ If you are bringing a Flex directory across from Grav 1.7, most of the blueprint
 - [ ] **Retest media.** If the type has media or file fields, upload and remove a file through Admin Next after migration to confirm the storage folder is writable and per-object media works end to end.
 - [ ] **Clear the cache and re-check both faces.** Run `bin/grav clear`, then confirm the directory appears in the Admin Next sidebar, lists its objects, and answers the REST API for both a super admin and a normal editor account.
 
-!!! When in doubt about which permission actions to grant or how a specific endpoint checks them, cross-reference the [Blueprint Reference permissions section](/20/advanced/flex/custom-types/blueprint-reference#permissions) and the [Flex Objects API docs](/20/api/endpoints/flex-objects). Getting the `api.<type>` grants right is what resolves the large majority of post-migration 403s.
+> [!TIP]
+> When in doubt about which permission actions to grant or how a specific endpoint checks them, cross-reference the [Blueprint Reference permissions section](/20/advanced/flex/custom-types/blueprint-reference#permissions) and the [Flex Objects API docs](/20/api/endpoints/flex-objects). Getting the `api.<type>` grants right is what resolves the large majority of post-migration 403s.

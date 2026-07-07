@@ -14,7 +14,8 @@ Once a Flex Type is registered you interact with its data at runtime through fou
 
 The entry point is always the Flex service, registered in the Grav container under the `flex` key. In Twig you reach it with `grav.get('flex')`; in PHP with `Grav::instance()->get('flex')`. From there you request a directory by name, then a collection or a single object, then work with individual objects and their properties.
 
-!!! Collection and object manipulation methods (`sort`, `filterBy`, `limit`, and friends) return **a modified copy**. The original instance is left untouched, so you can chain calls safely without mutating shared state.
+> [!NOTE]
+> Collection and object manipulation methods (`sort`, `filterBy`, `limit`, and friends) return **a modified copy**. The original instance is left untouched, so you can chain calls safely without mutating shared state.
 
 ## Flex
 
@@ -55,7 +56,8 @@ Parameters:
 Returns:
 - `array` List of [directories](#directory)
 
-!!! If no list of names is provided, the method returns every directory registered to Flex.
+> [!NOTE]
+> If no list of names is provided, the method returns every directory registered to Flex.
 
 [codesh-group]
 [codesh=twig title="Twig"]
@@ -383,7 +385,8 @@ The directory also exposes a handful of introspection helpers you will occasiona
 
 A **Flex Collection** is an **ordered map of objects** that can also be used like a list. It provides methods to render output, fetch objects by key, and to sort, filter, group, and slice the set. Flex collections build on [Doctrine Collections](https://www.doctrine-project.org/projects/doctrine-collections/en/2.2/index.html), so the standard array-style helpers (`first()`, `last()`, `getKeys()`, `toArray()`, `isEmpty()`, `contains()`, and so on) are available too.
 
-!!! Every method below returns **a modified copy** of the collection. The original is never changed, which makes long chains such as `collection.filterBy(...).sort(...).limit(...)` safe.
+> [!NOTE]
+> Every method below returns **a modified copy** of the collection. The original is never changed, which makes long chains such as `collection.filterBy(...).sort(...).limit(...)` safe.
 
 ### render()
 
@@ -396,7 +399,8 @@ Parameters:
 Returns:
 - **Block** (`object`) HtmlBlock instance containing the output
 
-!!! In Twig, use the `{% render %}` tag rather than calling the method directly. The tag lets the collection's JS/CSS assets register properly.
+> [!TIP]
+> In Twig, use the `{% render %}` tag rather than calling the method directly. The tag lets the collection's JS/CSS assets register properly.
 
 [codesh-group]
 [codesh=twig title="Twig"]
@@ -441,7 +445,8 @@ Parameters:
 Returns:
 - [Collection](#collection) (`object`) New sorted instance
 
-!!! A default sort order can be set for the frontend in the Flex Type blueprint.
+> [!NOTE]
+> A default sort order can be set for the frontend in the Flex Type blueprint.
 
 [codesh-group]
 [codesh=twig title="Twig"]
@@ -518,7 +523,8 @@ Parameters:
 Returns:
 - [Collection](#collection) (`object`) New filtered instance
 
-!!! Default filtering can be set for the frontend in the Flex Type blueprint.
+> [!NOTE]
+> Default filtering can be set for the frontend in the Flex Type blueprint.
 
 [codesh-group]
 [codesh=twig title="Twig"]
@@ -551,7 +557,8 @@ if ($collection) {
 Returns:
 - [Collection](#collection) (`object`) New reversed instance
 
-!!! If you are already using `sort()`, reverse the ordering there instead. It saves an extra step.
+> [!TIP]
+> If you are already using `sort()`, reverse the ordering there instead. It saves an extra step.
 
 [codesh-group]
 [codesh=twig title="Twig"]
@@ -729,7 +736,8 @@ if ($collection) {
 Returns:
 - [Collection](#collection) (`object`) New instance holding cloned objects
 
-!!! If you intend to modify objects in a collection, always work on a `copy()` first. The bulk `setProperty()` / `defProperty()` / `unsetProperty()` helpers mutate the object instances that are shared across every collection referencing them.
+> [!WARNING]
+> If you intend to modify objects in a collection, always work on a `copy()` first. The bulk `setProperty()` / `defProperty()` / `unsetProperty()` helpers mutate the object instances that are shared across every collection referencing them.
 
 [codesh-group]
 [codesh=twig title="Twig"]
@@ -775,7 +783,8 @@ Parameters:
 Returns:
 - `array` Two-dimensional list of `key: Object` pairs
 
-!!! Handy for laying content out in rows and columns.
+> [!TIP]
+> Handy for laying content out in rows and columns.
 
 [codesh-group]
 [codesh=twig title="Twig"]
@@ -955,7 +964,8 @@ Parameters:
 Returns:
 - **Block** (`object`) HtmlBlock instance containing the output
 
-!!! In Twig, use the `{% render %}` tag rather than calling the method directly, so the object's JS/CSS assets register properly.
+> [!TIP]
+> In Twig, use the `{% render %}` tag rather than calling the method directly, so the object's JS/CSS assets register properly.
 
 [codesh-group]
 [codesh=twig title="Twig"]
@@ -1033,7 +1043,8 @@ Parameters:
 Returns:
 - **Object** (`object`) The object, for chaining
 
-!!! This method modifies the object instance, which is shared across every collection that references it. If that is not intended, `clone` the object first.
+> [!WARNING]
+> This method modifies the object instance, which is shared across every collection that references it. If that is not intended, `clone` the object first.
 
 ### defProperty()
 
@@ -1046,7 +1057,8 @@ Parameters:
 Returns:
 - **Object** (`object`) The object, for chaining
 
-!!! This method modifies the shared object instance. If that is not intended, `clone` the object first.
+> [!WARNING]
+> This method modifies the shared object instance. If that is not intended, `clone` the object first.
 
 ### unsetProperty()
 
@@ -1058,7 +1070,8 @@ Parameters:
 Returns:
 - **Object** (`object`) The object, for chaining
 
-!!! This method modifies the shared object instance. If that is not intended, `clone` the object first.
+> [!WARNING]
+> This method modifies the shared object instance. If that is not intended, `clone` the object first.
 
 ### isAuthorized()
 
@@ -1076,7 +1089,8 @@ Returns:
 - `false` Deny the action
 - `null` Not set (treated as deny)
 
-!!! There are two "deny" values: explicitly denied (`false`) and not set (`null`). Keeping them distinct lets multiple rules be chained together, so a later rule can decide a case that an earlier one did not match.
+> [!NOTE]
+> There are two "deny" values: explicitly denied (`false`) and not set (`null`). Keeping them distinct lets multiple rules be chained together, so a later rule can decide a case that an earlier one did not match.
 
 [codesh-group]
 [codesh=twig title="Twig"]

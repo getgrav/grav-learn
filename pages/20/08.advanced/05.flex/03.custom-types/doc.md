@@ -49,7 +49,8 @@ form:
 
 That is the whole thing. Two form fields, one storage line, and two columns for the admin list. It is enough for Admin Next to render a working list-and-edit UI and for the REST API to serve the data.
 
-!!! The `type: flex-objects` line is required and must never be changed. It is what tells Grav that this YAML file is a Flex type definition rather than an ordinary form or page blueprint.
+> [!IMPORTANT]
+> The `type: flex-objects` line is required and must never be changed. It is what tells Grav that this YAML file is a Flex type definition rather than an ordinary form or page blueprint.
 
 ### Activate it in Admin Next
 
@@ -61,7 +62,8 @@ bin/grav clear
 
 Reload Admin Next and you will find **Contacts** in the Flex Objects area, ready to add and edit records.
 
-!!! If your type does not appear after saving, it is almost always because the blueprint was not enabled in the directories field, or the cache was not cleared. Both steps are required.
+> [!TIP]
+> If your type does not appear after saving, it is almost always because the blueprint was not enabled in the directories field, or the cache was not cleared. Both steps are required.
 
 ### Where the pieces map
 
@@ -160,7 +162,8 @@ Enable and clear the cache exactly as before. You now have a directory that orde
 
 Everything here is optional refinement on top of the minimal version. Add only what you need, when you need it.
 
-!!! The form looks the same whether it came from a page, a configuration file, or a plugin blueprint. Treat `form.fields` as the form an administrator sees, and make sure it contains every field an object can hold. If you already know how to build **[Forms](/20/forms)**, you already know how to write this section.
+> [!NOTE]
+> The form looks the same whether it came from a page, a configuration file, or a plugin blueprint. Treat `form.fields` as the form an administrator sees, and make sure it contains every field an object can hold. If you already know how to build **[Forms](/20/forms)**, you already know how to write this section.
 
 ## Blueprint anatomy
 
@@ -189,7 +192,8 @@ form: {}         # The per-object edit form and its fields
 
 The `config` section is the largest and most flexible part. It covers storage strategies (SimpleStorage, FileStorage, FolderStorage), custom object and collection classes, list columns, ordering, search, the sidebar menu, permissions, and export. Rather than repeat all of it here, see the **[Blueprint Reference](/20/advanced/flex/custom-types/blueprint-reference)** for the exhaustive list of options with examples.
 
-!!! Permissions deserve special attention. Since flex-objects 1.4.3, a directory whose blueprint declares no permissions block is denied to every non-super-admin over the REST API. If editors need access to your type, you must declare a `config.admin.permissions` block. The **[Blueprint Reference](/20/advanced/flex/custom-types/blueprint-reference)** covers exactly how to write one.
+> [!WARNING]
+> Permissions deserve special attention. Since flex-objects 1.4.3, a directory whose blueprint declares no permissions block is denied to every non-super-admin over the REST API. If editors need access to your type, you must declare a `config.admin.permissions` block. The **[Blueprint Reference](/20/advanced/flex/custom-types/blueprint-reference)** covers exactly how to write one.
 
 ## Two classic gotchas
 
@@ -199,7 +203,8 @@ Two mistakes catch nearly everyone writing their first Flex blueprint. Both come
 
 **Do not include a `process` section in the form.** A regular Grav form uses a `process` block to define what happens on submit (send an email, save to a file, and so on). Flex ignores that section entirely, because saving is handled by the storage layer. Adding one does nothing and only causes confusion, so leave it out.
 
-!!! Be careful when you change the blueprint of a type that already has saved records. Make sure existing objects still load and save cleanly under the new blueprint. Renaming or removing a field can leave older records unable to display.
+> [!WARNING]
+> Be careful when you change the blueprint of a type that already has saved records. Make sure existing objects still load and save cleanly under the new blueprint. Renaming or removing a field can leave older records unable to display.
 
 ## Where to go next
 

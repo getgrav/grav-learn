@@ -62,7 +62,8 @@ The shortcode reads the following parameters:
 
 The collection is rendered through its Flex template, exactly as `{% render %}` would, so any collection layout you already have keeps working. See [Twig in Theme Templates](#twig-in-theme-templates) below for how those layouts are resolved.
 
-!!! The shortcode can render **any registered directory**, including one whose objects you did not intend to publish. Because content authors can type any `collection=` value, be deliberate about which directories are renderable on public pages. Treat the shortcode as a public read path to that data, and do not rely on it to hide anything sensitive. If a directory should never appear on the frontend, do not enable it on a public site, and lean on per-object publish flags in your layouts (for example filtering on a `published` field).
+> [!WARNING]
+> The shortcode can render **any registered directory**, including one whose objects you did not intend to publish. Because content authors can type any `collection=` value, be deliberate about which directories are renderable on public pages. Treat the shortcode as a public read path to that data, and do not rely on it to hide anything sensitive. If a directory should never appear on the frontend, do not enable it on a public site, and lean on per-object publish flags in your layouts (for example filtering on a `published` field).
 
 ## The `flex-objects` Page Type
 
@@ -154,7 +155,8 @@ https://www.example.com/contacts/id:ki2ts4cbivggmtlj
 
 When a page receives an `id` parameter it renders that single object; without one it renders the collection listing. The `directory` parameter picks which type to show when the page is not already pinned to one in its header.
 
-!!! You can pass your own parameters inside the `flex` block and use them in your collection and object template files, so the page header doubles as a place to configure your own layouts.
+> [!TIP]
+> You can pass your own parameters inside the `flex` block and use them in your collection and object template files, so the page header doubles as a place to configure your own layouts.
 
 ## Twig in Theme Templates
 
@@ -191,7 +193,8 @@ The `{LAYOUT}` segment is the `layout:` you pass to `render` (falling back to `d
 
 A collection template is responsible for rendering all the objects in the collection. Rendered output is cached by default; the cache key is derived from the collection and the context passed to the `render()` method.
 
-!!! If the context contains non-scalar values, caching is turned off. Keep the context as simple as possible.
+> [!NOTE]
+> If the context contains non-scalar values, caching is turned off. Keep the context as simple as possible.
 
 Here is an example collection template:
 
@@ -214,13 +217,15 @@ Here is an example collection template:
 </div>
 [/codesh]
 
-!!! If the rendered HTML has dynamic content, render caching can be disabled from inside the Twig template with `{% do block.disableCache() %}`.
+> [!NOTE]
+> If the rendered HTML has dynamic content, render caching can be disabled from inside the Twig template with `{% do block.disableCache() %}`.
 
 ### Object template
 
 An object template renders a single object. Its output is cached by default too, keyed by the object and the context passed to `render()`.
 
-!!! If the context contains non-scalar values, caching is turned off. Keep the context as simple as possible.
+> [!NOTE]
+> If the context contains non-scalar values, caching is turned off. Keep the context as simple as possible.
 
 Here is an example object template:
 
@@ -246,7 +251,8 @@ Here is an example object template:
 
 Custom layouts let you build any number of different views into your collections and objects. Create one by adding a new file next to `default.html.twig`; the file's basename becomes the layout name. Rendering with `{% render collection layout: 'cards' %}` then loads `flex/{TYPE}/collection/cards.html.twig`.
 
-!!! In collection layouts, prefer calling `{% render object layout: 'xxx' %}` for each item rather than outputting the object's fields directly in the collection template. This keeps the per-object markup in one place and reusable across layouts.
+> [!TIP]
+> In collection layouts, prefer calling `{% render object layout: 'xxx' %}` for each item rather than outputting the object's fields directly in the collection template. This keeps the per-object markup in one place and reusable across layouts.
 
 ## Which Should I Use?
 

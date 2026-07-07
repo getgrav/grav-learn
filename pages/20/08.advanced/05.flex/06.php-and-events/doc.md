@@ -60,7 +60,8 @@ class ProductObject extends GenericObject
 
 `getProperty()` reads a value from the object's stored data, and you return whatever you like. You can override framework methods too (`getFormValue()`, `prepareStorage()`, `save()`), but start with plain helper methods, they cover most cases.
 
-!!! Put your classes somewhere autoloadable. In a plugin, add a PSR-4 entry to the plugin's `composer.json` (then run `composer dump-autoload`), or register the namespace from the plugin's `autoload()` method. The class file above lives at `user/plugins/my-plugin/classes/Flex/Types/Product/ProductObject.php`.
+> [!TIP]
+> Put your classes somewhere autoloadable. In a plugin, add a PSR-4 entry to the plugin's `composer.json` (then run `composer dump-autoload`), or register the namespace from the plugin's `autoload()` method. The class file above lives at `user/plugins/my-plugin/classes/Flex/Types/Product/ProductObject.php`.
 
 ### Wiring it into the blueprint
 
@@ -94,7 +95,8 @@ Once the class is wired in, every object in the directory is an instance of `Pro
 {% endfor %}
 [/codesh]
 
-!!! A custom class only takes effect after the directory's cache is rebuilt. Run `bin/grav clear` after adding or changing `config.data` classes so Flex picks up the new object type.
+> [!IMPORTANT]
+> A custom class only takes effect after the directory's cache is rebuilt. Run `bin/grav clear` after adding or changing `config.data` classes so Flex picks up the new object type.
 
 ## Registering a directory type from a plugin
 
@@ -136,7 +138,8 @@ The first argument is the type name (the key you pass to `flex_objects('products
 
 This is exactly how the plugin registers user-enabled directories: in `flex-objects.php`, `onRegisterFlex()` reads the configured directory list and hands each blueprint to `registerDirectories()`, which calls `addDirectoryType()` for every type that is not already enabled.
 
-!!! `FlexRegisterEvent` fires only once, on first access to Flex. Register your type there rather than in `onPluginsInitialized`, otherwise the directory may already be built by the time your code runs.
+> [!IMPORTANT]
+> `FlexRegisterEvent` fires only once, on first access to Flex. Register your type there rather than in `onPluginsInitialized`, otherwise the directory may already be built by the time your code runs.
 
 ## Frontend routing with `flex.router.{name}`
 
@@ -191,7 +194,8 @@ class MyRouterPlugin extends Plugin
 
 Two things the plugin does with what you return: if you set the by-reference `response` to a PSR-7 response, Grav sends it immediately and stops. Otherwise, if you set `page` on the event, Grav swaps that page in as the active page and stops further routing. Set neither and the normal not-found handling continues.
 
-!!! The plugin ships a `default` router for the flex-objects page type, so most sites never write one. Reach for a custom `flex.router.{name}` only when you need routing behavior the built-in router does not provide.
+> [!NOTE]
+> The plugin ships a `default` router for the flex-objects page type, so most sites never write one. Reach for a custom `flex.router.{name}` only when you need routing behavior the built-in router does not provide.
 
 ## The save and delete event contract
 
@@ -241,7 +245,8 @@ config:
             events: false
 [/codesh]
 
-!!! During `onAdminSave` you must not replace the object with a different instance. The core throws a `RuntimeException` if the object is switched out, because downstream save logic still holds the original. Modify the object in place instead.
+> [!WARNING]
+> During `onAdminSave` you must not replace the object with a different instance. The core throws a `RuntimeException` if the object is switched out, because downstream save logic still holds the original. Modify the object in place instead.
 
 ## Converting stored data with the CLI
 

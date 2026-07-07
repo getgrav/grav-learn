@@ -24,7 +24,8 @@ Here are the concepts you will meet, from the container on down to a single reco
 
 It is a single access point for all your data. Once a Directory is registered, every page, plugin, and theme can reach its objects through Flex. Grav ships with its own built-in Directories (such as **User Accounts** and **Pages**), and plugins and themes can register their own.
 
-!!! Even if the Flex versions of *User Accounts* or *Pages* are not enabled for editing, you can still read Flex versions of them from both the frontend and Admin Next.
+> [!NOTE]
+> Even if the Flex versions of *User Accounts* or *Pages* are not enabled for editing, you can still read Flex versions of them from both the frontend and Admin Next.
 
 #### Flex Type
 
@@ -56,7 +57,8 @@ An **Index** is a lightweight, fast lookup for a Directory.
 
 It holds metadata about the objects (keys, timestamps, checksums) but **not** the full object data. Grav uses the Index to answer list and query operations quickly, then loads full objects from Storage only when they are actually needed. The default class is `GenericIndex`.
 
-!!! Because the Index is central to how Flex stays fast, Flex is not the right tool for datasets that are constantly written to or updated. Every write updates the index. For high-write workloads, a real database is a better fit.
+> [!IMPORTANT]
+> Because the Index is central to how Flex stays fast, Flex is not the right tool for datasets that are constantly written to or updated. Every write updates the index. For high-write workloads, a real database is a better fit.
 
 #### Flex Storage
 
@@ -137,7 +139,8 @@ user/blueprints/flex-objects/<type>.yaml
 
 Then activate it in **Admin Next** under **Plugins > Flex Objects**, in the **directories** field. Adding it there appends the blueprint path to the plugin's config, and the Flex Objects plugin registers the Directory for you on the next request. This is how most site-specific data types (a contact list, a product catalog, an events table) come to life. No PHP required.
 
-!!! The `<type>` in the filename becomes the Directory's key and shows up in the REST API path (`/flex-objects/<type>`) and in Twig template lookups (`flex/<type>/...`). Keep it lowercase and stable.
+> [!TIP]
+> The `<type>` in the filename becomes the Directory's key and shows up in the REST API path (`/flex-objects/<type>`) and in Twig template lookups (`flex/<type>/...`). Keep it lowercase and stable.
 
 ### 2. A plugin or theme that ships a blueprint
 
@@ -147,7 +150,8 @@ A plugin or theme can bundle its own blueprint and register the Directory from P
 
 Grav registers some Types itself. **User Accounts** and **Pages** are the built-in Flex Directories, available even when their editable Flex versions are not turned on. You do not register these; they are part of the framework.
 
-!!! Registering a Type is not the same as granting access to it. Since Flex Objects 1.4.3 (security fix GHSA-23vq-365v-qcmh), a Directory whose blueprint declares no permissions block is denied to every non-super-admin over the REST API. See the [Permissions](/20/advanced/flex/custom-types/blueprint-reference#permissions) page before you expose a Type to editors.
+> [!WARNING]
+> Registering a Type is not the same as granting access to it. Since Flex Objects 1.4.3 (security fix GHSA-23vq-365v-qcmh), a Directory whose blueprint declares no permissions block is denied to every non-super-admin over the REST API. See the [Permissions](/20/advanced/flex/custom-types/blueprint-reference#permissions) page before you expose a Type to editors.
 
 ## Where to next
 

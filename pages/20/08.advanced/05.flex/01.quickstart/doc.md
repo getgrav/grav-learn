@@ -12,7 +12,8 @@ You just enabled the **Flex Objects** plugin and the obvious question is: *now w
 
 We use the **Contacts** directory that ships with the plugin. It is a simple contact list (name, email, website, tags) and is perfect for getting your bearings before you build a directory of your own.
 
-!!! New to the terminology? A **Flex Directory** (also called a **Flex Type**) is one collection of objects defined by a blueprint. **Contacts** is one directory; each individual contact is a **Flex Object**. The [Concepts](/20/advanced/flex/concepts) page explains the model in full.
+> [!NOTE]
+> New to the terminology? A **Flex Directory** (also called a **Flex Type**) is one collection of objects defined by a blueprint. **Contacts** is one directory; each individual contact is a **Flex Object**. The [Concepts](/20/advanced/flex/concepts) page explains the model in full.
 
 ## Step 1: Confirm Flex Objects is installed and enabled
 
@@ -48,7 +49,8 @@ directories:
 
 After the save, a new **Contacts** entry appears in the Admin Next sidebar.
 
-!!! The Contacts blueprint declares both an `admin.contacts` and an `api.contacts` permissions block, so Admin Next and the REST API both authorize it out of the box. This matters: since flex-objects 1.4.3, a directory that declares **no** permissions block is denied to every non-super-admin over the API. Keep this in mind when you build your own type (see [Permissions](/20/advanced/flex/custom-types/blueprint-reference#permissions)).
+> [!IMPORTANT]
+> The Contacts blueprint declares both an `admin.contacts` and an `api.contacts` permissions block, so Admin Next and the REST API both authorize it out of the box. This matters: since flex-objects 1.4.3, a directory that declares **no** permissions block is denied to every non-super-admin over the API. Keep this in mind when you build your own type (see [Permissions](/20/advanced/flex/custom-types/blueprint-reference#permissions)).
 
 ## Step 3: Load the sample data
 
@@ -66,7 +68,8 @@ Clear the cache so Grav picks up the new data:
 $ bin/grav clear
 [/codesh]
 
-!!! Always use `bin/grav clear` to clear the cache. Do not delete cache folders by hand.
+> [!WARNING]
+> Always use `bin/grav clear` to clear the cache. Do not delete cache folders by hand.
 
 ## Step 4: Browse Contacts in Admin Next
 
@@ -137,7 +140,8 @@ Alternatively, set the page template to `flex-objects` directly. Either way, the
 
 The page type also understands `directory` and `id` URL parameters, so a single flex-objects page can list a collection and drill into individual objects.
 
-!!! If you leave `flex.directory` off entirely, the page lists **all** enabled directories instead of the entries from one. Set `directory: contacts` to show just the Contacts collection.
+> [!NOTE]
+> If you leave `flex.directory` off entirely, the page lists **all** enabled directories instead of the entries from one. Set `directory: contacts` to show just the Contacts collection.
 
 ## Next steps
 

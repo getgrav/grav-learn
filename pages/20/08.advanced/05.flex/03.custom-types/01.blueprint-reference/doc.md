@@ -31,7 +31,8 @@ form: {}
 
 To create your own custom directory you start by naming your `type` (the filename), filling in `title` and `description`, and keeping `type: flex-objects` exactly as shown.
 
-!!! We assume you already know how to build a form. If not, read **[Forms](/20/forms)** first, then come back here.
+> [!NOTE]
+> We assume you already know how to build a form. If not, read **[Forms](/20/forms)** first, then come back here.
 
 ## Form
 
@@ -90,9 +91,11 @@ form:
 
 The `validation` mode (`loose` or `strict`) controls how strictly submitted data is checked against the field definitions. The form is written the same way whether it comes from a page, a configuration file, a plugin, or a theme blueprint.
 
-!!! Do **not** use the simple list format to describe fields (the one covered in [Create a simple single form](/20/forms/forms#create-a-simple-single-form)). Flex needs the full `fields:` map with named keys. Also do **not** add a `process:` section to a Flex form; Flex ignores it, so any processing you expect there will silently never run.
+> [!WARNING]
+> Do **not** use the simple list format to describe fields (the one covered in [Create a simple single form](/20/forms/forms#create-a-simple-single-form)). Flex needs the full `fields:` map with named keys. Also do **not** add a `process:` section to a Flex form; Flex ignores it, so any processing you expect there will silently never run.
 
-!!! Be careful when you change a blueprint for a Flex Type that already has saved objects. Make sure the objects you have already stored stay compatible with the new version of the blueprint, meaning you should be able to both save and display the older objects.
+> [!WARNING]
+> Be careful when you change a blueprint for a Flex Type that already has saved objects. Make sure the objects you have already stored stay compatible with the new version of the blueprint, meaning you should be able to both save and display the older objects.
 
 There are two more things to do before the directory works: configure the storage layer and define which fields appear in the Admin Next list view. Both live inside the `config` section.
 
@@ -204,7 +207,8 @@ Grav ships three storage strategies (and you can write your own by extending the
 | Folder Storage | `Grav\Framework\Flex\Storage\FolderStorage` | Each object is stored in its **own folder**, which supports per-object media. |
 [/div]
 
-!!! If your objects need images or file uploads, use `FolderStorage`. `SimpleStorage` keeps everything in one file and has no place to put per-object media, so the media endpoints return an error for those directories.
+> [!IMPORTANT]
+> If your objects need images or file uploads, use `FolderStorage`. `SimpleStorage` keeps everything in one file and has no place to put per-object media, so the media endpoints return an error for those directories.
 
 You choose the on-disk format with `options.formatter.class`:
 
@@ -327,7 +331,8 @@ config:
 
 Search returns 0 when a field does not match, and a weight between 0 and 1 when it does. The weight is used to order the results, so an object with a higher score is a better match than one with a lower score.
 
-!!! Search does not currently support different weights or strategies per field; the weights apply to every field in the `fields` list.
+> [!NOTE]
+> Search does not currently support different weights or strategies per field; the weights apply to every field in the `fields` list.
 
 ## Config: Admin
 The `admin` section drives the **Admin Next** UI (the SvelteKit single page application) and the REST API that backs it. The classic Vue admin was removed in flex-objects v1.4.2, so the keys documented here are consumed by the API plugin (chiefly `GET /flex-objects/{type}`) and rendered by Admin Next, not by any server-rendered Twig view.
@@ -474,7 +479,8 @@ config:
         hidden_in_admin_next: false
 [/codesh]
 
-!!! Set `hidden_in_admin_next: true` when a plugin registers its own Admin Next sidebar item for the directory and you don't want the generic Flex Objects entry to appear as well. Directories are also skipped from the auto sidebar when the user fails the directory's `list` permission check.
+> [!NOTE]
+> Set `hidden_in_admin_next: true` when a plugin registers its own Admin Next sidebar item for the directory and you don't want the generic Flex Objects entry to appear as well. Directories are also skipped from the auto sidebar when the user fails the directory's `list` permission check.
 
 ### Export
 
@@ -506,7 +512,8 @@ Some keys from the Grav 1.7 blueprint format targeted the old server-rendered Vu
 [/div]
 
 ## Permissions
-!!! Permissions are the single most common cause of "my directory returns 403" support tickets. Read this whole section before shipping a directory.
+> [!IMPORTANT]
+> Permissions are the single most common cause of "my directory returns 403" support tickets. Read this whole section before shipping a directory.
 
 A directory declares its permissions under `config.admin.permissions`, keyed by a **prefix**. Each prefix expands into per-action grants (`<prefix>.list`, `<prefix>.create`, `<prefix>.read`, `<prefix>.update`, `<prefix>.delete`) that appear in the user and group editors and are checked by Admin Next and the REST API.
 
@@ -530,7 +537,8 @@ The `type` shorthand expands to a set of actions: `crudl` gives create, read, up
 
 ### Default-deny since flex-objects 1.4.3
 
-!!! Since flex-objects **1.4.3** (security fix [GHSA-23vq-365v-qcmh](https://github.com/trilbymedia/grav-plugin-flex-objects/security/advisories)), a directory whose blueprint defines **no** `permissions` block is **denied to every non-super-admin over the REST API** (default-deny). If your directory returns 403 for editors but works for you, a missing `permissions` block is almost always the reason. Add the `admin.<type>` + `api.<type>` prefixes shown above and the grants will start working.
+> [!WARNING]
+> Since flex-objects **1.4.3** (security fix [GHSA-23vq-365v-qcmh](https://github.com/trilbymedia/grav-plugin-flex-objects/security/advisories)), a directory whose blueprint defines **no** `permissions` block is **denied to every non-super-admin over the REST API** (default-deny). If your directory returns 403 for editors but works for you, a missing `permissions` block is almost always the reason. Add the `admin.<type>` + `api.<type>` prefixes shown above and the grants will start working.
 
 ### Super admins
 
@@ -555,7 +563,8 @@ access:
 
 Add `create`, `update`, and `delete` as the role requires. The user must also hold `api.access` (the general "this account may use the REST API" grant); without it, every Flex request is rejected before the per-directory check even runs.
 
-!!! You can also declare secondary permissions (for example an `admin.configuration.contacts` prefix for a directory-wide settings tab). These are not checked automatically; you must reference them yourself from an `authorize` rule on the relevant view.
+> [!NOTE]
+> You can also declare secondary permissions (for example an `admin.configuration.contacts` prefix for a directory-wide settings tab). These are not checked automatically; you must reference them yourself from an `authorize` rule on the relevant view.
 
 ## Config: Site
 

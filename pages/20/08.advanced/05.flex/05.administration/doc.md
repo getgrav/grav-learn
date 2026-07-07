@@ -10,7 +10,8 @@ The **[Flex Objects](/20/advanced/flex)** plugin gives every Flex directory a fu
 
 This page walks through the whole lifecycle, from turning a directory on to editing individual objects.
 
-!!! The classic Vue admin for Flex was removed in flex-objects **1.4.2**. Flex Objects is Admin Next only now, so if you are coming from an older Grav install some of the screens described here will look different from what you remember.
+> [!NOTE]
+> The classic Vue admin for Flex was removed in flex-objects **1.4.2**. Flex Objects is Admin Next only now, so if you are coming from an older Grav install some of the screens described here will look different from what you remember.
 
 ## Enabling a directory
 
@@ -18,9 +19,10 @@ A Flex directory is invisible until you enable it. Go to **Plugins** > **Flex Ob
 
 Select the directories you want to manage, make sure each one is toggled on, and click **Save**. Enabling a directory here appends its blueprint path to the plugin config, which is what activates it across Admin Next, the REST API, the `[flex-objects]` shortcode, and frontend routing.
 
-![The Flex Objects plugin settings page, with the Directories field listing Contacts, Pages, User Accounts, and User Groups, each with an Enabled/Disabled toggle](enable-directory.png)
+![Fii](enable-directory.png)
 
-!!! The **Flex Objects** plugin itself must be enabled before any custom directory will work. If the plugin is off, none of the directories in this list do anything.
+> [!IMPORTANT]
+> The **Flex Objects** plugin itself must be enabled before any custom directory will work. If the plugin is off, none of the directories in this list do anything.
 
 After you save, the enabled directory appears in the Admin Next sidebar on the next load. For a full walkthrough of building a directory from scratch, see **[Defining a Flex Type](/20/advanced/flex/custom-types/blueprint-reference)**.
 
@@ -60,7 +62,8 @@ config:
 
 The directory stays fully enabled (the API, shortcode, and frontend all keep working), it just no longer adds its own row to the sidebar.
 
-!!! A directory is also skipped in the sidebar if the current user lacks list permission for it, or if `config.admin.disabled` is set. Permissions matter here: since flex-objects **1.4.3** a directory whose blueprint declares no permissions block is denied to every non super admin. See **[Flex Permissions](/20/advanced/flex/custom-types/blueprint-reference#permissions)** for how to grant access.
+> [!WARNING]
+> A directory is also skipped in the sidebar if the current user lacks list permission for it, or if `config.admin.disabled` is set. Permissions matter here: since flex-objects **1.4.3** a directory whose blueprint declares no permissions block is denied to every non super admin. See **[Flex Permissions](/20/advanced/flex/custom-types/blueprint-reference#permissions)** for how to grant access.
 
 ### Directories with dedicated pages
 
@@ -137,7 +140,8 @@ Selecting a row (or clicking **Add**) opens the **object editor**. The form is b
 
 When you click **Save**, Admin Next writes the object and returns you to the list view (a save and redirect), where the change is reflected immediately. **Delete** removes the object and likewise returns you to the list.
 
-!!! Every edit here goes through the REST API. If you want to script the same create, update, and delete operations, the endpoints are documented at **[Flex Objects API](/20/api/endpoints/flex-objects)**.
+> [!NOTE]
+> Every edit here goes through the REST API. If you want to script the same create, update, and delete operations, the endpoints are documented at **[Flex Objects API](/20/api/endpoints/flex-objects)**.
 
 ## Where caching settings live
 
