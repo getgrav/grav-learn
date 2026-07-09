@@ -893,6 +893,23 @@ public function onApiFloatingWidgets(Event $event): void
 }
 ```
 
+A widget can set `showFab => false` to skip the floating action button and `autoLoad => true` to have Admin2 load its script eagerly (rather than on first FAB click) — the pattern behind field/table enhancers that register behavior without showing a launcher.
+
+An autoloading enhancer usually only matters on one page, so declare the admin routes it applies to with `routes`. Admin2 then loads the script **only** on a matching route instead of on every page:
+
+```php
+$widgets[] = [
+    'id'       => 'users-enhancer',
+    'plugin'   => 'my-plugin',
+    'label'    => 'Users enhancer',
+    'showFab'  => false,
+    'autoLoad' => true,
+    'routes'   => ['/users'],   // load the script only on the Users view
+];
+```
+
+`routes` entries are admin-internal SPA routes (`/users`, `/pages`, `/plugin/my-plugin`) matched against Admin2's own router state, so they carry no admin-URL prefix and can't collide with a frontend page of the same name. Matching is **exact** — a nested route like a page edit under `/pages/...` won't match a `/pages` entry. Omitting `routes` keeps the previous behaviour (load everywhere). `routes` scopes script loading only; it is **not** a permission boundary — `authorize` remains the security check.
+
 ### Context Panels
 
 Context panels are slide-in panels triggered by toolbar buttons inside Admin2 editors (e.g., the page editor). Use them for editor-scoped tools like revision history, SEO analysis, AI suggestions, or link checking.

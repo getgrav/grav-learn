@@ -98,6 +98,8 @@ These are called while Admin2 composes the UI. Plugins append items/widgets/pane
 | `onApiUserListFilter` | `GET /users?filter={id}` | `filter`, `collection` (mutable), `query`, `user` |
 | `onApiUserListColumns` | `GET /users/columns` | `columns`, `user` |
 | `onApiUserListColumnData` | `GET /users` | `usernames`, `data` (mutable), `user` |
+| `onApiUserListRowActions` | `GET /users/row-actions` | `actions`, `user` |
+| `onApiUserListRowAction` | `POST /users/{username}/row-action` | `id`, `plugin`, `action`, `username`, `user`, `result` (mutable) |
 
 ### Users list filter tabs
 
@@ -190,6 +192,61 @@ public function onApiUserListColumnData(Event $event): void
 ```
 
 Those values are merged into each serialized user under an `extra` map on `GET /users`, keyed by the column's `field`, so there is no second endpoint to call and no client-side join. Only scalars (and null) survive the merge — arrays, objects and oversized values are dropped — and the event is isolated, so a listener that throws degrades to missing values rather than breaking the listing. Like filter tabs, columns require the Flex-accounts backend.
+
+### Users list row actions
+
+These two events let a plugin add a per-user action button to the Users list — "Impersonate", "Send reset link", "Sync subscription" — that runs a server-side operation against one account. They replace the old workaround of injecting a button into the rendered table with a `MutationObserver`: Admin2 owns the table, the row identity and the button placement, and the plugin receives the target username server-side. The model mirrors [menubar items and actions](/20/api/developer-guide#menubar-items-actions), split into a declaration event and an execution event.
+
+`onApiUserListRowActions` collects the buttons, exposed as `GET /users/row-actions` (gated by `api.users.read`). Append an action descriptor to the `actions` array:
+
+```php
+public function onApiUserListRowActions(Event $event): void
+{
+    // Event has no by-reference offsetGet — append via read-modify-write.
+    $actions = $event['actions'];
+    $actions[] = [
+        'id'        => 'impersonate-user',   // required, unique — the execution key
+        'plugin'    => 'impersonate',
+        'label'     => 'Impersonate',        // plain text, not a translation key
+        'icon'      => 'fa-user-secret',     // optional Font Awesome class
+        'action'    => 'start',              // optional verb passed back to the handler
+        'confirm'   => 'Impersonate this user?', // optional client confirmation prompt
+        'priority'  => 80,                   // optional, higher sorts earlier
+        'authorize' => ['admin.impersonate', 'admin.super'], // optional, string or any-of array
+    ];
+    $event['actions'] = $actions;
+}
+```
+
+Like columns, the descriptor is formatter-free: `authorize` is re-checked server-side and stripped from the response, the list is capped, and no HTML or renderer function crosses the wire. **`authorize` gates only which buttons render — it is not a security boundary.**
+
+`onApiUserListRowAction` runs the action. Admin2 invokes it over `POST /users/{username}/row-action` with a `{ "id": "<action-id>" }` body; the API re-checks the declared action's `authorize` against the caller (an unknown or unauthorized id is an indistinguishable `404`), then fires the event with the resolved target username. Guard on `$event['plugin']` — every listener receives every call — re-authorize against the specific target, and hand back a result:
+
+```php
+public function onApiUserListRowAction(Event $event): void
+{
+    if (($event['plugin'] ?? '') !== 'impersonate') {
+        return;
+    }
+
+    $username = (string) $event['username'];
+    // Independently re-check permission against THIS target — the declaration
+    // filter was only UX. Throw ForbiddenException to return a real 403.
+    $url = $this->createImpersonationUrl($username);
+
+    $event['result'] = [
+        'status'  => 'success',                 // 'success' | 'error'
+        'message' => "Impersonating {$username}", // shown as a toast
+        'url'     => $url,                        // optional — opened in a new tab
+    ];
+}
+```
+
+The result is normalized to `{ status, message, url }`. **`url` is validated server-side before it reaches the client**: only a root-relative path (not the protocol-relative `//host` form) or a same-origin absolute URL survives — a `javascript:`/`data:` scheme or a cross-origin URL is dropped, so a "return a URL and go there" flow can't become an open redirect. Admin2 shows `message` as a toast and opens any surviving `url` in a new tab with `noopener`. A handler that throws degrades to an error toast rather than breaking the Users list; a thrown `ForbiddenException` propagates as a `403`. Like filter tabs and columns, row actions require the Flex-accounts backend.
+
+### Labels and translation
+
+Item labels for the sidebar, menubar, filter tabs, columns and row actions may be either **plain display text** (`'Active'`) or a **translation key** (`'PLUGIN_MYPLUGIN.ACTIVE'`). When a label looks like a key, the API resolves it server-side against the **signed-in user's Admin Next language** and returns the translated string — so a plugin should register the raw key and **must not** call `Language::translate()` itself. Translating in the plugin uses the site's active *content* language, which produces a mixed-language admin (e.g. a Russian label inside an English UI) when the two differ. Register the key; let the API localize it.
 
 ## Webhook Event Mapping
 
