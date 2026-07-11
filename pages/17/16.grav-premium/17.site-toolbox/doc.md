@@ -7,28 +7,6 @@ taxonomy:
 
 # Site Toolbox
 
-<style>
-kbd { 
-    display:inline-flex; 
-    border-radius: 2px;
-    padding: 1rem;
-    white-space: nowrap;
-    color: #7676f4;
-    background: #f1f1fe;
-    border: 0;
-}
-
-.w-8 { width: 4rem; }
-.w-12 { width: 6rem; }
-.h-12 { height: 6rem; }
-.w-24 { width: 12rem; }
-.h-24 { height: 12rem; }
-.text-blue-600 { color: #006ae1; } 
-.text-red-500 { color: rgba(239, 68, 68, 1); }
-.stroke-1 { stroke-width: 1; }
-.rotate-90 { transform: rotate(90deg); }
-</style>
-
 > [!IMPORTANT]
 > Premium products require the free [License Manager](../license-manager) plugin. Install it and add your product license before installing this product.
 
@@ -66,7 +44,7 @@ This package currently contains 6 primary SVG icon sets:
 
 #### Configuration
 
-* **Plugin status** → Will enable or disable the entire plugin.  
+* **Plugin status** → Will enable or disable the entire plugin.
 
 #### Shortcode for Content
 
@@ -85,7 +63,7 @@ When you need to use an SVG icon in your content, you can use the `[svg-icon]` s
 
 ```bbcode
 [raw]
-[svg-icon="alien" /] 
+[svg-icon="alien" /]
 [/raw]
 ```
 
@@ -145,7 +123,7 @@ Example from HeroIcons / Solid and a TailwindCSS class of `w-12` to specify a wi
 ```
 
 [svg-icon icon="grav" class="w-8" set="brands" /]
-[svg-icon icon="apple" class="w-8" set="brands" /] 
+[svg-icon icon="apple" class="w-8" set="brands" /]
 [svg-icon icon="ferrari" class="w-8" set="brands" /]
 [svg-icon icon="spacex" class="w-8" set="brands" /]
 
@@ -222,7 +200,7 @@ The external frontmatter file is stored alongside the page file itself and is no
 
 #### Configuration
 
-* **Plugin status** → Will enable or disable the entire plugin.  
+* **Plugin status** → Will enable or disable the entire plugin.
 * **Mega Filename** → The name of the YAML file to house your custom frontmatter fields that will be stored alongside your page `.md` file.  Default is `mega-frontmatter.yaml`.
 * **Mega Fields** → The top-level fields from your page frontmatter that will be stored in the mega file.  Default is `field1, field2, field3, feild4`.  You can modify these to reflect your needs.
 
@@ -237,7 +215,7 @@ published: true
 taxonomy:
     category: [cat1, cat2]
     tag: [tag1, tag2]
-hero: 
+hero:
     title: Hero Title
     subtitle: Hero Subtitle
     image: /images/hero.jpg
@@ -259,7 +237,7 @@ Your page content here...
 
 I've shortened this for brevity, but imagine you have 30 such features, and this is causing the frontmatter to be quite large.   If you have many such pages, you might find your Grav site is performing slower than expected.  This is probably due to the large amount of frontmatter that has to get processed for every page.  Imagine a world where you could specify specific frontmatter that is now processed for every page, but only processed when needed.  That's what this plugin does.
 
-Simply specify the `hero` and `features` fields in your `mega_fields` config attribute, if it's found in a page's fronttmatter it will be moved to the external mega frontmatter file. 
+Simply specify the `hero` and `features` fields in your `mega_fields` config attribute, if it's found in a page's fronttmatter it will be moved to the external mega frontmatter file.
 
 If you are using the admin panel,  this will happen automatically when **edit** and **save** a page. It's transparent to you as the data is merged on load, and extracted on save.  After adding the `hero` and `features` fields, then editing and saving your page, you will not notice any difference, but if you look in the page folder, you will find the `mega-frontmatter.yaml` file. You would be left with a page markdown file that looks like this:
 
@@ -278,7 +256,7 @@ Your page content here...
 and a `mega-frontmatter.yaml` file that looks like this:
 
 ```yaml
-hero: 
+hero:
     title: Hero Title
     subtitle: Hero Subtitle
     image: /images/hero.jpg
@@ -297,8 +275,8 @@ features:
 
 #### CLI Command
 
-> [!NOTE] 
-> If you use the CLI commands you should ensure your configuration is accurate. 
+> [!NOTE]
+> If you use the CLI commands you should ensure your configuration is accurate.
 
 There are two commands available, the first will use your configuration settings and loop through all the pages in a site and **extract** configure frontmatter headers into the external _mega_filename_.
 
@@ -436,8 +414,8 @@ Simply install the plugin and then the URL you would use to integrate with would
 
 ```
 http://yoursite.com/your/blog.zrss
-```  
-  
+```
+
 This ensures the feed uses the custom `templates/zapier-feed.zrss.twig` file to process.  To modify this Twig file, simply copy it into your theme or plugin's `templates/` folder and modify as you like.
 
 You can override the regular collection properties, or any of the other config options at the blog level, by modifying the frontmatter of the page that contains the collection.  For example:
