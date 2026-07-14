@@ -72,6 +72,23 @@ process:
 
 An explicit `process.twig` value on a page (`true` or `false`) always wins over the gate, so you can still force Twig on for a single page, but you rarely need to. Because the switch enables content Twig across the whole site, turn it on deliberately.
 
+### Keeping literal `{{ }}` in content
+
+When content Twig is enabled, Grav evaluates every `{{ ... }}` and `{% ... %}` in a page's content. That is a problem if the double braces are meant for something other than Grav, such as a Formspree form field, or a Vue, Handlebars, or Angular template you are embedding. Grav resolves the expression, finds nothing, and the braces disappear from the output.
+
+You have two ways to keep the literal braces:
+
+1. Opt the whole page out of content Twig with `process.twig: false` in its front matter (shown above).
+2. Wrap just the affected markup in a `verbatim` tag so Grav leaves it untouched while the rest of the page still processes Twig:
+
+```twig
+{% verbatim %}
+<input type="hidden" name="subject" value="Feedback: {{ user_subject }} {{ topic }}" />
+{% endverbatim %}
+```
+
+On a default install content Twig is off, so these braces already pass straight through and no escaping is needed.
+
 ### 3. Clear the cache
 
 After changing security configuration or a page's `process` setting, clear the cache so pages re-render:
