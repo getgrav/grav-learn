@@ -458,6 +458,9 @@ config:
 
 A list `title` and a menu `title` can use the same `template:` form (for example `{{ 'PLUGIN_CONTACTS.CONTACTS_TITLE'|tu }}`) when you want a translated or computed label instead of a static string.
 
+> [!NOTE]
+> Admin Next renders the edit title from a small subset of Twig, not the full engine. It supports `{{ object.<field> ?? 'fallback' }}` placeholders (any number of them, concatenated with literal text) and an optional filter chain such as `|tu` or `|t`. The fallback is translated the way `|tu` behaves: a language key like `'PLUGIN_NEWS.CREATE_NEWS'` is translated or humanized, while a plain string is used as-is. Anything more complex than this — conditionals, nested properties, other variables — is not evaluated and would render literally.
+
 ### Menu
 
 By default an enabled directory is auto-registered in the Admin Next sidebar using its own `title` and `icon`. Add a `menu.list` block to customize the entry, or to reposition it:
