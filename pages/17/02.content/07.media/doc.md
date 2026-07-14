@@ -1028,6 +1028,107 @@ Let's say you wanted to just pull the `alt_text` value listed for the image file
 
 This will pull up the example phrase `My Alt Text` instead of the image. This is just a basic example. You can use this method for a number of things, including creating a gallery with multiple unique data points you want to have referenced for each image. Your images, in essence, have a set of data unique to them that can be easily referenced and pulled as needed.
 
+## Filtering media by metadata
+
+> [!NOTE]
+> The collection query methods below were added in **Grav 2.0**.
+
+Once your media carry metadata via [metafiles](#metafiles), you can query the whole collection by those values instead of looping over every item by hand. The methods live on the media collection (`page.media`) and each **returns a new collection**, so they chain and iterate exactly like `page.media`:
+
+```twig
+{% for image in page.media.filterBy('rating', 4, '>=').sortBy('rating', 'desc') %}
+    {{ image.html }}
+{% endfor %}
+```
+
+Given three images with these metafiles:
+
+```yaml
+# beach.jpg.meta.yaml
+rating: 5
+copyright: Jane Doe
+tags: [sunset, beach]
+```
+```yaml
+# peak.jpg.meta.yaml
+rating: 3
+copyright: John Smith
+tags: [mountain, sunset]
+```
+```yaml
+# street.jpg.meta.yaml
+rating: 1
+copyright: Jane Doe
+tags: [city]
+```
+
+### filterBy
+
+`filterBy(field, value, operator = '==')` keeps only the media whose `field` satisfies the comparison.
+
+```twig
+{# images rated 3 or higher #}
+{{ page.media.filterBy('rating', 3, '>=') }}      {# beach.jpg, peak.jpg #}
+
+{# images tagged 'sunset' #}
+{{ page.media.filterBy('tags', 'sunset', 'contains') }}  {# beach.jpg, peak.jpg #}
+```
+
+The available operators are:
+
+| Operator | Meaning |
+| :- | :- |
+| `==`, `!=` | Equal / not equal |
+| `>`, `>=`, `<`, `<=` | Numeric comparison when both sides are numeric, otherwise a string comparison |
+| `in` | The field value is one of a given list, e.g. `filterBy('rating', [4, 5], 'in')` |
+| `contains` | A list field (like `tags`) contains the value, or a text field contains it as a substring |
+
+Comparisons are type-safe: numeric only when both operands are numeric, otherwise an exact string compare (so `'0'` never equals `'false'`). A medium that has **no value** for the field never matches a filter — unrated images stay out of a `rating < 3` result.
+
+### where
+
+`where(criteria)` filters by several fields at once, all of which must match (logical AND). A scalar value means "equals"; an array value means "is one of":
+
+```twig
+{{ page.media.where({ 'copyright': 'Jane Doe', 'rating': [4, 5] }) }}   {# beach.jpg #}
+```
+
+### sortBy
+
+`sortBy(field, direction = 'asc')` returns the collection ordered by a metadata field. Numeric values sort numerically; everything else sorts naturally and case-insensitively. Media missing the field always sort to the end, in both directions.
+
+```twig
+{% for image in page.media.sortBy('rating', 'desc') %}...{% endfor %}
+```
+
+### groupBy
+
+`groupBy(field)` returns a map of `value => collection`. A multi-valued field such as `tags` places its medium under **every** value it holds, which makes tag indexes trivial:
+
+```twig
+{% for tag, images in page.media.groupBy('tags') %}
+    <h3>{{ tag }} ({{ images|length }})</h3>
+    {% for image in images %}{{ image.html }}{% endfor %}
+{% endfor %}
+```
+
+Media with no value for the field are grouped under an empty-string key.
+
+### findBy, withMeta, hasMeta, metaKeys
+
+- `findBy(field, value, operator = '==')` returns the **first** matching medium (or nothing).
+- `withMeta()` returns only the media that have a `.meta.yaml` metafile, dropping bare files.
+- On an individual medium, `hasMeta` is `true` when it has a metafile, and `metaKeys` lists the keys it defines:
+
+```twig
+{% for image in page.media.withMeta() %}
+    {% if image.hasMeta %}<em>{{ image.metaKeys|join(', ') }}</em>{% endif %}
+{% endfor %}
+```
+
+> [!NOTE]
+> These methods read any key present in the `.meta.yaml` sidecar — Grav core makes no assumptions about which keys exist. When you filter the same media over the [REST API](/20/api/endpoints/media), the filterable fields are instead constrained to the metadata schema configured for the API plugin.
+
 ## Video Options
 
 In-line video control options are another capability baked into Grav. These options, added in-line with the file name, give you the ability to determine an embedded video's `autoplay`, `controls`, and `loop` settings.
