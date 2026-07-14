@@ -40,7 +40,7 @@ For example:
 [codesh=yaml line-numbers="true"]
 ---
 content:
-    items: '@self.modular'
+    items: '@self.modules'
 
 form:
     action: /your-modular-page

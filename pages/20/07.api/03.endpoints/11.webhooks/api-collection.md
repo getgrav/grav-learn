@@ -4,7 +4,7 @@ template: api-collection
 taxonomy:
     category: docs
 content:
-    items: '@self.modular'
+    items: '@self.modules'
 ---
 
 Register outgoing HTTP webhooks that fire when API write events happen (page/media/user mutations, config updates, GPM installs, Grav upgrades). Each webhook has a URL, an event filter list, an optional shared secret for HMAC signing, and a delivery log.

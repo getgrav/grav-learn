@@ -386,6 +386,9 @@ While Typhoon is highly customizable, you will undoubtedly want to make your own
 
 #### Installing NPM to Compile CSS
 
+> [!TIP]
+> **No terminal or NPM access?** If you are running **Grav 2** with the new **Admin Next (Admin2)** panel, you can skip the Node toolchain entirely. Install the free [**Tailwind4** plugin](https://github.com/trilbymedia/grav-plugin-tailwind4) and compile Typhoon's Tailwind CSS directly from the admin with a single button, with no `npm install` and no build step. It scans your theme, pages, config, and plugin templates for Tailwind classes, compiles the CSS in pure PHP, and writes the result to the same `build/css/site.css` path the npm build uses, so nothing in your templates has to change. Typhoon is fully compatible with it. The rest of this section covers the traditional NPM workflow, which still works if you prefer it.
+
 99% of everything you need to make modifications is actually already available in Tailwind's utility classes, and you can apply these directly in your Twig templates, or even directly in your content using HTML or shortcodes.
 
 Depending on your platform, installing NPM is different. So please follow the official [NPM Installation Instructions](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm?target=_blank) to accomplish this. After you have NPM installed you will first need to install the required packages, you can do this by just typing `npm install` in the root of the typhoon theme:

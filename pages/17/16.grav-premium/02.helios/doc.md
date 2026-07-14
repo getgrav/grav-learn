@@ -757,6 +757,9 @@ Helios is built on [TailwindCSS 4](https://tailwindcss.com/), making it highly c
 
 #### Installing NPM to Compile CSS
 
+> [!TIP]
+> **No terminal or NPM access?** If you are running **Grav 2** with the new **Admin Next (Admin2)** panel, you can skip the Node toolchain entirely. Install the free [**Tailwind4** plugin](https://github.com/trilbymedia/grav-plugin-tailwind4) and compile Helios's Tailwind CSS directly from the admin with a single button, with no `npm install` and no build step. It scans your theme, pages, config, and plugin templates for Tailwind classes, compiles the CSS in pure PHP, and writes the result to the same path the npm build uses, so nothing in your templates has to change. Helios is fully compatible with it. The rest of this section covers the traditional NPM workflow, which still works if you prefer it.
+
 Depending on your platform, installing NPM is different. Please follow the official [NPM Installation Instructions](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). After installation:
 
 ```shell
@@ -911,7 +914,7 @@ template: api-collection
 icon: tabler/user.svg
 description: Endpoints for managing user accounts and sessions.
 content:
-  items: '@self.modular'
+  items: '@self.modules'
 ---
 
 Optional overview copy rendered above the endpoint sections.

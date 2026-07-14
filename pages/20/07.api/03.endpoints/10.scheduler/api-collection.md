@@ -4,7 +4,7 @@ template: api-collection
 taxonomy:
     category: docs
 content:
-    items: '@self.modular'
+    items: '@self.modules'
 ---
 
 Manage Grav's cron-based scheduler. List registered jobs, inspect cron installation status, review execution history, and trigger manual runs.

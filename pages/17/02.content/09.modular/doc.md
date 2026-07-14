@@ -62,7 +62,7 @@ onpage_menu: true
 body_classes: "modular header-image fullwidth"
 
 content:
-    items: '@self.modular'
+    items: '@self.modules'
     order:
         by: default
         dir: asc

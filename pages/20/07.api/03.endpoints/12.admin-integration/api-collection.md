@@ -4,7 +4,7 @@ template: api-collection
 taxonomy:
     category: docs
 content:
-    items: '@self.modular'
+    items: '@self.modules'
 ---
 
 Endpoints that power Admin2's extensibility: menubar toolbar items, floating widgets, slide-in context panels, settings-page panels, and the registry of plugin-provided custom field components.

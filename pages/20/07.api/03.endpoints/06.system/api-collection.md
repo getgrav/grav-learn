@@ -4,7 +4,7 @@ template: api-collection
 taxonomy:
     category: docs
 content:
-    items: '@self.modular'
+    items: '@self.modules'
 ---
 
 Endpoints for system-level operations including information, cache management, translations, and blueprints.
