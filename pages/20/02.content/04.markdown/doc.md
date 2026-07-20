@@ -138,6 +138,30 @@ Paragraph in Markdown.
 > [!NOTE]
 > **Grav 2.0** escapes a small denylist of "disallowed raw HTML" tags in your content — `title`, `textarea`, `style`, `xmp`, `iframe`, `noembed`, `noframes`, `script`, and `plaintext` — so they render as visible text rather than active markup, matching GitHub Flavored Markdown's `tagfilter`. This is a convenience to avoid accidental breakage, not a security boundary; broad HTML sanitization remains the job of your site's security layer. It can be turned off under [Configuration](#configuration).
 
+### Allowing iframes and other raw HTML
+
+If an embed that worked in Grav 1.x (a YouTube `<iframe>`, an embedded map, a `<script>` widget) now shows up as plain text on the page, the GFM `tagfilter` is why: it escaped the tag's opening `<` so the browser prints the tag instead of running it.
+
+Two points are worth clearing up, because they are easy to confuse:
+
+- The **"Dangerous HTML Tags" list** under *Configuration → Security* is a different feature. It drives the security *scanner* that warns you when you save content containing risky markup. It never controlled whether a tag renders, so editing it has no effect on a disappearing iframe.
+- The **tagfilter denylist is fixed** (`title`, `textarea`, `style`, `xmp`, `iframe`, `noembed`, `noframes`, `script`, `plaintext`) and is not editable. It follows the GitHub Flavored Markdown specification.
+
+There are two good ways to get your embed back:
+
+1. **Recommended: add it through a shortcode or a page template** rather than pasting raw HTML into Markdown. This keeps the tagfilter on everywhere else while letting you place the embed deliberately. See [Creating a Shortcode](../creating-a-shortcode) and the [page template approach](../twig-in-content#use-a-page-template).
+2. **Turn the tagfilter off** if you would rather allow raw HTML tags site-wide. Set it under *Configuration → System → Markdown*, or in `user/config/system.yaml`:
+
+[codesh=yaml]
+pages:
+  markdown:
+    gfm:
+      tagfilter: false
+[/codesh]
+
+> [!NOTE]
+> Turning the tagfilter off is **not** the same as disabling sanitization. It only stops Grav from escaping that short denylist in Markdown output. Your site's real XSS protection (the `security.xss_*` layer, which covers dangerous protocols, event-handler attributes, inline styles, and more) stays fully active either way. Leaving it off is a reasonable choice on a site where you and other trusted authors write the content; keep it on where you render untrusted or user-submitted Markdown, and use option 1 there instead.
+
 ## Emphasis
 
 ### Bold

@@ -203,6 +203,7 @@ Verify:
 - The active theme renders correctly (Grav 2.0 ships with [Quark 2](https://github.com/getgrav/grav-theme-quark2) as the default theme; if your old theme has no 2.0 version yet, you may want to switch)
 - Form submissions, login flows, and any plugin-specific functionality work as expected
 - Pages that used **Twig in their content** (`{{ ... }}` or `{% ... %}` in the page body) still render as intended. Grav 2.0 gates this off by default, so those pages show raw Twig until you re-enable it; the **Tools → Reports → Twig in Content** report lists every affected page. See [Twig in Content](/20/content/twig-in-content) for how to re-enable it and the safer alternatives
+- Pages that embedded **raw HTML** in the body (a YouTube `<iframe>`, a `<script>` widget, and similar) still render. Grav 2.0 escapes a small fixed denylist of raw HTML tags in Markdown output by default (the GitHub Flavored Markdown `tagfilter`), so an affected embed now shows as plain text. See [Allowing iframes and other raw HTML](/20/content/markdown#allowing-iframes-and-other-raw-html) for why it happens, and how to re-enable the tag or place the embed through a shortcode instead
 
 > [!IMPORTANT]
 > Do not skip this step. Once you promote, rolling back means restoring from the backup zip. Catching issues in the stage is much cheaper.
