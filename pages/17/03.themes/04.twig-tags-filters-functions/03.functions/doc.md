@@ -475,13 +475,22 @@ Simple function to read a file based on a filepath and output it.
 
 [codesh-group]
 [codesh=twig title="Twig"]
-{{ read_file('plugins://admin/README.md')|markdown }}
+{{ read_file('theme://README.md')|markdown }}
 [/codesh]
 [codesh=html title="Output"]
-<h1>Grav Standard Administration Panel Plugin</h1>
-<p>This <strong>admin plugin</strong> for Grav...</p>
+<h1>My Theme</h1>
+<p>This <strong>theme</strong> for Grav...</p>
 [/codesh]
 [/codesh-group]
+
+For security, `read_file` only reads files that pass three gates, all configurable under `security.read_file` in `system/config/security.yaml`:
+
+- **`allowed_streams`** — the stream schemes it will resolve. Defaults to `theme`, `themes`, `page` and `user-data`. A path on any other stream (such as `plugins://` or `user://`) returns `false` until you add that stream here.
+- **`allowed_extensions`** — the file extensions it will read. Defaults to text and content formats only: `md`, `markdown`, `txt`, `html`, `htm`, `css`, `json`, `csv`, `xml` and `svg`.
+- **`max_size`** — the maximum file size in bytes (default `1048576`, i.e. 1 MB). Larger files return `false` rather than being read into memory. Set to `0` to disable the cap.
+
+> [!NOTE]
+> Adding executable or secret formats (such as `php`, `yaml`, `env` or `htaccess`) to `allowed_extensions` is discouraged — it turns `read_file` into a way to leak configuration and credentials into rendered output.
 
 ### redirect_me
 
