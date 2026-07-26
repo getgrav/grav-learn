@@ -482,6 +482,7 @@ my_field:
 | `options` | An array of key-value options that will be allowed.                                                                                            |
 | `help_options` | An array of key-value with help for each option defined in `options`.                                                                     |
 | `disabled_options` | A list of options that will be displayed disabled.                                                                                             |
+| `markdown` | When `true`, the option labels are processed as markdown and may contain HTML. Otherwise they are escaped and rendered as text.                 |
 [/div]
 
 [div class="table"]
@@ -1127,9 +1128,10 @@ my_choice:
 [/codesh]
 
 [div class="table table-keycol"]
-| Attribute | Description                                         |
-| :-----    | :-----                                              |
-| `options` | An array of key-value options that will be allowed. |
+| Attribute  | Description                                                                                                                       |
+| :-----     | :-----                                                                                                                            |
+| `options`  | An array of key-value options that will be allowed.                                                                               |
+| `markdown` | When `true`, the option labels are processed as markdown and may contain HTML. Otherwise they are escaped and rendered as text. |
 [/div]
 
 [div class="table"]
@@ -1579,10 +1581,11 @@ summary.enabled:
 
 
 [div class="table table-keycol"]
-| Attribute   | Description                                                  |
-| :-----      | :-----                                                       |
-| `highlight` | The key of the option to highlight (set green when selected) |
-| `options`   | The list of key-value options                              |
+| Attribute   | Description                                                                                                                       |
+| :-----      | :-----                                                                                                                            |
+| `highlight` | The key of the option to highlight (set green when selected)                                                                      |
+| `options`   | The list of key-value options                                                                                                     |
+| `markdown`  | When `true`, the option labels are processed as markdown and may contain HTML. Otherwise they are escaped and rendered as text. |
 [/div]
 
 [div class="table"]
