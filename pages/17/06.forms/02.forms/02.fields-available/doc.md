@@ -118,17 +118,21 @@ my_array_values:
 
 ### Avatar Field
 
-The `avatar` field type displays a user's avatar image in the form. If the `avatar` field has a value, it will display that image; otherwise, it will generate a Gravatar based on the user's email.
+The `avatar` field type displays a read-only avatar image. It is a display-only field: it renders an image but submits nothing.
+
+This field ignores its own name and value. It always reads two fixed values from the form itself: it displays the first image found in the form's `avatar` value, and if that is empty it falls back to a [Gravatar](https://gravatar.com) generated from the form's `email` value. Because of that, it is only useful on a form that already has `avatar` and/or `email` fields, such as a user profile form.
 
 Examples:
 
 [codesh=yaml line-numbers="true"]
-user_avatar:
+avatar_preview:
   type: avatar
-  label: User Avatar
   classes: "avatar-label"
   img_classes: "avatar-img"
 [/codesh]
+
+> [!NOTE]
+> Naming the field something else (for example `user_avatar`) does not change what is displayed. The image still comes from the form's `avatar` and `email` values.
 
 [div class="table table-keycol"]
 | Attribute   | Description                                          |
@@ -1222,12 +1226,15 @@ FilePond works seamlessly with AJAX form submissions (`xhr_submit: true`). The f
 
 ---
 
-## Formname Field
+### Formname Field
 
 The `formname` field type inserts a hidden input that stores the name of the current form.  
 It is used internally by forms to keep track of which form was submitted, especially when multiple forms exist on the same page.
 
 This field does not accept user input and does not allow customization beyond what the Twig explicitly supports.
+
+> [!NOTE]
+> The default form template already outputs this hidden input for you, so you rarely need to add a `formname` field by hand. It is only useful when you are building a custom form template that does not include it.
 
 Example:
 
@@ -1321,6 +1328,9 @@ The `key` field type provides a text input that also exposes an observable attri
 It works similarly to a standard text field but is designed specifically for use cases where the field's value must dynamically update other form elements.
 
 If the value is an array, it will automatically be converted into a comma-separated string.
+
+> [!IMPORTANT]
+> The rendered input has no `name` attribute, so a `key` field never submits a value with the form. It exists purely to drive other fields through its `data-key-observe` attribute, and is mostly used for the key column of a list row.
 
 Example:
 
@@ -1786,7 +1796,7 @@ test:
 The **switch** field type provides an ON/OFF toggle using the same logic as a checkbox.  
 It is functionally identical to a checkbox but offers clearer semantics and a modern toggle-style UI.
 
-### Example
+#### Example
 
 [codesh=yaml line-numbers="true"]
 header.enable_feature:
@@ -1803,7 +1813,7 @@ This creates an ON/OFF switch where:
 - `1` = ON  
 - `0` = OFF  
 
-### Specific Attributes
+#### Specific Attributes
 
 [div class="table table-keycol"]
 | Attribute | Description |
@@ -1814,7 +1824,7 @@ This creates an ON/OFF switch where:
 | options | Text labels for ON/OFF values |
 [/div]
 
-### Common Attributes Allowed  
+#### Common Attributes Allowed
 
 The Switch field supports **all the same common attributes as Checkbox**, including validation:
 
@@ -2033,7 +2043,7 @@ This field is ideal for events, scheduling, or any scenario requiring a `HH:MM` 
 
 This template is used when the value is displayed in **list or summary views** (such as in the Admin panel), formatting the time as `3:45 PM` instead of `15:45`.
 
-### Example
+#### Example
 
 [codesh=yaml line-numbers="true"]
 header.event_time:
@@ -2047,7 +2057,7 @@ header.event_time:
     required: true
 [/codesh]
 
-### Specific Attributes
+#### Specific Attributes
 
 [div class="table table-keycol"]
 | Attribute | Description |
@@ -2058,7 +2068,7 @@ header.event_time:
 | step | Time interval in seconds (e.g. `60` = 1 minute) |
 [/div]
 
-### Common Attributes Allowed
+#### Common Attributes Allowed
 
 The Time field supports the same common attributes as the Checkbox field:
 
@@ -2134,16 +2144,20 @@ summary.enabled:
 The **uniqueid** field type generates a unique identifier for a form.  
 It is rendered as a hidden input and is primarily used internally to differentiate form submissions.
 
-### Example
+> [!NOTE]
+> The default form template already outputs this hidden input for you, so you rarely need to add a `uniqueid` field by hand. It is only useful when you are building a custom form template that does not include it.
+
+#### Example
 
 [codesh=yaml line-numbers="true"]
 header.unique_form_id:
   type: uniqueid
 [/codesh]
 
-> Note: You generally do not need to set a label or default value for this field; it is automatically generated and hidden.
+> [!NOTE]
+> You generally do not need to set a label or default value for this field; it is automatically generated and hidden.
 
-### Specific Attributes
+#### Specific Attributes
 
 [div class="table table-keycol"]
 | Attribute | Description |
@@ -2153,7 +2167,7 @@ header.unique_form_id:
 | value | Automatically generated unique value |
 [/div]
 
-### Common Attributes Allowed
+#### Common Attributes Allowed
 
 Since this is a hidden/internal field, common attributes are minimal:
 
@@ -2217,7 +2231,7 @@ header.url:
 The **value** field type is used to display a non-editable value within a form.  
 It does not render an input for the user to type; instead, it outputs a value according to optional formatting rules.
 
-### Example
+#### Example
 
 [codesh=yaml line-numbers="true"]
 header.display_name:
@@ -2237,7 +2251,7 @@ header.submission_date:
   filter: date
 [/codesh]
 
-### Specific Attributes
+#### Specific Attributes
 
 [div class="table table-keycol"]
 | Attribute | Description |
@@ -2248,7 +2262,7 @@ header.submission_date:
 | filter | Optional formatting filter: `'date'`, `'raw'`, or default plain text |
 [/div]
 
-### Common Attributes Allowed
+#### Common Attributes Allowed
 
 [div class="table"]
 | Common Attributes Allowed |
@@ -2268,7 +2282,7 @@ header.submission_date:
 The **week** field type allows users to select a week number within a specific year.  
 It is rendered as an HTML `<input type="week">`, enabling browsers that support it to display a week picker.
 
-### Example
+#### Example
 
 [codesh=yaml line-numbers="true"]
 header.billing_week:
@@ -2290,7 +2304,7 @@ Human-readable output (showing the first day of the week):
 
 > Example: If `billing_week` is `2025-W48`, the output will be `Week starts on: November 24, 2025`.
 
-### Specific Attributes
+#### Specific Attributes
 
 [div class="table table-keycol"]
 | Attribute | Description |
@@ -2300,7 +2314,7 @@ Human-readable output (showing the first day of the week):
 | placeholder | Optional text shown when the field is empty |
 [/div]
 
-### Common Attributes Allowed
+#### Common Attributes Allowed
 
 [div class="table"]
 | Common Attributes Allowed |

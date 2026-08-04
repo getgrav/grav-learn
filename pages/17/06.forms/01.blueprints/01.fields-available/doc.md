@@ -11,9 +11,12 @@ taxonomy:
 
 Admin-side forms can be created with a variety of fields. This document provides a complete reference of the properties of each field, and provides usage examples.
 
-In addition to the fields listed below, reserved for usage in the Admin, you can also use all the fields available in the frontend forms described in [the Frontend Forms Fields Reference](/17/forms/forms/fields-available).
+In addition to the fields listed below, you can also use all the fields available in the frontend forms described in [the Frontend Forms Fields Reference](/17/forms/forms/fields-available).
 
-### Special Form Fields Available Exclusively in the Admin
+### Special Form Fields Available in the Admin
+
+> [!NOTE]
+> Most of the fields in this table are Admin-only, but a few of them are also provided by the Form plugin for frontend forms: **Array**, **Columns**, **Column**, **Datetime**, **Fieldset**, **File**, **Range** and **Section**. The Admin ships its own version of these, so the attributes documented here apply to Admin forms. For their frontend behaviour, see [the Frontend Forms Fields Reference](/17/forms/forms/fields-available).
 
 [div class="table table-keycol"]
 | Field                                             | Description                                                                                                                                                                                                 |
