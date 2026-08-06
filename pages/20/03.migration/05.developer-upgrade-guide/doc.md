@@ -48,9 +48,26 @@ For plugin authors this is the single biggest change:
 
 - **Custom admin pages** rendered through admin-classic's Twig templates no longer have a runtime. You'll need to port them to Admin 2.0's component system. See [Plugin Admin Next Integration](/20/plugins/plugin-api-integration) for the patterns.
 - **Admin sidebar items, menubar buttons, floating widgets, custom field types, custom reports** are all registered through `onApi*` events in Admin 2.0. The old `onAdmin*` events are gone.
-- **Blueprints carry over.** All your existing form fields and blueprints work as-is in Admin 2.0; only the admin UI shell has changed.
+- **Blueprints carry over.** All your existing form fields and blueprints work as-is in Admin 2.0; only the admin UI shell has changed. The one exception is custom `data-*@` providers, which now need a one-line registration (see below).
 
 If your plugin has no custom admin UI (just blueprints), nothing changes for you on this front. Your config pages will render correctly in Admin 2.0.
+
+### Custom `data-*@` Providers Must Be Registered
+
+Since Grav 2.0.11, `Class::method` callables referenced by `data-*@` blueprint directives (`data-options@`, `data-default@`, `data-fields@`, etc.) are checked against an allowlist of approved data providers. Grav core's own providers are pre-approved, but a provider you ship in your plugin or theme is not. Admin 2.0 resolves these callables through the API, and an unregistered one is refused with `Callable '...' is not an approved data provider.`, leaving the field's options empty.
+
+Register each provider once at startup with `Blueprint::addAllowedDynamicCallable()`:
+
+```php
+use Grav\Common\Data\Blueprint;
+
+public function onPluginsInitialized(): void
+{
+    Blueprint::addAllowedDynamicCallable('Grav\Plugin\MyPlugin\Utils::myOptions');
+}
+```
+
+Themes can do the same from an `onThemeInitialized` handler. See [Advanced Blueprint Features](/20/forms/blueprints/advanced-features#registering-custom-data-providers-grav-2-0) for the full details.
 
 ### Removed Cache Drivers
 
@@ -418,6 +435,7 @@ Before declaring 2.0 compatibility:
 - [ ] No `psr/log` conflicts (`bin/gpm preflight` is clean)
 - [ ] Composer dependencies install cleanly with PHP 8.3+
 - [ ] Blueprints render correctly in Admin 2.0
+- [ ] Any custom `data-*@` provider callables are registered via `Blueprint::addAllowedDynamicCallable()` (select fields using them show options in Admin 2.0)
 - [ ] If the plugin previously had admin-classic UI: equivalent functionality is registered through `onApi*` events for Admin 2.0
 - [ ] No event subscriptions are gated on `isAdmin()` inside `onPluginsInitialized()` (page templates/blueprints registered this way go missing in Admin 2.0); subscribe statically instead
 - [ ] Any custom page templates the plugin provides appear in the Add Page dropdown in Admin 2.0

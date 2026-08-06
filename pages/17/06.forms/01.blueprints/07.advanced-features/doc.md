@@ -235,6 +235,40 @@ Additionally you can pass parameters to the function call just by using array wh
   data-default@: ['\Grav\Theme\ImaginaryClass::getMyDefault', 'default', false]
 [/codesh]
 
+### Registering Custom Data Providers (Grav 2.0)
+
+> [!IMPORTANT]
+> Since Grav 2.0.11, `Class::method` callables used in `data-*@` directives are validated against an allowlist of approved data providers. Grav core's own providers (such as `\Grav\Common\Page\Pages::pageTypes` and `\Grav\Common\Utils::timezones`) are pre-approved, but a custom provider in your own plugin or theme must be registered before Grav will call it. This matters most in Admin 2.0, which resolves dynamic options through the [Resolve Data API endpoint](/20/api/endpoints/blueprints): an unregistered callable is refused with the error `Callable '...' is not an approved data provider.`
+
+To register your provider, call `Blueprint::addAllowedDynamicCallable()` once during startup. In a theme, `onThemeInitialized` is the natural place:
+
+[codesh=php line-numbers="true"]
+<?php
+namespace Grav\Theme;
+
+use Grav\Common\Data\Blueprint;
+use Grav\Common\Theme;
+
+class MyTheme extends Theme
+{
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            'onThemeInitialized' => ['onThemeInitialized', 0],
+        ];
+    }
+
+    public function onThemeInitialized(): void
+    {
+        Blueprint::addAllowedDynamicCallable('Grav\Theme\MyTheme\Utils::getIcons');
+    }
+}
+[/codesh]
+
+In a plugin, do the same from your `onPluginsInitialized` handler. Once registered, the callable works everywhere a `data-*@` directive can reference it: in blueprints resolved server-side, and through the Admin 2.0 select fields that fetch their options over the API.
+
+The allowlist only applies to callables named from untrusted sources, such as a form defined in page frontmatter or a callable passed to the API as a query parameter. Blueprint files that ship with a plugin or theme are trusted for server-side rendering on the frontend, but registering your provider is still required for the Admin to resolve it, so you should always register custom providers.
+
 ## Changing field ordering
 
 When you extend a blueprint or import a file, by default the new fields are added to the end of the list. Sometimes this is not what you want to do, you may want to add item as the first or after some existing field.
