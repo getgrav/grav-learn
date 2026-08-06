@@ -269,6 +269,9 @@ In a plugin, do the same from your `onPluginsInitialized` handler. Once register
 
 The allowlist only applies to callables named from untrusted sources, such as a form defined in page frontmatter or a callable passed to the API as a query parameter. Blueprint files that ship with a plugin or theme are trusted for server-side rendering on the frontend, but registering your provider is still required for the Admin to resolve it, so you should always register custom providers.
 
+> [!NOTE]
+> The provider class must also be autoloadable when the callable is resolved, or the API responds with `Callable '...' not found.` Admin 2.0 resolves blueprint data through the site's frontend `/api` pipeline, where `isAdmin()` is always `false`, so class loading or registration wrapped in an admin-only condition never runs there. Give your theme or plugin proper PSR-4 autoloading (a `composer.json` with an `autoload` section plus an `autoload()` method in the main class that returns `require __DIR__ . '/vendor/autoload.php';`), and never gate blueprint-related setup on `isAdmin()`.
+
 ## Changing field ordering
 
 When you extend a blueprint or import a file, by default the new fields are added to the end of the list. Sometimes this is not what you want to do, you may want to add item as the first or after some existing field.
