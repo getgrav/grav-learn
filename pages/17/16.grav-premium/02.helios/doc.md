@@ -540,6 +540,8 @@ Complete API documentation.
 ```
 [/raw]
 
+`columns` accepts `1` through `4` and defaults to `2`. The value is a maximum, not a fixed count: grids are always a single column on phones and two columns on tablets, and only expand to three or four columns on viewports 1024px and wider. A three-column grid that looks like a two-column grid is usually just a narrow browser window.
+
 ### Buttons
 
 Styled buttons for calls-to-action, navigation links, and interactive triggers:
@@ -711,6 +713,8 @@ Styled images with optional border, shadow, caption, and lightbox zoom:
 [doc-image src="diagram.png" alt="Architecture" lightbox=false width="400px"]
 ```
 [/raw]
+
+`src` is resolved the same way as a regular Markdown image. A bare filename like `screenshot.png` has to be a file sitting in that page's own folder; you can also use a path from the site root (`/user/images/screenshot.png`), a stream (`theme://images/screenshot.png`), or a full external URL. Note that `screenshot.png` and `diagram.png` above are placeholder names, so pasting the example unchanged gives you a broken image until you point `src` at a file that actually exists.
 
 Options include:
 
