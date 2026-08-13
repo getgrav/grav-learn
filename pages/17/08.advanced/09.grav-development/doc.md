@@ -134,7 +134,7 @@ The GetGrav.org site uses a custom ChangeLog format that is written in standard 
 
 [codesh=markdown line-numbers="true"]
 # X.Y.Z
-## 01/01/2015
+## 2015-01-01
 
 1. [](#new)
     * New features added
@@ -152,10 +152,13 @@ The GetGrav.org site uses a custom ChangeLog format that is written in standard 
 Each section `#new, #improved, #bugfix` are optional, just include the sections you need.
 
 > [!TIP]
-> Versions can be either `vX.Y.Z` or `X.Y.Z`, just ensure they are consistent between releases.  Make sure you have the version with `#` the date (ensure US format) `##` and then a newline. Also make sure you indent your bullet items the same amount.
+> Versions can be either `vX.Y.Z` or `X.Y.Z`, just ensure they are consistent between releases.  Make sure you have the version with `#` and the date with `##`, each on its own line, and an empty line between those headers and the lists below them. Also make sure you indent your bullet items the same amount.
+
+> [!NOTE]
+> **Use the ISO `YYYY-MM-DD` date format.** It is the only format that cannot be misread. The **American** `MM/DD/YYYY` and **European** `DD-MM-YYYY` formats are also accepted, and most existing changelogs use them, but be aware that the **separator alone** decides how a date is read, no matter which order you intended: a slash (`/`) means American month-first, and a dash (`-`) or dot (`.`) means European day-first. See [date formats](/17/content/headers#date) for the same rule as it applies to page headers.
 
 > [!WARNING]
-> Dates can use either the **American** `m/d/y` [date format](/17/content/headers#date), or the **European** `d-m-y` format. Also make sure there is an empty newline between the headers (version and date) and lists (new, improved, bugfix).
+> Because the separator decides, a day-first date written with slashes is read month-first. Most of the time that is caught, since a value above 12 cannot be a month, so `13/08/2026` is still understood as 13 August. But when both numbers are 12 or lower nothing looks wrong: `11/08/2026` is read as 8 November rather than 11 August, and no warning is raised. Writing dates as `YYYY-MM-DD` avoids the whole problem.
 
 ## GitHub Setup
 
