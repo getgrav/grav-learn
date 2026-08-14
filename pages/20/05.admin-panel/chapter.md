@@ -174,6 +174,44 @@ The **Logs** viewer lists `grav.log`, `email.log`, `scheduler.log`, and any log 
 
 The **Reports** page is plugin-extensible. Built-in reports cover security configuration and YAML lint, and one of them is the [Twig in Content](/20/content/twig-in-content) report that lists pages whose content would leak raw Twig. Plugins can contribute their own diagnostic cards.
 
+## Translations
+
+The **Translations** section, in the sidebar between Themes and Tools, lets you reword any string your site displays, in any language, without editing a plugin or theme's own files. Changes are stored as overrides in `user/languages/<lang>.yaml`, so a plugin or theme update can never wipe them.
+
+The starting point is the source tree on the left: Grav core, then every installed plugin and theme, each expandable into the namespaces it contributes. That is the answer to "I just installed this theme and want to reword five things", where you have no search term yet and simply need to see what is changeable.
+
+Once you do know what you are after, search matches both the key and the current wording. You almost never know that the word "Search" in your sidebar lives at `THEME_TYPHOON.SIDEBAR.SIMPLE_SEARCH.HEADLINE`, so typing `Search` finds it just as well as typing the key.
+
+Open as many languages as you like from the **Languages** picker and each one becomes a line inside every row, with the source language first and the rest below it. Each value is editable in place and shows where it came from, which is the part that makes this a diagnostic tool rather than a text box:
+
+| State | Meaning |
+| ----- | ------- |
+| **Shipped** | The value comes from the plugin's or theme's own language file. Untouched by your site. |
+| **Overridden** | You changed it here. The original wording is kept, and one click reverts to it. |
+| **Missing** | There is no value in this language, so visitors are really seeing the fallback language. |
+
+Filter to *Missing* in a language and you have a translation to-do list. Filter to *Overridden* and you have a review of everything your site has customized. The *Unknown* filter catches the opposite problem: overrides naming a key that nothing on the site provides, usually a typo or a leftover from a plugin you have since removed.
+
+> [!NOTE]
+> An override that matches what the plugin or theme already ships is not stored. Keeping it would silently stop tracking the source's future wording changes, so it is treated as a revert instead.
+
+**Edit as YAML** swaps the grid for a text view of the same filter, for pasting or reviewing many strings at once. If you have a source selected, the save is scoped to that namespace and leaves the rest of the file alone.
+
+With the **AI Translate** plugin installed and configured, the translate button on any value fills in that one string, the same button on the source value fills in every open language for that row, and **Translate missing** does the whole visible page. Suggestions are staged for review and nothing is written until you accept it. Placeholders such as `%1$s` and `{count}` are shielded from the translation engine and verified afterwards, and a suggestion that lost or mangled one is refused rather than saved. ICU plural and select messages are always left for a person, because the number of plural categories a language needs is not something a translation engine can derive.
+
+### Moving from the Translation Strings plugin
+
+The [Translation Strings](https://github.com/trilbymedia/grav-plugin-translation-strings) plugin did this job on Grav 1.7, keeping each language's overrides as a YAML snippet inside its own plugin config. Grav 2.0 has the feature built in, so that plugin is now a 1.7-only plugin.
+
+If a site still has overrides stored in it, the Translations screen says so and offers to import them. Before you commit, it breaks the import down per language: how many strings are new, how many disagree with something already in `user/languages`, how many are already there, how many match what the plugin or theme ships anyway, and how many name keys nothing on the site provides. `bin/plugin api i18n:migrate --dry-run` prints the same report from the command line.
+
+Where both stores name the same key with different wording, the plugin's value wins, because that is what your site is currently rendering. Overrides you wrote by hand and the plugin knows nothing about are left untouched.
+
+> [!IMPORTANT]
+> Import first, then disable the plugin, and never the other way round. Translation Strings merges its strings *after* the built-in editor does, so while it is enabled it overrides anything you change here. Disabling it before importing would drop every override off the site in between. The screen enforces that order, and only offers the **Disable the plugin** button once there is nothing left to import.
+
+Nothing is deleted: the plugin's own config keeps its snippets, so switching back is a matter of re-enabling it.
+
 ## A Unified Plugin Experience
 
 Admin Next is built so that complex plugins feel like part of the admin rather than a separate interface bolted on. The same plumbing that powers the core admin (the API, the blueprint system, the web-component contract, and the sidebar, menubar, widget, panel, and report registries) is the plumbing every plugin uses. When a plugin ships its own admin section it appears as a first-class sidebar entry, opens with the same chrome as Pages or Users, renders forms with the same field components, and respects the same permissions, dark mode, accent color, and language.
