@@ -32,6 +32,13 @@ You are not required to provide `action:`, `template:`, or even `id:`.  The plug
 > [!NOTE]
 > The Javacript code used for the XHR request is located in `form/layouts/xhr.html.twig`. If you require, you can copy this to your theme's `templates` folder (maintaining the path structure) and modify as needed.
 
+> [!WARNING]
+> **If your theme boosts forms with HTMX, disable it for the form.** When `hx-boost="true"` is set on the `<body>` or any ancestor, HTMX intercepts the submission and issues its own request, then swaps the response into the page. That competes with the plugin's XHR: the form is sent twice and the page visibly re-renders, which looks exactly like `xhr_submit` not working at all.
+>
+> It shows up most reliably when the form has a captcha field, because captcha handlers call `form.requestSubmit()` once they have solved their token, and HTMX treats that as a boosted form submission.
+>
+> Add `hx-boost="false"` to the form, or to any element wrapping it. HTMX inherits the attribute, so a single wrapper covers the form and everything inside it. To confirm which library is submitting, patch `XMLHttpRequest.prototype.open` and log `new Error().stack` — the plugin's own request comes from `xhr-submitter.js` and returns just the form partial, while a boosted one comes from `htmx.org` and returns a full page.
+
 ## Manual Approach (required for Form plugin < `v7.3.0`)
 
 ### Creating the form
