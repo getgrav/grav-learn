@@ -283,3 +283,22 @@ It is also recommended to enable those in production. These additions to the con
                 open_file_cache_errors off;
         }
 [/codesh]
+
+## Content-hashed bundles
+
+Themes and plugins built with a modern bundler ship their JavaScript and CSS under a directory such as `_app/immutable/`, where the filename contains a hash of the file's contents. A new build produces new filenames, so these files never change once written and can be cached permanently:
+
+[codesh=nginx line-numbers="true"]
+        location ~* /_app/immutable/.*\.(js|css|woff2?)$ {
+                try_files $uri =404;
+                access_log off;
+                add_header Cache-Control "public, max-age=31536000, immutable" always;
+        }
+[/codesh]
+
+The `try_files $uri =404` is the important part. A build replaces the whole hashed set at once and deletes the old files, so a browser still running the previous page will ask for filenames that no longer exist. Answering those with anything other than a 404 breaks the page in a way that is hard to diagnose: the browser is loading them as JavaScript modules, so an HTML response arrives as a parse error rather than a missing-file error, and the page renders blank with no useful message.
+
+That cannot happen with the shipped Grav configuration, whose fallback is `index.php` and which correctly returns a 404 for a path Grav does not recognise. It is a real risk on any single-page application served from a static `index.html` fallback, where a catch-all `try_files $uri /index.html` will happily return the page shell, with a 200 status, in place of the missing script.
+
+> [!NOTE]
+> Place caching rules **below** the security rules in the server block. Nginx uses the first matching regular-expression location, so a caching rule placed above them would answer for paths those rules are meant to refuse. For the same reason, write them as regular expressions rather than `^~` prefix matches: a `^~` match takes precedence over every regular-expression location regardless of order.
