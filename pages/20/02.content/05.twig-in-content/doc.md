@@ -121,29 +121,24 @@ The sandbox fails gently rather than throwing a fatal error:
 
 So if a page shows raw `{{ something() }}` after you've enabled the gate, the sandbox blocked `something()`. The report names the exact member it did not recognize and how to allow it.
 
-## The content XSS scan
+## The content XSS check
 
-The blueprint XSS validator inspects the **raw** content you save, so a payload assembled at render time (for example `{{ "on" ~ "error" }}`, which only becomes `onerror` once Twig runs) slips past it. To close that gap Grav re-scans the **resolved content** for XSS after its own Twig has run, and blanks the content if it finds any. A blanked render is logged to `logs/security.log` as `[TwigContentXss]` and shown in the report above.
+The blueprint XSS validator inspects the **raw** content you save, so a payload assembled at render time (for example `{{ "on" ~ "error" }}`, which only becomes `onerror` once Twig runs) slips past it. Grav closes that gap **when the page is saved**: it renders the editor's own Twig in isolation through the same sandboxed pass described above, runs the XSS detector over the result, and rejects the save if the rendered markup is dangerous. The rejection is written to `logs/security.log`.
 
-The scan runs on the editor's content **before** the theme or modular template wraps it, so trusted template markup, such as a form's reCAPTCHA script or a provider embed, is never scanned and cannot be blanked by mistake.
+Because the check runs at save time and only ever sees the editor's own output, no shortcode, plugin or theme markup is ever inspected, and viewing a page costs nothing extra. Accounts covered by `security.xss_whitelist` (super administrators by default) are exempt, matching the raw-source validator.
 
-It is controlled by a single setting, on by default:
+The patterns it matches are the ones under `security.xss_enabled` and `security.xss_dangerous_tags` in `system/config/security.yaml` — the same list `bin/grav security` uses.
 
-```yaml
-security:
-  content:
-    xss_scan_output: true
-```
-
-!! This is a **content** setting, not a Twig-in-content one, so it also applies to modular pages (whose bodies are always Twig-processed). In earlier 2.0 releases it lived at `security.twig_content.xss_scan_output`; that location still works and is moved to `security.content.xss_scan_output` automatically the next time Grav upgrades.
+> [!NOTE]
+> There is no setting for this check, and no separate scan of the finished page at render time. Grav 2.0.1 through 2.0.10 had one, gated by `security.twig_content.xss_scan_output` and later `security.content.xss_scan_output`. Both keys were retired in **Grav 2.0.11**, along with `security.xss_allowed_iframe_hosts` and the `onXssTrustedMarkup` / `onXssAllowedIframeHosts` events that only fed it, and are stripped from `user/config/security.yaml` automatically on upgrade.
 
 ## The Twig in Content Report
 
 Every silent failure on this page (a gated page, a sandbox block, a page leaking raw Twig) is collected into one place in Admin: **Tools → Reports → Twig in Content**. It saves you from reading `logs/security.log` by hand. The report shows:
 
-* **The current state** at a glance: whether the gate, the sandbox, and the output XSS scan are on.
+* **The current state** at a glance: whether the gate and the sandbox are on.
 * **Pages leaking raw Twig.** Any page whose content contains `{{ ... }}` or `{% ... %}` that will not render (because the gate is off, or that page has Twig turned off) is listed with a plain-language reason and a link straight to the page editor.
-* **Recent blocks.** The most recent gate blocks, sandbox blocks, and XSS-blanked renders, each with the page route and the same hint that goes to the log. A sandbox block carries an **Add to allowlist** button that appends the blocked member to the correct list for you, with the full existing list preserved (see [Customizing the Sandbox](#customizing-the-sandbox)).
+* **Recent blocks.** The most recent gate blocks and sandbox blocks, each with the page route and the same hint that goes to the log. A sandbox block carries an **Add to allowlist** button that appends the blocked member to the correct list for you, with the full existing list preserved (see [Customizing the Sandbox](#customizing-the-sandbox)).
 * **Scan content.** A button that scans every page's content for tags, filters, and functions the sandbox does not currently allow, so you can see what your content needs *before* you turn the gate on rather than discovering it page by page.
 
 When you open a page in the editor, the same information appears as an inline banner at the top of that page if its content would leak raw Twig or recently hit a block, with a link to the full report.

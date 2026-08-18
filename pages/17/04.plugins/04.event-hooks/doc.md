@@ -258,51 +258,6 @@ public function onBuildTwigSandboxPolicy(Event $event)
 }
 [/codesh]
 
-#### onXssTrustedMarkup (2.0)
-
-Fired during the **rendered-output XSS scan** that Grav runs on editor-authored Twig in page content (the scan gated by `security.twig_content.xss_scan_output`, used when `security.twig_content.process_enabled` is on). The scan inspects the final HTML and, if it finds dangerous markup (an `<iframe>`, a `<script>`, an `<object>`, an `on*=` handler, …), it **blanks the whole page** to stop a render-time-assembled payload.
-
-That is a problem for a plugin that *legitimately* renders such markup — a video embed `<iframe>`, a JSON-LD `<script type="application/ld+json">`, a custom element, an `<object>`/`<embed>`. Use this event to remove **your own** trusted markup from `$event['html']` before the scan runs. Whatever a listener leaves behind is still scanned, so the protection stays in place for everything else.
-
-`$event['html']` is the scan target (start from this and return it modified); `$event['original']` is the full, untouched rendered output for reference.
-
-!! **Trust model.** This carve-out is extended to operator-installed plugin/theme code — the same trust level a theme already has with unsandboxed Twig. It does **not** relax the scan for editor-authored content: the scanner still runs on everything you do not explicitly excise, so you can only vouch for markup **your plugin produced**. Match tightly (your own marker class/attribute, or — for embeds — a host check) and never blanket-strip a tag, or you weaken the scan for content you did not render. A too-narrow carve-out simply fails safe: the markup is scanned and may blank the page, but no hole is opened.
-
-**Example — exempt a plugin's JSON-LD block**
-
-[codesh=php line-numbers="true"]
-public function onXssTrustedMarkup(Event $event)
-{
-    // Remove ONLY this plugin's own JSON-LD, matched tightly.
-    $html = preg_replace(
-        '#<script type="application/ld\+json" data-myplugin>.*?</script>#is',
-        ' ',
-        $event['html']
-    );
-    $event['html'] = $html;
-}
-[/codesh]
-
-**Provider iframes — the declarative shortcut**
-
-For the common case of a provider embed `<iframe>` (YouTube, Vimeo, a map), you do not need to write the matching yourself. Register your trusted hosts and Grav excises matching iframes for you (only when every `src`/`data-src` is a trusted host and there are no inline event handlers; a host also covers its subdomains):
-
-[codesh=php line-numbers="true"]
-// Add hosts to the built-in iframe allow-list
-// (also settable via security.xss_allowed_iframe_hosts).
-public function onXssAllowedIframeHosts(Event $event)
-{
-    $hosts = $event['hosts'];
-    $hosts[] = 'youtube.com';
-    $hosts[] = 'youtube-nocookie.com';
-    $event['hosts'] = $hosts;
-}
-[/codesh]
-
-You can also reuse that same safe host-checking for your own provider inside an `onXssTrustedMarkup` listener via the public helper `\Grav\Common\Security::exciseTrustedIframes($html, ['vimeo.com'])`.
-
-One more thing worth knowing: this scan sees markup **after** Markdown has run, and Grav's GFM `tagfilter` will escape a raw `<iframe>`/`<script>` injected into content **during** Markdown. If you inject provider markup, do it in [onPageContentProcessed](../event-hooks#onPageContentProcessed) (after Markdown) rather than `onPageContentRaw`, so it stays live for this carve-out to recognize.
-
 ## Collection Event Hooks
 
 <a name="onCollectionProcessed"></a>
