@@ -48,6 +48,9 @@ Install Scheduler
 
 You can also get the needed command from the admin plugin by simply navigating to **Tools** → **Scheduler**.
 
+> [!WARNING]
+> **Environment overrides:** when `bin/grav scheduler` runs from cron with nothing pinning the environment, Grav resolves the environment to `cli`, not to your site's hostname. Anything defined only in an environment override such as `user/env/www.example.com/config/scheduler.yaml` (custom jobs, but also per-environment plugin or backup settings) is therefore never loaded by that run, while the Admin, which runs as the hostname, lists those jobs as ready. If your site uses `user/env/<host>/`, add `--env=<host>` to the scheduler line in your crontab (from Grav 2.0.20 the command shown in the Admin and by `bin/grav scheduler --env=<host> -i` includes it), or export `GRAV_ENVIRONMENT=<host>` in the crontab, which additionally loads any `.env.<host>` file. A job defined in the base `user/config/scheduler.yaml` runs in every environment.
+
 ## Scheduling Basics
 
 In order to schedule a job the frequency is controlled by a flexible format.

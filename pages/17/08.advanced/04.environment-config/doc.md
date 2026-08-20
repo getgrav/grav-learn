@@ -49,7 +49,7 @@ If your production server was reachable via `http://www.mysite.com` then you cou
 Of course, you are not limited to changes to `system.yaml`, you can actually provide overrides for **any** Grav setting in the `site.yaml` or even in any [plugin configuration](../../plugins/plugin-basics)!
 
 > [!CAUTION]
-> If you are using the Grav [Scheduler](/17/advanced/scheduler), be aware of it using the `localhost` environment and therefore its configuration.
+> If you are using the Grav [Scheduler](/17/advanced/scheduler), be aware that the CLI runs under the `cli` environment unless you pass `--env=<host>` or set `GRAV_ENVIRONMENT`, so per-environment overrides are not loaded by cron by default.
 
 #### Plugin Overrides
 
