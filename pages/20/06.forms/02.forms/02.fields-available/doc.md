@@ -877,8 +877,9 @@ header.email:
 | :-----    | :-----                                            |
 | `minlength` | minimum text length |
 | `maxlength`  | maximum text length  |
-| `validate.min` | same as minlength |
-| `validate.max`  | same as maxlength  |
+| `validate.min` | same as `minlength`, either spelling works |
+| `validate.max`  | same as `maxlength`, either spelling works  |
+| `validate.trim` | strips leading and trailing whitespace from the value before the length is measured |
 [/div]
 
 [div class="table"]
@@ -1905,8 +1906,9 @@ header.phone:
 | :-----    | :-----                                            |
 | `minlength` | minimum text length |
 | `maxlength`  | maximum text length  |
-| `validate.min` | same as minlength |
-| `validate.max`  | same as maxlength  |
+| `validate.min` | same as `minlength`, either spelling works |
+| `validate.max`  | same as `maxlength`, either spelling works  |
+| `validate.trim` | strips leading and trailing whitespace from the value before the length is measured |
 [/div]
 
 [div class="table"]
@@ -1957,8 +1959,9 @@ header.title:
 | `append`  | append some text or HTML to the end of a field  |
 | `minlength` | minimum text length |
 | `maxlength`  | maximum text length  |
-| `validate.min` | same as minlength |
-| `validate.max`  | same as maxlength  |
+| `validate.min` | same as `minlength`, either spelling works |
+| `validate.max`  | same as `maxlength`, either spelling works  |
+| `validate.trim` | strips leading and trailing whitespace from the value before the length is measured |
 [/div]
 
 [div class="table"]
@@ -2008,8 +2011,9 @@ header.content:
 | `cols`    | Add a cols attribute with the value associated with this property |
 | `minlength` | minimum text length |
 | `maxlength`  | maximum text length  |
-| `validate.min` | same as minlength |
-| `validate.max`  | same as maxlength  |
+| `validate.min` | same as `minlength`, either spelling works |
+| `validate.max`  | same as `maxlength`, either spelling works  |
+| `validate.trim` | strips leading and trailing whitespace from the value before the length is measured |
 [/div]
 
 [div class="table"]
@@ -2200,8 +2204,9 @@ header.url:
 | :-----    | :-----                                            |
 | `minlength` | minimum text length |
 | `maxlength`  | maximum text length  |
-| `validate.min` | same as minlength |
-| `validate.max`  | same as maxlength  |
+| `validate.min` | same as `minlength`, either spelling works |
+| `validate.max`  | same as `maxlength`, either spelling works  |
+| `validate.trim` | strips leading and trailing whitespace from the value before the length is measured |
 [/div]
 
 [div class="table"]

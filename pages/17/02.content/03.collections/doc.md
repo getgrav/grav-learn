@@ -396,7 +396,7 @@ Ordering of sub-pages follows the same rules as ordering of folders, the availab
 | `header.x`   | The order is based on any page header field. i.e. `header.taxonomy.year`. Also a default can be added via a pipe. i.e. `header.taxonomy.year|2015`    |
 | `random`     | The order is randomized                                                                                                                            |
 | `custom`     | The order is based on the `content.order.custom` variable                                                                                                                             |
-| `manual`     | The order is based on the `order_manual` variable. **DEPRECATED**                                                                                                    |
+| `manual`     | The order is based on the `order_manual` variable set in the frontmatter of the **parent** page                                                                       |
 | `sort_flags` | Allow to override sorting flags for page header-based or default ordering. If the `intl` PHP extension is loaded, only [these flags](https://secure.php.net/manual/en/collator.asort.php) are available. Otherwise, you can use the PHP [standard sorting flags](https://secure.php.net/manual/en/array.constants.php). |
 [/div]
 
@@ -418,6 +418,9 @@ content:
 In the above configuration, you can see that `content.order.custom` is defining a **custom manual ordering** to ensure the page is constructed with the **showcase** first, **highlights** section second etc. Please note that if a page is not specified in the custom ordering list, then Grav falls back on the `content.order.by` for the unspecified pages.
 
 If a page has a custom slug, you must use that slug in the `content.order.custom` list.
+
+> [!NOTE]
+> `order_manual` and `content.order.custom` do different jobs and are not interchangeable. `order_manual` is set in the **parent** page's frontmatter, lists the child slugs in the order you want them, and reorders `page.children` — so it reorders your menus and anything else built from the page tree. `content.order.custom` only reorders the collection returned by `page.collection()`; it has no effect on `page.children` and will not change your navigation. Use `order_manual` when you need the tree itself reordered, and `content.order.custom` when you only need one collection ordered. Note that `order_manual` cannot reorder the top-level menu, because the pages root has no parent page whose frontmatter Grav could read it from.
 
 The `content.pagination` is a simple boolean flag to be used by plugins etc to know if **pagination** should be initialized for this collection. `content.limit` is the number of items displayed per-page when pagination is enabled.
 
