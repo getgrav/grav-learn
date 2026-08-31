@@ -40,6 +40,7 @@ The following configuration is an improved version of the default `/etc/nginx/ng
 **nginx.conf**:
 
 [codesh=nginx line-numbers="true"]
+```nginx
 user www-data;
 worker_processes auto;
 worker_rlimit_nofile 8192; # should be bigger than worker_connections
@@ -124,20 +125,24 @@ http {
     # include virtual host configs
     include sites-enabled/*;
 }
+```
 [/codesh]
-
 ### Grav Site Configuration
 
 Grav gets shipped with a configuration file for your site in the `webserver-configs` directory of your Grav installation. You can copy that file into your nginx config directory:
 
 [codesh=bash]
+```bash
 cp /var/www/grav/webserver-configs/nginx.conf /etc/nginx/sites-available/grav-site
+```
 [/codesh]
 
 Open that file with an editor and replace the default `server_name localhost;` with your domain/IP (or leave it as "localhost" if you want to just run it locally), replace the `root /home/USER/www/html;` line with `root /var/www/grav/;` and then create a symbolic link of your site-config in `sites-enabled`:
 
 [codesh=bash]
+```bash
 ln -s /etc/nginx/sites-available/grav-site /etc/nginx/sites-enabled/grav-site
+```
 [/codesh]
 
 <!--
@@ -148,7 +153,9 @@ ln -s /etc/nginx/sites-available/grav-site /etc/nginx/sites-enabled/grav-site
 Finally let Nginx reload its configuration:
 
 [codesh=bash]
+```bash
 nginx -s reload
+```
 [/codesh]
 
 ### Fix against httpoxy vulnerability
@@ -159,7 +166,9 @@ nginx -s reload
 In order to secure your site against this vulnerability you should block the `Proxy` header. This can be done by adding a FastCGI parameter to your config. Simply open the file `/etc/nginx/fastcgi.conf` and add this line at the end:
 
 [codesh=nginx]
+```nginx
 fastcgi_param  HTTP_PROXY         "";
+```
 [/codesh]
 
 ### Using SSL (with an existing certificate)
@@ -171,6 +180,7 @@ First, create a file `/etc/nginx/ssl.conf` with the following content and adjust
 **ssl.conf**:
 
 [codesh=nginx line-numbers="true"]
+```nginx
 # set the paths to your cert and key files here
 ssl_certificate /etc/ssl/certs/example.com.crt;
 ssl_certificate_key /etc/ssl/private/example.com.key;
@@ -197,6 +207,7 @@ ssl_stapling_verify on;
 ssl_trusted_certificate /etc/ssl/certs/example.com.chain+root.crt;
 resolver 198.51.100.1 198.51.100.2 203.0.113.66 203.0.113.67 valid=60s;
 resolver_timeout 2s;
+```
 [/codesh]
 
 Now change the content of your Grav-specific config `/etc/nginx/sites-available/grav-site` to redirect unencrypted HTTP requests to HTTPS, that means to a `server` block listening on port 443 and including your `ssl.conf` (replace "example.com" with your domain/IP). You can also change this to redirect from the non-www to the www version of your domain.
@@ -204,6 +215,7 @@ Now change the content of your Grav-specific config `/etc/nginx/sites-available/
 **grav-site**:
 
 [codesh=nginx line-numbers="true"]
+```nginx
 # redirect http to non-www https
 server {
     listen [::]:80;
@@ -241,6 +253,7 @@ server {
     # ...
     # the rest of this server block (location directives) is identical to the one from the shipped config
 }
+```
 [/codesh]
 
 Finally reload your Nginx configuration:
@@ -257,6 +270,7 @@ It is also recommended to enable those in production. These additions to the con
 
 
 [codesh=nginx line-numbers="true"]
+```nginx
         location ~* ^/forms-basic-captcha-image.jpg$ {
                 try_files $uri $uri/ /index.php$is_args$args;
         }
@@ -282,6 +296,7 @@ It is also recommended to enable those in production. These additions to the con
                 open_file_cache_min_uses 2;
                 open_file_cache_errors off;
         }
+```
 [/codesh]
 
 ## Content-hashed bundles
