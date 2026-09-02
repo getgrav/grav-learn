@@ -815,9 +815,12 @@ Setting the `GRAV_CONFIG` variable to a truthy value lets you override any confi
 ```
 GRAV_CONFIG=true                            # Turn the override feature on
 
-GRAV_CONFIG__system__cache__enabled=true    # Sets system.cache.enabled
+GRAV_CONFIG__system__cache__enabled=false   # Sets system.cache.enabled
 GRAV_CONFIG__plugins__github__auth__token=xxxxxxxx
 ```
+
+> [!NOTE]
+> **TIP:** Environment variables are always text, so Grav converts the words `true` and `false` (in any capitalization) into real yes/no values. Everything else, including numbers, is passed through as text. Before Grav 2.0.23 no conversion happened at all, and an override such as `=false` arrived as the non-empty string `"false"`, which reads as *on* rather than *off*.
 
 To keep long variable names readable, you can define aliases with the `GRAV_CONFIG_ALIAS__` prefix:
 
