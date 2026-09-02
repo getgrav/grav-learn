@@ -391,6 +391,7 @@ debugger:
   enabled: false
   provider: clockwork
   censored: false
+  token: ''
   shutdown:
     close_connection: true
 [/codesh]
@@ -403,6 +404,7 @@ The **Debugger** section gives you the ability to activate Grav's debugger. A us
 | **enabled:** | Enable Grav debugger and following settings. Can be set to `true` or `false` |
 | **provider:** | Debugger provider: Can be set to `debugbar` or `clockwork` (**Grav 1.7+**) |
 | **censored:** | Censor potentially sensitive information (POST parameters, cookies, files, configuration and most array/object data in log messages). Can be set to `true` or `false` (**Grav 1.7+**) |
+| **token:** | Shared secret a remote client must send to read `/__clockwork/` profiler data. Empty means the data can only be read from the server itself. See [Debugging](/20/advanced/debugging#reading-profiler-data-from-a-remote-site) (**Grav 2.0.22+**) |
 | **shutdown:** | |
 | ... **close_connection:** | Close the connection before calling `onShutdown()`. `false` for debugging |
 [/div]

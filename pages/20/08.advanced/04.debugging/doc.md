@@ -95,6 +95,42 @@ This is the fastest way to see what the admin is doing and to read any values yo
 
 For a deeper view, install the [Clockwork browser extension](https://underground.works/clockwork/). Because Admin2 talks to the API over XHR/fetch and every API response carries the `X-Clockwork-Id` header, the extension picks up **each individual API call** automatically. You get Clockwork's full timeline, log, database, and performance panels per request, exactly as you would for a normal page load.
 
+#### Reading profiler data from a remote site
+
+Clockwork reads its data from a `/__clockwork/` endpoint on your site. That endpoint answers very early in Grav's bootstrap, before sessions, accounts, and plugins exist, so there is no logged-in user for it to authorize against. Since **Grav 2.0.22** it therefore answers only two kinds of request:
+
+* requests coming **from the machine Grav itself runs on**, and
+* requests presenting a **shared secret** you set in `system.debugger.token`.
+
+On a local development site nothing changes: you browse `localhost` and Grav sees a loopback request, so Clockwork keeps working with no configuration.
+
+On a **remote** site, a staging server or a VM you reach over the network, your browser is not the machine Grav runs on. Clockwork will show:
+
+> Authentication failed. Debugger metadata requires authentication.
+
+with a password box. That box is Clockwork's own prompt, and it is asking for the token. Set one in `system.yaml`:
+
+[codesh=yaml line-numbers="true"]
+debugger:
+  enabled: true
+  provider: clockwork
+  token: 'a-long-random-secret'     # Shared secret for reading /__clockwork/ data remotely
+[/codesh]
+
+Then type that same value into Clockwork's password box. The extension performs a handshake against `/__clockwork/auth` and remembers the result, so you are only asked once per browser.
+
+> [!NOTE]
+> **TIP:** Leaving `token` empty is the secure default, not a broken state. It means the profiler data can only be read from the server itself, which is what you want on any site you have not deliberately opened up. Only set a token when you actually need to profile over the network, and treat it like a password: profiler records include request parameters, configuration, and log output.
+
+If you would rather not set a token at all, you can still read the data from the server itself, for example over SSH:
+
+[codesh=bash]
+curl -s http://localhost/__clockwork/latest
+[/codesh]
+
+> [!NOTE]
+> **NOTE:** Session cookies and the `Authorization` / `X-API-Token` headers are always stripped from stored profiler records, whatever the `censored` option is set to, because a recorded session cookie is a replayable login.
+
 ### Debugging the API & hooks
 
 Plugin code that runs on the API path, such as an [`onApi*` event handler](/20/api) or a controller extending `AbstractApiController`, **must not** call `dump()`. The API returns JSON, and `dump()` writes into that body, producing a broken response.
