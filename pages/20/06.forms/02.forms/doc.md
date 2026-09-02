@@ -74,7 +74,7 @@ Regular **markdown** content goes here...
 [/codesh]
 
 > [!NOTE]
-> This is the content of the `form.md` file, when viewed via file-system. To do this via Admin Plugin, open the page in **Expert Mode**, copy the part between the triple dashes `---`, and paste it in the Frontmatter field.
+> This is the content of the `form.md` file as it looks on disk. To do the same from the admin, open the page and use the **Page File** editor under its Advanced tab, which edits the frontmatter and content together.
 
 This is enough to show a form in the page, below the page's content. It is a simple form with a name, email field, two buttons: one to submit the form and one to reset the fields. For more information on the available fields that are provided by the Form plugin, [check out the next section](fields-available).
 

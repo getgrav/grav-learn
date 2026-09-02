@@ -95,7 +95,7 @@ This list provides a common ground so there's no need to repeat the description 
 
 ### Know more about fields
 
-You can read how the fields are built from the source: [Fields added by the Form Plugin](https://github.com/getgrav/grav-plugin-form/tree/master/templates/forms) and [Fields only available in Admin](https://github.com/getgrav/grav-plugin-admin/tree/master/themes/grav/templates/forms).
+You can read how the fields are built from the source: [Fields added by the Form Plugin](https://github.com/getgrav/grav-plugin-form/tree/master/templates/forms) and [the field components Admin Next renders](https://github.com/getgrav/grav-admin-next/tree/main/src/lib/components/blueprint/fields).
 
 ### Validation
 
@@ -949,7 +949,7 @@ gallery:
 
 #### Using the Value in Twig
 
-Each source needs a slightly different treatment. Page media goes through the page's own [Media](/17/content/media) object so you get Grav's image handling; a `media://` path is a stream that `url()` resolves; an external URL is used as it stands.
+Each source needs a slightly different treatment. Page media goes through the page's own [Media](/20/content/media) object so you get Grav's image handling; a `media://` path is a stream that `url()` resolves; an external URL is used as it stands.
 
 [codesh=twig line-numbers="true"]
 {% set hero = page.header.hero %}

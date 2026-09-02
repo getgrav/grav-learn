@@ -68,17 +68,24 @@ To get **Grav** running on an IIS server, you need to install **URL Rewrite**. T
 
 Most hosting providers and even local LAMP setups have PHP pre-configured with everything you need for Grav to run 'out-of-the-box'. However, some Windows setups, and even Linux distributions local or on VPS (I'm looking at you Debian!) - ship with a very minimal PHP compile. Therefore, you may need to install or enable these PHP modules:
 
-* `curl` (client for URL handling used by GPM)
-* `ctype` (used by symfony/yaml/Inline)
-* `dom` (used by grav/admin newsfeed)
+* `curl` (client for URL handling, used by GPM)
+* `ctype` (character class checks, used by validation and symfony/yaml)
+* `dom` (used to parse and sanitize HTML)
 * `gd` (a graphics library used to manipulate images)
 * `json` (used by Symfony/Composer/GPM)
+* `libxml` (underlying XML parser for `dom` and `simplexml`)
 * `mbstring` (multibyte string support)
-* `openssl` (secure sockets library used by GPM)
-* `session` (used by toolbox)
-* `simplexml` (used by grav/admin newsfeed)
-* `xml` (XML support)
-* `zip` extension support (used by GPM)
+* `openssl` (secure sockets library, used by GPM)
+* `session` (used for logins and flash messages)
+* `simplexml` (used to parse and sanitize SVG media)
+* `zip` (used by Composer and GPM to unpack packages)
+
+Optional, but recommended:
+
+* `fileinfo` (accurate MIME-type detection for uploads and media)
+* `intl` (locale-aware formatting on multi-language sites)
+* `exif` (reads orientation and camera data from images)
+* `pdo_sqlite` (enables the faster page index store on large sites)
 
 For enabling `openssl` and (un)zip support you will need to find in the `php.ini` file of your Linux distribution for lines like:
 

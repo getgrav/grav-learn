@@ -734,7 +734,7 @@ $count_var = Grav::instance()['config']->get('data.count');
 ```
 
 > [!WARNING]
-> You can also provide a custom blueprint to enable your custom file to be editable in the admin plugin. Check out the relevant [recipe in the Admin Cookbook section](/20/admin-panel/admin-recipes#add-a-custom-yaml-file).
+> You can also provide a custom blueprint to make your custom file editable in the admin. Check out the relevant [recipe in the Admin Cookbook section](/20/cookbook/admin-recipes#add-a-custom-yaml-file).
 
 ### Config Variable Namespacing
 

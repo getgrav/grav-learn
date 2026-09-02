@@ -1,6 +1,15 @@
 enabled: true
 fallback:
   20: [17]
+# Routes under /20 that must NOT fall back to the 1.7 tree. A fallback page is
+# fine when it is merely out of date; these are the ones where a 1.7 page gives
+# a 2.0 reader an actively wrong instruction, usually "bin/gpm install admin"
+# or a walkthrough of the classic admin's Plugins > Add screen, neither of
+# which exists on 2.0 (getgrav/grav#4273). Remove an entry once a real 2.0
+# page is written for it.
 suppress:
   20:
     - /admin-panel
+    - /webservers-hosting
+    - /grav-premium
+    - /advanced/grav-development

@@ -13,7 +13,7 @@ We also have **GPM** integrated into our [Administration Panel](/20/admin-panel)
 
 There are multiple ways to find out which version of Grav and plugins the site is using:
 
-* **Admin Panel**: Version of Grav is listed in a footer of any page. Plugin and theme versions can be found from their own sections.
+* **Admin Panel**: The Grav version is shown at the bottom of the sidebar. Plugin and theme versions are listed in their own sections.
 * **CLI**: Run command `bin/gpm version grav`. To get list of theme and plugin versions, you can list them by their names.
 * **Filesystem**: Easiest way to see the version is to look for `CHANGELOG.md` file in the root of the Grav installation. Same is true for plugins and themes, they can usually be found in `user/plugins` and `user/themes` folders.
 

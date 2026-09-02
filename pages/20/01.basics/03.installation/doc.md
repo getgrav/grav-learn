@@ -9,21 +9,23 @@ Installation of Grav is a trivial process. In fact, there is no real installatio
 
 ## Check for PHP version
 
-Grav is incredibly easy to set up and get running. Be sure you have at least PHP version 7.3.6+ by going to the terminal and typing `php -v`:
+Grav is incredibly easy to set up and get running. Grav 2.0 requires **PHP 8.3.11 or higher**. Check what you have by going to the terminal and typing `php -v`:
 
 [codesh=bash]
 php -v
-PHP 7.3.18 (cli) (built: Jun  5 2020 11:06:30) ( NTS )
-Copyright (c) 1997-2018 The PHP Group
-Zend Engine v3.3.18, Copyright (c) 1998-2018 Zend Technologies
-    with Zend OPcache v7.3.18, Copyright (c) 1999-2018, by Zend Technologies
+PHP 8.3.11 (cli) (built: Aug 29 2024 00:00:00) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.3.11, Copyright (c) Zend Technologies
+    with Zend OPcache v8.3.11, Copyright (c), by Zend Technologies
 [/codesh]
+
+Grav also needs a handful of PHP extensions, and `zip` in particular is used by both Composer and GPM. See the [requirements](/20/basics/requirements) page for the full list before you go any further.
 
 ## Option 1: Install from ZIP package
 
 The easiest way to install Grav is to download the ZIP package and extract it:
 
-1. Download the latest-and-greatest **[Grav](https://getgrav.org/download/core/grav/latest)** or **[Grav + Admin](https://getgrav.org/download/core/grav-admin/latest)** package.
+1. Download the latest-and-greatest **[Grav](https://getgrav.org/download/core/grav/latest)** or **[Grav + Admin](https://getgrav.org/download/core/grav-admin/latest)** package. **Grav + Admin** is core with the [API](/20/api) and [Admin Next](/20/admin-panel) plugins already bundled, so it gives you a working admin panel with nothing else to install.
 2. Extract the ZIP file in the [webroot](https://www.wordnik.com/words/webroot) of your web server, e.g. `~/webroot/grav`
 
 > [!NOTE]
@@ -31,30 +33,33 @@ The easiest way to install Grav is to download the ZIP package and extract it:
 
 You can also download any pre-packaged installation of a [tagged release](https://github.com/getgrav/grav/tags) from getgrav.org. Use the format `https://getgrav.org/download/TYPE/PACKAGE/VERSION`.
 
-- [getgrav.org/download/core/grav/1.7.0](https://getgrav.org/download/core/grav/1.7.0) downloads Grav Core v1.7.0
-- [getgrav.org/download/core/grav/1.7.0-rc.10?testing=true](https://getgrav.org/download/core/grav/1.7.0-rc.10?testing=true) downloads Grav Core v1.7.0-rc.10, a testing release
-- [getgrav.org/download/core/grav-admin/1.7.0](https://getgrav.org/download/core/grav-admin/1.7.0) downloads Grav Core with the Admin plugin, at Core v1.7.0
-- [getgrav.org/download/core/grav-admin/1.7.0-rc.10?testing=true](https://getgrav.org/download/core/grav-admin/1.7.0-rc.10?testing=true) downloads Grav Core v1.7.0-rc.10 with the Admin plugin, a testing release
-- [getgrav.org/download/core/grav-update/1.7.0](https://getgrav.org/download/core/grav-update/1.7.0) downloads the update package for Grav Core
-- [getgrav.org/download/plugins/flex-objects-json/0.1.0](https://getgrav.org/download/plugins/flex-objects-json/0.1.0) downloads the Flex Objects JSON plugin at v0.1.0
-- [getgrav.org/download/themes/quark/2.0.3](https://getgrav.org/download/themes/quark/2.0.3) downloads the Quark theme at v2.0.3
+- [getgrav.org/download/core/grav/2.0.22](https://getgrav.org/download/core/grav/2.0.22) downloads Grav Core v2.0.22
+- [getgrav.org/download/core/grav-admin/2.0.22](https://getgrav.org/download/core/grav-admin/2.0.22) downloads Grav Core v2.0.22 with the API and Admin Next plugins bundled
+- [getgrav.org/download/core/grav-update/2.0.22](https://getgrav.org/download/core/grav-update/2.0.22) downloads the update package for Grav Core
+- [getgrav.org/download/plugins/admin2/latest](https://getgrav.org/download/plugins/admin2/latest) downloads the latest Admin Next plugin
+- [getgrav.org/download/themes/quark/latest](https://getgrav.org/download/themes/quark/latest) downloads the latest Quark theme
 
 > [!TIP]
 > If you downloaded the ZIP file and then plan to move it to your webroot, please move the **ENTIRE FOLDER** because it contains several hidden files (such as .htaccess) that will not be selected by default. The omission of these hidden files can cause problems when running Grav.
 
 ## Option 2: Install with composer
 
-The alternative method is to install Grav with [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
+The alternative method is to install Grav with [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx). Always pin the major version, so Composer fails loudly if your PHP environment cannot satisfy Grav 2.0:
 
 [codesh=bash]
-composer create-project getgrav/grav ~/webroot/grav
+composer create-project getgrav/grav ~/webroot/grav "^2.0"
 [/codesh]
 
-If you want to check out the bleeding edge version of Grav, add `1.x-dev` as an additional parameter:
+> [!WARNING]
+> If you leave the `"^2.0"` off and your PHP is missing an extension Grav needs, most commonly `zip`, Composer does not stop. It prints one easy-to-miss line saying it cannot use the latest version, then walks backwards until it finds a release your environment does satisfy, which can be a Grav from many years ago. The failure you eventually see will be an unrelated-looking complaint about an old dependency needing PHP 5.5. Pinning the constraint turns that into a hard error naming the extension. Install it (`sudo apt install php8.3-zip`, `brew install php`, or uncomment `extension=zip.so` in your `php.ini`) and run the command again.
+
+If you want to check out the bleeding edge version of Grav, add `2.x-dev` as an additional parameter:
 
 [codesh=bash]
-composer create-project getgrav/grav ~/webroot/grav 1.x-dev
+composer create-project getgrav/grav ~/webroot/grav 2.x-dev
 [/codesh]
+
+Composer installs Grav core only. See [Install the Admin Panel](#install-the-admin-panel) below to add the admin UI.
 
 ## Option 3: Install from GitHub
 
@@ -83,6 +88,28 @@ Another method is to clone Grav from the GitHub repository, and then run a simpl
 
    This will automatically **clone** the required dependencies from GitHub directly into this Grav installation.
 
+## Install the Admin Panel
+
+If you installed the **Grav + Admin** ZIP package, the admin panel is already there and you can skip this section.
+
+Otherwise, install [Admin Next](/20/admin-panel) with a single GPM command from the root of your Grav install:
+
+[codesh=bash]
+cd ~/webroot/grav
+bin/gpm install admin2
+[/codesh]
+
+Admin Next depends on the [API plugin](/20/api), which in turn depends on Login, Form, Email, and Shortcode Core. GPM resolves that whole chain for you and prompts once to install the dependencies, so `bin/gpm install admin2` is all you need to type.
+
+> [!WARNING]
+> Do **not** run `bin/gpm install admin`. That is the classic Grav 1.x admin plugin and it does not work on Grav 2.0. The Grav 2.0 admin is the `admin2` package.
+
+Once it finishes, open your site in a browser and go to `/admin`. Admin Next serves at the same `/admin` route the classic admin used, and on a site with no user accounts yet it walks you through creating the first administrator.
+
+[codesh=bash]
+https://yoursite.local/admin
+[/codesh]
+
 ## Further options
 
 ### Install with Docker
@@ -107,7 +134,7 @@ If you use Linode servers, there is an [easy, documented method using Linode Mar
 
 #### Apache/IIS/Nginx
 
-Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is PHP 7.3.6 or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](/20/basics/requirements) chapter of this guide.
+Using Grav with a web server such as Apache, IIS, or Nginx is as simple as extracting Grav into a folder under the [webroot](https://www.wordnik.com/words/webroot). All it requires to function is PHP 8.3.11 or higher, so you should make sure that your server instance meets that requirement. More information about Grav requirements can be found in the [requirements](/20/basics/requirements) chapter of this guide.
 
 If your web root is, for example, `~/public_html` then you could extract it into this folder and reach it via `http://localhost`. If you extracted it into `~/public_html/grav` you would reach it via `http://localhost/grav`.
 
