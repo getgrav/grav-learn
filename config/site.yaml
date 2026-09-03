@@ -12,6 +12,8 @@ summary:
 
 redirects:
   '/15/(.*)': '/17/$1'
+  '/(\d+)/premium(/.*)?$': '/$1/grav-premium$2'
+  '/premium(/.*)?$': '/grav-premium$1'
   '/16/(.*)': '/17/$1'
   '/(\d+)/hosting/rochen': '/hosting/shared/rochen'
   '/(\d+)/hosting/wirenine': '/hosting/shared/wirenine'

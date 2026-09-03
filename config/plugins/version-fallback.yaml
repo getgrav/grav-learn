@@ -11,5 +11,4 @@ suppress:
   20:
     - /admin-panel
     - /webservers-hosting
-    - /grav-premium
     - /advanced/grav-development

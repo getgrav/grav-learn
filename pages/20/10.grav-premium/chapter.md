@@ -8,7 +8,7 @@ description: Installation, configuration and usage documentation for Grav Premiu
 
 **Grav Premium** is a growing collection of commercial plugins and themes built and supported by the Grav team. Every premium sale funds continued development of Grav itself, and every product is covered by the [Grav Premium License](https://getgrav.org/premium/license).
 
-This chapter documents the premium products that target **Grav 2.0**. Products that are still Grav 1.7 only are documented in the [1.7 Grav Premium chapter](/17/grav-premium).
+This chapter documents the premium products that target **Grav 2.0**. Products whose documentation has not been rewritten for 2.0 yet are shown here from the [1.7 Grav Premium chapter](/17/grav-premium), so a few pages still describe the classic admin.
 
 > [!IMPORTANT]
 > Premium products require the free **License Manager** plugin. Install it and add your product license before installing the product itself.
