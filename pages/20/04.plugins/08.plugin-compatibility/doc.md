@@ -114,6 +114,38 @@ Before declaring 2.0 compatibility, verify:
 
 A plugin can depend on `>=1.7.0` (it needs at least 1.7 to run) while declaring compatibility with both `1.7` and `2.0` (it has been tested on both). The dependency check ensures the right APIs are available; the compatibility check ensures the plugin has actually been verified to work.
 
+### Requiring Different Versions Per Grav Generation
+
+A plugin that supports both 1.7 and 2.0 often needs a *different* version of the same dependency on each. A dependency entry can therefore carry an optional `grav:` key naming the generation (or generations) it applies to, spelled the same way as `compatibility.grav`:
+
+[codesh=yaml line-numbers="true"]
+dependencies:
+  - { name: grav, version: '>=2.0.25' }
+  - { name: form, version: '>=7.0.0', grav: '1.7' }
+  - { name: form, version: '>=9.1.0', grav: '2.0' }
+  - { name: api,  version: '>=1.0.24', grav: '2.0' }
+  - { name: login, version: '>=3.9.0' }
+
+compatibility:
+  grav: ['1.7', '2.0']
+[/codesh]
+
+On a Grav 2 site that resolves to `form >=9.1.0`, `api >=1.0.24` and `login >=3.9.0`. On a Grav 1.7 site it resolves to `form >=7.0.0` and `login >=3.9.0`, and the `api` requirement is skipped entirely.
+
+The rules are:
+
+* An entry with **no** `grav:` key applies to every generation, so every blueprint written before this feature behaves exactly as it always did.
+* `grav:` takes a single generation (`'2.0'`) or a list (`['1.7', '2.0']`).
+* An entry naming a generation you are not running is skipped.
+* A dependency needed on only one generation is expressed by simply not listing it for the other.
+* Where a package has both a qualified entry for the current generation and an unqualified one, **the qualified entry wins outright.** It is not merged, because merging keeps the higher of two versions and would discard a deliberately lower requirement.
+
+> [!NOTE]
+> **IMPORTANT:** List your `grav` dependency **first**, and set it to a core version new enough to understand this syntax. A Grav older than that reads only `name` and `version` and ignores `grav:` entirely, so it would treat every entry as unconditional and merge them to the highest version — a 1.7 site would try to satisfy your 2.0 requirements. With the `grav` dependency listed first, such a site stops with a clear "please update Grav" message instead.
+
+If your plugin has no `grav` dependency at all today, add one before using qualified entries; there is otherwise nothing to stop an older install misreading them.
+
+
 ## For Site Administrators
 
 ### During the Migration to 2.0
