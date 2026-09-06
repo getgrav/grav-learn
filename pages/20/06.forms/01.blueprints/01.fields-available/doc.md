@@ -1071,6 +1071,81 @@ If you set `multiple` to true, you need to add `validate.type: array`. Otherwise
 | [size](#common-fields-attributes)              |
 [/div]
 
+### Parents
+
+![Parents Field](parents_field.png)
+
+The `Parents` field provides a page picker for selecting the parent page of a page. It displays the site's page hierarchy and allows a page to be selected as the parent.
+
+The value stored by the field is the selected page's route.
+
+```yaml
+parent:
+  type: parents
+  label: Parent
+```
+
+In **Admin Next (Admin2)**, the `Parents` field uses the same page picker as the [`Pages`](#pages-field) field, but with different default behavior. The following properties are supported:
+
+```yaml
+parent:
+  type: parents
+  show_root: true
+  show_slug: true
+  show_modular: false
+```
+
+#### `show_root`
+
+Controls whether the root of the site (`/`) can be selected as the parent.
+
+In Admin Next, `show_root` defaults to `true` for the `Parents` field. Set it to `false` to prevent the root from being selected.
+
+```yaml
+parent:
+  type: parents
+  show_root: false
+```
+
+#### `show_slug`
+
+Controls whether the page slug is displayed alongside the page title in the picker.
+
+In Admin Next, `show_slug` defaults to `true`.
+
+```yaml
+parent:
+  type: parents
+  show_slug: false
+```
+
+This only affects how pages are displayed in the picker; it does not change the value stored by the field.
+
+#### `show_modular`
+
+Controls whether modular pages can be selected as parents.
+
+In Admin Next, `show_modular` defaults to `false`.
+
+```yaml
+parent:
+  type: parents
+  show_modular: true
+```
+
+Set it to `true` when modular pages should be included in the page picker.
+
+> **Admin compatibility:** `show_root`, `show_slug`, and `show_modular` are supported by Admin Next (Admin2). They are not supported by the current Classic Admin implementation.
+
+The `classes` property is supported by both Classic Admin and Admin Next and can be used to add CSS classes to the field:
+
+```yaml
+parent:
+  type: parents
+  classes: fancy
+```
+
+> **Note:** Older Grav examples may show properties such as `show_all`, `show_fullpath`, `start_route`, or `limit_levels`. These properties are not supported by the current `Parents` field implementations and should not be used.
 
 ### Section Field
 
