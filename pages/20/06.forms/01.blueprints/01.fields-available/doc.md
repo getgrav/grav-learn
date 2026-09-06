@@ -737,6 +737,94 @@ This is a simple text field which does not appear on the front end. Bots, which 
 
 A honeypot field is a popular alternative to captcha fields.
 
+### IconPicker Field
+
+![IconPicker Field](iconpicker_field.png)
+
+The `iconpicker` field type provides a visual picker for selecting a Font Awesome icon. The selected icon is stored as a string containing its Font Awesome class name.
+
+The field is available in both the classic Admin and Admin Next. Admin Next provides additional Font Awesome icon families and a searchable picker, while classic Admin uses the Font Awesome icon set bundled with the Admin plugin.
+
+Example:
+[codesh=yaml line-numbers="true"]
+icon:
+type: iconpicker
+label: Choose an icon
+[/codesh]
+
+The selected icon can then be used in a template, for example:
+
+[codesh=twig line-numbers="true"]
+{% if page.header.icon %} <i class="{{ page.header.icon }}"></i>
+{% endif %}
+[/codesh]
+
+In Admin Next, the picker provides separate **Solid**, **Regular**, and **Brands** icon families. Icons can be searched by name or by their associated search terms, and up to 200 matching icons are displayed at a time.
+
+For example, selecting a Solid `home` icon stores:
+
+[codesh=text]
+fa-home
+[/codesh]
+
+A Regular or Brands icon includes its family in the stored value:
+
+[codesh=text]
+fa-regular fa-address-book
+fa-brands fa-github
+[/codesh]
+
+This allows the selected value to be used directly as a Font Awesome class in the site's theme.
+
+#### Format
+
+The classic Admin supports the `format` attribute:
+
+[codesh=yaml line-numbers="true"]
+icon:
+type: iconpicker
+format: short
+[/codesh]
+
+`short` stores the short icon class format. Any other value, or an omitted `format` attribute, uses the long format.
+
+> [!NOTE]
+> The `format` attribute is a classic Admin option. Admin Next uses its own Font Awesome value format and does not use this attribute when rendering the picker.
+
+[div class="table table-keycol"]
+
+| Attribute | Description                                                                                                                     |
+| :-------- | :------------------------------------------------------------------------------------------------------------------------------ |
+| `format`  | Controls the icon value format in classic Admin. Set to `short` to use the short format; when omitted, the long format is used. |
+| [/div]    |                                                                                                                                 |
+
+The icon picker is based on Font Awesome. Classic Admin loads its icon definitions from the Font Awesome data bundled with the Admin plugin, while Admin Next maintains its own icon catalogue and supports Solid, Regular and Brands families.
+
+[div class="table table-keycol"]
+
+| Common Attributes Allowed                      |
+| :--------------------------------------------- |
+| [autocomplete](#common-fields-attributes)      |
+| [autofocus](#common-fields-attributes)         |
+| [classes](#common-fields-attributes)           |
+| [default](#common-fields-attributes)           |
+| [disabled](#common-fields-attributes)          |
+| [help](#common-fields-attributes)              |
+| [id](#common-fields-attributes)                |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [novalidate](#common-fields-attributes)        |
+| [placeholder](#common-fields-attributes)       |
+| [readonly](#common-fields-attributes)          |
+| [size](#common-fields-attributes)              |
+| [style](#common-fields-attributes)             |
+| [toggleable](#common-fields-attributes)        |
+| [validate.required](#common-fields-attributes) |
+| [validate.pattern](#common-fields-attributes)  |
+| [validate.message](#common-fields-attributes)  |
+| [validate.type](#common-fields-attributes)     |
+| [/div]                                         |
+
 
 ### List Field
 
