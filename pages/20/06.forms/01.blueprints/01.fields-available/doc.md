@@ -1071,41 +1071,41 @@ If you set `multiple` to true, you need to add `validate.type: array`. Otherwise
 | [size](#common-fields-attributes)              |
 [/div]
 
-### Parents
+### Parents Field
 
 ![Parents Field](parents_field.png)
 
-The `Parents` field provides a page picker for selecting the parent page of a page. It displays the site's page hierarchy and allows a page to be selected as the parent.
+The `parents` field type provides a page picker for selecting the parent page of a page. It displays the site's page hierarchy and allows a page to be selected as the parent.
 
-The value stored by the field is the selected page's route.
+The value stored by the field is the selected page's structural route, which is not always the same as its public URL. On a site where the home page is aliased, the home page's public route is `/` while the value stored here is its real route, so the parent still resolves correctly.
 
-```yaml
+[codesh=yaml line-numbers="true"]
 parent:
-  type: parents
-  label: Parent
-```
+    type: parents
+    label: Parent
+[/codesh]
 
-In **Admin Next (Admin2)**, the `Parents` field uses the same page picker as the [`Pages`](#pages-field) field, but with different default behavior. The following properties are supported:
+In Admin Next (Admin2), the `parents` field uses the same page picker as the [Pages](#pages-field) field, but with different default behaviour. The following properties are supported:
 
-```yaml
+[codesh=yaml line-numbers="true"]
 parent:
-  type: parents
-  show_root: true
-  show_slug: true
-  show_modular: false
-```
+    type: parents
+    show_root: true
+    show_slug: true
+    show_modular: false
+[/codesh]
 
 #### `show_root`
 
 Controls whether the root of the site (`/`) can be selected as the parent.
 
-In Admin Next, `show_root` defaults to `true` for the `Parents` field. Set it to `false` to prevent the root from being selected.
+In Admin Next, `show_root` defaults to `true` for the `parents` field. Set it to `false` to prevent the root from being selected.
 
-```yaml
+[codesh=yaml line-numbers="true"]
 parent:
-  type: parents
-  show_root: false
-```
+    type: parents
+    show_root: false
+[/codesh]
 
 #### `show_slug`
 
@@ -1113,11 +1113,11 @@ Controls whether the page slug is displayed alongside the page title in the pick
 
 In Admin Next, `show_slug` defaults to `true`.
 
-```yaml
+[codesh=yaml line-numbers="true"]
 parent:
-  type: parents
-  show_slug: false
-```
+    type: parents
+    show_slug: false
+[/codesh]
 
 This only affects how pages are displayed in the picker; it does not change the value stored by the field.
 
@@ -1127,25 +1127,41 @@ Controls whether modular pages can be selected as parents.
 
 In Admin Next, `show_modular` defaults to `false`.
 
-```yaml
+[codesh=yaml line-numbers="true"]
 parent:
-  type: parents
-  show_modular: true
-```
+    type: parents
+    show_modular: true
+[/codesh]
 
 Set it to `true` when modular pages should be included in the page picker.
 
-> **Admin compatibility:** `show_root`, `show_slug`, and `show_modular` are supported by Admin Next (Admin2). They are not supported by the current Classic Admin implementation.
+> [!NOTE]
+> `show_root`, `show_slug`, and `show_modular` are supported by Admin Next (Admin2). They are not supported by the current classic Admin implementation.
 
-The `classes` property is supported by both Classic Admin and Admin Next and can be used to add CSS classes to the field:
+> [!NOTE]
+> Older Grav examples may show properties such as `show_all`, `show_fullpath`, `start_route`, or `limit_levels`. These properties are not supported by either current `parents` field implementation and should not be used.
 
-```yaml
-parent:
-  type: parents
-  classes: fancy
-```
+[div class="table table-keycol"]
+| Attribute      | Description |
+| :-----         | :-----      |
+| `show_root`    | Admin Next only. Whether the site root (`/`) can be selected as the parent. Defaults to `true` for this field type. |
+| `show_slug`    | Admin Next only. Whether the page slug is shown beside the title in the picker. Defaults to `true`. Display only; it does not change the stored value. |
+| `show_modular` | Admin Next only. Whether modular pages can be selected as parents. Defaults to `false`. |
+[/div]
 
-> **Note:** Older Grav examples may show properties such as `show_all`, `show_fullpath`, `start_route`, or `limit_levels`. These properties are not supported by the current `Parents` field implementations and should not be used.
+[div class="table table-keycol"]
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [default](#common-fields-attributes)           |
+| [help](#common-fields-attributes)              |
+| [label](#common-fields-attributes)             |
+| [name](#common-fields-attributes)              |
+| [size](#common-fields-attributes)              |
+| [style](#common-fields-attributes)             |
+| [toggleable](#common-fields-attributes)        |
+| [validate.required](#common-fields-attributes) |
+| [validate.type](#common-fields-attributes)     |
+[/div]
 
 ### Section Field
 
