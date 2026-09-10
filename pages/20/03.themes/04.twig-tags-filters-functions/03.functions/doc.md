@@ -315,7 +315,7 @@ You can decode JSON by simply applying this filter:
 
 ### markdown_body
 
-The [Markdown output](/20/content/markdown-output) body of a page: its `# Title`, its content converted from the rendered HTML, then each module of a modular page under its own `## Title`. Defaults to the current page. **Grav 2.1+**
+The [Markdown output](/20/content/markdown-output) body of a page: the main region of the page as the theme renders it, or with `source: content` the page content and each module under its own `## Title`. Defaults to the current page. **Grav 2.1+**
 
 [codesh-group]
 [codesh=twig title="Twig"]

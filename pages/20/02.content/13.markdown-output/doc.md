@@ -22,13 +22,23 @@ The feature exists for AI agents, coding assistants and any other client that wo
 
 ## What the Markdown contains
 
-The output is **the rendered page converted back to Markdown**, not the raw `.md` file on disk. Shortcodes, Twig in content, resolved image and link paths and, on a modular page, every module all come through the way a browser sees them, so an agent reads what a human reads. The source file would hand it unexpanded shortcodes, relative image paths that only resolve against the page folder, and page-relative links that go nowhere.
+The output is **the rendered page converted back to Markdown**, not the raw `.md` file on disk. Grav renders the page through the theme exactly as it would for a browser, keeps the main content region of the result, and converts that. So a blog listing, a shop, a product page or anything else whose content the template builds reads the way it displays, and nothing has to change in the theme or the plugin that renders it. Shortcodes, Twig in content, modules and resolved image and link paths all come through. The source file would hand an agent unexpanded shortcodes, relative image paths that only resolve against the page folder, and page-relative links that go nowhere.
 
 A document has three parts:
 
 1. **A YAML block** with the title, canonical URL, the page's own `.md` URL, language, date, description and taxonomy. The description is the page's `metadata.description` when it has one, else its summary.
-2. **The body**: a `# Title` heading, the page content, then each module of a modular page under its own `## Title`, in the order the page lists them.
+2. **The body**: the main content region of the rendered page. A `# Title` heading is added only when the theme did not print one.
 3. **A navigation section** linking the parent, the previous and next pages in the parent's listing, and the page's children, each by its `.md` URL. An agent can walk a whole site without ever leaving Markdown.
+
+### How the main region is found
+
+Grav takes the first of these that the rendered page has: `<main>`, an element with `role="main"`, then the ids `main`, `content`, `main-content`, `body-wrapper`, `body` and `start`, then a lone `<article>`. Failing all of those it takes `<body>` without its own header and footer. Inside the region, `<nav>`, `<aside>`, anything with a navigation, banner, search, dialog or complementary role, and anything hidden are dropped. Quark, Quark 2 and Kahuna all wrap content in `<main>`, and most themes do; a theme that does not can get a clean result by adding a `<main>` around its content column.
+
+Two things are tidied on the way. A card that is one link around an image, heading and text has no Markdown form, so its blocks are lifted out and the link is left after them holding the card's title. HTML5 sectioning elements the converter does not know (`header`, `section`, `figure` and the rest) are kept as blocks so their text does not run into the next line.
+
+### Converting only the page content
+
+Set `source: content` and Grav converts just `page.content()`, then each module of a modular page under its own `## Title`. The output is cleaner, and it can be cached per page, but it is blind to anything the template adds. A blog listing page, whose posts come from the template, has an empty body in this mode.
 
 ```markdown
 ---
@@ -81,6 +91,7 @@ The settings live under `pages.markdown_output` in `system.yaml`, and in the Adm
 pages:
   markdown_output:
     enabled: true          # Answer `<route>.md` URLs and `Accept: text/markdown` requests with Markdown
+    source: page           # `page`: the main region of the rendered page. `content`: the page content and modules only
     frontmatter: true      # Start with the YAML block
     links: true            # End with the navigation section
     max_links: 100         # Most child pages listed there (0 for no limit)
@@ -92,7 +103,9 @@ Turning `enabled` off removes `.md` from the page types Grav answers, the `Accep
 
 ## Caching
 
-The conversion is cached per page under the same rules as the page content itself: the site cache must be on, the page must not set `cache_enable: false`, and a page whose content Twig runs on every request (`never_cache_twig`, or content Twig on a non-modular page) is converted on every request too, so one visitor's render is never served to the next.
+A rendered page is request-aware: it can show a login state, a cart, a form nonce. Grav never caches it as HTML, and it does not cache its Markdown either. A `.md` request costs what the HTML request costs plus the conversion, which is a DOM parse of the page.
+
+With `source: content` the conversion is cached per page under the same rules as the page content itself: the site cache must be on, the page must not set `cache_enable: false`, and a page whose content Twig runs on every request (`never_cache_twig`, or content Twig on a non-modular page) is converted on every request too, so one visitor's render is never served to the next.
 
 ## Web server configuration
 
@@ -137,11 +150,11 @@ A theme provides its own `default.md.twig`, or a `<template>.md.twig` for one pa
 | :---------- | :------ |
 | `markdown_output(page)` | The whole document |
 | `markdown_frontmatter(page)` | The YAML block |
-| `markdown_body(page)` | Title, content and modules |
+| `markdown_body(page)` | The body, from the rendered page or the content depending on `source` |
 | `markdown_links(page)` | The navigation section |
 | `markdown_url(page)` | The page's absolute `.md` URL |
 | `html|html_to_markdown` | Any rendered HTML converted to Markdown |
 
 Every helper defaults to the current page when called without one. Unlike other formats, a `.md` request never falls back to the theme's HTML template when no Markdown template matches: a client that asked for Markdown must not be handed HTML, so core's `default.md.twig` is the fallback instead.
 
-Modules are left out of this override on purpose. They keep rendering through their normal HTML module template, and the parent's document converts that output, so a theme's `modular/hero.html.twig` decides what the agent reads without needing a Markdown twin.
+Modules never get a Markdown template of their own. They keep rendering through their normal HTML module template, and the parent's document converts that output, so a theme's `modular/hero.html.twig` decides what the agent reads without needing a Markdown twin.
