@@ -157,6 +157,13 @@ pages:
       - class
       - classes
   types: [html,htm,xml,txt,json,rss,atom]
+  markdown_output:
+    enabled: true
+    frontmatter: true
+    links: true
+    max_links: 100
+    absolute_urls: true
+    token_header: true
   append_url_extension: ''
   expires: 604800
   cache_control:
@@ -209,6 +216,13 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 | ... **special_chars:** | List of special characters to automatically convert to entities. Each character consumes a line below this variable. Example: `'>': 'gt'` |
 | ... **valid_link_attributes:** | Valid attributes to pass through via markdown links (**Grav 1.7+**) |
 | **types:** | List of valid page types. For example: `[txt,xml,html,htm,json,rss,atom]` |
+| **markdown_output:** | Serve any page as Markdown for AI agents, at `<route>.md` or on `Accept: text/markdown`. See [Markdown for AI Agents](/20/content/markdown-output) (**Grav 2.1+**) |
+| ... **enabled:** | Turn the feature on. Can be set `true` or `false` |
+| ... **frontmatter:** | Open each document with a YAML block of title, URL, date, description and taxonomy |
+| ... **links:** | Close each document with links to the parent, neighbouring and child pages |
+| ... **max_links:** | Most child pages listed in that section. `0` lists them all |
+| ... **absolute_urls:** | Turn root-relative links and images into absolute URLs |
+| ... **token_header:** | Send an `X-Markdown-Tokens` header with an estimated token count |
 | **append_url_extension:** | Append page's extension in Page URLs (e.g. `.html` results in **/path/page.html**) |
 | **expires:** | Page expires time in seconds (604800 seconds = 7 days) (`no cache` is also possible) |
 | **cache_control:** | Can be blank for no setting, or a [valid](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) `cache-control` text value |
