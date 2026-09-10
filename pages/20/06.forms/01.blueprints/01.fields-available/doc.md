@@ -42,7 +42,7 @@ In addition to the fields listed below, you can also use all the fields availabl
 | **Frontmatter**                                   |                                                                                                                                                                                                             |
 | **[IconPicker](#iconpicker-field)**               | pick a Font Awesome icon from a visual picker. The selected icon is stored as its class name                                                                                                                |
 | **[List](#list-field)**                           | used to create collections of fields                                                                                                                                                                        |
-| **Markdown**                                      |                                                                                                                                                                                                             |
+| **[Markdown](#markdown-field)**                   | shows the same rich-text editor as the page's Content field, with a formatting toolbar and preview                                                                                                         |
 | **[Media](#media-field)**                         | pick an image or file from the page's own media, the site media library, or an external URL. Grav 2.0 and Admin Next only                                                                                    |
 | **MediaPicker**                                   |                                                                                                                                                                                                             |
 | **Multilevel**                                    |                                                                                                                                                                                                             |
@@ -931,6 +931,61 @@ Accessing and displaying the data of a `list` field is done with a simple twig f
 | [size](#common-fields-attributes)              |
 [/div]
 
+### Markdown Field
+![Markdown Field](markdown_field.png)
+The `markdown` field type shows the same rich-text editor used by the page's **Content** box: a toolbar with formatting buttons (bold, italic, headers, lists, links, quotes, etc.), plus a preview toggle and image insertion from the page's media library.
+> [!NOTE]
+> This is the same field type used internally for the main **Content** field of every page (`system/blueprints/pages/default.yaml`). Adding a `markdown` field elsewhere in a blueprint gives you a secondary content area with identical toolbar and media-insertion behavior — it isn't limited to the main content box.
+
+Example:
+[codesh=yaml line-numbers="true"]
+header.summary:
+  type: markdown
+  label: Summary
+  help: A short markdown-formatted summary shown on listing pages
+[/codesh]
+
+Since the value is stored as raw Markdown text, apply the `|markdown` filter when outputting it in a theme's Twig template:
+[codesh=yaml line-numbers="true"]
+{{ page.header.summary|markdown }}
+[/codesh]
+
+> [!NOTE]
+> **Admin Classic** (`grav-plugin-admin`): `markdown` is a thin wrapper — `markdown.html.twig` simply extends `codemirror.html.twig`, which in turn extends `editor.html.twig` (the base [Editor Field](#editor-field)). `codemirror.html.twig` is what actually turns the plain editor into the full toolbar experience: it sets `ignore: []` (nothing hidden), whereas the base editor field hides the code/preview toggle by default. Any `codemirror:` option you pass is merged on top of these defaults (`mode: gfm`, `spellcheck: true`, `inputStyle: contenteditable`). The toolbar includes headings H1–H6.
+>
+> **Admin Next / Admin2** (Grav 2.0): `markdown` is a native field (`MarkdownField.svelte`), backed by a CodeMirror 6 editor (`MarkdownEditor.svelte`) built specifically for Admin2. Its toolbar covers: Undo/Redo, Heading 1–3, Bold/Italic/Strikethrough/Inline Code, Bullet List/Ordered List/Blockquote, Link/Image/Horizontal Rule, and a Preview toggle. Only a few buttons have keyboard shortcuts: Undo (`Mod+Z`), Redo (`Mod+Shift+Z`), Bold (`Mod+B`) and Italic (`Mod+I`) — the rest are click-only. Clicking Bold/Italic/Strikethrough/Inline Code on already-formatted text removes the formatting instead of nesting it again, and Bullet/Ordered List/Blockquote apply to every line the selection touches.
+>
+> Unlike Classic Admin's `showPreview` split view, the **Preview** button in Admin Next fully swaps the editor for a rendered read-only preview (not a side-by-side split); a second click swaps back. The **Image** button opens a picker with thumbnails from the page's media library plus a manual URL/alt-text option, rather than dropping a placeholder. The editor also accepts image files dropped or pasted directly into it, and items dragged out of the Page Media panel.
+>
+> Admin Next additionally supports **real-time collaborative editing** — multiple users editing the same field at once with live, named cursors — when the page editor has an active collaboration session for that page. This isn't something a blueprint enables per field; it's handled automatically by the page-editing context. It also exposes a plugin-contributed toolbar-button API (`getEditorButtons()`), the Admin Next equivalent of Classic Admin's `grav-plugin-editor-buttons`, letting plugins add buttons (icon + label) that either insert text directly or open a plugin-supplied modal.
+
+[div class="table table-keycol"]
+| Attribute | Description | Admin Classic | Admin Next |
+| :----- | :----- | :----- | :----- |
+| `codemirror` | A set of values to be set on the [CodeMirror editor](https://codemirror.net/doc/manual.html#config) (mode, theme, spellcheck, etc.) | ✅ | ❌ (Admin Next's CodeMirror 6 setup isn't blueprint-configurable) |
+| `resizer` | If not disabled (`off`/`false`/`0`), shows a drag handle to resize the editor box | ✅ | ❌ |
+| `rows` | Sets the initial editor height, as `rows * 24px` (defaults to `300px` if omitted) | ❌ | ✅ |
+| `showPreview` | Legacy attribute kept for backward compatibility; has no practical effect since the toolbar (and its preview toggle) is always shown for `markdown` fields | ✅ (no-op) | ❌ |
+[/div]
+
+[div class="table table-keycol"]
+| Common Attributes Allowed |
+| :----- |
+| [default](#common-fields-attributes)              |
+| [help](#common-fields-attributes)                 |
+| [label](#common-fields-attributes)                |
+| [name](#common-fields-attributes)                 |
+| [style](#common-fields-attributes)                |
+| [validate.required](#common-fields-attributes)    |
+| [validate.type](#common-fields-attributes)        |
+| [autofocus](#common-fields-attributes)            |
+| [classes](#common-fields-attributes)              |
+| [disabled](#common-fields-attributes)             |
+| [id](#common-fields-attributes)                   |
+| [novalidate](#common-fields-attributes)           |
+| [placeholder](#common-fields-attributes)          |
+| [readonly](#common-fields-attributes)             |
+[/div]
 
 ### Media Field
 
