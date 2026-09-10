@@ -159,7 +159,6 @@ pages:
   types: [html,htm,xml,txt,json,rss,atom]
   markdown_output:
     enabled: true
-    source: page
     frontmatter: true
     links: true
     max_links: 100
@@ -219,7 +218,6 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 | **types:** | List of valid page types. For example: `[txt,xml,html,htm,json,rss,atom]` |
 | **markdown_output:** | Serve any page as Markdown for AI agents, at `<route>.md` or on `Accept: text/markdown`. See [Markdown for AI Agents](/20/content/markdown-output) (**Grav 2.1+**) |
 | ... **enabled:** | Turn the feature on. Can be set `true` or `false` |
-| ... **source:** | `page` converts the main region of the page as the theme renders it; `content` converts only the page content and modules |
 | ... **frontmatter:** | Open each document with a YAML block of title, URL, date, description and taxonomy |
 | ... **links:** | Close each document with links to the parent, neighbouring and child pages |
 | ... **max_links:** | Most child pages listed in that section. `0` lists them all |

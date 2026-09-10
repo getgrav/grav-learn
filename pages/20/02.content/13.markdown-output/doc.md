@@ -36,10 +36,6 @@ Grav takes the first of these that the rendered page has: `<main>`, an element w
 
 Two things are tidied on the way. A card that is one link around an image, heading and text has no Markdown form, so its blocks are lifted out and the link is left after them holding the card's title. HTML5 sectioning elements the converter does not know (`header`, `section`, `figure` and the rest) are kept as blocks so their text does not run into the next line.
 
-### Converting only the page content
-
-Set `source: content` and Grav converts just `page.content()`, then each module of a modular page under its own `## Title`. The output is cleaner, and it can be cached per page, but it is blind to anything the template adds. A blog listing page, whose posts come from the template, has an empty body in this mode.
-
 ```markdown
 ---
 title: 'My Post'
@@ -91,7 +87,6 @@ The settings live under `pages.markdown_output` in `system.yaml`, and in the Adm
 pages:
   markdown_output:
     enabled: true          # Answer `<route>.md` URLs and `Accept: text/markdown` requests with Markdown
-    source: page           # `page`: the main region of the rendered page. `content`: the page content and modules only
     frontmatter: true      # Start with the YAML block
     links: true            # End with the navigation section
     max_links: 100         # Most child pages listed there (0 for no limit)
@@ -103,9 +98,7 @@ Turning `enabled` off removes `.md` from the page types Grav answers, the `Accep
 
 ## Caching
 
-A rendered page is request-aware: it can show a login state, a cart, a form nonce. Grav never caches it as HTML, and it does not cache its Markdown either. A `.md` request costs what the HTML request costs plus the conversion, which is a DOM parse of the page.
-
-With `source: content` the conversion is cached per page under the same rules as the page content itself: the site cache must be on, the page must not set `cache_enable: false`, and a page whose content Twig runs on every request (`never_cache_twig`, or content Twig on a non-modular page) is converted on every request too, so one visitor's render is never served to the next.
+A rendered page is request-aware: it can show a login state, a cart, a form nonce. Grav never caches it as HTML, and it does not cache its Markdown either. A `.md` request costs what the HTML request costs plus the conversion, which is a DOM parse of the page. The page content inside it is cached by Grav as usual.
 
 ## Web server configuration
 
@@ -150,7 +143,7 @@ A theme provides its own `default.md.twig`, or a `<template>.md.twig` for one pa
 | :---------- | :------ |
 | `markdown_output(page)` | The whole document |
 | `markdown_frontmatter(page)` | The YAML block |
-| `markdown_body(page)` | The body, from the rendered page or the content depending on `source` |
+| `markdown_body(page)` | The main content region of the rendered page, with a title added when the theme printed none |
 | `markdown_links(page)` | The navigation section |
 | `markdown_url(page)` | The page's absolute `.md` URL |
 | `html|html_to_markdown` | Any rendered HTML converted to Markdown |
