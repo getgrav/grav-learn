@@ -124,7 +124,7 @@ Before Admin2 executes your field script, it sets a small set of globals on `win
 | Global | Description |
 |--------|-------------|
 | `window.__GRAV_FIELD_TAG` | The Custom Element tag name assigned to this field, in the form `grav-{plugin}--{fieldType}`. Always `customElements.define()` with this value. |
-| `window.__GRAV_API_SERVER_URL` | Base URL of the Grav site (e.g. `https://mysite.com`). |
+| `window.__GRAV_API_SERVER_URL` | Base URL of the Grav site (e.g. `https://my-site.example`). |
 | `window.__GRAV_API_PREFIX` | API prefix (default `/api/v1`). |
 | `window.__GRAV_API_TOKEN` | JWT access token already obtained by Admin2, ready to send as `X-API-Token`. |
 | `window.__GRAV_DIALOGS` | Admin2's dialog helper: `confirm()` for yes/no, plus `form()` and `open()` for richer modals (see [Modals and Overlays](#modals-and-overlays)). Use it instead of native `confirm()`/`alert()`/`prompt()`. |

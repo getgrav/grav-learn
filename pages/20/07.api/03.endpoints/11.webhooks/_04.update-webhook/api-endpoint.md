@@ -26,7 +26,7 @@ api:
           required: false
           description: 'Enable/disable the webhook without deleting it.'
     request_example: '{"enabled": false}'
-    response_example: '{"data": {"id": "wh_abc123", "url": "https://example.com/hook", "events": ["page.updated"], "secret": "grav_a****************_xyz", "enabled": false}}'
+    response_example: '{"data": {"id": "wh_abc123", "url": "https://my-site.example/hook", "events": ["page.updated"], "secret": "grav_a****************_xyz", "enabled": false}}'
     response_codes:
         - code: '200'
           description: 'Webhook updated.'

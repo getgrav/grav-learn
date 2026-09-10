@@ -65,7 +65,7 @@ Then restart your Apache server.
 
 To help isolate `.htaccess` and **rewrite** issues, you can download this [htaccess_tester.php](https://gist.githubusercontent.com/rhukster/a727fb70d9341536d49980d1239bd97e/raw/a3078da16b894ba86f9d000bcfc4850e098199fc/htaccess_tester.php) file, and drop it in your Grav root directory.
 
-Then point your browser to `http://yoursite.com/htaccess_tester.php`.  You should get a successful message and a copy of the Grav `.htaccess` file displayed.
+Then point your browser to `http://my-site.example/htaccess_tester.php`.  You should get a successful message and a copy of the Grav `.htaccess` file displayed.
 
 ![](htaccess_tester.png?classes=shadow)
 
@@ -84,7 +84,7 @@ And then try this simple `.htaccess` file:
 </IfModule>
 [/codesh]
 
-Then try this URL: `http://yoursite.com/test`.  Actually any path you use should display a success message telling you that `mod_rewrite` is working.
+Then try this URL: `http://my-site.example/test`.  Actually any path you use should display a success message telling you that `mod_rewrite` is working.
 
 After you have finished testing, you should delete the test file and restore your `.htaccess` file:
 

@@ -217,7 +217,7 @@ This returns the URL to the page, for example:
 or
 
 [codesh=twig]
-{{ page.url(true)|e }} {# could return http://mysite.com/my-section/my-category/my-blog-post #}
+{{ page.url(true)|e }} {# could return http://my-site.example/my-section/my-category/my-blog-post #}
 [/codesh]
 
 ##### permalink()
@@ -427,7 +427,7 @@ There is a new object that allows you to access [media](../../content/media) tha
 > [!CAUTION]
 > The whole list of the Uri object methods is available on the [API site](https://learn.getgrav.org/api#class-gravcommonuri). Here's a list of the methods you'll find most useful.
 
-The Uri object has several methods to access parts of the current URI. For the full URL `http://mysite.com/grav/section/category/page.json/param1:foo/param2:bar/?query1=baz&query2=qux`:
+The Uri object has several methods to access parts of the current URI. For the full URL `http://example.com/grav/section/category/page.json/param1:foo/param2:bar/?query1=baz&query2=qux`:
 
 ##### path()
 
@@ -439,7 +439,7 @@ This returns the array of path elements: (e.g. `uri.paths` = `[section, category
 
 ##### route([absolute = false][, domain = false])
 
-This returns the route as either an absolute or relative URL.  (e.g. `uri.route(true)` = `http://mysite.com/grav/section/category/page` or `uri.route()` = `/section/category/page`)
+This returns the route as either an absolute or relative URL.  (e.g. `uri.route(true)` = `http://example.com/grav/section/category/page` or `uri.route()` = `/section/category/page`)
 
 ##### params()
 
@@ -467,15 +467,15 @@ This returns the extension, or will return `html` if not provided: (e.g. `uri.ex
 
 ##### host()
 
-This returns the host portion of the URL. (e.g. `uri.host` = `mysite.com`)
+This returns the host portion of the URL. (e.g. `uri.host` = `example.com`)
 
 ##### base()
 
-This returns the base portion of the URL. (e.g. `uri.base` = `http://mysite.com`)
+This returns the base portion of the URL. (e.g. `uri.base` = `http://example.com`)
 
 ##### rootUrl([include_host = false])
 
-This returns the root url to the grav instance.  (e.g. `uri.rootUrl()` = `http://mysite.com/grav`)
+This returns the root url to the grav instance.  (e.g. `uri.rootUrl()` = `http://example.com/grav`)
 
 ##### referrer()
 

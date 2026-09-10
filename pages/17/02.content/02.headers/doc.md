@@ -62,7 +62,7 @@ By default, a page is **published** unless you explicitly set `published: false`
 slug: my-page-slug
 ```
 
-The `slug` variable allows you to specifically set the page's portion of the URL. For example: `http://yoursite.com/my-page-slug` would be the URL if you set the `slug` above.  If the `slug` is not set in the page, Grav falls back to using the folder name (without any numerical prefixes).
+The `slug` variable allows you to specifically set the page's portion of the URL. For example: `http://my-site.example/my-page-slug` would be the URL if you set the `slug` above.  If the `slug` is not set in the page, Grav falls back to using the folder name (without any numerical prefixes).
 
 [Slugs](http://en.wikipedia.org/wiki/Semantic_URL#Slug) are generally entirely lowercase, with accented characters replaced by letters from the English alphabet and whitespace characters replaced by a dash or an underscore. While future versions of Grav will support spaces in slugs, having blank spaces or capital lettering is not recommended.
 
@@ -151,7 +151,7 @@ Page expires time in seconds (604800 seconds = 7 days).
 ### External Url
 
 ```yaml
-external_url: https://www.mysite.com/foo/bar
+external_url: https://www.example.com/foo/bar
 ```
 
 Allows you to override the dynamically generated URL with one you explicitly provide.
@@ -311,7 +311,7 @@ You can now provide a **default route** that overrides the standard route struct
 You can also specify a specific **canonical route** that can be used in themes to output a canonical link:
 
 ```html
-<link rel="canonical" href="https://yoursite/dresses/green-dresses-are-awesome" />
+<link rel="canonical" href="https://my-site.example/dresses/green-dresses-are-awesome" />
 ```
 
 Lastly, you can specify an array of **route aliases** that can be used as alternative routes for a particular page.
@@ -386,9 +386,9 @@ In the example above, the page will use the `custom` template from the theme.  T
 template_format: xml
 ```
 
-Traditionally, if you want a page to output a specific format (ie: xml, json, etc.) you needed to append the format to the url. For example, entering `http://example.com/sitemap.xml` would tell the browser to render the content using the `xml` twig template ending in `.xml.twig`. This is all well and good, because we love doing things simply in Grav.
+Traditionally, if you want a page to output a specific format (ie: xml, json, etc.) you needed to append the format to the url. For example, entering `http://my-site.example/sitemap.xml` would tell the browser to render the content using the `xml` twig template ending in `.xml.twig`. This is all well and good, because we love doing things simply in Grav.
 
-Using the `template_format` page header, we can tell the browser how to render the page without any need for extensions in the URL. By entering `template_format: xml` in our `sitemap` page, we can make `http://example.com/sitemap` work for us without having to append `.xml` to the end of it.
+Using the `template_format` page header, we can tell the browser how to render the page without any need for extensions in the URL. By entering `template_format: xml` in our `sitemap` page, we can make `http://my-site.example/sitemap` work for us without having to append `.xml` to the end of it.
 
 We [used this method](https://github.com/getgrav/grav-plugin-sitemap/commit/00c23738bdbfe9683627bf0f99bda12eab9505d5#diff-190081f40350c0272970d9171f3437a2) with the [Grav Sitemap Plugin](https://github.com/getgrav/grav-plugin-sitemap).
 

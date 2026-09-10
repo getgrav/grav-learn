@@ -19,7 +19,7 @@ Simply edit your `user/config/system.yaml` and add this at the top:
 param_sep: ';'
 [/codesh]
 
-This will configure Grav to use a semicolon, rather than a colon for parameters such as `http://yoursite.com/blog/tag:something` will now be: `http://yoursite.com/blog/tag;something`.
+This will configure Grav to use a semicolon, rather than a colon for parameters such as `http://my-site.example/blog/tag:something` will now be: `http://my-site.example/blog/tag;something`.
 
 ## 403 issue in Admin
 

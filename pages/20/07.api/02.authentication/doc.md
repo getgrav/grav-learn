@@ -21,10 +21,10 @@ bin/plugin api keys:generate --user=admin --name="CI Pipeline" --expiry=90
 
 ```bash
 # Via header (preferred)
-curl -H "X-API-Key: grav_abc123..." https://yoursite.com/api/v1/pages
+curl -H "X-API-Key: grav_abc123..." https://my-site.example/api/v1/pages
 
 # Via query parameter (useful for quick testing)
-curl "https://yoursite.com/api/v1/pages?api_key=grav_abc123..."
+curl "https://my-site.example/api/v1/pages?api_key=grav_abc123..."
 ```
 
 API keys are stored as bcrypt hashes on the user account. Each key can have an optional expiry date and tracks its last-used timestamp.
@@ -42,7 +42,7 @@ Best for browser-based applications like Admin2.
 **Obtain tokens:**
 
 ```bash
-curl -X POST https://yoursite.com/api/v1/auth/token \
+curl -X POST https://my-site.example/api/v1/auth/token \
   -H "Content-Type: application/json" \
   -d '{"username": "admin", "password": "password"}'
 ```
@@ -64,10 +64,10 @@ Response:
 
 ```bash
 # Recommended: X-API-Token (survives FastCGI / PHP-FPM Authorization-stripping)
-curl -H "X-API-Token: eyJ..." https://yoursite.com/api/v1/pages
+curl -H "X-API-Token: eyJ..." https://my-site.example/api/v1/pages
 
 # Also accepted: standard Authorization: Bearer
-curl -H "Authorization: Bearer eyJ..." https://yoursite.com/api/v1/pages
+curl -H "Authorization: Bearer eyJ..." https://my-site.example/api/v1/pages
 ```
 
 !!! PHP under FastCGI / CGI / PHP-FPM (notably MAMP's `mod_fastcgi`) can silently strip the `Authorization` header before it reaches PHP, breaking Bearer auth. The `X-API-Token` custom header bypasses this — it's accepted on every endpoint, with either a bare JWT (`X-API-Token: eyJ...`) or the traditional Bearer form (`X-API-Token: Bearer eyJ...`). Prefer it when host portability matters.
@@ -75,7 +75,7 @@ curl -H "Authorization: Bearer eyJ..." https://yoursite.com/api/v1/pages
 **Refresh expired tokens:**
 
 ```bash
-curl -X POST https://yoursite.com/api/v1/auth/refresh \
+curl -X POST https://my-site.example/api/v1/auth/refresh \
   -H "Content-Type: application/json" \
   -d '{"refresh_token": "eyJ..."}'
 ```

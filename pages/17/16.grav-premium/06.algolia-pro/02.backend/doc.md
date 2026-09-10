@@ -406,7 +406,7 @@ public function onSitemapProcessed(Event $e)
 
 In the `onPluginsInitialized()` event we register the `onSitemapProcesed()` method.  An in that method, we first retrieve the existing **sitemap**, load our `reviews` collection, and then iterate over that collection.  For each published item we find, we define a `$route`, and then add a new `SitemapEntry()` object with the full URL, date, and update frequency.
 
-After this we can test the sitemap by going to `http://yourserver/yoursite/sitemap.json`.  You should see all your pages as well as the newly added dynamic Flex-based pages.
+After this we can test the sitemap by going to `http://my-site.example/sitemap.json`.  You should see all your pages as well as the newly added dynamic Flex-based pages.
 
 > [!NOTE]
 > You don't need to restrict the sitemap to only show the flex pages, we can leverage the CSS Selectors that are part of the options to only index review-related data.

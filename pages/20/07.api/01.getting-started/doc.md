@@ -47,7 +47,7 @@ The key is shown once — save it immediately.
 ### 3. Make Your First Request
 
 ```bash
-curl https://yoursite.com/api/v1/pages \
+curl https://my-site.example/api/v1/pages \
   -H "X-API-Key: grav_abc123..."
 ```
 
@@ -84,9 +84,9 @@ pagination:
 Grav supports multiple environments. The API respects this via the `X-Grav-Environment` header:
 
 ```bash
-curl -H "X-Grav-Environment: mysite.com" \
+curl -H "X-Grav-Environment: my-site.example" \
      -H "X-API-Key: ..." \
-     https://yoursite.com/api/v1/pages
+     https://my-site.example/api/v1/pages
 ```
 
 ## Response Format
@@ -134,7 +134,7 @@ The API uses ETags for optimistic concurrency. When updating resources, include 
 
 ```bash
 # Fetch with ETag
-curl -H "X-API-Key: ..." https://yoursite.com/api/v1/pages/blog
+curl -H "X-API-Key: ..." https://my-site.example/api/v1/pages/blog
 # Response includes: ETag: "abc123"
 
 # Update with If-Match
@@ -143,7 +143,7 @@ curl -X PATCH \
   -H "If-Match: \"abc123\"" \
   -H "Content-Type: application/json" \
   -d '{"title": "Updated Title"}' \
-  https://yoursite.com/api/v1/pages/blog
+  https://my-site.example/api/v1/pages/blog
 ```
 
 If the resource was modified since your last fetch, you'll receive a 409 Conflict response.

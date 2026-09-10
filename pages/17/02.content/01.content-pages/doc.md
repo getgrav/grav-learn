@@ -79,11 +79,11 @@ Grav understands that any integer value followed by a period will be solely for 
     └── /error
 [/codesh]
 
-Your site must have an entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://yoursite.com` in your browser, by default Grav expects an alias `home/`, but you can override the home-location by changing the `home.alias` option in the [Grav configuration file](/17/basics/grav-configuration).
+Your site must have an entry-point so that it knows where to go when you point your browser to the root of your site. For example if you were to enter `http://my-site.example` in your browser, by default Grav expects an alias `home/`, but you can override the home-location by changing the `home.alias` option in the [Grav configuration file](/17/basics/grav-configuration).
 
 **Modules** are identified by an underscore (`_`) before the folder name. This is a special folder type that is intended to be used only with **modular content**.  These are **not routable** and **not visible** in the navigation. An example of a modular page setup would be a folder such as `user/pages/01.home`. Home is configured as a **modular page** that would contain a collection of **modules**, and would be constructed from the `_header`, `_features`, and `_body` folders within the home folder.
 
-The textual name of each folder defaults to the _slug_ that the system uses as part of the URL. For example if you have a folder such as `/user/pages/02.blog`, the slug for this page would default to `blog`, and the full URL would be `http://yoursite.com/blog`. A blog item page, located in `/user/pages/02.blog/blog-item-5` would be accessible via `http://yoursite.com/blog/blog-item-5`.
+The textual name of each folder defaults to the _slug_ that the system uses as part of the URL. For example if you have a folder such as `/user/pages/02.blog`, the slug for this page would default to `blog`, and the full URL would be `http://my-site.example/blog`. A blog item page, located in `/user/pages/02.blog/blog-item-5` would be accessible via `http://my-site.example/blog/blog-item-5`.
 
 If no number is provided as a prefix of the folder name, the page is considered to be **invisible**, and will not show up in the navigation. An example of this would be the `error` page in the above folder-structure.
 

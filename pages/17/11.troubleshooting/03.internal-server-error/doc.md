@@ -26,7 +26,7 @@ The first thing you should do is ensure PHP is working properly on your server, 
 <?php phpinfo();
 [/codesh]
 
-Then point your browser at this file: `http://yoursite.com/your_grav_directory/info.php`.  You should get a report page listing all the information related to the PHP configuration including version and extensions loaded.
+Then point your browser at this file: `http://my-site.example/your_grav_directory/info.php`.  You should get a report page listing all the information related to the PHP configuration including version and extensions loaded.
 
 ### Check permissions
 

@@ -86,7 +86,7 @@ $ cd ~/public_html
 [~/public_html]$ unzip grav-v<< grav_version >>.zip
 [/codesh]
 
-You should now be able to point your browser to `http://mysiteground.com/grav` using the appropriate URL of course.
+You should now be able to point your browser to `http://my-siteground.example/grav` using the appropriate URL of course.
 
 > [!NOTE]
 > Update [2016-03]: The path to the CLI for PHP 7 on Siteground shared hosting at this time appears to be: `/usr/local/php70/bin/php-cli`, and so for command line use of gpm/grav you could make an alias and then reference the php-cli directly via terminal, e.g. `alias php-cli="/usr/local/php70/bin/php-cli"`. Then you can use it as: `$php-cli bin/grav list`

@@ -93,7 +93,7 @@ frontend:
     enabled: true
     discourse:
       hosts: ['forum.example.com']       # old Discourse hostname(s)
-      target_base: 'https://example.com' # empty means same host
+      target_base: 'https://my-site.example' # empty means same host
 ```
 
 The following Discourse URL shapes are recognized and redirected:

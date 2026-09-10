@@ -37,7 +37,7 @@ https://<subsite>.example.com   -->   user/env/<subsite>.example.com
 [/codesh]
 or
 [codesh=txt]
-https://example.com/<subsite>   -->   user/env/<subsite>
+https://my-site.example/<subsite>   -->   user/env/<subsite>
 [/codesh]
 
 will use the `user/env` directory as the base "user" path instead of the `user` directory.
@@ -139,7 +139,7 @@ return [
 
 When using subdirectories to switch language contexts you might need to load different configs depending on the language.
 You can place your language specific configs in `config/<lang-context>/site.yaml` using the example for `setup_subdir_config_switch.php` below.
-This way `yoursite.com/de-AT/index.html` would load `config/de-AT/site.yaml`, `yoursite.com/de-CH/index.html` would load `config/de-CH/site.yaml` and so on.
+This way `example.com/de-AT/index.html` would load `config/de-AT/site.yaml`, `example.com/de-CH/index.html` would load `config/de-CH/site.yaml` and so on.
 
 **setup_subdir_config_switch.php**:
 [codesh=php line-numbers="true"]

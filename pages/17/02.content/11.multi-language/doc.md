@@ -102,13 +102,13 @@ Now you have defined two pages for your current homepage in multiple languages.
 As English is the default language, if you were to point your browser without specifying a language you would get the content as described in the `default.en.md` file, but you could also explicitly request English by pointing your browser to
 
 [codesh=txt line-numbers="true"]
-http://yoursite.com/en
+http://my-site.example/en
 [/codesh]
 
 To access the French version, you would of course, use
 
 [codesh=txt line-numbers="true"]
-http://yoursite.com/fr
+http://my-site.example/fr
 [/codesh]
 
 > [!WARNING]
@@ -182,7 +182,7 @@ If we had the following folder structure:
   - 05.aquatic
 [/codesh]
 
-This would produce URLs such as `http://yoursite.com/animals/mammals/bears`.  This is great for an English site, but if you wished to have a French version you would prefer these to be translated appropriately. The easiest way to achieve this is to add a custom [slug](../headers#slug) for each of the `fr.md` page files.  for example, the mammal page might look something like:
+This would produce URLs such as `http://my-site.example/animals/mammals/bears`.  This is great for an English site, but if you wished to have a French version you would prefer these to be translated appropriately. The easiest way to achieve this is to add a custom [slug](../headers#slug) for each of the `fr.md` page files.  for example, the mammal page might look something like:
 
 [codesh=markdown line-numbers="true"]
 ---
@@ -193,7 +193,7 @@ slug: mammiferes
 Les mammifères (classe des Mammalia) forment un taxon inclus dans les vertébrés, traditionnellement une classe, définie dès la classification de Linné. Ce taxon est considéré comme monophylétique...
 [/codesh]
 
-This combined with appropriate **slug-overrides** in the other files should result in a URL of `http://yoursite.com/animaux/mammiferes/ours` which is much more French looking!
+This combined with appropriate **slug-overrides** in the other files should result in a URL of `http://my-site.example/animaux/mammiferes/ours` which is much more French looking!
 
 Another option is to make use of the [page-level routes](../headers#routes) support and provide a full route alias for the page.
 
@@ -354,9 +354,9 @@ This will ensure that you can always override a translation string without messi
 
 ### Environment-Based Language Handling
 
-You can take advantage of [Grav's Environment Configuration](../../advanced/environment-config) to automatically route users to the correct version of your site based on URL.  For example, if you had a URL such as `http://french.mysite.com` that was an alias for your standard `http://www.mysite.com`, you could setup an environment configuration:
+You can take advantage of [Grav's Environment Configuration](../../advanced/environment-config) to automatically route users to the correct version of your site based on URL.  For example, if you had a URL such as `http://french.example.com` that was an alias for your standard `http://www.example.com`, you could setup an environment configuration:
 
-`/user/french.mysite.com/config/system.yaml`
+`/user/french.example.com/config/system.yaml`
 
 [codesh=yaml line-numbers="true"]
 languages:

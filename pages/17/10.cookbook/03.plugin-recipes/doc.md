@@ -95,7 +95,7 @@ You want to use the [taxonomy list Grav plugin](https://github.com/getgrav/grav-
 
 #### Solution:
 
-This is an example where the flexibility of Grav plugins really come in handy. The first step is to make sure that you have the [taxonomy list Grav plugin](https://github.com/getgrav/grav-plugin-taxonomylist) installed within your Grav package. After this has been installed, make sure that you copy `/yoursite/user/plugins/taxonomylist/templates/partials/taxonomylist.html.twig` to `/yoursite/user/themes/yourtheme/templates/partials/taxonomylist.html.twig` as we will be making modifications to this file.
+This is an example where the flexibility of Grav plugins really come in handy. The first step is to make sure that you have the [taxonomy list Grav plugin](https://github.com/getgrav/grav-plugin-taxonomylist) installed within your Grav package. After this has been installed, make sure that you copy `user/plugins/taxonomylist/templates/partials/taxonomylist.html.twig` to `user/themes/yourtheme/templates/partials/taxonomylist.html.twig` as we will be making modifications to this file.
 
 In order to make this work, we are going to introduce three new variables: `filter`, `filterstart` and `filterend` where
 
@@ -161,7 +161,7 @@ You really like the [Grav SimpleSearch plugin](https://github.com/getgrav/grav-p
 
 #### Solution:
 
-First, make sure that you have installed the [Grav SimpleSearch plugin](https://github.com/getgrav/grav-plugin-simplesearch). Next, make sure that you copy `/yoursite/user/plugins/simplesearch/templates/partials/simplesearch-searchbox.html.twig` to `/yoursite/user/themes/yourtheme/templates/partials/simplesearch-searchbox.html.twig` as we will need to make modifications to this file.
+First, make sure that you have installed the [Grav SimpleSearch plugin](https://github.com/getgrav/grav-plugin-simplesearch). Next, make sure that you copy `user/plugins/simplesearch/templates/partials/simplesearch-searchbox.html.twig` to `user/themes/yourtheme/templates/partials/simplesearch-searchbox.html.twig` as we will need to make modifications to this file.
 
 Before we go any further, let's review what this file does:
 [codesh=twig line-numbers="true"]
@@ -178,14 +178,14 @@ jQuery(document).ready(function($){
 });
 </script>
 [/codesh]
-The first line simply embeds a text input field into your Twig template. The `data-search-input` attribute stores the base URL of the resulting query page. The default is `http://yoursite/search/query`.
+The first line simply embeds a text input field into your Twig template. The `data-search-input` attribute stores the base URL of the resulting query page. The default is `http://my-site.example/search/query`.
 
 Let's now move onto the jQuery below that. Here, the tag containing the `data-search-input` attribute is assigned to a variable `input`. Next, the jQuery `.on()` method is applied to `input`. The `.on()` method applies event handlers to selected elements (in this case, the `<input>` text field). So, when the user presses (`keypress`) a key to initiate the search, the `if` statement checks that the following items are `true`:
 
 1. The `Enter` key has been pressed: `event.which == 13` where 13 is the numeric value of the `Enter` key on the keyboard.
 2. The number of characters entered into the searchbox in greater than three. You may want to adjust this to taste as your organization may have many acronyms that are three characters or less.
 
-If they are true, then `event.preventDefault();` makes sure that the default browser action for the `Enter` key is ignored as this would prevent our search from occurring. Finally, the full URL of the search query is constructed. The default is `http://yoursite/search/query:yourquery`. From here, `/yoursite/user/plugins/simplesearch/simplesearch.php` performs the actual search and the other Twig files in the plugin list the results.
+If they are true, then `event.preventDefault();` makes sure that the default browser action for the `Enter` key is ignored as this would prevent our search from occurring. Finally, the full URL of the search query is constructed. The default is `http://my-site.example/search/query:yourquery`. From here, `user/plugins/simplesearch/simplesearch.php` performs the actual search and the other Twig files in the plugin list the results.
 
 No back to our solution! If we wish to add a search button, we must:
 

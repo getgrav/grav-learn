@@ -84,4 +84,4 @@ sudo systemctl reload caddy
 
 ## Confirming it works
 
-A request for a private file such as `https://example.com/user/config/system.yaml` should return **403 Forbidden**, while a media file you uploaded under `user/data` (for example a `.jpg`) should still load normally. See the [User Folder Exposure](/security/user-folder-exposure) page for more on the admin warning that fires when these rules are not applied.
+A request for a private file such as `https://my-site.example/user/config/system.yaml` should return **403 Forbidden**, while a media file you uploaded under `user/data` (for example a `.jpg`) should still load normally. See the [User Folder Exposure](/security/user-folder-exposure) page for more on the admin warning that fires when these rules are not applied.

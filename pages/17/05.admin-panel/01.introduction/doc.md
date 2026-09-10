@@ -80,6 +80,6 @@ The default pattern for passwords (`system.pwd_regex`) is a minimum of eight (8)
 
 ### Usage
 
-By default, you can access the admin by pointing your browser to `http://yoursite.com/admin`. You can simply log in with the `username` and `password` set in the YAML file you configured earlier.
+By default, you can access the admin by pointing your browser to `http://my-site.example/admin`. You can simply log in with the `username` and `password` set in the YAML file you configured earlier.
 
 > After logging in, your **plaintext password** will be removed and replaced by an **encrypted** one.

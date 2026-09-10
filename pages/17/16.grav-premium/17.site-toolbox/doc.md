@@ -327,7 +327,7 @@ The warm-cache plugin also includes a useful CLI command that also be scripted o
 To use this from the CLI you need to call the command pass the URL of the sitemap.  For example:
 
 ```shell
-bin/plugin warm-cache warm https://mysite.com/sitemap.json
+bin/plugin warm-cache warm https://my-site.example/sitemap.json
 ```
 
 Interestingly you can run this from any Grav instance that has warm-cache installed, and warm the cache of any other Grav server that has the sitemap plugin installed.  This is because warm-cache simply iterates over the entries in the sitemap and causes Grav to respond with the page requested, hence forcing Grav to warm the cache for that page.
@@ -413,7 +413,7 @@ Note that if you use the Admin Plugin, a file with your configuration named zapi
 Simply install the plugin and then the URL you would use to integrate with would be your existing blog page with the new `.zrss` extension appended to it:
 
 ```
-http://yoursite.com/your/blog.zrss
+http://my-site.example/your/blog.zrss
 ```
 
 This ensures the feed uses the custom `templates/zapier-feed.zrss.twig` file to process.  To modify this Twig file, simply copy it into your theme or plugin's `templates/` folder and modify as you like.

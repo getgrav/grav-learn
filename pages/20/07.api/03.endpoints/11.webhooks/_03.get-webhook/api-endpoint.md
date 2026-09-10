@@ -10,7 +10,7 @@ api:
           required: true
           description: 'Webhook id (path param).'
     request_example: ''
-    response_example: '{"data": {"id": "wh_abc123", "url": "https://example.com/hook", "events": ["page.updated"], "secret": "grav_a****************_xyz", "enabled": true}}'
+    response_example: '{"data": {"id": "wh_abc123", "url": "https://my-site.example/hook", "events": ["page.updated"], "secret": "grav_a****************_xyz", "enabled": true}}'
     response_codes:
         - code: '200'
           description: 'Webhook returned.'

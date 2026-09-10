@@ -67,7 +67,7 @@ routes:
   /something/else: '/blog/focus-and-blur'
 [/codesh]
 
-If you requested a URL `http://mysite.com/something/else` and that was not a valid page, the routes definition would actually serve you the page located at `/blog/focus-and-blur`, assuming it exists. This does not actually **redirect** the user to the provided page, it simply displays the page when you request the alias.
+If you requested a URL `http://my-site.example/something/else` and that was not a valid page, the routes definition would actually serve you the page located at `/blog/focus-and-blur`, assuming it exists. This does not actually **redirect** the user to the provided page, it simply displays the page when you request the alias.
 
 > [!CAUTION]
 > The indentation is key here, without it the route redirect will not work. 
@@ -81,7 +81,7 @@ routes:
    /another/(.*): '/blog/$1'
 [/codesh]
 
-This would route the wildcard from the alias to the route, so `http://mysite.com/another/focus-and-blur` would actually display the page found at the `/blog/focus-and-blur` route. This is a powerful way to map one set of URLs to another. Great for moving your site from WordPress to Grav :)
+This would route the wildcard from the alias to the route, so `http://my-site.example/another/focus-and-blur` would actually display the page found at the `/blog/focus-and-blur` route. This is a powerful way to map one set of URLs to another. Great for moving your site from WordPress to Grav :)
 
 You can also perform the match to capture any alias, and map that to a specific route:
 
@@ -143,7 +143,7 @@ redirects:
     /jungle: '/blog/the-urban-jungle[303]'
 [/codesh]
 
-If you were to point your browser to `http://mysite.com/jungle`, you would actually get redirected and end up on the page: `http://mysite.com/blog/the-urban-jungle`.
+If you were to point your browser to `http://my-site.example/jungle`, you would actually get redirected and end up on the page: `http://my-site.example/blog/the-urban-jungle`.
 
 The same regular expression capabilities that exist for Route Aliases, also exist for Redirects.  For example:
 

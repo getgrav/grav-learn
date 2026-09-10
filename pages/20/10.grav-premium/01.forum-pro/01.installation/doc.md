@@ -164,7 +164,7 @@ Password-reset and email-verification links are built from an absolute base URL.
 
 ```yaml
 security:
-  site_url: 'https://example.com'
+  site_url: 'https://my-site.example'
 ```
 
 If it is empty, Forum Pro falls back to `system.custom_base_url`, then to the request host with a logged warning.

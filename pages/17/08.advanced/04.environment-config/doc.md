@@ -34,7 +34,7 @@ debugger:
 [/codesh]
 
 Similarly, you may want to enable CSS, Link, JS and JS Module Asset Pipelining (combining + minification) for your production site only
-(`user/env/www.mysite.com/config/system.yaml`):
+(`user/env/www.example.com/config/system.yaml`):
 
 [codesh=yaml line-numbers="true"]
 assets:
@@ -43,8 +43,8 @@ assets:
   js_module_pipeline: true
 [/codesh]
 
-If your production server was reachable via `http://www.mysite.com` then you could also provide configuration specific for that production site with a file located at
-`user/env/www.mysite.com/config/system.yaml`.
+If your production server was reachable via `http://www.example.com` then you could also provide configuration specific for that production site with a file located at
+`user/env/www.example.com/config/system.yaml`.
 
 Of course, you are not limited to changes to `system.yaml`, you can actually provide overrides for **any** Grav setting in the `site.yaml` or even in any [plugin configuration](../../plugins/plugin-basics)!
 
@@ -86,10 +86,10 @@ You can override themes in much the same way:
 user/config/themes/antimatter.yaml
 [/codesh]
 
-Can be overridden for any environment, say some production site (`http://www.mysite.com`):
+Can be overridden for any environment, say some production site (`http://www.example.com`):
 
 [codesh=bash]
-user/env/www.mysite.com/config/themes/antimatter.yaml
+user/env/www.example.com/config/themes/antimatter.yaml
 [/codesh]
 
 ### Server Based Environment Configuration

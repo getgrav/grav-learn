@@ -12,8 +12,8 @@ api:
         - name: admin_base_url
           type: string
           required: false
-          description: 'Origin + base path of the calling Admin2 client (e.g. `https://example.com/admin`). Used to construct the reset link in the email. Must be an `http`/`https` URL. Falls back to the `Referer` / `Origin` headers, then Grav''s own root URL.'
-    request_example: '{"email": "admin@example.com", "admin_base_url": "https://example.com/admin"}'
+          description: 'Origin + base path of the calling Admin2 client (e.g. `https://my-site.example/admin`). Used to construct the reset link in the email. Must be an `http`/`https` URL. Falls back to the `Referer` / `Origin` headers, then Grav''s own root URL.'
+    request_example: '{"email": "admin@my-site.example", "admin_base_url": "https://my-site.example/admin"}'
     response_example: '{"data": {"message": "If an account exists for that email, a reset link has been sent."}}'
     response_codes:
         - code: '200'

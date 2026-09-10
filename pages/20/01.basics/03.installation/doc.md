@@ -107,7 +107,7 @@ Admin Next depends on the [API plugin](/20/api), which in turn depends on Login,
 Once it finishes, open your site in a browser and go to `/admin`. Admin Next serves at the same `/admin` route the classic admin used, and on a site with no user accounts yet it walks you through creating the first administrator.
 
 [codesh=bash]
-https://yoursite.local/admin
+https://my-site.example/admin
 [/codesh]
 
 ## Further options

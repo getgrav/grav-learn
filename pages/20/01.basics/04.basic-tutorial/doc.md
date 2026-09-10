@@ -21,7 +21,7 @@ The other thing that the numeric portion of the folder name does is explicitly i
 
 ## Home Page Configuration
 
-There is an option in the `user/config/system.yaml` file that sets the location of the __home page__, in other words, where Grav points to when you reference the root of your site: `http://yoursite.com`.
+There is an option in the `user/config/system.yaml` file that sets the location of the __home page__, in other words, where Grav points to when you reference the root of your site: `http://my-site.example`.
 
 If you examine this configuration file in your install, you will see that it already points to the alias for `/home`.  We can leave it like this in this example.
 

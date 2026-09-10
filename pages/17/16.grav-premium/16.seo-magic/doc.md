@@ -149,7 +149,7 @@ When you first install the plugin, you should perform an index or crawl on your 
 3. From the CLI, you can run the index process with the following command:
 
     ```shell
-    bin/plugin seo-magic process https://yoursite.com/sitemap.json
+    bin/plugin seo-magic process https://my-site.example/sitemap.json
     ```
    
     Where the URL provided is the URL of your sitemap that is available with the sitemap plugin installed.
@@ -157,7 +157,7 @@ When you first install the plugin, you should perform an index or crawl on your 
 4. You can also regenerate the **SEO Data** for a specific page simply by saving that page, or by running the following style of CLI command:
 
     ```shell
-    bin/plugin seo-magic process https://yoursite.com/your/page-url
+    bin/plugin seo-magic process https://my-site.example/your/page-url
     ```
    
     Where the URL provided is the URL of a specific page on your site.
@@ -169,19 +169,19 @@ Each time you save a page, the **SEO Data** is updated.  It's updated in the sam
 This is enabled by default, but as long as you don't disable it, links will be crawled and checked to ensure they are not broken when you generate your SEO Data.  Alternatively you can use the new CLI command to generate a quick CLI report of broken link status:
 
 ```shell
-bin/plugin seo-magic link-checker https://yoursite.com/your/page-url
+bin/plugin seo-magic link-checker https://my-site.example/your/page-url
 ```
 
 Where the URL provided is the URL of your sitemap that is available with the sitemap plugin installed. You can use the optional `-a` option to show all the links on a page including ones that are not broken. e.g.:
 
 ```shell
-bin/plugin seo-magic link-checker https://yoursite.com/your/page-url -a
+bin/plugin seo-magic link-checker https://my-site.example/your/page-url -a
 ```
 
 Or you can provide a specific page URL to check broken links for that page only:
 
 ```shell
-bin/plugin seo-magic link-checker https://yoursite.com/your/page-url
+bin/plugin seo-magic link-checker https://my-site.example/your/page-url
 ```
 
 Where the URL provided is the URL of a specific page on your site.

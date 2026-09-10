@@ -61,7 +61,7 @@ The MCP server is configured through two environment variables: `GRAV_API_URL` (
       "command": "npx",
       "args": ["-y", "grav-mcp"],
       "env": {
-        "GRAV_API_URL": "https://mysite.com/api",
+        "GRAV_API_URL": "https://example.com/api",
         "GRAV_API_KEY": "grav_your_api_key_here"
       }
     }
@@ -76,7 +76,7 @@ Restart (or reconnect) the client and the full Grav toolset becomes available.
 The same configuration works on the command line:
 
 ```bash
-GRAV_API_URL=https://mysite.com/api GRAV_API_KEY=grav_abc123 npx grav-mcp
+GRAV_API_URL=https://my-site.example/api GRAV_API_KEY=grav_abc123 npx grav-mcp
 ```
 
 ## Configuration Reference
@@ -85,7 +85,7 @@ Every option can be set as an environment variable or as a CLI flag. CLI flags t
 
 | Environment variable | CLI flag | Required | Description |
 |----------------------|----------|----------|-------------|
-| `GRAV_API_URL`       | `--url`         | Yes | Base URL of the Grav API (for example `https://mysite.com/api`). |
+| `GRAV_API_URL`       | `--url`         | Yes | Base URL of the Grav API (for example `https://my-site.example/api`). |
 | `GRAV_API_KEY`       | `--key`         | Yes | API key for authentication. Must start with `grav_`. |
 | `GRAV_ENVIRONMENT`   | `--environment` | No  | Targets a specific `user/env/*` environment for configuration scopes (sent as the `X-Config-Environment` header). |
 | —                    | `--transport`   | No  | `stdio` (default) or `http`. |
@@ -102,7 +102,7 @@ The default transport. The AI client spawns `grav-mcp` as a child process and co
 For remote or multi-user deployments, run a long-lived server that clients connect to over HTTP:
 
 ```bash
-npx grav-mcp --url https://mysite.com/api --key grav_abc123 --transport http --port 3100
+npx grav-mcp --url https://my-site.example/api --key grav_abc123 --transport http --port 3100
 ```
 
 ## Tools

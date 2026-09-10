@@ -155,8 +155,8 @@ You can install Grav either from within Windows or from within Ubuntu.
 Install Grav by downloading the ZIP package and extracting it:
 1. Download the latest-and-greatest [**Grav**](https://getgrav.org/download/core/grav/latest?target=_blank) or [**Grav + Admin**](https://getgrav.org/download/core/grav-admin/latest?target=_blank) package.
 1. Extract the ZIP file into the webroot you have created before.
-1. Rename the extracted folder to `mysite`.
-1. Open [http://localhost/mysite](http://localhost/mysite?target=_blank) in the browser and you should have a working Grav installation.
+1. Rename the extracted folder to `my-site`.
+1. Open [http://localhost/my-site](http://localhost/my-site?target=_blank) in the browser and you should have a working Grav installation.
 
 #### Option 2: Ubuntu
 Run the following commands to install Grav inside the default webroot of Apache:
@@ -165,10 +165,10 @@ Run the following commands to install Grav inside the default webroot of Apache:
 wget -O grav.zip https://getgrav.org/download/core/grav/latest
 sudo apt install unzip  # unzip is not installed by default on WSL/Ubuntu
 unzip grav.zip -d /var/www/webroot
-mv /var/www/webroot/grav /var/www/webroot/mysite
+mv /var/www/webroot/grav /var/www/webroot/my-site
 [/codesh]
 
-Open [http://localhost/mysite](http://localhost/mysite?target=_blank) in the browser and you should have a working Grav installation.
+Open [http://localhost/my-site](http://localhost/my-site?target=_blank) in the browser and you should have a working Grav installation.
 
 For other installation options, visit Grav's [Installation](https://learn.getgrav.org/basics/installation?target=_blank) documentation.
 
@@ -239,23 +239,23 @@ During the different stages in the lifecycle of our site (development, testing, 
 You could, for example, add the following hosts:
 
     [codesh=bash]
-    127.0.0.1 mysite-dev
-    127.0.0.1 mysite-prod
+    127.0.0.1 my-site-dev
+    127.0.0.1 my-site-prod
     [/codesh]
 
     Hosts defined in Windows hosts file will automatically be available in `/etc/hosts` in WSL/Ubuntu.
 - Create new VirtualHost config files in folder `/etc/apache2/sites-available`.
     [codesh=bash]
-    sudo nano /etc/apache2/sites-available/mysite-dev.conf
+    sudo nano /etc/apache2/sites-available/my-site-dev.conf
     [/codesh]
     Past the following into the editor:
     [codesh=apache line-numbers="true"]
     <VirtualHost *:80>
 
-        ServerName mysite-dev
+        ServerName my-site-dev
 
         ServerAdmin webmaster@localhost
-        DocumentRoot  /var/www/webroot/mysite
+        DocumentRoot  /var/www/webroot/my-site
 
         <Directory /var/www/>
             Options Indexes FollowSymLinks
@@ -268,15 +268,15 @@ You could, for example, add the following hosts:
 
     </VirtualHost>
     [/codesh]
-Repeat the above commands for `mysite-prod.conf` and use `ServerName mysite-prod` as server.
+Repeat the above commands for `my-site-prod.conf` and use `ServerName my-site-prod` as server.
 
 Enable the new VirtualHosts in the Apache configuration:
 [codesh=bash]
-sudo a2ensite mysite-*
+sudo a2ensite my-site-*
 sudo service apache2 reload
 sudo service apache2 restart
 [/codesh]
-Now you can point the browser to [http://mysite-dev](http://mysite-dev?target=_blank) and it will open the Grav installation at `C:/your/path/to/webroot/mysite` using the config files in folder `/user/mysite-dev/config/`.
+Now you can point the browser to [http://my-site-dev](http://my-site-dev?target=_blank) and it will open the Grav installation at `C:/your/path/to/webroot/my-site` using the config files in folder `/user/my-site-dev/config/`.
 
 ## Automatically start Apache (optional)
 For starting and stopping Apache, elevated privileges are required. And to be granted the elevated privileges, a password is requested. To prevent Ubuntu asking for a password you can grant yourself permanent elevated privileges for certain services.

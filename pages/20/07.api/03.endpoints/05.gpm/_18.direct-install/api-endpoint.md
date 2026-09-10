@@ -13,7 +13,7 @@ api:
           type: file
           required: false
           description: 'Uploaded zip file (multipart; mutually exclusive with `url`).'
-    request_example: '{"url": "https://example.com/builds/my-plugin-1.0.0.zip"}'
+    request_example: '{"url": "https://my-site.example/builds/my-plugin-1.0.0.zip"}'
     response_example: '{"data": {"message": "Package installed successfully via direct install."}}'
     response_codes:
         - code: '201'

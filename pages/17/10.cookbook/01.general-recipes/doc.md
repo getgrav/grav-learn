@@ -604,7 +604,7 @@ Copy the HTML code from the template's home page, starting at `<html>` and endin
 
 Now, move all the HTML theme assets (images, CSS, JS) into your theme folder. You can keep the existing theme folder structure, or change it.
 
-Create a `pages/01.home/home.md` empty file. Now point your browser to yoursite.com/home: it should show up the content, but the CSS, JS and images will not be loaded, probably because the theme has them hardcoded as `/img/*` or `/css/*` links.
+Create a `pages/01.home/home.md` empty file. Now point your browser to my-site.example/home: it should show up the content, but the CSS, JS and images will not be loaded, probably because the theme has them hardcoded as `/img/*` or `/css/*` links.
 
 #### Adding the correct asset links
 

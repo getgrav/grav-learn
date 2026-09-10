@@ -18,7 +18,7 @@ api:
           required: false
           description: 'Items per page.'
     request_example: ''
-    response_example: '{"data": [{"event": "page.updated", "url": "https://example.com/hook", "status_code": 200, "success": true, "duration_ms": 142, "delivered_at": "2026-04-17T12:00:00+00:00"}], "meta": {"total": 57, "page": 1, "per_page": 50}}'
+    response_example: '{"data": [{"event": "page.updated", "url": "https://my-site.example/hook", "status_code": 200, "success": true, "duration_ms": 142, "delivered_at": "2026-04-17T12:00:00+00:00"}], "meta": {"total": 57, "page": 1, "per_page": 50}}'
     response_codes:
         - code: '200'
           description: 'Deliveries returned.'

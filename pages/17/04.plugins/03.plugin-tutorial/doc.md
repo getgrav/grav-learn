@@ -379,7 +379,7 @@ class RandomizerPlugin extends Plugin
 }
 [/codesh]
 
-If you followed along, you should have a fully functional **Randomizer** plugin enabled for your site.  Just point your browser to the `http://yoursite.com/random`, and you should see a random page.  You can also download the original **Random**  plugin directly from the [Plugins Download](https://getgrav.org/downloads/plugins) section of the [getgrav.org](https://getgrav.org/downloads/plugins) site.
+If you followed along, you should have a fully functional **Randomizer** plugin enabled for your site.  Just point your browser to the `http://my-site.example/random`, and you should see a random page.  You can also download the original **Random**  plugin directly from the [Plugins Download](https://getgrav.org/downloads/plugins) section of the [getgrav.org](https://getgrav.org/downloads/plugins) site.
 
 ## Extending blueprints
 
