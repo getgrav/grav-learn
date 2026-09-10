@@ -37,7 +37,7 @@ https://<subsite>.example.com   -->   user/env/<subsite>.example.com
 [/codesh]
 or
 [codesh=txt]
-https://my-site.example/<subsite>   -->   user/env/<subsite>
+https://example.com/<subsite>   -->   user/env/<subsite>
 [/codesh]
 
 will use the `user/env` directory as the base "user" path instead of the `user` directory.

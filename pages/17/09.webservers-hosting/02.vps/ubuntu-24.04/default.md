@@ -267,7 +267,7 @@ For production sites, enable HTTPS using Certbot:
 
 [codesh=bash]
 apt install -y certbot python3-certbot-nginx
-certbot --nginx -d yourdomain.com
+certbot --nginx -d my-site.example
 [/codesh]
 
 Certbot will automatically configure Nginx for SSL and set up auto-renewal.

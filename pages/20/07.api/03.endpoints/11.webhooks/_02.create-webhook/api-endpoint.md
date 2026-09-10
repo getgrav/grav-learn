@@ -21,8 +21,8 @@ api:
           type: boolean
           required: false
           description: 'Defaults to true.'
-    request_example: '{"url": "https://my-site.example/hook", "events": ["page.updated", "page.deleted"]}'
-    response_example: '{"data": {"id": "wh_abc123", "url": "https://my-site.example/hook", "events": ["page.updated", "page.deleted"], "secret": "grav_abcdef1234567890", "enabled": true}}'
+    request_example: '{"url": "https://example.com/hook", "events": ["page.updated", "page.deleted"]}'
+    response_example: '{"data": {"id": "wh_abc123", "url": "https://example.com/hook", "events": ["page.updated", "page.deleted"], "secret": "grav_abcdef1234567890", "enabled": true}}'
     response_codes:
         - code: '201'
           description: 'Webhook created; Location header points to the new webhook.'

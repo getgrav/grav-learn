@@ -63,7 +63,7 @@ Before using this plugin, you need to register an application in the Azure porta
 3. Under "Manage", select "App registrations" > "New registration"
 4. Provide a name for your application
 5. For "Supported account types", select "Accounts in this organizational directory only"
-6. For Redirect URI, set the type to "Web" and enter your callback URL (e.g., `https://yourdomain.com/office365oauth/callback`)
+6. For Redirect URI, set the type to "Web" and enter your callback URL (e.g., `https://my-site.example/office365oauth/callback`)
 7. Click "Register"
 8. Note down the "Application (client) ID" and "Directory (tenant) ID" from the overview page
 9. Under "Manage", select "Certificates & secrets"

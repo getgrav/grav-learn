@@ -10,7 +10,7 @@ api:
           required: true
           description: 'Webhook id (path param).'
     request_example: ''
-    response_example: '{"data": {"event": "webhook.test", "url": "https://my-site.example/hook", "status_code": 200, "success": true, "duration_ms": 118, "delivered_at": "2026-04-17T12:00:00+00:00"}}'
+    response_example: '{"data": {"event": "webhook.test", "url": "https://example.com/hook", "status_code": 200, "success": true, "duration_ms": 118, "delivered_at": "2026-04-17T12:00:00+00:00"}}'
     response_codes:
         - code: '200'
           description: 'Test delivered successfully.'

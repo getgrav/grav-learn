@@ -61,7 +61,7 @@ The MCP server is configured through two environment variables: `GRAV_API_URL` (
       "command": "npx",
       "args": ["-y", "grav-mcp"],
       "env": {
-        "GRAV_API_URL": "https://example.com/api",
+        "GRAV_API_URL": "https://my-site.example/api",
         "GRAV_API_KEY": "grav_your_api_key_here"
       }
     }
