@@ -263,6 +263,21 @@ Grav\Common\Page\Page
 [/codesh]
 [/codesh-group]
 
+### html_to_markdown
+
+Converts a fragment of rendered HTML to Markdown, the same conversion Grav's [Markdown output](/20/content/markdown-output) uses for a page: ATX headings, fenced code with its language, tables, absolute URLs, and no forms, scripts or inline SVG. **Grav 2.1+**
+
+[codesh-group]
+[codesh=twig title="Twig"]
+{{ '<h2>Install</h2><p>Run <code>composer install</code> first.</p>'|html_to_markdown }}
+[/codesh]
+[codesh=markdown title="Output"]
+## Install
+
+Run `composer install` first.
+[/codesh]
+[/codesh-group]
+
 ### humanize
 
 Converts a string into a more "human readable" format
