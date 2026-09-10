@@ -64,7 +64,16 @@ The post content, converted from the rendered HTML.
 
 Forms, scripts, styles, inline SVG and other markup with no Markdown equivalent are dropped. Root-relative links and images are turned into absolute URLs so they still work once the document has left the site. Tables and fenced code blocks with their language survive the conversion.
 
-The home page is linked as `/home.md` (its real route) rather than `/.md`, because every web server config Grav ships refuses a path segment that starts with a dot.
+The home page is `/index.md`. Every web server treats a path segment that starts with a dot as a hidden file, so `/.md` would be refused before Grav saw it, and `index.<ext>` is what static site generators use for the same job. Grav 2.1 answers `/index.<ext>` for any page format, `/index.rss` and `/index.json` included, unless a root page is really named `index`.
+
+A template never has to special-case the home page to build such a link. `page.url()` takes an output format as its fifth argument and does the `index` substitution itself:
+
+```twig
+{{ page.url(false, false, true, false, 'md') }}   {# /blog/post.md, or /index.md on the home page #}
+{{ page.url(true, false, true, false, 'rss') }}   {# https://example.com/index.rss on the home page #}
+```
+
+`markdown_url(page)` is the same call with `md` and the host included.
 
 ## Response headers
 
