@@ -933,6 +933,8 @@ Accessing and displaying the data of a `list` field is done with a simple twig f
 
 ### Markdown Field
 
+![Markdown Field](markdown_field.png)
+
 The `markdown` field type shows the Markdown editor used by the page's **Content** field: a formatting toolbar, a preview toggle and image insertion. It is the field type `system/blueprints/pages/default.yaml` uses for `content`, and you can add it anywhere else in a blueprint to give a page a second Markdown area.
 
 Example:
