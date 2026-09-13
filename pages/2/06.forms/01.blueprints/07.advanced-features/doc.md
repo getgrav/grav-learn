@@ -346,7 +346,7 @@ You can add any `key: value` pairs including dynamic properties like `data-optio
 
 ## Override or extend a plugin's blueprint
 
-There are cases were you'd want to add a change a plugin's provided blueprint; to add, move, or delete the options there. This isn't straightforward: A plugin's blueprint contains more than just a `form`-property, and isn't implicitly declared as extendable. However, when building plugins it is worthwile to faciliate this for your [user's blueprints](/17/basics/folder-structure#user-blueprints).
+There are cases were you'd want to add a change a plugin's provided blueprint; to add, move, or delete the options there. This isn't straightforward: A plugin's blueprint contains more than just a `form`-property, and isn't implicitly declared as extendable. However, when building plugins it is worthwile to faciliate this for your [user's blueprints](/2/basics/folder-structure#user-blueprints).
 
 - Firstly, the plugin must declare that it supports blueprints by adding a public-property in it's PHP-file: `public $features = ['blueprints' => 10];`
 - Secondly, the plugin must `import@` it's form-fields from a file, for example:

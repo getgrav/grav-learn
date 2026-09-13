@@ -11,6 +11,9 @@ summary:
   size: 300
 
 redirects:
+  # The 2.x docs moved from /20/ to /2/ so the path tracks the major line, not a
+  # point release. Keep this first so the version collapses before the rules below.
+  '/20/(.*)': '/2/$1[301]'
   '/15/(.*)': '/17/$1'
   '/(\d+)/premium(/.*)?$': '/$1/grav-premium$2'
   '/premium(/.*)?$': '/grav-premium$1'
