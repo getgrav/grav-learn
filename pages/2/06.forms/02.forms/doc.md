@@ -62,7 +62,7 @@ form:
           fileprefix: feedback-
           dateformat: Ymd-His-u
           extension: txt
-          body: "{% include 'forms/data.txt.twig' %}"
+          body: "{% include 'forms/data.save.txt.twig' %}"
         message: Thank you for your feedback!
         display: thankyou
 
@@ -82,7 +82,7 @@ What happens when you press the `Submit` button?  It executes the `process` acti
 
 1. An email is sent to the email entered, with the subject `[Feedback] [name entered]`. The body of the email is defined in the `forms/data.html.twig` file of the theme in use.
 
-2. A file is created in `user/data` to store the form input data. The template is defined in `forms/data.txt.twig` of the theme in use.
+2. A file is created in `user/data` to store the form input data. The template is defined in `forms/data.save.txt.twig`, which the Form plugin provides and the theme in use can override. It writes the submitted values as literal text, so a value such as `Tom & Jerry` is stored exactly as it was entered.
 
 3. The `thankyou` subpage is shown, along with the passed message. The `thankyou` page must be a subpage of the page containing the form.
 

@@ -158,11 +158,11 @@ process:
         fileprefix: feedback-
         dateformat: Ymd-His-u
         extension: txt
-        body: "{% include 'forms/data.txt.twig' %}"
+        body: "{% include 'forms/data.save.txt.twig' %}"
         operation: create
 [/codesh]
 
-The body is taken from the theme's `templates/forms/data.html.twig` file, provided by Antimatter and updated themes.
+If you leave `body` out entirely, it defaults to `forms/data.save.txt.twig`. That template is provided by the Form plugin, and a theme can override it with its own `templates/forms/data.save.txt.twig`. Use it rather than `forms/data.txt.twig` for saved files: `forms/data.txt.twig` is HTML-escaped because it also gets included into HTML email bodies, which would store `Tom &amp; Jerry` instead of `Tom & Jerry` in the saved file.
 
 > [!WARNING]
 > the `operation` can be either `create` (default) to create a new file per-form-submission or `add` to append to a single file.
@@ -174,7 +174,7 @@ The body is taken from the theme's `templates/forms/data.html.twig` file, provid
 process:
     - save:
         filename: feedback.txt
-        body: "{% include 'forms/data.txt.twig' %}"
+        body: "{% include 'forms/data.save.txt.twig' %}"
         operation: add
 [/codesh]
 

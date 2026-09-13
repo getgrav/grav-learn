@@ -76,7 +76,7 @@ form:
             fileprefix: contact-
             dateformat: Ymd-His-u
             extension: txt
-            body: "{% include 'forms/data.txt.twig' %}"
+            body: "{% include 'forms/data.save.txt.twig' %}"
         email:
             subject: "[Site Contact Form] {{ form.value.name|e }}"
             body: "{% include 'forms/data.html.twig' %}"
