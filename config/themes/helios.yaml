@@ -66,14 +66,14 @@ versioning:
     auto_detect: true
     root: null
     versions: null
-    default_version: "20"
+    default_version: "2"
     current_version: null
     version_pattern: '/^v?\d+(\.\d+)*$/'
     show_badge: true
     show_dropdown: true
     labels:
         17: "1.7 (Legacy)"
-        20: "2.0 (Stable)"
+        2: "2.x (Stable)"
 search:
     enabled: true
     provider: yetisearch-pro

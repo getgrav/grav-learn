@@ -1127,7 +1127,7 @@ Media with no value for the field are grouped under an empty-string key.
 ```
 
 > [!NOTE]
-> These methods read any key present in the `.meta.yaml` sidecar — Grav core makes no assumptions about which keys exist. When you filter the same media over the [REST API](/20/api/endpoints/media), the filterable fields are instead constrained to the metadata schema configured for the API plugin.
+> These methods read any key present in the `.meta.yaml` sidecar — Grav core makes no assumptions about which keys exist. When you filter the same media over the [REST API](/2/api/endpoints/media), the filterable fields are instead constrained to the metadata schema configured for the API plugin.
 
 ## Video Options
 
