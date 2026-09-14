@@ -39,7 +39,7 @@ In addition to the fields listed below, you can also use all the fields availabl
 | **[Fieldset](#fieldset-field)**                   | group a set of fields inside a collapsible accordion                                                                                                                                                        |
 | **[File](#file-field)**                           | in Admin, **File** is specialized to be used in plugin and theme configurations (blueprints). Handles uploading a file to a location and deleting it, and removing it from the theme / plugin configuration |
 | **[Filepicker](#filepicker-field)**               | **Filepicker** allows to choose files from a location in the web server filesystem.                                                                                                                         |
-| **Frontmatter**                                   |                                                                                                                                                                                                             |
+| **[Frontmatter](#frontmatter-field)**             | a plain YAML-mode code editor whose content is stored as a raw string under the field's own name                                                                                                           |
 | **[IconPicker](#iconpicker-field)**               | pick a Font Awesome icon from a visual picker. The selected icon is stored as its class name                                                                                                                |
 | **[List](#list-field)**                           | used to create collections of fields                                                                                                                                                                        |
 | **[Markdown](#markdown-field)**                   | a Markdown editor with a formatting toolbar and preview, the same one the page's Content field uses                                                                                                         |
@@ -720,6 +720,54 @@ header.a_file:
 | [validate.required](#common-fields-attributes) |
 [/div]
 
+# Frontmatter Field
+
+![Frontmatter Field](frontmatter_field.png)
+
+The `frontmatter` field type shows a plain YAML code editor, with no formatting toolbar. Whatever text is typed into it is stored **verbatim, as a raw multi-line string**, under the field's own name — it is not parsed or merged into the page's actual header keys.
+
+> [!NOTE]
+> Despite the name, this field does **not** edit the page's real frontmatter and does not turn the text you type into individual header fields. For example, giving it the name `frontmatter_field` and typing:
+> ```yaml
+> show_title: true
+> title_h1: 'Heading H1'
+> ```
+> results in the page header storing it as a single raw string value:
+> ```yaml
+> frontmatter_field: |s
+>   show_title: true
+>   title_h1: 'Heading H1'
+> ```
+> This makes it useful for capturing a freeform block of text (for example, a snippet meant to be parsed later in Twig with a YAML filter, or arbitrary configuration notes), rather than for editing a page's own frontmatter directly.
+>
+> This is a different mechanism from Admin's built-in **Expert mode**, which edits the page's actual header directly. In classic Admin, Expert mode is implemented using the [Editor Field](#editor-field) (`type: editor`, `classes: frontmatter`) with a YAML `codemirror` mode — see that section if what you need is a reusable raw-YAML editor whose content maps onto real header keys.
+
+Example:
+
+```yaml
+header.notes:
+  type: frontmatter
+  label: Freeform Notes
+  help: Anything typed here is stored as a single raw text block
+```
+
+> [!NOTE]
+> **Admin Next / Admin2**: `frontmatter` is its own native field, wrapping a plain YAML code editor with a fixed height of `600px`. It has no formatting toolbar, no `rows` attribute, and no CodeMirror options exposed through the blueprint — only `label`, `help`, `disabled` and `readonly` are read from the field's configuration. The value is always treated as a plain string, confirming the same raw-text storage behavior seen in classic Admin.
+>
+> **Admin Classic**: no field-specific attributes for `frontmatter` have been confirmed from source; the box shown is a plain line-numbered text area distinct from the `editor`/`markdown`/`codemirror` family.
+
+[div class="table table-keycol"]
+| Common Attributes Allowed |
+| :----- |
+| [default](#common-fields-attributes) |
+| [help](#common-fields-attributes) |
+| [label](#common-fields-attributes) |
+| [name](#common-fields-attributes) |
+| [style](#common-fields-attributes) |
+| [validate.required](#common-fields-attributes) |
+| [disabled](#common-fields-attributes) |
+| [readonly](#common-fields-attributes) |
+[/div]
 
 ### Honeypot Field
 
