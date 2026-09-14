@@ -719,10 +719,10 @@ You can easily generate a shortened, truncated, version of a string by using thi
 
 [codesh-group]
 [codesh=twig title="Twig"]
-'one sentence. two sentences'|truncate(5)|raw
+'one not so long sentence. two sentences'|truncate(5)|raw
 [/codesh]
 [codesh=txt title="Output"]
-one s&hellip;
+one n&hellip;
 [/codesh]
 [/codesh-group]
 
@@ -730,14 +730,16 @@ Simply truncates to 5 characters.
 
 [codesh-group]
 [codesh=twig title="Twig"]
-'one sentence. two sentences'|truncate(5, true)|raw
+'one not so long sentence. two sentences'|truncate(5, true)|raw
 [/codesh]
 [codesh=txt title="Output"]
-one sentence.&hellip;
+one not&hellip;
 [/codesh]
 [/codesh-group]
 
-Truncates to closest sentence-end after 5 characters.
+With the second argument set to `true`, truncates at the first break character at or after the character limit. The default break character is a space, so this example ends after `one not`, not at the end of the sentence.
+
+The third argument sets a different break character. For example, `truncate(5, true, '.')` returns `one not so long sentence&hellip;` for the same input. The period is not included in this truncated result; this option does not detect sentence boundaries.
 
 > [!CAUTION]
 > The `|raw` Twig filter should be used with the default `&hellip;` (elipsis) padding element in order for it to render with Twig auto-escaping
