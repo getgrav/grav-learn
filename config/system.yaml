@@ -75,9 +75,9 @@ pages:
         - rss
         - atom
     append_url_extension: null
-    expires: 604800
+    expires: 300
     cache_control: null
-    last_modified: false
+    last_modified: true
     etag: true
     vary_accept_encoding: false
     redirect_default_code: "302"
