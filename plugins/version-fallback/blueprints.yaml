@@ -1,7 +1,7 @@
 name: Version Fallback
 slug: version-fallback
 type: plugin
-version: 1.0.0
+version: 1.0.1
 description: "Provides version fallback for multi-version documentation sites. Automatically creates virtual pages for missing version content by falling back to source versions."
 icon: code-branch
 author:

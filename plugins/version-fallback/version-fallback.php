@@ -147,6 +147,18 @@ class VersionFallbackPlugin extends Plugin
             $relativePath = substr($sourceRoute, strlen('/' . $sourceVersion));
             $targetRoute = '/' . $targetVersion . $relativePath;
 
+            // Check if target page already exists
+            $existingTarget = $pages->find($targetRoute);
+
+            // A "removed" marker on the target must win before any suppression check.
+            // Otherwise a route that is both suppressed in config and stubbed with
+            // version_removed: true skips this check via the suppression `continue`,
+            // and the stub stays published as an empty page in the nav.
+            if ($existingTarget && $this->markRemoved($existingTarget, $targetRoute)) {
+                // Don't recurse — removal cascades to children
+                continue;
+            }
+
             // Check suppression: page-level frontmatter
             $sourceHeader = $sourceChild->header();
             if (isset($sourceHeader->version_exclude)) {
@@ -161,21 +173,7 @@ class VersionFallbackPlugin extends Plugin
                 continue;
             }
 
-            // Check if target page already exists
-            $existingTarget = $pages->find($targetRoute);
-
             if ($existingTarget) {
-                // Check for "removed" marker — page explicitly removed in target version
-                $targetHeader = $existingTarget->header();
-                if (!empty($targetHeader->version_removed) || $existingTarget->template() === 'removed') {
-                    $existingTarget->routable(false);
-                    $existingTarget->visible(false);
-                    $existingTarget->published(false);
-                    $this->removedRoutes[] = $targetRoute;
-                    // Don't recurse — removal cascades to children
-                    continue;
-                }
-
                 // If target is a bare folder page (no content file on disk) but source
                 // has real content, upgrade the bare page in-place with source content.
                 // This happens when e.g. v18 has a folder with children but no chapter.md.
@@ -224,15 +222,30 @@ class VersionFallbackPlugin extends Plugin
                     continue; // Already handled above
                 }
 
-                $targetHeader = $targetChild->header();
-                if (!empty($targetHeader->version_removed) || $targetChild->template() === 'removed') {
-                    $targetChild->routable(false);
-                    $targetChild->visible(false);
-                    $targetChild->published(false);
-                    $this->removedRoutes[] = $targetChild->rawRoute();
-                }
+                $this->markRemoved($targetChild, $targetChild->rawRoute());
             }
         }
+    }
+
+    /**
+     * If a page carries a "removed" marker (version_removed: true in frontmatter, or the
+     * `removed` template), unpublish it and record the route. Returns true when removed.
+     */
+    protected function markRemoved(PageInterface $page, string $route): bool
+    {
+        $header = $page->header();
+        if (empty($header->version_removed) && $page->template() !== 'removed') {
+            return false;
+        }
+
+        $page->routable(false);
+        $page->visible(false);
+        $page->published(false);
+        if (!in_array($route, $this->removedRoutes, true)) {
+            $this->removedRoutes[] = $route;
+        }
+
+        return true;
     }
 
     /**

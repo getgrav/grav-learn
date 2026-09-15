@@ -11,4 +11,3 @@ suppress:
   2:
     - /admin-panel
     - /webservers-hosting
-    - /advanced/grav-development
