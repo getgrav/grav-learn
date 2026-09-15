@@ -693,6 +693,8 @@ With the second argument set to `true`, truncates at the first break character a
 
 The third argument sets a different break character. For example, `truncate(5, true, '.')` returns `one not so long sentence&hellip;` for the same input. The period is not included in this truncated result; this option does not detect sentence boundaries.
 
+If there is no break character at or after the limit, the string is cut at the limit instead. `'abcdefgh'|truncate(5, true)` returns `abcde&hellip;`, since there is no space to break on.
+
 > [!CAUTION]
 > The `|raw` Twig filter should be used with the default `&hellip;` (elipsis) padding element in order for it to render with Twig auto-escaping
 
@@ -703,7 +705,7 @@ You can also truncate HTML text, but should first use the `|striptags` filter to
 '<span>one <strong>sentence</strong>. two sentences</span>'|raw|striptags|truncate(25)
 [/codesh]
 [codesh=txt title="Output"]
-one sentence. two senten&hellip;
+one sentence. two sentenc&hellip;
 [/codesh]
 [/codesh-group]
 
@@ -711,15 +713,33 @@ one sentence. two senten&hellip;
 
 ### safe_truncate
 
-Use `|safe_truncate` to truncate text by number of characters in a "word-safe" manner.
+Use `|safe_truncate` to truncate text by number of characters in a "word-safe" manner. It never splits a word, so the result can run past the limit to the end of the word it landed in: `'alpha bravo charlie'|safe_truncate(3)` returns `alpha&hellip;`.
 
 ### truncate_html
 
-Use `|truncate_html` to truncate HTML by number of characters. not "word-safe"!
+Use `|truncate_html` to truncate HTML by number of characters, leaving the markup intact. It is not "word-safe", so it will cut mid-word. The default is 100 characters.
+
+[codesh-group]
+[codesh=twig title="Twig"]
+'<p>alpha bravo charlie delta echo</p>'|truncate_html(3)
+[/codesh]
+[codesh=txt title="Output"]
+<p>alp...</p>
+[/codesh]
+[/codesh-group]
 
 ### safe_truncate_html
 
-Use `|safe_truncate_html` to truncate HTML by number of characters in a "word-safe" manner.
+Use `|safe_truncate_html` to truncate HTML by number of **words**, leaving the markup intact. The default is 25 words. Note that this counts words where `truncate_html` counts characters.
+
+[codesh-group]
+[codesh=twig title="Twig"]
+'<p>alpha bravo charlie delta echo</p>'|safe_truncate_html(3)
+[/codesh]
+[codesh=txt title="Output"]
+<p>alpha bravo charlie...</p>
+[/codesh]
+[/codesh-group]
 
 ### underscorize
 
