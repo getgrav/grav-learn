@@ -720,41 +720,41 @@ header.a_file:
 | [validate.required](#common-fields-attributes) |
 [/div]
 
-# Frontmatter Field
+### Frontmatter Field
 
 ![Frontmatter Field](frontmatter_field.png)
 
-The `frontmatter` field type shows a plain YAML code editor, with no formatting toolbar. Whatever text is typed into it is stored **verbatim, as a raw multi-line string**, under the field's own name — it is not parsed or merged into the page's actual header keys.
+The `frontmatter` field type shows a plain YAML code editor, with no formatting toolbar. Whatever text is typed into it is stored **verbatim, as a raw string** (with line breaks represented as escape sequences), under the field's own name — it is not parsed or merged into the page's actual header keys.
 
 > [!NOTE]
 > Despite the name, this field does **not** edit the page's real frontmatter and does not turn the text you type into individual header fields. For example, giving it the name `frontmatter_field` and typing:
-> ```yaml
+> [codesh=yaml line-numbers="true"]
 > show_title: true
 > title_h1: 'Heading H1'
-> ```
+> [/codesh]
 > results in the page header storing it as a single raw string value:
-> ```yaml
-> frontmatter_field: |s
->   show_title: true
->   title_h1: 'Heading H1'
-> ```
+> [codesh=yaml line-numbers="true"]
+> frontmatter_field: "show_title: true\ntitle_h1: 'Heading H1'"
+> [/codesh]
 > This makes it useful for capturing a freeform block of text (for example, a snippet meant to be parsed later in Twig with a YAML filter, or arbitrary configuration notes), rather than for editing a page's own frontmatter directly.
 >
-> This is a different mechanism from Admin's built-in **Expert mode**, which edits the page's actual header directly. In classic Admin, Expert mode is implemented using the [Editor Field](#editor-field) (`type: editor`, `classes: frontmatter`) with a YAML `codemirror` mode — see that section if what you need is a reusable raw-YAML editor whose content maps onto real header keys.
+> This is a different mechanism from Admin's built-in **Expert mode**, which edits the page's actual header directly. Expert mode is implemented using the [Editor Field](#editor-field) with `type: editor` and `classes: frontmatter` in `blueprints/admin/pages/raw.yaml`. It uses YAML `codemirror` mode and processes content as real header keys — see that section if what you need is a reusable raw-YAML editor whose content maps onto header keys.
 
 Example:
 
-```yaml
+[codesh=yaml line-numbers="true"]
 header.notes:
   type: frontmatter
   label: Freeform Notes
   help: Anything typed here is stored as a single raw text block
-```
+[/codesh]
 
 > [!NOTE]
-> **Admin Next / Admin2**: `frontmatter` is its own native field, wrapping a plain YAML code editor with a fixed height of `600px`. It has no formatting toolbar, no `rows` attribute, and no CodeMirror options exposed through the blueprint — only `label`, `help`, `disabled` and `readonly` are read from the field's configuration. The value is always treated as a plain string, confirming the same raw-text storage behavior seen in classic Admin.
+> **Admin Next / Admin2**: The `frontmatter` field wraps a plain YAML code editor with a maximum height of `600px` and overflow scrolling. It accepts `label`, `help`, `disabled` and `readonly` attributes from the field's configuration. The value is always treated as a plain string, confirming the raw-text storage behavior.
 >
-> **Admin Classic**: no field-specific attributes for `frontmatter` have been confirmed from source; the box shown is a plain line-numbered text area distinct from the `editor`/`markdown`/`codemirror` family.
+> **Admin Classic**: This field is deprecated since 2016. It is implemented as an alias to the `editor` field with YAML `codemirror` mode. For new blueprints, use `type: editor` instead — it accepts all the same options and is actively maintained. It accepts all attributes that the `editor` field accepts, including `codemirror` options.
+>
+> **Raw Header Behavior**: When a `frontmatter` field is used in the same blueprint as a `content` field, it automatically enables the raw-header editing toggle in the page editor. This behavior is keyed specifically on the field being named `frontmatter` alongside a `content` field (see `AdminController.php:2930`).
 
 [div class="table table-keycol"]
 | Common Attributes Allowed |
