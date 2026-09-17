@@ -2,38 +2,30 @@
 title: User Folder Exposure
 taxonomy:
     category: docs
-description: What it means when Grav reports that your user/ folders are reachable over the web, why a default install is not at risk, and how to block direct access on any web server.
+description: How to detect and prevent direct web access to private Grav files, form submissions, backups and temporary downloads.
 ---
 # User Folder Exposure
 
-The Grav admin dashboard shows a notice like this when it can read a file from your `user/` folder directly over the web:
+The Grav admin dashboard can warn when a harmless test file in a private storage directory is reachable directly over the web:
 
 > Your web server is not applying Grav's access rules.
 
-This page explains what that means and how to tidy it up. It is a configuration recommendation, not a sign that something is wrong with your site.
+Take a confirmed exposure seriously. Depending on the directory and file types the server exposes, visitors could download account files, configuration, saved form submissions or whole-site backups. The check uses harmless sentinel files; it does not download your actual private data.
 
-## Is anything at risk?
-
-For a standard Grav install, no. Grav keeps nothing sensitive in `user/data`, and every release ships web server configurations (`.htaccess` for Apache, plus `nginx.conf` and others in the `webserver-configs/` folder) that block direct access to these folders. On a server that applies them, none of this is reachable.
-
-The notice simply means those rules are not being applied right now, so files under `user/` can be requested directly. It is worth tightening up for two reasons:
-
-1. **Third-party plugins.** Some plugins keep data under `user/data`. If a plugin stores something private there, you will want it behind the same protection as the rest of your site.
-2. **The same rules cover more than one folder.** Applying them also keeps `user/accounts` and `user/config` private, which is good practice regardless.
-
-Turning the rules back on takes a few lines of configuration, covered below.
+Updated Admin2 and API versions test `.dat`, `.txt` and `.zip` files in `user/data`, `backup` and `tmp`, and list the directory/file-type combinations found reachable. Older versions only test a `.dat` file under `user/data`; passing that one check does not establish that other file types or directories are protected. Network errors and unsuccessful checks are inconclusive, and an absent warning is not a complete security audit.
 
 ## Why it happens
 
 Grav relies on the web server to deny direct requests to its private folders. The block stops working when:
 
 - You are on **Apache** but `.htaccess` files are ignored, because `AllowOverride` is set to `None` for your document root. This is the most common cause.
-- You are on **Nginx**, **Caddy**, **LiteSpeed**, or another server that does **not** read `.htaccess` at all, and the equivalent rules were never added to the site configuration.
+- You are on **Nginx**, **Caddy**, or another server that does **not** read `.htaccess` at all, and the equivalent rules were never added to the site configuration.
+- A front proxy serves existing static files itself and forwards only other requests to PHP or Apache. The front server may expose `.txt` and `.zip` even while `.dat` requests reach Apache and receive a 403.
 - A custom or host-provided server config replaced Grav's shipped rules without carrying these blocks across.
 
 ## How to fix it
 
-The goal is the same on every server: deny direct web access to `user/accounts`, `user/config`, `user/env`, and `user/data` (while still allowing public media uploaded under `user/data`, such as images, to be served).
+The goal is the same on every server: deny direct web access to `backup`, `tmp`, `logs`, `user/accounts`, `user/config`, `user/env`, and `user/data` (while still allowing public media uploaded under `user/data`, such as images, to be served).
 
 ### Apache
 
@@ -46,9 +38,11 @@ First make sure `.htaccess` is being honored. In your virtual host (or the relev
 </Directory>
 ```
 
-Reload Apache (`sudo systemctl reload apache2` or `sudo apachectl graceful`). Grav's bundled `.htaccess` already contains the rules below, so once `AllowOverride All` is active you are protected:
+Reload Apache (`sudo systemctl reload apache2` or `sudo apachectl graceful`). Compare your root `.htaccess` with the current Grav version and ensure it includes these rules; older versions may omit `tmp`:
 
 ```apache
+# Block private storage regardless of file extension
+RewriteRule ^(backup|tmp|logs)/(.*) error [F,NC]
 # Block all direct access to these sensitive user folders, whatever the file type
 RewriteRule ^(user)/(accounts|config|env)/(.*) error [F]
 # Block user/data too, but allow public media uploads (e.g. Flex Object images)
@@ -63,9 +57,11 @@ If you cannot enable `AllowOverride`, copy those rules into your virtual host co
 
 ### Nginx
 
-Nginx does not read `.htaccess`. Add these `location` blocks to your site configuration (they are already present in the shipped `webserver-configs/nginx.conf`):
+Nginx does not read `.htaccess`. Compare your configuration with the shipped `webserver-configs/nginx.conf` and add these `location` blocks before generic static-file handlers. Adjust the paths if Grav is installed in a subdirectory or uses custom storage paths:
 
 ```nginx
+# deny private storage regardless of file extension
+location ~* ^/(backup|tmp|logs)/ { return 403; }
 # deny all direct access to these sensitive user folders, whatever the file type
 location ~* /user/(accounts|config|env)/.*$ { return 403; }
 # allow public media uploads under user/data to be served directly;
@@ -82,7 +78,7 @@ Then reload Nginx (`sudo nginx -t && sudo systemctl reload nginx`). The full, re
 Caddy also ignores `.htaccess`. Add a matcher that returns a 403 for the private folders, before your `php_fastcgi`/`file_server` directives:
 
 ```caddy
-@gravBlocked path_regexp /user/(accounts|config|env)/.* /user/data/.*
+@gravBlocked path /backup/* /tmp/* /logs/* /user/accounts/* /user/config/* /user/env/* /user/data/*
 respond @gravBlocked 403
 ```
 
@@ -96,11 +92,26 @@ LiteSpeed reads `.htaccess` and is compatible with Grav's Apache rules, so enabl
 
 If your site sits behind a reverse proxy or CDN, or runs on a managed/shared host, the rules must be applied on whichever layer actually serves the files. Check with your host if you are unsure which server is in front.
 
+## Managed hosts and storage outside the web root
+
+On hosts such as Cloudways, confirm which stack serves static files. Apache rules cannot protect a file served directly by nginx, even when Apache is behind it. Ask the host to apply the deny rules on the front server, ahead of its generic static-file handlers. Blocking access in PHP cannot intercept those requests.
+
+In Grav versions with native `.env` support, you can relocate backups and temporary downloads using absolute paths in the Grav root's `.env`:
+
+```dotenv
+GRAV_BACKUP_PATH=/srv/private/grav-backups
+GRAV_TMP_PATH=/srv/private/grav-tmp
+```
+
+Choose directories outside the document root and any public server aliases, writable by the PHP process. These settings redirect `backup://` and `tmp://`; they do not move or remove old files. Move existing backups out of the old public directory, and remove obsolete temporary files when no installation or update is running. Verify the former URLs no longer return their contents. Relocating these directories does not protect `user/accounts`, `user/config` or saved form submissions; those still need access rules.
+
+The Form plugin's `save` action defaults to `.txt`. On a host that serves `.txt` directly but blocks `.dat`, configure `extension: dat` as an interim measure and verify the saved-file URL is denied. A file extension alone is not access control: an nginx-only stack without deny rules may serve both. Extensions such as `yaml`, `yml`, `json` and `md` may be refused by `security.uploads_dangerous_extensions`; do not disable that protection to change the submission format.
+
 ## Confirming it is fixed
 
 Visit the dashboard again after reloading your server. The warning checks live, by trying to download the test file the same way a visitor would, so once direct access is blocked the banner disappears on the next load.
 
-You can also test by hand. A request like `https://www.example.com/user/config/system.yaml` should return **403 Forbidden** or **404 Not Found**, not the file's contents.
+You can also test by hand using only harmless files. Write a short random marker into fresh `.dat`, `.txt` and `.zip` files in each directory being checked, request those URLs without authentication, and remove your test files afterward. A response containing the marker proves exposure. A 403 or 404 blocks that particular test; a server error, login page or failed request does not prove protection. Avoid using real backups, account files or submissions as test payloads.
 
 ## A note on public media under user/data
 

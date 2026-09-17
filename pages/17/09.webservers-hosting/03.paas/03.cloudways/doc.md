@@ -39,6 +39,10 @@ unzip grav-admin-v<< grav_version >>.zip
 
 That’s it! Grav CMS is ready for your use on Cloudways PHP Hosting Platform. Head to your Application Staging URL and add /grav-admin at the end of the URL.
 
+## Protecting private files
+
+Verify that your selected stack blocks direct access to Grav's private files before storing submissions or backups. A front nginx server may serve static files without consulting Apache's `.htaccess`; protecting `.dat` does not necessarily protect `.txt` submissions or `.zip` backups. Ask Cloudways to apply the equivalent access rules at the layer serving static files, and test several file types using harmless sentinel files. See [User Folder Exposure](/security/user-folder-exposure) for checks and for relocating backups and temporary downloads outside the web root.
+
 ## Maintenance & Updating Grav on Cloudways
 
 From time to time you may stumble across issues with Grav on Cloudways due to their unusual permissions structure. To reset your file permissions, login to your Cloudways account, navigate to your application, go to Application Settings and click on [Reset Permission](https://support.cloudways.com/using-the-reset-permissions-button-to-solve-permissions-denied-issues/). This may resolve any issues with File Permissions related to caching, loggin, updates or backups.

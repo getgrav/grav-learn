@@ -162,6 +162,8 @@ process:
         operation: create
 [/codesh]
 
+Saved submissions may contain private data. Confirm that your web server blocks their URLs, including when nginx serves static files in front of Apache. If your host exposes `.txt` but blocks `.dat`, `extension: dat` is an interim option; test it with harmless data first. Extensions on `security.uploads_dangerous_extensions` are rejected, so changing to `yaml` or `json` may make the save action fail. See [User Folder Exposure](/security/user-folder-exposure) for the server-side protections required.
+
 If you leave `body` out entirely, it defaults to `forms/data.save.txt.twig`. That template is provided by the Form plugin, and a theme can override it with its own `templates/forms/data.save.txt.twig`. Use it rather than `forms/data.txt.twig` for saved files: `forms/data.txt.twig` is HTML-escaped because it also gets included into HTML email bodies, which would store `Tom &amp; Jerry` instead of `Tom & Jerry` in the saved file.
 
 > [!WARNING]
