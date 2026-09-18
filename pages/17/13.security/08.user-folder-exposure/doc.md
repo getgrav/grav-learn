@@ -25,7 +25,7 @@ Grav relies on the web server to deny direct requests to its private folders. Th
 
 ## How to fix it
 
-The goal is the same on every server: deny direct web access to `backup`, `tmp`, `logs`, `user/accounts`, `user/config`, `user/env`, and `user/data` (while still allowing public media uploaded under `user/data`, such as images, to be served).
+The goal is the same on every server: deny direct web access to `backup`, `tmp`, `logs`, `user/accounts`, `user/config`, `user/env`, and `user/data`, while still allowing the files Grav intends to be public — avatar images under `user/accounts`, and media and assets uploaded under `user/data`. Those exceptions have to come before the matching deny rule, or they never take effect.
 
 ### Apache
 
@@ -44,10 +44,14 @@ Reload Apache (`sudo systemctl reload apache2` or `sudo apachectl graceful`). Co
 # Block private storage regardless of file extension
 RewriteRule ^(backup|tmp|logs)/(.*) error [F,NC]
 # Block all direct access to these sensitive user folders, whatever the file type
-RewriteRule ^(user)/(accounts|config|env)/(.*) error [F]
-# Block user/data too, but allow public media uploads (e.g. Flex Object images)
-RewriteCond %{REQUEST_URI} !\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$ [NC]
-RewriteRule ^(user)/data/(.*) error [F]
+RewriteRule ^(user)/(config|env)/(.*) error [F,NC]
+# Block user/accounts too, but allow avatar images to be served directly, whether
+# stored at user/accounts/avatars/<file> or user/accounts/<username>/<file>
+RewriteCond %{REQUEST_URI} !/user/accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$ [NC]
+RewriteRule ^(user)/accounts/(.*) error [F,NC]
+# Block user/data too, but allow public asset uploads (e.g. Flex Object images)
+RewriteCond %{REQUEST_URI} !\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf|woff2|woff|ttf|otf|eot|css|js)$ [NC]
+RewriteRule ^(user)/data/(.*) error [F,NC]
 ```
 
 If you cannot enable `AllowOverride`, copy those rules into your virtual host configuration instead.
@@ -63,26 +67,57 @@ Nginx does not read `.htaccess`. Compare your configuration with the shipped `we
 # deny private storage regardless of file extension
 location ~* ^/(backup|tmp|logs)/ { return 403; }
 # deny all direct access to these sensitive user folders, whatever the file type
-location ~* /user/(accounts|config|env)/.*$ { return 403; }
+location ~* ^/user/(config|env)/.*$ { return 403; }
+# allow avatar images under user/accounts to be served directly, whether stored at
+# user/accounts/avatars/<file> or user/accounts/<username>/<file>; this must come
+# before the user/accounts deny so it wins the first-match
+location ~* ^/user/accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$ { try_files $uri =404; }
+# deny everything else under user/accounts
+location ~* ^/user/accounts/.*$ { return 403; }
 # allow public media uploads under user/data to be served directly;
 # this must come before the user/data deny so it wins the match
-location ~* /user/data/.*\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$ { try_files $uri =404; }
+location ~* ^/user/data/.*\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$ { try_files $uri =404; }
 # deny everything else under user/data
-location ~* /user/data/.*$ { return 403; }
+location ~* ^/user/data/.*$ { return 403; }
 ```
 
 Then reload Nginx (`sudo nginx -t && sudo systemctl reload nginx`). The full, recommended configuration is documented under [Nginx](/webservers-hosting/servers/nginx).
 
 ### Caddy
 
-Caddy also ignores `.htaccess`. Add a matcher that returns a 403 for the private folders, before your `php_fastcgi`/`file_server` directives:
+Caddy also ignores `.htaccess`. Compare your configuration with the shipped `webserver-configs/Caddyfile`. Two Caddy behaviours matter here, and both fail silently when you get them wrong:
+
+- Caddy's `path` matcher is literal — it understands `*` wildcards but is **not** a regex. Anything needing alternation, character classes or anchors has to use `path_regexp`.
+- Outside a `route` block, Caddy applies its own directive order rather than the order you wrote, and the global `try_files` rewrite runs before `respond`. That disables every deny rule for any path Caddy cannot resolve to a file on disk. Put the rules inside a `route` block, which runs top to bottom as written.
+
+Caddy matchers compile with Go's RE2, which has no lookbehind, so the media exceptions use a negated matcher rather than an inline one:
 
 ```caddy
-@gravBlocked path /backup/* /tmp/* /logs/* /user/accounts/* /user/config/* /user/env/* /user/data/*
-respond @gravBlocked 403
-```
+@denied_dirs path_regexp (?i)^/(\.git|cache|bin|logs|backups?|tmp|tests)/
+@denied_user_config path_regexp (?i)^/user/(config|env)/
+# block user/accounts, but allow avatar images to be served directly
+@denied_user_accounts {
+	path_regexp (?i)^/user/accounts/
+	not path_regexp (?i)^/user/accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$
+}
+# block user/data, but allow public media uploads (e.g. Flex Object images)
+@denied_user_data {
+	path_regexp (?i)^/user/data/
+	not path_regexp (?i)\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$
+}
 
-If you serve public media from `user/data`, place a more specific matcher for the allowed image and media extensions ahead of the block so those requests still succeed.
+route {
+	respond @denied_dirs 403
+	respond @denied_user_config 403
+	respond @denied_user_accounts 403
+	respond @denied_user_data 403
+
+	# global rewrite should come last
+	try_files {path} {path}/ /index.php?_url={uri}&{query}
+	php_fastcgi 127.0.0.1:9000
+	file_server
+}
+```
 
 ### LiteSpeed
 
