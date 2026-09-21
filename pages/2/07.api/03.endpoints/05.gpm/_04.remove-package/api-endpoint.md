@@ -3,7 +3,7 @@ title: Remove Package
 api:
     method: POST
     path: /gpm/remove
-    description: 'Remove an installed package.'
+    description: 'Remove an installed plugin or theme. Requires `api.gpm.write`. Fires `onApiBeforePackageRemove` and `onApiPackageRemoved`.'
     parameters:
         - name: package
           type: string
@@ -16,7 +16,13 @@ api:
           description: 'Package removed'
         - code: '401'
           description: 'Unauthorized'
+        - code: '403'
+          description: 'Missing `api.gpm.write` permission'
         - code: '404'
-          description: 'Package not found'
+          description: 'Package not installed'
+        - code: '422'
+          description: 'Missing `package` field'
+        - code: '500'
+          description: 'Removal failed. The error message is plain text, with GPM''s console colour codes removed.'
 ---
 

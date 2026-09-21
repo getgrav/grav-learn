@@ -22,16 +22,18 @@ api:
           required: false
           description: 'Sort direction: asc (default) or desc'
     request_example: ''
-    response_example: '{"data": [{"filename": "photo.jpg", "url": "/user/pages/blog/photo.jpg", "type": "image/jpeg", "size": 245000}]}'
+    response_example: '{"data": [{"filename": "photo.jpg", "url": "/user/pages/01.blog/photo.jpg", "type": "image/jpeg", "size": 245000, "alt": "Sunset over the bay", "dimensions": {"width": 1920, "height": 1080}, "thumbnail_url": "/api/v1/thumbnails/3f2a9c1e4b5d6a7f8e9d0c1b2a394857.jpg", "modified": "2026-09-01T10:15:00+00:00"}]}'
     response_codes:
         - code: '200'
           description: 'Success'
-        - code: '400'
-          description: 'Invalid filter/sort parameter'
         - code: '401'
           description: 'Unauthorized'
+        - code: '403'
+          description: 'Missing `api.media.read` permission, or the page''s own rules deny read access'
         - code: '404'
           description: 'Page not found'
+        - code: '422'
+          description: 'Invalid filter/sort parameter'
 ---
 
 ## Filtering and sorting by metadata
@@ -59,5 +61,5 @@ GET /pages/blog/media?sort=rating&order=desc
 ### Rules and limits
 
 - **Schema-bound.** Only fields defined in `media_metadata.fields` are filterable and sortable; unknown fields are ignored. A `tags` field accepts only `in`/`contains`.
-- **Validation.** An unknown operator, a malformed clause, or an invalid `sort` field returns `400`. Filtering rides the existing `api.media.read` permission and exposes no metadata values the caller could not already read.
+- **Validation.** An unknown operator, a malformed clause, an invalid `sort` field, or more than 10 `filter` clauses returns `422`. Filtering rides the existing `api.media.read` permission and exposes no metadata values the caller could not already read.
 - **Cap.** At most 10 `filter` clauses per request.

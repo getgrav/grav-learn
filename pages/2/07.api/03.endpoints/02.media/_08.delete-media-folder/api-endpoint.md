@@ -16,10 +16,12 @@ api:
           description: 'Folder deleted'
         - code: '401'
           description: 'Unauthorized'
+        - code: '403'
+          description: 'Missing `api.media.write` permission'
         - code: '404'
           description: 'Folder not found'
         - code: '422'
-          description: 'Folder is not empty'
+          description: 'Folder is not empty, or the path is invalid'
 ---
 
-Remove an empty folder from the `user/media` directory. The folder must contain no files or subdirectories.
+Remove an empty folder from the `user/media` directory. The folder must contain no files or subdirectories, and that includes hidden files, `.meta.yaml` sidecars and a `media_order.yaml` order file.

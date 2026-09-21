@@ -9,6 +9,10 @@ api:
           in: path
           required: true
           description: 'The target account the action runs against.'
+        - name: id
+          type: string
+          required: true
+          description: 'The id of a declared row action (from `GET /users/row-actions`).'
     request_example: |
         {
             "id": "impersonate-user"
@@ -27,12 +31,14 @@ api:
         - code: '401'
           description: 'Unauthorized'
         - code: '403'
-          description: 'Forbidden — caller lacks `api.users.read`, or the handler rejected this target'
+          description: 'Forbidden — caller lacks `api.users.read`, a non-super caller targets a super admin, or the handler rejected this target'
         - code: '404'
           description: 'Unknown username, or an action id the caller isn''t authorized for'
+        - code: '422'
+          description: 'No action `id` in the body'
 ---
 
-Post the `id` of a declared row action. The API loads the target account, confirms the caller may list users (`api.users.read`), and re-checks the action's own `authorize` — an unknown or unauthorized id is an indistinguishable `404`, so nothing leaks. It then fires `onApiUserListRowAction` with the resolved `username`; the handler must guard on `$event['plugin']`, re-authorize against the target, and set `$event['result']`.
+Post the `id` of a declared row action. The API confirms the caller may list users (`api.users.read`), loads the target account (only a super admin may act on a super admin account), and re-checks the action's own `authorize` — an unknown or unauthorized id is an indistinguishable `404`, so nothing leaks. It then fires `onApiUserListRowAction` with the resolved `username`; the handler must guard on `$event['plugin']`, re-authorize against the target, and set `$event['result']`.
 
 The result is normalized to a fixed shape:
 
@@ -40,6 +46,6 @@ The result is normalized to a fixed shape:
 - `message` — optional text shown as a toast (length-capped).
 - `url` — optional redirect. Only a root-relative path (not the protocol-relative `//host` form) or a same-origin absolute URL survives validation; a `javascript:`/`data:` scheme or a cross-origin URL is dropped. Admin2 opens the surviving URL in a new tab with `noopener`.
 
-A handler that throws degrades to an error toast rather than breaking the Users list; a thrown `ForbiddenException` propagates as a `403`.
+A handler that throws degrades to a `200` with `status: error` and a generic message rather than breaking the Users list; a thrown `ForbiddenException` propagates as a `403`.
 
 See the [API Events](/2/api/events) page for the `onApiUserListRowAction` contract.

@@ -14,7 +14,7 @@ api:
           required: true
           description: 'The object key.'
     request_example: ''
-    response_example: '{"data": {"key": "ada", "name": "Ada Lovelace", "email": "ada@example.com"}}'
+    response_example: '{"data": {"key": "ada", "__meta": {"type": "contacts", "key": "ada", "storageKey": "ada", "storagePath": "user-data://flex-objects/contacts/ada"}, "name": "Ada Lovelace", "email": "ada@example.com"}}'
     response_codes:
         - code: '200'
           description: 'Success.'
@@ -27,3 +27,5 @@ api:
 ---
 
 Keep the returned `ETag` and send it back as an `If-Match` header when updating, so a concurrent change is detected instead of silently overwritten.
+
+The reserved `__meta` object is read-only information for the admin (the object's type, key, storage key and, when known, its storage folder). It is never saved: create and update strip it from the request body.

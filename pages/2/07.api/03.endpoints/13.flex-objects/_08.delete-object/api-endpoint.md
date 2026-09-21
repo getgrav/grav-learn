@@ -21,7 +21,7 @@ api:
         - code: '401'
           description: 'Unauthorized.'
         - code: '403'
-          description: 'Missing the directory''s `delete` permission.'
+          description: 'Missing the directory''s `delete` permission, or the directory is `user-accounts` or `user-groups`, which must be changed through the Users and Groups endpoints.'
         - code: '404'
           description: 'Directory or object not found.'
 ---

@@ -7,4 +7,4 @@ content:
     items: '@self.modules'
 ---
 
-Endpoints for system-level operations including information, cache management, translations, and blueprints.
+Endpoints for system-level operations including information, cache management, environments, logs, backups, translations, and reports.

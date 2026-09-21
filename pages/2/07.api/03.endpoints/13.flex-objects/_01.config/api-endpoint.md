@@ -6,7 +6,7 @@ api:
     description: 'Return UI-relevant Flex Objects plugin configuration (never secrets). Used by the admin to bootstrap the Flex Objects UI.'
     parameters: []
     request_example: ''
-    response_example: '{"data": {"enabled": true, "built_in_css": true, "admin_list": {"per_page": 15}}}'
+    response_example: '{"data": {"enabled": true, "built_in_css": true, "security": {"restrict_page_frontmatter": true}, "admin_list": {"per_page": 15, "order": {"by": "updated_timestamp", "dir": "desc"}}}}'
     response_codes:
         - code: '200'
           description: 'Success.'

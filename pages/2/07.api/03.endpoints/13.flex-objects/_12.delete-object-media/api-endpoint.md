@@ -29,7 +29,7 @@ api:
         - code: '404'
           description: 'Directory, object, or file not found.'
         - code: '422'
-          description: 'The directory has no per-object media folder (single-file storage).'
+          description: 'Invalid filename (a hidden file or one containing `..`), or the directory has no per-object media folder (single-file storage).'
 ---
 
 Returns no content on success.

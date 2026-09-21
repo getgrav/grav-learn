@@ -3,7 +3,7 @@ title: Compare Translations
 api:
     method: GET
     path: '/pages/{route}/compare'
-    description: 'Return side-by-side title/content/header/modified for two language versions of a page. Drives translation diff UIs in Admin2. Missing translations return `exists: false` rather than 404 so clients can still show "target missing" states.'
+    description: 'Return side-by-side title/content/header/modified for two language versions of a page. Drives translation diff UIs in Admin2. A side is `null` when the page does not resolve in that language, and `exists` is `false` when it resolves only through the default-language fallback rather than its own file, so clients can still show "target missing" states. Requires multi-language to be enabled and `api.pages.read`, and neither the source nor the target version may deny the caller read access.'
     parameters:
         - name: route
           type: string
@@ -22,10 +22,10 @@ api:
     response_codes:
         - code: '200'
           description: 'Comparison returned (source/target may be null or `exists: false`).'
-        - code: '400'
-          description: 'Missing `source` / `target` query param, or invalid language code.'
         - code: '401'
           description: 'Unauthorized.'
         - code: '403'
-          description: 'Missing `api.pages.read` permission.'
+          description: 'Missing `api.pages.read` permission, or the source or target version denies read access.'
+        - code: '422'
+          description: 'Missing `source` / `target` query param, a language code that is not a string (for example `source[]=`) or not configured, or multi-language not enabled.'
 ---

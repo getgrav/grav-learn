@@ -7,4 +7,4 @@ content:
     items: '@self.modules'
 ---
 
-Endpoints for dashboard data including statistics, notifications, news feed, and page view popularity.
+Endpoints for dashboard data including statistics, notifications, news feed, page view popularity, the storage exposure check, and the customizable widget layout.

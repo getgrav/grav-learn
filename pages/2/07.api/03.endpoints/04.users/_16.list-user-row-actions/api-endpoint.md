@@ -41,6 +41,6 @@ The response `data.actions` is the ordered list of plugin-declared row actions. 
 - `confirm` — optional prompt shown in a confirmation dialog before the action runs.
 - `priority` — optional; higher sorts earlier.
 
-Actions are plugin-owned but safe by construction: no markup or renderer crosses the wire, the list is capped, and the `authorize` check is re-run server-side and stripped from this response. The `authorize` on a declaration gates only which buttons render — it is not a security boundary; the [execution endpoint](/2/api/endpoints/users/execute-user-row-action) re-authorizes independently. Like the filter tabs and columns, row actions require the Flex-accounts backend.
+Actions are plugin-owned but safe by construction: no markup or renderer crosses the wire, the list is capped, and the `authorize` check is re-run server-side and stripped from this response. The `authorize` on a declaration gates only which buttons render — it is not a security boundary; the [execution endpoint](/2/api/endpoints/users/execute-user-row-action) re-authorizes independently.
 
 See the [API Events](/2/api/events) page for the `onApiUserListRowActions` and `onApiUserListRowAction` contracts.

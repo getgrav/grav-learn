@@ -12,7 +12,7 @@ All endpoints are prefixed with: `{site_url}/api/v1`
 
 ## Authentication
 
-The public endpoints that do not require authentication are: `POST /auth/token`, `POST /auth/2fa/verify`, `POST /auth/refresh`, `POST /auth/revoke`, `POST /auth/forgot-password`, `POST /auth/reset-password`, `GET /auth/setup`, `POST /auth/setup`, `GET /ping`, and `GET /translations/{lang}`. Everything else requires authentication via:
+The public endpoints that do not require authentication are everything under `/auth/` (token, 2FA verify, refresh, revoke, forgot and reset password, setup, invitation accept, password policy, captcha and SSO), `GET /translations/{lang}`, `GET /thumbnails/{file}` and `GET /ping`. Plugins can add their own public routes through the `onApiCollectPublicRoutes` event. Everything else requires authentication via:
 
 - an **API Key** (`X-API-Key` header or `?api_key=` query param),
 - a **JWT access token** (preferred as `X-API-Token`, accepted as `Authorization: Bearer`), or
@@ -36,8 +36,8 @@ The API respects Grav environments. Pass `X-Grav-Environment: <hostname>` to tar
 | 401 | Unauthorized |
 | 403 | Forbidden |
 | 404 | Not Found |
-| 409 | Conflict |
-| 412 | Precondition Failed (ETag / `If-Match` mismatch on update) |
+| 405 | Method Not Allowed (the path exists, but not for this method) |
+| 409 | Conflict (including an `If-Match` ETag that no longer matches on update) |
 | 422 | Validation Error |
 | 429 | Rate Limited |
 | 500 | Internal Server Error |

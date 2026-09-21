@@ -11,7 +11,7 @@ api:
           required: true
           description: 'The Flex directory key.'
     request_example: ''
-    response_example: '{"data": {"fields": [{"name": "name", "type": "text", "label": "Name"}, {"name": "email", "type": "email", "label": "Email"}]}}'
+    response_example: '{"data": {"name": "contacts", "title": "Contacts", "type": null, "child_type": null, "validation": "loose", "fields": [{"name": "name", "type": "text", "label": "Name"}, {"name": "email", "type": "email", "label": "Email"}]}}'
     response_codes:
         - code: '200'
           description: 'Success.'

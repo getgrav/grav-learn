@@ -3,7 +3,7 @@ title: Delete User
 api:
     method: DELETE
     path: '/users/{username}'
-    description: 'Delete a user account.'
+    description: 'Delete a user account. Requires `api.users.write`.'
     parameters:
         - name: username
           type: string
@@ -17,7 +17,7 @@ api:
         - code: '401'
           description: 'Unauthorized'
         - code: '403'
-          description: 'Forbidden'
+          description: 'Forbidden (missing `api.users.write`, deleting your own account, or a non-super caller deleting a super admin)'
         - code: '404'
           description: 'User not found'
 ---

@@ -7,4 +7,4 @@ content:
     items: '@self.modules'
 ---
 
-Endpoints for managing Grav packages (plugins and themes) via the GPM, including installation, removal, updates, and repository search.
+Endpoints for managing Grav packages (plugins and themes) via the GPM, including installation, removal, updates, and repository search, plus the endpoints that serve plugin admin pages and web component scripts to Admin2.

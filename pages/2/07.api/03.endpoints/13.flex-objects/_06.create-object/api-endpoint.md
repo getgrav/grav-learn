@@ -10,14 +10,16 @@ api:
           required: true
           description: 'The Flex directory type (e.g. `contacts`).'
     request_example: '{"name": "Grace Hopper", "email": "grace@example.com"}'
-    response_example: '{"data": {"key": "grace-hopper", "name": "Grace Hopper", "email": "grace@example.com"}}'
+    response_example: '{"data": {"key": "grace-hopper", "__meta": {"type": "contacts", "key": "grace-hopper", "storageKey": "grace-hopper"}, "name": "Grace Hopper", "email": "grace@example.com"}}'
     response_codes:
         - code: '201'
           description: 'Object created. The `Location` header points to the new object.'
         - code: '401'
           description: 'Unauthorized.'
         - code: '403'
-          description: 'Missing the directory''s `create` permission.'
+          description: 'Missing the directory''s `create` permission, or the directory is `user-accounts` or `user-groups`, which must be changed through the Users and Groups endpoints.'
+        - code: '404'
+          description: 'Directory type not found or not enabled.'
         - code: '422'
           description: 'Validation error (the object could not be created from the supplied data).'
 ---

@@ -3,7 +3,7 @@ title: Job History
 api:
     method: GET
     path: '/scheduler/history'
-    description: 'Paginated job execution history sorted by most recent first. Each record has the job id, last status (`success`/`failure`/`pending`/`unknown`), last run ISO-8601 timestamp, and any error message captured on failure.'
+    description: 'Paginated job execution history sorted by most recent first. Only the latest run of each job is kept, so this lists one entry per job that has run, not every past run. Each record has the job id, its last status (`unknown` if none was recorded), the last run as an ISO-8601 timestamp, and any error message captured on failure.'
     parameters:
         - name: page
           type: integer
@@ -12,9 +12,9 @@ api:
         - name: per_page
           type: integer
           required: false
-          description: 'Items per page.'
+          description: 'Items per page (default `plugins.api.pagination.default_per_page`, 20).'
     request_example: ''
-    response_example: '{"data": [{"job_id": "cache-purge", "status": "success", "last_run": "2026-04-17T04:00:00+00:00", "error": null}], "meta": {"total": 12, "page": 1, "per_page": 50}}'
+    response_example: '{"data": [{"job_id": "default-site-backup", "status": "success", "last_run": "2026-03-26T03:00:00+00:00", "error": null}], "meta": {"pagination": {"page": 1, "per_page": 20, "total": 12, "total_pages": 1}}, "links": {"self": "/api/v1/scheduler/history?page=1&per_page=20"}}'
     response_codes:
         - code: '200'
           description: 'History returned.'

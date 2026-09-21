@@ -16,21 +16,25 @@ api:
         - name: per_page
           type: integer
           required: false
-          description: 'Number of results per page (default 20, max 1000).'
+          description: 'Number of results per page. Defaults to the directory''s `admin.list.options.per_page`, else the API default (20); capped at 1000.'
         - name: search
           type: string
           required: false
           description: 'Search term applied across the directory''s searchable fields.'
+        - name: filters
+          type: object
+          required: false
+          description: 'Exact-match field filters, as `filters[field]=value` query params or a JSON object string. An array value matches any of its values; `key` or `id` matches the object key.'
         - name: sort
           type: string
           required: false
-          description: 'Field to sort by.'
+          description: 'Field to sort by. Defaults to the directory''s `admin.list.options.order.by`, else unsorted.'
         - name: order
           type: string
           required: false
-          description: 'Sort direction: `asc` (default) or `desc`.'
+          description: 'Sort direction: `asc` or `desc`. Defaults to the directory''s configured order direction, else `asc`.'
     request_example: ''
-    response_example: '{"data": [{"key": "ada", "name": "Ada Lovelace", "email": "ada@example.com"}], "meta": {"total": 1, "page": 1, "per_page": 20}}'
+    response_example: '{"data": [{"key": "ada", "name": "Ada Lovelace", "email": "ada@example.com"}], "meta": {"pagination": {"page": 1, "per_page": 20, "total": 1, "total_pages": 1}}, "links": {"self": "https://example.com/api/v1/flex-objects/contacts?page=1&per_page=20"}}'
     response_codes:
         - code: '200'
           description: 'Success.'
@@ -42,4 +46,4 @@ api:
           description: 'Directory type not found or not enabled.'
 ---
 
-The `key` on each item is the object identifier you pass as `{key}` to the single-object endpoints.
+The `key` on each item is the object identifier you pass as `{key}` to the single-object endpoints. A directory with no configured list fields returns each object's full data instead. When the directory configures a related detail list (`admin.list.detail`) that the user can see, each item also carries a `__detail` object describing the related directory, the filter that selects its records, and whether the user can edit or delete them.

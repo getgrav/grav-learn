@@ -57,7 +57,7 @@ When Admin2 loads a plugin's detail page, the API automatically discovers files 
 
 ### Loading, Bundling & Caching
 
-You don't have to do anything to opt into this, but it's worth understanding how Admin2 actually fetches your field scripts — because it shapes one rule you must follow.
+You don't have to do anything to opt into this, but it's worth understanding how Admin2 actually fetches your field scripts — because it leads to one rule you must follow.
 
 **One request per plugin, not per field.** When a blueprint puts several of your custom fields on the same screen, Admin2 does **not** fetch them one at a time. It requests the whole plugin's field set in a single call:
 
@@ -72,10 +72,10 @@ The API reads every file in your `admin-next/fields/` directory and returns them
 
 **Cached aggressively, revalidated cheaply.** The bundle (and the per-field route) carry an `ETag` derived from your files' modification time and size, and Admin2 also caches the response body in `localStorage`. On every later load it revalidates with `If-None-Match`, so an unchanged bundle comes back as a tiny `304 Not Modified` and is served from cache — your multi‑megabyte editor field is downloaded once per release, not on every page open. Because the validator tracks file mtime and size, rebuilding a field during development invalidates it immediately, so you always get fresh code while iterating.
 
-**No rate-limit cost, bounded concurrency.** These script routes are exempt from the API's per-user rate limit (they're static assets, not actions), and Admin2 caps how many requests it runs in parallel. So even a page that pulls in fields from many plugins at once won't trip the limiter or flood the server with a burst of simultaneous downloads.
+**Rate limited like everything else, but cheap.** These script routes count against the API's per-user rate limit (`plugins.api.rate_limit`, 120 requests per 60 seconds by default) like any other request. The only path exempt by default is `/sync/`, the live collaboration polling, set by `plugins.api.rate_limit.excluded_paths`. In practice the scripts rarely add up: Admin2 fetches one bundle per plugin, an unchanged bundle comes back as a `304`, Admin2 caps how many requests it runs in parallel, and if it does get a `429` it backs off and retries instead of failing the field.
 
 > [!NOTE]
-> This pattern — discover a plugin's contributions on disk, serve them in **one** conditionally-cached bundle, and fan out the work on the client — is the recommended shape for any plugin that ships a fleet of admin-next assets (fields, and by the same token your own grouped config/bootstrap endpoints). It keeps the editor's first paint fast no matter how many plugins are installed.
+> This pattern — discover a plugin's contributions on disk, serve them in **one** conditionally-cached bundle, and fan out the work on the client — is the recommended approach for any plugin that ships a fleet of admin-next assets (fields, and by the same token your own grouped config/bootstrap endpoints). It keeps the editor's first paint fast no matter how many plugins are installed.
 
 ### Web Component Contract
 
@@ -210,7 +210,8 @@ Always use optional chaining (`?.`) so your component degrades gracefully if it 
 
 The same `window.__GRAV_DIALOGS` object that provides `confirm()` also opens richer modals, so you rarely need to hand-roll one. Both methods resolve a result, or `null` if the user dismisses the modal (Escape, backdrop, or Cancel), and only one modal shows at a time — extra calls queue.
 
-!! Requires grav-plugin-api `1.0.0-rc.16` / Admin2 `2.0.0-rc.16` or later. Older builds only have `__GRAV_DIALOGS.confirm()`.
+> [!NOTE]
+> Requires grav-plugin-api `1.0.0-rc.16` / Admin2 `2.0.0-rc.16` or later. Older builds only have `__GRAV_DIALOGS.confirm()`.
 
 **`form()` — an inline-field form, no component to ship.** Define the fields in JS and get the values back:
 
@@ -691,9 +692,9 @@ The web component (`admin-next/fields/products-status.js`) calls `GET /licenses/
 
 ## Other Admin2 Extension Points
 
-Beyond full plugin pages and custom fields, Admin2 exposes several smaller surfaces plugins can contribute to. Each one follows the same pattern: a GET endpoint that fires an event, plugins append items to the event data, and Admin2 renders the collected results. Web-component payloads (where applicable) live under `admin-next/{subdir}/{slug}.js` inside the plugin and are served on demand by dedicated script endpoints.
+Beyond full plugin pages and custom fields, Admin2 has several smaller extension points plugins can contribute to. Each one follows the same pattern: a GET endpoint that fires an event, plugins append items to the event data, and Admin2 renders the collected results. Web-component payloads (where applicable) live under `admin-next/{subdir}/{slug}.js` inside the plugin and are served on demand by dedicated script endpoints.
 
-| Surface | Endpoint | Registration event | Web component (if any) | Script endpoint |
+| Extension point | Endpoint | Registration event | Web component (if any) | Script endpoint |
 |---------|----------|-------------------|------------------------|-----------------|
 | Full plugin page | `GET /gpm/plugins/{slug}/page` | `onApiPluginPageInfo` | `admin-next/pages/{slug}.js` | `GET /gpm/plugins/{slug}/page-script` |
 | Custom blueprint field | (automatic discovery) | (filesystem) | `admin-next/fields/{type}.js` | `GET /gpm/plugins/{slug}/field/{type}` |
@@ -704,12 +705,16 @@ Beyond full plugin pages and custom fields, Admin2 exposes several smaller surfa
 | Floating widget | `GET /floating-widgets` | `onApiFloatingWidgets` | `admin-next/widgets/{slug}.js` | `GET /gpm/plugins/{slug}/widget-script` |
 | Context panel | `GET /context-panels` | `onApiContextPanels` | `admin-next/panels/{slug}.js` | `GET /gpm/plugins/{slug}/panel-script` |
 | Custom report | `GET /reports` | `onApiGenerateReports` | `admin-next/reports/{reportId}.js` | `GET /gpm/plugins/{slug}/report-script/{reportId}` |
+| Dashboard widget | `GET /dashboard/widgets` | `onApiDashboardWidgets` | the plugin's own script, named by the widget's `scriptUrl` | the plugin's own route |
+| Markdown editor button | `GET /editor/toolbar-buttons` | `onApiMarkdownEditorButtons` | — | — |
 
-The current authenticated user is always passed in the event data — use it to skip registrations when the user doesn't have the permissions required to use that feature.
+The current authenticated user is passed in the event data for every one of these except `onApiGenerateReports`. Use it to skip registrations when the user doesn't have the permissions required to use that feature. Sidebar items, menubar items, floating widgets, context panels and editor buttons can also declare `authorize` (a permission string, or an array for an any-of test), and dashboard widgets can declare it as a single permission string: the API drops entries the user isn't authorized for and strips `authorize` before the response goes out. Settings panels and reports have no `authorize` check, so gate those in your listener.
+
+The page, widget, panel, modal and report script routes return `404` for a plugin that is disabled, so a disabled plugin's admin pages and UI stop loading. Custom field scripts (`/field/{type}` and `/fields`) are still served for a disabled plugin, because its settings form is edited before it is enabled and can use its own field types. All of these script routes count against the API rate limit like any other request.
 
 ### Settings Panels
 
-Settings panels render as cards inside Admin2's Settings page, rather than as standalone sidebar entries. Use them for configuration that belongs with other system settings. The payload shape is the same as a blueprint-mode plugin-page definition — a blueprint file plus `data_endpoint` / `save_endpoint` — no component support.
+Settings panels render as cards inside Admin2's Settings page, rather than as standalone sidebar entries. Use them for configuration that belongs with other system settings. The payload format is the same as a blueprint-mode plugin-page definition — a blueprint file plus `data_endpoint` / `save_endpoint` — no component support.
 
 ```php
 public static function getSubscribedEvents()
@@ -787,7 +792,7 @@ public function onApiMenubarAction(Event $event): void
 }
 ```
 
-Handlers **must** check `$event['plugin']` before responding — every plugin listening to `onApiMenubarAction` receives every request. `status: 'success'` returns HTTP 200; `status: 'error'` returns 400.
+Handlers **must** check `$event['plugin']` before responding — every plugin listening to `onApiMenubarAction` receives every request. The response is HTTP 200 with your `result` either way, and Admin2 shows a success or error toast based on `status`. If no listener sets a `result`, the API answers `404` (no handler registered). An action whose menubar item declares `authorize` is refused with `403` for a caller who fails it, even when posted directly.
 
 #### Client-side intents: `route` and `modal`
 
@@ -932,7 +937,7 @@ public function onApiContextPanels(Event $event): void
 }
 ```
 
-`contexts` controls which Admin2 editors surface the trigger button. `badgeEndpoint` is polled for a `{count: N}` response to drive a numeric badge on the button.
+`contexts` controls which Admin2 editors show the trigger button. `badgeEndpoint` is polled for a `{count: N}` response to drive a numeric badge on the button. A panel can set `authorize` (a permission string, or an array for an any-of test); the API drops panels the user isn't authorized for, strips `authorize` from the response, and sorts the rest by `priority`, highest first, with ties kept in registration order.
 
 ### Custom Reports
 
@@ -1004,7 +1009,7 @@ Item fields:
 
 | Field | Required | Description |
 | --- | --- | --- |
-| `id` | yes | Unique id. Dismissal and `reappear_after` key off this. |
+| `id` | yes | Unique id. Dismissal and `reappear_after` key off this. Use letters, digits, `.`, `_` and `-`, starting with a letter or digit, at most 64 characters: the hide endpoint rejects any other id with a `422`, so a notice with such an id can't be dismissed. |
 | `message` | yes | The text. Inline Markdown is rendered (links, emphasis). |
 | `date` | yes | ISO 8601 timestamp (`date('c')`). Shown beside dashboard-widget items. |
 | `icon` | no | A [Lucide](https://lucide.dev) icon name (`shield-alert`, kebab or PascalCase) or an emoji. |
@@ -1115,4 +1120,4 @@ Webhook events map to API events as follows:
 | `onApiPackageRemoved` | `gpm.removed` |
 | `onApiGravUpgraded` | `grav.upgraded` |
 
-Webhook POSTs are signed with HMAC-SHA256 of the body using the per-webhook secret and sent as `X-Hub-Signature-256: sha256=...`. Deliveries are logged per-webhook; use `GET /webhooks/{id}/deliveries` to inspect history.
+Webhook POSTs are signed with an HMAC-SHA256 of the raw JSON body using the per-webhook secret, sent as a hex string in the `X-Grav-Signature` header, alongside `X-Grav-Event` (the webhook event name) and `X-Grav-Delivery` (a unique delivery ID). A webhook's custom headers can't replace these three. Deliveries are logged per-webhook; use `GET /webhooks/{id}/deliveries` to inspect history.

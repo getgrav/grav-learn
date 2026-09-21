@@ -8,7 +8,7 @@ api:
         - name: id
           type: string
           required: true
-          description: 'Notification id (from the `GET /dashboard/notifications` response).'
+          description: 'Notification id (from the `GET /dashboard/notifications` response). It is not checked against known notifications, but it must be 1-64 letters, digits, `.`, `_` or `-`, starting with a letter or digit. getgrav.org uses numbers; plugins use slugs such as `login-lockout`.'
     request_example: ''
     response_example: ''
     response_codes:
@@ -18,4 +18,6 @@ api:
           description: 'Unauthorized.'
         - code: '403'
           description: 'Missing `api.system.write` permission.'
+        - code: '422'
+          description: 'The id is not a valid notification id.'
 ---

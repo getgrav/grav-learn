@@ -14,14 +14,14 @@ api:
           required: true
           description: 'The object key.'
     request_example: '{"email": "grace.hopper@example.com"}'
-    response_example: '{"data": {"key": "grace-hopper", "name": "Grace Hopper", "email": "grace.hopper@example.com"}}'
+    response_example: '{"data": {"key": "grace-hopper", "__meta": {"type": "contacts", "key": "grace-hopper", "storageKey": "grace-hopper"}, "name": "Grace Hopper", "email": "grace.hopper@example.com"}}'
     response_codes:
         - code: '200'
           description: 'Object updated. The response carries the new `ETag`.'
         - code: '401'
           description: 'Unauthorized.'
         - code: '403'
-          description: 'Missing the directory''s `update` permission.'
+          description: 'Missing the directory''s `update` permission, or the directory is `user-accounts` or `user-groups`, which must be changed through the Users and Groups endpoints.'
         - code: '404'
           description: 'Directory or object not found.'
         - code: '409'
@@ -31,3 +31,5 @@ api:
 ---
 
 This is a partial update: fields you omit are left untouched. Use `PATCH`, not `POST` (posting to an object URL is not allowed).
+
+If the body sends a file field (`file`, `avatar`, `pagemedia`, or any field with a `destination`) without a file it previously held, that file is deleted from the object's own folder when the object saves. Files stored in a shared destination such as `media://` are only unlinked from the field and stay on disk.

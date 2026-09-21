@@ -41,6 +41,6 @@ The response `data.columns` is the ordered list of plugin-declared columns. Each
 - `sortable` — optional; whether the column offers a client-side sort of the current page.
 - `priority` — optional; higher sorts earlier.
 
-Columns are plugin-owned but safe by construction: the values in each user's `extra` map are scalars only, an `authorize` check is re-run server-side (and stripped from this response), and the data event is isolated so a misbehaving plugin degrades to missing values rather than breaking the listing. Column values are resolved only for the accounts on the current page — never for every account. Like the filter tabs, columns require the Flex-accounts backend.
+Columns are plugin-owned but safe by construction: the values in each user's `extra` map are scalars only, an `authorize` check is re-run server-side (and stripped from this response), and the data event is isolated so a misbehaving plugin degrades to missing values rather than breaking the listing. Column values are resolved only for the accounts on the current page — never for every account.
 
 See the [API Events](/2/api/events) page for the `onApiUserListColumns` and `onApiUserListColumnData` contracts.

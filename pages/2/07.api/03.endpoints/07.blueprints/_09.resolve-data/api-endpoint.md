@@ -18,12 +18,12 @@ api:
     response_codes:
         - code: '200'
           description: 'Options returned (empty array if the method does not return an array).'
-        - code: '400'
-          description: 'Missing/invalid `callable`, or callable is not an approved data provider, or not in `Class::method` format.'
         - code: '401'
           description: 'Unauthorized.'
         - code: '403'
           description: 'Missing `api.pages.read` permission.'
         - code: '404'
           description: 'Class or method does not exist.'
+        - code: '422'
+          description: 'Missing/invalid `callable`, or callable is not an approved data provider, or not in `Class::method` format.'
 ---

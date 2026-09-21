@@ -3,21 +3,21 @@ title: List Page Languages
 api:
     method: GET
     path: '/pages/{route}/languages'
-    description: 'List translated and untranslated languages for a page. Use this to drive the language switcher in page editors — `translated` are languages with content, `untranslated` are languages configured for the site but missing this page.'
+    description: 'List translated and untranslated languages for a page. Use this to drive the language switcher in page editors — `translated` are languages with content, `untranslated` are languages configured for the site but missing this page. `translated` maps each language code to the page''s route in that language. On a single-language site both lists are empty. Requires `api.pages.read`, subject to the page''s own `read` rule.'
     parameters:
         - name: route
           type: string
           required: true
           description: 'The page route (path param).'
     request_example: ''
-    response_example: '{"data": {"route": "/blog/my-post", "default_language": "en", "translated": {"en": "default.en.md", "fr": "default.fr.md"}, "untranslated": ["de", "es"]}}'
+    response_example: '{"data": {"route": "/blog/my-post", "default_language": "en", "translated": {"en": "/blog/my-post", "fr": "/blog/mon-article"}, "untranslated": ["de", "es"]}}'
     response_codes:
         - code: '200'
           description: 'Language status returned.'
         - code: '401'
           description: 'Unauthorized.'
         - code: '403'
-          description: 'Missing `api.pages.read` permission.'
+          description: 'Missing `api.pages.read` permission or denied by the page''s rules.'
         - code: '404'
           description: 'Page not found.'
 ---

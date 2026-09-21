@@ -9,9 +9,9 @@ The [Grav API Plugin](https://github.com/getgrav/grav-plugin-api) adds a RESTful
 
 ## Requirements
 
-- Grav CMS 2.0+
+- Grav CMS 2.1.5+
 - PHP 8.3+
-- Login Plugin 3.8+
+- Login Plugin 3.9.2+
 
 ## Installation
 
@@ -67,16 +67,18 @@ auth:
 
 cors:
   enabled: true                # Enable CORS headers
-  origin: '*'                  # Allowed origins
+  origins: []                  # Extra origins allowed cross-origin (same-origin only by default)
   credentials: false           # Allow credentials
 
 rate_limit:
   enabled: true                # Enable rate limiting
-  requests_per_minute: 120     # Requests per minute per user/IP
+  requests: 120                # Requests allowed per window, per user (or per IP when anonymous)
+  window: 60                   # Window length in seconds
+  # excluded_paths: ['/sync/'] # Route prefixes that skip the limit (default: collaboration polling only)
 
 pagination:
   default_per_page: 20         # Default items per page
-  max_per_page: 100            # Maximum items per page
+  max_per_page: 1000           # Maximum items per page
 ```
 
 ## Environments
@@ -105,20 +107,24 @@ Paginated responses include metadata:
 {
   "data": [ ... ],
   "meta": {
-    "total": 42,
-    "page": 1,
-    "per_page": 20,
-    "total_pages": 3
+    "pagination": {
+      "page": 1,
+      "per_page": 20,
+      "total": 42,
+      "total_pages": 3
+    }
   },
   "links": {
-    "self": "/api/v1/pages?page=1",
-    "next": "/api/v1/pages?page=2",
-    "last": "/api/v1/pages?page=3"
+    "self": "/api/v1/pages?page=1&per_page=20",
+    "next": "/api/v1/pages?page=2&per_page=20",
+    "last": "/api/v1/pages?page=3&per_page=20"
   }
 }
 ```
 
-Errors use RFC 7807 format:
+The `links` keep any other query parameters you sent (filters, search, sort), so following `next` on a filtered list stays within that filter.
+
+Errors use RFC 7807 format, with the `application/problem+json` content type. A `422` validation error can also carry an `errors` list of `{field, message}` entries:
 
 ```json
 {

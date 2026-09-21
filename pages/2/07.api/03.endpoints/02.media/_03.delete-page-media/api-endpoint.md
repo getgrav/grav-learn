@@ -20,7 +20,12 @@ api:
           description: 'File deleted'
         - code: '401'
           description: 'Unauthorized'
+        - code: '403'
+          description: 'Missing `api.media.write` permission, or the page''s own rules deny update access'
         - code: '404'
           description: 'Page or file not found'
+        - code: '422'
+          description: 'Invalid filename (leading period or `..`)'
 ---
 
+Removes the file and its `.meta.yaml` sidecar, if present. Retina variants of the file (`name@2x.jpg`, `name@3x.jpg`, and so on) and their sidecars are removed too, so an image stored only as a retina variant can still be deleted by its base name.

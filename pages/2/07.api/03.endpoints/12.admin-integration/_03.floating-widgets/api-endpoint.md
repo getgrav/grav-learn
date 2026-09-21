@@ -16,7 +16,7 @@ api:
           description: 'Missing `api.access` permission.'
 ---
 
-Each widget carries an `id`, `plugin`, `label`, `icon` and optional `priority`. Two optional flags control loading:
+Each widget carries an `id`, `plugin`, `label`, `icon` and optional `priority`. Widgets are returned in event order; Admin2 sorts them by `priority`. A widget may declare `authorize` (a permission string, or an array for an any-of test): widgets the caller fails are left out and `authorize` is stripped from the response. Two optional flags control loading:
 
 - `autoLoad` — load the widget's script eagerly instead of on first launcher click. Used by field/table enhancers that register behavior without showing a floating action button (usually paired with `showFab: false`).
 - `routes` — a list of admin-internal SPA routes (`/users`, `/pages`, `/plugin/my-plugin`) an autoloading widget applies to. Admin2 loads the script only on an exact route match; omit it to load on every route. The API normalizes each entry to a leading-slash, trailing-slash-free path and drops invalid ones. `routes` scopes script loading only — it is not a permission boundary; `authorize` remains the security check.

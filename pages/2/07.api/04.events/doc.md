@@ -12,12 +12,12 @@ The API fires events before and after every write operation, and uses events to 
 | Event | When | Data |
 |-------|------|------|
 | `onApiBeforePageCreate` | Before page creation (mutable) | `route`, `header`, `content`, `template`, `lang` |
-| `onApiPageCreated` | After page created | `page`, `route`, `lang` |
-| `onApiBeforePageUpdate` | Before page update (mutable) | `page`, `data` (request body) |
-| `onApiPageUpdated` | After page updated | `page` |
-| `onApiBeforePageDelete` | Before page deletion | `page`, `lang` (null for full deletion) |
-| `onApiPageDeleted` | After page deleted | `route`, `lang` (null for full deletion) |
-| `onApiPageMoved` | After page moved | `page`, `old_route`, `new_route` |
+| `onApiPageCreated` | After page created (also after a copy or a batch copy) | `page`, `route`, `lang`; a copy sends `page`, `route`, `source_route` and `method` (`copy` or `batch`) instead of `lang` |
+| `onApiBeforePageUpdate` | Before page update (mutable) | `page`, `data` (request body); `method` is `batch` for a batch update |
+| `onApiPageUpdated` | After page updated | `page`; `previous_template` when the template changed; a batch update sends `page`, `route` and `method` (`batch`) |
+| `onApiBeforePageDelete` | Before page deletion | `page`, plus `lang` when a single translation is deleted, or `method` (`batch`) for a batch delete |
+| `onApiPageDeleted` | After page deleted | `route`, plus `lang` when a single translation is deleted, or `method` (`batch`) for a batch delete |
+| `onApiPageMoved` | After page moved (also once per moved page after a reorganize) | `page`, `old_route`, `new_route`; `method` is `reorganize` when it comes from `POST /pages/reorganize` |
 | `onApiBeforePageTranslate` | Before translation created (mutable) | `page`, `lang`, `header`, `content` |
 | `onApiPageTranslated` | After translation created | `page`, `route`, `lang` |
 | `onApiBeforePageAdoptLanguage` | Before adopting a base file as a specific language | `page`, `route`, `lang`, `from_file`, `to_file` |
@@ -33,10 +33,14 @@ The API fires events before and after every write operation, and uses events to 
 
 | Event | When | Data |
 |-------|------|------|
-| `onApiBeforeMediaUpload` | Before each file upload | `page`, `filename`, `type`, `size` |
-| `onApiMediaUploaded` | After upload completes | `page`, `filenames` |
-| `onApiBeforeMediaDelete` | Before media deletion | `page`, `filename` |
-| `onApiMediaDeleted` | After media deleted | `page`, `filename` |
+| `onApiBeforeMediaUpload` | Before each file upload | `page`, `filename`, `type`, `size`; site media adds `path` |
+| `onApiMediaUploaded` | After upload completes | `page`, `filenames`; site media adds `path` |
+| `onApiBeforeMediaDelete` | Before media deletion | `page`, `filename`; site media adds `path` |
+| `onApiMediaDeleted` | After media deleted | `page`, `filename`; site media adds `path` |
+| `onApiMediaMetadataUpdated` | After a media file's metadata is saved | `page`, `filename` for page media; `path`, `filename` for site media |
+| `onApiMediaMetadataDeleted` | After a media file's metadata is removed | `page`, `filename` for page media; `path`, `filename` for site media |
+
+For site media (`/media` endpoints) there is no page, so `page` is `null` and `path` holds the file or folder path relative to `user://media`. A listener that reads `page` without a null check needs to handle this.
 
 ## Config Events
 
@@ -48,28 +52,44 @@ The API fires events before and after every write operation, and uses events to 
 
 | Event | When | Data |
 |-------|------|------|
-| `onApiUserLogin` | After successful password or 2FA login | `user`, `method` (`password`/`2fa`), `ip`, `request` |
+| `onApiUserLogin` | After a successful password, 2FA or SSO login | `user`, `method` (`password`/`2fa`/`sso`), `ip`, `request`; SSO adds `provider` |
 | `onApiUserLoginFailure` | After any failed login attempt | `username`, `reason` (`password`/`2fa`/`disabled`/`no_api_access`), `ip` |
 | `onApiUserLogout` | After `/auth/revoke` with a valid token | `user`, `ip`, `request` |
 | `onApiPasswordReset` | After successful `/auth/reset-password` | `user`, `ip` |
-| `onApiUserCreated` | After user created (via `/users` or `/auth/setup`) | `user` |
+| `onApiUserCreated` | After user created (via `/users`, `/auth/setup` or an accepted invitation) | `user` |
 | `onApiUserUpdated` | After user updated | `user` |
 | `onApiBeforeUserDelete` | Before user deletion | `user` |
 | `onApiUserDeleted` | After user deleted | `username` |
 | `onApiUser2faEnabled` | After 2FA turned on | `user` |
 | `onApiUser2faDisabled` | After 2FA turned off | `user`, `forced_by_admin` (bool) |
 | `onApiSetupComplete` | After first-run setup creates the initial super-admin | `user` |
+| `onApiInvitationAccepted` | After an invitation is accepted and its account created | `user`, `invitation` |
+| `onApiGroupCreated` | After a user group is created | `groupname`, `group` |
+| `onApiGroupUpdated` | After a user group is updated | `groupname`, `group` |
+| `onApiGroupDeleted` | After a user group is deleted | `groupname` |
+
+### Single sign-on events
+
+These let a login plugin add a provider to the Admin2 login screen. The API owns the routes and the session handling; the plugin only talks to the provider.
+
+| Event | Endpoint | Data |
+|-------|----------|------|
+| `onApiLoginProviders` | `GET /auth/sso/providers` | `providers` (mutable list) |
+| `onApiLoginStart` | `GET /auth/sso/{provider}/start` | `provider`, `request`, `callback_url`, `return_to`, `redirect` (set to the provider's authorization URL), `error` |
+| `onApiLoginCallback` | `GET /auth/sso/{provider}/callback` | `provider`, `request`, `callback_url`, `user` (set to the signed-in Grav user), `error` |
+
+After `onApiLoginCallback` returns a user, the API runs the same API-access, disabled-account and 2FA checks as a password login, then fires `onApiUserLogin` with `method` set to `sso`.
 
 ## GPM Events
 
 | Event | When | Data |
 |-------|------|------|
 | `onApiBeforePackageInstall` | Before install | `package`, `type` (`plugin`/`theme`) |
-| `onApiPackageInstalled` | After install | `package`, `type` |
+| `onApiPackageInstalled` | After install | `package`, `type`, `dependencies` |
 | `onApiBeforePackageRemove` | Before removal | `package`, `type` |
 | `onApiPackageRemoved` | After removal | `package`, `type` |
 | `onApiBeforePackageUpdate` | Before single package update | `package`, `type` |
-| `onApiPackageUpdated` | After package update | `package`, `type` |
+| `onApiPackageUpdated` | After package update | `package`, `type`, `dependencies` |
 | `onApiBeforeGravUpgrade` | Before Grav core upgrade | `current_version`, `available_version` |
 | `onApiGravUpgraded` | After Grav core upgrade | `previous_version`, `new_version` |
 
@@ -77,11 +97,14 @@ The API fires events before and after every write operation, and uses events to 
 
 | Event | When | Data |
 |-------|------|------|
-| `onApiBlueprintResolved` | After a plugin blueprint is serialized (mutable) | `fields`, `plugin`, `user` |
+| `onApiBlueprintResolved` | After a blueprint is serialized for Admin2 (mutable `fields`) | `context`, `fields`, `user`, plus `template`, `plugin`, `theme` or `page_id` depending on the blueprint |
+| `onAdminPageTypes` / `onAdminModularPageTypes` | While `GET /blueprints/pages` builds the page type list | `types` (by reference) |
+
+`context` tells a listener which blueprint it is looking at: `page` (with `template`), `plugin` (with `plugin`), `theme` (with `theme`), `account`, `group` or `group_new` (with `template`), `config` (only for the accounts configuration, with `template` set to `accounts`) or `plugin-page` (with `plugin` and `page_id`). Check it before changing fields so a listener meant for page blueprints leaves the others alone.
 
 ## Admin2 Integration Events
 
-These are called while Admin2 composes the UI. Plugins append items/widgets/panels to the event data to register their integrations. The current user is passed in so listeners can gate registration on permissions.
+These are called while Admin2 composes the UI. Plugins append items/widgets/panels to the event data to register their integrations. The current user is passed in so listeners can gate registration on permissions, except for `onApiGenerateReports` and `onApiLogFiles`, which carry no `user`.
 
 | Event | Endpoint | Data |
 |-------|----------|------|
@@ -92,8 +115,11 @@ These are called while Admin2 composes the UI. Plugins append items/widgets/pane
 | `onApiContextPanels` | `GET /context-panels` | `panels`, `user` |
 | `onApiAdminSettingsPanels` | `GET /settings/panels` | `panels`, `user` |
 | `onApiPluginPageInfo` | `GET /gpm/plugins/{slug}/page` | `plugin`, `definition` (mutable), `user` |
-| `onApiGenerateReports` | `GET /reports` | `reports`, `user` |
+| `onApiGenerateReports` | `GET /reports` | `reports` |
 | `onApiDashboardNotifications` | `GET /dashboard/notifications` | `notifications` (mutable, grouped by location), `user`, `force` |
+| `onApiDashboardWidgets` | `GET /dashboard/widgets` | `widgets`, `user` |
+| `onApiMarkdownEditorButtons` | `GET /editor/toolbar-buttons` | `buttons`, `user` |
+| `onApiLogFiles` | `GET /system/logs/files` | `files` (mutable list of `{file, label}`) |
 | `onApiUserListFilters` | `GET /users/filters` | `filters`, `defaultFilter`, `showAll`, `user` |
 | `onApiUserListFilter` | `GET /users?filter={id}` | `filter`, `collection` (mutable), `query`, `user` |
 | `onApiUserListColumns` | `GET /users/columns` | `columns`, `user` |
@@ -141,12 +167,23 @@ public function onApiUserListFilter(Event $event): void
     if ($event['filter'] !== 'active') {
         return;
     }
-    $collection = $event['collection']; // FlexCollectionInterface
-    $event['collection'] = $collection->filterBy(['state' => 'enabled']);
+    // filter() works on both account backends; see below.
+    $event['collection'] = $event['collection']->filter(
+        fn ($user) => $user->get('state', 'enabled') === 'enabled'
+    );
 }
 ```
 
-Filter tabs require the Flex-accounts backend (the Grav default); the legacy filesystem account store degrades to the `all` tab only.
+Filter tabs work with both account backends, and the event carries the same keys on each. On the Flex-accounts backend (the Grav default) `collection` is a `FlexCollectionInterface`, and the listener must assign back a Flex collection or its result is ignored. On the filesystem account store `collection` is a Grav `ArrayCollection` of users keyed by username, which supports `filter()`, `matching()` and iteration but has no Flex methods such as `filterBy()`; the listener may assign back any iterable of users, and only accounts already in the list are kept. `filter()` with a closure works on both. To use a Flex-only method, check the type first:
+
+```php
+use Grav\Framework\Flex\Interfaces\FlexCollectionInterface;
+
+$collection = $event['collection'];
+$event['collection'] = $collection instanceof FlexCollectionInterface
+    ? $collection->filterBy(['state' => 'enabled'])
+    : $collection->filter(fn ($user) => $user->get('state', 'enabled') === 'enabled');
+```
 
 ### Users list columns
 
@@ -191,7 +228,7 @@ public function onApiUserListColumnData(Event $event): void
 }
 ```
 
-Those values are merged into each serialized user under an `extra` map on `GET /users`, keyed by the column's `field`, so there is no second endpoint to call and no client-side join. Only scalars (and null) survive the merge — arrays, objects and oversized values are dropped — and the event is isolated, so a listener that throws degrades to missing values rather than breaking the listing. Like filter tabs, columns require the Flex-accounts backend.
+Those values are merged into each serialized user under an `extra` map on `GET /users`, keyed by the column's `field`, so there is no second endpoint to call and no client-side join. Only scalars (and null) survive the merge — arrays, objects and oversized values are dropped — and the event is isolated, so a listener that throws degrades to missing values rather than breaking the listing. Columns work with both the Flex-accounts backend and the filesystem account store.
 
 ### Users list row actions
 
@@ -242,7 +279,7 @@ public function onApiUserListRowAction(Event $event): void
 }
 ```
 
-The result is normalized to `{ status, message, url }`. **`url` is validated server-side before it reaches the client**: only a root-relative path (not the protocol-relative `//host` form) or a same-origin absolute URL survives — a `javascript:`/`data:` scheme or a cross-origin URL is dropped, so a "return a URL and go there" flow can't become an open redirect. Admin2 shows `message` as a toast and opens any surviving `url` in a new tab with `noopener`. A handler that throws degrades to an error toast rather than breaking the Users list; a thrown `ForbiddenException` propagates as a `403`. Like filter tabs and columns, row actions require the Flex-accounts backend.
+The result is normalized to `{ status, message, url }`. **`url` is validated server-side before it reaches the client**: only a root-relative path (not the protocol-relative `//host` form) or a same-origin absolute URL survives — a `javascript:`/`data:` scheme or a cross-origin URL is dropped, so a "return a URL and go there" flow can't become an open redirect. Admin2 shows `message` as a toast and opens any surviving `url` in a new tab with `noopener`. A handler that throws degrades to an error toast rather than breaking the Users list; a thrown `ForbiddenException` propagates as a `403`. Row actions need `api.users.read`, and a caller who isn't a super user can't run one against a super user account (`403`). Like filter tabs and columns, they work with both account backends.
 
 ### Labels and translation
 
@@ -302,7 +339,8 @@ For a page create operation, events fire in this order:
 
 Do **not** gate the subscription of these admin-compatible events behind an `isAdmin()` check in `onPluginsInitialized()`. When a save comes through the API (which is how Admin2 saves everything), the request is not handled by the classic Admin plugin, so `$grav['admin']` is registered later during request dispatch by the API's `AdminProxy`. At `onPluginsInitialized()` time it is not yet set, so `isAdmin()` still returns `false` and any handlers you register inside an `isAdmin()` block are never subscribed. The result is a plugin whose save/delete logic silently never runs under Admin2.
 
-!!! A common 1.7-era pattern was to register `onAdminAfterSave` only when `isAdmin()` was true. That no longer works for API/Admin2 writes. These events only fire during admin/API write operations anyway, so it is safe to subscribe to them unconditionally.
+> [!NOTE]
+> A common 1.7-era pattern was to register `onAdminAfterSave` only when `isAdmin()` was true. That no longer works for API/Admin2 writes. These events only fire during admin/API write operations anyway, so it is safe to subscribe to them unconditionally.
 
 Register them directly in `getSubscribedEvents()`, or unconditionally in `onPluginsInitialized()`:
 
@@ -325,13 +363,25 @@ Note that Flex objects (and Flex Pages) fire `onFlexObjectAfterSave` / `onFlexOb
 
 ## Route Registration
 
-Plugins extend the API with custom endpoints by subscribing to one event:
+Plugins extend the API with custom endpoints through `onApiRegisterRoutes`. Two related events let a plugin open routes to the public and add MCP tools:
 
 | Event | When | Data |
 |-------|------|------|
 | `onApiRegisterRoutes` | During router initialization | `routes` (`ApiRouteCollector`) |
+| `onApiCollectPublicRoutes` | Once per request, before authentication | `api_base`, `prefixes` (mutable), `exact` (mutable) |
+| `onApiMcpTools` | While `GET /mcp/tools` collects MCP tool definitions | `tools` (an `McpToolCollector`; call `->add($plugin, [...])`) |
+
+`onApiCollectPublicRoutes` lets a plugin mark its own routes as public, so they skip authentication. Append full paths (including `api_base`) to `prefixes` for prefix matches or to `exact` for exact matches. An entry can be limited to one method by writing it as `"GET /api/v1/my-plugin/feed"`, which keeps writes on the same path authenticated.
 
 See the [Plugin API Integration](/2/plugins/plugin-api-integration) guide for details.
+
+## System Events
+
+| Event | When | Data |
+|-------|------|------|
+| `onApiLogCleared` | After a log file is cleared via `DELETE /system/logs` | `file`, `bytes`, `user` |
+| `onApiDemoBaselineCaptured` | After a demo baseline is captured | `status` |
+| `onApiDemoReset` | After demo content is reset to the baseline | `status` |
 
 ## Using Events in Your Plugin
 

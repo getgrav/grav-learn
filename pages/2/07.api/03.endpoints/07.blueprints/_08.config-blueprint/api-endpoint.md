@@ -8,9 +8,9 @@ api:
         - name: scope
           type: string
           required: true
-          description: 'One of: `system`, `site`, `media`, `security`, `scheduler`, `backups`.'
+          description: 'One of the core scopes `system`, `site`, `media`, `security`, `scheduler`, `backups`, or a custom top-level config scope the site defines (for example `user/blueprints/config/<scope>.yaml`). Other system blueprints such as `streams` are refused.'
     request_example: ''
-    response_example: '{"data": {"id": "system", "name": "System Configuration", "fields": {"cache.enabled": {"type": "toggle", "label": "Enabled"}}}}'
+    response_example: '{"data": {"name": "system", "title": "System Configuration", "type": null, "child_type": null, "validation": "loose", "fields": [{"name": "cache.enabled", "type": "toggle", "label": "Caching"}]}}'
     response_codes:
         - code: '200'
           description: 'Blueprint returned.'

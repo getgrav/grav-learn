@@ -3,7 +3,7 @@ title: Get Page
 api:
     method: GET
     path: '/pages/{route}'
-    description: 'Get a single page with full content, metadata, and media. Returns an ETag; use `If-None-Match` for conditional fetches.'
+    description: 'Get a single page with full content, metadata, and media, plus a `permissions` object with the caller''s capabilities on this page. Returns an ETag; use `If-None-Match` for conditional fetches. Requires `api.pages.read`, subject to the page''s own `read` rule. A page that has `process.twig: true` also needs the Twig-in-content permission.'
     parameters:
         - name: route
           type: string
@@ -12,15 +12,23 @@ api:
         - name: summary
           type: boolean
           required: false
-          description: 'Include page summary in the response.'
+          description: 'Leave out the raw `content` and return a plain-text `summary` (rendered, tags stripped, truncated) in its place.'
+        - name: summary_size
+          type: integer
+          required: false
+          description: 'Maximum length of `summary` in characters (default 300). Only used with `summary=true`.'
         - name: render
           type: boolean
           required: false
-          description: 'Return rendered HTML content instead of raw markdown.'
+          description: 'Also return the rendered HTML in `content_html`.'
         - name: children
           type: boolean
           required: false
           description: 'Include child pages in the response.'
+        - name: children_depth
+          type: integer
+          required: false
+          description: 'How many levels of children to include (default 1). Only used with `children=true`.'
         - name: translations
           type: boolean
           required: false
@@ -39,7 +47,9 @@ api:
         - code: '401'
           description: 'Unauthorized.'
         - code: '403'
-          description: 'Missing `api.pages.read` permission.'
+          description: 'Missing `api.pages.read` permission, denied by the page''s own rules, or the page uses Twig in content and the caller lacks that permission.'
         - code: '404'
           description: 'Page not found.'
+        - code: '422'
+          description: 'Invalid language code.'
 ---

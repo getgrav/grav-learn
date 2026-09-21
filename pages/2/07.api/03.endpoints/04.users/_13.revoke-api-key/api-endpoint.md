@@ -3,7 +3,7 @@ title: Revoke API Key
 api:
     method: DELETE
     path: '/users/{username}/api-keys/{keyId}'
-    description: 'Revoke and delete an API key.'
+    description: 'Revoke and delete an API key. Your own keys need `api.access`; anyone else''s need `api.users.write`.'
     parameters:
         - name: username
           type: string
@@ -23,6 +23,6 @@ api:
         - code: '403'
           description: 'Forbidden'
         - code: '404'
-          description: 'API key not found'
+          description: 'User or API key not found'
 ---
 
