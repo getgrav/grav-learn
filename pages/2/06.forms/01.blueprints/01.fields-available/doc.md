@@ -647,6 +647,7 @@ custom_file:
 | `accept`            | Add a list of accepted page mime types and extensions. E.g. `["image/*", '.mp3']`                          |
 | `random_name`       | Uses a random filename for each file                                                                       |
 | `avoid_overwriting` | Will append a timestamp before each filename if a conflict would occur                                     |
+| `allow_extensions`  | Lets this field upload page content or stylesheets through the Admin2 API, which refuses them by default. Only `md`, `markdown`, `css`, `scss`, `sass` and `less` can be allowed. E.g. `[css]`. See [How to: Add a file upload](../how-to-add-file-upload) |
 [/div]
 
 [div class="table table-keycol"]

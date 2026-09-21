@@ -197,6 +197,29 @@ The max file size is limited by:
        - 'image/*
    [/codesh]
 
+#### `allow_extensions`
+
+[codesh=yaml line-numbers="true"]
+allow_extensions: [css] # Array of extensions, any of: md, markdown, css, scss, sass, less
+[/codesh]
+
+In Admin2, file fields upload through the API, which refuses page content (`.md`, `.markdown`) and stylesheets (`.css`, `.scss`, `.sass`, `.less`) by default, because an account with media upload rights could otherwise write or delete those files anywhere under `user/`. A developer can allow them for one specific field by listing them in `allow_extensions`. Requires API 1.0.38 and Admin2 2.1.21.
+
+##### Example
+
+[codesh=yaml line-numbers="true"]
+custom_css:
+  type: file
+  label: Custom stylesheet
+  destination: 'self@:css'
+  accept:
+    - .css
+  allow_extensions: [css]
+[/codesh]
+
+> [!NOTE]
+> The API reads `allow_extensions` from the blueprint on the server, not from the upload request, and only applies it when the upload goes to that field's own `destination`. It can only allow `md`, `markdown`, `css`, `scss`, `sass` and `less`. Dangerous extensions such as `php`, config formats such as `yaml`, `json` and `twig`, the image-only rule for `user/accounts/` and the block on `user/config/` always apply. `accept` still decides which files the field takes, so list the extension there too.
+
    ### Legacy File Upload Processing and Manual Control
 
    For basic file handling, all you need is the field defintion. The files get uploaded to a temporary location via the Dropzone widget via an XHR call to the server.  On form submission, the files are moved from their temporary location to their final location automatically.  You can however use the `upload: true` action in the `process:` block to manually trigger where in the workflow you want those files to be moved.
