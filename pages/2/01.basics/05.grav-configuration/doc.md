@@ -716,14 +716,38 @@ xss_dangerous_tags:
     - base
 uploads_dangerous_extensions:
     - php
+    - php2
+    - php3
+    - php4
+    - php5
+    - php7
+    - php8
+    - phar
+    - phtml
+    - pht
+    - phtm
+    - phps
     - html
     - htm
+    - shtml
+    - shtm
+    - xhtml
+    - xht
     - js
     - exe
+    - md
+    - yaml
+    - yml
+    - json
+    - twig
+    - ini
+    - svgz
 sanitize_svg: true
 [/codesh]
 
 If you wish to make any changes to these settings, you should copy this file to `user/config/security.yaml` and make edits there.
+
+Grav checks every dot-separated part of an uploaded file's name against `uploads_dangerous_extensions`, not just the last one, so `photo.php.jpg` is refused. The PHP extensions (`php`, `php2` to `php8`, `phar`, `phtml`, `pht`, `phtm` and `phps`) are always refused, even if you remove them from your own copy of the list.
 
 ## Other Configuration Settings and Files
 

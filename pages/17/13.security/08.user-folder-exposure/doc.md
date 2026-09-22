@@ -27,6 +27,8 @@ Grav relies on the web server to deny direct requests to its private folders. Th
 
 The goal is the same on every server: deny direct web access to `backup`, `tmp`, `logs`, `user/accounts`, `user/config`, `user/env`, and `user/data`, while still allowing the files Grav intends to be public — avatar images under `user/accounts`, and media and assets uploaded under `user/data`. Those exceptions have to come before the matching deny rule, or they never take effect.
 
+Also deny running PHP and other scripts in `images/` and `assets/`. Grav only writes cached images and combined CSS and JavaScript there, but both folders are public, so a script that lands in either one through a plugin or hosting bug would otherwise run. Grav 2.1.10 and later ship this rule, and upgrading adds it to an existing site's root `.htaccess`. On Nginx, Caddy and other servers you have to add it yourself.
+
 ### Apache
 
 First make sure `.htaccess` is being honored. In your virtual host (or the relevant `<Directory>` block), set:
@@ -52,6 +54,8 @@ RewriteRule ^(user)/accounts/(.*) error [F,NC]
 # Block user/data too, but allow public asset uploads (e.g. Flex Object images)
 RewriteCond %{REQUEST_URI} !\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf|woff2|woff|ttf|otf|eot|css|js)$ [NC]
 RewriteRule ^(user)/data/(.*) error [F,NC]
+# Block running scripts in the public cache folders (image derivatives and combined assets)
+RewriteRule ^(images|assets)/(.*)\.(php|php2|php3|php4|php5|php7|php8|phar|phtml|pht|phtm|phps|pl|py|cgi|sh|bat)$ error [F,NC]
 ```
 
 If you cannot enable `AllowOverride`, copy those rules into your virtual host configuration instead.
@@ -79,6 +83,9 @@ location ~* ^/user/accounts/.*$ { return 403; }
 location ~* ^/user/data/.*\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$ { try_files $uri =404; }
 # deny everything else under user/data
 location ~* ^/user/data/.*$ { return 403; }
+# deny running scripts in the public cache folders (image derivatives and combined assets);
+# this must come before the generic `location ~ \.php$` block that hands .php files to PHP-FPM
+location ~* ^/(images|assets)/.*\.(php|php2|php3|php4|php5|php7|php8|phar|phtml|pht|phtm|phps|pl|py|cgi|sh|bat)$ { return 403; }
 ```
 
 Then reload Nginx (`sudo nginx -t && sudo systemctl reload nginx`). The full, recommended configuration is documented under [Nginx](/webservers-hosting/servers/nginx).
@@ -105,12 +112,15 @@ Caddy matchers compile with Go's RE2, which has no lookbehind, so the media exce
 	path_regexp (?i)^/user/data/
 	not path_regexp (?i)\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$
 }
+# deny running scripts in the public cache folders (image derivatives and combined assets)
+@denied_cache_scripts path_regexp (?i)^/(images|assets)/.*\.(php|php2|php3|php4|php5|php7|php8|phar|phtml|pht|phtm|phps|pl|py|cgi|sh|bat)$
 
 route {
 	respond @denied_dirs 403
 	respond @denied_user_config 403
 	respond @denied_user_accounts 403
 	respond @denied_user_data 403
+	respond @denied_cache_scripts 403
 
 	# global rewrite should come last
 	try_files {path} {path}/ /index.php?_url={uri}&{query}
