@@ -57,7 +57,7 @@ On macOS, Homebrew PHP typically includes a recent SQLite with FTS5. Some Linux 
 
 ## Features
 
-- **100% Local Search** - File-backed search with zero external dependencies
+- **100% Local Search** - File-backed search with zero external dependencies (optional semantic search uses an embedding API)
 - **Two Modal Designs** - Choose between "simple" (lightweight typeahead) or "full" (two-panel with preview)
 - **Vanilla JS** - No framework dependencies, works with any theme
 - **CSS Variables** - Easy theming with CSS custom properties
@@ -72,6 +72,7 @@ On macOS, Homebrew PHP typically includes a recent SQLite with FTS5. Some Linux 
 - **Permissions** - Granular admin permissions (view, modify, admin)
 - **Scheduler** - Automated reindex and maintenance via Grav scheduler
 - **CLI Commands** - Full command-line interface for indexing, querying, and maintenance
+- **Semantic Search** - Optional search by meaning as well as keywords, through OpenAI, OpenRouter, Ollama or any OpenAI-compatible embedding API (2.1.0+)
 
 ## Configuration
 
@@ -160,6 +161,85 @@ environment:
 ```
 
 When `mode` is `auto`, the plugin follows Grav's environment detection. The `append_environment_to_index` option prevents staging/development indexes from colliding with production.
+
+## Semantic Search
+
+Available from **YetiSearch Pro 2.1.0**. It's optional and switched off by default.
+
+Keyword search finds pages that contain the words a visitor typed. **Semantic search** also finds pages that *mean* the same thing. Someone types "can't log in" and gets your password reset page. "Hire an advisor" finds your consulting page, even though neither word appears on it. YetiSearch Pro runs both searches and merges the results, so a page that matches on keywords and meaning ranks first, and a page found by meaning alone still makes the list.
+
+To understand meaning, YetiSearch Pro turns each page into a list of numbers called an **embedding**, using an embedding model. Pages with similar meaning get similar numbers. The embeddings are stored in your existing index file, and at search time the visitor's query gets the same treatment and is compared against them.
+
+That model has to run somewhere. Running one inside PHP isn't practical on normal hosting, so YetiSearch Pro talks to an **embedding API**. That can be a hosted service like OpenAI or OpenRouter, or your own **Ollama** server if you'd rather keep everything in-house. Keyword search stays 100% local either way, and it keeps working if the API is slow or down.
+
+### Setting It Up
+
+Open the plugin settings, expand **Semantic Search**, turn it on, and fill in the connection details for your service:
+
+| Service | API Base URL | Embedding Model | Dimensions |
+|---|---|---|---|
+| OpenAI | `https://api.openai.com/v1` | `text-embedding-3-small` | `512` |
+| OpenRouter | `https://openrouter.ai/api/v1` | `openai/text-embedding-3-small` | `512` |
+| Ollama | `http://localhost:11434/v1` | `nomic-embed-text` | `0` |
+
+Any other service that offers the OpenAI embeddings API works too (Voyage, Mistral, Together, LM Studio). Leave **API Key** empty for a local server like Ollama. If you'd rather not store the key in your config, enter `env:OPENAI_API_KEY` (or any variable name) and YetiSearch Pro reads it from the environment instead.
+
+For **Ollama** with `nomic-embed-text`, also set **Query Prefix** to `search_query: ` and **Document Prefix** to `search_document: `. That model expects them.
+
+Then check the connection:
+
+```bash
+bin/plugin yetisearch-pro embed --test
+```
+
+The same check is available as the **Test connection** button on the YetiSearch Pro page in Admin Next.
+
+### Embedding Your Content
+
+After enabling it, your pages need embedding once. Either reindex, or run:
+
+```bash
+bin/plugin yetisearch-pro embed
+```
+
+Only pages that are new or changed since their last embedding are sent to the API. Reindexing unchanged content costs nothing, and editing one page only sends that page. After that, changed pages are picked up automatically:
+
+* **After a page save or reindex**, once the response has gone back to the browser, so a slow API never holds up saving
+* By the **Semantic Search Embedding** scheduler job, every 15 minutes by default, which catches anything left over
+* With the **Embed** button on the YetiSearch Pro page in Admin Next, which shows how much of your site is embedded and a progress bar while it works
+
+Pages that haven't been embedded yet are still found by keyword search. They just aren't ranked by meaning until they're done.
+
+With OpenAI's `text-embedding-3-small`, embedding costs a couple of cents per million words, so a typical site costs well under a dollar to embed in full. Each new search query costs one small API call, and repeated queries are cached so they cost nothing.
+
+### How Searches Behave
+
+* **The search modal stays instant.** Results based on keywords appear as the visitor types. Once they pause, a second request ranks by meaning and replaces the results. No keystroke waits on the API.
+* **Short queries** (under **Minimum Query Length**, 3 characters by default) use keywords only.
+* **Nonsense doesn't match.** A query like "asdf" returns nothing rather than whatever page happens to be closest.
+* **If the API fails** or takes longer than **Search Timeout** (5 seconds), the search falls back to keywords.
+* The JSON endpoint accepts `semantic=0` to ask for keyword ranking only, and reports `"semantic": true` when meaning was part of the ranking.
+
+### Tuning
+
+| Setting | Default | What it does |
+|---|---|---|
+| **Meaning vs Keywords** | `0.5` | How much of the ranking comes from meaning. `0` is keyword search only, `1` is meaning only. |
+| **Minimum Similarity** | `0.25` | Pages less similar than this never appear on meaning alone. Raise it if unrelated pages show up. |
+| **Minimum Query Length** | `3` | Shorter queries use keywords only. |
+| **Search Timeout** | `5` | Seconds a search waits for the API before falling back to keywords. |
+| **Embed After Indexing** | On | Embed changed pages after saves and reindexes. |
+| **Documents per Run** | `200` | How many documents each background run embeds. |
+| **Dimensions** | `512` | Size of each embedding. Smaller searches faster. Only OpenAI's `text-embedding-3` models accept a value; use `0` for anything else. |
+
+Each index also has its own **Semantic Search** toggle under Index Definitions, so you can leave it off for an index where it doesn't help.
+
+> [!NOTE]
+> Changing the model, its dimensions, or the prefixes means every page needs embedding again. Until that's done, searches on that index use keywords only. **Re-embed all** in Admin Next (or `embed --reset`) starts over from scratch.
+
+### Limits
+
+Semantic search compares the query against every embedded chunk of content. On a modern server that takes about 0.1 seconds for 10,000 chunks at 512 dimensions, and it grows in step with your content. That's plenty for most sites. For a very large site, use `256` dimensions or keep semantic search off for the biggest index.
 
 ## Modal Configuration
 
@@ -450,6 +530,7 @@ Options:
   -f, --flush             Drop and recreate the target index before indexing
   -q, --quiet             Minimal output
   -r, --raw               Raw JSON status
+      --no-embed          Skip embedding for semantic search afterwards
 ```
 
 Examples:
@@ -511,8 +592,23 @@ bin/plugin yetisearch-pro schedule [options]
 
 Options:
   -l, --list              Display configured schedule summary
-  -t, --task=TASK         Task to run: reindex, maintenance, or all (default: all)
+  -t, --task=TASK         Task to run: reindex, maintenance, embed, or all (default: all)
   -f, --force             Run even if the task is disabled
+```
+
+### Embed Command
+
+Embeds new and changed documents for [Semantic Search](#semantic-search). Needs semantic search enabled.
+
+```bash
+bin/plugin yetisearch-pro embed [options]
+
+Options:
+  -x, --index=INDEX       Index key (e.g., pages); all semantic indexes by default
+  -l, --limit=LIMIT       Documents per API round [default: 100]
+  -s, --status            Show embedding coverage and exit
+  -t, --test              Check the provider settings with one short request
+      --reset             Forget stored embeddings and embed everything again
 ```
 
 ### Cache Command
@@ -544,6 +640,8 @@ Pass filters via the `filter` query parameter using the syntax `field[op]value`:
 ```
 
 Supported operators: `=`, `!=`, `>`, `>=`, `<`, `<=`, `=?` (match value OR null).
+
+With [Semantic Search](#semantic-search) on, add `semantic=0` to a request to get keyword ranking only. The response includes `"semantic": true` when meaning was part of the ranking.
 
 ### Suggestions Endpoint
 
@@ -621,6 +719,7 @@ search:
 * Adjust `boost` weights to prioritize title and header matches over body content
 * Use `rerank.demote_prefixes` to push less relevant sections (like API references) lower in results
 * Enable fuzzy search for better typo tolerance, but tune `typo_tolerance` to avoid too many false positives
+* With semantic search on, raise **Minimum Similarity** if loosely related pages show up, or lower **Meaning vs Keywords** if exact keyword matches should win more often
 
 ### Performance
 
