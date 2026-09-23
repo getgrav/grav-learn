@@ -9,6 +9,8 @@ taxonomy:
 
 [Easypanel](https://easypanel.io) is a self-hosted, Docker-based deployment platform similar in spirit to Dokku or Heroku, but managed through a web panel instead of the command line. It has a one-click deployment template for Grav.
 
+![Grav running in the Easypanel panel](easypanel-panel.png)
+
 The main advantages of using it would be:
 
 * Self-hosted, so you control the cost of the VM it runs on
