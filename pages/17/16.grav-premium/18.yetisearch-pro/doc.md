@@ -216,7 +216,7 @@ With OpenAI's `text-embedding-3-small`, embedding costs a couple of cents per mi
 
 * **The search modal stays instant.** Results based on keywords appear as the visitor types. Once they pause, a second request ranks by meaning and replaces the results. No keystroke waits on the API.
 * **Short queries** (under **Minimum Query Length**, 3 characters by default) use keywords only.
-* **Nonsense doesn't match.** A query like "asdf" returns nothing rather than whatever page happens to be closest.
+* **Nonsense doesn't match.** A query like "asdf" returns nothing rather than whatever page happens to be closest. From **2.1.1**, YetiSearch Pro measures where that cutoff belongs for your own content: after each full embedding run it embeds a handful of meaningless test phrases, sees how closely they match your pages, and sets the cutoff just above that. The YetiSearch Pro page in Admin Next and `embed --status` both show the current cutoff.
 * **If the API fails** or takes longer than **Search Timeout** (5 seconds), the search falls back to keywords.
 * The JSON endpoint accepts `semantic=0` to ask for keyword ranking only, and reports `"semantic": true` when meaning was part of the ranking.
 
@@ -226,6 +226,8 @@ With OpenAI's `text-embedding-3-small`, embedding costs a couple of cents per mi
 |---|---|---|
 | **Meaning vs Keywords** | `0.5` | How much of the ranking comes from meaning. `0` is keyword search only, `1` is meaning only. |
 | **Minimum Similarity** | `0.25` | Pages less similar than this never appear on meaning alone. Raise it if unrelated pages show up. |
+| **Noise Calibration** | Automatic | Measures the nonsense cutoff for each index after embedding. **Off** uses a fixed default instead. |
+| **Calibration Strictness** | `2.0` | How far above typical nonsense the cutoff sits. Lower it (say `1.5`) if good matches are missing; raise it if nonsense gets through. It takes effect right away, with no re-embedding. |
 | **Minimum Query Length** | `3` | Shorter queries use keywords only. |
 | **Search Timeout** | `5` | Seconds a search waits for the API before falling back to keywords. |
 | **Embed After Indexing** | On | Embed changed pages after saves and reindexes. |
@@ -610,6 +612,8 @@ Options:
   -t, --test              Check the provider settings with one short request
       --reset             Forget stored embeddings and embed everything again
 ```
+
+`--status` also shows each index's noise cutoff and whether it was measured on your content or is the default. After upgrading to 2.1.1, run `embed` once: it measures the cutoff even when every page is already embedded.
 
 ### Cache Command
 
