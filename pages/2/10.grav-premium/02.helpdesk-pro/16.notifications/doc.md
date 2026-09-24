@@ -42,8 +42,8 @@ Each staff member picks a level. The site default is `notifications.default_leve
 
 | Level | In the bell | Emailed |
 |---|---|---|
-| `everything` | Everything in the table above, including every new ticket in projects they work | Everything in the bell |
-| `aimed` (default) | The same, minus new tickets | Mentions, assignments, rule notifications, "Not good" ratings credited to them, SLA warnings and breaches, and client replies on tickets assigned to them. Other activity on watched tickets stays in the bell. |
+| `everything` | Everything in the table above, including every new ticket, and client replies on unassigned tickets, in projects they work | Everything in the bell |
+| `aimed` (default) | The same, minus new tickets and client replies on unassigned tickets they do not watch | Mentions, assignments, rule notifications, "Not good" ratings credited to them, SLA warnings and breaches, and client replies on tickets assigned to them. Other activity on watched tickets stays in the bell. |
 | `nothing` | Mentions, assignments and rule notifications only | Nothing, except the digest when they turn it on |
 
 ## Email modes

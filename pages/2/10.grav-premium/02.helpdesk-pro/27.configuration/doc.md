@@ -31,7 +31,7 @@ Some things are not settings at all: projects, statuses, labels, custom fields, 
 | Client Organizations | Extra blocked email domains |
 | Channels | Notification channel delivery |
 
-A few keys are YAML-only: `enabled`, `privacy.ip_hashing` and `jobs.catch_up_exclude`.
+Two keys are YAML-only: `privacy.ip_hashing` and `jobs.catch_up_exclude`. `enabled` is the plugin status switch above the tabs.
 
 ## General
 
