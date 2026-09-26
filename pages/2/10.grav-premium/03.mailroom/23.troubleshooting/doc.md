@@ -71,7 +71,7 @@ Start with the provider's card on the **Providers** tab, and what the provider s
 
 The dashboard also speaks up:
 
-- "... has said nothing in N days": a webhook is configured and campaigns went out, but no event arrived. The webhook is not really pointed here, or its events are not ticked in the provider's dashboard.
+- "... has said nothing in N days": a webhook is configured and campaigns went out, but no event arrived. The webhook is not really pointed here, or its events are not checked in the provider's dashboard.
 - "Something is posting to the ... webhook": a provider is posting to a card that has no secret yet, so its events are thrown away. Press **Generate a secret** and paste the new URL into the provider. If it was not you, it goes away on its own.
 
 To see what a saved payload does, replay it with `bin/plugin mailroom webhook:replay <provider> <file>` (see [CLI](../cli#webhook-replay)): it names the send row it matched and what it would change.
@@ -82,8 +82,8 @@ To see what a saved payload does, replay it with `bin/plugin mailroom webhook:re
 |---|---|---|
 | `429`, "That is a few too many tries." | More than **Signups Per Hour** from one visitor address. | Behind a proxy, load balancer or relay, every visitor looks like one address: list it in **Trusted Proxies** (see [Subscribe API](../subscribe-api#behind-a-proxy-or-a-relay)). If something in front of the site already limits signups, set the limit to `0`. |
 | `415` | A form post without the site's nonce. | Post JSON, or keep the `nonce` field the signup partial draws. |
-| `422`, `consent_required` | The site has a **Consent Sentence** and the box was not ticked (or `consent` was not sent). | Send `"consent": true` from a relay that showed the sentence and had it ticked. |
-| `422`, `list_required` | A form that offers lists to tick was sent with none ticked. | Tick at least one. |
+| `422`, `consent_required` | The site has a **Consent Sentence** and the box was not checked (or `consent` was not sent). | Send `"consent": true` from a relay that showed the sentence and had it checked. |
+| `422`, `list_required` | A form that offers lists to check was sent with none checked. | Check at least one. |
 
 ## Somebody cannot be added to a list
 

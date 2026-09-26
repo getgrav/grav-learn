@@ -2,7 +2,7 @@
 title: Lists and Signup Forms
 taxonomy:
     category: docs
-description: Lists and their settings, the mailroom_form() Twig function and its options, several lists as boxes to tick, the Form plugin's mailroom action, and the public pages under the route base.
+description: Lists and their settings, the mailroom_form() Twig function and its options, several lists as checkboxes, the Form plugin's mailroom action, and the public pages under the route base.
 ---
 
 # Lists and Signup Forms
@@ -18,7 +18,7 @@ To add one, open **Add a list** and fill in:
 | Field | What it does |
 |---|---|
 | Code | What a signup form names. Lowercase, no spaces, and it never changes once the list exists. |
-| Name | What people read, on the preference center and beside a box to tick. |
+| Name | What people read, on the preference center and beside a box to check. |
 | Description | Optional. Shown under the name on the preference center. |
 | Ask people to confirm | Double opt-in for this list. New lists start with the **Ask People to Confirm** setting on the **Signup** tab (`double_opt_in`, on). On is the right answer for a form on a public page. |
 | On the preference center | Offer this list on the preference center, so somebody holding a link from your mail can join it themselves. Off means it is joined through a form, an import or you. |
@@ -52,7 +52,7 @@ The first argument is the list's code. Left out, empty, or a code that names no 
 | `name` | `true` adds a name field. |
 | `tags` | Tag codes put on everybody who signs up here, as a list or one comma-separated string. |
 | `source_ref` | Your own note of where they came from, such as `footer`, kept on the subscriber (up to 190 characters). |
-| `lists` | More list codes to offer as boxes to tick (below). |
+| `lists` | More list codes to offer as checkboxes (below). |
 | `lists_label` | The heading over those boxes. Default "What would you like to hear about?". |
 | `consent_text` | Different wording beside this form's box, and the wording recorded for the people who sign up through it (see the note below). |
 | `template` | Draw a different partial instead of `partials/newsletter-signup.html.twig`. |
@@ -60,23 +60,23 @@ The first argument is the list's code. Left out, empty, or a code that names no 
 > [!NOTE]
 > A form's own `consent_text` is the sentence recorded against the people who sign up through it. The form carries it back to the site in a hidden `consent_form` field, signed with the site's secret, so nobody can claim a sentence the site never showed. An empty `consent_text` shows the site's **Consent Sentence** (on the **Signup** tab) while the site has one; the box goes only when that setting is empty too. See [Double opt-in and consent](../double-opt-in-and-consent#the-consent-sentence).
 
-### Several lists as boxes to tick
+### Several lists as checkboxes
 
-Offer two or more lists and the box draws them as boxes to tick, under each list's own name, none ticked:
+Offer two or more lists and the box draws them as checkboxes, under each list's own name, none checked:
 
 ```twig
 {{ mailroom_form('newsletter', {lists: ['security', 'events'], lists_label: 'What should we send you?'}) }}
 ```
 
-The first argument comes first, then `lists`, each once. A code that names no list is not offered. The person is signed up to the lists they tick, and the form will not send with none ticked ("Choose at least one list to join."). Each list keeps its own **Ask people to confirm**: one that asks is left waiting, one that does not is joined now, and one they are already on is left alone. However many lists wait on them, one confirmation email goes out, and pressing it confirms them all.
+The first argument comes first, then `lists`, each once. A code that names no list is not offered. The person is signed up to the lists they check, and the form will not send with none checked ("Choose at least one list to join."). Each list keeps its own **Ask people to confirm**: one that asks is left waiting, one that does not is joined now, and one they are already on is left alone. However many lists wait on them, one confirmation email goes out, and pressing it confirms them all.
 
 With fewer than two lists offered, the box is the ordinary one-list box.
 
 ### What the box does
 
-- **With JavaScript**, the box posts its fields as JSON to `{route}/subscribe` and prints the answer where the form was.
+- **With JavaScript**, the box posts its fields as JSON to `{route}/subscribe` and prints the answer where the form was: once a signup is taken, the fields and the button give way to it and it takes the focus, so a screen reader reads it out. A refusal leaves the fields to correct and scrolls its answer into view.
 - **Without JavaScript**, the same form posts normally with the site's nonce, and the site answers with a page saying the same sentence.
-- **The consent box** is drawn when there is a consent sentence, and must be ticked. A form with no box sends no consent at all.
+- **The consent box** is drawn when there is a consent sentence, and must be checked. A form with no box sends no consent at all.
 - **A honeypot field**, `website`, sits off screen with the label "Leave this field empty". A form filler that completes it is told it worked, and nothing is written.
 - **The answer is the same** for a new address, one already on the list and a suppressed one, so the form never tells anybody whether a particular person reads your mail.
 - **Signups are limited** to **Signups Per Hour** (`rate_limits.subscribe`, 10) from one visitor address. The eleventh gets "That is a few too many tries."
@@ -85,7 +85,7 @@ A signup through the box is recorded as **Signup form** (`form`), with or withou
 
 ### Change the markup
 
-Copy `templates/partials/newsletter-signup.html.twig` from the plugin into your theme's `templates/partials/` and edit it there. Every element has a `mailroom-*` class, and the form's ids are `mailroom-1`, `mailroom-1-email` and so on, numbered per form on the page. The box is styled by Mailroom's small stylesheet, which is on every front-end page (so the box is styled wherever you put it) and which **Mailroom Stylesheet** (`pages.builtin_css`) on the **Public Pages** tab turns off when your theme styles the classes itself. Its buttons and tick boxes take the **Accent Color** on the **Email Design** tab when you set one, and otherwise your theme's own accent where the theme has one (Quark2 does).
+Copy `templates/partials/newsletter-signup.html.twig` from the plugin into your theme's `templates/partials/` and edit it there. Every element has a `mailroom-*` class, and the form's ids are `mailroom-1`, `mailroom-1-email` and so on, numbered per form on the page. The box is styled by Mailroom's small stylesheet, which is on every front-end page (so the box is styled wherever you put it) and which **Mailroom Stylesheet** (`pages.builtin_css`) on the **Public Pages** tab turns off when your theme styles the classes itself. Its buttons and checkboxes take the **Accent Color** on the **Email Design** tab when you set one, and otherwise your theme's own accent where the theme has one (Quark2 does).
 
 ## A form of your own: the Form plugin action
 
@@ -132,11 +132,11 @@ Every parameter is optional:
 | `tags` | Tag codes for everybody who signs up. |
 | `email_field` | The field holding the address. Default `email`. |
 | `name_field` | The field holding their name. |
-| `consent_field` | The consent box. Only a `checkbox`, `toggle` or `switch` field is a box that must be ticked. |
+| `consent_field` | The consent box. Only a `checkbox`, `toggle` or `switch` field is a box that must be checked. |
 | `consent_text` | The sentence to record. Without it, the consent field's own label is recorded, then the site's **Consent Sentence**. |
 | `language` | A language code to store on the subscriber. |
 
-An address that is not an address, or a consent box left unticked, sets the form's error and stops the rest of the `process` list. Everything else succeeds with the same message the signup box gives. The signup is recorded as `form`, with the form's name as its `source_ref`, and it counts in the same hourly limit as the signup box.
+An address that is not an address, or a consent box left unchecked, sets the form's error and stops the rest of the `process` list. Everything else succeeds with the same message the signup box gives. The signup is recorded as `form`, with the form's name as its `source_ref`, and it counts in the same hourly limit as the signup box.
 
 ## The public pages
 

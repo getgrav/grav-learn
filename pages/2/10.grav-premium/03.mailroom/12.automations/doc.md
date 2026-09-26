@@ -48,7 +48,7 @@ A step somebody is standing on cannot be removed until they have moved on or bee
 
 **Turn it on** asks "Turn this automation on?" From then on everybody the trigger happens to is enrolled; nobody it already happened to is enrolled after the fact. An automation with no steps, or with an email step that has no message, cannot be turned on.
 
-- **Pause** holds everybody exactly where they are: no step runs, nobody new is enrolled, nobody is taken out. **Resume** carries each of them on from the same step; a wait that ran out while paused is over, so they move on the next tick.
+- **Pause** holds everybody exactly where they are: no step runs, nobody new is enrolled, nobody is taken out. **Resume** carries each of them on from the same step; a wait that ran out while paused is over, so they move on the worker's next run.
 - **Delete** removes the automation, its steps and its history; the emails it sent stay with the people who received them. With people still in it, it asks again: **Delete it and take them out**.
 
 **Run Automations** (`automations.enabled`, on the **Automations** tab of the settings) holds every automation at once without pausing them one by one; nobody is taken out and nothing is lost. **Automation Emails** (`messages.flow_email`, on the **Sending** tab) stops their emails while leaving campaigns alone.

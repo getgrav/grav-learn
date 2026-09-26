@@ -40,7 +40,7 @@ On the **Templates** tab:
 
 1. Press **New template**.
 2. Give it a name, a subject, a preheader, a message and a layout, the same fields as a campaign. Merge tags are checked the same way.
-3. Leave **Offered when writing a campaign** ticked to offer it in the campaign editor.
+3. Leave **Offered when writing a campaign** checked to offer it in the campaign editor.
 4. Save. The preview draws it through the real layout.
 
 **Start a campaign from this** on a template opens a new campaign with its fields filled in. Through the API, pass `template_id` when creating a campaign.

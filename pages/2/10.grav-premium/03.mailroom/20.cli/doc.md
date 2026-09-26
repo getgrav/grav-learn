@@ -48,7 +48,7 @@ bin/plugin mailroom work
 bin/plugin mailroom work --max-time=50 --max-jobs=100
 ```
 
-One worker pass: queues the automation tick and segment recount when due, lets go of emails held for a site URL, runs due jobs, runs the daily housekeeping when due, and records the run. Grav's scheduler runs this every minute as `mailroom-worker`. `--max-time` is the time budget in seconds (default 50) and `--max-jobs` the most jobs to run (default `0`, no cap). Prints "Processed N job(s), N failed, N deferred." and, on the run it happens, what the housekeeping removed. See [Jobs and cron](../jobs-and-cron).
+One worker pass: queues the automations and the segment recount when due, lets go of emails held for a site URL, runs due jobs, runs the daily housekeeping when due, and records the run. Grav's scheduler runs this every minute as `mailroom-worker`. `--max-time` is the time budget in seconds (default 50) and `--max-jobs` the most jobs to run (default `0`, no cap). Prints "Processed N job(s), N failed, N deferred." and, on the run it happens, what the housekeeping removed. See [Jobs and cron](../jobs-and-cron).
 
 ## `migrate`
 

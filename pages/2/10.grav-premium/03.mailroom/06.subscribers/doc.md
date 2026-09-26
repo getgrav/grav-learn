@@ -24,7 +24,7 @@ Reading subscribers needs `mailroom.view`. Every change needs `mailroom.manage`.
 
 The filters travel in the page's address, so Back and reload keep them and a filtered table is a link you can share. Counts on the Audience tab open the table already filtered. The Lists column names the lists somebody is on, and lists they are waiting to confirm as "Newsletter (pending)".
 
-The buttons above the table are **Add somebody**, **Import** (see [Import and export](../import-and-export)) and **Export CSV**, which downloads the table as filtered. Every row has a box to tick for the [bulk bar](../bulk-actions).
+The buttons above the table are **Add somebody**, **Import** (see [Import and export](../import-and-export)) and **Export CSV**, which downloads the table as filtered. Every row has a box to check for the [bulk bar](../bulk-actions).
 
 **Test addresses** are kept apart. Sending yourself a test copy of a campaign writes a row for your address, so the unsubscribe link in it points at somebody. Those rows are left out of the table, the counts and every audience; the **Test addresses** view lists them.
 

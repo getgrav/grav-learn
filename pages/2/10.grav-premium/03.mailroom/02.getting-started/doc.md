@@ -45,12 +45,12 @@ or for one list by its code:
 {{ mailroom_form('newsletter') }}
 ```
 
-In page content, turn on Twig processing for the page (`process: twig: true` in its front matter); `mailroom_form()` is allowed in page content. The box has an email field, the consent sentence with a box to tick, and a **Sign me up** button. [Lists and signup forms](../lists-and-signup-forms) covers the options, several lists as boxes to tick, and the other ways in.
+In page content, turn on Twig processing for the page (`process: twig: true` in its front matter); `mailroom_form()` is allowed in page content. The box has an email field, the consent sentence with a box to check, and a **Sign me up** button. [Lists and signup forms](../lists-and-signup-forms) covers the options, several lists as checkboxes, and the other ways in.
 
 ## Sign up and confirm
 
 1. Open a page with the box in a private window.
-2. Enter an address you can read, tick the box and press **Sign me up**. The box says "We have sent you a confirmation email."
+2. Enter an address you can read, check the box and press **Sign me up**. The fields give way to the answer: "We have sent you a confirmation email."
 3. Open the email ("Please confirm your email address for ...") and press **Yes, sign me up**.
 
 The confirmation page presses its own button when it loads, so you land on "You are on the list". Open **Subscribers** in Mailroom: you are there, subscribed, with how you joined (**Signup form**), when you agreed and the consent sentence you were shown.
@@ -80,7 +80,7 @@ The campaign goes out as the worker picks it up, at the rate set by **Messages P
 
 ## The admin
 
-Mailroom's page lives at `/admin/plugin/mailroom` and every screen has its own address after the `#`, so a reload or Back lands where you were (`#/campaigns/12`, `#/subscribers/import`). Editors ask before you leave with changes you have not saved.
+Mailroom's page lives at `/admin/plugin/mailroom` and every screen has its own address after the `#`, so a reload or Back lands where you were (`#/campaigns/12`, `#/subscribers/import`, `#/health` for the Health tab). Editors ask before you leave with changes you have not saved.
 
 | Tab | What it is |
 |---|---|

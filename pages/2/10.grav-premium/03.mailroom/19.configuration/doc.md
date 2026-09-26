@@ -79,7 +79,7 @@ See [Double opt-in and consent](../double-opt-in-and-consent) and [Import and ex
 | Key | Label | Default | What it does |
 |---|---|---|---|
 | `double_opt_in` | Ask People to Confirm | On | The default for a new list. Each list has its own. |
-| `consent_text` | Consent Sentence | "I agree to receive email from this site. I can leave with one click at any time." | The wording beside the box to tick. A hash of it is stored with each person who agrees, or of a signup box's own sentence when it shows one. Empty asks for no consent. |
+| `consent_text` | Consent Sentence | "I agree to receive email from this site. I can leave with one click at any time." | The wording beside the box to check. A hash of it is stored with each person who agrees, or of a signup box's own sentence when it shows one. Empty asks for no consent. |
 | `import.keep_days` | Keep Uploaded Files For (days) | `30` | How long an uploaded contact list stays on disk if its import never ran. `0` keeps them. |
 
 ## Public Pages
@@ -115,7 +115,7 @@ See [Automations](../automations).
 | Key | Label | Default | What it does |
 |---|---|---|---|
 | `automations.enabled` | Run Automations | On | Off holds every automation at once. Nobody is taken out. |
-| `automations.per_tick` | People Moved Per Run | `200` | How many people one run of the automation tick moves on by a step (1 to 1000). |
+| `automations.per_tick` | People Moved Per Run | `200` | How many people one run of the automations moves on by a step (1 to 1000). |
 
 ## Health
 

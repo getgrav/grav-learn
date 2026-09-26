@@ -37,7 +37,7 @@ Anything else is refused with `415`. A `GET` is refused with `405`.
 | `language` | string | A two-letter language code to store on them. |
 | `source` | string | How they came in: `form` or `api`. Anything else is ignored. See below. |
 | `source_ref` | string | Your own note of where they came from, such as `footer`. Up to 190 characters. |
-| `pick_lists` | boolean | Sent by a form that offers lists to tick. With it, a signup naming no list is refused rather than put on the default list. |
+| `pick_lists` | boolean | Sent by a form that offers lists to check. With it, a signup naming no list is refused rather than put on the default list. |
 | `website` | string | The honeypot. Must be empty (see below). |
 
 ## Answers
@@ -116,7 +116,7 @@ Say `www.example.com` runs the footer form and `news.example.com` runs Mailroom.
 $payload = json_encode([
     'email'      => $email,
     'list'       => 'newsletter',
-    'consent'    => $consentTicked,   // true only when the visitor ticked the box
+    'consent'    => $consentTicked,   // true only when the visitor checked the box
     'source'     => 'form',           // a form, even though a server posts it
     'source_ref' => 'www-footer',
 ]);

@@ -11,8 +11,8 @@ The Subscribers table, and every list's own page, can act on many people at once
 
 ## Select people
 
-- Tick the box on a row to select that person.
-- Tick the box in the header to select everybody on the page ("Select everybody on this page").
+- Check the box on a row to select that person.
+- Check the box in the header to select everybody on the page ("Select everybody on this page").
 - Then choose **Select all N matching these filters** to act on everybody the current filters match, including people on other pages.
 
 The bar shows "N selected" and a **Clear selection** link.

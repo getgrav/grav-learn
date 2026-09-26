@@ -42,13 +42,13 @@ For somebody whose confirmation email went to spam and who has asked you, in wri
 
 ## The consent sentence
 
-**Consent Sentence** (`consent_text`, on the **Signup** tab) is the wording beside the box to tick on the signup box. The default:
+**Consent Sentence** (`consent_text`, on the **Signup** tab) is the wording beside the box to check on the signup box. The default:
 
 > I agree to receive email from this site. I can leave with one click at any time.
 
 When somebody agrees, Mailroom stores a hash of the sentence against them, so you can later prove exactly what they said yes to. Changing the sentence changes what new people see and leaves everyone who already signed up alone.
 
-With a sentence set, a signup must carry `consent` (the ticked box, or `"consent": true` in JSON); without it the answer is "Please tick the box to say you are happy to hear from us." Clearing the sentence says your site asks for no explicit consent: the box disappears and none is required.
+With a sentence set, a signup must carry `consent` (the checked box, or `"consent": true` in JSON); without it the answer is "Please check the box to say you are happy to hear from us." Clearing the sentence says your site asks for no explicit consent: the box disappears and none is required.
 
 A signup box can show and record its own wording: give `mailroom_form()` a `consent_text` and that sentence is the one stored for the people who sign up through it, carried back with the form and signed with the site's secret (see [Lists and signup forms](../lists-and-signup-forms#the-signup-box)). A Form plugin form can record its own wording too: the `mailroom` action records `consent_text` when you give it, then the consent field's own label, then the site's sentence (see [Lists and signup forms](../lists-and-signup-forms#a-form-of-your-own-the-form-plugin-action)).
 
@@ -91,7 +91,7 @@ Somebody who left a list themselves has told you something no admin can overrule
 
 - the unsubscribe link in an email (**The link in an email**),
 - their mail client's unsubscribe button (**Their mail client's unsubscribe button**),
-- the preference center (**The preference center**),
+- the preference center (**Preference center**),
 - a spam complaint (**A spam complaint**).
 
 Nobody who left a list, or every list, that way is put back on it by an admin's add, **Add to list**, the bulk bar, a list's **Add people**, the list boxes on their page, an import, or an automation's **Add to a list** step. Each of those skips them and says why ("They left it themselves."). An admin who later unsubscribes or suppresses them does not change how they left.

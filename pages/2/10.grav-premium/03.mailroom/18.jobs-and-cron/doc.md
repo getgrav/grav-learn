@@ -27,7 +27,7 @@ To run the worker some other way (a supervisor, a cron line of its own), turn of
 
 ## What a worker run does
 
-1. Queues the periodic work that is due: the automation tick (moving people along their automations) and the segment recount.
+1. Queues the periodic work that is due: the automations' run (moving people along their automations) and the segment recount.
 2. Lets go of emails that were waiting for a site URL, once one is set (below).
 3. Runs due jobs for up to 50 seconds (`--max-time`), with no cap on how many (`--max-jobs`, `0`).
 4. Once a day, runs the housekeeping.

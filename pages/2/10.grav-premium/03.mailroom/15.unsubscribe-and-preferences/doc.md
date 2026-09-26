@@ -46,18 +46,18 @@ The Health screen's **One-click unsubscribe** check, and a dashboard banner, say
 
 ## The preference center
 
-`{route}/p/{token}` ("Your email preferences") shows:
+`{route}/p/{token}` ("Your email preferences", with "Choose what you want to hear about." under it) shows:
 
 - the address it is for;
 - **Your name**, which they can change;
 - a language picker, on a site with more than one language;
-- **What you hear about**: every list they are on, plus every list marked **On the preference center**, each with its description, to tick or untick;
+- **What you hear about**: every list they are on, plus every list marked **On the preference center**, each with its description, to check or uncheck;
 - **Save my preferences**, and **Or stop all email from us**, which goes to the unsubscribe page.
 
 On save:
 
-- **Ticking a list they are not on joins it.** Somebody already confirmed joins straight away. Somebody who has not confirmed yet joins waiting, and the one confirmation they already have outstanding covers it ("We are still waiting for you to confirm this one. Check the email we sent.").
-- **Unticking a list they are on** unsubscribes them from that list, recorded as **The preference center**.
+- **Checking a list they are not on joins it.** Somebody already confirmed joins straight away. Somebody who has not confirmed yet joins waiting, and the one confirmation they already have outstanding covers it ("We are still waiting for you to confirm this one. Check the email we sent.").
+- **Unchecking a list they are on** unsubscribes them from that list, recorded as **Preference center**.
 - A list that was not drawn on the page cannot be joined, whatever the form sends.
 
 Every change is a row in their consent history. Preference links work for ninety days.

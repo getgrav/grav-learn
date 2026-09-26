@@ -40,7 +40,7 @@ Press **Write a campaign**, or **Start a campaign from this** on a [template](..
 ### Who it goes to
 
 - **Send it to**: the first list, or **All lists, with a segment** to mail everybody on any list who matches a segment.
-- **Also send to**: tick more lists. Somebody on more than one of them gets one copy.
+- **Also send to**: check more lists. Somebody on more than one of them gets one copy.
 - **Narrow it with a segment**: only the people on those lists who also match the segment are mailed. With **All lists, with a segment** a segment is required.
 
 The count under the pickers says how many people will receive it right now, worked out the way the send is: each person once, and anybody suppressed, already off those lists, or who never confirmed left out. The campaign's page afterwards says "Sent to: Newsletter, Events" (or "All lists, matching" the segment).
@@ -82,7 +82,7 @@ Anything else is refused when you save, with the variable named, so a typo never
 
 ## Test two subjects
 
-Tick **Test two subjects** and write **The other subject**. Some of the audience gets one subject and some the other, and everybody else gets whichever did better. Only the subject differs.
+Check **Test two subjects** and write **The other subject**. Some of the audience gets one subject and some the other, and everybody else gets whichever did better. Only the subject differs.
 
 - **How much of the list is tested**: 10 to 50 percent (default 20).
 - **How long to wait before the winner goes out**: 1, 2, 4, 8 or 24 hours (default 4), counted from the moment the campaign starts.
