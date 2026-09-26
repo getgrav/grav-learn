@@ -91,7 +91,7 @@ Somebody who left a list themselves has told you something no admin can overrule
 
 - the unsubscribe link in an email (**The link in an email**),
 - their mail client's unsubscribe button (**Their mail client's unsubscribe button**),
-- the preference centre (**The preference centre**),
+- the preference center (**The preference center**),
 - a spam complaint (**A spam complaint**).
 
 Nobody who left a list, or every list, that way is put back on it by an admin's add, **Add to list**, the bulk bar, a list's **Add people**, the list boxes on their page, an import, or an automation's **Add to a list** step. Each of those skips them and says why ("They left it themselves."). An admin who later unsubscribes or suppresses them does not change how they left.

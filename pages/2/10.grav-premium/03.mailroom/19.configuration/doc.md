@@ -16,7 +16,7 @@ Some things are not settings at all: lists, tags, segments, templates, campaigns
 | Tab | Controls |
 |---|---|
 | Sending | Whether mail can leave, how fast, who it comes from, and the three kinds of message |
-| Email Design | The email layout's logo, colours, footer text and postal address |
+| Email Design | The email layout's logo, colors, footer text and postal address |
 | Tracking | Opens, clicks, how long detail is kept, and link tagging |
 | Signup | Double opt-in default, the consent sentence, import files |
 | Public Pages | The site URL, the route base, the page template, the confirmation page, rate limits and trusted proxies |

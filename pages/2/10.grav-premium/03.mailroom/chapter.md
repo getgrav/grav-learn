@@ -36,7 +36,7 @@ Mailroom works without either. Without a provider webhook, campaigns still send;
 ## What's in the box
 
 - **Subscribers with a consent record**: the sentence each person agreed to, when, and from which address, plus a consent history of every change to their lists.
-- **Lists people can leave one at a time**, each with its own double opt-in, a preference centre, and one-click unsubscribe from the mail client.
+- **Lists people can leave one at a time**, each with its own double opt-in, a preference center, and one-click unsubscribe from the mail client.
 - **A signup box anywhere**: `{{ mailroom_form() }}` in a theme or page, the Form plugin's `mailroom` action, or a JSON endpoint another server can post to.
 - **Campaigns** in Markdown, to one list, several lists or every list with a segment, with subject tests, test sends, scheduling, sending to people who joined late, and a retry for failed sends.
 - **Segments** built from conditions, **tags**, **templates**, and **automations** that start on a signup, a confirmation or a tag.

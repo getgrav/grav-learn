@@ -53,7 +53,7 @@ Every route needs `api.access` and one of Mailroom's permissions. Reads take `ma
 | `GET /mailroom/campaigns/audience` | view | Count who a campaign would reach before it exists: `lists=1,3`, `segment=5`. |
 | `GET /mailroom/campaigns/{id}` | view | One campaign with its counters, rates, subject test and the moves it can make next |
 | `PATCH /mailroom/campaigns/{id}` | manage | Edit a draft or scheduled campaign |
-| `DELETE /mailroom/campaigns/{id}` | manage | Delete a draft or cancelled campaign |
+| `DELETE /mailroom/campaigns/{id}` | manage | Delete a draft or canceled campaign |
 | `GET /mailroom/campaigns/{id}/sends` | view | Its recipients and what happened to each. `status`, `page`, `per_page`. |
 | `GET /mailroom/campaigns/{id}/links` | view | Its links and their clicks |
 | `GET /mailroom/campaigns/{id}/timeline` | view | Its first 48 hours, by the hour |
@@ -109,7 +109,7 @@ curl -k -X POST https://example.test/api/v1/mailroom/campaigns \
 | `POST /mailroom/lists` | manage | `{code, name, description, double_opt_in, public, is_default, position, from_name, from_email}` |
 | `PATCH /mailroom/lists/{id}` | manage | The same, except `code`, which cannot change. Lists cannot be deleted. |
 | `GET /mailroom/tags` | view | Every tag with how many carry it |
-| `POST /mailroom/tags` | manage | `{code, label}`. The code is normalised; an existing tag is answered rather than refused. |
+| `POST /mailroom/tags` | manage | `{code, label}`. The code is normalized; an existing tag is answered rather than refused. |
 | `DELETE /mailroom/tags/{id}` | manage | Delete a tag and take it off everybody |
 
 ### Templates

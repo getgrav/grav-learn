@@ -90,7 +90,7 @@ To see what a saved payload does, replay it with `bin/plugin mailroom webhook:re
 The admin says why:
 
 - "This address is on the suppression list, so it is never mailed." Remove it on the **Suppressions** tab first, and only when you know why it landed there.
-- "They left it themselves." They unsubscribed by a link, their mail client's button, the preference centre or a spam complaint. If they have asked to come back, use **Put them back on** with a note saying how they asked. See [Double opt-in and consent](../double-opt-in-and-consent#leaving-by-their-own-hand).
+- "They left it themselves." They unsubscribed by a link, their mail client's button, the preference center or a spam complaint. If they have asked to come back, use **Put them back on** with a note saying how they asked. See [Double opt-in and consent](../double-opt-in-and-consent#leaving-by-their-own-hand).
 
 ## The unsubscribe button does not show in Gmail
 

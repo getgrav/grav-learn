@@ -57,7 +57,7 @@ A step somebody is standing on cannot be removed until they have moved on or bee
 
 An automation's page shows its steps with each email's sent, opened and clicked counts, and its people: which step each is on (**Moving**, **Waiting** until a time, **Finished** or **Left**), when they entered and why they left.
 
-- **Enrol somebody**: search by name or address and put one person in by hand, under the same rules as the trigger (subscribed, on the list and in the segment if it names them, and new to it unless it allows re-entry). Useful for testing an automation on yourself before turning it on.
+- **Enroll somebody**: search by name or address and put one person in by hand, under the same rules as the trigger (subscribed, on the list and in the segment if it names them, and new to it unless it allows re-entry). Useful for testing an automation on yourself before turning it on.
 - **Take them out**: they stop where they are and receive nothing else from it.
 
 People leave early, with the reason shown, when they unsubscribe from everything, bounce, mark an email as spam, are suppressed, a step fails, the automation is deleted, or somebody takes them out by hand.

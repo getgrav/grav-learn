@@ -18,16 +18,16 @@ To add one, open **Add a list** and fill in:
 | Field | What it does |
 |---|---|
 | Code | What a signup form names. Lowercase, no spaces, and it never changes once the list exists. |
-| Name | What people read, on the preference centre and beside a box to tick. |
-| Description | Optional. Shown under the name on the preference centre. |
+| Name | What people read, on the preference center and beside a box to tick. |
+| Description | Optional. Shown under the name on the preference center. |
 | Ask people to confirm | Double opt-in for this list. New lists start with the **Ask People to Confirm** setting on the **Signup** tab (`double_opt_in`, on). On is the right answer for a form on a public page. |
-| On the preference centre | Offer this list on the preference centre, so somebody holding a link from your mail can join it themselves. Off means it is joined through a form, an import or you. |
+| On the preference center | Offer this list on the preference center, so somebody holding a link from your mail can join it themselves. Off means it is joined through a form, an import or you. |
 
-Click a list to open its own page: its code and settings, **Edit** (name, description, **Ask people to confirm**, **Default list**, **On the preference centre**), **Add people** (paste addresses, see [Subscribers](../subscribers#add-people)) and its people, with chips for where each stands on it and the same [bulk bar](../bulk-actions) as the Subscribers table.
+Click a list to open its own page: its code and settings, **Edit** (name, description, **Ask people to confirm**, **Default list**, **On the preference center**), **Add people** (paste addresses, see [Subscribers](../subscribers#add-people)) and its people, with chips for where each stands on it and the same [bulk bar](../bulk-actions) as the Subscribers table.
 
 - **Default list** is where a signup that names no list goes. Making one list the default clears the flag on any other.
 - A list's code cannot be changed, because every signup form, import and campaign finds the list by it.
-- Lists cannot be deleted. A list you no longer use can simply stay off the preference centre and out of your forms.
+- Lists cannot be deleted. A list you no longer use can simply stay off the preference center and out of your forms.
 - A list's count on the Audience tab opens the Subscribers table filtered to the people subscribed to it.
 
 ## The signup box
@@ -147,7 +147,7 @@ Everything a subscriber sees answers under the route base, `/newsletter` unless 
 | `POST {route}/subscribe` | The signup box posts here. See [Subscribe API](../subscribe-api). |
 | `{route}/confirm/{token}` | The double opt-in link |
 | `{route}/u/{token}` | Unsubscribe |
-| `{route}/p/{token}` | The preference centre |
+| `{route}/p/{token}` | The preference center |
 | `{route}/v/{token}` | A campaign in the browser |
 | `{route}/o/{token}.gif`, `{route}/c/{token}` | The open pixel and the click redirect |
 | `POST {route}/webhook/{provider}/{secret}` | Provider events. See [Sending and providers](../sending-and-providers#provider-webhooks) |

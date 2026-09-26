@@ -14,7 +14,7 @@ A site that can bring its audience in can take it out again. This page covers im
 Open **Subscribers** and press **Import** ("Import a contact list").
 
 1. **Choose a CSV file**: a comma or semicolon separated file with a header row. Exports from EmailOctopus arrive as a ZIP; unzip it first.
-2. **Which column is which.** Pick a field above each column: **Email address**, **Full name**, **First name**, **Last name**, **Tags**, **Status**, **Subscribed date** or **Language**, or **Ignore this column**. A file Mailroom recognises (an EmailOctopus export) arrives with the columns already matched, and headings that plainly name a field (`email`, `E-mail`, `Email address`, `Name`, `First name`, `Surname`, `Tags`, `Status`, `Language` and the like) are picked for you. One column must be the email address, and each field can come from one column only.
+2. **Which column is which.** Pick a field above each column: **Email address**, **Full name**, **First name**, **Last name**, **Tags**, **Status**, **Subscribed date** or **Language**, or **Ignore this column**. A file Mailroom recognizes (an EmailOctopus export) arrives with the columns already matched, and headings that plainly name a field (`email`, `E-mail`, `Email address`, `Name`, `First name`, `Surname`, `Tags`, `Status`, `Language` and the like) are picked for you. One column must be the email address, and each field can come from one column only.
 3. **What the first rows become.** The first twenty rows, read exactly as the import would read them. A row it would refuse says why.
 4. **Where it goes:**
    - **Add them to**: a list, or **No list, subscribers only**.

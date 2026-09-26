@@ -18,11 +18,11 @@ Writing and editing campaigns needs `mailroom.manage`. Starting, resuming, test-
 | Status | Meaning |
 |---|---|
 | Draft | Not going anywhere. Edit it freely. |
-| Scheduled | Waiting for its moment. It can still be edited, paused or cancelled. |
+| Scheduled | Waiting for its moment. It can still be edited, paused or canceled. |
 | Sending | Mail is going out now. It cannot be edited. |
 | Paused | Stopped part way. Resuming carries on where it stopped. |
 | Sent | Everybody in the audience has been sent to. |
-| Cancelled | Stopped for good. It cannot be started again. |
+| Canceled | Stopped for good. It cannot be started again. |
 | Stopped | Too many messages in a row were refused. Fix the mail settings and resume it. (`failed` in the API) |
 
 ## Write a campaign
@@ -35,7 +35,7 @@ Press **Write a campaign**, or **Start a campaign from this** on a [template](..
 | Subject | The subject line. May carry merge tags. |
 | Preheader | The line an inbox shows after the subject. Empty lets the mail client pick the first words of the message. |
 | Message | Markdown, wrapped in the same layout as every other email the site sends. |
-| Layout | **Site branding** (your logo, colours and card) or **Plain** (no header or card). See [Templates and branding](../templates-and-branding). |
+| Layout | **Site branding** (your logo, colors and card) or **Plain** (no header or card). See [Templates and branding](../templates-and-branding). |
 
 ### Who it goes to
 
@@ -69,7 +69,7 @@ Merge tags fill in per person. Write them in the subject, preheader or message:
 | `{{ site.url }}` | Your site's address |
 | `{{ campaign.name }}` | The campaign's name |
 | `{{ unsubscribe_url }}` | Their unsubscribe link |
-| `{{ preferences_url }}` | Their preference centre link |
+| `{{ preferences_url }}` | Their preference center link |
 | `{{ browser_url }}` | The campaign in the browser |
 
 `{{ store.name }}` and `{{ store.url }}` also work and give the same values as `site.*`. Not everybody has a name, so give a fallback:
@@ -98,7 +98,7 @@ Save the campaign, and the **Preview** pane draws it through the real layout wit
 ## Send or schedule
 
 - **Send it now**: asks "Send this to N people?", and mail starts leaving as soon as the worker picks it up.
-- **Schedule it**: pick **Send at**, then confirm. It waits in the queue until then, and can still be edited, paused or cancelled.
+- **Schedule it**: pick **Send at**, then confirm. It waits in the queue until then, and can still be edited, paused or canceled.
 
 Campaigns need the worker (see [Jobs and cron](../jobs-and-cron)). The worker sends at **Messages Per Minute** across every campaign, a slice of **Recipients Per Run** at a time.
 
@@ -130,7 +130,7 @@ Two more buttons appear on a sent campaign:
 - **Send to newcomers**: people who joined its lists after it went out (and match its segment) and never received it. "N people joined after this went out and never received it. Send it to them now?" Nobody gets a second copy, and it stays one campaign with one report. A subject test that already has a winner sends the winner.
 - **Retry failed (N)**: sends the messages the transport refused (usually a transport that could not be reached for a moment) again. Bounces and complaints are never retried, and consent and suppression are checked again. A single failed send can be retried from the recipients list with **Retry**.
 
-Only a draft or a cancelled campaign can be deleted; everything it recorded goes with it.
+Only a draft or a canceled campaign can be deleted; everything it recorded goes with it.
 
 ## Unsubscribing from a campaign
 

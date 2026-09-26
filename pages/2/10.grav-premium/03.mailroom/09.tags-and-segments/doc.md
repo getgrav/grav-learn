@@ -20,7 +20,7 @@ Tags come from:
 - a person's page (the chips and the "A tag, new or existing" box), or **Add tag** on the [bulk bar](../bulk-actions);
 - an automation's **Add a tag** step.
 
-**Add a tag** on the Audience tab creates one from a **Label**. Codes are normalised: lower case, with spaces and underscores turned into hyphens, so "Early Access", "early access" and "early-access" are one tag. Each tag shows how many people carry it, and the count opens the Subscribers table filtered to them.
+**Add a tag** on the Audience tab creates one from a **Label**. Codes are normalized: lower case, with spaces and underscores turned into hyphens, so "Early Access", "early access" and "early-access" are one tag. Each tag shows how many people carry it, and the count opens the Subscribers table filtered to them.
 
 A tag can start an automation: **When the tag ... is added** (see [Automations](../automations)).
 

@@ -75,7 +75,7 @@ bin/plugin mailroom import:csv contacts.csv --dry-run
 bin/plugin mailroom import:csv contacts.csv --list=newsletter --tag=october-import
 ```
 
-Imports a contact list in the foreground, deduplicating by address and honouring suppressions, and prints what it did.
+Imports a contact list in the foreground, deduplicating by address and honoring suppressions, and prints what it did.
 
 | Option | What it does |
 |---|---|

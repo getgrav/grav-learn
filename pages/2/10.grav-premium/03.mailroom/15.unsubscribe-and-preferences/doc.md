@@ -2,19 +2,19 @@
 title: Unsubscribe and Preferences
 taxonomy:
     category: docs
-description: The links at the foot of every campaign, the unsubscribe page and which lists it leaves, the mail client's one-click button, the preference centre, and view in browser.
+description: The links at the foot of every campaign, the unsubscribe page and which lists it leaves, the mail client's one-click button, the preference center, and view in browser.
 ---
 
 # Unsubscribe and Preferences
 
-Every campaign and automation email ends with a way out. This page covers the unsubscribe link, the mail client's own unsubscribe button, the preference centre and view in browser. None of them needs a login: the signed link is the credential.
+Every campaign and automation email ends with a way out. This page covers the unsubscribe link, the mail client's own unsubscribe button, the preference center and view in browser. None of them needs a login: the signed link is the credential.
 
 ## The email footer
 
 Below every campaign and automation email:
 
 - **Unsubscribe**: the unsubscribe page;
-- **Choose what you hear about**: the preference centre;
+- **Choose what you hear about**: the preference center;
 - **View in your browser**: the email as a web page;
 - "You are receiving this because you signed up for email from this site.", then your **Footer Text** and **Postal Address** on the branded layout (see [Templates and branding](../templates-and-branding)).
 
@@ -44,20 +44,20 @@ It leaves the same lists the link does, and is recorded as **Their mail client's
 
 The Health screen's **One-click unsubscribe** check, and a dashboard banner, say when your transport drops these headers.
 
-## The preference centre
+## The preference center
 
 `{route}/p/{token}` ("Your email preferences") shows:
 
 - the address it is for;
 - **Your name**, which they can change;
 - a language picker, on a site with more than one language;
-- **What you hear about**: every list they are on, plus every list marked **On the preference centre**, each with its description, to tick or untick;
+- **What you hear about**: every list they are on, plus every list marked **On the preference center**, each with its description, to tick or untick;
 - **Save my preferences**, and **Or stop all email from us**, which goes to the unsubscribe page.
 
 On save:
 
 - **Ticking a list they are not on joins it.** Somebody already confirmed joins straight away. Somebody who has not confirmed yet joins waiting, and the one confirmation they already have outstanding covers it ("We are still waiting for you to confirm this one. Check the email we sent.").
-- **Unticking a list they are on** unsubscribes them from that list, recorded as **The preference centre**.
+- **Unticking a list they are on** unsubscribes them from that list, recorded as **The preference center**.
 - A list that was not drawn on the page cannot be joined, whatever the form sends.
 
 Every change is a row in their consent history. Preference links work for ninety days.

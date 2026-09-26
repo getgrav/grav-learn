@@ -7,7 +7,7 @@ description: The branded email layout and its settings, the plain layout, campai
 
 # Templates and Branding
 
-Every campaign, confirmation and automation email is drawn in one layout with your logo and colours. This page covers the layout's settings, the campaign templates on the **Templates** tab, and overriding Mailroom's Twig templates in a theme.
+Every campaign, confirmation and automation email is drawn in one layout with your logo and colors. This page covers the layout's settings, the campaign templates on the **Templates** tab, and overriding Mailroom's Twig templates in a theme.
 
 ## The email layout
 
@@ -23,7 +23,7 @@ The **Email Design** tab of Mailroom's settings sets the frame: your logo or you
 | `branding.footer_text` | Footer Text | empty | A line or two under every message, such as why people are receiving it. Plain text. |
 | `branding.postal_address` | Postal Address | empty | Printed at the foot of every message, branded or plain, and in its plain-text part. |
 
-Colours are hex codes (`#abc` or `#aabbcc`); anything else is replaced by the default rather than printed, so a typo cannot break the email.
+Colors are hex codes (`#abc` or `#aabbcc`); anything else is replaced by the default rather than printed, so a typo cannot break the email.
 
 > [!IMPORTANT]
 > Bulk mail law in many countries, the United States' CAN-SPAM among them, expects a real postal address on marketing email. Fill in **Postal Address** before your first campaign.
