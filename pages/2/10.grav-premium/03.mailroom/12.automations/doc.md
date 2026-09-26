@@ -70,10 +70,9 @@ The worker moves people along once a minute, up to **People Moved Per Run** (`au
 
 ## The Welcome series recipe
 
-Mailroom ships one recipe, **Welcome series**: three emails over the first week to somebody who has just confirmed, a welcome straight away, a second email two days later and a third three days after that. It starts **When somebody confirms**.
+Mailroom ships one recipe, **Welcome series**: two emails to somebody who has just confirmed their address. The first goes straight away and says what they signed up for and how often you write; the second, three days later, points at a few good places to start on your site. It starts **When somebody confirms**, and uses `{{ site.name }}` and `{{ site.url }}` so it names your site.
 
-> [!IMPORTANT]
-> The recipe's copy was written for a shop (a first order, shipping and returns, "Have a look around the shop") and its draft has **Take somebody out as soon as they buy something** ticked, which does nothing on a Mailroom site. Rewrite all three emails, untick that box, and read the notes the recipe lists before you turn it on.
+The draft has placeholders for the parts only you can write: what you send and how often, and the three pages you would show somebody new. The recipe lists them under what to change before you turn it on, and says that a list which does not ask people to confirm needs the trigger changed to **When somebody signs up**, since nobody on it ever confirms.
 
 ## From the API
 

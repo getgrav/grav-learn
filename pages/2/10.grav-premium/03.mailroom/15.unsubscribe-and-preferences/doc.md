@@ -36,9 +36,6 @@ Unsubscribe links work for ninety days. After that the page says "That link has 
 
 The unsubscribe is recorded as **The link in an email**, which counts as leaving by their own hand (see [Double opt-in and consent](../double-opt-in-and-consent#leaving-by-their-own-hand)).
 
-> [!NOTE]
-> **Unsubscribe on Opening the Link** (`unsubscribe.confirm_on_get`, on the **Signup** tab) is meant to let the link act on being opened. In 1.0.0 the unsubscribe page always waits for the button, whatever it says. Leave it off either way.
-
 ## The mail client's unsubscribe button
 
 Campaign and automation emails carry `List-Unsubscribe` and `List-Unsubscribe-Post` headers (RFC 8058), which put an Unsubscribe button next to your name in Gmail, Apple Mail and others. The mail client sends a `POST` to the unsubscribe link with the body `List-Unsubscribe=One-Click`, and Mailroom acts on it at once and answers `200` with an empty body.

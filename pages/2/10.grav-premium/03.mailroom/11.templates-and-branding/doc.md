@@ -17,11 +17,11 @@ The **Email Design** tab of Mailroom's settings sets the frame: your logo or you
 |---|---|---|---|
 | `branding.logo` | Logo | empty | An image URL, or a path on this site such as `/user/images/logo.png`. Empty prints your site's name in the header. |
 | `branding.logo_width` | Logo Width (pixels) | `160` | How wide the logo is drawn (16 to 600). Its height follows. |
-| `branding.accent` | Accent Colour | `#1a6f83` | Links, the confirmation button and the rule under the header. |
-| `branding.background` | Background Colour | `#f4f5f7` | What the card sits on. |
-| `branding.text` | Text Colour | `#222222` | The colour of the message itself. |
+| `branding.accent` | Accent Color | empty | Links, the confirmation button and the rule under the header in every email, and the buttons and links on Mailroom's public pages and signup box. Empty is teal (`#1a6f83`) in email, and on the pages your theme's own accent where it has one (Quark2 does), else teal. |
+| `branding.background` | Background Color | `#f4f5f7` | What the card sits on. |
+| `branding.text` | Text Color | `#222222` | The color of the message itself. |
 | `branding.footer_text` | Footer Text | empty | A line or two under every message, such as why people are receiving it. Plain text. |
-| `branding.postal_address` | Postal Address | empty | Printed at the foot of every branded message. |
+| `branding.postal_address` | Postal Address | empty | Printed at the foot of every message, branded or plain, and in its plain-text part. |
 
 Colours are hex codes (`#abc` or `#aabbcc`); anything else is replaced by the default rather than printed, so a typo cannot break the email.
 
@@ -30,7 +30,7 @@ Colours are hex codes (`#abc` or `#aabbcc`); anything else is replaced by the de
 
 ### The plain layout
 
-A campaign or automation email set to **Plain** leaves out the header, the card and the branding: white ground and your message, with the unsubscribe footer below. The **Footer Text** and **Postal Address** belong to the branded layout, so a plain email does not carry them; put your address in the message itself if you send plain campaigns.
+A campaign or automation email set to **Plain** leaves out the header, the card and the branding: white ground and your message, with the unsubscribe footer below. The **Footer Text** and **Postal Address** are still printed under that footer, and at the end of the plain-text part of every email, because the address is expected in every message.
 
 ## Templates
 
@@ -70,6 +70,12 @@ The layouts share one contract, so a child template extends either without knowi
 ### Page templates
 
 The public pages and the signup box can be overridden the same way: `newsletter-confirm.html.twig`, `newsletter-unsubscribe.html.twig`, `newsletter-preferences.html.twig`, `newsletter-message.html.twig` and `partials/newsletter-signup.html.twig`. See [Lists and signup forms](../lists-and-signup-forms#the-public-pages).
+
+Each of them includes `partials/mailroom-accent.html.twig` on its outer element, which hands the page the **Accent Color** when one is set. Keep the include in a copy, or set the color in your theme's stylesheet instead:
+
+```css
+.mailroom { --mailroom-accent: #7c3aed; }
+```
 
 ## Related
 

@@ -48,7 +48,7 @@ A few habits that keep answers honest:
 | Deliverability | `check_deliverability` (view); `recheck_deliverability` | manage |
 | Providers | `generate_provider_secret`, `set_up_provider_webhook` | manage |
 | Automations | `list_automations`, `get_automation`, `list_automation_recipes` (view); `create_automation`, `update_automation`, `delete_automation`, `activate_automation`, `pause_automation`, `resume_automation`, `enrol_in_automation`, `exit_automation_enrolment`, `use_automation_recipe` | manage |
-| Reports | `get_newsletters_report` | view |
+| Reports | `get_report` | view |
 | Erasure | `erase_address` | manage |
 
 Every permission is `mailroom.view`, `mailroom.manage` or `mailroom.send`; the send tools need `mailroom.manage` as well. `export_subscriber_data` is the one read that needs `mailroom.manage`, like the CSV export.

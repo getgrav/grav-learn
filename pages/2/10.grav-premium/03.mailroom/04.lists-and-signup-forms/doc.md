@@ -54,11 +54,11 @@ The first argument is the list's code. Left out, empty, or a code that names no 
 | `source_ref` | Your own note of where they came from, such as `footer`, kept on the subscriber (up to 190 characters). |
 | `lists` | More list codes to offer as boxes to tick (below). |
 | `lists_label` | The heading over those boxes. Default "What would you like to hear about?". |
-| `consent_text` | Different wording beside this form's box (see the note below). |
+| `consent_text` | Different wording beside this form's box, and the wording recorded for the people who sign up through it (see the note below). |
 | `template` | Draw a different partial instead of `partials/newsletter-signup.html.twig`. |
 
 > [!NOTE]
-> The consent record keeps the site's **Consent Sentence** (`consent_text` on the **Signup** tab), whatever `consent_text` a form shows. If you give one form its own wording, keep it saying the same thing as the site's sentence. See [Double opt-in and consent](../double-opt-in-and-consent#the-consent-sentence).
+> A form's own `consent_text` is the sentence recorded against the people who sign up through it. The form carries it back to the site in a hidden `consent_form` field, signed with the site's secret, so nobody can claim a sentence the site never showed. An empty `consent_text` shows the site's **Consent Sentence** (on the **Signup** tab) while the site has one; the box goes only when that setting is empty too. See [Double opt-in and consent](../double-opt-in-and-consent#the-consent-sentence).
 
 ### Several lists as boxes to tick
 
@@ -76,7 +76,7 @@ With fewer than two lists offered, the box is the ordinary one-list box.
 
 - **With JavaScript**, the box posts its fields as JSON to `{route}/subscribe` and prints the answer where the form was.
 - **Without JavaScript**, the same form posts normally with the site's nonce, and the site answers with a page saying the same sentence.
-- **The consent box** is drawn when there is a consent sentence, and must be ticked.
+- **The consent box** is drawn when there is a consent sentence, and must be ticked. A form with no box sends no consent at all.
 - **A honeypot field**, `website`, sits off screen with the label "Leave this field empty". A form filler that completes it is told it worked, and nothing is written.
 - **The answer is the same** for a new address, one already on the list and a suppressed one, so the form never tells anybody whether a particular person reads your mail.
 - **Signups are limited** to **Signups Per Hour** (`rate_limits.subscribe`, 10) from one visitor address. The eleventh gets "That is a few too many tries."
@@ -85,7 +85,7 @@ A signup through the box is recorded as **Signup form** (`form`), with or withou
 
 ### Change the markup
 
-Copy `templates/partials/newsletter-signup.html.twig` from the plugin into your theme's `templates/partials/` and edit it there. Every element has a `mailroom-*` class, and the form's ids are `mailroom-1`, `mailroom-1-email` and so on, numbered per form on the page. The box is styled by Mailroom's small stylesheet, which **Mailroom Stylesheet** (`pages.builtin_css`) on the **Public Pages** tab turns off when your theme styles the classes itself.
+Copy `templates/partials/newsletter-signup.html.twig` from the plugin into your theme's `templates/partials/` and edit it there. Every element has a `mailroom-*` class, and the form's ids are `mailroom-1`, `mailroom-1-email` and so on, numbered per form on the page. The box is styled by Mailroom's small stylesheet, which is on every front-end page (so the box is styled wherever you put it) and which **Mailroom Stylesheet** (`pages.builtin_css`) on the **Public Pages** tab turns off when your theme styles the classes itself. Its buttons and tick boxes take the **Accent Color** on the **Email Design** tab when you set one, and otherwise your theme's own accent where the theme has one (Quark2 does).
 
 ## A form of your own: the Form plugin action
 

@@ -142,7 +142,7 @@ bin/plugin mailroom seed --days=180
 bin/plugin mailroom seed --purge
 ```
 
-Fills an empty Mailroom with three months of a small project's newsletter, for looking around or a demo: the lists Newsletter, Product updates and Events, a few tags, four hundred people who joined through the signup form, an import, the admin or the API, seven campaigns with real numbers (one a draft, one scheduled), four segments, two automations and a suppression list. Nothing is sent. `--days` sets how much history to write (7 to 730, default 90). Running it twice skips what is already there, and `--purge` removes exactly what it added. With no site URL set, the seeded links have no host and no clicks are written, and it says so.
+Fills an empty Mailroom with three months of a small project's newsletter, for looking around or a demo: the lists Newsletter, Product updates and Events, a few tags, four hundred people who joined through the signup form, an import, the admin or the API, seven campaigns with real numbers (one a draft, one scheduled), four segments, two automations and a suppression list. Every seeded person has a consent history (how they joined, their confirmation, and how they left), each automation email has the sends, opens and clicks of the people who walked past it, and nothing is dated after the moment the seed ran. Nothing is sent. `--days` sets how much history to write (7 to 730, default 90). Running it twice skips what is already there, and `--purge` removes exactly what it added. With no site URL set, the seeded links have no host and no clicks are written, and it says so.
 
 ## Related
 

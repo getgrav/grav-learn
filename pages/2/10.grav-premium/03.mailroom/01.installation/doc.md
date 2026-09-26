@@ -73,7 +73,7 @@ bin/plugin mailroom migrate --status   # list what is waiting
 bin/plugin mailroom migrate            # apply it
 ```
 
-The worker, and every command that reads the database, refuses to run while migrations are waiting and says to run `migrate` first.
+The worker, and every command that reads the database, refuses to run while migrations are waiting and says to run `migrate` first. The public pages (signup, confirm, unsubscribe, preferences, the web view and provider webhooks) answer `503` with `Retry-After: 300` in the meantime, a page saying to try again in a few minutes, rather than an error; the open pixel still answers its image. A mail provider retries a webhook that got a `503`, so nothing it reports is lost.
 
 ## Set up cron
 

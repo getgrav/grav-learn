@@ -55,6 +55,7 @@ A few definitions worth knowing:
 
 - **Open rate** and **click rate** are worked out from the totals, not by averaging campaigns, so a campaign to forty people does not weigh the same as one to forty thousand. They are shares of everybody the campaign reached.
 - **Accepted** is what the transport reported as delivered. A site whose transport reports nothing has zeroes there, which is a fact about the transport, not the campaign.
+- **Delivered**, **Opened** and **Clicked** count everybody the message was delivered to, opened by or clicked by, including somebody who later marked it as spam, so a campaign's figures and its chart always agree.
 - **Bounced** on a campaign counts only messages that did not arrive (permanent bounces and refusals). The Bounces and complaints report counts every bounce, soft ones too, so its number is larger.
 - **Dormant** is subscribers who were written to in the last ninety days and opened none of it. Somebody you simply have not written to is not dormant.
 - The **complaint rate** is the figure to watch: Gmail asks bulk senders to stay under 0.1% and treats 0.3% as the line.

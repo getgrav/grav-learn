@@ -18,7 +18,7 @@ Some things are not settings at all: lists, tags, segments, templates, campaigns
 | Sending | Whether mail can leave, how fast, who it comes from, and the three kinds of message |
 | Email Design | The email layout's logo, colours, footer text and postal address |
 | Tracking | Opens, clicks, how long detail is kept, and link tagging |
-| Signup | Double opt-in default, the consent sentence, unsubscribe behaviour, import files |
+| Signup | Double opt-in default, the consent sentence, import files |
 | Public Pages | The site URL, the route base, the page template, the confirmation page, rate limits and trusted proxies |
 | Segments | How often segments are recounted |
 | Automations | Running automations and how many people move per run |
@@ -37,7 +37,7 @@ See [Sending and providers](../sending-and-providers). The tab opens with the **
 | `sending.per_minute` | Messages Per Minute | `60` | The most this site sends in a minute, across every campaign. |
 | `sending.batch` | Recipients Per Run | `50` | How many people one run of the send job takes on before it hands the worker back. |
 | `sending.abort_after_failures` | Stop After Consecutive Failures | `25` | Refused sends in a row before a campaign stops itself. One success resets the count. |
-| `from_name` | From Name | empty | The name campaigns are sent as. Empty uses the Email plugin's. |
+| `from_name` | From Name | empty | The name campaigns are sent as. Empty uses the Email plugin's. A campaign can use a different one, set in its editor, and so can a list, through the API. |
 | `from_email` | From Address | empty | The address campaigns are sent from. Empty uses the Email plugin's From. |
 | `messages.confirmation` | Confirmation Emails | On | Send double opt-in emails. Off, nobody new can confirm. |
 | `messages.campaign` | Campaigns | On | Send campaigns. |
@@ -51,11 +51,11 @@ See [Templates and branding](../templates-and-branding).
 |---|---|---|---|
 | `branding.logo` | Logo | empty | An image URL or a path on this site. Empty prints the site's name. |
 | `branding.logo_width` | Logo Width (pixels) | `160` | How wide the logo is drawn (16 to 600). |
-| `branding.accent` | Accent Colour | `#1a6f83` | Links, the confirmation button and the rule under the header. |
-| `branding.background` | Background Colour | `#f4f5f7` | What the card sits on. |
-| `branding.text` | Text Colour | `#222222` | The colour of the message. |
-| `branding.footer_text` | Footer Text | empty | A line or two under every branded message. Plain text. |
-| `branding.postal_address` | Postal Address | empty | Printed at the foot of every branded message. |
+| `branding.accent` | Accent Color | empty | Links, the confirmation button and the rule under the header, and the buttons and links on the public pages and signup box. Empty is teal in email, and your theme's accent on the pages where the theme has one. |
+| `branding.background` | Background Color | `#f4f5f7` | What the card sits on. |
+| `branding.text` | Text Color | `#222222` | The color of the message. |
+| `branding.footer_text` | Footer Text | empty | A line or two under every message, branded or plain. Plain text. |
+| `branding.postal_address` | Postal Address | empty | Printed at the foot of every message, branded or plain, and in its plain-text part. |
 
 ## Tracking
 
@@ -63,8 +63,8 @@ See [Reports and tracking](../reports-and-tracking).
 
 | Key | Label | Default | What it does |
 |---|---|---|---|
-| `tracking.opens` | Track Opens | On | Add the open pixel to campaigns. A campaign can say otherwise. |
-| `tracking.clicks` | Track Clicks | On | Send campaign links through the click redirect. |
+| `tracking.opens` | Track Opens | On | Add the open pixel to campaigns. A new campaign starts from this, and can say otherwise. |
+| `tracking.clicks` | Track Clicks | On | Send campaign links through the click redirect. A new campaign starts from this, and can say otherwise. |
 | `tracking.retain_days` | Keep Detail For (days) | `365` | How long individual clicks and provider events are kept. Totals survive. |
 | `utm.enabled` | Tag Campaign Links | On | Add UTM parameters to links back to your own site. |
 | `utm.source` | Source | `newsletter` | `utm_source`. |
@@ -79,8 +79,7 @@ See [Double opt-in and consent](../double-opt-in-and-consent) and [Import and ex
 | Key | Label | Default | What it does |
 |---|---|---|---|
 | `double_opt_in` | Ask People to Confirm | On | The default for a new list. Each list has its own. |
-| `consent_text` | Consent Sentence | "I agree to receive email from this site. I can leave with one click at any time." | The wording beside the box to tick. A hash of it is stored with each person who agrees. Empty asks for no consent. |
-| `unsubscribe.confirm_on_get` | Unsubscribe on Opening the Link | Off | Meant to unsubscribe on opening the link. Not acted on in 1.0.0: the page always waits for the button. Leave it off. |
+| `consent_text` | Consent Sentence | "I agree to receive email from this site. I can leave with one click at any time." | The wording beside the box to tick. A hash of it is stored with each person who agrees, or of a signup box's own sentence when it shows one. Empty asks for no consent. |
 | `import.keep_days` | Keep Uploaded Files For (days) | `30` | How long an uploaded contact list stays on disk if its import never ran. `0` keeps them. |
 
 ## Public Pages
@@ -92,7 +91,7 @@ See [Lists and signup forms](../lists-and-signup-forms#the-public-pages) and [Su
 | `site_url` | Site URL | empty | The address every link in email starts with, such as `https://www.example.com`. Empty uses Grav's Custom Base URL, and is filled in by the first admin visit when neither is set. |
 | `route` | Route Base | `/newsletter` | Where the public pages answer. Set it before the first campaign goes out. |
 | `pages.base_template` | Page Template | empty | The theme template the public pages extend. Empty uses `partials/base.html.twig`. |
-| `pages.builtin_css` | Mailroom Stylesheet | On | Mailroom's small stylesheet on the public pages and the signup box. |
+| `pages.builtin_css` | Mailroom Stylesheet | On | Mailroom's small stylesheet on every front-end page, for the public pages and the signup box wherever it is. Every rule in it is scoped to Mailroom's own classes. |
 | `confirm.on_get` | Confirm on Opening the Link | Off | Confirm on opening the link. Leave it off. |
 | `confirm.auto_submit` | Press the Button for Them | On | The confirmation page presses its own button from a script. |
 | `rate_limits.subscribe` | Signups Per Hour | `10` | Signups from one visitor address in an hour. `0` turns the limit off. |

@@ -59,7 +59,7 @@ The editor groups them under **Subscriber** and **Engagement**.
 
 ### Counts
 
-A segment's count is worked out by the worker rather than on every page view, so every screen says how old it is ("Counted 4 minutes ago"). The worker recounts stale segments every **Recount Segments Every** (`segments.count_every_minutes`, 15, on the **Segments** tab); `0` recounts on every worker run, which is useful while you build one and not something to leave on. Changing a segment's conditions or list clears its count until the next recount.
+A segment's count is worked out by the worker rather than on every page view, so every screen says how old it is ("Counted 4 minutes ago"). The worker recounts stale segments every **Recount Segments Every** (`segments.count_every_minutes`, 15, on the **Segments** tab); `0` recounts on every worker run, which is useful while you build one and not something to leave on. Changing a segment's conditions or list clears its count until the next recount. The segment's editor counts as you build it, so after people joined, left or picked up a tag it can show a different number from the list; it then says the list shows the count from its last recount, and **Recount** brings the two together.
 
 Each segment's row has **Recount** (now), **Duplicate** and **Delete**, and says how many campaigns use it. A segment that draft or scheduled campaigns point at cannot be deleted until they point somewhere else. A segment that fails to count (usually a field from something no longer installed) raises a dashboard banner, "The segment ... could not be counted".
 

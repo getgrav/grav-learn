@@ -54,8 +54,7 @@ The count under the pickers says how many people will receive it right now, work
 - **Count opens** and **Count clicks** decide whether this campaign carries the open pixel and sends its links through the click redirect (see [Reports and tracking](../reports-and-tracking)).
 - **How links are tagged** overrides the site's UTM values for this campaign's links back to your own site. Leave one empty to use the site default.
 
-> [!NOTE]
-> In 1.0.0 the editor starts every new campaign with **Count opens** and **Count clicks** ticked, whatever **Track Opens** and **Track Clicks** say on the **Tracking** tab. Untick them on the campaign if you do not want them. Campaigns created through the API without those fields follow the site settings.
+A new campaign starts with **Count opens** and **Count clicks** set the way **Track Opens** and **Track Clicks** are on the **Tracking** tab, and each campaign can say otherwise.
 
 ## Merge tags
 
@@ -111,7 +110,7 @@ Consent is checked again as each message is built, so somebody who left or was s
 |---|---|
 | **Pause** | Sending stops within one message. Resuming carries on where it stopped, and nobody is mailed twice. |
 | **Resume** | Carries on a paused or stopped campaign. |
-| **Cancel it** | Stops it for good. Whoever already received it keeps it. |
+| **Cancel it** | Stops it for good. Whoever already received it keeps it. Offered on a scheduled, sending, paused or stopped campaign; a draft has **Delete** instead. |
 
 After **Stop After Consecutive Failures** refused sends in a row (25), the campaign stops itself and a dashboard banner says so. Fix the mail settings, then **Resume**.
 

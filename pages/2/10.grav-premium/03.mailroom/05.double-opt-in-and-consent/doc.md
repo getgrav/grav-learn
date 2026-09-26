@@ -50,7 +50,7 @@ When somebody agrees, Mailroom stores a hash of the sentence against them, so yo
 
 With a sentence set, a signup must carry `consent` (the ticked box, or `"consent": true` in JSON); without it the answer is "Please tick the box to say you are happy to hear from us." Clearing the sentence says your site asks for no explicit consent: the box disappears and none is required.
 
-A Form plugin form can record its own wording: the `mailroom` action records `consent_text` when you give it, then the consent field's own label, then the site's sentence (see [Lists and signup forms](../lists-and-signup-forms#a-form-of-your-own-the-form-plugin-action)).
+A signup box can show and record its own wording: give `mailroom_form()` a `consent_text` and that sentence is the one stored for the people who sign up through it, carried back with the form and signed with the site's secret (see [Lists and signup forms](../lists-and-signup-forms#the-signup-box)). A Form plugin form can record its own wording too: the `mailroom` action records `consent_text` when you give it, then the consent field's own label, then the site's sentence (see [Lists and signup forms](../lists-and-signup-forms#a-form-of-your-own-the-form-plugin-action)).
 
 ## What is recorded
 
