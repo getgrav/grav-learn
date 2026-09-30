@@ -25,7 +25,9 @@ Grav relies on the web server to deny direct requests to its private folders. Th
 
 ## How to fix it
 
-The goal is the same on every server: deny direct web access to `backup`, `tmp`, `logs`, `user/accounts`, `user/config`, `user/env`, and `user/data`, while still allowing the files Grav intends to be public — avatar images under `user/accounts`, and media and assets uploaded under `user/data`. Those exceptions have to come before the matching deny rule, or they never take effect.
+The goal is the same on every server: deny direct web access to `backup`, `tmp`, `logs`, `user/accounts`, `user/config`, and `user/data` (each one also inside `user/env/<name>/`), while still allowing the files Grav intends to be public, namely avatar images under `user/accounts`, and media and assets uploaded under `user/data`. Those exceptions have to come before the matching deny rule, or they never take effect.
+
+These rules also match under an optional `env/<name>/` prefix, so in a [multisite](/17/advanced/multisite-setup) each subsite's own `config`, `accounts` and `data` folders under `user/env/<name>/` are protected, while its themes, plugins and assets stay public. Before Grav 2.2.4 the rules blocked everything under `user/env`, which broke multisite sites. Upgrading to 2.2.4 or later updates an existing site's root `.htaccess`, and replaces the deny-all `user/env/.htaccess` an earlier upgrade may have added with one that blocks only those three folders. On Nginx, Caddy, lighttpd and IIS you have to update your server configuration yourself.
 
 Also deny running PHP and other scripts in `images/` and `assets/`. Grav only writes cached images and combined CSS and JavaScript there, but both folders are public, so a script that lands in either one through a plugin or hosting bug would otherwise run. Grav 2.1.10 and later ship this rule, and upgrading adds it to an existing site's root `.htaccess`. On Nginx, Caddy and other servers you have to add it yourself.
 
@@ -46,14 +48,14 @@ Reload Apache (`sudo systemctl reload apache2` or `sudo apachectl graceful`). Co
 # Block private storage regardless of file extension
 RewriteRule ^(backup|tmp|logs)/(.*) error [F,NC]
 # Block all direct access to these sensitive user folders, whatever the file type
-RewriteRule ^(user)/(config|env)/(.*) error [F,NC]
+RewriteRule ^(user)/(env/[^/]+/)?config/(.*) error [F,NC]
 # Block user/accounts too, but allow avatar images to be served directly, whether
 # stored at user/accounts/avatars/<file> or user/accounts/<username>/<file>
-RewriteCond %{REQUEST_URI} !/user/accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$ [NC]
-RewriteRule ^(user)/accounts/(.*) error [F,NC]
+RewriteCond %{REQUEST_URI} !/user/(env/[^/]+/)?accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$ [NC]
+RewriteRule ^(user)/(env/[^/]+/)?accounts/(.*) error [F,NC]
 # Block user/data too, but allow public asset uploads (e.g. Flex Object images)
 RewriteCond %{REQUEST_URI} !\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf|woff2|woff|ttf|otf|eot|css|js)$ [NC]
-RewriteRule ^(user)/data/(.*) error [F,NC]
+RewriteRule ^(user)/(env/[^/]+/)?data/(.*) error [F,NC]
 # Block running scripts in the public cache folders (image derivatives and combined assets)
 RewriteRule ^(images|assets)/(.*)\.(php|php2|php3|php4|php5|php7|php8|phar|phtml|pht|phtm|phps|pl|py|cgi|sh|bat)$ error [F,NC]
 ```
@@ -71,18 +73,18 @@ Nginx does not read `.htaccess`. Compare your configuration with the shipped `we
 # deny private storage regardless of file extension
 location ~* ^/(backup|tmp|logs)/ { return 403; }
 # deny all direct access to these sensitive user folders, whatever the file type
-location ~* ^/user/(config|env)/.*$ { return 403; }
+location ~* ^/user/(env/[^/]+/)?config/.*$ { return 403; }
 # allow avatar images under user/accounts to be served directly, whether stored at
 # user/accounts/avatars/<file> or user/accounts/<username>/<file>; this must come
 # before the user/accounts deny so it wins the first-match
-location ~* ^/user/accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$ { try_files $uri =404; }
+location ~* ^/user/(env/[^/]+/)?accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$ { try_files $uri =404; }
 # deny everything else under user/accounts
-location ~* ^/user/accounts/.*$ { return 403; }
+location ~* ^/user/(env/[^/]+/)?accounts/.*$ { return 403; }
 # allow public media uploads under user/data to be served directly;
 # this must come before the user/data deny so it wins the match
-location ~* ^/user/data/.*\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$ { try_files $uri =404; }
+location ~* ^/user/(env/[^/]+/)?data/.*\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$ { try_files $uri =404; }
 # deny everything else under user/data
-location ~* ^/user/data/.*$ { return 403; }
+location ~* ^/user/(env/[^/]+/)?data/.*$ { return 403; }
 # deny running scripts in the public cache folders (image derivatives and combined assets);
 # this must come before the generic `location ~ \.php$` block that hands .php files to PHP-FPM
 location ~* ^/(images|assets)/.*\.(php|php2|php3|php4|php5|php7|php8|phar|phtml|pht|phtm|phps|pl|py|cgi|sh|bat)$ { return 403; }
@@ -101,15 +103,15 @@ Caddy matchers compile with Go's RE2, which has no lookbehind, so the media exce
 
 ```caddy
 @denied_dirs path_regexp (?i)^/(\.git|cache|bin|logs|backups?|tmp|tests)/
-@denied_user_config path_regexp (?i)^/user/(config|env)/
+@denied_user_config path_regexp (?i)^/user/(env/[^/]+/)?config/
 # block user/accounts, but allow avatar images to be served directly
 @denied_user_accounts {
-	path_regexp (?i)^/user/accounts/
-	not path_regexp (?i)^/user/accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$
+	path_regexp (?i)^/user/(env/[^/]+/)?accounts/
+	not path_regexp (?i)^/user/(env/[^/]+/)?accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$
 }
 # block user/data, but allow public media uploads (e.g. Flex Object images)
 @denied_user_data {
-	path_regexp (?i)^/user/data/
+	path_regexp (?i)^/user/(env/[^/]+/)?data/
 	not path_regexp (?i)\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$
 }
 # deny running scripts in the public cache folders (image derivatives and combined assets)

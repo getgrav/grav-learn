@@ -53,19 +53,25 @@ RewriteRule .* - [E=HTTPS:on]
 
 ## The shipped security rules
 
-The bundled `.htaccess` is the canonical source of these rules, so you should not need to maintain your own copy. For reference, the Security block blocks direct access to Grav's private folders and to script files inside its system and user folders, while still allowing public media uploaded under `user/data` (for example images added through Flex Objects) to be served directly:
+The bundled `.htaccess` is the canonical source of these rules, so you should not need to maintain your own copy. For reference, the Security block blocks direct access to Grav's private folders and to script files inside its system and user folders, while still allowing public media uploaded under `user/data` (for example images added through Flex Objects) to be served directly. The `config`, `accounts` and `data` rules also apply under an optional `env/<name>/` prefix, so a [multisite](/17/advanced/multisite-setup) subsite's own `config`, `accounts` and `data` folders are protected while its themes, plugins and assets stay public. Sites on Grav 2.2.4 and later get these rules when upgrading:
 
 [codesh=apache line-numbers="true"]
 ## Begin - Security
 # Block all direct access for these folders
 RewriteRule ^(\.git|cache|bin|logs|backup|webserver-configs|tests)/(.*) error [F,NC]
 # Block all direct access to these sensitive user folders, whatever the file type
-RewriteRule ^(user)/(accounts|config|env)/(.*) error [F,NC]
+RewriteRule ^(user)/(env/[^/]+/)?config/(.*) error [F,NC]
+# Block user/accounts too, but allow avatar images to be served directly,
+# whether stored at user/accounts/avatars/<file> (flatfile accounts) or
+# user/accounts/<username>/<file> (Flex folder storage). Account data
+# (.yaml password hashes) stays blocked; SVG is excluded as a stored-XSS vector.
+RewriteCond %{REQUEST_URI} !/user/(env/[^/]+/)?accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$ [NC]
+RewriteRule ^(user)/(env/[^/]+/)?accounts/(.*) error [F,NC]
 # Block user/data too, but allow public asset uploads (e.g. Flex Object images)
 # to be served directly. SVG stays blocked as a stored-XSS vector; .css/.js are
 # served per project policy despite the same risk on this user-writable folder.
 RewriteCond %{REQUEST_URI} !\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf|woff2|woff|ttf|otf|eot|css|js)$ [NC]
-RewriteRule ^(user)/data/(.*) error [F,NC]
+RewriteRule ^(user)/(env/[^/]+/)?data/(.*) error [F,NC]
 # Block access to specific file types for these system folders
 RewriteRule ^(system|vendor)/(.*)\.(txt|xml|md|html|htm|shtml|shtm|json|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$ error [F,NC]
 # Block access to specific file types for these user folders

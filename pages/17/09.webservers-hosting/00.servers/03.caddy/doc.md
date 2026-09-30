@@ -40,13 +40,22 @@ php_fastcgi 127.0.0.1:9000
 rewrite /(\.git|cache|bin|logs|backups|tests)/.* /403
 
 # deny all direct access to these sensitive user folders, whatever the file type
-rewrite /user/(accounts|config|env)/.* /403
+rewrite /user/(env/[^/]+/)?config/.* /403
+
+# block user/accounts too, but allow avatar images to be served directly, whether
+# stored at user/accounts/avatars/<file> (flatfile accounts) or user/accounts/
+# <username>/<file> (Flex folder storage). SVG is excluded as a stored-XSS vector.
+@user_accounts_nonavatar {
+	path_regexp (?i)/user/(env/[^/]+/)?accounts/.*
+	not path_regexp (?i)/user/(env/[^/]+/)?accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$
+}
+rewrite @user_accounts_nonavatar /403
 
 # block user/data too, but allow public media uploads (e.g. Flex Object images)
 # to be served directly. SVG is intentionally excluded as a stored-XSS vector.
 # (Go's RE2 has no lookbehind, so this uses a negated matcher.)
 @user_data_nonmedia {
-	path_regexp /user/data/.*
+	path_regexp /user/(env/[^/]+/)?data/.*
 	not path_regexp (?i)\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$
 }
 rewrite @user_data_nonmedia /403
@@ -72,7 +81,7 @@ try_files {path} {path}/ /index.php?_url={uri}&{query}
 [/codesh]
 
 > [!NOTE]
-> The global `try_files` rewrite must come **last** so the security rules above it win first. Because Go's RE2 engine has no lookbehind, the `user/data` media carve-out is expressed as a negated matcher rather than a single pattern.
+> The global `try_files` rewrite must come **last** so the security rules above it win first. Because Go's RE2 engine has no lookbehind, the `user/accounts` and `user/data` carve-outs are expressed as negated matchers rather than single patterns. The `config`, `accounts` and `data` rules also match under an optional `env/<name>/` prefix, so a [multisite](/17/advanced/multisite-setup) subsite's own folders are protected while its themes, plugins and assets stay public. If you upgrade to Grav 2.2.4 or later, copy these rules into your Caddyfile by hand, since Caddy does not read `.htaccess`.
 
 ## Running as a service
 

@@ -48,6 +48,21 @@ If you choose sub-domains for structuring your website network, then you will ha
 
 Either way, decide which setup suits you best.
 
+> [!NOTE]
+> Grav's server rules that protect `config`, `accounts` and `data` also apply inside each `user/env/<name>/` folder, while the subsite's themes, plugins and assets stay publicly reachable. Sites on Apache get these rules in `.htaccess` when they upgrade to Grav 2.2.4. On Nginx, Caddy, lighttpd and IIS you must update the server config yourself, since those servers do not read `.htaccess`. Older rules blocked everything under `user/env`, so on a server still using them a subsite's theme, plugin and asset files return 403.
+
+On Nginx, the `user/env` aware lines look like this:
+
+[codesh=nginx]
+location ~* ^/user/(env/[^/]+/)?config/.*$ { return 403; }
+location ~* ^/user/(env/[^/]+/)?accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$ { try_files $uri =404; }
+location ~* ^/user/(env/[^/]+/)?accounts/.*$ { return 403; }
+location ~* ^/user/(env/[^/]+/)?data/.*\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$ { try_files $uri =404; }
+location ~* ^/user/(env/[^/]+/)?data/.*$ { return 403; }
+[/codesh]
+
+The full rules for each server are in [User Folder Exposure](/17/security/user-folder-exposure).
+
 ##### Snippets
 
 For subsites accessible via sub-domains copy the `setup_subdomain.php` file, otherwise for subsites accessible via sub-directories the `setup_subdirectory.php` file into your `setup.php`.

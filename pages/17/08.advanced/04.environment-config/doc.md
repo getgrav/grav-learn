@@ -143,6 +143,9 @@ If for some reason you are not happy with the default `user/env` location for yo
 
 Value of `GRAV_ENVIRONMENTS_PATH` has to be existing path under `GRAV_ROOT`. Do not use trailing slash.
 
+> [!WARNING]
+> Grav's server rules only protect the `config`, `accounts` and `data` folders inside `user/env/<name>/`. If you move the environments somewhere else, such as `user/sites`, add the same rules for that path to your server configuration, or those folders can be downloaded directly. See [User Folder Exposure](/17/security/user-folder-exposure).
+
 In the next example, all the environments will be located in `user/sites/GRAV_ENVIRONMENT`, where `GRAV_ENVIRONMENT` is either automatically detected or manually set in the server configuration:
 
 [codesh-group]
