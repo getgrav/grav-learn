@@ -462,6 +462,16 @@ your-plugin/
 │       └── {component-id}.js     # Web component script
 ```
 
+## Help Text in Admin Forms
+
+Each admin user chooses in Settings whether field help text shows below the label or in a tooltip behind a small info icon. Fields drawn from a blueprint follow that choice automatically. A plugin that draws its own admin form markup should put its help in the `<grav-help>` element, which the admin registers at boot, so its help follows the choice too:
+
+```html
+<label>Store name <grav-help>Shown on receipts and emails.</grav-help></label>
+```
+
+Use it in place of a hint paragraph under a label. It works inside shadow roots, follows the setting live, and on an older admin that does not know the element the browser simply shows the help as plain text. Plugins that draw help some other way can read `document.documentElement.dataset.helpMode` (`inline` or `tooltip`) and listen for the `grav:help-mode` event on `document`. The [admin-next docs](https://github.com/getgrav/grav-admin-next/blob/main/docs/help-element.md) cover the element's attributes, the event and how to migrate an existing plugin.
+
 ## Real-World Examples
 
 - **Email Plugin** — Registers `/email/send` and `/email/test` endpoints
