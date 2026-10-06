@@ -40,11 +40,12 @@ $ bin/plugin yetisearch-pro index --flush
 * **PDO SQLite** PHP extension
 * **Mbstring** PHP extension
 * **JSON** PHP extension
+* **PDF indexing** (optional, 2.2.0+) needs **PHP 8.3** or higher and the **zlib** PHP extension. On older PHP versions everything else works and PDFs are skipped
 
 You can verify your SQLite version and FTS5 support by running the built-in check script from your Grav root:
 
 ```
-$ php user/plugins/yetisearch-pro/vendor/yetisearch/yetisearch/scripts/check_sqlite_features.php
+$ php user/plugins/yetisearch-pro/vendor/yetidevworks/yetisearch/scripts/check_sqlite_features.php
 ```
 
 Or check your SQLite version directly:
@@ -72,6 +73,7 @@ On macOS, Homebrew PHP typically includes a recent SQLite with FTS5. Some Linux 
 - **Permissions** - Granular admin permissions (view, modify, admin)
 - **Scheduler** - Automated reindex and maintenance via Grav scheduler
 - **CLI Commands** - Full command-line interface for indexing, querying, and maintenance
+- **PDF Indexing** - Optional search inside PDFs, with results that link to the right page of the PDF (2.2.0+)
 - **Semantic Search** - Optional search by meaning as well as keywords, through OpenAI, OpenRouter, Ollama or any OpenAI-compatible embedding API (2.1.0+)
 
 ## Configuration
@@ -242,6 +244,47 @@ Each index also has its own **Semantic Search** toggle under Index Definitions, 
 ### Limits
 
 Semantic search compares the query against every embedded chunk of content. On a modern server that takes about 0.1 seconds for 10,000 chunks at 512 dimensions, and it grows in step with your content. That's plenty for most sites. For a very large site, use `256` dimensions or keep semantic search off for the biggest index.
+
+## PDF Indexing
+
+> [!NOTE]
+> PDF indexing was added in YetiSearch Pro **2.2.0** and needs **PHP 8.3** or higher.
+
+Turn on **PDF Indexing** in the plugin settings (or set `pdf.enabled: true`) and reindex. Every PDF in an indexed page's folder becomes a search result of its own, titled from the PDF's own title or its filename. Each page of the PDF is indexed separately, so a hit links to `file.pdf#page=12` and the browser opens the PDF at the page where the words were found.
+
+```yaml
+pdf:
+  enabled: true
+  max_file_size: 50   # MB; bigger PDFs are left out, 0 = no limit
+  max_pages: 1000     # pages indexed per PDF, 0 = all
+```
+
+### Requirements
+
+PHP 8.3 or newer with the `zlib` extension. Text extraction is done in PHP by the bundled [YetiPDF](https://github.com/yetidevworks/yetipdf) library, so there is nothing to install on the server. On PHP 8.2 and older the setting is ignored, a notice is written to the Grav log, and pages are indexed as usual.
+
+### What Gets Indexed
+
+PDFs that sit in the folder of a page that is itself indexed. A PDF inherits its page's language, taxonomy and version, so filters and facets apply to it too. A page that is excluded from the index takes its PDFs with it.
+
+To keep a page in the index but leave its PDFs out, switch off **Index this page's PDFs** on the page's YetiSearch tab, or add this to its frontmatter:
+
+```yaml
+yetisearch-pro:
+  index-pdfs: false
+```
+
+### Keeping Up to Date
+
+Extracted text is cached in `cache/yetisearch-pro/pdf`, keyed on each file's size and modified time, so a reindex only reads PDFs that changed. Delete that folder to have every PDF read again. With real-time indexing on, uploading or deleting a PDF in the admin updates the index straight away, and so does saving the page.
+
+### What Is Skipped
+
+Scanned PDFs with no text layer (there is no OCR), PDFs that need a password to open, and PDFs over the size limit. Each one is noted in the Grav log. A PDF that could not be read is tried again on the next index run.
+
+### In Templates
+
+A PDF hit has `doc_type: pdf` in its metadata (`result._meta` in Twig and in the `/ys` JSON), along with `pdf_file`, `pdf_page`, `pdf_pages`, `page_route` and `page_title` (the page the PDF is attached to). Its `route` is the path the file is served from and its `url` adds `#page=N`.
 
 ## Modal Configuration
 
@@ -448,14 +491,20 @@ Use `{{ parent() }}` to include the original block content alongside your additi
 
 ### Frontmatter Options
 
-Control indexing per-page via frontmatter:
+Control indexing per-page via frontmatter, or with the same settings on the **YetiSearch** tab of the page editor:
 
 ```yaml
-yetisearch:
+yetisearch-pro:
   index-page: false      # Exclude this page from the index
   ignore: true           # Same as index-page: false
   index-children: false  # Exclude child pages from the index
+  index-pdfs: false      # Keep the page but leave its PDFs out (2.2.0+)
+  fields:                # Extra frontmatter fields to index with the page
+    - seo.description
 ```
+
+> [!NOTE]
+> Before 2.2.0 only the older `yetisearch:` key was read, and settings made on the page editor's YetiSearch tab (which saves under `yetisearch-pro:`) had no effect. From 2.2.0 both keys are read. `yetisearch-pro:` is the one to use, and it wins if a page sets the same option under both.
 
 ### Ignore Shortcode
 
@@ -659,7 +708,7 @@ A lightweight suggestions endpoint is available at `<query_route>/suggest` (e.g.
 These Grav events allow custom indexing and document shaping:
 
 * **`onYetisearchCollectObjects(index, lang, &documents)`** - Add or modify non-page documents to index
-* **`onYetisearchBuildDocument(subject, lang, index, &doc)`** - Shape fields per document (e.g., add custom frontmatter fields, facets, geo data)
+* **`onYetisearchBuildDocument(subject, lang, index, &doc)`** - Shape fields per document (e.g., add custom frontmatter fields, facets, geo data). From 2.2.0 it also fires for each PDF document, with the owning page as `subject`; check `doc['doc_type'] === 'pdf'` to tell them apart
 * **`onYetisearchProBeforeSearch(query, lang, &filters, &options)`** - Add custom filters or modify search options before a query is executed
 * **`onYetisearchPageSkip(page, index, lang)`** - Decide whether to skip a page during indexing
 
@@ -763,7 +812,7 @@ $ php -r "echo \SQLite3::version()['versionString'];"
 Or use the bundled diagnostic script:
 
 ```
-$ php user/plugins/yetisearch-pro/vendor/yetisearch/yetisearch/scripts/check_sqlite_features.php
+$ php user/plugins/yetisearch-pro/vendor/yetidevworks/yetisearch/scripts/check_sqlite_features.php
 ```
 
 This reports your SQLite version and whether FTS5 and R-tree modules are available
