@@ -256,18 +256,22 @@ nginx -s reload
 It is also recommended to enable those in production. These additions to the configuration file will handle them. 'expires' defines the expiration time for the cache, 30 days in this case. Please see the full documentation about http headers for nginx here http://nginx.org/en/docs/http/ngx_http_headers_module.html.
 
 
+Grav renders some of these through `index.php` rather than from a file on disk: pages ending in `.xml` or `.html` (such as `sitemap.xml`), resized images and plugin assets. Keep `html` and `xml` out of the pattern, and keep the `try_files` fallback in each block, or those URLs return nginx's own 404 before Grav sees them.
+
 [codesh=nginx line-numbers="true"]
         location ~* ^/forms-basic-captcha-image.jpg$ {
                 try_files $uri $uri/ /index.php$is_args$args;
         }
 
         location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
+                try_files $uri $uri/ /index.php$is_args$args;
                 expires 30d;
                 add_header Vary Accept-Encoding;
                 log_not_found off;
         }
 
-        location ~* ^.+\.(?:css|cur|js|jpe?g|gif|htc|ico|png|html|xml|otf|ttf|eot|woff|woff2|svg)$ {
+        location ~* ^.+\.(?:css|cur|js|jpe?g|gif|htc|ico|png|otf|ttf|eot|woff|woff2|svg)$ {
+                try_files $uri $uri/ /index.php$is_args$args;
                 access_log off;
                 expires 30d;
                 add_header Cache-Control public;
