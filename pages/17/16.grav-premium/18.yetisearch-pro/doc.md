@@ -66,10 +66,11 @@ On macOS, Homebrew PHP typically includes a recent SQLite with FTS5. Some Linux 
 - **Orphan Cleanup** - Automatically removes stale documents from deleted pages
 - **Real-time Updates** - Index updates on page save/delete (optional)
 - **Multi-language** - Per-language or single-index strategies
-- **Fuzzy Search** - Configurable typo tolerance
+- **Fuzzy Search** - Finds results despite typing mistakes
+- **Stemming** - Optional. A search also matches other forms of a word (`runs` finds "running") in English, French, German and Spanish (2.3.0+)
 - **Chunked Indexing** - Precise search results within long content
 - **Analytics** - Track searches, clicks, and popular terms
-- **Geospatial Search** - Location-based queries with radius and bounding box filters
+- **Geo Search** - Give pages a location and search by distance: a radius, nearest first, and a Near me button in the full modal (2.3.0+)
 - **Permissions** - Granular admin permissions (view, modify, admin)
 - **Scheduler** - Automated reindex and maintenance via Grav scheduler
 - **CLI Commands** - Full command-line interface for indexing, querying, and maintenance
@@ -92,18 +93,31 @@ engine:
   max_batch_size: 10
   search:
     snippet_length: 75   # default snippet window length
+    stem_weight: 0.5     # with stemming on: how much a match on a word's stem counts (0 to 1)
 
 indexes:
   pages:
     strategy: single  # or 'per_language'
     languages: []           # empty: derive from Grav languages/versions
-    fields: [title, url, taxonomy.*, meta.description, content]
-    facets: [taxonomy.category, taxonomy.tag]
-    geo_fields: []
+    stemming: false         # also match other forms of a word; see Stemming below
+    geo:                    # where a page's location is read from (dot paths into the page header)
+      lat: geo.lat
+      lng: geo.lng
     options:
       fuzzy: true
-      typo_tolerance: 2
+    query_defaults:
+      per_page: 10
+      geo:
+        units: km           # km | mi | m, for the radius and distances when a request names none
 ```
+
+* Batching is controlled by `engine.max_batch_size`.
+* The snippet length defaults to 75. Set it with `engine.search.snippet_length` or the CLI's `--highlight-length`.
+* `stemming` is covered under [Stemming](#stemming) and `geo` under [Geo Search](#geo-search).
+* Search settings (`engine.search`, and the top-level `search` block, which wins if both set the same key) apply to every index. Indexer settings come from `engine.indexer` and can be overridden per index with `indexes.<key>.options.indexer`. There is no per-index search override.
+
+> [!NOTE]
+> Earlier versions listed index settings for indexed fields, facets, geo fields and typo tolerance. Nothing read them, so 2.3.0 removed them. Values left in your own config are ignored, as they were before.
 
 ### Index Strategies
 
@@ -163,6 +177,50 @@ environment:
 ```
 
 When `mode` is `auto`, the plugin follows Grav's environment detection. The `append_environment_to_index` option prevents staging/development indexes from colliding with production.
+
+## Stemming
+
+Available from **YetiSearch Pro 2.3.0**. It's optional and switched off by default.
+
+Stemming lets a search match other forms of a word: `runs` finds "running", `configured` finds "configuration", `utilisateur` finds "utilisateurs".
+
+### Turning It On
+
+Turn it on per index with **Stemming (Pages)** in the plugin settings, or in the config:
+
+```yaml
+indexes:
+  pages:
+    stemming: true
+```
+
+### Languages
+
+English, French, German and Spanish have stemmers. A per-language index in any other language is not stemmed, and its words match as typed. How the language is chosen depends on the index strategy:
+
+* **`per_language`** - Each index stems in its own language, so `pages_fr` stems in French and `pages_de` in German. A search on it is stemmed in that language too.
+* **`single`** - Each page is stemmed in the language it was indexed in, so a French page is stemmed in French. The index's own language is the site's default: Grav's default language, or `site.default_lang` on a site without languages. The `/ys` endpoint searches every language and sends none, so its searches are stemmed in the site's default language, while each page keeps the stems of its own language.
+
+On a multilingual site, `per_language` gets the most out of stemming.
+
+### Ranking and Highlights
+
+A match on the word as typed ranks above a match on its stem. `stem_weight` (0 to 1, default `0.5`) sets how much a stem match counts: lower keeps exact matches further ahead, and `0` still finds stem matches but ranks them last. Set it under `engine.search`, or in the top-level `search` block, which wins if both set it. Highlights include stem matches, so a search for `runs` marks "running".
+
+### Cost
+
+Every page is stemmed when it is indexed, so indexing takes longer and the index grows. On the Helios demo site (507 documents), writing the index took 0.15 s with stemming on against 0.09 s off, and the database was about a third bigger. The library's measurements on 32,000 documents: indexing about 2.5 times slower, the database about 50% larger, and a search median of 1.7 ms against 0.9 ms.
+
+### Turning It On or Off for an Existing Index
+
+Changing the setting rebuilds the full-text index of each existing index once, from the documents it holds, without indexing the pages again.
+
+* **When it happens.** When you save the plugin settings in either admin, using the settings the site runs with after the save (an environment's override included). Otherwise at the next index run (`bin/plugin yetisearch-pro index`, the admin's reindex or the scheduler), page save or page delete.
+* **Another environment's settings.** Saving the settings of another environment (say `user/env/staging/config/plugins/yetisearch-pro.yaml` from the production site) changes nothing here. That environment switches at its own next index run or page save.
+* **`GRAV_CONFIG__` variables.** A save also changes nothing while any `GRAV_CONFIG__` environment variable is set (for example `GRAV_CONFIG__plugins__yetisearch-pro__engine__storage_dir`), whichever settings it is for. Such a variable can override the plugin's settings, and the saved files do not hold that value. The next index run, page save or page delete switches the indexes, with the settings the site runs with.
+* **What you see.** `bin/plugin yetisearch-pro index` prints a line for each index it rebuilt, and the Grav log records it.
+* **How long it takes.** A few hundredths of a second per index on the Helios demo. The library measured 1.7 s at 32,000 documents.
+* **With `--flush`.** A reindex with `--flush` creates the indexes with the setting.
 
 ## Semantic Search
 
@@ -286,23 +344,155 @@ Scanned PDFs with no text layer (there is no OCR), PDFs that need a password to 
 
 A PDF hit has `doc_type: pdf` in its metadata (`result._meta` in Twig and in the `/ys` JSON), along with `pdf_file`, `pdf_page`, `pdf_pages`, `page_route` and `page_title` (the page the PDF is attached to). Its `route` is the path the file is served from and its `url` adds `#page=N`.
 
+## Geo Search
+
+> [!NOTE]
+> Geo search was added in YetiSearch Pro **2.3.0**.
+
+Give pages a location and the search can list them by distance, keep only those within a radius, and show how far away each result is. Searches and the modals work as before for pages without a location, and a page without one never appears in a location search.
+
+It works without SQLite's R-Tree module. Since YetiSearch 2.5.4 the library falls back to a plain table with the same results, and since 2.5.5 that holds without SQLite's math functions too. See [Without R-Tree](https://github.com/yetidevworks/yetisearch#without-r-tree) in the library's README for what differs.
+
+### Giving a Page a Location
+
+Add `geo` to the page's frontmatter, or fill in the **Location** group on the **YetiSearch** tab of the page editor, which writes the same two keys:
+
+```yaml
+geo:
+  lat: 51.5074
+  lng: -0.1278
+```
+
+Latitude must be from -90 to 90 and longitude from -180 to 180. A page is given a location only when both are numbers in range. A missing, empty or invalid value never turns into 0,0: the page is indexed without a location. PDFs in a page's folder are found at their page's location, and so are the page's chunks. Changing a page's location rewrites its document on the next index, and removing it takes the page out of location searches. In Admin Next a number field cannot be emptied once it has a value, so remove a location from the page's frontmatter (Expert mode).
+
+#### Custom Paths
+
+If your pages already store coordinates under other keys, point the index at them with dot paths into the page header:
+
+```yaml
+indexes:
+  pages:
+    geo:
+      lat: venue.latitude
+      lng: venue.longitude
+```
+
+The same settings are in the plugin's configuration, as **Page Latitude Field** and **Page Longitude Field**. Set `geo: false` to leave page frontmatter out. The Location field on the page editor always writes `geo.lat` and `geo.lng`, so it only matches the default paths. Reindex after changing the paths.
+
+Locations from some other source, such as a database or a differently formatted value, are set from an event listener (see [Setting a Location from an Event Listener](#setting-a-location-from-an-event-listener)).
+
+### Searching
+
+The `query_route` endpoint (default `/ys`), the `yetisearch()` Twig function and the `onYetisearchProBeforeSearch` event's `options` take these:
+
+| Parameter | What it does |
+|---|---|
+| `lat`, `lng` | The place to search around. Both are needed. Values that are not valid coordinates are ignored and the search runs as a normal one. |
+| `radius` | Optional. With it, only documents within that distance are returned. Without it, every document that has a location is returned. A value that is not a positive number is ignored. |
+| `units` | `km`, `mi` or `m`, for the radius and the distances. Defaults to the index's `query_defaults.geo.units`, then `km`. |
+| `sort` | `distance` lists the nearest first, also with a query. A search with a query keeps relevance order without it. |
+
+With a location and an empty `q`, the search lists the nearest documents, as if `sort=distance` were given. An empty `q` with no valid location still returns an empty result. That rule is applied after the `onYetisearchProBeforeSearch` event, so a listener can set `geo` in the event's `options` for an empty query, and one that removes it ends the search with an empty result. The same goes for the CLI: `query` with `--lat` and `--lng` and no text lists the nearest first.
+
+```
+/ys?lat=51.5074&lng=-0.1278&radius=5&units=km&sort=distance&ajax=1
+/ys?q=coffee&lat=51.5074&lng=-0.1278&radius=25&ajax=1
+```
+
+Every hit of a location search has `distance` (meters) and `distance_text`, the distance in the search's units such as `1.3 km` or `0.8 mi`. The strings come from `PLUGIN_YETISEARCH_PRO.DISTANCE_KM`, `DISTANCE_MI` and `DISTANCE_M`, so they can be translated. The result envelope has a `geo` entry with the location the search used (`lat`, `lng`, `radius`, `units`, `sort`), so a page can tell that the results carry distances.
+
+In Twig:
+
+```twig
+{% set results = yetisearch('coffee', {'lat': 51.5074, 'lng': -0.1278, 'radius': 5, 'units': 'mi', 'sort': 'distance'}) %}
+{% for hit in results.results %}
+    {{ hit.title }}, {{ hit.distance_text }}
+{% endfor %}
+```
+
+The simple modal shows `distance_text` on each result when its requests carry a location. Pass it with `data-ys-extra-params` (see Extra Query Parameters under [Customizing Modal Templates](#customizing-modal-templates)), for example `data-ys-extra-params="lat=51.5074&lng=-0.1278&units=km"`.
+
+### Near Me
+
+Set `modal.near_me: true` to add a **Near me** button to the full modal. It is off by default. When the visitor turns it on, the browser asks for their location. The modal then adds `lat`, `lng`, `radius`, `units` and `sort=distance` to its requests, lists nearby results even when the search box is empty, and offers a radius menu. If the location is denied or cannot be found, the modal says so.
+
+```yaml
+modal:
+  type: full
+  near_me: true
+  near_me_radii: [1, 5, 10, 25, 50]   # radius choices, in the index's query_defaults.geo.units
+  near_me_radius: 10                  # radius selected first; 0 = any distance. It is added to the menu when it is not in near_me_radii
+```
+
+The button sits in its own `near_me` block of the full modal template, so a theme can move or replace it. A theme's own `filters.html.twig` is not affected.
+
+### Privacy
+
+The coordinates a visitor shares stay in the browser for as long as the page is open. They are sent only as parameters of the search request, never stored in the browser, and the plugin does not store them: analytics record the search text as before, plus whether a location was used, and never the coordinates. Searches with an empty `q` are not recorded at all.
+
+### Location Searches in the CLI
+
+```bash
+bin/plugin yetisearch-pro query "coffee" --lat=51.5074 --lng=-0.1278 --radius=5 --units=km --sort=distance
+bin/plugin yetisearch-pro query --lat=51.5074 --lng=-0.1278 --radius=25
+```
+
+`--lat` and `--lng` are both needed; write a negative number as `--lng=-0.1278`, with the equals sign. `--sort distance` needs a location. The query can be left out when there is a location. The results table gains a distance column. See the [Query Command](#query-command) for every option.
+
+### Setting a Location from an Event Listener
+
+`onYetisearchBuildDocument` can set a document's location from any source. Assign the document back to the event: changing `$event['doc']['geo']` in place does not reach the indexer, so a listener has to read `$event['doc']`, change its copy and assign the copy back to `$event['doc']`. This example, tested with `bin/plugin yetisearch-pro index` and with a page saved in the admin, reads a header key `location: "48.8584, 2.2945"`:
+
+```php
+use Grav\Common\Plugin;
+use RocketTheme\Toolbox\Event\Event;
+
+class MyPlugin extends Plugin
+{
+    public static function getSubscribedEvents(): array
+    {
+        return ['onYetisearchBuildDocument' => ['onYetisearchBuildDocument', 0]];
+    }
+
+    public function onYetisearchBuildDocument(Event $event): void
+    {
+        $location = (string)($event['subject']->header()->location ?? '');
+        if (strpos($location, ',') === false) {
+            return;
+        }
+        [$lat, $lng] = array_map('trim', explode(',', $location, 2));
+
+        $doc = $event['doc'];
+        $doc['geo'] = ['lat' => $lat, 'lng' => $lng];
+        $event['doc'] = $doc;
+    }
+}
+```
+
+The indexer checks the location and turns the two values into numbers; a value that is not a valid coordinate leaves the document without a location. A document can also carry `geo_bounds` (`north`, `south`, `east`, `west`) instead of a point. The event fires for a page's PDFs too, with the page as `subject`, so the same code gives them the location.
+
 ## Modal Configuration
 
 YetiSearch Pro includes two modal designs that themes can use.
 
 ### Modal Types
 
-* **`full`** (default) - Two-panel modal with results on the left and a live preview on the right. Includes pagination, filter controls, breadcrumbs, and On This Page sections. Best for documentation sites with longer content.
+* **`full`** - Two-panel modal with results on the left and a live preview on the right. Includes pagination, filter controls, breadcrumbs, and On This Page sections. Best for documentation sites with longer content.
 
-* **`simple`** - Lightweight typeahead modal with grouped results. Single panel, no preview. Best for general sites that want a clean, fast search experience.
+* **`simple`** (default) - Lightweight typeahead modal with grouped results. Single panel, no preview. Best for general sites that want a clean, fast search experience.
 
 ### Configuration
 
 ```yaml
 modal:
-  type: full      # 'full' or 'simple'
+  type: simple    # 'full' or 'simple'
   branding: true  # Show "Powered by YetiSearch" in footer
+  near_me: false  # full modal only (2.3.0+): add a "Near me" button
+  near_me_radii: [1, 5, 10, 25, 50]   # radius choices, in the index's query_defaults.geo.units
+  near_me_radius: 10                  # radius selected first; 0 = any distance
 ```
+
+`near_me` adds a button that searches around the visitor's location. It is off by default. `near_me_radii` lists the radius choices and `near_me_radius` is the one selected first; it is added to the menu when it is not in the list. See [Near Me](#near-me) for how it works.
 
 ## Theme Integration
 
@@ -317,7 +507,11 @@ Include the modal in your theme's base template:
 {% endif %}
 ```
 
-The modal automatically selects the correct type based on your configuration. To include a specific modal directly:
+The modal automatically selects the correct type based on your configuration.
+
+The modals send their requests to `query_route` (default `/ys`), with the site's base URL in front, so changing `query_route` is enough. Themes that build their own modal need to read `query_route` themselves.
+
+To include a specific modal directly:
 
 ```twig
 {% include 'partials/yetisearch-pro/modal-simple.html.twig' %}
@@ -380,6 +574,29 @@ The plugin exposes the modal type to Twig:
 {{ yetisearch_modal_type }} {# 'full' or 'simple' #}
 ```
 
+### Built-in Search Page
+
+> [!NOTE]
+> The built-in search page works from YetiSearch Pro **2.3.0**. In earlier versions its template called Twig functions that were never registered, so the page failed to render.
+
+Set `built_in_search_page: true` to serve a ready-made results page at `search_route` (default `/search`). It uses the theme's `partials/base.html.twig`. If your site already has a page at that route, even an unpublished one, that page is used and the built-in one is not added.
+
+```yaml
+built_in_search_page: true
+search_route: /search
+```
+
+The page is built from two Twig functions that any template can use:
+
+* `yetisearch(query, options)` runs the same search as the `query_route` endpoint, including language handling, the `onYetisearchProBeforeSearch` event and analytics, and returns the same result envelope: `results`, `total`, `page`, `pages`, `limit`, `time` and `time_ms` (milliseconds), `suggestion` and `semantic`. `options` can hold `page`, `per_page`, `type` (`content`, `api` or `both`), `filter` (see the [Filter DSL](#filter-dsl)), `version`, `fuzzy`, `semantic`, `unique_by_route`, `max_results`, and `lat`, `lng`, `radius`, `units` and `sort` for a location search (see [Geo Search](#geo-search)).
+* `yetisearch_form(options)` returns a search form that sends `q` to the search page. `options` can hold `placeholder`, `button_text`, `action`, `value` and `class`.
+
+Each hit has `title`, `url`, `route`, `excerpt`, `tags` (a comma-separated string) and `_highlights`, with `date`, `anchor` and `heading` in `_meta`. On a location search it also has `distance` (meters) and `distance_text`.
+
+Highlights contain `<mark>` tags around the matches, and nothing in them is escaped: titles are stored as typed, and page text keeps entities such as `&lt;`. Before you output one as HTML, turn every `<` that does not start `<mark>` or `</mark>` into `&lt;`, as `templates/search.html.twig` does with `{{ text|regex_replace('~<(?!/?mark>)~i', '&lt;')|raw }}`, or output only the plain fields. Do not escape the whole text again, or code samples in your pages show up as `&lt;img` instead of `<img`.
+
+The built-in page turns into a location search when its URL carries `lat` and `lng`, for example `/search?q=coffee&lat=51.5074&lng=-0.1278&radius=5&units=km&sort=distance`. Each result then shows its distance, and an empty `q` lists the nearest pages. The location stays in the page links, so paging keeps it.
+
 ### Customizing Modal Templates
 
 Both modals use a **base template + extends** pattern that lets themes override specific parts without reimplementing the entire modal.
@@ -423,6 +640,7 @@ The same pattern applies to `modal-full.html.twig`.
 | `modal_data_attrs` | Empty slot for extra `data-*` attributes on the root `<div>` |
 | `backdrop` | Backdrop overlay |
 | `search_input` | Input row (icon + input + filters + cancel button) |
+| `near_me` | The Near me row under the input (empty unless `modal.near_me` is on) |
 | `body` | Body container (left + right panels) |
 | `results_panel` | Left panel (meta + list + pagination) |
 | `preview_panel` | Right panel (breadcrumbs + title + excerpt) |
@@ -523,6 +741,7 @@ Each indexed document contains:
 * **Content fields**: `title`, `content`, `excerpt`, `url`, `route`, taxonomy-derived `tags`, `category`
 * **Metadata**: `taxonomy`, `meta`, `breadcrumbs`, `date`, `updated_at`
 * **Language**: `language` (set per-page for single-index strategy)
+* **Location**: `geo` with `lat` and `lng`, only for pages that have a location (2.3.0+)
 * **Stable ID**: `<lang>:<route>`
 
 ## Admin Dashboard
@@ -597,10 +816,12 @@ bin/plugin yetisearch-pro index --index pages --flush
 bin/plugin yetisearch-pro index --index pages_17 --flush
 ```
 
+When an index fails, or a run could not remove a stale document (one whose page is gone), the command names the index and the reason and exits with status 1, with `--raw` too, whose JSON then has `"success": false`. A stale document that could not be removed stays recorded, so the next run removes it. The reindex in either admin, the API and the scheduler report such a failure too (2.3.0+).
+
 ### Query Command
 
 ```bash
-bin/plugin yetisearch-pro query QUERY [options]
+bin/plugin yetisearch-pro query [QUERY] [options]
 
 Core:
   -x,  --index=INDEX             Index key or suffixed key
@@ -610,18 +831,29 @@ Core:
        --compact                 Compact output
   -r,  --raw                     Raw JSON output
 
+Location (2.3.0+, see Geo Search):
+       --lat=LAT                 Latitude of the search location (needs --lng)
+       --lng=LNG                 Longitude of the search location (needs --lat)
+       --radius=R                Only documents within R of the location, in --units
+       --units=km|mi|m           Units for the radius and distances (default: the index's setting, else km)
+  -s,  --sort=distance           Nearest first (needs a location)
+
 Search behavior:
        --fuzzy                   Enable fuzzy search
        --fuzziness=F             Fuzziness score (0..1, default: 0.8)
        --fields=LIST             Comma-separated fields to search
   -s,  --sort=SPEC               Sort spec, e.g. "title:asc,updated_at:desc"
-  -F,  --filter=EXPR             Filter: field[op]value (op: =,!=,>,>=,<,<=)
+  -F,  --filter=EXPR             Repeatable filter: field<op>value, e.g. type=content or price>=10 (op: =,!=,>,>=,<,<=)
        --no-highlight            Disable highlight markup
        --highlight-length=N      Snippet window length (default: 75)
   -d,  --distinct[=BOOL]         Distinct per route (default: true)
        --suggestions             Show suggestions after results
        --suggestions-limit=N     Suggestion count (default: 10)
 ```
+
+The query text is optional when there is a location: `query` with `--lat` and `--lng` and no text lists the nearest documents first. `--lat` and `--lng` are both needed, and a negative number is written with the equals sign, as in `--lng=-0.1278`. `--sort distance` needs a location. With a location, the results table gains a distance column.
+
+A filter is written without brackets: `type=content`, `price>=10`, `taxonomy.category=plugins`. The field is letters, digits, `_` and `.`, and starts with a letter or `_`. From 2.3.0 a filter the command can't read, such as `type[=]content`, prints a warning that names it on stderr (so `--raw` JSON on stdout stays valid) and is left out of the search.
 
 Examples:
 
@@ -634,6 +866,9 @@ bin/plugin yetisearch-pro query "installer" --index pages --lang fr
 
 # With filters and sort
 bin/plugin yetisearch-pro query "config" -x pages_17 -F "taxonomy.category=plugins" -s "title:asc"
+
+# Nearest places within 5 km, no query text
+bin/plugin yetisearch-pro query --lat=51.5074 --lng=-0.1278 --radius=5 --sort=distance
 ```
 
 ### Schedule Command
@@ -686,13 +921,27 @@ The JSON query endpoint (`query_route`, default `/ys`) is handled during `onPlug
 
 ### Filter DSL
 
-Pass filters via the `filter` query parameter using the syntax `field[op]value`:
+Pass filters with the `filter` query parameter, in either of two forms.
+
+**Array form**, one `filter[field][operator]=value` per condition. The operator is a name: `eq`, `eqor` (equals or empty), `neq` or `ne`, `gt`, `gte`, `lt`, `lte`, `in`, `nin`, `like`, `contains` or `exists`. `filter[field]=value` on its own means equals:
 
 ```
-/ys?q=search+terms&filter=taxonomy.category[=]plugins&filter=version[=?]v3
+/ys?q=search+terms&filter[version][eqor]=v3&filter[category][eq]=plugins
 ```
 
-Supported operators: `=`, `!=`, `>`, `>=`, `<`, `<=`, `=?` (match value OR null).
+**String form**, `field:operator:value`, with several conditions joined by `AND` (a space on each side, URL-encoded as `%20` or `+`). The operator is one of `=`, `=?`, `!=`, `>`, `>=`, `<`, `<=`, `in`, `like`, `contains` or `exists`. For `in`, separate the values with commas:
+
+```
+/ys?q=search+terms&filter=version:=?:v3
+/ys?q=search+terms&filter=version:=?:v3%20AND%20category:=:plugins
+/ys?q=search+terms&filter=version:in:v2,v3
+```
+
+`=?` matches the value or an empty field, which suits pages that apply to every version. A condition the parser can't read, such as `version[=]v3`, is skipped without an error and the search runs unfiltered. Passing `filter` twice (`filter=a&filter=b`) keeps only the last one, so use `AND` or the array form for more than one condition. The older `version=v3` parameter is still accepted and behaves like `filter=version:=?:v3`.
+
+On and off flags in a request (`unique_by_route`, `semantic`, `fuzzy`) take `1`, `true`, `yes` and `on`, or `0`, `false`, `no` and `off`. `unique_by_route=0` returns every matching document instead of one per route.
+
+A location search adds `lat`, `lng`, `radius`, `units` and `sort=distance` to the request. See [Geo Search](#geo-search) for what each one does.
 
 With [Semantic Search](#semantic-search) on, add `semantic=0` to a request to get keyword ranking only. The response includes `"semantic": true` when meaning was part of the ranking.
 
@@ -705,12 +954,14 @@ A lightweight suggestions endpoint is available at `<query_route>/suggest` (e.g.
 
 ## Events (Extensibility)
 
-These Grav events allow custom indexing and document shaping:
+These Grav events allow custom indexing and changes to a document before it is indexed:
 
 * **`onYetisearchCollectObjects(index, lang, &documents)`** - Add or modify non-page documents to index
-* **`onYetisearchBuildDocument(subject, lang, index, &doc)`** - Shape fields per document (e.g., add custom frontmatter fields, facets, geo data). From 2.2.0 it also fires for each PDF document, with the owning page as `subject`; check `doc['doc_type'] === 'pdf'` to tell them apart
-* **`onYetisearchProBeforeSearch(query, lang, &filters, &options)`** - Add custom filters or modify search options before a query is executed
-* **`onYetisearchPageSkip(page, index, lang)`** - Decide whether to skip a page during indexing
+* **`onYetisearchBuildDocument(subject, lang, index, &doc)`** - Change a document before it is indexed (e.g., add custom frontmatter fields or a location). From 2.2.0 it also fires for each PDF document, with the owning page as `subject`; check `doc['doc_type'] === 'pdf'` to tell them apart. Assign the changed document back with `$event['doc'] = $doc`; editing `$event['doc']['key']` in place is not kept. See [Geo Search](#setting-a-location-from-an-event-listener) for another example
+* **`onYetisearchProBeforeSearch(query, lang, &filters, &options)`** - Add custom filters or modify search options before a query is executed. A location search has its checked location in `options['geo']` (`lat`, `lng`, `radius`, `units`, `sort`)
+* **`onYetisearchPageSkip(page, config)`** - Decide whether to skip a page during indexing. `config` is the definition of the index being built. Set `skip` to `true` on the event to leave the page out
+
+An event hands a listener its values by copy. Read a value from the event, change it, and assign it back (`$event['options'] = $options`). A change made in place, such as `$event['options']['geo'] = ...` or `$doc = &$event['doc']`, is lost.
 
 ### Example: Adding Custom Fields
 
@@ -718,10 +969,13 @@ These Grav events allow custom indexing and document shaping:
 public function onYetisearchBuildDocument(Event $event)
 {
     $page = $event['subject'];
-    $doc = &$event['doc'];
+    $doc = $event['doc'];
 
     // Add a custom field from page headers
     $doc['author'] = $page->header()->author ?? '';
+
+    // Assign the changed document back, or the change is not kept
+    $event['doc'] = $doc;
 }
 ```
 
@@ -730,7 +984,7 @@ public function onYetisearchBuildDocument(Event $event)
 ```php
 public function onYetisearchCollectObjects(Event $event)
 {
-    $documents = &$event['documents'];
+    $documents = $event['documents'];
 
     // Add FlexObjects or other custom content
     $flex = $this->grav['flex'];
@@ -744,6 +998,8 @@ public function onYetisearchCollectObjects(Event $event)
             'url' => $object->url(),
         ];
     }
+
+    $event['documents'] = $documents;
 }
 ```
 
@@ -771,7 +1027,8 @@ search:
 
 * Adjust `boost` weights to prioritize title and header matches over body content
 * Use `rerank.demote_prefixes` to push less relevant sections (like API references) lower in results
-* Enable fuzzy search for better typo tolerance, but tune `typo_tolerance` to avoid too many false positives
+* Enable fuzzy search (`options.fuzzy`, on by default) to find results despite typing mistakes. If it lets in too many false matches, raise `search.trigram_threshold` (`0.45` in the plugin's default config; higher is stricter) or set `options.fuzzy: false` for the index. A request can turn it off with `fuzzy=0`
+* With [Stemming](#stemming) on, lower `stem_weight` to keep exact matches further ahead of matches on other forms of a word
 * With semantic search on, raise **Minimum Similarity** if loosely related pages show up, or lower **Meaning vs Keywords** if exact keyword matches should win more often
 
 ### Performance
@@ -816,3 +1073,11 @@ $ php user/plugins/yetisearch-pro/vendor/yetidevworks/yetisearch/scripts/check_s
 ```
 
 This reports your SQLite version and whether FTS5 and R-tree modules are available
+
+### Upgrading to 2.3.0: the full-text index is rebuilt once
+
+The bundled YetiSearch library is updated to 2.6.1 in this release. With the library's 2.5.x versions, deleting a page that has chunks or PDFs, or saving one that is left out of search (an unpublished page, for one), added the field names of the stored documents (`title`, `route`, `content`, `url` and so on) to the index as words. A search for `title` or `route` then returned every document until the next page save rebuilt the index.
+
+YetiSearch Pro rebuilds the full-text index of each existing index once after the upgrade, before anything is written to it or deleted from it. That happens at the first index run, page save, page delete, PDF change or settings save, and it is recorded in the index so it never runs again. It matters because with library 2.6.0 a delete from an index still holding those words breaks every later search for one of them (2.6.1 also rebuilds such an index itself on its first write). On the Helios demo sites it took about a hundredth of a second per index, and nothing needs to be reindexed by hand.
+
+If the rebuild fails, the Grav log says so and nothing is written to that index until a later request rebuilds it.
