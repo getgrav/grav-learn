@@ -29,7 +29,7 @@ The ⋯ menu has Edit, Block or Unblock, Link a Grav account or Unlink it, Merge
 - **Edit** the name or the address. The address has to be free: two people can never hold the same one.
 - **Block and unblock.** A blocked person cannot send requests, reply on the web or by email, or get sign-in links, and mail from them is logged and dropped. Their tickets stay and keep working for everyone else.
 - **Send a sign-in link.** Emails the client a [sign-in link](../sign-in-links). The link is never shown to staff. It is refused for staff, for blocked and erased people, for people with no address, when `portal.magic_links` is off, and after five links to the same person in an hour.
-- **Link or unlink a Grav account.** Link an existing account by its username when you know it is theirs: the account then sees the person's requests in the portal. An account another person already has is refused (merge the two people instead). Unlinking keeps the person and their tickets. An account whose address is proven and matches links itself again on its next sign-in, so unlink and change the address if they really are different people.
+- **Link or unlink a Grav account.** Link an existing account by its username when you know it is theirs: the account then sees the person's requests in the portal. An account another person already has is refused (merge the two people instead). Unlinking keeps the person and their tickets. An account whose address is proven and matches links itself again on its next sign-in, so unlink and change the address if they really are different people. Linking also gives the account the Grav groups set in `portal.client_groups` (clients) or `desk.staff_groups` (staff) that it has not been given yet.
 
 ## One address, one requester
 

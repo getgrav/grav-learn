@@ -109,7 +109,8 @@ On the **Portal & Access** tab of the plugin's settings:
 | Key | Default | What it does |
 |---|---|---|
 | `portal.guest_submissions` | `true` | Whether guests may send the form at all. Only `public` projects accept guest requests. |
-| `portal.client_groups` | `[]` | Grav groups given to the accounts Helpdesk Pro creates for clients when they first sign in through an email link. |
+| `portal.client_groups` | `[]` | Grav groups every client account holds. A client is added when they sign in or open the help center, and groups are only added, never removed. A group that does not exist or that gives admin or desk access is skipped. See [Help center and portal](../help-center-and-portal). |
+| `portal.client_store_groups` | `[]` | KahunaCart customer groups a store customer holds while they are a helpdesk client (Client Store Groups, picked from KahunaCart's customer groups; the setting appears only when KahunaCart is installed and enabled). Granted live and never stored: it goes when the person is unlinked, blocked or erased, and when you take the group out of the list. Staff never get it. A customer group also brings group pricing, discounts and page access. See [Help center and portal](../help-center-and-portal). |
 | `portal.captcha` | `cap` | `none`, `cap`, `turnstile` or `recaptcha`. |
 | `portal.captcha_signed_in` | `false` | Ask signed-in clients for the captcha too. |
 | `portal.min_submit_seconds` | `3` | A guest request sent sooner than this after the form opened scores as spam. |

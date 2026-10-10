@@ -56,7 +56,7 @@ A visitor already signed in as that person, with a proven address, goes straight
 The button (`POST {mount}/login/verify`) uses the link, then:
 
 1. The person's address counts as proven.
-2. Their Grav account is found, or created when they have none: the username is their email address when Grav accepts it and it is free, else the part before the `@` with a number; no password; `access.site.login`; the groups in `portal.client_groups`. Nothing the visitor typed goes into it, so nobody can give themselves groups or permissions this way.
+2. Their Grav account is found, or created when they have none: the username is their email address when Grav accepts it and it is free, else the part before the `@` with a number; no password; `access.site.login`. Nothing the visitor typed goes into it, so nobody can give themselves groups or permissions this way. Whichever account they end up with, new or existing, is then given the groups in `portal.client_groups` it has not been given before (see [Help center and portal](../help-center-and-portal)): groups are only added, a group you removed from the account is not put back, and a group that gives admin or desk access is ignored.
 3. An account that can reach the admin is refused: one with `api.access`, any `helpdesk-pro.*` permission, `admin.login` or `admin.super`. The person sees "That link can't sign you in here".
 4. The Login plugin signs them in, with its own checks (the account must be enabled and allowed `site.login`) and every `onUserLogin*` listener your site has.
 5. They land on the request the link was for, the portal page they asked from, or "Your requests".
