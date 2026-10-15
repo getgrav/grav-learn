@@ -558,6 +558,28 @@ Admin2 fetches the script via `GET /gpm/plugins/{slug}/page-script`, sets the ta
 
 You can also use **both modes together**: set `page_type` to `'blueprint'` and also ship a `pages/{slug}.js` file. The API response will include `has_custom_component: true`, letting Admin2 render the blueprint form alongside custom component sections.
 
+##### Several views on one page: sub-routes
+
+A plugin page also answers every path below its own, so `/plugin/my-plugin/orders` and `/plugin/my-plugin/orders/42` render the same page as `/plugin/my-plugin` (Admin2 2.1.34 and later). When a plugin has several views, give each one its own sidebar entry with a path route rather than a `?view=` query string. The sidebar highlights a link on its own path and everything below it, so `/plugin/my-plugin/orders` stays highlighted on `/plugin/my-plugin/orders/42` but not on `/plugin/my-plugin/customers`.
+
+```php
+['id' => 'my-plugin-orders',    'route' => '/plugin/my-plugin/orders',    'label' => 'Orders',    'icon' => 'fa-receipt', 'plugin' => 'my-plugin'],
+['id' => 'my-plugin-customers', 'route' => '/plugin/my-plugin/customers', 'label' => 'Customers', 'icon' => 'fa-users',   'plugin' => 'my-plugin'],
+```
+
+- Your component's element gets everything after `/plugin/{slug}/` as a `path` attribute and a `path` property, for example `orders` or `orders/42`, and an empty string on the page itself.
+- Moving between views of the same plugin keeps your element mounted. Admin2 updates `path` and dispatches a `route-change` event on the element with `detail = { path, search }`. It also fires when only the query string changes, so there's no need to watch `location` yourself.
+- To move between views from inside the component, call `window.__GRAV_NAVIGATE(window.__GRAV_ADMIN_BASE + '/plugin/my-plugin/customers')`.
+
+```js
+connectedCallback() {
+    this._show(this.getAttribute('path') || 'orders');
+    this.addEventListener('route-change', (e) => this._show(e.detail.path || 'orders'));
+}
+```
+
+Links that differ only by query string still work: a sidebar link with `?view=orders` is highlighted only while the current URL has `view=orders`.
+
 ##### Communicating with the toolbar
 
 A component-mode page has no blueprint form, so Admin2 can't track its changes the way it does for blueprint pages. Instead, the component and the header toolbar talk through two DOM events dispatched on the component's own element:
