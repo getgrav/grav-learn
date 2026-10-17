@@ -127,6 +127,7 @@ Before Admin2 executes your field script, it sets a small set of globals on `win
 | `window.__GRAV_API_SERVER_URL` | Base URL of the Grav site (e.g. `https://my-site.example`). |
 | `window.__GRAV_API_PREFIX` | API prefix (default `/api/v1`). |
 | `window.__GRAV_API_TOKEN` | JWT access token already obtained by Admin2, ready to send as `X-API-Token`. |
+| `window.__GRAV_API` | Admin2's own API client: `get(path, params)`, `post`, `patch`, `put`, `delete(path, body)`. Prefer it to your own `fetch()` (see [Accessing the API](#accessing-the-api)). |
 | `window.__GRAV_DIALOGS` | Admin2's dialog helper: `confirm()` for yes/no, plus `form()` and `open()` for richer modals (see [Modals and Overlays](#modals-and-overlays)). Use it instead of native `confirm()`/`alert()`/`prompt()`. |
 | `window.__GRAV_ADMIN_BASE` | Base path of Admin2, useful for building internal links. |
 | `window.__GRAV_NAVIGATE` | Function for SPA navigation (falls back to `window.location.href` if absent). |
@@ -137,6 +138,25 @@ Before Admin2 executes your field script, it sets a small set of globals on `win
 > There is **no** `window.__GRAV_ENVIRONMENT` global for field components. Admin2 manages the active environment through its own authenticated session, so you do not need to send an `X-Grav-Environment` header from a field. If you have seen that header in older field code, it was a no-op.
 
 ### Accessing the API
+
+> [!NOTE]
+> Requires Admin2 `2.1.35` or later.
+
+The simplest way is `window.__GRAV_API`, which sends your call through Admin2's own API client. Paths are relative to the API prefix, a call resolves the response's `data`, and a failure rejects with an error carrying `status` and the server's `message`:
+
+```javascript
+// after your endpoint has changed the record this field sits on
+try {
+  const stock = await window.__GRAV_API.post('/my-plugin/stock/42/add', { qty: 3 });
+  window.__GRAV_TOAST?.success(`Stock is now ${stock.qty}`);
+} catch (err) {
+  window.__GRAV_TOAST?.error(err.message);
+}
+```
+
+The call gets everything Admin2's own calls get: a fresh token (the one in `__GRAV_API_TOKEN` expires after an hour), the re-login prompt when the session has run out, the environment picker's selection, the retry for hosts that reject `PATCH`/`PUT`/`DELETE`, and the `X-Invalidates` response header. That last one means an endpoint that answers with `$this->respondWithInvalidation($data, ['flex-objects:' . $type . ':update:' . $key])` refreshes the edit screen showing that record in place, with no page reload. If the form has unsaved changes it is left alone and the "changed elsewhere" notice shows instead, the same as when someone else saves the record. The tags each screen listens for are `pages:update:<route>`, `config:update:<scope>`, `plugins:update:<slug>`, `users:update:<username>` and `flex-objects:<type>:update:<key>`.
+
+If you need the raw `Response` (a file download, a streamed body), the injected globals let you call `fetch()` yourself:
 
 Your web component can call any API endpoint, including custom endpoints your plugin registers. Authentication is already handled for you via the injected globals:
 
