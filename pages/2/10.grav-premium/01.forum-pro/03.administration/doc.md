@@ -40,7 +40,7 @@ Each row shows the category's slug alongside its live topic and post counts, whi
 
 ### Category permissions
 
-Per-category permissions control who can **see**, **read** and **post**. A category can be public, members-only, or restricted to staff. Restrictions apply everywhere consistently: listings, search results, live-update channels and the read-only API all respect them, so a private category never leaks through a side door.
+Per-category permissions control who can **see**, **read** and **post**. A category can be public, members-only, or restricted to staff. Restrictions apply everywhere consistently: listings, search results, live-update channels and the [REST API](../rest-api) all respect them, so a private category never leaks through a side door.
 
 Per-category **premoderation** is also set here: hold posts from new members only, or from everyone.
 
