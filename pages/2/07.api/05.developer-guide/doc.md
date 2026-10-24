@@ -448,6 +448,7 @@ public function onApiSidebarItems(Event $event): void
 | `badge`    | string  | no       | Static badge text or count shown next to the label |
 | `badgeEndpoint` | string | no  | API path returning `{ count: N }` for a badge that refreshes at runtime |
 | `authorize` | string\|array | no | Permission(s) required to see the item; an array is an any-of test. Stripped before the item reaches the client |
+| `children` | array | no | Shortcuts to screens inside your plugin that each user can choose to show under the item (see [Shortcuts under an item](#shortcuts-under-an-item)) |
 
 Admin2 calls `GET /sidebar/items` on load. The API fires `onApiSidebarItems`, collects all items from plugins, and returns them.
 
@@ -485,6 +486,109 @@ window.dispatchEvent(new CustomEvent('grav:sidebar:badge', {
 ```
 
 This is the same badge mechanism context panels use (see [Context Panels](#context-panels)).
+
+#### Shortcuts under an item
+
+A plugin with several screens can offer them as `children` of its sidebar item. Each user picks which ones show under the item, so someone who lives in Orders and Customers sees those two, and someone else sees the screens they use. Until a user picks their own, the children you mark `default` show. This needs Admin2 2.2.0 and API 1.1.0 or later; older versions ignore `children` and draw the item on its own.
+
+```php
+public function onApiSidebarItems(Event $event): void
+{
+    $items = $event['items'] ?? [];
+    $items[] = [
+        'id'       => 'my-plugin',
+        'plugin'   => 'my-plugin',
+        'label'    => 'My Plugin',
+        'icon'     => 'fa-store',
+        'route'    => '/plugin/my-plugin',
+        'priority' => 10,
+        'children' => [
+            ['id' => 'orders',    'label' => 'PLUGIN_MY_PLUGIN.ORDERS',    'route' => '/plugin/my-plugin/orders',    'default' => true],
+            ['id' => 'customers', 'label' => 'PLUGIN_MY_PLUGIN.CUSTOMERS', 'route' => '/plugin/my-plugin/customers', 'default' => true],
+            ['id' => 'coupons',   'label' => 'PLUGIN_MY_PLUGIN.COUPONS',   'route' => '/plugin/my-plugin/coupons'],
+            ['id' => 'settings',  'label' => 'PLUGIN_MY_PLUGIN.SETTINGS',  'route' => '/plugin/my-plugin/settings', 'authorize' => ['my-plugin.settings', 'api.super']],
+        ],
+    ];
+    $event['items'] = $items;
+}
+```
+
+**Child properties:**
+
+| Property    | Type    | Required | Description |
+|-------------|---------|----------|-------------|
+| `id`        | string  | yes      | Letters, digits, `_` and `-`, up to 48 characters, unique within the item. It is saved in each user's preferences, so keep it the same across releases |
+| `label`     | string  | yes      | Text shown in the sidebar. A translation key is translated into the user's admin language |
+| `route`     | string  | yes      | Admin2 route the shortcut opens. Use a [sub-route](#several-views-on-one-page-sub-routes) of your plugin page (`/plugin/my-plugin/orders`); a route with a `#` part also works for a page that routes by hash |
+| `default`   | boolean | no       | `true` to show this child until the user picks their own. Only a real `true` counts |
+| `icon`      | string  | no       | Icon, in the same format as the item's `icon` |
+| `authorize` | string\|array | no | Permission(s) required to see the child, as on the item. Stripped before the child reaches the client |
+
+A few things to know:
+
+- **Users pick with a star.** In Admin2, the pencil at the bottom of the sidebar lists each item's children with a star beside each one. Starred children show under the item; unstarring the last one leaves the item on its own. A super admin can save their arrangement as the site default for everyone who hasn't arranged their own.
+- **Your order wins.** Shortcuts always show in the order you list them, not the order they were starred, so list them the way your own page's menu does.
+- **Children are checked like items.** A child the user isn't authorized for is dropped before the response goes out, and so is one with a bad or repeated `id`, or a missing `label` or `route`. Give a child the same permission your page checks before showing that screen, so nobody is offered a shortcut to a screen they can't open.
+- **Offer screens worth landing on.** List the screens in your page's own menu, not editors for a single record. You can leave out screens that are switched off on this site (an optional feature that's disabled) and add them back when they're on; a star on a child you stop offering is kept and shows again once you offer it.
+- **Where it's stored.** The picks live in the user's `sidebarLayout` preference, under `shortcuts`, keyed by `plugin:<item id>`. A user who never starred anything for your item has no entry, which is why `default` applies. Renaming an item or child `id` loses everyone's stars for it.
+
+##### Stars on your own page
+
+If your plugin page has its own menu, you can put the same stars beside its rows, so users star a screen where they use it rather than only from the sidebar's pencil. Admin2 exposes `window.__GRAV_SIDEBAR` for this:
+
+| Call | Returns | Description |
+|------|---------|-------------|
+| `children(itemId)` | `string[]` | The ids of the children your item offers this user, after `authorize`. Draw a star only on these rows |
+| `shortcuts(itemId)` | `string[]` | The ids showing under the item now: the user's picks, or your defaults if they have none |
+| `setShortcut(itemId, childId, on)` | `Promise<void>` | Star (`true`) or unstar (`false`) one child. An id the item doesn't offer this user is ignored |
+
+`itemId` is your sidebar item's `id` (`my-plugin`), without the `plugin:` prefix. A change shows in the sidebar at once and is saved to the user's account; if the save fails, Admin2 keeps the change and tries again with its next save.
+
+Whenever the shortcuts change, from your page, from the sidebar's pencil or from another plugin, Admin2 dispatches `grav:sidebar:shortcuts` on `window`. Its `detail.shortcuts` holds the showing ids for every item that has children, keyed by item id. It also fires once when the sidebar has loaded, which matters because your page can mount before the sidebar items arrive, when `children()` still returns an empty list.
+
+```js
+const ITEM = 'my-plugin';
+
+class MyPluginPage extends HTMLElement {
+    connectedCallback() {
+        this._onShortcuts = () => this.paintStars();
+        window.addEventListener('grav:sidebar:shortcuts', this._onShortcuts);
+        this.render();
+    }
+
+    disconnectedCallback() {
+        window.removeEventListener('grav:sidebar:shortcuts', this._onShortcuts);
+    }
+
+    render() {
+        // ... draw the menu, with a hidden <button data-star="orders"> beside each row
+        this.querySelectorAll('[data-star]').forEach((star) => {
+            star.addEventListener('click', () => this.toggleStar(star.dataset.star));
+        });
+        this.paintStars();
+    }
+
+    paintStars() {
+        const sidebar = window.__GRAV_SIDEBAR;
+        const offered = new Set(sidebar ? sidebar.children(ITEM) : []);
+        const shown = new Set(sidebar ? sidebar.shortcuts(ITEM) : []);
+        this.querySelectorAll('[data-star]').forEach((star) => {
+            const id = star.dataset.star;
+            star.hidden = !offered.has(id);   // older Admin2, or a child this user isn't offered
+            star.setAttribute('aria-pressed', String(shown.has(id)));
+        });
+    }
+
+    async toggleStar(id) {
+        const on = !window.__GRAV_SIDEBAR.shortcuts(ITEM).includes(id);
+        await window.__GRAV_SIDEBAR.setShortcut(ITEM, id, on);   // the event repaints the stars
+    }
+}
+```
+
+Draw the stars hidden and show them from `paintStars()`, so an older Admin2 without `window.__GRAV_SIDEBAR` never shows a star that does nothing. Give each star an `aria-label` such as "Show Orders in the admin sidebar", and if your menu redraws often (a count that updates, a filter box), call `paintStars()` after each redraw and hide a row's star together with its row.
+
+Keep the `children` list in PHP and your page's menu in step. A unit test that reads both and fails when a menu row has no child, or a child has no row, catches the drift before a release.
 
 ### Page Definition
 
