@@ -140,4 +140,4 @@ maintenance:
   message: "Back at 14:00 UTC after a database migration."
 ```
 
-Members can browse but not post, react or sign up, and an optional banner explains why. With `include_staff: false` your staff keep full access, so they can keep working during the window. Set it to `true` for a full lock, for example while you run a large import.
+Members can browse but not post, react or sign up, on the forum or through the [REST API](../rest-api), and an optional banner explains why. With `include_staff: false` your staff keep full access, so they can keep working during the window. Set it to `true` for a full lock, for example while you run a large import.

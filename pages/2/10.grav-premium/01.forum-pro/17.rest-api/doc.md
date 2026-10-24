@@ -32,12 +32,26 @@ The member is the account's linked forum account, created on its first call the 
 - The forum account is suspended or deleted.
 - The account has not chosen a forum username yet.
 - The category does not let that member's groups do it.
+- The forum is in [read-only mode](../configuration#maintenance) (`503`). Staff keep writing unless `maintenance.include_staff` is on, as on the forum.
 
 An account holding `admin.forum-pro.moderate`, `admin.forum-pro.admin` or `api.super`, or a [moderator role](../moderation#moderator-roles), is staff on these routes, and may edit and delete other people's posts and change topics, within its moderation scope.
 
-**Management routes** (structure, the queue, bans, moderators, groups, tags, members, invites, status and metrics) need `api.access` plus a Forum Pro permission ([Permissions](../administration#permissions)). The tables say **admin** for `admin.forum-pro.admin` and **moderate** for `admin.forum-pro.moderate`; `admin` and `api.super` count as both. A key created with scopes is limited to them on these routes: give it `admin.forum-pro.moderate` or `admin.forum-pro.admin`.
+**Management routes** (structure, the queue, bans, moderators, groups, tags, members, invites, status and metrics) need `api.access` plus a Forum Pro permission ([Permissions](../administration#permissions)). The tables say **admin** for `admin.forum-pro.admin` and **moderate** for `admin.forum-pro.moderate`; `admin` and `api.super` count as both. Read-only mode does not close them, as it does not close the Forum area in Admin Next.
 
-Content routes act with the full standing of the key's account, so for a bot or an integration, create a dedicated Grav account, sign in to the forum with it once to choose a username, and create the key on that account. Its posts then carry its own name, and it has no more power than a member.
+### Keys with scopes
+
+A key created without scopes, a JWT and a session have the account's full access: a member's key posts as that member, and a moderator's key moderates. A key created with scopes is limited to them:
+
+| Scope | Lets a scoped key |
+|---|---|
+| (none of these) | Read the forum as its member |
+| `api.forum-pro.post` | Write on the content routes: start topics, reply, edit, delete, react and report |
+| `admin.forum-pro.moderate` | Keep the account's staff powers on the content routes, and call the **moderate** routes |
+| `admin.forum-pro.admin` | The same, and call the **admin** routes |
+
+A scope never adds a power the account lacks. A moderator's key that should change topics needs both `api.forum-pro.post` and `admin.forum-pro.moderate`; with only `api.forum-pro.post` it posts as an ordinary member. Scopes are set when the key is created, with `POST /users/{username}/api-keys` and `{"name": "Forum bot", "scopes": ["api.forum-pro.post"]}`.
+
+For a bot or an integration, create a dedicated Grav account, sign in to the forum with it once to choose a username, and create a key on that account scoped to `api.forum-pro.post`. Its posts then carry its own name, and it can do nothing else.
 
 ## Public reads
 

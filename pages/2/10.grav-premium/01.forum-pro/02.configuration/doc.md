@@ -41,7 +41,7 @@ A few keys are intentionally YAML-only, either because they are credentials or b
 
 ### `maintenance`
 
-Read-only mode. Members can browse but not post, react or sign up.
+Read-only mode. Members can browse but not post, react or sign up, on the forum or through the [REST API](../rest-api).
 
 ```yaml
 maintenance:
