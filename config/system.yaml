@@ -194,7 +194,7 @@ media:
     upload_limit: 2097152
 session:
     enabled: true
-    initialize: true
+    initialize: false
     timeout: 1800
     name: grav-site
     uniqueness: path
