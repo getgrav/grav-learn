@@ -710,7 +710,7 @@ A component-mode page has no blueprint form, so Admin2 can't track its changes t
 
 - **`page-action`** (toolbar → component) — Admin2 dispatches this when a toolbar action that your component owns is clicked: any action without an `endpoint`, **including the `primary` action**. The event `detail` is `{ id, label }`.
 - **`page-state`** (component → toolbar) — your component dispatches this to report its own state, which drives the `primary` action button. The `detail` accepts `{ dirty, valid, busy }` (all keys optional, merged on each dispatch):
-    - `dirty` — set `true` once there are unsaved changes. The `primary` button stays **disabled until the component reports `dirty: true`**.
+    - `dirty` — set `true` once there are unsaved changes. The `primary` button stays **disabled until the component reports `dirty: true`**. While it is `true`, Admin2 also asks before the user leaves for another admin screen, and the browser asks on refresh or tab close, so set it back to `false` once the changes are saved or discarded. Moves inside your page that only change the URL hash aren't checked by Admin2, so your page asks about those itself.
     - `valid` — set `false` to keep the `primary` button disabled while the component's input is invalid.
     - `busy` — set `true` to show a spinner on the `primary` button while a save is in flight.
 
