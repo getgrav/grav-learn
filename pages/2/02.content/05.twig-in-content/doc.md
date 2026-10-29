@@ -123,7 +123,7 @@ So if a page shows raw `{{ something() }}` after you've enabled the gate, the sa
 
 ## The content XSS check
 
-The blueprint XSS validator inspects the **raw** content you save, so a payload assembled at render time (for example `{{ "on" ~ "error" }}`, which only becomes `onerror` once Twig runs) slips past it. Grav closes that gap **when the page is saved**: it renders the editor's own Twig in isolation through the same sandboxed pass described above, runs the XSS detector over the result, and rejects the save if the rendered markup is dangerous. The rejection is written to `logs/security.log`.
+The blueprint XSS validator inspects the **raw** content you save, so a payload assembled at render time (for example `{{ "on" ~ "error" }}`, which only becomes `onerror` once Twig runs) slips past it. When the page is saved, Grav also renders the editor's own Twig once, in isolation, through the same sandboxed pass described above, and rejects the save if the result is flagged. That render happens under the save request, so it catches common mistakes; like the rest of the XSS check it is a heuristic, not a guarantee. The rejection is written to `logs/security.log`.
 
 Because the check runs at save time and only ever sees the editor's own output, no shortcode, plugin or theme markup is ever inspected, and viewing a page costs nothing extra. Accounts covered by `security.xss_whitelist` (super administrators by default) are exempt, matching the raw-source validator.
 
