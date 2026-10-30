@@ -53,6 +53,19 @@ comments: true
 ---
 ```
 
+### Add Comments Without Editing Your Theme
+
+Instead of adding `comments_section()` to a template, you can have Comments Pro add the comments section after the page content for you. In the plugin's **Display** settings, turn on **Auto-inject Comments** and pick the page templates it applies to in **Auto-inject Templates**. Nothing in the theme changes, so it survives theme updates. For Typhoon blog posts, the template is `post`:
+
+```yaml
+display:
+  auto_inject: true
+  auto_inject_templates:
+    - post
+```
+
+Clear the cache after turning it on (`bin/grav clear`). A page can still opt out with `comments: false` in its frontmatter. Don't also call `comments_section()` in a template that auto-inject covers, or the section shows twice.
+
 ## Advanced Usage
 
 ### Custom Comment Form
@@ -475,6 +488,12 @@ display:
   
   # Avatar size in pixels
   avatar_size: 40
+
+  # Add the comments section after the page content, without a theme edit
+  auto_inject: false
+
+  # Page templates auto-inject applies to (e.g. [post])
+  auto_inject_templates: []
 ```
 
 **Display Modes Explained:**
