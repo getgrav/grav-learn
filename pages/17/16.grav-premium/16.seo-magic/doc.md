@@ -86,7 +86,7 @@ You can also install the theme via the **Plugins** section in the admin plugin.
 
 * **Facebook App** → The Facebook App ID associated to this site. This can be useful for tracking and is recommended by Facebook. You can find this on your [Facebook Developer dashboard](https://developers.facebook.com/apps/redirect/dashboard?target=_blank).
  
- ### Meta Images Configuration
+### Meta Images Configuration
  
 ![](meta-images.png?class=image-shadow)
  
@@ -96,7 +96,7 @@ You can also install the theme via the **Plugins** section in the admin plugin.
     | Option | Description |
     |--------|-------------|
     |**Automatic** | SEO Magic will fallback through the following image type list until an image is found: `Image Name` → `Image Attribute` → `OG-Image` → `First image found in Page` → `Default URL`|
-    |**WebShot Automatic Screenshot Service** | **An SEO Magic exclusive!** Each SEO Magic license entitles you to register a URL that can then be used to take screenshots of your pages automatically. These will be generated and cached for optimal performance |
+    |**WebShot Automatic Screenshot Service** | **An SEO Magic exclusive!** Each page gets a screenshot of itself as its image, taken by Grav's Webshot service. Each SEO Magic license covers one site, which you register first. See [Webshot](#webshot) below |
     |**Specific filename in each page folder** | The `Image Name` selected below will be used (if it exists) as the screenshot for the page. |
     |**Specific attribute in page header** | The image name filename located in the `Image Attribute` found in the current page header/front-matter will be used (if it exists) as the screenshot for the page.|
     |**A provided OG-Image in the page** | The `OG-Image` Option will use an existing `og-image.jpg` or `og-image.png` found in the page folder. |
@@ -105,7 +105,7 @@ You can also install the theme via the **Plugins** section in the admin plugin.
     [/div]
 
 > [!IMPORTANT]
-> The default fallback order for finding images is the same as the **Automatic** mode.  All other modes will also fall back from the selected option to the right. For example, if you selected **OG-Image** for the image type, SEO Magic will first look for appropriate OG-Image files, if none are found, it will try to use the **First Image found in Page**, if no image at all is found, then it will try to fallback on the provided **Default Image**.
+> The default fallback order for finding images is the same as the **Automatic** mode.  All other modes except **WebShot** will also fall back from the selected option to the right. For example, if you selected **OG-Image** for the image type, SEO Magic will first look for appropriate OG-Image files, if none are found, it will try to use the **First Image found in Page**, if no image at all is found, then it will try to fallback on the provided **Default Image**.
  
 * **Image Name** → The default image name that should be used if found in a particular page.
 
@@ -117,7 +117,24 @@ You can also install the theme via the **Plugins** section in the admin plugin.
 
 * **Image Size Y** → The height of the image generated in `px`.
 
- ### Meta Auto-Generation Configuration
+### Webshot
+
+Webshot takes a screenshot of each page on `webshot.getgrav.org` and uses it as the page's `og:image` and `twitter:image`, so links to your pages show a preview of the page itself. It's included with an SEO Magic license, for one site per license.
+
+To turn it on:
+
+1. Add your SEO Magic license in **Licenses** (the [License Manager](../license-manager) plugin).
+2. In the SEO Magic options, enable **OpenGraph** if it isn't on already, and set **Image Type** to **WebShot Automatic Screenshot Service**.
+3. Under **Enable Webshot Feature**, enter your site's public URL exactly as visitors see it (`https://`, with or without `www`, and the subfolder if Grav is in one) and click **Register**. Saving the options isn't enough; registering is the step that turns it on.
+
+Webshot only takes screenshots of pages whose URL starts with the registered address. Any other address, such as a staging copy or `localhost`, gets an "Unauthorized" placeholder image instead. Registering again moves the license to the new address, and **Unregister** frees it for another site.
+
+SEO Magic serves the image from `<page-url>/seomagic-image.jpg` and keeps a copy for 7 days, so the first share of a page can take a moment while the screenshot is taken. A page can use a different image type with `seo-magic.images.type` in its frontmatter. Your theme has to output the page metadata (most do) for the `og:image` tag to appear; see [Metadata set in content is not showing up in browser](#metadata-set-in-content-is-not-showing-up-in-brows).
+
+> [!NOTE]
+> Registering from Admin2 needs SEO Magic 7.0.21 or newer. Older versions only show "This feature requires a valid license to use" there.
+
+### Meta Auto-Generation Configuration
  
 ![Meta Auto-Generation](meta-auto-generation.png?class=image-shadow)
 
@@ -162,6 +179,9 @@ When you first install the plugin, you should perform an index or crawl on your 
    
     Where the URL provided is the URL of a specific page on your site.
    
+> [!NOTE]
+> Starting a crawl from the admin needs PHP's `proc_open` function, which some shared hosts disable. See [Crawl from the admin does nothing](#crawl-from-the-admin-does-nothing-or-says-proc-ope) for what to do instead.
+
 Each time you save a page, the **SEO Data** is updated.  It's updated in the same way as the index, but only for a single page.  This way SEO Magic can analyze how your actual page looks for a search engine.  This ensure the results are more realistic that simply checking the data.
 
 ### Broken Link Checker
@@ -198,6 +218,14 @@ If you are having trouble crawling your site when you **Regenerate SEO Data**, t
 2. If you are prompted for a username/password, then you will need to disable this before the sitemap will be reachable by SEO Magic.
 
 3. If you have a development SSL Certificate and you get prompted to **Accept the Certificate**, this could also be a problem for SEO Magic.  It won't be able to reach your pages to regenerate the SEO data, if a regular browser is not able to.
+
+### Crawl from the admin does nothing, or says proc_open is disabled
+
+The admin starts a crawl as a background `bin/plugin seo-magic dashboard-scan` process, and that needs PHP's `proc_open` function. If your host disables it, the Grav log shows `The Process class relies on proc_open, which is not available on your PHP installation`. The command line usually runs with a different `php.ini`, which is why the same crawl can work there. Your options:
+
+1. Run the crawl from the command line: `bin/plugin seo-magic process https://my-site.example/sitemap.json`
+2. Set **Full Site Crawl** under the plugin's **Scheduler** options and run Grav's scheduler from cron (`* * * * * cd /path/to/grav && bin/grav scheduler 1>> /dev/null 2>&1`).
+3. Ask your host to allow `proc_open` for your site's PHP pool, if you want to start crawls from the admin.
 
 ### Metadata set in content is not showing up in browser
 
