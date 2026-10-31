@@ -142,31 +142,46 @@ server {
     ## End - Index
 
     ## Begin - Security
+    # deny hidden files and directories at any depth, except ACME challenges
+    location ~ (^|/)\.(?!well-known(?:/|$)) { return 403; }
     # deny all direct access for these folders
-    location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 403; }
+    location ~* ^/(\.git|cache|bin|logs|backup|tmp|webserver-configs|tests)/.*$ { return 403; }
     # deny all direct access to these sensitive user folders, whatever the file type
-    location ~* /user/(env/[^/]+/)?config/.*$ { return 403; }
+    location ~* ^/user/(env/[^/]+/)?config/.*$ { return 403; }
     # allow avatar images under user/accounts to be served directly, whether stored
     # at user/accounts/avatars/<file> (flatfile accounts) or user/accounts/<username>/
     # <file> (Flex folder storage); this must come before the user/accounts deny so it
     # wins the first-match. SVG is intentionally excluded as a stored-XSS vector.
-    location ~* /user/(env/[^/]+/)?accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$ { try_files $uri =404; }
+    location ~* ^/user/(env/[^/]+/)?accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$ { try_files $uri =404; }
     # deny everything else under user/accounts, whatever the file type
-    location ~* /user/(env/[^/]+/)?accounts/.*$ { return 403; }
+    location ~* ^/user/(env/[^/]+/)?accounts/.*$ { return 403; }
     # allow public media uploads under user/data (e.g. Flex Object images) to be
     # served directly; this must come before the user/data deny so it wins the
     # first-match. SVG is intentionally excluded as a stored-XSS vector.
-    location ~* /user/(env/[^/]+/)?data/.*\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$ { try_files $uri =404; }
+    location ~* ^/user/(env/[^/]+/)?data/.*\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$ { try_files $uri =404; }
     # deny everything else under user/data, whatever the file type
-    location ~* /user/(env/[^/]+/)?data/.*$ { return 403; }
+    location ~* ^/user/(env/[^/]+/)?data/.*$ { return 403; }
+    # Serve page media only through the page route, so plugins can apply the
+    # page's `access` rules to it. DO NOT uncomment without first setting
+    # `pages.media_route_urls: true` in user/config/system.yaml, or every media
+    # URL on the site becomes a 403.
+    # location ~* ^/user/pages/.*$ { return 403; }
+    # deny running scripts in the public cache folders (image derivatives and combined assets)
+    location ~* ^/(images|assets)/.*\.(php|php2|php3|php4|php5|php7|php8|phar|phtml|pht|phtm|phps|pl|py|cgi|sh|bat)$ { return 403; }
     # deny running scripts inside core system folders
-    location ~* /(system|vendor)/.*\.(txt|xml|md|html|htm|shtml|shtm|json|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$ { return 403; }
+    location ~* ^/(system|vendor)/.*\.(txt|xml|md|html|htm|shtml|shtm|json|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$ { return 403; }
     # deny running scripts inside user folder
-    location ~* /user/.*\.(txt|md|json|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$ { return 403; }
+    location ~* ^/user/.*\.(txt|md|json|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$ { return 403; }
     # deny access to specific files in the root folder
-    location ~ /(LICENSE\.txt|composer\.lock|composer\.json|nginx\.conf|web\.config|htaccess\.txt|\.htaccess) { return 403; }
-    # deny access to .env environment files
+    location ~* ^/(LICENSE\.txt|composer\.lock|composer\.json|nginx\.conf|web\.config|htaccess\.txt|\.htaccess) { return 403; }
+    # deny access to .env environment files (expression purposefully not anchored)
     location ~ /\.env(\.|$) { return 403; }
+    # deny Markdown source files such as README.md and CHANGELOG.md; a page route
+    # ending in .md is not a file, so it still reaches Grav's Markdown output
+    location ~* \.md$ {
+        if (-f $request_filename) { return 403; }
+        try_files $uri /index.php?$query_string;
+    }
     ## End - Security
 
     ## Begin - PHP

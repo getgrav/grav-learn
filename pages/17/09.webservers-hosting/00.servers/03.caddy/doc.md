@@ -34,7 +34,7 @@ root * /var/www/grav
 
 # Begin - Security
 # deny all direct access for these folders
-@denied_dirs path_regexp (?i)^/(\.git|cache|bin|logs|backups?|tmp|tests)/
+@denied_dirs path_regexp (?i)^/(\.git|cache|bin|logs|backups?|tmp|webserver-configs|tests)/
 
 # deny all direct access to these sensitive user folders, whatever the file type
 @denied_user_config path_regexp (?i)^/user/(env/[^/]+/)?config/
@@ -58,19 +58,27 @@ root * /var/www/grav
 @denied_cache_scripts path_regexp (?i)^/(images|assets)/.*\.(php|php2|php3|php4|php5|php7|php8|phar|phtml|pht|phtm|phps|pl|py|cgi|sh|bat)$
 
 # deny running scripts inside core system folders
-@denied_system path_regexp (?i)^/(system|vendor)/.*\.(txt|xml|md|html|htm|shtml|shtm|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$
+@denied_system path_regexp (?i)^/(system|vendor)/.*\.(txt|xml|md|html|htm|shtml|shtm|json|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$
 
 # deny running scripts inside user folder
-@denied_user_scripts path_regexp (?i)^/user/.*\.(txt|md|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$
+@denied_user_scripts path_regexp (?i)^/user/.*\.(txt|md|json|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$
 
 # deny access to specific files in the root folder
 @denied_root_files path_regexp (?i)^/(LICENSE\.txt|composer\.lock|composer\.json|nginx\.conf|web\.config|htaccess\.txt)$
 
+# deny Markdown source files such as README.md and CHANGELOG.md; a page route
+# ending in .md is not a file, so it still reaches Grav's Markdown output
+@denied_markdown_files {
+	path_regexp (?i)\.md$
+	file
+}
+
 # deny hidden files and directories at any depth (.htaccess, .env, nested .git
-# repositories), except ACME challenges
+# repositories), except /.well-known/ files whose own names don't start with a
+# dot (ACME challenges, security.txt)
 @denied_dotfiles {
 	path_regexp (?i)(^|/)\.
-	not path /.well-known/*
+	not path_regexp ^/\.well-known(/[^./][^/]*)+$
 }
 ## End - Security
 
@@ -83,6 +91,7 @@ route {
 	respond @denied_system 403
 	respond @denied_user_scripts 403
 	respond @denied_root_files 403
+	respond @denied_markdown_files 403
 	respond @denied_dotfiles 403
 
 	# global rewrite should come last
@@ -94,7 +103,7 @@ route {
 [/codesh]
 
 > [!NOTE]
-> Caddy's `path` matcher is literal and only understands `*` wildcards, so every rule that needs alternation, character classes or anchors uses a named `path_regexp` matcher. Outside a `route` block Caddy applies its own directive order, and the global `try_files` rewrite would run before `respond`, so the rules sit in a `route` block, which runs top to bottom as written. Because Go's RE2 engine has no lookbehind or lookahead, the `user/accounts`, `user/data` and `.well-known` exceptions are negated matchers rather than single patterns. The `config`, `accounts` and `data` rules also match under an optional `env/<name>/` prefix, so a [multisite](/17/advanced/multisite-setup) subsite's own folders are protected while its themes, plugins and assets stay public. Caddy does not read `.htaccess`, so when you upgrade Grav, compare your Caddyfile with the shipped `webserver-configs/Caddyfile` and copy any changed rules by hand.
+> Caddy's `path` matcher is literal and only understands `*` wildcards, so every rule that needs alternation, character classes or anchors uses a named `path_regexp` matcher. Outside a `route` block Caddy applies its own directive order, and the global `try_files` rewrite would run before `respond`, so the rules sit in a `route` block, which runs top to bottom as written. Because Go's RE2 engine has no lookbehind or lookahead, the `user/accounts`, `user/data` and `.well-known` exceptions are negated matchers rather than single patterns. The Markdown rule pairs `path_regexp` with the `file` matcher, so only `.md` files that exist on disk are refused and page routes ending in `.md` still reach Grav's [Markdown output](/2/content/markdown-output). The `config`, `accounts` and `data` rules also match under an optional `env/<name>/` prefix, so a [multisite](/17/advanced/multisite-setup) subsite's own folders are protected while its themes, plugins and assets stay public. Caddy does not read `.htaccess`, so when you upgrade Grav, compare your Caddyfile with the shipped `webserver-configs/Caddyfile` and copy any changed rules by hand.
 
 ## Running as a service
 

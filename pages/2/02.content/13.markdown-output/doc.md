@@ -119,16 +119,16 @@ RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule \.md$ error [F,NC]
 ```
 
-For lighttpd, remove `".md"` from the `url.access-deny` list and deny it only as a real file:
+For lighttpd, remove `".md"` from the `url.access-deny` list. lighttpd 1.4 has no condition on whether a file exists, so the shipped `lighttpd.conf` (Grav 2.2.19 and later) hands every URL ending in `.md` to Grav before its deny rules run. Page routes get their Markdown, and Markdown source files such as `README.md` are never served as files:
 
 ```lighttpd
+url.rewrite-once = (
+    "(?i)^/[^?]*\.md(\?|$)" => "/index.php${qsa}"
+)
 url.access-deny += ("~",".inc")
-$PHYSICAL["existing-path"] =~ "(?i)\.md$" {
-    url.access-deny = ("")
-}
 ```
 
-Source files under `user/pages` stay blocked either way by the `user/` rule that precedes it. The nginx, Caddy and IIS configs only ever blocked `.md` files under `user/`, `system/` and `vendor/`, so they need no change.
+Source files under `user/pages` are never served either way. From Grav 2.2.19 the shipped nginx, Caddy and IIS configs also refuse `.md` files that exist on disk (`README.md`, `CHANGELOG.md`) while page routes ending in `.md` still reach Grav. Earlier versions of those configs only blocked `.md` files under `user/`, `system/` and `vendor/`, so they need no change for Markdown output to work.
 
 If a `.md` URL returns **403** on an Apache site after upgrading, this rule is the reason.
 

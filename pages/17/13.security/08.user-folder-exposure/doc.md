@@ -102,7 +102,7 @@ Caddy also ignores `.htaccess`. Compare your configuration with the shipped `web
 Caddy matchers compile with Go's RE2, which has no lookbehind, so the media exceptions use a negated matcher rather than an inline one:
 
 ```caddy
-@denied_dirs path_regexp (?i)^/(\.git|cache|bin|logs|backups?|tmp|tests)/
+@denied_dirs path_regexp (?i)^/(\.git|cache|bin|logs|backups?|tmp|webserver-configs|tests)/
 @denied_user_config path_regexp (?i)^/user/(env/[^/]+/)?config/
 # block user/accounts, but allow avatar images to be served directly
 @denied_user_accounts {

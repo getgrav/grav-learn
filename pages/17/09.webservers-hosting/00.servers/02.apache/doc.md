@@ -58,7 +58,7 @@ The bundled `.htaccess` is the canonical source of these rules, so you should no
 [codesh=apache line-numbers="true"]
 ## Begin - Security
 # Block all direct access for these folders
-RewriteRule ^(\.git|cache|bin|logs|backup|webserver-configs|tests)/(.*) error [F,NC]
+RewriteRule ^(\.git|cache|bin|logs|backup|tmp|webserver-configs|tests)/(.*) error [F,NC]
 # Block all direct access to these sensitive user folders, whatever the file type
 RewriteRule ^(user)/(env/[^/]+/)?config/(.*) error [F,NC]
 # Block user/accounts too, but allow avatar images to be served directly,
@@ -72,11 +72,26 @@ RewriteRule ^(user)/(env/[^/]+/)?accounts/(.*) error [F,NC]
 # served per project policy despite the same risk on this user-writable folder.
 RewriteCond %{REQUEST_URI} !\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf|woff2|woff|ttf|otf|eot|css|js)$ [NC]
 RewriteRule ^(user)/(env/[^/]+/)?data/(.*) error [F,NC]
+# Serve page media only through the page route, so plugins can apply the page's
+# `access` rules to it (the Login plugin's "Protect a login-protected page media"
+# setting, for one). Page media is normally linked by its path on disk, which the
+# web server answers without ever starting Grav.
+# DO NOT enable this without first setting `pages.media_route_urls: true` in
+# user/config/system.yaml, or every media URL on the site becomes a 403.
+# RewriteRule ^(user)/pages/(.*) error [F,NC]
+# Block running scripts in the public cache folders (image derivatives and combined assets)
+RewriteRule ^(images|assets)/(.*)\.(php|php2|php3|php4|php5|php7|php8|phar|phtml|pht|phtm|phps|pl|py|cgi|sh|bat)$ error [F,NC]
 # Block access to specific file types for these system folders
 RewriteRule ^(system|vendor)/(.*)\.(txt|xml|md|html|htm|shtml|shtm|json|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$ error [F,NC]
 # Block access to specific file types for these user folders
 RewriteRule ^(user)/(.*)\.(txt|md|json|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$ error [F,NC]
-# Block all direct access to .md files:
+# A script followed by a path (`file.php/x`) still runs as `file.php`, so refuse any
+# request in these folders that maps to a file with a path after it
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{PATH_INFO} ^/
+RewriteRule ^(images|assets|system|vendor|user)/ error [F,NC]
+# Block all direct access to .md files (a page route ending in .md is not a file, so Grav's Markdown output still works):
+RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule \.md$ error [F,NC]
 # Block all direct access to files and folders beginning with a dot
 RewriteRule (^|/)\.(?!well-known) - [F]
