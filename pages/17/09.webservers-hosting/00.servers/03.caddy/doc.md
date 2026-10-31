@@ -31,57 +31,70 @@ The shipped file is the canonical reference. For production, replace `localhost`
 example.com
 encode gzip
 root * /var/www/grav
-file_server
-
-php_fastcgi 127.0.0.1:9000
 
 # Begin - Security
 # deny all direct access for these folders
-rewrite /(\.git|cache|bin|logs|backups|tests)/.* /403
+@denied_dirs path_regexp (?i)^/(\.git|cache|bin|logs|backups?|tmp|tests)/
 
 # deny all direct access to these sensitive user folders, whatever the file type
-rewrite /user/(env/[^/]+/)?config/.* /403
+@denied_user_config path_regexp (?i)^/user/(env/[^/]+/)?config/
 
 # block user/accounts too, but allow avatar images to be served directly, whether
 # stored at user/accounts/avatars/<file> (flatfile accounts) or user/accounts/
 # <username>/<file> (Flex folder storage). SVG is excluded as a stored-XSS vector.
-@user_accounts_nonavatar {
-	path_regexp (?i)/user/(env/[^/]+/)?accounts/.*
-	not path_regexp (?i)/user/(env/[^/]+/)?accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$
+@denied_user_accounts {
+	path_regexp (?i)^/user/(env/[^/]+/)?accounts/
+	not path_regexp (?i)^/user/(env/[^/]+/)?accounts/[^/]+/[^/]+\.(jpe?g|png|gif|webp|avif|bmp|ico)$
 }
-rewrite @user_accounts_nonavatar /403
 
 # block user/data too, but allow public media uploads (e.g. Flex Object images)
 # to be served directly. SVG is intentionally excluded as a stored-XSS vector.
-# (Go's RE2 has no lookbehind, so this uses a negated matcher.)
-@user_data_nonmedia {
-	path_regexp /user/(env/[^/]+/)?data/.*
+@denied_user_data {
+	path_regexp (?i)^/user/(env/[^/]+/)?data/
 	not path_regexp (?i)\.(jpe?g|png|gif|webp|avif|bmp|ico|mp4|webm|ogg|ogv|mov|mp3|wav|m4a|flac|pdf)$
 }
-rewrite @user_data_nonmedia /403
+
+# deny running scripts in the public cache folders (image derivatives and combined assets)
+@denied_cache_scripts path_regexp (?i)^/(images|assets)/.*\.(php|php2|php3|php4|php5|php7|php8|phar|phtml|pht|phtm|phps|pl|py|cgi|sh|bat)$
 
 # deny running scripts inside core system folders
-rewrite /(system|vendor)/.*\.(txt|xml|md|html|htm|shtml|shtm|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$ /403
+@denied_system path_regexp (?i)^/(system|vendor)/.*\.(txt|xml|md|html|htm|shtml|shtm|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$
 
 # deny running scripts inside user folder
-rewrite /user/.*\.(txt|md|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$ /403
+@denied_user_scripts path_regexp (?i)^/user/.*\.(txt|md|yaml|yml|php|php2|php3|php4|php5|phar|phtml|pl|py|cgi|twig|sh|bat)$
 
 # deny access to specific files in the root folder
-rewrite /(LICENSE\.txt|composer\.lock|composer\.json|nginx\.conf|web\.config|htaccess\.txt|\.htaccess) /403
+@denied_root_files path_regexp (?i)^/(LICENSE\.txt|composer\.lock|composer\.json|nginx\.conf|web\.config|htaccess\.txt)$
 
-# deny access to .env environment files
-@dotenv path_regexp \.env(\..+)?$
-respond @dotenv 403
-
-respond /403 403
+# deny hidden files and directories at any depth (.htaccess, .env, nested .git
+# repositories), except ACME challenges
+@denied_dotfiles {
+	path_regexp (?i)(^|/)\.
+	not path /.well-known/*
+}
 ## End - Security
 
-# global rewrite should come last.
-try_files {path} {path}/ /index.php?_url={uri}&{query}
+route {
+	respond @denied_dirs 403
+	respond @denied_user_config 403
+	respond @denied_user_accounts 403
+	respond @denied_user_data 403
+	respond @denied_cache_scripts 403
+	respond @denied_system 403
+	respond @denied_user_scripts 403
+	respond @denied_root_files 403
+	respond @denied_dotfiles 403
+
+	# global rewrite should come last
+	try_files {path} {path}/ /index.php?_url={uri}&{query}
+
+	php_fastcgi 127.0.0.1:9000
+	file_server
+}
 [/codesh]
 
 > [!NOTE]
-> The global `try_files` rewrite must come **last** so the security rules above it win first. Because Go's RE2 engine has no lookbehind, the `user/accounts` and `user/data` carve-outs are expressed as negated matchers rather than single patterns. The `config`, `accounts` and `data` rules also match under an optional `env/<name>/` prefix, so a [multisite](/17/advanced/multisite-setup) subsite's own folders are protected while its themes, plugins and assets stay public. If you upgrade to Grav 2.2.4 or later, copy these rules into your Caddyfile by hand, since Caddy does not read `.htaccess`.
+> Caddy's `path` matcher is literal and only understands `*` wildcards, so every rule that needs alternation, character classes or anchors uses a named `path_regexp` matcher. Outside a `route` block Caddy applies its own directive order, and the global `try_files` rewrite would run before `respond`, so the rules sit in a `route` block, which runs top to bottom as written. Because Go's RE2 engine has no lookbehind or lookahead, the `user/accounts`, `user/data` and `.well-known` exceptions are negated matchers rather than single patterns. The `config`, `accounts` and `data` rules also match under an optional `env/<name>/` prefix, so a [multisite](/17/advanced/multisite-setup) subsite's own folders are protected while its themes, plugins and assets stay public. Caddy does not read `.htaccess`, so when you upgrade Grav, compare your Caddyfile with the shipped `webserver-configs/Caddyfile` and copy any changed rules by hand.
 
 ## Running as a service
 
