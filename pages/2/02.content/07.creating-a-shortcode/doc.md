@@ -136,7 +136,8 @@ class TeamShortcode extends Shortcode
 }
 ```
 
-!! The class name (`TeamShortcode`) must match the file name. Shortcodes extend the base `Shortcode` class provided by Shortcode Core, which gives you `$this->grav`, `$this->twig`, and the `$this->shortcode` manager.
+> [!NOTE]
+> The class name (`TeamShortcode`) must match the file name. Shortcodes extend the base `Shortcode` class provided by Shortcode Core, which gives you `$this->grav`, `$this->twig`, and the `$this->shortcode` manager.
 
 ### 4. The template
 

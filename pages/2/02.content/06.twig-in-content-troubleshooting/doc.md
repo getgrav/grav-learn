@@ -12,7 +12,8 @@ last_checked: 2.2.20
 
 Grav **2.2.18** (October 31, 2026) shipped a large set of security fixes, and several of them tighten what Twig written in page content can do. **2.2.19** and **2.2.20** followed the same day and didn't change these rules further. Most sites notice nothing. If yours uses Twig in content to pull in theme partials, or to read things the sandbox now protects, this page tells you what you'll see and how to fix it.
 
-!! This page is about Twig written in page content, and in page-authored settings such as a form's email body in front matter. Your theme's and plugins' templates work exactly as before when Grav renders them itself. For how the gate and the sandbox work in general, see [Twig in Content](../twig-in-content).
+> [!NOTE]
+> This page is about Twig written in page content, and in page-authored settings such as a form's email body in front matter. Your theme's and plugins' templates work exactly as before when Grav renders them itself. For how the gate and the sandbox work in general, see [Twig in Content](../twig-in-content).
 
 ## My Twig shows as plain text. What now?
 
@@ -46,7 +47,8 @@ grep -rhoE "\{%-?[[:space:]]*(include|embed|extends|import|from|use)[[:space:]]+
 
 Swap `-rhoE` for `-rlE` to list the page files instead. With the Twig gate on, which is the default, every page runs its Twig unless its front matter sets `process.twig: false`, so check them all.
 
-!!! The hint at the end of each log line, and the **Add to allowlist** button in the report, always suggest allowing the blocked filter, function or method for all page content. When the block happened inside an included partial, that is the wrong fix. Allowing the `raw` filter, for example, lets every page editor switch off escaping anywhere on the site. Use `trusted_partials` or move the include into your theme instead, as described below.
+> [!WARNING]
+> The hint at the end of each log line, and the **Add to allowlist** button in the report, always suggest allowing the blocked filter, function or method for all page content. When the block happened inside an included partial, that is the wrong fix. Allowing the `raw` filter, for example, lets every page editor switch off escaping anywhere on the site. Use `trusted_partials` or move the include into your theme instead, as described below.
 
 If you are logged in as a super administrator and `security.twig_sandbox.admin_hint` is on, the page source also ends with `<!-- Grav security: Twig sandbox blocked an expression. See logs/security.log for details. -->`.
 
@@ -110,7 +112,8 @@ What content can pass to a listed partial:
 
 There is no field for this list in Admin, so edit the file directly. Saving the Security page in Admin keeps the list as it is.
 
-!! Only list a partial you'd be happy to run with your theme's full powers. Anyone who can edit a page can include it with values of their choosing, so it should print every value it's given with escaping (`{{ message }}`, never `{{ message|raw }}`), and it should not use those values to read things content can't read itself, such as config keys, files or accounts.
+> [!WARNING]
+> Only list a partial you'd be happy to run with your theme's full powers. Anyone who can edit a page can include it with values of their choosing, so it should print every value it's given with escaping (`{{ message }}`, never `{{ message|raw }}`), and it should not use those values to read things content can't read itself, such as config keys, files or accounts.
 
 ### 3. Make the partial work under the sandbox
 

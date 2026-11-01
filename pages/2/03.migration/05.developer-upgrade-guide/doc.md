@@ -167,7 +167,8 @@ Twig 3 expects a map instead of two string arguments:
 
 Grav 2.0 runs editor-authored Twig in **page content** through a security sandbox. This only applies to content (`process.twig` on a page, and string templates rendered via `Twig::processString()`). Theme and plugin **template files** on disk are trusted and are never sandboxed, so nothing changes for normal `.html.twig` development.
 
-!! For the site-owner side of this (enabling Twig in content, the default allow-list, and what happens when something is blocked), see [Twig in Content](../../content/twig-in-content).
+> [!NOTE]
+> For the site-owner side of this (enabling Twig in content, the default allow-list, and what happens when something is blocked), see [Twig in Content](../../content/twig-in-content).
 
 Inside the sandbox, only an allow-list of tags, filters, functions, methods, and properties is permitted. The defaults live in `system/config/security.yaml` under `twig_sandbox`. If your plugin registers a Twig function, filter, or tag that authors are meant to call from page content, the sandbox blocks it by default, because it has no way to know the member is safe to run against untrusted input.
 
@@ -202,7 +203,8 @@ public function onBuildTwigSandboxPolicy(Event $event): void
 
 The read-modify-write pattern is required because the event arguments are returned by value. The event fires only when the policy is built (once per request and cached), so registering members here has no per-render cost.
 
-!! Only allow members that are safe to run against content authored by anyone with page-edit access. Registering a member here is the same trust decision as exposing it in the first place. If a function reads files, evaluates strings, or reaches into the container, leave it off the list.
+> [!WARNING]
+> Only allow members that are safe to run against content authored by anyone with page-edit access. Registering a member here is the same trust decision as exposing it in the first place. If a function reads files, evaluates strings, or reaches into the container, leave it off the list.
 
 A site administrator can also allow a function without touching plugin code by adding it to `user/config/security.yaml`. The lists there are **added to** Grav's built-in defaults, so only the addition is needed:
 

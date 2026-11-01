@@ -13,7 +13,8 @@ Grav can process **Twig** inside a page's Markdown content, so you can write exp
 
 ===
 
-!! This page is about Twig authored inside **page content**. The `.html.twig` files in your theme and plugins are trusted code on disk and are **never** sandboxed. Nothing on this page affects normal theme or plugin development.
+> [!NOTE]
+> This page is about Twig authored inside **page content**. The `.html.twig` files in your theme and plugins are trusted code on disk and are **never** sandboxed. Nothing on this page affects normal theme or plugin development.
 
 ## What Changed in 2.0
 
@@ -97,7 +98,8 @@ After changing security configuration or a page's `process` setting, clear the c
 bin/grav cache
 ```
 
-!!! If **Process Enabled** is off and a page sets `process.twig: true`, the page's Twig is **not** rendered. The raw `{{ ... }}` and `{% ... %}` markup is returned as literal text, and a notice is written to `logs/security.log`.
+> [!IMPORTANT]
+> If **Process Enabled** is off and a page sets `process.twig: true`, the page's Twig is **not** rendered. The raw `{{ ... }}` and `{% ... %}` markup is returned as literal text, and a notice is written to `logs/security.log`.
 
 ## The Sandbox
 
@@ -145,7 +147,8 @@ Every silent failure on this page (a gated page, a sandbox block, a page leaking
 
 When you open a page in the editor, the same information appears as an inline banner at the top of that page if its content would leak raw Twig or recently hit a block, with a link to the full report.
 
-!! A page can carry `process.twig: true` (often left over from a Grav 1.7 site) while the gate is off. In 2.0 that flag is only a request: the gate still has the final say, so those pages render raw. The report calls this out explicitly so you can either pick a profile to enable Twig or remove the stale flag.
+> [!NOTE]
+> A page can carry `process.twig: true` (often left over from a Grav 1.7 site) while the gate is off. In 2.0 that flag is only a request: the gate still has the final say, so those pages render raw. The report calls this out explicitly so you can either pick a profile to enable Twig or remove the stale flag.
 
 ## Customizing the Sandbox
 
@@ -170,7 +173,8 @@ You can add a member three ways:
 
 Plugin developers can register their own safe members programmatically through the `onBuildTwigSandboxPolicy` event, so a plugin works in sandboxed content without each site having to edit `security.yaml` at all. **This is the durable fix for plugin-provided members**, and it needs no per-site config. See the [Developer Upgrade Guide](../../migration/developer-upgrade-guide#twig-content-sandbox) for the event signature and a worked example.
 
-!!! Only allow members that are safe to run against content authored by anyone with page-edit access. Adding a member to the allow-list is the same trust decision as exposing it in the first place. If a function reads files, evaluates strings, or reaches into Grav's container, leave it off the list.
+> [!WARNING]
+> Only allow members that are safe to run against content authored by anyone with page-edit access. Adding a member to the allow-list is the same trust decision as exposing it in the first place. If a function reads files, evaluates strings, or reaches into Grav's container, leave it off the list.
 
 ### The `config` variable
 

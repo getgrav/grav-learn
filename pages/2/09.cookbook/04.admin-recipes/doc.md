@@ -11,7 +11,8 @@ taxonomy:
 
 This page collects problems and solutions related to customizing the Admin2 interface. Admin2 is the SvelteKit single-page app that talks to your site through the [REST API](../../api); plugins extend it by subscribing to `onApi*` events and, where needed, shipping small web components. For the full reference behind these recipes, see the [API Developer Guide](../../api/developer-guide).
 
-!! These recipes require the API plugin `1.0.0-rc.16` / Admin2 `2.0.0-rc.16` or later.
+> [!NOTE]
+> These recipes require the API plugin `1.0.0-rc.16` / Admin2 `2.0.0-rc.16` or later.
 
 ## Add a custom page-creation button
 

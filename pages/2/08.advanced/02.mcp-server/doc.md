@@ -10,7 +10,8 @@ The [Grav MCP Server](https://github.com/getgrav/grav-mcp) exposes a Grav 2.0 si
 
 The design principle is simple: **Admin2 is the client for humans, the MCP server is the client for AI, and both go through the same API**. The MCP server has no privileged backdoor into Grav. Every operation it performs is an authenticated, permission-checked HTTP request against `/api/v1`, exactly like any other API consumer.
 
-!!! The MCP server requires the [API Plugin](/2/api) to be installed and enabled on the target Grav site. The MCP server itself holds no content logic; it is a translation layer between MCP tool calls and the Grav REST API.
+> [!IMPORTANT]
+> The MCP server requires the [API Plugin](/2/api) to be installed and enabled on the target Grav site. The MCP server itself holds no content logic; it is a translation layer between MCP tool calls and the Grav REST API.
 
 ## Architecture
 
@@ -280,7 +281,8 @@ This means you control what an AI can do by controlling which user the key is is
 - Issuing the key for a super-admin user gives the AI full access to the site.
 - Issuing the key for a user scoped to only page and media permissions confines the AI to content work, with no ability to change configuration, manage users, or install packages.
 
-!!! Create a dedicated, least-privilege user for AI access rather than reusing your primary admin account. A key can never exceed the permissions of the user it belongs to, so the user account is your security boundary. Per-key permission scoping is not yet enforced independently of the user.
+> [!TIP]
+> Create a dedicated, least-privilege user for AI access rather than reusing your primary admin account. A key can never exceed the permissions of the user it belongs to, so the user account is your security boundary. Per-key permission scoping is not yet enforced independently of the user.
 
 ### Concurrency safety
 

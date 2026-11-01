@@ -47,7 +47,8 @@ You can also send a value to the **Messages** tab of the debugger without writin
 $this->grav['debugger']->addMessage($myvariable);
 [/codesh]
 
-!!! `dump()` writes into the page output. That is fine for the frontend, but it **corrupts JSON responses** on the API path. When debugging Admin2 or any `onApi*` hook, use `addMessage()` instead. See [Debugging the API & hooks](#debugging-the-api-amp-hooks) below.
+> [!WARNING]
+> `dump()` writes into the page output. That is fine for the frontend, but it **corrupts JSON responses** on the API path. When debugging Admin2 or any `onApi*` hook, use `addMessage()` instead. See [Debugging the API & hooks](#debugging-the-api-amp-hooks) below.
 
 ### Dump command for Twig
 
