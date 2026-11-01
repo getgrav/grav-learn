@@ -114,12 +114,14 @@ The complete default lists live in `system/config/security.yaml` under `twig_san
 
 The sandbox fails gently rather than throwing a fatal error:
 
-* The blocked expression **renders as literal text** in the output, so you can see exactly what was stopped.
+* The page's content **renders without its Twig**, so every `{{ ... }}` and `{% ... %}` tag in it shows as literal text. One blocked expression is enough to do that for the whole page.
 * A line is written to `logs/security.log` naming the blocked tag, filter, function, method, or property, along with the page route and a hint on how to allow it.
 * The same event is recorded for the **Twig in Content report** (see below), so you do not have to read the log file to find out what was blocked.
 * If you are logged in as a super administrator and `admin_hint` is enabled, Grav adds an HTML comment near the blocked expression pointing you at the log.
 
 So if a page shows raw `{{ something() }}` after you've enabled the gate, the sandbox blocked `something()`. The report names the exact member it did not recognize and how to allow it.
+
+Since Grav 2.2.18, theme and plugin templates that content includes, embeds or extends follow the same rules as the content itself, unless they are listed under `twig_sandbox.trusted_partials`. If Twig in your pages stopped working after updating, see [Troubleshooting Twig in Content](../twig-in-content-troubleshooting) for each change and how to fix it.
 
 ## The content XSS check
 
@@ -147,33 +149,26 @@ When you open a page in the editor, the same information appears as an inline ba
 
 ## Customizing the Sandbox
 
-If you have decided that a particular Twig member is safe to run against content your authors could write, you can add it to the allow-list. First, an important caveat about how these lists merge.
-
-The sandbox allow-lists are **not additive when edited by hand.** The flat lists (`allowed_functions`, `allowed_filters`, `allowed_tags`) are each replaced wholesale by whatever you put under that key in `user/config/security.yaml`, and the per-class lists (`allowed_methods`, `allowed_properties`) merge by position, so a partial list silently overwrites the existing entries. Writing this:
+If you have decided that a particular Twig member is safe to run against content your authors could write, you can add it to the allow-list. The lists under `twig_sandbox` in `user/config/security.yaml` are **added to** Grav's built-in defaults, so you only list your additions:
 
 ```yaml
 twig_sandbox:
   allowed_functions:
     - my_safe_function
-```
-
-would drop every built-in safe function (`url`, `t`, and the rest) and leave only `my_safe_function`, breaking far more than it fixes. There are three safe ways to add a member:
-
-* **Use the report (easiest).** When a member is blocked, the **Twig in Content** report (under **Tools → Reports**) lists it with an **Add to allowlist** button. One click appends it to the correct list with every existing entry preserved. This is the quickest safe path because you act on the exact member Grav just blocked.
-* **Use Admin.** Under **Configuration → Security → Twig Sandbox**, each field is pre-loaded with the current full list. Add your entry and save, and Grav writes the complete list back, so the defaults are never lost.
-* **Edit by hand with the full list.** Copy the entire default list for that key out of `system/config/security.yaml` into your `user/config/security.yaml`, then append your addition, keeping every existing entry intact.
-
-The same rule applies to the per-class methods and properties lists: include every existing `class`/`methods` (or `class`/`properties`) row alongside any you add.
-
-```yaml
-twig_sandbox:
   allowed_methods:
     - class: 'Grav\Plugin\MyGallery\Gallery'
       methods: 'render, thumbnail'
-    # ...plus every default row copied from system/config/security.yaml
 ```
 
-Plugin developers can register their own safe members programmatically through the `onBuildTwigSandboxPolicy` event, so a plugin works in sandboxed content without each site having to edit `security.yaml` at all. **This is the durable fix for plugin-provided members**, and it avoids the full-list maintenance burden entirely. See the [Developer Upgrade Guide](../../migration/developer-upgrade-guide#twig-content-sandbox) for the event signature and a worked example.
+The per-class lists (`allowed_methods`, `allowed_properties`) use `class` and `methods` rows, and property rows use the `methods:` key too. To take something away from the defaults, list it under the matching `denied_*` key instead.
+
+You can add a member three ways:
+
+* **Use the report (easiest).** When a member is blocked, the **Twig in Content** report (under **Tools → Reports**) lists it with an **Add to allowlist** button that adds it to the correct list. If the block happened inside a theme or plugin template that the page includes, use `trusted_partials` instead (see [Troubleshooting Twig in Content](../twig-in-content-troubleshooting#included-partials-show-as-plain-text)).
+* **Use Admin.** Under **Configuration → Security → Twig Sandbox**, add your entry to the matching field and save.
+* **Edit `user/config/security.yaml`** as shown above.
+
+Plugin developers can register their own safe members programmatically through the `onBuildTwigSandboxPolicy` event, so a plugin works in sandboxed content without each site having to edit `security.yaml` at all. **This is the durable fix for plugin-provided members**, and it needs no per-site config. See the [Developer Upgrade Guide](../../migration/developer-upgrade-guide#twig-content-sandbox) for the event signature and a worked example.
 
 !!! Only allow members that are safe to run against content authored by anyone with page-edit access. Adding a member to the allow-list is the same trust decision as exposing it in the first place. If a function reads files, evaluates strings, or reaches into Grav's container, leave it off the list.
 
