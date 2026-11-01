@@ -19,12 +19,20 @@ Grav **2.2.18** (October 31, 2026) shipped a large set of security fixes, and se
 
 When the sandbox blocks something, Grav doesn't break the page. It shows the page's content without running its Twig, so the whole body appears with its `{{ ... }}` and `{% ... %}` tags as literal text. One blocked expression anywhere in the page is enough to do that.
 
+![A page showing its include tag as plain text](twig-page-before.png?class=shadow)
+
 ### Fix it in Admin
 
 With **Admin2 2.2.6** and **API 1.1.9** or later, open **Tools → Reports → Twig in Content**. It lists each recent block with the page it happened on and what was blocked, and offers the right fix for it:
 
+![The Twig in Content report with Trust this partial and Add to allowlist buttons](twig-report.png?class=shadow)
+
 * **Blocked inside the included template** with a name such as `partials/teams.html.twig` means your page includes a theme or plugin template that does something content Twig can't. This is by far the most common case after 2.2.18. Click **Trust this partial**, then reload the page. Before you trust a template you didn't write, read [what makes a partial safe to list](#2-list-the-partial-under-trusted-partials).
 * **Add to allowlist** means the block is in the page's own Twig. Before you click it, find what was blocked in the sections below: allowing a filter, function or method opens it to every page editor on the site, and most of them have a better fix.
+
+After **Trust this partial**, the block drops out of the report and the page renders the partial the way your theme does:
+
+![The same page rendering its partial after trusting it](twig-page-after.png?class=shadow)
 
 The **How to fix Twig in content** link in the report brings you back here.
 

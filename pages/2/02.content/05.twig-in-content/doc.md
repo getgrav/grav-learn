@@ -142,8 +142,12 @@ Every silent failure on this page (a gated page, a sandbox block, a page leaking
 
 * **The current state** at a glance: whether the gate and the sandbox are on.
 * **Pages leaking raw Twig.** Any page whose content contains `{{ ... }}` or `{% ... %}` that will not render (because the gate is off, or that page has Twig turned off) is listed with a plain-language reason and a link straight to the page editor.
-* **Recent blocks.** The most recent gate blocks and sandbox blocks, each with the page route and the same hint that goes to the log. A sandbox block carries an **Add to allowlist** button that appends the blocked member to the correct list for you, with the full existing list preserved (see [Customizing the Sandbox](#customizing-the-sandbox)).
+* **Recent blocks.** The most recent gate blocks and sandbox blocks, each listed once with the page route and a hint. A block inside a theme or plugin template that the page includes names that template and carries a **Trust this partial** button, which adds it to `trusted_partials` (Admin2 2.2.6 or later). A block in the page's own Twig carries an **Add to allowlist** button that adds the blocked member to the correct list for you (see [Customizing the Sandbox](#customizing-the-sandbox)).
 * **Scan content.** A button that scans every page's content for tags, filters, and functions the sandbox does not currently allow, so you can see what your content needs *before* you turn the gate on rather than discovering it page by page.
+
+![The Twig in Content report](twig-report.png?class=shadow)
+
+The report links to [Troubleshooting Twig in Content](../twig-in-content-troubleshooting), which covers every change since Grav 2.2.18 and how to fix it.
 
 When you open a page in the editor, the same information appears as an inline banner at the top of that page if its content would leak raw Twig or recently hit a block, with a link to the full report.
 
