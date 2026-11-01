@@ -19,7 +19,18 @@ Grav **2.2.18** (October 31, 2026) shipped a large set of security fixes, and se
 
 When the sandbox blocks something, Grav doesn't break the page. It shows the page's content without running its Twig, so the whole body appears with its `{{ ... }}` and `{% ... %}` tags as literal text. One blocked expression anywhere in the page is enough to do that.
 
-**1. Find the log line.** Open `logs/security.log` and look for the latest `[TwigSandbox]` line with your page's route. The same blocks are listed in Admin under **Tools → Reports → Twig in Content**. A line looks like this:
+### Fix it in Admin
+
+With **Admin2 2.2.6** and **API 1.1.9** or later, open **Tools → Reports → Twig in Content**. It lists each recent block with the page it happened on and what was blocked, and offers the right fix for it:
+
+* **Blocked inside the included template** with a name such as `partials/teams.html.twig` means your page includes a theme or plugin template that does something content Twig can't. This is by far the most common case after 2.2.18. Click **Trust this partial**, then reload the page. Before you trust a template you didn't write, read [what makes a partial safe to list](#2-list-the-partial-under-trusted-partials).
+* **Add to allowlist** means the block is in the page's own Twig. Before you click it, find what was blocked in the sections below: allowing a filter, function or method opens it to every page editor on the site, and most of them have a better fix.
+
+The **How to fix Twig in content** link in the report brings you back here.
+
+### Fix it by hand
+
+**1. Find the log line.** Open `logs/security.log` and look for the latest `[TwigSandbox]` line with your page's route. A line looks like this:
 
 ```text
 grav-security.WARNING: [TwigSandbox] blocked rule=filter token=raw route=/team {"rule":"filter","token":"raw","class":"","route":"/team","extra":"Filter \"raw\" is not allowed in \"partials/teams.html.twig\" at line 7.", ...}
@@ -27,7 +38,7 @@ grav-security.WARNING: [TwigSandbox] blocked rule=filter token=raw route=/team {
 
 **2. Check which template it names.** The `extra` part says where the block happened.
 
-* If it names a theme or plugin template, such as `partials/teams.html.twig`, your page includes that template and the template does something content Twig can't. See [Included partials show as plain text](#included-partials-show-as-plain-text). This is by far the most common case.
+* If it names a theme or plugin template, such as `partials/teams.html.twig`, your page includes that template and the template does something content Twig can't. See [Included partials show as plain text](#included-partials-show-as-plain-text).
 * If it names `@Page:` followed by the page's folder, the block is in the page's own Twig. The `rule` and `token` values tell you what was blocked. Find it in the sections below.
 
 **3. Fix it and reload.** Grav picks up changes to `user/config/security.yaml` on the next request. If the page still shows the old output, clear the cache with `bin/grav clear` or the Admin's clear cache button.
@@ -48,7 +59,7 @@ grep -rhoE "\{%-?[[:space:]]*(include|embed|extends|import|from|use)[[:space:]]+
 Swap `-rhoE` for `-rlE` to list the page files instead. With the Twig gate on, which is the default, every page runs its Twig unless its front matter sets `process.twig: false`, so check them all.
 
 > [!WARNING]
-> The hint at the end of each log line, and the **Add to allowlist** button in the report, always suggest allowing the blocked filter, function or method for all page content. When the block happened inside an included partial, that is the wrong fix. Allowing the `raw` filter, for example, lets every page editor switch off escaping anywhere on the site. Use `trusted_partials` or move the include into your theme instead, as described below.
+> The hint at the end of each log line, and the **Add to allowlist** button in Admin2 before 2.2.6, suggest allowing the blocked filter, function or method for all page content, even when the block happened inside an included partial. That is the wrong fix there. Allowing the `raw` filter, for example, lets every page editor switch off escaping anywhere on the site. Trust the partial or move the include into your theme instead, as described below.
 
 If you are logged in as a super administrator and `security.twig_sandbox.admin_hint` is on, the page source also ends with `<!-- Grav security: Twig sandbox blocked an expression. See logs/security.log for details. -->`.
 
@@ -86,7 +97,7 @@ Check the block name against your theme's `default.html.twig`. Quark 2 uses `con
 
 ### 2. List the partial under `trusted_partials`
 
-If the include has to stay in the content, list the partial in `user/config/security.yaml`:
+If the include has to stay in the content, trust the partial. **In Admin**, click **Trust this partial** next to the block in **Tools → Reports → Twig in Content** (Admin2 2.2.6 or later), which adds it to the list for you. **By hand**, list the partial in `user/config/security.yaml`:
 
 ```yaml
 twig_sandbox:
@@ -110,7 +121,7 @@ What content can pass to a listed partial:
 * **Never an object.** `{% include 'partials/card.html.twig' with {item: page} %}` blocks the page, and the log says `Only plain values can be passed to the trusted partial "partials/card.html.twig" ("item" is not one)`. Pass a route or other plain value instead, or move the include into a template.
 * **Never a name Grav already sets.** A value passed as `page`, `form`, `config` or `grav` is ignored, and the partial gets Grav's own.
 
-There is no field for this list in Admin, so edit the file directly. Saving the Security page in Admin keeps the list as it is.
+The **Security** page in Admin has no field for this list, so use the report or edit the file. Saving the Security page keeps the list as it is.
 
 > [!WARNING]
 > Only list a partial you'd be happy to run with your theme's full powers. Anyone who can edit a page can include it with values of their choosing, so it should print every value it's given with escaping (`{{ message }}`, never `{{ message|raw }}`), and it should not use those values to read things content can't read itself, such as config keys, files or accounts.

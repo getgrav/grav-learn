@@ -167,7 +167,7 @@ The per-class lists (`allowed_methods`, `allowed_properties`) use `class` and `m
 
 You can add a member three ways:
 
-* **Use the report (easiest).** When a member is blocked, the **Twig in Content** report (under **Tools → Reports**) lists it with an **Add to allowlist** button that adds it to the correct list. If the block happened inside a theme or plugin template that the page includes, use `trusted_partials` instead (see [Troubleshooting Twig in Content](../twig-in-content-troubleshooting#included-partials-show-as-plain-text)).
+* **Use the report (easiest).** When a member is blocked, the **Twig in Content** report (under **Tools → Reports**) lists it with an **Add to allowlist** button that adds it to the correct list. If the block happened inside a theme or plugin template that the page includes, the report names the template and offers **Trust this partial** instead (Admin2 2.2.6 or later), which adds it to `trusted_partials`. See [Troubleshooting Twig in Content](../twig-in-content-troubleshooting#included-partials-show-as-plain-text).
 * **Use Admin.** Under **Configuration → Security → Twig Sandbox**, add your entry to the matching field and save.
 * **Edit `user/config/security.yaml`** as shown above.
 
