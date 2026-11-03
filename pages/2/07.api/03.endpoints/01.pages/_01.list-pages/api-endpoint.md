@@ -3,7 +3,7 @@ title: List Pages
 api:
     method: GET
     path: '/pages'
-    description: 'List pages with filtering, sorting, and pagination. Backed by the Flex page directory when available (indexed, cached), falling back to the standard Pages service otherwise. When `translations=true`, each item includes `has_default_file` and `explicit_language_files` so clients can disambiguate real translation files from default-language fallbacks.'
+    description: 'List pages with filtering, sorting, and pagination. Backed by the Flex page directory when available (indexed, cached), falling back to the standard Pages service otherwise. When `translations=true`, each item includes `has_default_file` and `explicit_language_files` so clients can disambiguate real translation files from default-language fallbacks. With page-level permissions, pages the caller may not `read` or `list` are left out and the counts match. In a folder listing (`children_of` or `root`), a folder the caller cannot open is kept when a page they can read is inside it: it comes back with `ancestor_only: true` and only `route`, `raw_route`, `parent_route`, `slug`, `title`, `menu`, `order`, `has_children` and `permissions`. Every row has `ancestor_only` and the caller''s capabilities under `permissions`.'
     parameters:
         - name: page
           type: integer
@@ -53,6 +53,10 @@ api:
           type: boolean
           required: false
           description: '`true` returns only top-level pages (direct children of the pages root, so children of the home page are not counted). `false` returns every page that is not top-level.'
+        - name: editable
+          type: boolean
+          required: false
+          description: '`true` returns only pages the caller can update. In a folder listing, the folders that lead to such a page are kept as `ancestor_only` rows (a folder the caller can read comes back as a full row). Admin2''s **Only List Editable Pages** setting uses it.'
         - name: locate
           type: string
           required: false
@@ -66,7 +70,7 @@ api:
           required: false
           description: 'Include translation metadata on each item: `translated_languages`, `untranslated_languages`, `has_default_file`, `explicit_language_files`.'
     request_example: ''
-    response_example: '{"data": [{"route": "/blog", "slug": "blog", "title": "Blog", "template": "blog", "published": true, "visible": true, "routable": true, "has_children": true, "permissions": {"create": true, "read": true, "update": true, "delete": true, "publish": true, "list": true}}], "meta": {"pagination": {"page": 1, "per_page": 20, "total": 42, "total_pages": 3}}, "links": {"self": "/api/v1/pages?page=1&per_page=20", "next": "/api/v1/pages?page=2&per_page=20", "last": "/api/v1/pages?page=3&per_page=20"}}'
+    response_example: '{"data": [{"route": "/blog", "slug": "blog", "title": "Blog", "template": "blog", "published": true, "visible": true, "routable": true, "has_children": true, "permissions": {"create": true, "read": true, "update": true, "delete": true, "publish": true, "list": true}, "ancestor_only": false}], "meta": {"pagination": {"page": 1, "per_page": 20, "total": 42, "total_pages": 3}}, "links": {"self": "/api/v1/pages?page=1&per_page=20", "next": "/api/v1/pages?page=2&per_page=20", "last": "/api/v1/pages?page=3&per_page=20"}}'
     response_codes:
         - code: '200'
           description: 'Success.'
