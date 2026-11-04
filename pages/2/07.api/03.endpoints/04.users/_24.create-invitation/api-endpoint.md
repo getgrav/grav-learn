@@ -16,7 +16,7 @@ api:
         - name: access
           type: object
           required: false
-          description: 'Permission access object the new account gets. `admin.super` and `api.super` are stripped unless the caller is a super admin.'
+          description: 'Permission access object the new account gets. `admin.super` and `api.super` are stripped unless the caller is a super admin, and a caller who isn''t a super admin can only preset permissions their own account holds.'
         - name: groups
           type: array
           required: false
@@ -41,7 +41,7 @@ api:
         - code: '401'
           description: 'Unauthorized'
         - code: '403'
-          description: 'Forbidden (missing `api.users.write`)'
+          description: 'Forbidden (missing `api.users.write`, or a non-super caller presetting a permission they don''t hold)'
         - code: '409'
           description: 'A user with that email already exists'
         - code: '422'

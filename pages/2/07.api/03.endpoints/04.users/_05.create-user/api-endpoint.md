@@ -32,7 +32,7 @@ api:
         - name: access
           type: object
           required: false
-          description: 'Permission access object. Only a super admin can grant `admin.super` or `api.super`.'
+          description: 'Permission access object. Only a super admin can grant `admin.super` or `api.super`, and a caller who isn''t a super admin can only grant permissions their own account holds.'
         - name: groups
           type: array
           required: false
@@ -45,7 +45,7 @@ api:
         - code: '401'
           description: 'Unauthorized'
         - code: '403'
-          description: 'Forbidden (missing `api.users.write`, or a non-super caller granting super access)'
+          description: 'Forbidden (missing `api.users.write`, or a non-super caller granting super access or a permission they don''t hold)'
         - code: '409'
           description: 'Username already exists'
         - code: '422'

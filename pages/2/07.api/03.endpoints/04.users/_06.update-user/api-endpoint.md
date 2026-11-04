@@ -36,7 +36,7 @@ api:
         - name: access
           type: object
           required: false
-          description: 'Updated permission access object. Requires `api.users.write`; only a super admin can grant super access.'
+          description: 'Updated permission access object. Requires `api.users.write`; only a super admin can grant super access. A caller who isn''t a super admin can only add permissions their own account holds; permissions the account already has are kept as they are, and taking permissions away is always allowed.'
         - name: groups
           type: array
           required: false
@@ -53,7 +53,7 @@ api:
         - code: '401'
           description: 'Unauthorized'
         - code: '403'
-          description: 'Forbidden (missing `api.users.write`, sending `state`/`access`/`groups` without the right permission, or a non-super caller editing a super admin)'
+          description: 'Forbidden (missing `api.users.write`, sending `state`/`access`/`groups` without the right permission, a non-super caller editing a super admin, or a non-super caller granting a permission they don''t hold)'
         - code: '404'
           description: 'User not found'
         - code: '409'
