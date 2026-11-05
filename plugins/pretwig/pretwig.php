@@ -76,7 +76,11 @@ class PretwigPlugin extends Plugin
 
         // Fetch from GPM
         try {
-            $response = Response::get(self::GPM_URL, [], null, 5);
+            // The feed serves the newest release the caller can run, judged by
+            // these hints; without them it answers as Grav 0.0.0 and returns an
+            // old 2.0.x line.
+            $url = self::GPM_URL . '&v=' . rawurlencode(GRAV_VERSION) . '&php=' . rawurlencode(PHP_VERSION);
+            $response = Response::get($url, [], null, 5);
 
             if ($response) {
                 $data = json_decode($response, true);
