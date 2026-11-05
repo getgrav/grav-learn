@@ -163,11 +163,13 @@ class PretwigPlugin extends Plugin
             return $key;
         }, $content);
 
-        // Step 2: Convert pretwig syntax to Twig syntax
+        // Step 2: Convert pretwig syntax to Twig syntax. The delimiters need
+        // whitespace inside them (`<< x >>`, never `<<x>>`), so a literal `<<`
+        // or `>>` in quoted text (regexes, heredocs, `1>> file`) is left alone.
         // << expression >> -> {{ expression }}
-        $content = preg_replace('/<<\s*(.*?)\s*>>/s', '{{ $1 }}', $content);
+        $content = preg_replace('/<<\s+(.*?)\s+>>/s', '{{ $1 }}', $content);
         // <% statement %> -> {% statement %}
-        $content = preg_replace('/<%\s*(.*?)\s*%>/s', '{% $1 %}', $content);
+        $content = preg_replace('/<%\s+(.*?)\s+%>/s', '{% $1 %}', $content);
 
         // Step 3: Process through Twig
         $twig = $this->grav['twig'];
