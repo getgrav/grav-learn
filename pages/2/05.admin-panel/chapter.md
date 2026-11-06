@@ -154,6 +154,17 @@ Super-admins get a separate **Site Defaults** section for **site branding** (lig
 
 ![Admin Next site defaults](admin2-defaults.webp)
 
+### Strict Content Security Policy
+
+Admin Next can send a strict `Content-Security-Policy` header with the admin page. Turn on **Strict Content Security Policy** in the Admin Next plugin settings (`csp.enabled: true` in `user/config/plugins/admin2.yaml`). It needs Admin Next 2.2.10 and API 1.1.14 or later.
+
+With it on, Admin Next puts a fresh nonce on every script it serves and only lets the browser run those scripts and the scripts they load (`'strict-dynamic'`), so an inline script or event handler injected into the page is blocked. Plugin pages, custom fields, dashboard and floating widgets, context panels, modals and reports load as same-origin modules from the API and keep working. Images may come from any `https:` address, because page content in the editor can point anywhere, and the policy also covers what the configured login captcha needs.
+
+To allow more sources, add one directive per line under **Extra Policy Sources** (`csp.extra`), for example `connect-src https://hub.example.com wss://hub.example.com` for a Mercure hub on another host, `img-src https://cdn.example.com`, or `script-src 'unsafe-eval'` for a plugin that runs code from text. A directive the policy already has gets the new sources added, and any other directive is added as written.
+
+> [!NOTE]
+> If your web server already sends its own `Content-Security-Policy` for `/admin`, remove it when you turn this on. Browsers enforce every policy they receive, so a server-wide `script-src 'self'` would still block the admin's nonced scripts.
+
 ## Languages and Direction
 
 Admin Next has a full **ICU MessageFormat** translation layer, with placeholders, plurals, select cases, and CLDR-aware plural categories applied per locale. Every translation key is looked up first as `ICU.<key>` (passed through ICU MessageFormat) and then as `<key>` (returned raw). A plugin can ship a single language file that works on both Grav 1 / classic admin and Grav 2 / Admin Next. See [Admin Translations](/2/plugins/admin-translations) for the details.
