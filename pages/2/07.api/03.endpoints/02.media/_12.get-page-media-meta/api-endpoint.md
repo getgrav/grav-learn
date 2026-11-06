@@ -28,6 +28,6 @@ api:
           description: 'Invalid filename (leading period or `..`)'
 ---
 
-Returns one entry in `fields` for each editable field configured under **Plugins → API → Media Metadata** (`plugins.api.media_metadata.fields`), with its current value. When nothing is configured, the defaults are `alt`, `title`, `caption`, `description` and `tags`. A `text` or `textarea` field's value is a string (empty when unset), and a `tags` field's value is a list of strings.
+Returns one entry in `fields` for each editable field configured under **Plugins → API → Media Metadata** (`plugins.api.media_metadata.fields`), with its current value. The built-in fields `alt`, `title`, `caption`, `description` and `tags` are always included after any fields you configure, unless an entry for that key sets `remove: true` (**Hide from editor** in the settings form). A `text` or `textarea` field's value is a string (empty when unset), and a `tags` field's value is a list of strings.
 
 Any other keys stored in the sidecar (EXIF data, dimensions, upload info) are returned as read-only data in `extra`. `has_meta` says whether a sidecar file exists at all.
