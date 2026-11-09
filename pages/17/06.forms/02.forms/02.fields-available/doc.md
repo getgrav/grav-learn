@@ -236,7 +236,7 @@ Cap works with no configuration at all. The defaults live in your form configura
 [codesh=yaml line-numbers="true"]
 cap:
   mode: invisible             # invisible | checkbox
-  storage: grav-cache         # grav-cache | filesystem
+  storage: files              # files | grav-cache | filesystem
   challenge_count: 50         # number of puzzles per challenge
   challenge_size: 32          # salt size (hex characters)
   challenge_difficulty: 4     # target prefix length (hex characters)
@@ -256,7 +256,7 @@ cap:
 | Option | Description |
 |--------|-------------|
 | `mode` | `invisible` (default) or `checkbox`, see [Modes](#modes) |
-| `storage` | Where outstanding challenges and issued tokens are kept: `grav-cache` (default) uses Grav's cache, `filesystem` uses `user/data/cap/`, which clearing the cache doesn't touch |
+| `storage` | Where outstanding challenges and issued tokens are kept. `files` (default, Form `9.2.0`+) keeps one file per record in `tmp/cap/`, so each token is used only once, even when a bot sends many copies of a form at the same moment. `grav-cache` uses Grav's cache, but only with a Redis or Memcached cache, which several servers can share; it can't guarantee single use, and with any other cache driver `files` is used instead. `filesystem` keeps everything in one file in `user/data/cap/`, which gets slow with many records |
 | `challenge_count` | How many puzzles make up one challenge. The work grows in step with it |
 | `challenge_size` | Length of each puzzle's salt in hex characters |
 | `challenge_difficulty` | How many leading hex characters each answer must match. Every step up makes the work **16 times** harder for every visitor, so leave it at `4` and rely on `adaptive` to slow down floods |
