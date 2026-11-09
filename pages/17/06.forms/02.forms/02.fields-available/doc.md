@@ -200,7 +200,7 @@ form:
 The shorthand `type: cap` works too, in place of `type: captcha` with `provider: cap`.
 
 > [!WARNING]
-> The field only puts the captcha on the page. The `captcha: true` process action is what checks the answer on the server, so without it every submission gets through. Make it the first entry in `process:`, so a failed check stops the form before it's emailed or saved. As of Form `9.1.41`, a form that has a captcha field but no captcha process action is checked anyway and a warning is logged, but you should still add it.
+> The field only puts the captcha on the page. The `captcha: true` process action is what checks the answer on the server, so without it every submission gets through. Make it the first entry in `process:`, so a failed check stops the form before it's emailed or saved. As of Form `9.2.0`, a form that has a captcha field but no captcha process action is checked anyway and a warning is logged, but you should still add it.
 
 #### Modes
 
@@ -241,11 +241,15 @@ cap:
   challenge_size: 32          # salt size (hex characters)
   challenge_difficulty: 4     # target prefix length (hex characters)
   expires_ms: 600000          # how long a challenge stays valid, in milliseconds
-  adaptive: true              # repeat submissions from one IP get harder (Form 9.1.41+)
+  adaptive: true              # repeat submissions from one IP get harder (Form 9.2.0+)
   adaptive_free: 10           # submissions per IP per window at the normal cost
   adaptive_window: 600        # window length in seconds
   adaptive_max_level: 8       # how many times the work can double; 8 = up to 256x
   min_time: 3                 # seconds a form must be on the page before it can be sent; 0 turns it off
+  instrumentation: true       # run a browser check with every challenge (Form 9.2.0+)
+  block_automated_browsers: true  # refuse headless and automated browsers the check finds
+  behavior: off               # off | report | block: experimental mouse and keyboard check
+  block_agents: off           # off | identified | all: refuse AI browsing agents (needs behavior on)
 [/codesh]
 
 [div class="table table-keycol"]
@@ -257,16 +261,34 @@ cap:
 | `challenge_size` | Length of each puzzle's salt in hex characters |
 | `challenge_difficulty` | How many leading hex characters each answer must match. Every step up makes the work **16 times** harder for every visitor, so leave it at `4` and rely on `adaptive` to slow down floods |
 | `expires_ms` | How long an issued challenge can still be solved |
-| `adaptive` | Turns the adaptive cost on or off (Form `9.1.41`+) |
+| `adaptive` | Turns the adaptive cost on or off (Form `9.2.0`+) |
 | `adaptive_free` | Submissions one IP address can send per window before its challenges get harder |
 | `adaptive_window` | How long submissions from one IP address keep counting, in seconds |
 | `adaptive_max_level` | How many times the work can double. `8` means up to 256 times the normal cost |
-| `min_time` | Seconds a form has to be on the page before it can be sent (Form `9.1.41`+). Bots usually send at once. `0` turns it off |
+| `min_time` | Seconds a form has to be on the page before it can be sent (Form `9.2.0`+). Bots usually send at once. `0` turns it off |
+| `instrumentation` | Runs a browser check with every challenge (Form `9.2.0`+), see [Browser Check](#browser-check) |
+| `block_automated_browsers` | Refuses the form when the browser check finds a headless or automated browser. Off, the check still runs and only logs what it finds |
+| `behavior` | `off` (default), `report` or `block`. Experimental: scores how the mouse and keyboard were used on the page, never what was typed |
+| `block_agents` | `off` (default), `identified` or `all`. Refuses AI browsing agents; needs `behavior` on |
 [/div]
+
+#### Browser Check
+
+Proof-of-work alone can be solved by a script that never runs a browser. As of Form `9.2.0`, every Cap challenge also carries a small script, freshly generated for each challenge, that the visitor's browser runs alongside the puzzles. The server checks its answer before issuing a token, so:
+
+* a script that only solves the proof-of-work is refused, because it never runs the check;
+* headless and automated browsers (Puppeteer, Playwright, Selenium and similar) are refused when `block_automated_browsers` is on, which is the default.
+
+Real visitors don't see or do anything different. Set `block_automated_browsers: false` to only log what the check finds, or `instrumentation: false` to turn the check off.
+
+The optional **behavior check** (`behavior: report` or `block`) goes further: it scores how the mouse and keyboard were used on the page, never what was typed, and can refuse forms that look scripted. With `block_agents`, it also refuses AI browsing agents. It is experimental, so start with `report` and watch the Grav log before switching to `block`.
+
+> [!NOTE]
+> The browser check needs PHP 8.1 and the Cap library 1.1.0 or newer, which the Form plugin `9.2.0` and the API plugin `1.1.17` ship. A site with an older API plugin installed may load the older library, and then Cap runs without the browser check until the API plugin is updated too. A strict Content Security Policy has to allow the check's script; see the [Cap documentation](https://capjs.js.org/guide/instrumentation.html?target=_blank).
 
 #### Protection Against Floods
 
-On its own, proof-of-work only adds about a second of work per submission, which a determined spammer can afford. As of Form `9.1.41`, Cap adds three checks that make floods expensive without slowing down real visitors:
+On its own, proof-of-work only adds about a second of work per submission, which a determined spammer can afford. As of Form `9.2.0`, Cap adds three checks that make floods expensive without slowing down real visitors:
 
 1. **Adaptive cost**: every submission from an IP address counts, whether it passes or not. Once an address has sent more than `adaptive_free` submissions in `adaptive_window` seconds, each further one doubles the work in its challenges, up to `adaptive_max_level` doublings. A token solved before the cost went up is refused, so a bot can't stock up on cheap tokens and spend them later. Someone sending a message or two never notices.
 2. **Tokens tied to their form**: each form has its own Cap endpoint, and a token only works on the form that asked for it.
@@ -278,7 +300,7 @@ On its own, proof-of-work only adds about a second of work per submission, which
 #### Good to Know
 
 * Cap's challenge and verification requests go to `/forms-cap/` on your own site as `POST` requests. A firewall, CDN rule or security plugin that blocks or caches `/forms-cap/` stops the captcha from working.
-* Cap makes bots pay for every submission, but a real browser driven by a script can still solve it. Add a [Honeypot field](#honeypot-field) alongside it, which costs your visitors nothing and catches many simple bots.
+* Cap makes bots pay for every submission, and the browser check refuses most automated browsers, but a determined attacker driving a real, unmodified browser can still get through. Add a [Honeypot field](#honeypot-field) alongside it, which costs your visitors nothing and catches many simple bots.
 * Other plugins, such as Forum Pro, reuse Cap from the Form plugin for their own sign-up and login forms.
 
 [div class="table"]

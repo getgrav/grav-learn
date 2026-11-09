@@ -201,7 +201,7 @@ For Google reCAPTCHA you can also set a form-specific secret here:
 > The `recaptcha_secret` is optional and will use the Form plugin's configuration values if you have provided them there.
 
 > [!NOTE]
-> As of Form `9.1.41`, a form that has a captcha field but no captcha process action is checked anyway and a warning is logged.
+> As of Form `9.2.0`, a form that has a captcha field but no captcha process action is checked anyway and a warning is logged.
 
 ### User IP Address
 
