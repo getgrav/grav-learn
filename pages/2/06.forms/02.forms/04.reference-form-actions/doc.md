@@ -182,7 +182,14 @@ process:
 
 ### Captcha
 
-To also validate the captcha server-side, add the captcha process action.
+Checks the form's captcha on the server, whichever provider it uses: [Cap](/2/forms/forms/fields-available#cap-captcha-field-proof-of-work), [Turnstile](/2/forms/forms/fields-available#turnstile-captcha-field-cloudflare), [Google reCAPTCHA](/2/forms/forms/fields-available#google-captcha-field-recaptcha) or [Basic-Captcha](/2/forms/forms/fields-available#basic-captcha-field). The captcha field only puts the captcha on the page, so without this action every submission gets through. Make it the first action, so a failed check stops the form before anything is emailed or saved.
+
+[codesh=yaml line-numbers="true"]
+    process:
+        - captcha: true
+[/codesh]
+
+For Google reCAPTCHA you can also set a form-specific secret here:
 
 [codesh=yaml line-numbers="true"]
     process:
@@ -192,6 +199,9 @@ To also validate the captcha server-side, add the captcha process action.
 
 > [!CAUTION]
 > The `recaptcha_secret` is optional and will use the Form plugin's configuration values if you have provided them there.
+
+> [!NOTE]
+> As of Form `9.1.41`, a form that has a captcha field but no captcha process action is checked anyway and a warning is logged.
 
 ### User IP Address
 

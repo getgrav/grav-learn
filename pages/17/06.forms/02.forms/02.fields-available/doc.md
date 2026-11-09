@@ -149,6 +149,147 @@ avatar_preview:
 
 ---
 
+### Cap Captcha Field (Proof-of-Work)
+
+Added in Form `9.0.0`, Cap is the recommended captcha for Grav forms. It's a **proof-of-work** captcha: instead of asking the visitor to read distorted text or pick out traffic lights, the visitor's browser solves a batch of small SHA-256 puzzles in the background. That costs one real visitor about a second, but adds up quickly for a bot sending the form over and over.
+
+Cap runs entirely inside Grav. The challenge server is [`cap-php`](https://github.com/trilbymedia/cap-php?target=_blank), a PHP port of the open source [Cap](https://capjs.js.org?target=_blank) server that works with the official Cap widget, and the widget and its files are served from your own site. There's no third party service, no account, no keys to configure, and nothing that tracks your visitors, which also keeps it simple under **GDPR**.
+
+> [!NOTE]
+> Cap needs **PHP 8.1** or newer. On older PHP a form with a Cap field is refused rather than sent without a check, so pick another captcha there.
+
+#### Adding Cap to a Form
+
+Add a `captcha` field with `provider: cap`, and put `captcha: true` first in the `process:` section:
+
+[codesh=yaml line-numbers="true" highlight="19-21,27"]
+form:
+  name: contact
+  fields:
+    name:
+      label: Name
+      type: text
+      validate:
+        required: true
+    email:
+      label: Email
+      type: email
+      validate:
+        required: true
+    message:
+      label: Message
+      type: textarea
+      validate:
+        required: true
+    captcha:
+      type: captcha
+      provider: cap
+  buttons:
+    submit:
+      type: submit
+      value: Submit
+  process:
+    captcha: true
+    email:
+      subject: "[Acme] {{ form.value.name|e }}"
+      reply_to: "{{ form.value.name|e }} <{{ form.value.email }}>"
+    message: Thanks for contacting us!
+    reset: true
+[/codesh]
+
+The shorthand `type: cap` works too, in place of `type: captcha` with `provider: cap`.
+
+> [!WARNING]
+> The field only puts the captcha on the page. The `captcha: true` process action is what checks the answer on the server, so without it every submission gets through. Make it the first entry in `process:`, so a failed check stops the form before it's emailed or saved. As of Form `9.1.41`, a form that has a captcha field but no captcha process action is checked anyway and a warning is logged, but you should still add it.
+
+#### Modes
+
+Cap is invisible by default. You can show a checkbox instead, for every form in the plugin configuration or for one form with `mode` on the field.
+
+[div class="table table-keycol"]
+| Mode | Behavior |
+|------|----------|
+| `invisible` | Default. Nothing is shown. The browser starts solving as soon as the page loads, so the answer is usually ready before the visitor clicks submit. A page left open for a long time solves again on submit. |
+| `checkbox` | Shows a "Verify you're human" checkbox. The browser solves when the visitor clicks it. |
+[/div]
+
+[codesh=yaml line-numbers="true"]
+captcha:
+  type: captcha
+  provider: cap
+  mode: checkbox
+  captcha_not_validated: 'Please verify you are human and try again.'
+[/codesh]
+
+[div class="table table-keycol"]
+| Attribute | Description |
+| :----- | :----- |
+| `provider` | `cap` (when `type` is `captcha`) |
+| `mode` | `invisible` or `checkbox`, overriding the global `cap.mode` for this field (optional) |
+| `captcha_not_validated` | The message to show when the check fails (optional, the Form plugin provides a default) |
+[/div]
+
+#### Global Configuration
+
+Cap works with no configuration at all. The defaults live in your form configuration file (typically `user/config/plugins/form.yaml`), and the same settings are in the Form plugin's settings in the admin:
+
+[codesh=yaml line-numbers="true"]
+cap:
+  mode: invisible             # invisible | checkbox
+  storage: grav-cache         # grav-cache | filesystem
+  challenge_count: 50         # number of puzzles per challenge
+  challenge_size: 32          # salt size (hex characters)
+  challenge_difficulty: 4     # target prefix length (hex characters)
+  expires_ms: 600000          # how long a challenge stays valid, in milliseconds
+  adaptive: true              # repeat submissions from one IP get harder (Form 9.1.41+)
+  adaptive_free: 10           # submissions per IP per window at the normal cost
+  adaptive_window: 600        # window length in seconds
+  adaptive_max_level: 8       # how many times the work can double; 8 = up to 256x
+  min_time: 3                 # seconds a form must be on the page before it can be sent; 0 turns it off
+[/codesh]
+
+[div class="table table-keycol"]
+| Option | Description |
+|--------|-------------|
+| `mode` | `invisible` (default) or `checkbox`, see [Modes](#modes) |
+| `storage` | Where outstanding challenges and issued tokens are kept: `grav-cache` (default) uses Grav's cache, `filesystem` uses `user/data/cap/`, which clearing the cache doesn't touch |
+| `challenge_count` | How many puzzles make up one challenge. The work grows in step with it |
+| `challenge_size` | Length of each puzzle's salt in hex characters |
+| `challenge_difficulty` | How many leading hex characters each answer must match. Every step up makes the work **16 times** harder for every visitor, so leave it at `4` and rely on `adaptive` to slow down floods |
+| `expires_ms` | How long an issued challenge can still be solved |
+| `adaptive` | Turns the adaptive cost on or off (Form `9.1.41`+) |
+| `adaptive_free` | Submissions one IP address can send per window before its challenges get harder |
+| `adaptive_window` | How long submissions from one IP address keep counting, in seconds |
+| `adaptive_max_level` | How many times the work can double. `8` means up to 256 times the normal cost |
+| `min_time` | Seconds a form has to be on the page before it can be sent (Form `9.1.41`+). Bots usually send at once. `0` turns it off |
+[/div]
+
+#### Protection Against Floods
+
+On its own, proof-of-work only adds about a second of work per submission, which a determined spammer can afford. As of Form `9.1.41`, Cap adds three checks that make floods expensive without slowing down real visitors:
+
+1. **Adaptive cost**: every submission from an IP address counts, whether it passes or not. Once an address has sent more than `adaptive_free` submissions in `adaptive_window` seconds, each further one doubles the work in its challenges, up to `adaptive_max_level` doublings. A token solved before the cost went up is refused, so a bot can't stock up on cheap tokens and spend them later. Someone sending a message or two never notices.
+2. **Tokens tied to their form**: each form has its own Cap endpoint, and a token only works on the form that asked for it.
+3. **Minimum time**: the form carries a signed timestamp of when it was put on the page. A submission sent within `min_time` seconds is refused with a message asking the visitor to send it again.
+
+> [!WARNING]
+> The adaptive cost counts by IP address, so Grav has to see the visitor's real address. Behind Cloudflare or another proxy, restore the visitor IP in the web server (nginx `real_ip`, Apache `mod_remoteip`). Otherwise every visitor arriving through the same proxy address shares one count. Only switch on the matching `system.http_x_forwarded` option when nothing but the proxy can reach the server, because visitors can send those headers themselves.
+
+#### Good to Know
+
+* Cap's challenge and verification requests go to `/forms-cap/` on your own site as `POST` requests. A firewall, CDN rule or security plugin that blocks or caches `/forms-cap/` stops the captcha from working.
+* Cap makes bots pay for every submission, but a real browser driven by a script can still solve it. Add a [Honeypot field](#honeypot-field) alongside it, which costs your visitors nothing and catches many simple bots.
+* Other plugins, such as Forum Pro, reuse Cap from the Form plugin for their own sign-up and login forms.
+
+[div class="table"]
+| Common Attributes Allowed                      |
+| :-----                                         |
+| [name](#common-fields-attributes)              |
+| [outerclasses](#common-fields-attributes)      |
+[/div]
+
+---
+
 ### Basic-Captcha Field
 
 Added in Forms `7.0.0` as an local alternative to the Google ReCaptcha field.  This field is particularly handy when dealing with SPAM in contact forms when you don't want to deal with the hassle or perhaps GPDR restrictions that come with Google's offering. It uses **OCR-resistant** fonts to deter attacks, and can be configured with codes to be copied, or simple math questions.

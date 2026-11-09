@@ -57,9 +57,9 @@ form:
           validate:
             required: true
 
-        g-recaptcha-response:
-          label: Captcha
+        captcha:
           type: captcha
+          provider: cap
           captcha_not_validated: 'Captcha not valid!'
 
     buttons:
@@ -91,8 +91,8 @@ Some sample page content
 > [!NOTE]
 > Make sure you configured the "Email from" and "Email to" email addresses in the Email plugin with your email address
 
-> [!CAUTION]
-> This example uses Google reCAPTCHA via the [captcha field](https://learn.getgrav.org/forms/forms/fields-available#captcha-field), and you should configure your `site_key` and `secret_key` in the form plugin in order for this to work.  If you don't want to use Google reCaptcha, simply remove the `g-recaptcha-response` field and the `captcha: true` process.
+> [!NOTE]
+> This example uses the [Cap captcha](/17/forms/forms/fields-available#cap-captcha-field-proof-of-work), which runs on your own site and needs no keys or account (PHP 8.1 or newer). The `captcha: true` process action is what checks it on the server, so keep it first in `process:`. To use [Turnstile](/17/forms/forms/fields-available#turnstile-captcha-field-cloudflare) or [Google reCAPTCHA](/17/forms/forms/fields-available#google-captcha-field-recaptcha) instead, change the captcha field as described there. To go without a captcha, remove both the `captcha` field and the `captcha: true` process action.
 
 Now within your contact page folder create a subfolder named `thankyou/`, create a new file named `formdata.md`. And paste the following code into the file:
 
