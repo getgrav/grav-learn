@@ -2,16 +2,16 @@
 title: Permissions
 taxonomy:
     category: docs
-description: Which accounts can see Forms Pro, build forms and read entries. Lists the four permissions and the parent key, what each allows in Admin Next and the REST API, and sample groups.
+description: Which accounts can see Forms Pro, build forms and read entries. Lists the four permissions and the parent key, what each allows in Admin2 and the REST API, and sample groups.
 ---
 
 # Permissions
 
-Forms Pro adds permissions to Grav's account system, so you decide who can build forms and who can only handle what visitors sent. They apply to Admin Next and the [REST API](../rest-api). Anyone on the public site can fill in and send a form, whatever their account.
+Forms Pro adds permissions to Grav's account system, so you decide who can build forms and who can only handle what visitors sent. They apply to Admin2 and the [REST API](../rest-api). Anyone on the public site can fill in and send a form, whatever their account.
 
 ## The permissions
 
-An account needs `api.access` (the general permission to use Admin Next and the API) plus one or more of these. Super users have all of them.
+An account needs `api.access` (the general permission to use Admin2 and the API) plus one or more of these. Super users have all of them.
 
 | Permission | Label in the account editor | Allows |
 |---|---|---|
@@ -30,7 +30,7 @@ Some actions need two permissions:
 
 ## What each account sees
 
-Admin Next hides what an account cannot use, so people are not offered buttons that would only fail.
+Admin2 hides what an account cannot use, so people are not offered buttons that would only fail.
 
 - **Forms Pro** appears in the sidebar for an account with `forms.read`, `submissions.read` or `api.forms-pro`.
 - An account with `forms.read` and `forms.write` sees the builder with a **Save** button.
@@ -63,7 +63,7 @@ access:
 
 ## Permissions on forms and the site
 
-- The permissions govern what an account can do in Admin Next and through the REST API. They do not hide a form from site visitors. A form is public wherever you embed it.
+- The permissions govern what an account can do in Admin2 and through the REST API. They do not hide a form from site visitors. A form is public wherever you embed it.
 - Entries hold what visitors typed, often personal data. Give `submissions.read` to as few people as needed, and remember that anyone with it can export every entry of every form.
 - There are no permissions for a single form. The four apply to all forms.
 - The **Call Function** action runs PHP, so it is hidden unless **Expose Call Action** is on in the plugin settings, whatever the permissions. See [Configuration](../configuration).

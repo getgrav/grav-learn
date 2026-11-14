@@ -7,7 +7,7 @@ description: Build a contact form, put it on a page, send a test message, read t
 
 # Getting Started
 
-This page builds a small contact form from nothing: you create it, add four fields, put it on a page, send a test message and read it in Admin Next. It ends with an email notification and a look at the YAML the builder wrote.
+This page builds a small contact form from nothing: you create it, add four fields, put it on a page, send a test message and read it in Admin2. It ends with an email notification and a look at the YAML the builder wrote.
 
 ## Before you begin
 
@@ -15,7 +15,7 @@ Forms Pro is installed and your account has the Forms Pro permissions (see [Inst
 
 ## Create the form
 
-1. Open **Forms Pro** in the Admin Next sidebar. The **Forms** section lists every form, newest first.
+1. Open **Forms Pro** in the Admin2 sidebar. The **Forms** section lists every form, newest first.
 2. Click **New Form**, type a **Title** such as `Contact Us` and click **Create**.
 
 The title becomes the form's name: `Contact Us` is saved as `contact-us`, and that name is what you use to embed it. The builder opens on the **Build** tab with a starter form:
@@ -51,7 +51,7 @@ Save the page and open it on your site. The form works as soon as it is on a pag
 
 Fill in the form and send it. You see the confirmation message, and the form stays on the page with your answers in it. Add a **Reset Form** action, or switch to a **Redirect** action, if you want a clean form or a thank-you page after sending (see [Actions and notifications](../actions-and-notifications#response-actions)).
 
-Back in Admin Next, the **Forms Pro** item in the sidebar now shows a badge with the number of unread entries. Open the form and click its **Entries** tab. Your submission is listed with a **New** status. Click it to read every answer under its label. Opening an entry marks it **Read**. [Entries](../entries) covers searching, stars, notes and export.
+Back in Admin2, the **Forms Pro** item in the sidebar now shows a badge with the number of unread entries. Open the form and click its **Entries** tab. Your submission is listed with a **New** status. Click it to read every answer under its label. Opening an entry marks it **Read**. [Entries](../entries) covers searching, stars, notes and export.
 
 ## Send yourself an email
 

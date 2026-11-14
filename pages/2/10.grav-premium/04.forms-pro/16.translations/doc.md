@@ -11,7 +11,7 @@ Forms Pro ships in English. Everything it says is stored as language strings und
 
 ## Where the strings are
 
-The plugin's strings are in `user/plugins/forms-pro/languages/en.yaml`. They cover the builder in Admin Next, the field and action catalog, messages from the API and the validator, and the text visitors see on the form. A few of the visitor-facing ones:
+The plugin's strings are in `user/plugins/forms-pro/languages/en.yaml`. They cover the builder in Admin2, the field and action catalog, messages from the API and the validator, and the text visitors see on the form. A few of the visitor-facing ones:
 
 | Key | English text |
 |---|---|
@@ -42,7 +42,7 @@ Files in `user/languages/` win over a plugin's own, and an update to Forms Pro d
 Which language a person gets depends on who they are:
 
 - A visitor gets the site's active language, for example from a `/de` route when your site has several languages (see the language settings under **Configuration**).
-- The builder and the messages the API sends back to it use the language of the logged-in Admin Next user.
+- The builder and the messages the API sends back to it use the language of the logged-in Admin2 user.
 
 Number formats follow the active language too, so a Calculation shows `1.234,50` on a German page and `1,234.50` on an English one (see [Calculations](../calculations)).
 

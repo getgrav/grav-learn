@@ -84,7 +84,7 @@ These record or keep information about the submission.
 
 | Action | What it does | Options |
 |---|---|---|
-| **Store Submission** (`submission`) | Saves the answers as an entry in Admin Next. A new form starts with it. Without it no entries are kept. See [Entries](../entries). | On or off. |
+| **Store Submission** (`submission`) | Saves the answers as an entry in Admin2. A new form starts with it. Without it no entries are kept. See [Entries](../entries). | On or off. |
 | **Timestamp** (`timestamp`) | Adds the date and time of the submission to the data, as a field named `timestamp`. | **Field Label** (default `Timestamp`), **Date Format** (a PHP date format, default `Y-m-d H:i:s`). |
 | **User IP** (`ip`) | Adds the visitor's IP address to the data, as a field named `ip`. | **Field Label** (default `User IP`). |
 | **Process Uploads** (`upload`) | Moves uploaded files from their temporary place to each file field's **Destination**. Needed for files to be kept. See [Entries](../entries#files). | On or off. |

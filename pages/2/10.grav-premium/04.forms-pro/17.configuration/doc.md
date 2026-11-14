@@ -2,14 +2,14 @@
 title: Configuration
 taxonomy:
     category: docs
-description: The Forms Pro plugin settings in Admin Next and in user/config/plugins/forms-pro.yaml. Covers the built-in stylesheet, entry privacy options, the shortcode, the Call Function action, webhook limits and the storage folders.
+description: The Forms Pro plugin settings in Admin2 and in user/config/plugins/forms-pro.yaml. Covers the built-in stylesheet, entry privacy options, the shortcode, the Call Function action, webhook limits and the storage folders.
 ---
 
 # Configuration
 
-The plugin's settings apply to every form. Open **Plugins** in Admin Next, choose **Forms Pro**, and change them there, or write them in `user/config/plugins/forms-pro.yaml`. Settings that belong to one form, such as its buttons and spam protection, are on the form's own [Settings tab](../settings-tab).
+The plugin's settings apply to every form. Open **Plugins** in Admin2, choose **Forms Pro**, and change them there, or write them in `user/config/plugins/forms-pro.yaml`. Settings that belong to one form, such as its buttons and spam protection, are on the form's own [Settings tab](../settings-tab).
 
-The settings with a switch in Admin Next:
+The settings with a switch in Admin2:
 
 | Setting | YAML key | Default | What it does |
 |---|---|---|---|

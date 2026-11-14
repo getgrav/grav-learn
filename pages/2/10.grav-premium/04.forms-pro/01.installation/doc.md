@@ -11,7 +11,7 @@ This page gets Forms Pro installed and shows where it keeps your forms and the e
 
 ## Before you begin
 
-- Grav 2.0.4 or newer, with Admin Next (`admin2` 2.0.11 or newer) and the API plugin (1.0.8 or newer).
+- Grav 2.0.4 or newer, with Admin2 (2.0.11 or newer) and the API plugin (1.0.8 or newer).
 - PHP 8.3 or newer.
 - The Form plugin 9.2.1 or newer, which processes every form, and the Email plugin 5.0.1 or newer if you want notifications.
 - The Shortcode Core plugin if you want to embed forms with a shortcode.
@@ -25,7 +25,7 @@ Install through GPM like any other plugin:
 bin/gpm install forms-pro
 ```
 
-You can also install it from **Plugins** in Admin Next. Once enabled, Forms Pro adds a **Forms Pro** item to the Admin Next sidebar, with an **Entries** item under it and a badge that counts unread entries.
+You can also install it from **Plugins** in Admin2. Once enabled, Forms Pro adds a **Forms Pro** item to the Admin2 sidebar, with an **Entries** item under it and a badge that counts unread entries.
 
 To enable it by hand, set `enabled: true` in `user/config/plugins/forms-pro.yaml`.
 
@@ -56,7 +56,7 @@ Back up `user/data/forms-pro/` with the rest of your site. A form file is plain 
 
 ## Give your team access
 
-Reaching Forms Pro in Admin Next takes `api.access`, plus one or more Forms Pro permissions. Super users have all of them. Create groups in Admin Next under **Accounts** for everyone else:
+Reaching Forms Pro in Admin2 takes `api.access`, plus one or more Forms Pro permissions. Super users have all of them. Create groups in Admin2 under **Accounts** for everyone else:
 
 | Group | Permissions |
 |---|---|
@@ -67,7 +67,7 @@ An account that can only handle entries sees an **Entries** section and no build
 
 ## First checks
 
-1. Open Admin Next. **Forms Pro** is in the sidebar for any account with a Forms Pro permission.
+1. Open Admin2. **Forms Pro** is in the sidebar for any account with a Forms Pro permission.
 2. Click **New Form**, give it a title and click **Create**. The builder opens on a starter form.
 3. Click **Embed** to copy the shortcode, and put it on a page. [Getting started](../getting-started) walks through the whole round trip.
 

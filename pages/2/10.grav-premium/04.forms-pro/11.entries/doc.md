@@ -7,7 +7,7 @@ description: Read, search, star, annotate, export and delete the submissions you
 
 # Entries
 
-An entry is one stored submission. Forms Pro keeps entries for every form that has a **Store Submission** action (see [Actions and notifications](../actions-and-notifications#data-actions)), and shows them in Admin Next, so you can read, sort and export what visitors sent without opening a file or an email.
+An entry is one stored submission. Forms Pro keeps entries for every form that has a **Store Submission** action (see [Actions and notifications](../actions-and-notifications#data-actions)), and shows them in Admin2, so you can read, sort and export what visitors sent without opening a file or an email.
 
 ## Where to find them
 
@@ -57,7 +57,7 @@ Entries are changed by people with the Manage Submissions permission. Someone wh
 
 ## Files
 
-When a form has file fields and a **Process Uploads** action, each entry lists the files that came with it, under the field that received them, with the size of each. Click a file's name to download it. The download goes through Admin Next with your login, so only people who may read entries can fetch it, and the browser always downloads the file under its original name and never opens it in the page.
+When a form has file fields and a **Process Uploads** action, each entry lists the files that came with it, under the field that received them, with the size of each. Click a file's name to download it. The download goes through Admin2 with your login, so only people who may read entries can fetch it, and the browser always downloads the file under its original name and never opens it in the page.
 
 A file is shown as unavailable if it has since been moved or deleted from the folder it was saved to. An entry stored before uploads were recorded lists the file's name but cannot offer it for download.
 

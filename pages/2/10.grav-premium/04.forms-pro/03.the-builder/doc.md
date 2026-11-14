@@ -2,7 +2,7 @@
 title: The Builder
 taxonomy:
     category: docs
-description: A tour of the Forms Pro builder in Admin Next - the forms list, the palette, canvas and property panel, nesting, undo and redo, and saving.
+description: A tour of the Forms Pro builder in Admin2 - the forms list, the palette, canvas and property panel, nesting, undo and redo, and saving.
 ---
 
 # The Builder
@@ -13,7 +13,7 @@ The builder is where you design a form. This page walks through the forms list, 
 
 ## The forms list
 
-**Forms Pro** in the Admin Next sidebar opens the **Forms** section, a grid of cards. Each card shows the form's title, its name, how many fields it has and when it was last updated. Use the search box to filter by title or name. The sidebar item has an **Entries** item under it, and the page has an **Entries** section next to **Forms**, for accounts that handle entries (see [Entries](../entries)).
+**Forms Pro** in the Admin2 sidebar opens the **Forms** section, a grid of cards. Each card shows the form's title, its name, how many fields it has and when it was last updated. Use the search box to filter by title or name. The sidebar item has an **Entries** item under it, and the page has an **Entries** section next to **Forms**, for accounts that handle entries (see [Entries](../entries)).
 
 The menu on a card offers:
 

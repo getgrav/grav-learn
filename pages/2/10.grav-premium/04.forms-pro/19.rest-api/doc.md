@@ -7,7 +7,7 @@ description: Read and manage Forms Pro forms and entries over HTTP. Covers authe
 
 # REST API
 
-Forms Pro adds endpoints to Grav's [API plugin](../../../api), under `/api/v1/forms-pro`. Admin Next uses the same endpoints for the builder and the entries list, so anything you can do there you can do from a script: pull new entries into another system, mark them read, export them, or create forms from a template.
+Forms Pro adds endpoints to Grav's [API plugin](../../../api), under `/api/v1/forms-pro`. Admin2 uses the same endpoints for the builder and the entries list, so anything you can do there you can do from a script: pull new entries into another system, mark them read, export them, or create forms from a template.
 
 All requests need an account with `api.access` and the Forms Pro permission the endpoint asks for (see [Permissions](../permissions)). Every example below was run against a live site.
 
@@ -90,7 +90,7 @@ A value that is not allowed for `sort` or `status` gets a `422` naming the allow
 
 ### One entry
 
-`GET /forms/{name}/submissions/{id}` returns the stored record and a `display` list, which is the entry as Admin Next shows it, with labels and readable text, in form order:
+`GET /forms/{name}/submissions/{id}` returns the stored record and a `display` list, which is the entry as Admin2 shows it, with labels and readable text, in form order:
 
 ```json
 {
@@ -180,7 +180,7 @@ curl -s -X PUT -H "X-API-Token: $TOKEN" -H 'Content-Type: application/json' \
   https://example.com/api/v1/forms-pro/forms/newsletter
 ```
 
-If the form changed since then, the answer is `409 Conflict`. `If-Match` is optional, and without it the new definition always replaces the old one. Admin Next sends it, which is how the builder can tell you that a form changed elsewhere and must be reloaded before saving.
+If the form changed since then, the answer is `409 Conflict`. `If-Match` is optional, and without it the new definition always replaces the old one. Admin2 sends it, which is how the builder can tell you that a form changed elsewhere and must be reloaded before saving.
 
 The definition is checked before it is saved, with the same rules as the builder. A bad one gets a `422` with the problems in `errors`, each with its `field` path such as `process.0.redirect`. The checks include:
 

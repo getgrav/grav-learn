@@ -21,7 +21,7 @@ Look at the page, then its source:
 | An HTML comment that says the Form plugin is turned off | Enable the Form plugin. Forms Pro depends on it. |
 | Nothing at all, and the page uses `forms_pro:` in its header | The page's template does not draw forms. Name the file `form.md`, or use the shortcode or Twig function instead. |
 | Nothing at all, and the form is embedded with the shortcode | **Enable Shortcode** may be off in the plugin's settings. Turn it on. |
-| The page shows the form's old version after you saved | Clear the cache with `bin/grav clear`. Saving in Admin Next does this for you. A change made to the YAML file by hand does not. |
+| The page shows the form's old version after you saved | Clear the cache with `bin/grav clear`. Saving in Admin2 does this for you. A change made to the YAML file by hand does not. |
 
 See [Embedding](../embedding) for the three methods.
 
@@ -87,7 +87,7 @@ The formula editor's **Try it** box shows what a formula gives for values you ty
 - **A required option is missing.** The Actions tab shows how many, and the cards in red. **Save** stays off until they are filled in.
 - **A logic rule is incomplete.** A rule needs a field and a value, or use **is empty**. Finish or remove it.
 
-## Admin Next
+## Admin2
 
 - **Forms Pro is not in the sidebar.** The account needs `api.access` and a Forms Pro permission (see [Permissions](../permissions)).
 - **The builder is read-only.** The account has `forms.read` but not `forms.write`.
