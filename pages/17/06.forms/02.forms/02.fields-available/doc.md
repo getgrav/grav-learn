@@ -202,6 +202,9 @@ The shorthand `type: cap` works too, in place of `type: captcha` with `provider:
 > [!WARNING]
 > The field only puts the captcha on the page. The `captcha: true` process action is what checks the answer on the server, so without it every submission gets through. Make it the first entry in `process:`, so a failed check stops the form before it's emailed or saved. As of Form `9.2.0`, a form that has a captcha field but no captcha process action is checked anyway and a warning is logged, but you should still add it.
 
+> [!NOTE]
+> The captcha's scripts are added to the theme's `bottom` JavaScript group, so the theme's base template has to output that group, usually just before `</body>`: `{{ assets.js('bottom')|raw }}`. Quark and the current Grav themes do. Older or custom themes may not, and then the captcha never appears and every submission fails the check.
+
 #### Modes
 
 Cap is invisible by default. You can show a checkbox instead, for every form in the plugin configuration or for one form with `mode` on the field.
