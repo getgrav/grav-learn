@@ -131,3 +131,7 @@ A plugin can extend the fast core of Grav with particular features you may need 
 ### /user/themes
 
 A theme turns your content into a true website.  It converts the content you have constructed into the HTML that a browser understands and displays to your audience.  There is a base theme that is provided with Grav, but you can also download others from [GetGrav.org/downloads/themes](https://getgrav.org/downloads/themes) or even create your own.  The [Themes](/2/plugins) chapter will outline this in further detail.
+
+## Public webroot layout
+
+This page describes the default layout, where all of these folders sit together in one folder served by your web server. From Grav 2.3 you can instead keep `system`, `vendor`, `bin`, `cache`, `logs`, `tmp`, `backup` and `.env` in a private folder, and serve only a `public/` subfolder that holds `index.php`, `.htaccess`, `user`, `assets` and `images`. The [Public Webroot Layout](/2/advanced/public-webroot) page explains when to use it and how to convert a site.

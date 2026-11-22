@@ -102,6 +102,7 @@ Before declaring 2.0 compatibility, verify:
 - No PHP deprecation warnings or errors with the PHP version required by Grav 2.0
 - Any Composer dependencies are compatible (especially `psr/log` and `monolog` if used)
 - Admin panel integration (blueprints, forms) renders correctly
+- Paths under `user/` are built from `GRAV_WEBROOT` or locator streams (`user://`, `plugins://`, `themes://`), never from `GRAV_ROOT`, so the plugin works in the optional [public webroot layout](/2/advanced/public-webroot#for-plugin-and-theme-developers) of Grav 2.3 and later. `GRAV_ROOT` is for `vendor`, `system`, `cache`, `logs`, `tmp` and `backup` only
 
 ### Relationship to Dependencies
 

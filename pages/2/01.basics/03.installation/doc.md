@@ -141,6 +141,9 @@ If your web root is, for example, `~/public_html` then you could extract it into
 > [!NOTE]
 > Every web server must be configured. Grav ships with .htaccess by default, for Apache, and comes with some [default server configuration files](https://github.com/getgrav/grav/tree/master/webserver-configs), for `nginx`, `caddy server`, `iis`, and `lighttpd`. Use them accordingly when needed.
 
+> [!TIP]
+> From Grav 2.3 you can keep Grav's private folders (`system`, `vendor`, `bin`, `cache`, `logs`, `.env` and more) out of the web server's reach and serve only a `public/` subfolder. This is optional and suits a VPS or any host where you can choose the docroot. See [Public Webroot Layout](/2/advanced/public-webroot).
+
 #### Running Grav with the Built-in PHP Webserver
 
 You can run Grav using a simple command from Terminal / Command Prompt using the built-in PHP server available as long as you have PHP installed.
