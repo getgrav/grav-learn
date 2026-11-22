@@ -358,6 +358,8 @@ public function onGetPageTemplates(Event $event): void
 
 This works regardless of *how* the admin context is established, because the listener is attached before any request is dispatched.
 
+API plugin 1.1.24 and later calls the `onGetPageBlueprints` and `onGetPageTemplates` handlers of enabled plugins that gated them this way, as it already did for `onAdminPageTypes` and `onAdminModularPageTypes`, so an older plugin's page types show up in Admin 2.0 without changes. Subscribe unconditionally anyway: it works on every API version, and it is the only fix for any other event you gate on `isAdmin()`.
+
 > [!NOTE]
 > The rule is broader than these two events: never decide whether to subscribe to an event based on `isAdmin()` evaluated inside `onPluginsInitialized()`. If a handler is cheap and context-free, subscribe to it statically. If it genuinely must run only in an admin/API context, perform the `isAdmin()` check *inside the handler*, where it runs at dispatch time and the admin context is already in place, not at subscription time.
 

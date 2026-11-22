@@ -172,3 +172,6 @@ public function onGetPageBlueprints($event)
   $types->scanBlueprints('plugins://' . $this->name . '/blueprints');
 }
 [/codesh]
+
+> [!WARNING]
+> Subscribe in `getSubscribedEvents()` as shown, not inside an `if ($this->isAdmin())` block in `onPluginsInitialized()`. Admin 2.0 edits pages through the API plugin, and during an API request `isAdmin()` is still `false` when plugins initialise, so a gated handler is never subscribed: the page type is missing from **Add Page** and its extra tabs never appear. The event only fires when Grav builds its list of page types, so subscribing in every context costs nothing. If the blueprint comes with a template, subscribe to `onGetPageTemplates` the same way. See [Don't Gate Event Subscriptions on isAdmin()](/2/migration/developer-upgrade-guide#don-t-gate-event-subscriptions-on-isadmin) for the details.
