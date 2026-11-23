@@ -72,21 +72,16 @@ Another method is to clone Grav from the GitHub repository, and then run a simpl
    git clone -b master https://github.com/getgrav/grav.git
    [/codesh]
 
-2. Install **vendor dependencies** via [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx):
-
-   [codesh=bash]
-   cd ~/webroot/grav
-   composer install --no-dev -o
-   [/codesh]
-
-3. Install the **plugin** and **theme dependencies** by using the [Grav CLI application](/2/advanced/grav-cli) `bin/grav`:
+2. Install the **vendor**, **plugin** and **theme dependencies** by using the [Grav CLI application](/2/advanced/grav-cli) `bin/grav`:
 
    [codesh=bash]
    cd ~/webroot/grav
    bin/grav install
    [/codesh]
 
-   This will automatically **clone** the required dependencies from GitHub directly into this Grav installation.
+   This installs the Composer **vendor dependencies** (using the bundled `bin/composer.phar` if Composer isn't installed globally), then **clones** the required plugins and themes from GitHub directly into this Grav installation. You don't need to run `composer install` first.
+
+   If you also want Composer's **dev dependencies** (to run the tests, or for a development Docker image), run `composer install` **after** `bin/grav install`, not before. `bin/grav install` always runs Composer with `--no-dev`, so it removes any dev packages that are already installed.
 
 ## Install the Admin Panel
 
