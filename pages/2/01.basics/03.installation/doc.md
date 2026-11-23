@@ -81,7 +81,7 @@ Another method is to clone Grav from the GitHub repository, and then run a simpl
 
    This installs the Composer **vendor dependencies** (using the bundled `bin/composer.phar` if Composer isn't installed globally), then **clones** the required plugins and themes from GitHub directly into this Grav installation. You don't need to run `composer install` first.
 
-   If you also want Composer's **dev dependencies** (to run the tests, or for a development Docker image), run `composer install` **after** `bin/grav install`, not before. `bin/grav install` always runs Composer with `--no-dev`, so it removes any dev packages that are already installed.
+   If you also want Composer's **dev dependencies** (to run the tests, or for a development Docker image), use `bin/grav install --dev` (Grav 2.2.34 and later). On older versions, run `composer install` **after** `bin/grav install`, not before: without `--dev`, `bin/grav install` runs Composer with `--no-dev`, so it removes any dev packages that are already installed.
 
 ## Install the Admin Panel
 
