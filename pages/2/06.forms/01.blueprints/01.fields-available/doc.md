@@ -1205,39 +1205,58 @@ header.img_link:
 
 ![Pages Field](pages_field_bp.gif)
 
-The `pages` field type shows a list of the site pages.
+The `pages` field is a page picker. By default it offers every page on the site, and its options narrow that down to one part of the site, a number of levels, or the kinds of pages that make sense for the field.
 
-Example
+The value saved is the chosen page's route, such as `/blog/my-first-post`. It is the page's structural route, the same value the [Parents](#parents-field) field saves, so on a site where the home page is aliased to `/`, picking the home page saves its real route (for example `/home`).
+
+This picker offers only the posts of a blog, one level deep, and requires a choice:
+
+[codesh=yaml line-numbers="true"]
+header.featured_post:
+    type: pages
+    label: Featured post
+    start_route: /blog
+    show_all: false
+    limit_levels: 2
+    validate:
+        required: true
+[/codesh]
+
+The System configuration picks the site's home page with this one, which offers every routable page except modules, with their slugs:
 
 [codesh=yaml line-numbers="true"]
 home.alias:
     type: pages
-    size: medium
-    classes: fancy
     label: PLUGIN_ADMIN.HOME_PAGE
-    start_route: '/some_page'
+    help: PLUGIN_ADMIN.HOME_PAGE_HELP
     show_all: false
     show_modular: false
     show_root: false
-    help: PLUGIN_ADMIN.HOME_PAGE_HELP
+    show_slug: true
 [/codesh]
 
 [div class="table table-keycol"]
-| Attribute       | Description                            |
-| :-----          | :-----                                 |
-| `start_route`   | Choose a root route for the list       |
-| `show_fullpath` | Show page path instead of title        |
-| `show_slug`     | Show slug                              |
-| `show_all`      | Shows all pages                        |
-| `show_modular`  | Shows modular pages                    |
-| `show_root`     | Shows root page                        |
-| `options`       | An optional list of additional choices |
-| `multiple`      | Select multiple pages                  |
-| `limit_levels`  | How many levels to show                |
-| `selectize`     |                                        |
+| Attribute       | Default   | Description |
+| :-----          | :-----    | :-----      |
+| `start_route`   | site root | List only the pages below this route, for example `/blog`. If no page has that route, the whole site is listed instead. |
+| `limit_levels`  | no limit  | How many levels deep the list goes. The start page (or the site root when there is no `start_route`) counts as level 1, so `2` lists one level of pages below it, `3` lists two levels, and so on. |
+| `show_all`      | `true`    | When `false`, pages that are not routable (`routable: false` in their header) are left out, along with the pages below them. |
+| `show_modular`  | `false`   | Also list modular pages (modules). |
+| `show_root`     | `false`   | Add the site root (`/`) as the first choice. |
+| `show_fullpath` | `false`   | Show each page's route instead of its title. |
+| `show_slug`     | `false`   | Show the page's slug beside its title. Admin2 defaults this to `true`. |
+| `multiple`      | `false`   | Classic admin only. Allow several pages to be picked. Add `validate.type: array` as well, otherwise the selected pages are not saved correctly. |
+| `options`       |           | Classic admin only. Extra choices listed before the pages, as `value: label` pairs. |
+| `selectize`     |           | Classic admin only. Options passed to the Selectize dropdown. |
 [/div]
 
-If you set `multiple` to true, you need to add `validate.type: array`. Otherwise the array of selected pages will not be saved correctly.
+In Admin2 the picker is a page tree with a filter box rather than a dropdown. `start_route`, `limit_levels`, `show_all` and `show_modular` apply to the tree and to filter results alike, so a page outside the allowed part of the site can't be found by searching either. Pages the user isn't allowed to read are shown with a lock: they can be opened to reach the pages inside them, but not picked.
+
+> [!NOTE]
+> Classic admin and Admin2 read these options the same way, with three differences:
+> * Classic admin lists the `start_route` page itself as a choice. Admin2 lists only the pages below it.
+> * Classic admin lists modular pages whenever `show_all` is on, so set `show_all: false` to hide them there. Admin2 lists modular pages only when `show_modular` is `true`.
+> * With `limit_levels: 1`, classic admin lists only the start page (or nothing at all without a `start_route`), while Admin2 lists one level of pages. Use `2` for one level in both.
 
 [div class="table"]
 | Common Attributes Allowed                      |
@@ -1325,7 +1344,7 @@ Set it to `true` when modular pages should be included in the page picker.
 > `show_root`, `show_slug`, and `show_modular` are supported by Admin Next (Admin2). They are not supported by the current classic Admin implementation.
 
 > [!NOTE]
-> Older Grav examples may show properties such as `show_all`, `show_fullpath`, `start_route`, or `limit_levels`. These properties are not supported by either current `parents` field implementation and should not be used.
+> Older Grav examples may show properties such as `show_all`, `show_fullpath`, `start_route`, or `limit_levels` on a `parents` field. Classic admin ignores them there. Admin2 uses the same page picker for both fields, so it does apply them, which limits where a page can be moved to. Leave them off `parents` fields unless that limit is what you want.
 
 [div class="table table-keycol"]
 | Attribute      | Description |
