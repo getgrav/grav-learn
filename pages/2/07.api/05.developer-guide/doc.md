@@ -1161,6 +1161,7 @@ Item fields:
 | `icon` | no | A [Lucide](https://lucide.dev) icon name (`shield-alert`, kebab or PascalCase) or an emoji. |
 | `title` | no | Bold lead-in shown before the message. |
 | `action` | no | `['label' => '…', 'url' => '…']` — renders a button that opens the URL in a new tab. |
+| `actions` | no | Top banner only (Admin2 2.2.19+). A list of buttons that act inside the admin. `['label' => '…', 'route' => '/plugins/login#security']` opens an admin route. `['label' => '…', 'config' => ['scope' => 'plugins/login', 'values' => ['site_host' => '{site_url}']], 'success' => '…', 'primary' => true]` saves those values to that config scope in the environment the admin is working in, shows `success` as a toast and hides the notice; it's shown only to users who can write config. In `label`, `success` and string `values`, `{site_url}` becomes the address the admin is using (browser origin plus the site's base path). |
 | `link` | no | Makes a dashboard-widget item's whole row a link (opens in a new tab). |
 | `reappear_after` | no | A `strtotime()` interval (`+7 days`, `+1 month`). After the user dismisses the notice, it returns once this interval elapses. Without it, dismissal is permanent for that user. |
 | `type` | no | `info`, `notice`, `warning`, or `promo` (default behavior for unknown values matches a plain item). `promo` renders in the Notifications widget as a gradient card and additionally honors `image` and `accent` (`purple`, `blue`, `teal`, `amber`, `rose`). |
