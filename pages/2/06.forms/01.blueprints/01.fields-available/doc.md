@@ -1203,7 +1203,7 @@ header.img_link:
 
 ### Pages Field
 
-![Pages Field](pages_field_bp.gif)
+![Pages Field in Admin2: picking a page from the tree, then several pages in a multiple field](pages_field.webp)
 
 The `pages` field is a page picker. By default it offers every page on the site, and its options narrow that down to one part of the site, a number of levels, or the kinds of pages that make sense for the field.
 
@@ -1220,6 +1220,29 @@ header.featured_post:
     limit_levels: 2
     validate:
         required: true
+[/codesh]
+
+This one picks any number of related posts, saved as a list of routes:
+
+[codesh=yaml line-numbers="true"]
+header.related:
+    type: pages
+    label: Related posts
+    start_route: /blog
+    multiple: true
+    validate:
+        type: array
+[/codesh]
+
+And this one adds a choice that isn't a page, saved as `none` when picked:
+
+[codesh=yaml line-numbers="true"]
+header.landing:
+    type: pages
+    label: Landing page
+    show_all: false
+    options:
+        none: No landing page
 [/codesh]
 
 The System configuration picks the site's home page with this one, which offers every routable page except modules, with their slugs:
@@ -1245,12 +1268,12 @@ home.alias:
 | `show_root`     | `false`   | Add the site root (`/`) as the first choice. |
 | `show_fullpath` | `false`   | Show each page's route instead of its title. |
 | `show_slug`     | `false`   | Show the page's slug beside its title. Admin2 defaults this to `true`. |
-| `multiple`      | `false`   | Classic admin only. Allow several pages to be picked. Add `validate.type: array` as well, otherwise the selected pages are not saved correctly. |
-| `options`       |           | Classic admin only. Extra choices listed before the pages, as `value: label` pairs. |
+| `multiple`      | `false`   | Allow several pages to be picked. The value saved is then a list of routes. Add `validate.type: array` as well, otherwise classic admin does not save the selected pages correctly. |
+| `options`       |           | Extra choices listed before the pages, as `value: label` pairs. Picking one saves its value instead of a route. |
 | `selectize`     |           | Classic admin only. Options passed to the Selectize dropdown. |
 [/div]
 
-In Admin2 the picker is a page tree with a filter box rather than a dropdown. `start_route`, `limit_levels`, `show_all` and `show_modular` apply to the tree and to filter results alike, so a page outside the allowed part of the site can't be found by searching either. Pages the user isn't allowed to read are shown with a lock: they can be opened to reach the pages inside them, but not picked.
+In Admin2 the picker is a page tree with a filter box rather than a dropdown. With `multiple: true` the chosen pages show as chips that can be removed one at a time, and the tree stays open so several pages can be picked in a row. `start_route`, `limit_levels`, `show_all` and `show_modular` apply to the tree and to filter results alike, so a page outside the allowed part of the site can't be found by searching either. Pages the user isn't allowed to read are shown with a lock: they can be opened to reach the pages inside them, but not picked.
 
 > [!NOTE]
 > Classic admin and Admin2 read these options the same way, with three differences:
