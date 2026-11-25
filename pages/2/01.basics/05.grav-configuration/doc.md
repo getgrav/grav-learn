@@ -238,7 +238,7 @@ The **Pages** section of the `system/config/system.yaml` file is where you set a
 | **hide_empty_folders:** | If folder has no .md file, should it be hidden. Can be set to `true` or `false` |
 | **url_taxonomy_filters:** | Enable auto-magic URL-based taxonomy filters for page collections. Can be set to `true` or `false` |
 | **frontmatter:** | |
-| ... **process_twig:** | Should the frontmatter be processed to replace Twig variables? Can be set to `true` or `false` |
+| ... **process_twig:** | Should the frontmatter be processed to replace Twig variables? Can be set to `true` or `false`. Frontmatter Twig runs once, when Grav builds its page cache, not on every request, so a value that depends on the visitor or the request (a query parameter, the signed-in user) keeps whatever the first request had until the cache is rebuilt. Use it only for values that are the same for every visitor. |
 | ... **ignore_fields:** | Fields that might contain Twig variables and should not be processed. Example: `['form','forms']` |
 [/div]
 
