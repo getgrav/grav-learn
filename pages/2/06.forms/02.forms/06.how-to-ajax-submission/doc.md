@@ -26,6 +26,11 @@ form:
 
 You are not required to provide `action:`, `template:`, or even `id:`.  The plugin will just 'work' even with multiple ajax forms on a single page. This uses a new `form-xhr.html.twig` template that the plugin provides as well as including some vanilla JS code to make the request.
 
+> [!NOTE]
+> The option is `xhr_submit`. Writing `xhr: true` does nothing, and the form submits with a normal page reload.
+>
+> The same form can be rendered more than once on a page, for example in a loop, and each copy submits on its own with the result shown in that copy. This needs Form plugin `9.2.7` or later. Before that, only the first copy submitted via XHR, and the others reloaded the page with the result shown in every copy. On older versions, give each form its own `name`.
+
 > [!CAUTION]
 > This approach submits the whole form via an XHR request and replaces the entire form HTML from the response. This is intended to be a simple approach, you can still create your own more advanced solutions if required.
 
