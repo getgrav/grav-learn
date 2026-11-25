@@ -166,6 +166,10 @@ This will find the first form from the page with route `/forms/contact`
 
 The simplest way to put a form in page content is the `[form]` shortcode. It needs Form plugin `9.2.7` or later and the [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core) plugin.
 
+### The `[form]` shortcode
+
+Put it on a line of its own wherever the form should appear. With no attributes it shows the page's own form, the one defined in its frontmatter:
+
 [codesh=markdown line-numbers="true"]
 ---
 title: Contact
@@ -186,19 +190,34 @@ form:
 Questions? Drop us a line.
 
 [form /]
-
-Or sign up for the newsletter:
-
-[form route="/newsletter-signup" /]
 [/codesh]
 
-| Shortcode | Shows |
-| :-------- | :---- |
-| `[form /]` | The page's own form (the first one, if it has several) |
-| `[form name="contact-form" /]` | The form with that name: the page's own first, otherwise one on any page the visitor can open |
-| `[form route="/newsletter-signup" /]` | The form defined on that page. Add `name` to pick one when that page has several |
+To show a particular form, name it, or point at the page it is defined on:
 
-The page keeps its normal caching and doesn't need Twig processing. The shortcode only leaves a placeholder in the cached content, and the live form is added in its place on every request, so each visitor gets their own security token. File uploads, captchas and `xhr_submit` work as they do in a theme template. Put the shortcode on a line of its own: a form can't sit inside a paragraph.
+[codesh=markdown]
+[form name="contact-form" /]
+
+[form]contact-form[/form]
+
+[form route="/newsletter-signup" /]
+
+[form route="/forms" name="newsletter" class="signup wide" /]
+[/codesh]
+
+| Attribute | Meaning |
+| :-------- | :------ |
+| `name` | The form's `name`. `form` works too, and so does putting the name between opening and closing tags. The page's own forms are searched first, then the forms on every page the visitor can open. Without a name or a route, the page's first form is shown. |
+| `route` | The route of the page the form is defined on, such as `/newsletter-signup`. Add `name` as well when that page has more than one form. |
+| `class` | Extra CSS classes. The form is wrapped in a `<div>` with these classes. |
+
+A few things to know:
+
+* **Caching stays on, and Twig stays off.** The shortcode only leaves a placeholder in the page's cached content, and the live form is added in its place on every request. Each visitor gets their own security token, and file uploads, captchas and `xhr_submit` work the same as a form in a theme template.
+* **Submissions work as usual.** The form's `process:` actions run as they would on the page that defines it, and a form shown from another page is processed with that page's settings.
+* **A form that can't be found shows nothing.** That includes a misspelled name, and a form on a page the visitor isn't allowed to open, such as one behind a login.
+* **Keep it on its own line.** A form can't sit inside a paragraph, so a shortcode mixed into a line of text leaves invalid HTML around the form.
+* **Watch the page template.** A page using the `form` template (`form.md`) already draws its form below the content, so adding `[form /]` to it shows the form twice. Use `default.md` with the shortcode, or the `form` template without it.
+* **Several on one page are fine**, including the same form more than once.
 
 ### Using Twig in page content
 

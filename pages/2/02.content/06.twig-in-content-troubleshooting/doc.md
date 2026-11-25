@@ -234,7 +234,7 @@ config-default@: site.greeting
 
 Or turn on **Allow config variable access in Twig** under **Configuration → Security** (`security.twig_content.config_access: true`). Then other config files can be read too, but `plugins.*` and the other hidden paths still can't.
 
-The Form plugin's own templates are trusted by default, so `{% include 'forms/form.html.twig' %}` in a page's content keeps working.
+The Form plugin's own templates are trusted by default, so `{% include 'forms/form.html.twig' %}` in a page's content keeps working. With Form plugin `9.2.7` or later, the [`[form]` shortcode](/2/forms/forms#the-form-shortcode) puts a form in page content without Twig at all, and the page can stay cached.
 
 ## Stream links and images return nothing
 
