@@ -756,7 +756,7 @@ Will create a URL and convert any PHP URL streams into a valid HTML resources. A
 
 ### vardump
 
-The `vardump()` function outputs the current variable to the screen (rather than in the debugger as with `dump()`)
+The `vardump()` function outputs the current variable to the screen (rather than in the debugger as with `dump()`). The output is always escaped plain text inside a `<pre class="vardump">` element, so it reads the same in every browser and never runs markup from the dumped value.
 
 [codesh-group]
 [codesh=twig title="Twig"]
