@@ -100,6 +100,20 @@ RewriteRule ^(LICENSE\.txt|composer\.lock|composer\.json|\.htaccess)$ error [F,N
 ## End - Security
 [/codesh]
 
+The bundled `.htaccess` also turns off Apache's type-map handler for uploaded files. Debian and Ubuntu ship Apache with `AddHandler type-map var`, which applies to any file with `.var` among its extensions (`photo.var.jpg`, for example), so Grav removes the handler and serves such a file as a plain file. Like the rewrite rules, this only needs `AllowOverride FileInfo`. Grav 2.2.35 and 1.7.53.12 ship the block, and upgrading adds it to an existing site's root `.htaccess`:
+
+[codesh=apache line-numbers="true"]
+# Begin - Apache type maps
+# Debian and Ubuntu ship `AddHandler type-map var`, which applies wherever `.var`
+# appears among a file's extensions and lets the file set its own Content-Type.
+# Grav serves no type maps, so the handler is removed. Like the rewrite rules
+# above, this needs nothing more from AllowOverride than FileInfo.
+<IfModule mod_mime.c>
+    RemoveHandler .var
+</IfModule>
+# End - Apache type maps
+[/codesh]
+
 > [!NOTE]
 > If you replaced or heavily edited the shipped `.htaccess`, compare it against the current one in the [Grav repository](https://github.com/getgrav/grav/blob/develop/.htaccess) and make sure the Security block is present and up to date. The [User Folder Exposure](/security/user-folder-exposure) page explains the admin warning that fires when these rules are not being applied.
 

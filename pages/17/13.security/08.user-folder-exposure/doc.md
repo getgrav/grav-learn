@@ -62,6 +62,14 @@ RewriteRule ^(images|assets)/(.*)\.(php|php2|php3|php4|php5|php7|php8|phar|phtml
 
 If you cannot enable `AllowOverride`, copy those rules into your virtual host configuration instead.
 
+Grav 2.2.35 and 1.7.53.12 also add a block that turns off Apache's type-map handler for uploaded files, so a stored file such as `photo.var.jpg` is served as a plain file. Upgrading adds it to an existing site's root `.htaccess`. It is Apache only: Nginx, Caddy, lighttpd and IIS have no type-map handler, so they need nothing. If your `.htaccess` lacks it, add:
+
+```apache
+<IfModule mod_mime.c>
+    RemoveHandler .var
+</IfModule>
+```
+
 > [!NOTE]
 > If you replaced or heavily edited the shipped `.htaccess`, compare it against the current one in the [Grav repository](https://github.com/getgrav/grav/blob/develop/.htaccess) and make sure the Security block is present.
 
