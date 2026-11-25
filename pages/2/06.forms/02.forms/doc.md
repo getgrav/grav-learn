@@ -164,10 +164,48 @@ This will find the first form from the page with route `/forms/contact`
 
 ## Displaying Forms in Page Content
 
-You can also display a form from within your page content (for example `default.md`) directly without that page even having a form defined within it. Simply pass the name or route to the form.
+The simplest way to put a form in page content is the `[form]` shortcode. It needs Form plugin `9.2.7` or later and the [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core) plugin.
+
+[codesh=markdown line-numbers="true"]
+---
+title: Contact
+form:
+    name: contact-form
+    fields:
+        email:
+            type: email
+            label: Email
+    buttons:
+        submit:
+            type: submit
+            value: Send
+    process:
+        message: 'Thanks!'
+---
+
+Questions? Drop us a line.
+
+[form /]
+
+Or sign up for the newsletter:
+
+[form route="/newsletter-signup" /]
+[/codesh]
+
+| Shortcode | Shows |
+| :-------- | :---- |
+| `[form /]` | The page's own form (the first one, if it has several) |
+| `[form name="contact-form" /]` | The form with that name: the page's own first, otherwise one on any page the visitor can open |
+| `[form route="/newsletter-signup" /]` | The form defined on that page. Add `name` to pick one when that page has several |
+
+The page keeps its normal caching and doesn't need Twig processing. The shortcode only leaves a placeholder in the cached content, and the live form is added in its place on every request, so each visitor gets their own security token. File uploads, captchas and `xhr_submit` work as they do in a theme template. Put the shortcode on a line of its own: a form can't sit inside a paragraph.
+
+### Using Twig in page content
+
+You can also include a form with Twig, passing the form's name or route:
 
 > [!CAUTION]
->  **Twig processing** should be enabled and **page cache** should be disabled to ensure the form is dynamically processed on the page and not statically cached and form handling can occur.
+>  **Twig processing** should be enabled and **page cache** should be disabled to ensure the form is dynamically processed on the page and not statically cached and form handling can occur. In Grav 2, Twig in page content is also limited by the `security.twig_content` settings, so the `[form]` shortcode above is usually the better choice.
 
 [codesh=twig line-numbers="true"]
 ---
