@@ -14,6 +14,8 @@ taxonomy:
 
 Twig filters are applied to Twig variables by using the `|` character followed by the filter name.  Parameters can be passed in just like Twig functions using parenthesis.
 
+*See (https://learn.getgrav.org/2/content/media) for media related Twig filters.*
+
 ### absolute_url
 
 Takes an HTML snippet containing a `src` or `href` attribute which uses a relative path. Converts the path string to an absolute URL format including hostname.
