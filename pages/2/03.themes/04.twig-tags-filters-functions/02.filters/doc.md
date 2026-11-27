@@ -14,7 +14,7 @@ taxonomy:
 
 Twig filters are applied to Twig variables by using the `|` character followed by the filter name.  Parameters can be passed in just like Twig functions using parenthesis.
 
-*See (https://learn.getgrav.org/2/content/media) for media related Twig filters.*
+Images and other media have their own methods for resizing, cropping and more, which work like filters on a media object. See [Media actions](/2/content/media#actions).
 
 ### absolute_url
 
