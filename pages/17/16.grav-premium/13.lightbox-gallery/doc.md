@@ -210,7 +210,7 @@ You can easily add rich descriptions to each item.
 > NOTE: In the `lightbox` shortcodes above, the `thumb=""` attribute is not defined in the example above as it's automatically being created with a combination of the `image=""` attribute and the `thumb-options=""` attribute from the parent `lightbox-gallery`. You can however override this behavior by adding a `thumb=""` attribute to the `lightbox` shortcode.
 
 #### Twig Template
-You can use the provided partials/lightbox-gallery.html.twig template in your existing Twig templates. This template can accept the same twig variables as the shortcodes.
+You can use the plugin's `partials/lightbox.html.twig` template in your existing Twig templates. This template can accept the same twig variables as the shortcodes.
 
 > [!NOTE]
 > The `[raw][div class="prose"] ... [/div][/raw]` shortcode is to provide automatic CSS styling via Twig's `.prose` class.
@@ -226,7 +226,10 @@ If you disable the auto-inclusion of assets (**Always Include Assets**), then yo
 
 ![Gallery View](gallery-view.jpg?classes=shadow)
 
-The Typhoon theme already provides a a **modular** Twig template that provides a clean grid layout for thumbnails.  It makes use of Tailwind CSS classes to provide the styling it needs.  If you are not using Typhoon, or just want to create a nice grid layout in your own theme, you will need to create a Twig template and some styling.  In this example I've created a simple Twig partial: `partials/gallery.html.twig` which includes some basic HTML structure and also sample CSS which you can of course modify as your needs require:
+The Typhoon and Quark 2 themes already provide a **modular** Twig template (`modular/gallery.html.twig`) that gives you a clean grid layout for thumbnails. Add a **Gallery** module to a modular page to use it. If you are using another theme, or just want to create your own grid layout, you will need to create a Twig template and some styling. In this example I've created a simple Twig partial: `partials/gallery.html.twig` which includes some basic HTML structure and also sample CSS which you can of course modify as your needs require.
+
+> [!NOTE]
+> Include this partial from your theme's own Twig templates (for example a `gallery.html.twig` page template), not from page content. On Grav 2, Twig in page content runs in a sandbox, and a theme template it includes is held to the same rules. The plugin's `partials/lightbox.html.twig` prints the thumbnail with the `raw` filter, which the sandbox blocks, so `{% include %}` of a gallery template in page content shows up as plain text and the blocked line is logged in `logs/security.log`. To show a gallery on a regular page, use the [lightbox-gallery shortcode](#gallery-lightbox-with-shortcodes) instead.
 
 ```twig
 {% set styling %}
